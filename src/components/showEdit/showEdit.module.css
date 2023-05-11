@@ -1,0 +1,12 @@
+.showEditContainer {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.button {
+  color: white;
+  background-color: black;
+  border: 1px solid white;
+}
