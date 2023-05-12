@@ -5,21 +5,27 @@ import { ShowEdit } from '@/components/showEdit/showEdit';
 import { useEffect, useState } from 'react';
 import { config } from './config';
 
-type Props = {
+type TProps = {
   id: string
   href: string
   title: string
   description: string
 }
 
-export const LinkBox = ({href, title, description, id}: Props) => {
-  const [data, setData] = useState<Props>()
+type TData =  {
+  href: string
+  title: string
+  description: string
+}
+
+export const LinkBox = ({href, title, description, id}: TProps) => {
+  const [data, setData] = useState<TData>()
   useEffect(
     () => {
-      setData({href, title, description, id})
+      setData({href, title, description})
     }, []
   )
-  const onUpdateCallback = (data: Props) => {
+  const onUpdateCallback = (data: TData) => {
     setData(data)
   }
 
@@ -31,7 +37,7 @@ export const LinkBox = ({href, title, description, id}: Props) => {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <ShowEdit id={data.id} onUpdate={onUpdateCallback} config={config}/>
+      <ShowEdit id={id} onUpdate={onUpdateCallback} config={config} data={data}/>
       <h2>
         {data.title} <span>-&gt;</span>
       </h2>

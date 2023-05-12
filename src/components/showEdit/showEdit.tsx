@@ -1,9 +1,10 @@
 'use client';
 
-import { Context } from '@/context/context-provider'
+import { useAppContext } from '@/context/contextProvider'
 import styles from './showEdit.module.css'
-import { useCallback, useContext, useState } from 'react'
+import { ChangeEvent, useCallback, useState } from 'react'
 import ReactModal from 'react-modal'
+import { IComponentProps } from '@/data/data';
 
 type Props = {
   id: string,
@@ -11,6 +12,7 @@ type Props = {
   config: {
     [key: string]: string
   }
+  data: IComponentProps
 }
 
 const customStyles = {
@@ -26,9 +28,15 @@ const customStyles = {
   }
 }
 
-export const ShowEdit = ({id, onUpdate, config}: Props) => {
-  let { editor } = useContext(Context)
+const renderInput = (type: string, name: string, value: string | number, handleOnChangeInput: (event: ChangeEvent<HTMLInputElement>) => void) => {
+  let element = <input type={type} value={value} name={name} onChange={handleOnChangeInput}></input>
+  return element
+}
+
+export const ShowEdit = ({id, onUpdate, config, data}: Props) => {
+  let { state: { appContext: { editor } }, dispatch } = useAppContext()
   let  [showModal, setShowModal] = useState(false)
+  let  [formData, setFormData] = useState(data)
   
   let handleOnClickEdit = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -50,15 +58,36 @@ export const ShowEdit = ({id, onUpdate, config}: Props) => {
     (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault()
       setShowModal(false)
-      const newData = {
-        href: 'testhref',
-        title: 'testtitle',
-        description: 'testdescription',
-
-      }
-      onUpdate(newData)
     },
     [id]
+  )
+  
+  let handleOnChangeInput = useCallback(
+    (inputKey: string) => {
+      return (event: ChangeEvent<HTMLInputElement>) => {
+        setFormData({
+          ...formData,
+          [inputKey]: event.target.value
+        })
+      }
+    },
+    [id, formData]
+  )
+
+  let handleOnClickSaveData = useCallback(
+    (event: React.MouseEvent<HTMLButtonElement>) => {
+      event.preventDefault()
+      setShowModal(false)
+      onUpdate(formData)
+      dispatch({
+        type: 'updateBackend',
+        data: {
+          props: formData,
+          id,
+        }
+      })
+    },
+    [formData, onUpdate]
   )
 
   if (!editor) return null
@@ -66,15 +95,19 @@ export const ShowEdit = ({id, onUpdate, config}: Props) => {
   return (
     <>
       <ReactModal 
+          ariaHideApp={false}
           isOpen={showModal}
           contentLabel="Minimal Modal Example"
           style={customStyles}
       >
         {Object.entries(config).map(
           ([configKey, configValue], index) =>  (
-            <p key={index}>{configKey}: {configValue}</p>
+            <div key={index}>
+              {renderInput(configValue, configKey, formData[configKey] || '', handleOnChangeInput(configKey))}
+            </div>
           )
         )}
+        <button onClick={handleOnClickSaveData}>Save data</button>
         <button onClick={handleCloseModal}>Close Modal</button>
       </ReactModal>
       <div className={styles.showEditContainer}>

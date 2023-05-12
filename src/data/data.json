@@ -2,9 +2,11 @@
   "home": {
     "children": [
       {
+        "id": "grid1",
         "type": "grid",
         "children": [
           {
+            "id": "linkBox1",
             "type": "linkBox",
             "props": {
               "id": "docs",
@@ -14,6 +16,7 @@
             }
           },
           {
+            "id": "linkBox2",
             "type": "linkBox",
             "props": {
               "id": "learn",
@@ -23,6 +26,7 @@
             } 
           },
           {
+            "id": "linkBox3",
             "type": "linkBox",
             "props": {
               "id": "templates",
@@ -32,6 +36,7 @@
             } 
           },
           {
+            "id": "linkBox4",
             "type": "linkBox",
             "props": {
               "id": "learn",
@@ -43,9 +48,11 @@
         ]
       },
       {
+        "id": "grid2",
         "type": "grid",
         "children": [
           {
+            "id": "linkBox5",
             "type": "linkBox",
             "props": {
               "id": "docs",
@@ -55,6 +62,7 @@
             }
           },
           {
+            "id": "linkBox6",
             "type": "linkBox",
             "props": {
               "id": "docs",
@@ -64,6 +72,7 @@
             }
           },
           {
+            "id": "linkBox7",
             "type": "linkBox",
             "props": {
               "id": "learn",
@@ -73,6 +82,7 @@
             } 
           },
           {
+            "id": "linkBox8",
             "type": "linkBox",
             "props": {
               "id": "templates",
@@ -82,6 +92,7 @@
             } 
           },
           {
+            "id": "linkBox9",
             "type": "linkBox",
             "props": {
               "id": "learn",

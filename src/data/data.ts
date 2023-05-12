@@ -1,7 +1,12 @@
+export interface IComponentProps  {
+  [key: string]: string | number
+}
+
 export interface IComponentData {
   type: string,
+  id: string,
   children?: IComponentData[],
-  props?: Record<string, unknown>
+  props?: IComponentProps
 }
 
 export interface IPageData {
