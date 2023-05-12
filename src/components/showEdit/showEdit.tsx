@@ -2,9 +2,10 @@
 
 import { useAppContext } from '@/context/contextProvider'
 import styles from './showEdit.module.css'
-import { ChangeEvent, useCallback, useState } from 'react'
+import { useCallback, useState } from 'react'
 import ReactModal from 'react-modal'
 import { IComponentProps } from '@/data/data';
+import { InputRenderer } from './inputRenderer';
 
 type Props = {
   id: string,
@@ -26,11 +27,6 @@ const customStyles = {
     right: '15%',
     bottom: '15%',
   }
-}
-
-const renderInput = (type: string, name: string, value: string | number, handleOnChangeInput: (event: ChangeEvent<HTMLInputElement>) => void) => {
-  let element = <input type={type} value={value} name={name} onChange={handleOnChangeInput}></input>
-  return element
 }
 
 export const ShowEdit = ({id, onUpdate, config, data}: Props) => {
@@ -63,15 +59,13 @@ export const ShowEdit = ({id, onUpdate, config, data}: Props) => {
   )
   
   let handleOnChangeInput = useCallback(
-    (inputKey: string) => {
-      return (event: ChangeEvent<HTMLInputElement>) => {
-        setFormData({
-          ...formData,
-          [inputKey]: event.target.value
-        })
-      }
+    (key: string, value: string | number) => {
+      setFormData({
+        ...formData,
+        [key]: value
+      })
     },
-    [id, formData]
+    [formData]
   )
 
   let handleOnClickSaveData = useCallback(
@@ -102,9 +96,7 @@ export const ShowEdit = ({id, onUpdate, config, data}: Props) => {
       >
         {Object.entries(config).map(
           ([configKey, configValue], index) =>  (
-            <div key={index}>
-              {renderInput(configValue, configKey, formData[configKey] || '', handleOnChangeInput(configKey))}
-            </div>
+            <InputRenderer key={index} type={configValue} name={configKey} value={formData[configKey] || ''} handleOnChangeInput={handleOnChangeInput}/>
           )
         )}
         <button onClick={handleOnClickSaveData}>Save data</button>
