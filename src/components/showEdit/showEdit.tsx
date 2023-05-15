@@ -1,19 +1,35 @@
 'use client';
 
 import { useAppContext } from '@/context/contextProvider'
-import styles from './showEdit.module.css'
+import styles from './showEdit.module.scss'
 import { useCallback, useState } from 'react'
 import ReactModal from 'react-modal'
 import { IComponentProps } from '@/data/data';
 import { InputRenderer } from './inputRenderer';
 
+export type TConfigItem = TConfigItemValue | TConfigItemSelect
+
+interface TConfigItemBase {
+  name: string
+  label: string
+}
+
+export interface TConfigItemValue extends TConfigItemBase {
+  type: 'string' | 'number'
+}
+
+export interface TConfigItemSelect<T = string> extends TConfigItemBase {
+  type: 'singleSelect' | 'multiSelect'
+  arrayValues: T[]
+  
+}
+
 type Props = {
   id: string,
   onUpdate: (data: any) => void,
-  config: {
-    [key: string]: string
-  }
+  config: TConfigItem[]
   data: IComponentProps
+  inline?: boolean
 }
 
 const customStyles = {
@@ -29,7 +45,7 @@ const customStyles = {
   }
 }
 
-export const ShowEdit = ({id, onUpdate, config, data}: Props) => {
+export const ShowEdit = ({id, onUpdate, config, data, inline}: Props) => {
   let { state: { appContext: { editor } }, dispatch } = useAppContext()
   let  [showModal, setShowModal] = useState(false)
   let  [formData, setFormData] = useState(data)
@@ -94,15 +110,21 @@ export const ShowEdit = ({id, onUpdate, config, data}: Props) => {
           contentLabel="Minimal Modal Example"
           style={customStyles}
       >
-        {Object.entries(config).map(
-          ([configKey, configValue], index) =>  (
-            <InputRenderer key={index} type={configValue} name={configKey} value={formData[configKey] || ''} handleOnChangeInput={handleOnChangeInput}/>
+        {config.map(
+          (configItem, index) =>  (
+            <InputRenderer
+              key={index}
+              config={configItem}
+              value={formData[configItem.name] || ''}
+
+              handleOnChangeInput={handleOnChangeInput}
+            />
           )
         )}
         <button onClick={handleOnClickSaveData}>Save data</button>
         <button onClick={handleCloseModal}>Close Modal</button>
       </ReactModal>
-      <div className={styles.showEditContainer}>
+      <div className={inline ? styles.showEditContainerInline : styles.showEditContainer}>
         <button className={styles.button} onClick={handleOnClickEdit}>
           Edit
         </button>

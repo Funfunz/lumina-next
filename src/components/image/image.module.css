@@ -1,0 +1,10 @@
+.imageContainer {
+  max-width: 100%;
+  position: relative;
+
+  .image {
+    max-width: 100%;
+    object-fit: cover;
+    height: 100%;
+  }
+}

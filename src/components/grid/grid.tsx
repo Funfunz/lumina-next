@@ -1,4 +1,4 @@
-import styles from '@/app/page.module.css'
+import styles from '@/components/grid/grid.module.css'
 
 type Props = {
   children: React.ReactNode

@@ -1,5 +1,14 @@
-.showEditContainer {
+.showEditContainerMain {
   display: flex;
+}
+
+.showEditContainerInline {
+  @extend .showEditContainerMain;
+}
+
+
+.showEditContainer {
+  @extend .showEditContainerMain;
   position: absolute;
   bottom: 0;
   right: 0;

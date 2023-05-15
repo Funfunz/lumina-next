@@ -31,8 +31,8 @@ const renderData = (data: IComponentData[]) => {
 export default async function Editor({params}: Props) {
   const data = await getData(params.slug)
   return (
-    <main className={styles.main}>
+    <>
       {renderData(data.children)}
-    </main>
+    </>
   )
 }

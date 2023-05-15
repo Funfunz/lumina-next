@@ -23,7 +23,7 @@ const renderData = (data: IComponentData[]) => {
     (component) => {
       const LoadedComponent = DynamicComponent(component.type)
       if (!LoadedComponent) return null
-      return <LoadedComponent {...component.props}>{renderData(component.children || [])}</LoadedComponent>
+      return <LoadedComponent {...component.props} id={component.id}>{renderData(component.children || [])}</LoadedComponent>
     }
   )
 }
@@ -31,8 +31,8 @@ const renderData = (data: IComponentData[]) => {
 export default async function Editor({params}: Props) {
   const data = await getData(params.slug)
   return (
-    <main className={styles.main}>
+    <>
       {renderData(data.children)}
-    </main>
+    </>
   )
 }
