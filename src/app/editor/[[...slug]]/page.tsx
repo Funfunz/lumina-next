@@ -1,7 +1,7 @@
 import staticComponentsPath from "@/staticComponentsPath"
 import data from '@/data/data.json'
 import { IComponentData, IData } from "@/data/data"
-import styles from '@/app/page.module.css'
+import { Editor } from "@/components/editor/editor"
 
 async function getData(pageName: string) {
   return (data as IData)[pageName]
@@ -28,11 +28,11 @@ const renderData = (data: IComponentData[]) => {
   )
 }
 
-export default async function Editor({params}: Props) {
+export default async function EditorPage({params}: Props) {
   const data = await getData(params.slug)
   return (
-    <>
+    <Editor data={data}>
       {renderData(data.children)}
-    </>
+    </Editor>
   )
 }
