@@ -7,7 +7,7 @@ const paths: {
 } = {
   linkBox: LinkBox,
   grid: Grid,
-  image: Image
+  image: Image,
 }
 
 export default paths
