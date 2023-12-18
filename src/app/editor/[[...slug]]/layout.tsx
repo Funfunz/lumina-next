@@ -1,4 +1,3 @@
-import { ContextProvider } from '@/context/contextProvider'
 import '@/app/globals.css'
 import { Inter } from 'next/font/google'
 
@@ -10,16 +9,16 @@ export const metadata = {
 }
 
 export default function EditorLayout({
-  children
+  children,
+  ...rest
 }: {
   children: React.ReactNode
 }) {
+  console.log({rest})
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ContextProvider data={{editor: true}}>
-          {children}
-        </ContextProvider>
+        {children}
       </body>
     </html>
   )

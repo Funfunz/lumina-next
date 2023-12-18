@@ -2,7 +2,8 @@
  
 import { createContext, useContext, useReducer } from 'react'
 import { IInitialStateType, TAppContextDispatch, initialContext, mainReducer } from './contextProviderConfig'
-import { initialAppContextState } from './reducers/appContext'
+import { IAppContext, initialAppContextState } from './reducers/appContext'
+import { IBuilderDataContext, initialBuilderDataContextState } from './reducers/builderDataContext'
 
 export interface IContext {
   state: IInitialStateType
@@ -20,7 +21,8 @@ export function ContextProvider({
 }: {
   children: React.ReactNode,
   data: {
-    editor: boolean
+    appContext: IAppContext
+    builderDataContext: IBuilderDataContext
   }
 }) {
   const [state, dispatch] = useReducer(
@@ -29,7 +31,11 @@ export function ContextProvider({
       ...initialContext,
       appContext: {
         ...initialAppContextState,
-        ...data
+        ...data.appContext
+      },
+      builderDataContext: {
+        ...initialBuilderDataContextState,
+        ...data.builderDataContext
       }
     }
   )

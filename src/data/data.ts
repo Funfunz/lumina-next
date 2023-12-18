@@ -10,6 +10,8 @@ export interface IComponentData {
 }
 
 export interface IPageData {
+  friendlyName: string
+  name: string
   children: IComponentData[]
 }
 

@@ -26,7 +26,7 @@ export interface TConfigItemSelect<T = string> extends TConfigItemBase {
 
 type Props = {
   id: string,
-  onUpdate: (data: any) => void,
+  onUpdate?: (data: any) => void,
   config: TConfigItem[]
   data: IComponentProps
   inline?: boolean
@@ -55,7 +55,7 @@ export const ShowEdit = ({id, onUpdate, config, data, inline}: Props) => {
       event.preventDefault()
       setShowModal(true)
     },
-    [id]
+    []
   )
 
   let handleOnClickDelete = useCallback(
@@ -71,7 +71,7 @@ export const ShowEdit = ({id, onUpdate, config, data, inline}: Props) => {
       event.preventDefault()
       setShowModal(false)
     },
-    [id]
+    []
   )
   
   let handleOnChangeInput = useCallback(
@@ -88,7 +88,7 @@ export const ShowEdit = ({id, onUpdate, config, data, inline}: Props) => {
     (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault()
       setShowModal(false)
-      onUpdate(formData)
+      onUpdate && onUpdate(formData)
       dispatch({
         type: 'updateBackend',
         data: {
@@ -96,8 +96,15 @@ export const ShowEdit = ({id, onUpdate, config, data, inline}: Props) => {
           id,
         }
       })
+      dispatch({
+        type: 'updateComponent',
+        data: {
+          newProps: formData,
+          id,
+        }
+      })
     },
-    [formData, onUpdate]
+    [dispatch, formData, id, onUpdate]
   )
 
   if (!editor) return null

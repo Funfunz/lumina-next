@@ -5,21 +5,22 @@ export interface IAppContext {
   editor: boolean
 }
 
-export interface IAppContextAction {
-  type: string
-  data: IUpdateBackendAction
-}
+export type TAppContextAction = IUpdateBackendAction
 
 export interface IUpdateBackendAction {
-  props: IComponentProps,
-  id: string
+  type: 'updateBackend'
+  data: {
+    props: IComponentProps,
+    id: string
+  }
+  
 }
 
 export const initialAppContextState = {
   editor: false
 }
 
-export const contextReducer = (data: IAppContext, action: IAppContextAction) => {
+export const contextReducer = (data: IAppContext, action: TAppContextAction) => {
   switch (action.type) {
     case 'updateBackend':
       apiDispatcher(action.data)

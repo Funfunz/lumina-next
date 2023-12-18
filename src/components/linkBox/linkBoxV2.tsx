@@ -1,11 +1,9 @@
-'use client'
-
 // does not support server side render
 
 import styles from '@/components/linkBox/linkBox.module.css'
 import { ShowEdit } from '@/components/showEdit/showEdit'
-import { useEffect, useState } from 'react'
 import { config } from './config'
+import { useData, useDataUpdated } from './data'
 
 type TProps = {
   id: string
@@ -23,12 +21,8 @@ type TData =  {
 }
 
 export const LinkBox = ({id, title, description, href, color = 'white'}: TProps) => {
-  const [data, setData] = useState<TData>()
-  useEffect(
-    () => {
-      setData({href, title, description, color})
-    }, []
-  )
+  const [data, setData] = useData<TData>({href, title, description, color})
+  useDataUpdated(setData, {href, title, description, color})
   const onUpdateCallback = (data: TData) => {
     setData(data)
   }

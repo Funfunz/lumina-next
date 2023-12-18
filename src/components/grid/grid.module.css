@@ -5,6 +5,11 @@
   max-width: 100%;
 }
 
+.column {
+  grid-template-rows: repeat(4, minmax(25%, auto));
+  grid-auto-flow: column;
+}
+
 /* Mobile */
 @media (max-width: 700px) {
   .grid {

@@ -11,10 +11,8 @@ type Props = {
 
 export const Editor = ({
   children,
-  data
 }: {
   children: React.ReactNode,
-  data: IPageData
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const handleMenuToggler = useCallback(
@@ -28,8 +26,8 @@ export const Editor = ({
       <div className={styles.editorBar}>
         <input type="checkbox" className={styles.toggler} onChange={handleMenuToggler}/>
         <div className={styles.hamburger}><div></div></div>
-        {isOpen && data && (
-          <TreeView data={data.children}/>
+        {isOpen && (
+          <TreeView/>
         )}
       </div>
       <div>

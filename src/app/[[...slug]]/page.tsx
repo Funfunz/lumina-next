@@ -1,5 +1,5 @@
+import { getData, getPages } from "@/lib/dataFetcher"
 import { renderData } from "@/components/componentRenderer/componentRenderer"
-import { getData } from "@/lib/dataFetcher"
 
 type Props = {
   params: {
@@ -7,8 +7,11 @@ type Props = {
   }
 }
 
-export default async function Editor({params}: Props) {
+export default async function EditorPage({params}: Props) {
+  console.log({params})
   const data = await getData(params.slug)
+  const pages = await getPages()
+  if (!data) return <></>
   return (
     <>
       {renderData(data.children)}
