@@ -1,5 +1,5 @@
 import { getData, getPages } from "@/lib/dataFetcher"
-import { renderData } from "@/components/componentRenderer/componentRenderer"
+import { Render } from "@/components/render/render"
 
 type Props = {
   params: {
@@ -14,7 +14,7 @@ export default async function EditorPage({params}: Props) {
   if (!data) return <></>
   return (
     <>
-      {renderData(data.children)}
+      <Render/>
     </>
   )
 }

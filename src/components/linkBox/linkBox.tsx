@@ -15,37 +15,21 @@ type TProps = {
   color: 'black' | 'white' | 'green' | 'yellow'
 }
 
-type TData =  {
-  href: string
-  title: string
-  description: string
-  color: 'black' | 'white' | 'green' | 'yellow'
-}
-
 export const LinkBox = ({id, title, description, href, color = 'white'}: TProps) => {
-  const [data, setData] = useState<TData>()
-  useEffect(
-    () => {
-      setData({href, title, description, color})
-    }, []
-  )
-  const onUpdateCallback = (data: TData) => {
-    setData(data)
-  }
 
-  if (!data) return null
+  if (!title || !description || !href) return null
   return (
     <a
-      href={data.href}
+      href={href}
       className={styles.card}
       target="_blank"
       rel="noopener noreferrer"
     >
-      <ShowEdit id={id} onUpdate={onUpdateCallback} config={config} data={data}/>
-      <h2 style={{color: data.color}}>
-        {data.title} <span>-&gt;</span>
+      <ShowEdit id={id} config={config} data={{ title, description, href, color}}/>
+      <h2 style={{color}}>
+        {title} <span>-&gt;</span>
       </h2>
-      <p>{data.description}</p>
+      <p>{description}</p>
     </a>
   )
 }

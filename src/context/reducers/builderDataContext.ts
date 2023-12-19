@@ -1,4 +1,4 @@
-import { IData } from '@/data/data';
+import { IComponentData, IComponentProps, IData } from '@/data/data';
 
 export interface IBuilderDataContext {
   builderData: IData,
@@ -40,9 +40,7 @@ export interface IUpdateComponentAction {
   type: 'updateComponent'
   data: {
     id: string,
-    newProps: {
-      [key: string]: unknown
-    }
+    newProps: IComponentProps
   }
 }
 
@@ -55,6 +53,25 @@ export const initialBuilderDataContextState = {
   builderData: {},
   selectedPage: '',
   pages: []
+}
+
+function updateElement (childrens: IComponentData[], targetId: string, newProps: IComponentProps): IComponentData[] {
+  let found: IComponentData | undefined
+  return childrens.map(
+    (element) => {
+      if (element.id === targetId) {
+        element.props = {
+          ...element.props,
+          ...newProps
+        }
+      }
+      if (element.children) {
+        element.children = [ ...updateElement(element.children, targetId, newProps) ]
+        return element
+      }
+      return element
+    }
+  )
 }
 
 export const builderDataContextReducer = (data: IBuilderDataContext, action: TBuilderDataContextAction) => {
@@ -95,6 +112,20 @@ export const builderDataContextReducer = (data: IBuilderDataContext, action: TBu
       }
       delete newState.builderData[action.data]
       return newState
+    
+    case 'updateComponent':
+      const stateUpdateComponent = {
+        ...data,
+        builderData: {
+          ...data.builderData,
+          [data.selectedPage]: {
+            ...data.builderData[data.selectedPage],
+            children: [...updateElement(data.builderData[data.selectedPage].children, action.data.id, action.data.newProps)]
+          }
+        }
+      }
+      console.log({stateUpdateComponent})
+      return stateUpdateComponent
 
     default:
       break;

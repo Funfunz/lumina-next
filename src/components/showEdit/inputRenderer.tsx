@@ -19,14 +19,14 @@ export const InputRenderer = ({config, value, handleOnChangeInput}: TProps) => {
     (event: ChangeEvent<HTMLInputElement>) => {
       handleOnChangeInput(config.name, event.target.value)
     },
-    [name, handleOnChangeInput, value]
+    [handleOnChangeInput, config.name]
   )
 
   let handleOnChangeSelectElement: ChangeEventHandler<HTMLSelectElement> = useCallback(
     (event: ChangeEvent<HTMLSelectElement>) => {
       handleOnChangeInput(config.name, event.target.selectedOptions[0].value)
     },
-    [name, handleOnChangeInput, value]
+    [handleOnChangeInput, config.name]
   )
 
 
@@ -34,10 +34,10 @@ export const InputRenderer = ({config, value, handleOnChangeInput}: TProps) => {
     return (
       <div>
         <label htmlFor={config.name}>{config.label}</label>
-        <select onChange={handleOnChangeSelectElement} id={config.name}>
+        <select onChange={handleOnChangeSelectElement} value={value} id={config.name}>
           {config.arrayValues.map(
             (item) => (
-              <option selected={value===item} value={item}>{item}</option>
+              <option key={item} value={item}>{item}</option>
             )
           )}
         </select>

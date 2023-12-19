@@ -1,21 +1,19 @@
-/* supports server side render
-*  do not use useEffect, it makes the component render on the frontend
-*/
+import { ShowEdit } from '@/components/showEdit/showEdit'
+import { config } from './config'
+import styles from '@/components/titleText/titleText.module.css'
 
-import { ContextProvider, IInitialStateType } from './titleTextContext'
-import { TitleTextComponent } from './titleTextComponent'
-
-interface IProps extends IInitialStateType {
+interface IProps {
   id: string
+  title: string
+  text: string
 }
 
-export const TitleText = ({id, title, text}: IProps) => {  
+export const TitleText = ({id, title, text}: IProps) => {
   return (
-    <ContextProvider
-      data={{id, title, text}}
-    >
-      <TitleTextComponent/>
-    </ContextProvider>
-    
+    <div className={styles.titleText}>
+      <h1>{title}</h1>
+      <p>{text}</p>
+      <ShowEdit id={id} config={config} data={{title, text}}/>
+    </div>
   )
 }

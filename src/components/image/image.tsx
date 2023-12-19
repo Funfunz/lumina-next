@@ -17,25 +17,16 @@ type TData =  {
 }
 
 export const Image = ({href, alt, id}: TProps) => {
-  const [data, setData] = useState<TData>()
-  useEffect(
-    () => {
-      setData({href, alt})
-    }, []
-  )
-  const onUpdateCallback = (data: TData) => {
-    setData(data)
-  }
-
-  if (!data) return null
+  
+  if (!href) return null
   return (
     <div className={styles.imageContainer}>
       <img
         className={styles.image}
-        src={data.href}
-        alt={data.alt}
+        src={href}
+        alt={alt}
       />
-      <ShowEdit id={id} onUpdate={onUpdateCallback} config={config} data={data}/>
+      <ShowEdit id={id} config={config} data={{href, alt}}/>
     </div>
   )
 }

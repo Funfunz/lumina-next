@@ -21,7 +21,7 @@ export function ContextProvider({
 }: {
   children: React.ReactNode,
   data: {
-    appContext: IAppContext
+    appContext?: IAppContext
     builderDataContext: IBuilderDataContext
   }
 }) {
@@ -31,11 +31,11 @@ export function ContextProvider({
       ...initialContext,
       appContext: {
         ...initialAppContextState,
-        ...data.appContext
+        ...(data.appContext || {})
       },
       builderDataContext: {
         ...initialBuilderDataContextState,
-        ...data.builderDataContext
+        ...(data.builderDataContext || {})
       }
     }
   )
