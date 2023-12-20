@@ -5,6 +5,7 @@ export interface IComponentProps  {
 export interface IComponentData {
   type: string,
   id: string,
+  friendlyName: string,
   children?: IComponentData[],
   props?: IComponentProps
 }

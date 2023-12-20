@@ -27,8 +27,8 @@ export interface TConfigItemSelect<T = string> extends TConfigItemBase {
 type Props = {
   id: string,
   onUpdate?: (data: any) => void,
-  config: TConfigItem[]
   data: IComponentProps
+  config?: TConfigItem[]
   inline?: boolean
 }
 
@@ -62,8 +62,14 @@ export const ShowEdit = ({id, onUpdate, config, data, inline}: Props) => {
     (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault()
       alert('Delete button clicked from ' + id)
+      dispatch({
+        type: 'deleteComponent',
+        data: {
+          id,
+        }
+      })
     },
-    [id]
+    [dispatch, id]
   )
 
   let handleCloseModal = useCallback(
@@ -111,30 +117,35 @@ export const ShowEdit = ({id, onUpdate, config, data, inline}: Props) => {
 
   return (
     <>
-      <ReactModal 
+      {config && (
+        <ReactModal 
           ariaHideApp={false}
           isOpen={showModal}
           contentLabel="Minimal Modal Example"
           style={customStyles}
-      >
-        {config.map(
-          (configItem, index) =>  (
-            <InputRenderer
-              key={index}
-              config={configItem}
-              value={formData[configItem.name] || ''}
+        >
+          {config.map(
+            (configItem, index) =>  (
+              <InputRenderer
+                key={index}
+                config={configItem}
+                value={formData[configItem.name] || ''}
 
-              handleOnChangeInput={handleOnChangeInput}
-            />
-          )
-        )}
-        <button onClick={handleOnClickSaveData}>Save data</button>
-        <button onClick={handleCloseModal}>Close Modal</button>
-      </ReactModal>
+                handleOnChangeInput={handleOnChangeInput}
+              />
+            )
+          )}
+          <button onClick={handleOnClickSaveData}>Save data</button>
+          <button onClick={handleCloseModal}>Close Modal</button>
+        </ReactModal>
+      ) || null}
+      
       <div className={inline ? styles.showEditContainerInline : styles.showEditContainer}>
-        <button className={styles.button} onClick={handleOnClickEdit}>
-          Edit
-        </button>
+        {config && (
+          <button className={styles.button} onClick={handleOnClickEdit}>
+            Edit
+          </button>
+        ) || null}
         <button className={styles.button} onClick={handleOnClickDelete}>
           Delete
         </button>

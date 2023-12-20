@@ -12,6 +12,7 @@ export type TBuilderDataContextAction = ISetBuilderDataAction
   | IDeletePageAction
   | ICreateComponentAction
   | IUpdateComponentAction
+  | IDeleteComponentAction
 
 export interface ISetBuilderDataAction {
   type: 'setBuilderData'
@@ -47,7 +48,7 @@ export interface ICreateComponentAction {
   data: {
     parentId: string,
     id: string,
-  } & IComponentProps
+  } & IComponentData
 }
 
 export interface IUpdateComponentAction {
@@ -58,6 +59,13 @@ export interface IUpdateComponentAction {
   }
 }
 
+export interface IDeleteComponentAction {
+  type: 'deleteComponent'
+  data: {
+    id: string,
+  }
+}
+
 
 export const initialBuilderDataContextState = {
   builderData: {},
@@ -65,33 +73,36 @@ export const initialBuilderDataContextState = {
   pages: []
 }
 
-function newComponentFactory(componentData: ICreateComponentAction['data']) {
-  const {id, parentId, ...rest} = componentData
+function newComponentFactory(componentData: ICreateComponentAction['data']): IComponentData {
+  const {type, ...rest} = componentData
   return {
-    id: `${componentData.type}_${Math.random()}`,
-    type: componentData.type,
+    id: `${type}_${Math.random()}`,
+    type: type,
     friendlyName: componentData.friendlyName,
     children: [],
-    props: {...rest}
+    props: {...rest.props}
   }
 }
 
-function createElementAt (component: IPageData | IComponentData, props: ICreateComponentAction['data']): IPageData {
-  if (!props.parentId) {
-    component.children?.push(newComponentFactory(props))
-  }
-  
+const instanceOfIComponentData = (object: any): object is IComponentData => {
+  return object.id
+}
+
+function createElementAt (component: IPageData | IComponentData, data: ICreateComponentAction['data']): IPageData | IComponentData {
   if (!component.children) [
     component.children = []
   ]
-  component.children.map(
+  if (!data.parentId || (instanceOfIComponentData(component) && component.id === data.parentId)) {
+    component.children?.push(newComponentFactory(data))
+    return component
+  }
+
+  component.children = component.children.map(
     (element) => {
-      return createElementAt(element, props)
+      return createElementAt(element, data) as IComponentData
     }
   )
-
-  return component as IPageData
-  
+  return component
 }
 
 function updateElement (childrens: IComponentData[], targetId: string, newProps: IComponentProps): IComponentData[] {
@@ -112,6 +123,23 @@ function updateElement (childrens: IComponentData[], targetId: string, newProps:
     }
   )
 }
+
+function deleteElement (childrens: IComponentData[], targetId: string): IComponentData[] {
+  return childrens.map(
+    (element) => {
+      if (element.id === targetId) {
+        return undefined
+      }
+      if (element.children) {
+        element.children = [ ...deleteElement(element.children, targetId) ]
+        return element
+      }
+      return element
+    }
+  ).filter(e => e) as IComponentData[]
+}
+
+deleteElement
 
 export const builderDataContextReducer = (data: IBuilderDataContext, action: TBuilderDataContextAction) => {
   switch (action.type) {
@@ -159,7 +187,7 @@ export const builderDataContextReducer = (data: IBuilderDataContext, action: TBu
           ...data.builderData,
           [data.selectedPage]: {
             ...data.builderData[data.selectedPage],
-            children: [...createElementAt(data.builderData[data.selectedPage], action.data)]
+            ...createElementAt(data.builderData[data.selectedPage], action.data)
           }
         }
       }
@@ -176,8 +204,18 @@ export const builderDataContextReducer = (data: IBuilderDataContext, action: TBu
           }
         }
       }
-      console.log({stateUpdateComponent})
       return stateUpdateComponent
+    case 'deleteComponent':
+      return {
+        ...data,
+        builderData: {
+          ...data.builderData,
+          [data.selectedPage]: {
+            ...data.builderData[data.selectedPage],
+            children: [...deleteElement(data.builderData[data.selectedPage].children, action.data.id)]
+          }
+        }
+      }
 
     default:
       break;

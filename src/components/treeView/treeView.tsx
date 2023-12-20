@@ -3,7 +3,7 @@
 import styles from '@/components/treeView/treeView.module.scss'
 import { useAppContext } from '@/context/contextProvider'
 import { IComponentData, IComponentProps } from '@/data/data'
-import { MouseEvent, useCallback, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { ShowEdit } from '../showEdit/showEdit'
 import { configs } from '@/staticComponentsPath'
 
@@ -16,26 +16,10 @@ const TreeBranch = ({data}: {data: IComponentData}) => {
     }, [showChildren]
   )
 
-  const handleRemoveClick = useCallback(
-    (event: MouseEvent) => {
-      event.preventDefault()
-      event.stopPropagation()
-      alert('remove')
-    }, []
-  )
-
-  const handleEditClick = useCallback(
-    (event: MouseEvent) => {
-      event.preventDefault()
-      event.stopPropagation()
-      alert('edit')
-    }, []
-  )
-  console.log(data.type, configs, configs[data.type])
   return (
     <div className={styles.treeContainer}>
       <div className={`${styles.treeHead}${data.children?.length && ' ' + styles.pointer || ''}`} onClick={handleTreeHeadClick}>
-        {data.type} - {data.id} {configs[data.type] && (<ShowEdit id={data.id} inline={true} config={configs[data.type]} data={data.props as IComponentProps}/>) || null}
+        {data.type} - {data.id} <ShowEdit id={data.id} inline={true} config={configs[data.type]} data={data.props as IComponentProps}/>
       </div>
       {data.children?.length && showChildren &&(
         <div className={styles.treeChildren}>
@@ -48,6 +32,7 @@ const TreeBranch = ({data}: {data: IComponentData}) => {
 }
 
 const ComponentTree = ({data}: {data: IComponentData[]}) => {
+  if (!data) return null
   return <>
      {data.map(
       (dataItem) => (
@@ -64,6 +49,7 @@ export const TreeView = () => {
       dispatch({type: 'createPage', data: {name: 'testPage', friendlyName: 'Test Page'}})
     }, [dispatch]
   )
+  console.log({context: builderDataContext.builderData[builderDataContext.selectedPage]})
   return (
     <>
       {Object.keys(builderDataContext.builderData).length && (
