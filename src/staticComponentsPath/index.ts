@@ -1,4 +1,4 @@
-import { LinkBox } from '@/components/linkBox/linkBoxV3'
+import { LinkBox } from '@/components/linkBox/linkBoxV5'
 import { Grid } from '@/components/grid/grid'
 import { Image } from '@/components/image/image'
 import { TitleText } from '@/components/titleText/titleText'
