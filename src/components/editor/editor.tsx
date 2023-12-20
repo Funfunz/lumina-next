@@ -1,19 +1,20 @@
 'use client'
 
 import styles from '@/components/editor/editor.module.scss'
-import { IPageData } from '@/data/data'
 import { useCallback, useState } from 'react'
 import { TreeView } from '../treeView/treeView'
+
+export type TEditorConfig = {
+  create: boolean
+  update: boolean
+  delete: boolean
+}
 
 type Props = {
   children: React.ReactNode
 }
 
-export const Editor = ({
-  children,
-}: {
-  children: React.ReactNode,
-}) => {
+export const Editor = ({ children }: Props) => {
   const [isOpen, setIsOpen] = useState(false)
   const handleMenuToggler = useCallback(
     () => {

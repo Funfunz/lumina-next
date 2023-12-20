@@ -1,4 +1,5 @@
-import { TConfigItemSelect, TConfigItemValue } from "../showEdit/showEdit";
+import { TEditorConfig } from "../editor/editor"
+import { TConfigItemSelect, TConfigItemValue } from "../showEdit/showEdit"
 
 export type TConfig = (TConfigItemValue | TConfigItemSelect)[]
 
@@ -25,3 +26,9 @@ export const config: TConfig = [
     arrayValues: ['black', 'white', 'green', 'yellow']
   }
 ]
+
+export const editorConfig: TEditorConfig = {
+  create: false,
+  update: true,
+  delete: true
+}

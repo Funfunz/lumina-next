@@ -14,7 +14,6 @@ export default function EditorLayout({
 }: {
   children: React.ReactNode
 }) {
-  console.log({rest})
   return (
     <html lang="en">
       <body className={inter.className}>

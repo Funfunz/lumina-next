@@ -1,8 +1,7 @@
-import { TConfigItemSelect, TConfigItemValue } from "../showEdit/showEdit";
+import { TEditorConfig } from "../editor/editor";
+import { TElementConfig } from "../showEdit/showEdit";
 
-export type TConfig = (TConfigItemValue | TConfigItemSelect)[]
-
-export const config: TConfig = [
+export const config: TElementConfig = [
   {
     type: 'string',
     name: 'title',
@@ -14,3 +13,9 @@ export const config: TConfig = [
     label: 'Text'
   },
 ]
+
+export const editorConfig: TEditorConfig = {
+  create: true,
+  update: true,
+  delete: true
+}

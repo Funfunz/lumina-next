@@ -1,4 +1,5 @@
 import { TConfigItemSelect, TConfigItemValue } from "../showEdit/showEdit";
+import { TEditorConfig } from "../editor/editor"
 
 export const config: (TConfigItemValue | TConfigItemSelect)[] = [
   {
@@ -12,3 +13,9 @@ export const config: (TConfigItemValue | TConfigItemSelect)[] = [
     label: 'Alt'
   }
 ]
+
+export const editorConfig: TEditorConfig = {
+  create: false,
+  update: true,
+  delete: true
+}

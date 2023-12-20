@@ -1,5 +1,6 @@
-import { getData, getPages } from "@/lib/dataFetcher"
+import { getFullData } from "@/lib/dataFetcher"
 import { Render } from "@/components/render/render"
+import { ContextProvider } from '@/context/contextProvider'
 
 type Props = {
   params: {
@@ -8,13 +9,12 @@ type Props = {
 }
 
 export default async function EditorPage({params}: Props) {
-  console.log({params})
-  const data = await getData(params.slug)
-  const pages = await getPages()
-  if (!data) return <></>
+  const selectedPage = params.slug || 'home'
+  const builderData = await getFullData()
+  if (!builderData[selectedPage]) return
   return (
-    <>
+    <ContextProvider data={{builderDataContext: {builderData, selectedPage, pages: Object.keys(builderData)}}}>
       <Render/>
-    </>
+    </ContextProvider>
   )
 }

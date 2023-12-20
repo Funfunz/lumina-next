@@ -17,12 +17,12 @@ const AppContext = createContext<IContext>({
 
 export function ContextProvider({
   children,
-  data
+  data = {}
 }: {
   children: React.ReactNode,
-  data: {
+  data?: {
     appContext?: IAppContext
-    builderDataContext: IBuilderDataContext
+    builderDataContext?: IBuilderDataContext
   }
 }) {
   const [state, dispatch] = useReducer(

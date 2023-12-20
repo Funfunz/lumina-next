@@ -26,7 +26,6 @@ export const Render = ({ elements }: IProps) => {
   ) {
     data = builderDataContext.builderData[builderDataContext.selectedPage].children
   }
-  console.log({builderDataContext})
   return (
     <>
       {data.map(

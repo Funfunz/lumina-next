@@ -21,8 +21,9 @@ export interface TConfigItemValue extends TConfigItemBase {
 export interface TConfigItemSelect<T = string> extends TConfigItemBase {
   type: 'singleSelect' | 'multiSelect'
   arrayValues: T[]
-  
 }
+
+export type TElementConfig = (TConfigItemValue | TConfigItemSelect)[]
 
 type Props = {
   id: string,

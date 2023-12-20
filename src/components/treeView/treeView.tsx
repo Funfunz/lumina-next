@@ -3,12 +3,13 @@
 import styles from '@/components/treeView/treeView.module.scss'
 import { useAppContext } from '@/context/contextProvider'
 import { IComponentData, IComponentProps } from '@/data/data'
-import { useCallback, useState } from 'react'
+import { MouseEventHandler, useCallback, useState } from 'react'
 import { ShowEdit } from '../showEdit/showEdit'
-import { configs } from '@/staticComponentsPath'
+import { configs, editorConfigs } from '@/staticComponentsPath'
 
 const TreeBranch = ({data}: {data: IComponentData}) => {
   const [showChildren, setShowChildren] = useState(false)
+  const { dispatch } = useAppContext() 
 
   const handleTreeHeadClick = useCallback(
     () => {
@@ -16,10 +17,38 @@ const TreeBranch = ({data}: {data: IComponentData}) => {
     }, [showChildren]
   )
 
+  const handleOnClickCreate: MouseEventHandler<HTMLButtonElement> = useCallback(
+    (e) => {
+      e.stopPropagation()
+      e.preventDefault()
+      dispatch({
+        type: 'createComponent',
+        data: {
+          parentId: data.id,
+          type: 'linkBox',
+          id: Math.random().toString(16).slice(2),
+          friendlyName: 'friendly link box',
+          children: [],
+          props: {
+            title: 'title',
+            description: 'description',
+            href: 'href',
+            color: 'white'
+          }
+        }
+      })
+    }, []
+  )
+
   return (
     <div className={styles.treeContainer}>
       <div className={`${styles.treeHead}${data.children?.length && ' ' + styles.pointer || ''}`} onClick={handleTreeHeadClick}>
         {data.type} - {data.id} <ShowEdit id={data.id} inline={true} config={configs[data.type]} data={data.props as IComponentProps}/>
+        {editorConfigs[data.type] && (
+          <button className={styles.button} onClick={handleOnClickCreate}>
+            Add
+          </button>
+        )}
       </div>
       {data.children?.length && showChildren &&(
         <div className={styles.treeChildren}>
@@ -49,7 +78,6 @@ export const TreeView = () => {
       dispatch({type: 'createPage', data: {name: 'testPage', friendlyName: 'Test Page'}})
     }, [dispatch]
   )
-  console.log({context: builderDataContext.builderData[builderDataContext.selectedPage]})
   return (
     <>
       {Object.keys(builderDataContext.builderData).length && (

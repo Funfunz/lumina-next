@@ -47,7 +47,6 @@ export interface ICreateComponentAction {
   type: 'createComponent'
   data: {
     parentId: string,
-    id: string,
   } & IComponentData
 }
 
