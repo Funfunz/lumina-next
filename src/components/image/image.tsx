@@ -2,7 +2,6 @@
 
 import styles from '@/components/image/image.module.css'
 import { ShowEdit } from '@/components/showEdit/showEdit'
-import { useEffect, useState } from 'react'
 import { config } from './config'
 
 type TProps = {
