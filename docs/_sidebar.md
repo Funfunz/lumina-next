@@ -1,0 +1,2 @@
+- [Home](/)
+- [Architecture](architecture.md)

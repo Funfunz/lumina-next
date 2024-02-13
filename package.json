@@ -6,7 +6,8 @@
     "dev": "next dev -p 3002",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "docs": "docsify serve ./docs"
   },
   "dependencies": {
     "@types/node": "20.1.1",
@@ -22,6 +23,7 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
-    "@types/react-modal": "^3.16.0"
+    "@types/react-modal": "^3.16.0",
+    "docsify-cli": "^4.4.4"
   }
 }
