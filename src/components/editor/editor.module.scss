@@ -3,6 +3,7 @@
   height: 100%;
   grid-template-columns: 60px calc(100% - 60px);
   transition: grid-template-columns 0.2s ease-in-out;
+  background-color: var(--lumina-color-bg-inverted);
 
   &.open {
     grid-template-columns: 400px calc(100% - 400px);
@@ -47,7 +48,7 @@
   position: relative;
   top: 0;
   left: 0;
-  background: black;
+  background: var(--lumina-color-text);
   height: 2px;
   width: 60%;
   transition: all 0.4s ease;
@@ -61,7 +62,7 @@ TOP AT -10PX ABOVE THE MIDDLE ONE AND BOTTOM ONE IS 10PX BELOW THE MIDDLE: */
   content: "";
   position: absolute;
   top: -10px;
-  background: var(--lumina-color-text-inverted);
+  background: var(--lumina-color-text);
   width: 100%;
   height: 2px;
   transition: all 0.4s ease;

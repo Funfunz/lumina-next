@@ -1,6 +1,7 @@
 .treeContainer {
   padding: 0 20px;
   position: relative;
+  color: var(--lumina-color-text);
 }
 
 .pointer {
@@ -11,7 +12,3 @@
   margin: 10px 0px;
   padding: 0px 10px;
 }
-
-/*
-color: rgb(var($lumina-color-black));
-background-color: rgb(var($lumina-color-black)); */

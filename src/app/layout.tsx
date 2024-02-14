@@ -1,4 +1,6 @@
-import "./lumina.scss"
+import "./Styles/luminaLayout.scss";
+import "./Styles/luminaColor.scss";
+import "./Styles/luminaFonts.scss";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
