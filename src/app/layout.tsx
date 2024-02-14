@@ -1,5 +1,4 @@
-import { ContextProvider } from "@/context/contextProvider";
-
+import "./lumina.scss"
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });

@@ -1,4 +1,6 @@
-@import "../../app/luminaLib";
+.showEdit {
+  --show-edit-background: black;
+}
 
 .showEditContainerMain {
   display: inline-flex;
@@ -17,6 +19,6 @@
 
 .button {
   color: white;
-  background-color: black;
+  background-color: var(--show-edit-background);
   border: 1px solid white;
 }

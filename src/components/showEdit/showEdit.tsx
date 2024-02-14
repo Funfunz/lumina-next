@@ -141,7 +141,7 @@ export const ShowEdit = ({id, onUpdate, config, data, inline}: Props) => {
         </ReactModal>
       ) || null}
       
-      <div className={inline ? styles.showEditContainerInline : styles.showEditContainer}>
+      <div className={`${styles.showEdit} ${inline ? styles.showEditContainerInline : styles.showEditContainer}`}>
         {config && (
           <button className={styles.button} onClick={handleOnClickEdit}>
             Edit
