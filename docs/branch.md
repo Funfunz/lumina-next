@@ -26,25 +26,15 @@ There are 5 types of working branches: feature, bugfix, release, hotfix and demo
 
 # Normal work flow
 
-## Sprint start
-
-```plantuml
-@startuml
-:master;
-->Create a new demo branch for the sprint;
-:demo;
-@enduml
-```
-
 ## New feature/bugfix
 
+When starting a new feature or bugfix, always create a branch out of the master branch, or release branch, if a specific release is being targeted
+
 ```plantuml
 @startuml
-repeat :master;
+repeat :master/release/v1.0.0;
 :feature;
--> Merged into demo branch to demo the feature;
-:demo;
-backward:release/v1.0.0;
+backward:release/v1.0.1;
 repeat while (feature approved?) is (create new release)
 ->no;
 stop
@@ -53,12 +43,26 @@ stop
 
 ## Hotfix
 
+For each Hotfix, create a new branch from the master branch called hotfix/ticketNumber-description
+
 ```plantuml
 @startuml
 repeat :master;
 :hotfix;
 backward:release/v1.0.1;
 repeat while (hotfix approved?) is (create new release)
+@enduml
+```
+
+## Sprint end
+
+If a demo is needed, create a new demo branch from the master and merge all the feature that need to be demo.
+
+```plantuml
+@startuml
+:master;
+->Create a new demo branch for the sprint;
+:demo;
 @enduml
 ```
 
@@ -72,14 +76,14 @@ fork
 fork again
     :bugfix/1;
 end fork
-:release/v1.0.2;
+:release/v1.1.0;
 :master;
 @enduml
 ```
 
 ## Dependent features
 
-In case `feature/2` is approved but not `feature/1` then it cannot be released until `feature/1`is approved
+In case `feature/2` is approved but not `feature/1` they cannot be released until `feature/1` is approved
 
 ```plantuml
 @startuml
@@ -87,13 +91,10 @@ hide empty description
 state "feature/1" as feature1
 state "feature/2" as feature2
 state "release/1.0.1" as release
-state "demo/x" as demo
 [*] --> master
 master --> feature1
 master --> feature2
 feature1 -> feature2
-feature1 -> demo
-feature2 -> demo
 feature1 --> release
 feature2 --> release
 @enduml
