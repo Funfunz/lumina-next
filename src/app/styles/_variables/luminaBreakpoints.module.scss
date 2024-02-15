@@ -1,0 +1,15 @@
+// These breakpoints take care of a range of screen sizes, until the design breaks and the next media query takes over.
+:root {
+  --lumina-bp-mobile: 767px;
+  --lumina-bp-tablet-portrait: 768px;
+  --lumina-bp-tablet-landscape: 1024px;
+  --lumina-bp-desktop: 1280px;
+  --lumina-bp-desktop-max: 1920px;
+  --lumina-breakpoints: (
+    "mobile": --lumina-bp-mobile,
+    "tablet-portrait": --lumina-bp-tablet-portrait,
+    "tablet-landscape": --lumina-bp-tablet-landscape,
+    "desktop": --lumina-bp-desktop,
+    "desktop-max": --lumina-bp-desktop-max
+  );
+}

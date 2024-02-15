@@ -1,0 +1,8 @@
+@mixin heading1 {
+  font-size: var(--lumina-mobile-heading1);
+  font-style: normal;
+  font-weight: 500;
+  line-height: var(--line-height-cta);
+  text-transform: uppercase;
+  letter-spacing: 0.28px;
+}

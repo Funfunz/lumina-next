@@ -1,9 +1,6 @@
-import "./Styles/luminaLayout.scss";
-import "./Styles/luminaColor.scss";
-import "./Styles/luminaFonts.scss";
-import { Inter } from "next/font/google";
+import "@/app/styles/index.scss";
 
-const inter = Inter({ subsets: ["latin"] });
+import { fonts } from "@/app/assets/fonts/index";
 
 export const metadata = {
   title: "Create Next App",
@@ -17,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={fonts.className}>{children}</body>
     </html>
   );
 }

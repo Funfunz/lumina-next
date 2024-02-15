@@ -1,0 +1,41 @@
+/** 
+* Keep vertical rythm consistent, only add -bottom margins/paddings
+*/
+// vertical rythm margins
+.vm-xs {
+  margin-bottom: var(--lumina-spacing-xs);
+}
+.vm-s {
+  margin-bottom: var(--lumina-spacing-s);
+}
+.vm-m {
+  margin-bottom: var(--lumina-spacing-m);
+}
+.vm-l {
+  margin-bottom: var(--lumina-spacing-l);
+}
+.vm-xl {
+  margin-bottom: var(--lumina-spacing-xl);
+}
+.vm-xxl {
+  margin-bottom: var(--lumina-spacing-xxl);
+}
+// vertical rythm paddings
+.vp-xs {
+  padding-bottom: var(--lumina-spacing-xs);
+}
+.vp-s {
+  padding-bottom: var(--lumina-spacing-s);
+}
+.vp-m {
+  margin-bottom: var(--lumina-spacing-m);
+}
+.vp-l {
+  margin-bottom: var(--lumina-spacing-l);
+}
+.vp-xl {
+  margin-bottom: var(--lumina-spacing-xl);
+}
+.vp-xxl {
+  margin-bottom: var(--lumina-spacing-xxl);
+}
