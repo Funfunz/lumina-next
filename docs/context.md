@@ -76,16 +76,26 @@ Builder data context used to manage the data that structures the pages. It's the
 }
 ```
 
+### IBuilderDataContext
+
+This is the root of the builder data context, each property should be a pageId.
+
 ```ts
 
-interface IBuilderDataContext extends IPage {}
-
-interface IPage {
+interface IBuilderDataContext {
   [pageId: string]: {
     friendlyName: string,
     children: IComponent[]
   }
 }
+
+```
+
+For the component context, the **type** property needs to be equal to the developed components.
+
+If **type = "flex"** then a component named **flex** needs to exist on the application structure. 
+
+```ts
 
 interface IComponent {
   id: string,
