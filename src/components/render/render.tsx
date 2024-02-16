@@ -1,6 +1,6 @@
 "use client"
 import staticComponentsPath from "@/staticComponentsPath"
-import { useAppContext } from "@/context/contextProvider"
+import { useLuminaContext } from "@/context/contextProvider"
 import { IComponentData } from "@/data/data"
 
 const DynamicComponent = (type: string) => {
@@ -13,7 +13,7 @@ interface IProps {
 }
 
 export const Render = ({ elements }: IProps) => {
-  const { state: { builderDataContext } } = useAppContext()
+  const { state: { builderDataContext } } = useLuminaContext()
   let data: IComponentData[] = []
   if (elements) {
     data = elements
