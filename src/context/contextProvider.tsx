@@ -1,7 +1,13 @@
 'use client'
- 
+
+/**
+ * this is the ContextProvider component
+ * it contains all the page builder context
+ * including the page structure and component data
+ */
+
 import { createContext, useContext, useReducer } from 'react'
-import { IInitialStateType, TAppContextDispatch, initialContext, mainReducer } from './contextProviderConfig'
+import { IInitialStateType, TAppContextDispatch, initialContext, mainReducer } from './reducers/luminaReducer'
 import { IAppContext, initialAppContextState } from './reducers/appContext'
 import { IBuilderDataContext, initialBuilderDataContextState } from './reducers/builderDataContext'
 
@@ -10,7 +16,7 @@ export interface IContext {
   dispatch: TAppContextDispatch
 }
 
-const AppContext = createContext<IContext>({
+const LuminaContext = createContext<IContext>({
   state: initialContext,
   dispatch: () => null,
 })
@@ -25,28 +31,29 @@ export function ContextProvider({
     builderDataContext?: IBuilderDataContext
   }
 }) {
+  const initialState = {
+    ...initialContext,
+    appContext: {
+      ...initialAppContextState,
+      ...(data.appContext || {})
+    },
+    builderDataContext: {
+      ...initialBuilderDataContextState,
+      ...(data.builderDataContext || {})
+    }
+  }
   const [state, dispatch] = useReducer(
     mainReducer,
-    {
-      ...initialContext,
-      appContext: {
-        ...initialAppContextState,
-        ...(data.appContext || {})
-      },
-      builderDataContext: {
-        ...initialBuilderDataContextState,
-        ...(data.builderDataContext || {})
-      }
-    }
+    initialState
   )
 
   return (
-    <AppContext.Provider value={{state, dispatch}}>
+    <LuminaContext.Provider value={{state, dispatch}}>
       {children}
-    </AppContext.Provider>
+    </LuminaContext.Provider>
   )
 }
 
-export const useAppContext = () => {
-  return useContext(AppContext)
+export const useLuminaContext = () => {
+  return useContext(LuminaContext)
 }

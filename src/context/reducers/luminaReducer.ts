@@ -1,8 +1,8 @@
 'use client'
  
 import { Dispatch } from 'react'
-import { IAppContext, TAppContextAction, contextReducer, initialAppContextState } from './reducers/appContext'
-import { IBuilderDataContext, builderDataContextReducer, TBuilderDataContextAction, initialBuilderDataContextState } from './reducers/builderDataContext'
+import { IAppContext, TAppContextAction, contextReducer, initialAppContextState } from './appContext'
+import { IBuilderDataContext, builderDataContextReducer, TBuilderDataContextAction, initialBuilderDataContextState } from './builderDataContext'
 
 export type TAppContextDispatch = Dispatch<TAppContextAction | TBuilderDataContextAction> 
 
