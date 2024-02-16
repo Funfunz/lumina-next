@@ -1,14 +1,20 @@
 .treeContainer {
   padding: 0 20px;
   position: relative;
-  color: var(--lumina-color-text);
+  color: var(--lumina-color-text-inverted);
 }
 
-.pointer {
+.pointerTreeView {
   cursor: pointer;
 }
 
 .treeHead {
   margin: 10px 0px;
   padding: 0px 10px;
+}
+
+.btnTreeView {
+  color: var(--lumina-color-text-inverted);
+  background-color: var(--lumina-color-text);
+  border: 2px solid --lumina-bg-color-inverted;
 }

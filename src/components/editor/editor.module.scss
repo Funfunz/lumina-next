@@ -3,7 +3,7 @@
   height: 100%;
   grid-template-columns: 60px calc(100% - 60px);
   transition: grid-template-columns 0.2s ease-in-out;
-  background-color: var(--lumina-color-bg-inverted);
+  background-color: var(--lumina-bg-color);
 
   &.open {
     grid-template-columns: 400px calc(100% - 400px);
@@ -16,7 +16,7 @@
   overflow: hidden;
 }
 
-.toggler {
+.editorToggler {
   /* ALWAYS KEEPING THE TOGGLER OR THE CHECKBOX ON TOP OF EVERYTHING :  */
   z-index: 2;
   height: 50px;
@@ -28,7 +28,7 @@
   opacity: 0;
 }
 
-.hamburger {
+.editorHamburger {
   top: 0;
   left: 0;
   height: 60px;
@@ -44,7 +44,7 @@
 
 /* CREATING THE MIDDLE LINE OF THE HAMBURGER : */
 
-.hamburger > div {
+.editorHamburger > div {
   position: relative;
   top: 0;
   left: 0;
@@ -57,8 +57,8 @@
 /* CREATING THE TOP AND BOTTOM LINES : 
 TOP AT -10PX ABOVE THE MIDDLE ONE AND BOTTOM ONE IS 10PX BELOW THE MIDDLE: */
 
-.hamburger > div::before,
-.hamburger > div::after {
+.editorHamburger > div::before,
+.editorHamburger > div::after {
   content: "";
   position: absolute;
   top: -10px;
@@ -68,20 +68,20 @@ TOP AT -10PX ABOVE THE MIDDLE ONE AND BOTTOM ONE IS 10PX BELOW THE MIDDLE: */
   transition: all 0.4s ease;
 }
 
-.hamburger > div::after {
+.editorHamburger > div::after {
   top: 10px;
 }
 
 /* IF THE TOGGLER IS IN ITS CHECKED STATE, THEN SETTING THE BACKGROUND OF THE MIDDLE LAYER TO COMPLETE BLACK AND OPAQUE :  */
 
-.toggler:checked + .hamburger > div::before {
+.editorToggler:checked + .editorHamburger > div::before {
   top: 0;
   transform: rotate(45deg);
 }
 
 /* AND ROTATING THE TOP AND BOTTOM LINES :  */
 
-.toggler:checked + .hamburger > div::after {
+.editorToggler:checked + .editorHamburger > div::after {
   top: 0;
   transform: rotate(135deg);
 }

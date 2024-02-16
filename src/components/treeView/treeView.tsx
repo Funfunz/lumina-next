@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "@/components/treeView/treeView.module.scss";
-import { useAppContext } from "@/context/contextProvider";
+import { useLuminaContext } from "@/context/contextProvider";
 import { IComponentData, IComponentProps } from "@/data/data";
 import { MouseEventHandler, useCallback, useState } from "react";
 import { ShowEdit } from "../showEdit/showEdit";
@@ -9,7 +9,7 @@ import { configs, editorConfigs } from "@/staticComponentsPath";
 
 const TreeBranch = ({ data }: { data: IComponentData }) => {
   const [showChildren, setShowChildren] = useState(false);
-  const { dispatch } = useAppContext();
+  const { dispatch } = useLuminaContext();
 
   const handleTreeHeadClick = useCallback(() => {
     setShowChildren(!showChildren);
@@ -43,7 +43,7 @@ const TreeBranch = ({ data }: { data: IComponentData }) => {
     <div className={styles.treeContainer}>
       <div
         className={`${styles.treeHead}${
-          (data.children?.length && " " + styles.pointer) || ""
+          (data.children?.length && " " + styles.pointerTreeView) || ""
         }`}
         onClick={handleTreeHeadClick}
       >
@@ -55,7 +55,7 @@ const TreeBranch = ({ data }: { data: IComponentData }) => {
           data={data.props as IComponentProps}
         />
         {editorConfigs[data.type] && (
-          <button className={styles.button} onClick={handleOnClickCreate}>
+          <button className={styles.btnTreeView} onClick={handleOnClickCreate}>
             Add
           </button>
         )}
@@ -85,7 +85,7 @@ export const TreeView = () => {
   const {
     state: { builderDataContext },
     dispatch,
-  } = useAppContext();
+  } = useLuminaContext();
   const handleAddClick = useCallback(() => {
     dispatch({
       type: "createPage",
@@ -102,7 +102,9 @@ export const TreeView = () => {
               {page}
             </div>
           ))}
-          <button onClick={handleAddClick}>Add</button>
+          <button className={styles.btnTreeView} onClick={handleAddClick}>
+            Add
+          </button>
         </div>
       )) ||
         null}

@@ -17,8 +17,8 @@
   right: 0;
 }
 
-.button {
-  color: white;
-  background-color: var(--show-edit-background);
-  border: 1px solid white;
+.btnShowEdit {
+  color: black;
+  background-color: var(--lumina-color-text);
+  border: 2px solid --lumina-bg-color-inverted;
 }
