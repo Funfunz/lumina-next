@@ -9,6 +9,6 @@ export async function getFullData() {
   return (data as IData)
 }
 
-export async function getPages() {\
+export async function getPages() {
   return Object.keys(data)
 }
