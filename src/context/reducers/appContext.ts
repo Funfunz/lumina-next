@@ -20,7 +20,7 @@ export const initialAppContextState = {
   editor: false
 }
 
-export const contextReducer = (data: IAppContext, action: TAppContextAction) => {
+export const appContextReducer = (data: IAppContext, action: TAppContextAction) => {
   switch (action.type) {
     case 'updateBackend':
       apiDispatcher(action.data)

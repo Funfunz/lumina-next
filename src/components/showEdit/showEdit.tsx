@@ -1,6 +1,6 @@
 'use client';
 
-import { useAppContext } from '@/context/contextProvider'
+import { useLuminaContext } from '@/context/contextProvider'
 import styles from './showEdit.module.scss'
 import { useCallback, useState } from 'react'
 import ReactModal from 'react-modal'
@@ -47,7 +47,7 @@ const customStyles = {
 }
 
 export const ShowEdit = ({id, onUpdate, config, data, inline}: Props) => {
-  let { state: { appContext: { editor } }, dispatch } = useAppContext()
+  let { state: { appContext: { editor } }, dispatch } = useLuminaContext()
   let  [showModal, setShowModal] = useState(false)
   let  [formData, setFormData] = useState(data)
   

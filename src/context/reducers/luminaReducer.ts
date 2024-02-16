@@ -1,8 +1,12 @@
 'use client'
- 
+
+/**
+ * Lumina main reducer
+ * It turns all the reducers into a single one
+ */
 import { Dispatch } from 'react'
-import { IAppContext, TAppContextAction, contextReducer, initialAppContextState } from './reducers/appContext'
-import { IBuilderDataContext, builderDataContextReducer, TBuilderDataContextAction, initialBuilderDataContextState } from './reducers/builderDataContext'
+import { IAppContext, TAppContextAction, appContextReducer, initialAppContextState } from './appContext'
+import { IBuilderDataContext, builderDataContextReducer, TBuilderDataContextAction, initialBuilderDataContextState } from './builderDataContext'
 
 export type TAppContextDispatch = Dispatch<TAppContextAction | TBuilderDataContextAction> 
 
@@ -23,7 +27,7 @@ export const mainReducer = (
   }: IInitialStateType,
   action: TAppContextAction | TBuilderDataContextAction
 ) => ({
-  appContext: contextReducer(appContext, action as TAppContextAction),
+  appContext: appContextReducer(appContext, action as TAppContextAction),
   builderDataContext: builderDataContextReducer(builderDataContext, action as TBuilderDataContextAction)
 })
 
