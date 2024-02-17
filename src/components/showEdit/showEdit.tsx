@@ -1,11 +1,15 @@
 'use client';
 
-import { useLuminaContext } from '@/context/contextProvider'
-import styles from './showEdit.module.scss'
-import { useCallback, useState } from 'react'
-import ReactModal from 'react-modal'
-import { IComponentProps } from '@/data/data';
-import { InputRenderer } from './inputRenderer';
+/**
+ * Documentation found at ./readme.md
+ */
+
+import { useLuminaContext } from "@/context/contextProvider"
+import styles from "./showEdit.module.scss"
+import { useCallback, useState } from "react"
+import ReactModal from "react-modal"
+import { IComponentProps } from "@/data/data"
+import { InputRenderer } from "./inputRenderer"
 
 export type TConfigItem = TConfigItemValue | TConfigItemSelect
 
