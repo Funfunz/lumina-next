@@ -19,11 +19,13 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-modal": "^3.16.1",
+    "react-select": "^5.8.0",
     "sass": "^1.62.1",
     "typescript": "5.0.4"
   },
   "devDependencies": {
     "@types/react-modal": "^3.16.0",
+    "@types/react-select": "^5.0.1",
     "docsify-cli": "^4.4.4"
   }
 }

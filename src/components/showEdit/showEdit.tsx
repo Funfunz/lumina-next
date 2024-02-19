@@ -4,12 +4,13 @@
  * Documentation found at ./readme.md
  */
 
-import { useLuminaContext } from "@/context/contextProvider"
-import styles from "./showEdit.module.scss"
-import { useCallback, useState } from "react"
-import ReactModal from "react-modal"
-import { IComponentProps } from "@/data/data"
-import { InputRenderer } from "./inputRenderer"
+import { useLuminaContext } from "@/context/contextProvider";
+import styles from "./showEdit.module.scss";
+import { useCallback, useState } from "react";
+import ReactModal from "react-modal";
+import { IComponentProps } from "@/data/data";
+import { InputRenderer } from "./inputRenderer";
+import Select from "react-select"; // checkbox
 
 export type TConfigItem = TConfigItemValue | TConfigItemSelect;
 
@@ -57,13 +58,15 @@ export const ShowEdit = ({ id, onUpdate, config, data, inline }: Props) => {
     },
     dispatch,
   } = useLuminaContext();
-  let [showModal, setShowModal] = useState(false);
+  let [showModalEdit, setShowModalEdit] = useState(false);
+  let [showModalAdd, setShowModalAdd] = useState(false); //Add Button - BM
   let [formData, setFormData] = useState(data);
+  let [selectedOption, setSelectedOption] = useState("Select an option"); //CheckBox - BM
 
   let handleOnClickEdit = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
-      setShowModal(true);
+      setShowModalEdit(true);
     },
     []
   );
@@ -82,10 +85,20 @@ export const ShowEdit = ({ id, onUpdate, config, data, inline }: Props) => {
     [dispatch, id]
   );
 
+  // Add button - BM
+  let handleOnClickAdd = useCallback(
+    (event: React.MouseEvent<HTMLButtonElement>) => {
+      event.preventDefault();
+      setShowModalAdd(true);
+    },
+    []
+  );
+
   let handleCloseModal = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
-      setShowModal(false);
+      setShowModalEdit(false);
+      setShowModalAdd(false);
     },
     []
   );
@@ -103,7 +116,7 @@ export const ShowEdit = ({ id, onUpdate, config, data, inline }: Props) => {
   let handleOnClickSaveData = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
-      setShowModal(false);
+      setShowModalEdit(false);
       onUpdate && onUpdate(formData);
       dispatch({
         type: "updateBackend",
@@ -123,14 +136,23 @@ export const ShowEdit = ({ id, onUpdate, config, data, inline }: Props) => {
     [dispatch, formData, id, onUpdate]
   );
 
+  // Options for Checkbox - BM
+
+  const options = [
+    { value: "test1", label: "Test Component 1" },
+    { value: "test2", label: "Test Component 2" },
+    { value: "test3", label: "Test Component 3" },
+  ];
+
   if (!editor) return null;
 
   return (
     <>
+      {/* -------Start Edit Modal-------- */}
       {(config && (
         <ReactModal
           ariaHideApp={false}
-          isOpen={showModal}
+          isOpen={showModalEdit}
           contentLabel="Minimal Modal Example"
           style={customStyles}
         >
@@ -154,6 +176,25 @@ export const ShowEdit = ({ id, onUpdate, config, data, inline }: Props) => {
         </ReactModal>
       )) ||
         null}
+      {/* -------End Edit Modal-------- */}
+
+      {/* -------Start Add Modal-------- BM */}
+
+      {(config && (
+        <ReactModal
+          ariaHideApp={false}
+          isOpen={showModalAdd}
+          contentLabel="Modal for Adding Children Components"
+          style={customStyles}
+        >
+          <Select options={options} />
+          <button className={styles.btnShowEdit} onClick={handleCloseModal}>
+            Close Modal
+          </button>
+        </ReactModal>
+      )) ||
+        null}
+      {/* -------End Add Modal-------- */}
 
       <div
         className={`${styles.showEdit} ${
@@ -168,6 +209,9 @@ export const ShowEdit = ({ id, onUpdate, config, data, inline }: Props) => {
           null}
         <button className={styles.btnShowEdit} onClick={handleOnClickDelete}>
           Delete
+        </button>
+        <button className={styles.btnShowEdit} onClick={handleOnClickAdd}>
+          Add
         </button>
       </div>
     </>
