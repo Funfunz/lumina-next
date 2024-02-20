@@ -6,11 +6,12 @@
 
 import { useLuminaContext } from "@/context/contextProvider";
 import styles from "./showEdit.module.scss";
-import { useCallback, useState } from "react";
+import { MouseEventHandler, useCallback, useState } from "react";
 import ReactModal from "react-modal";
 import { IComponentProps } from "@/data/data";
 import { InputRenderer } from "./inputRenderer";
-import Select from "react-select"; // checkbox
+import Select from "react-select"; // dropdown selection
+import { componentNames } from "@/staticComponentsPath";
 
 export type TConfigItem = TConfigItemValue | TConfigItemSelect;
 
@@ -30,7 +31,7 @@ export interface TConfigItemSelect<T = string> extends TConfigItemBase {
 
 export type TElementConfig = (TConfigItemValue | TConfigItemSelect)[];
 
-type Props = {
+type ShowEditProps = {
   id: string;
   onUpdate?: (data: any) => void;
   data: IComponentProps;
@@ -48,10 +49,17 @@ const customStyles = {
     left: "15%",
     right: "15%",
     bottom: "15%",
+    background: "gray",
   },
 };
 
-export const ShowEdit = ({ id, onUpdate, config, data, inline }: Props) => {
+export const ShowEdit = ({
+  id,
+  onUpdate,
+  config,
+  data,
+  inline,
+}: ShowEditProps) => {
   let {
     state: {
       appContext: { editor },
@@ -61,7 +69,7 @@ export const ShowEdit = ({ id, onUpdate, config, data, inline }: Props) => {
   let [showModalEdit, setShowModalEdit] = useState(false);
   let [showModalAdd, setShowModalAdd] = useState(false); //Add Button - BM
   let [formData, setFormData] = useState(data);
-  let [selectedOption, setSelectedOption] = useState("Select an option"); //CheckBox - BM
+  let [selectedOption, setSelectedOption] = useState(); //dropdown - BM
 
   let handleOnClickEdit = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -136,13 +144,18 @@ export const ShowEdit = ({ id, onUpdate, config, data, inline }: Props) => {
     [dispatch, formData, id, onUpdate]
   );
 
-  // Options for Checkbox - BM
+  // Options for dropdown - BM
+  const options = Object.keys(componentNames).map((opt) => {
+    return {
+      value: opt,
+      label: componentNames[opt],
+    };
+  });
 
-  const options = [
-    { value: "test1", label: "Test Component 1" },
-    { value: "test2", label: "Test Component 2" },
-    { value: "test3", label: "Test Component 3" },
-  ];
+  // Handler for on Change from dropdown - BM
+  let handleSelectChange = (options: any) => {
+    setSelectedOption(options);
+  };
 
   if (!editor) return null;
 
@@ -187,7 +200,13 @@ export const ShowEdit = ({ id, onUpdate, config, data, inline }: Props) => {
           contentLabel="Modal for Adding Children Components"
           style={customStyles}
         >
-          <Select options={options} />
+          <Select
+            value={selectedOption}
+            options={options}
+            placeholder="Select from the list"
+            onChange={handleSelectChange}
+          />
+          <button className={styles.btnShowEdit}>Add Component</button>
           <button className={styles.btnShowEdit} onClick={handleCloseModal}>
             Close Modal
           </button>

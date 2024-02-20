@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 /**
  * this is the ContextProvider component
@@ -6,54 +6,59 @@
  * including the page structure and component data
  */
 
-import { createContext, useContext, useReducer } from 'react'
-import { IInitialStateType, TAppContextDispatch, initialContext, mainReducer } from './reducers/luminaReducer'
-import { IAppContext, initialAppContextState } from './reducers/appContext'
-import { IBuilderDataContext, initialBuilderDataContextState } from './reducers/builderDataContext'
+import { createContext, useContext, useReducer } from "react";
+import {
+  IInitialStateType,
+  TAppContextDispatch,
+  initialContext,
+  mainReducer,
+} from "./reducers/luminaReducer";
+import { IAppContext, initialAppContextState } from "./reducers/appContext";
+import {
+  IBuilderDataContext,
+  initialBuilderDataContextState,
+} from "./reducers/builderDataContext";
 
 export interface IContext {
-  state: IInitialStateType
-  dispatch: TAppContextDispatch
+  state: IInitialStateType;
+  dispatch: TAppContextDispatch;
 }
 
 const LuminaContext = createContext<IContext>({
   state: initialContext,
   dispatch: () => null,
-})
+});
 
 export function ContextProvider({
   children,
-  data = {}
+  data = {},
 }: {
-  children: React.ReactNode,
+  children: React.ReactNode;
   data?: {
-    appContext?: IAppContext
-    builderDataContext?: IBuilderDataContext
-  }
+    appContext?: IAppContext;
+    builderDataContext?: IBuilderDataContext;
+  };
 }) {
   const initialState = {
     ...initialContext,
     appContext: {
       ...initialAppContextState,
-      ...(data.appContext || {})
+      ...(data.appContext || {}),
     },
     builderDataContext: {
       ...initialBuilderDataContextState,
-      ...(data.builderDataContext || {})
-    }
-  }
-  const [state, dispatch] = useReducer(
-    mainReducer,
-    initialState
-  )
+      ...(data.builderDataContext || {}),
+    },
+  };
+  const [state, dispatch] = useReducer(mainReducer, initialState);
 
   return (
-    <LuminaContext.Provider value={{state, dispatch}}>
+    <LuminaContext.Provider value={{ state, dispatch }}>
       {children}
     </LuminaContext.Provider>
-  )
+  );
 }
 
 export const useLuminaContext = () => {
-  return useContext(LuminaContext)
-}
+  return useContext(LuminaContext);
+};

@@ -3,9 +3,9 @@
 import styles from "@/components/treeView/treeView.module.scss";
 import { useLuminaContext } from "@/context/contextProvider";
 import { IComponentData, IComponentProps } from "@/data/data";
-import { MouseEventHandler, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { ShowEdit } from "../showEdit/showEdit";
-import { configs, editorConfigs } from "@/staticComponentsPath";
+import { configs } from "@/staticComponentsPath";
 
 const TreeBranch = ({ data }: { data: IComponentData }) => {
   const [showChildren, setShowChildren] = useState(false);
@@ -14,30 +14,6 @@ const TreeBranch = ({ data }: { data: IComponentData }) => {
   const handleTreeHeadClick = useCallback(() => {
     setShowChildren(!showChildren);
   }, [showChildren]);
-
-  const handleOnClickCreate: MouseEventHandler<HTMLButtonElement> = useCallback(
-    (e) => {
-      e.stopPropagation();
-      e.preventDefault();
-      dispatch({
-        type: "createComponent",
-        data: {
-          parentId: data.id,
-          type: "linkBox",
-          id: Math.random().toString(16).slice(2),
-          friendlyName: "friendly link box",
-          children: [],
-          props: {
-            title: "title",
-            description: "description",
-            href: "href",
-            color: "white",
-          },
-        },
-      });
-    },
-    []
-  );
 
   return (
     <div className={styles.treeContainer}>
@@ -54,11 +30,6 @@ const TreeBranch = ({ data }: { data: IComponentData }) => {
           config={configs[data.type]}
           data={data.props as IComponentProps}
         />
-        {editorConfigs[data.type] && (
-          <button className={styles.btnTreeView} onClick={handleOnClickCreate}>
-            Add
-          </button>
-        )}
       </div>
       {(data.children?.length && showChildren && (
         <div className={styles.treeChildren}>
