@@ -11,7 +11,7 @@ import ReactModal from "react-modal";
 import { IComponentProps } from "@/data/data";
 import { InputRenderer } from "./inputRenderer";
 import Select from "react-select"; // dropdown selection
-import { componentNames } from "@/staticComponentsPath";
+import { componentNames } from "@/staticComponentsPath"; // dropdown selection
 
 export type TConfigItem = TConfigItemValue | TConfigItemSelect;
 
@@ -67,7 +67,8 @@ export const ShowEdit = ({
     dispatch,
   } = useLuminaContext();
   let [showModalEdit, setShowModalEdit] = useState(false);
-  let [showModalAdd, setShowModalAdd] = useState(false); //Add Button - BM
+  let [showModalAdd, setShowModalAdd] = useState(false); //Add Modal - BM
+  let [showModalDelete, setShowModalDelete] = useState(false); //Delete Modal - BM
   let [formData, setFormData] = useState(data);
   let [selectedOption, setSelectedOption] = useState(); //dropdown - BM
 
@@ -79,16 +80,25 @@ export const ShowEdit = ({
     []
   );
 
+  // Handle Delete
+  let handleDelete = useCallback(
+    (event: React.MouseEvent<HTMLButtonElement>) => {
+      event.preventDefault();
+      setShowModalDelete(true);
+    },
+    []
+  );
+
   let handleOnClickDelete = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
-      alert("Delete button clicked from " + id);
       dispatch({
         type: "deleteComponent",
         data: {
           id,
         },
       });
+      setShowModalDelete(false);
     },
     [dispatch, id]
   );
@@ -107,6 +117,7 @@ export const ShowEdit = ({
       event.preventDefault();
       setShowModalEdit(false);
       setShowModalAdd(false);
+      setShowModalDelete(false);
     },
     []
   );
@@ -191,6 +202,28 @@ export const ShowEdit = ({
         null}
       {/* -------End Edit Modal-------- */}
 
+      {/* -------Start Delete Modal-------- BM */}
+
+      {(config && (
+        <ReactModal
+          ariaHideApp={false}
+          isOpen={showModalDelete}
+          contentLabel="Modal for Component Deletion"
+          style={customStyles}
+          role={"dialog"}
+        >
+          <p>Are you sure you want to delete the Component?</p>
+          <button className={styles.btnShowEdit} onClick={handleOnClickDelete}>
+            Yes
+          </button>
+          <button className={styles.btnShowEdit} onClick={handleCloseModal}>
+            Cancel
+          </button>
+        </ReactModal>
+      )) ||
+        null}
+      {/* -------End Delete Modal-------- */}
+
       {/* -------Start Add Modal-------- BM */}
 
       {(config && (
@@ -226,7 +259,7 @@ export const ShowEdit = ({
           </button>
         )) ||
           null}
-        <button className={styles.btnShowEdit} onClick={handleOnClickDelete}>
+        <button className={styles.btnShowEdit} onClick={handleDelete}>
           Delete
         </button>
         <button className={styles.btnShowEdit} onClick={handleOnClickAdd}>
