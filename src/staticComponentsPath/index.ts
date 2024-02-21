@@ -34,6 +34,7 @@ const paths: {
   flex: Flex,
 };
 
+// used mainly for the dropbox on the "Add" button of showEdit component
 export const componentNames: {
   [key: string]: string;
 } = {

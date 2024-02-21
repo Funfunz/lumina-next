@@ -22,3 +22,21 @@
   background-color: var(--lumina-color-text);
   border: 2px solid --lumina-bg-color-inverted;
 }
+
+.modalEdit {
+  margin: 0 auto;
+  width: 50%;
+  min-width: 950px;
+  max-width: 950px;
+  max-height: 700px;
+  overflow: auto;
+  border: 1px solid;
+  background: gray;
+  border-radius: 5px;
+}
+@media screen and (max-width: 950px) {
+  .modal-container {
+    min-width: 0;
+    width: 80%;
+  }
+}

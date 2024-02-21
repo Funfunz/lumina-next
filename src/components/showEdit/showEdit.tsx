@@ -39,20 +39,6 @@ type ShowEditProps = {
   inline?: boolean;
 };
 
-const customStyles = {
-  overlay: {
-    zIndex: 1000,
-  },
-  content: {
-    color: "black",
-    top: "15%",
-    left: "15%",
-    right: "15%",
-    bottom: "15%",
-    background: "gray",
-  },
-};
-
 export const ShowEdit = ({
   id,
   onUpdate,
@@ -178,7 +164,7 @@ export const ShowEdit = ({
           ariaHideApp={false}
           isOpen={showModalEdit}
           contentLabel="Minimal Modal Example"
-          style={customStyles}
+          className={styles.modalEdit}
         >
           {config.map((configItem, index) => (
             <InputRenderer
@@ -209,7 +195,7 @@ export const ShowEdit = ({
           ariaHideApp={false}
           isOpen={showModalDelete}
           contentLabel="Modal for Component Deletion"
-          style={customStyles}
+          //className={customStyles}
           role={"dialog"}
         >
           <p>Are you sure you want to delete the Component?</p>
@@ -231,7 +217,7 @@ export const ShowEdit = ({
           ariaHideApp={false}
           isOpen={showModalAdd}
           contentLabel="Modal for Adding Children Components"
-          style={customStyles}
+          //style={customStyles}
         >
           <Select
             value={selectedOption}
