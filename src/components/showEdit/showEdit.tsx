@@ -6,12 +6,13 @@
 
 import { useLuminaContext } from "@/context/contextProvider";
 import styles from "./showEdit.module.scss";
-import { MouseEventHandler, useCallback, useState } from "react";
+import { PropsWithChildren, useCallback, useState } from "react";
 import ReactModal from "react-modal";
 import { IComponentProps } from "@/data/data";
 import { InputRenderer } from "./inputRenderer";
 import Select from "react-select"; // dropdown selection
 import { componentNames } from "@/staticComponentsPath"; // dropdown selection
+import { Button } from "../button/buttons";
 
 export type TConfigItem = TConfigItemValue | TConfigItemSelect;
 
@@ -29,15 +30,28 @@ export interface TConfigItemSelect<T = string> extends TConfigItemBase {
   arrayValues: T[];
 }
 
+export type TConfig = {
+  name: string,
+  props: (TConfigItemValue | TConfigItemSelect)[]
+}
+
 export type TElementConfig = (TConfigItemValue | TConfigItemSelect)[];
 
 type ShowEditProps = {
   id: string;
   onUpdate?: (data: any) => void;
   data: IComponentProps;
-  config?: TConfigItem[];
+  config?: TConfig;
   inline?: boolean;
 };
+
+const Title = ({name}: {name: string}) => {
+  return <h1 className={styles.title}>{name}</h1>
+}
+
+const Form: React.FC<PropsWithChildren> = ({children}) => {
+  return <table className={styles.formTable}>{children}</table>
+}
 
 export const ShowEdit = ({
   id,
@@ -52,6 +66,7 @@ export const ShowEdit = ({
     },
     dispatch,
   } = useLuminaContext();
+
   let [showModalEdit, setShowModalEdit] = useState(false);
   let [showModalAdd, setShowModalAdd] = useState(false); //Add Modal - BM
   let [showModalDelete, setShowModalDelete] = useState(false); //Delete Modal - BM
@@ -159,21 +174,27 @@ export const ShowEdit = ({
   return (
     <>
       {/* -------Start Edit Modal-------- */}
-      {(config && (
+      {(config?.props && (
         <ReactModal
           ariaHideApp={false}
           isOpen={showModalEdit}
           contentLabel="Minimal Modal Example"
           className={styles.modalEdit}
+          overlayClassName={styles.modalOverlay}
         >
-          {config.map((configItem, index) => (
-            <InputRenderer
-              key={index}
-              config={configItem}
-              value={formData[configItem.name] || ""}
-              handleOnChangeInput={handleOnChangeInput}
-            />
-          ))}
+          <Title name={config.name}/>
+          <Form>
+            <tbody>
+              {config.props.map((configItem, index) => (
+                <InputRenderer
+                  key={index}
+                  config={configItem}
+                  value={formData[configItem.name] || ""}
+                  handleOnChangeInput={handleOnChangeInput}
+                />
+              ))}
+            </tbody>
+          </Form>
           <button
             className={styles.btnShowEdit}
             onClick={handleOnClickSaveData}
@@ -190,7 +211,7 @@ export const ShowEdit = ({
 
       {/* -------Start Delete Modal-------- BM */}
 
-      {(config && (
+      {(config?.props && (
         <ReactModal
           ariaHideApp={false}
           isOpen={showModalDelete}
@@ -212,7 +233,7 @@ export const ShowEdit = ({
 
       {/* -------Start Add Modal-------- BM */}
 
-      {(config && (
+      {(config?.props && (
         <ReactModal
           ariaHideApp={false}
           isOpen={showModalAdd}
@@ -234,24 +255,42 @@ export const ShowEdit = ({
         null}
       {/* -------End Add Modal-------- */}
 
-      <div
-        className={`${styles.showEdit} ${
-          inline ? styles.showEditContainerInline : styles.showEditContainer
-        }`}
-      >
-        {(config && (
-          <button className={styles.btnShowEdit} onClick={handleOnClickEdit}>
-            Edit
-          </button>
-        )) ||
-          null}
-        <button className={styles.btnShowEdit} onClick={handleDelete}>
-          Delete
-        </button>
-        <button className={styles.btnShowEdit} onClick={handleOnClickAdd}>
-          Add
-        </button>
-      </div>
+      {inline && (
+        <div
+          className={`${styles.showEdit} ${styles.showEditContainerInline}`}
+        >
+          {(config && (
+            <Button onClick={handleOnClickEdit} round iconLeft="lumina-pencil"/>
+          )) ||
+            null}
+          <Button
+            color="danger"
+            onClick={handleDelete}
+            round
+            iconLeft="lumina-cross"
+          />
+          <Button color="primary" outline onClick={handleOnClickAdd} round iconLeft="lumina-plus"/>
+        </div>
+      ) || (
+        <div
+          className={`${styles.showEdit} ${styles.showEditContainer}`}
+        >
+          {(config && (
+            <Button text="Edit" onClick={handleOnClickEdit} iconRight="lumina-pencil"/>
+          )) ||
+            null}
+          <Button
+            text="Delete"
+            color="danger"
+            onClick={handleDelete}
+            iconRight="lumina-cross"
+          />
+          <Button text="Add" color="primary" outline onClick={handleOnClickAdd} iconRight="lumina-plus"/>
+        </div>
+      )}
+      
+
+      
     </>
   );
 };

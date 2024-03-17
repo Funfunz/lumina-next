@@ -15,7 +15,7 @@ type TProps = {
   color: 'black' | 'white' | 'green' | 'yellow'
 }
 
-export const LinkBox = ({id, title, description, href, color = 'white'}: TProps) => {  
+export const LinkBox = ({id, title, description, href, color = 'black'}: TProps) => {  
   const [data, setData] = useState({id, title, description, href, color})
 
   const onUpdateCallback = (data: any) => {

@@ -2,6 +2,7 @@
 
 import { ChangeEvent, ChangeEventHandler, useCallback } from 'react'
 import { TConfigItem, TConfigItemSelect } from './showEdit';
+import styles from "./showEdit.module.scss";
 
 type TProps = {
   config: TConfigItem
@@ -29,26 +30,24 @@ export const InputRenderer = ({config, value, handleOnChangeInput}: TProps) => {
     [handleOnChangeInput, config.name]
   )
 
-
-  if (isSelect(config)) {
-    return (
-      <div>
-        <label htmlFor={config.name}>{config.label}</label>
-        <select onChange={handleOnChangeSelectElement} value={value} id={config.name}>
-          {config.arrayValues.map(
-            (item) => (
-              <option key={item} value={item}>{item}</option>
-            )
-          )}
-        </select>
-      </div>
-    )
-  }
-
   return (
-    <div>
-      <label htmlFor={config.name}>{config.label}</label>
-      <input type={config.type} value={value} id={config.name} name={config.name} onChange={handleOnChangeInputElement}></input>
-    </div>
+    <tr>
+      <td className={`${styles.formTableCell} ${styles.formTableLabel}`}>
+          <label htmlFor={config.name}>{config.label}</label>
+      </td>
+      <td className={styles.formTableCell} style={{width: "100%"}}>
+        {isSelect(config) && (
+          <select onChange={handleOnChangeSelectElement} value={value} id={(config as TConfigItemSelect).name}>
+            {(config as TConfigItemSelect).arrayValues.map(
+              (item) => (
+                <option key={item} value={item}>{item}</option>
+              )
+            )}
+          </select>
+        ) || (
+          <input type={config.type} value={value} id={config.name} name={config.name} onChange={handleOnChangeInputElement}></input>
+        )}
+      </td>
+    </tr>
   )
 }

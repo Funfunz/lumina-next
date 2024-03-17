@@ -3,14 +3,6 @@
     "friendlyName": "Homepage",
     "children": [
       {
-        "id": "image1",
-        "type": "image",
-        "props": {
-          "alt": "paris",
-          "href": "https://www.w3schools.com/css/paris.jpg"
-        }
-      },
-      {
         "id": "image1test",
         "type": "image",
         "props": {

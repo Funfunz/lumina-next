@@ -17,8 +17,7 @@ import {
   editorConfig as editorConfigTitleText,
 } from "@/components/titleText/config";
 import {
-  TConfigItemValue,
-  TConfigItemSelect,
+  TConfig,
 } from "@/components/showEdit/showEdit";
 import { TEditorConfig } from "@/components/editor/editor";
 import { editorConfig as editorConfigGrid } from "@/components/grid/config";
@@ -48,7 +47,7 @@ export const componentNames: {
 export default paths;
 
 export const configs: {
-  [key: string]: (TConfigItemValue | TConfigItemSelect)[];
+  [key: string]: TConfig;
 } = {
   linkBox: configLinkBox,
   image: configImage,

@@ -1,19 +1,31 @@
 .editorContainer {
+  box-sizing: border-box;
   display: grid;
   height: 100%;
   grid-template-columns: 60px calc(100% - 60px);
   transition: grid-template-columns 0.2s ease-in-out;
-  background-color: var(--lumina-bg-color);
 
   &.open {
     grid-template-columns: 400px calc(100% - 400px);
+  }
+
+  * {
+    box-sizing: border-box;
   }
 }
 
 .editorBar {
   transition: width 0.2s ease-in-out;
+  overflow: hidden;
+  background-color: var(--lumina-bg-color);
+}
+
+.editorBarContent {
+  transition: width 0.2s ease-in-out;
   width: 400px;
   overflow: hidden;
+  padding: 10px;
+  background-color: var(--lumina-bg-color);
 }
 
 .editorToggler {
@@ -33,10 +45,6 @@
   left: 0;
   height: 60px;
   width: 60px;
-  padding: 0.6rem;
-
-  /* FOR DISPLAYING EVERY ELEMENT IN THE CENTER : */
-
   display: flex;
   align-items: center;
   justify-content: center;
