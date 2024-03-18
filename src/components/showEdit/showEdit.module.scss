@@ -1,3 +1,23 @@
+*:has(> .showEditContainer):hover {
+  outline: 1px solid black;
+  >.showEditContainer {
+    visibility: visible;
+  }
+}
+
+*:has(> .showEditContainerInline):hover:after {
+  width: 100%;
+  position: absolute;
+  bottom: -5px;
+  height: 1px;
+  background-color: black;
+  content: '';
+}
+
+.modalEdit {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .showEdit * {
   box-sizing: border-box;
 }
@@ -17,6 +37,7 @@
   bottom: 0;
   right: 0;
   z-index: 1000;
+  visibility: hidden;
 }
 
 .btnShowEdit {
@@ -34,6 +55,7 @@
   right: 0;
   padding: 40px;
   box-sizing: border-box;
+  z-index: 2000;
 
   * {
     box-sizing: border-box;
@@ -48,7 +70,7 @@
   max-height: 700px;
   overflow: auto;
   border: 1px solid;
-  background: gray;
+  background: var(--lumina-bg-color);
   border-radius: 5px;
   padding: 40px;
 }
@@ -60,7 +82,7 @@
 }
 
 .title {
-  color: var(--lumina-color-text-inverted);
+  color: var(--lumina-color-text);
   margin-top: 0;
 }
 
@@ -70,4 +92,10 @@
 
 .formTableLabel {
   padding-right: 8px;
+}
+
+.inlineButtons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
 }

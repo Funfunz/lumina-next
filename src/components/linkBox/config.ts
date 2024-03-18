@@ -1,4 +1,3 @@
-import { TEditorConfig } from "../editor/editor"
 import { TConfig } from "../showEdit/showEdit"
 
 export const config: TConfig = {
@@ -25,11 +24,10 @@ export const config: TConfig = {
       label: 'Text color',
       arrayValues: ['black', 'white', 'green', 'yellow']
     }
-  ]
-}
-
-export const editorConfig: TEditorConfig = {
-  create: false,
-  update: true,
-  delete: true
+  ],
+  editor: {
+    children: false,
+    editable: true,
+    delete: true
+  }
 }

@@ -1,7 +1,11 @@
 .treeContainer {
-  padding: 0 20px;
+  padding: 0 0 0 10px;
   position: relative;
-  color: var(--lumina-color-text-inverted);
+  color: var(--lumina-color-text);
+  
+  .treeHead {
+    padding: 0;
+  }
 }
 
 .pointerTreeView {
@@ -13,7 +17,9 @@
   padding: 0px 10px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 20px;
+  position: relative;
 }
 
 .btnTreeView {

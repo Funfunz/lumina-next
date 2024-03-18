@@ -1,5 +1,4 @@
-import { TConfig, TConfigItemSelect, TConfigItemValue } from "../showEdit/showEdit";
-import { TEditorConfig } from "../editor/editor"
+import { TConfig } from "../showEdit/showEdit";
 
 export const config: TConfig = {
   name: 'Image',
@@ -14,11 +13,10 @@ export const config: TConfig = {
       name: 'alt',
       label: 'Alt'
     }
-  ]
-}
-
-export const editorConfig: TEditorConfig = {
-  create: false,
-  update: true,
-  delete: true
+  ],
+  editor: {
+    children: false,
+    editable: true,
+    delete: true
+  }
 }

@@ -32,7 +32,7 @@
     border: 1px solid rgba(131, 134, 135, 0.15);
   }
 
-  .card:hover span {
+  .card:hover > h2 span {
     transform: translateX(4px);
   }
 }

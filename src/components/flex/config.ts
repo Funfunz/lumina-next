@@ -1,7 +1,10 @@
-import { TEditorConfig } from "../editor/editor"
+import { TConfig } from "../showEdit/showEdit";
 
-export const editorConfig: TEditorConfig = {
-  create: true,
-  update: false,
-  delete: true
+export const config: TConfig = {
+  name: 'flex',
+  editor: {
+    children: true,
+    editable: false,
+    delete: true
+  }
 }

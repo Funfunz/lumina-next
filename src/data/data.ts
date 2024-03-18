@@ -1,5 +1,5 @@
 export interface IComponentProps  {
-  [key: string]: string | number
+  [key: string]: string | number | undefined
 }
 
 export interface IComponentData {

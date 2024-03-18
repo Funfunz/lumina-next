@@ -1,13 +1,13 @@
 .button {
   box-sizing: border-box;
   border-radius: 5px;
-  color: var(--lumina-color-text);
+  color: var(--lumina-color-text-inverted);
   font-weight: 600;
   font-size: 13px;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 37px;
+  min-width: 22px;
   padding: 0;
   cursor: pointer;
   transition: box-shadow 0.2s ease-in-out;
@@ -32,40 +32,40 @@
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    padding: 10px;
+    padding: 5px;
   }
 
   &.outline {
-    background-color: var(--lumina-color-text);
+    background-color: var(--lumina-color-text-inverted);
   }
 
   &.primary {
-    border: 1px solid #00ceca;
-    box-shadow: 0px 0px 0px 0px #00ceca;
+    border: 1px solid #00bbb7;
+    box-shadow: 0px 0px 0px 0px #00bbb7;
 
     &:hover {
-      box-shadow: 0px 3px 5px -1px #00ceca;
+      box-shadow: 0px 3px 5px -1px #00bbb7;
     }
     &:not(.outline) {
-      background-color: #00ceca;
+      background-color: #00bbb7;
     }
     &.outline {
-      color: #00ceca;
+      color: #00bbb7;
     }
   }
 
   &.secondary {
-    border: 1px solid #a19bfd;
-    box-shadow: 0px 0px 0px 0px #a19bfd;
+    border: 1px solid #5656c7;
+    box-shadow: 0px 0px 0px 0px #5656c7;
 
     &:hover {
-      box-shadow: 0px 3px 5px -1px #a19bfd;
+      box-shadow: 0px 3px 5px -1px #5656c7;
     }
     &:not(.outline) {
-      background-color: #a19bfd;
+      background-color: #5656c7;
     }
     &.outline {
-      color: #a19bfd;
+      color: #5656c7;
     }
   }
 

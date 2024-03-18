@@ -6,10 +6,10 @@ import { IComponentData, IComponentProps } from "@/data/data";
 import { useCallback, useState } from "react";
 import { ShowEdit } from "../showEdit/showEdit";
 import { configs } from "@/staticComponentsPath";
+import { Button } from "../button/buttons";
 
 const TreeBranch = ({ data }: { data: IComponentData }) => {
   const [showChildren, setShowChildren] = useState(false);
-  const { dispatch } = useLuminaContext();
 
   const handleTreeHeadClick = useCallback(() => {
     setShowChildren(!showChildren);
@@ -73,9 +73,9 @@ export const TreeView = () => {
               {page}
             </div>
           ))}
-          <button className={styles.btnTreeView} onClick={handleAddClick}>
-            Add
-          </button>
+          <div className={styles.treeHead}>
+            <Button text="Add new page" color="primary" outline onClick={handleAddClick} iconRight="lumina-plus"/>
+          </div>
         </div>
       )) ||
         null}

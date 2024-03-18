@@ -4,12 +4,6 @@ import styles from "@/components/editor/editor.module.scss";
 import { useCallback, useState } from "react";
 import { TreeView } from "../treeView/treeView";
 
-export type TEditorConfig = {
-  create: boolean;
-  update: boolean;
-  delete: boolean;
-};
-
 type Props = {
   children: React.ReactNode;
 };
