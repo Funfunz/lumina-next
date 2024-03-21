@@ -50,6 +50,8 @@ type ShowEditProps = {
   data: IComponentProps;
   config?: TConfig;
   inline?: boolean;
+  noUp?: boolean
+  noDown?: boolean
 };
 
 const Title = ({name}: {name: string}) => {
@@ -66,6 +68,8 @@ export const ShowEdit = ({
   config,
   data,
   inline,
+  noUp,
+  noDown
 }: ShowEditProps) => {
   let {
     state: {
@@ -81,7 +85,8 @@ export const ShowEdit = ({
   let [deleteInputError, setDeleteInputError] = useState(false); //Delete Modal - error
   
   let [formData, setFormData] = useState(data || {});
-  let [selectedOption, setSelectedOption] = useState(); //dropdown - BM
+  let [selectedOption, setSelectedOption] = useState<{value: string, label: string}>(); //dropdown - new component
+  let [newComponentFriendlyName, setNewComponentFriendlyName] = useState("") //friendly name - new component
 
   let handleOnChangeDeleteInput = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
@@ -161,6 +166,32 @@ export const ShowEdit = ({
     [formData]
   );
 
+  let handleOnClickAddComponentModal = useCallback(
+    (event: React.MouseEvent<HTMLButtonElement>) => {
+      event.preventDefault();
+      if (!selectedOption) return
+      setShowModalAdd(false);
+      dispatch({
+        type: "createComponent",
+        data: {
+          parentId: id,
+          type: selectedOption.value,
+          friendlyName: newComponentFriendlyName,
+          children: [],
+          props: {}
+        }
+      });
+      dispatch({
+        type: "createComponentBackend",
+        data: {
+          props: {},
+          id,
+        },
+      });
+    },
+    [dispatch, id, newComponentFriendlyName, selectedOption]
+  );
+
   let handleOnClickSaveData = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
@@ -184,6 +215,34 @@ export const ShowEdit = ({
     [dispatch, formData, id, onUpdate]
   );
 
+  let handleOnClickMoveUp = useCallback(
+    (event: React.MouseEvent<HTMLButtonElement>) => {
+      event.preventDefault();
+      event.stopPropagation();
+      dispatch({
+        type: "moveUpComponent",
+        data: {
+          id,
+        },
+      })
+    },
+    [dispatch, id]
+  );
+
+  let handleOnClickMoveDown = useCallback(
+    (event: React.MouseEvent<HTMLButtonElement>) => {
+      event.preventDefault();
+      event.stopPropagation();
+      dispatch({
+        type: "moveDownComponent",
+        data: {
+          id,
+        },
+      })
+    },
+    [dispatch, id]
+  );
+
   // Options for dropdown - BM
   const options = Object.keys(configs).map((opt) => {
     return {
@@ -197,12 +256,19 @@ export const ShowEdit = ({
     setSelectedOption(options);
   };
 
+  // Handler for on Change from dropdown - BM
+  let handleOnChangeNewComponentFriendlyName = (event: ChangeEvent<HTMLInputElement>) => {
+    setNewComponentFriendlyName(event.target.value)
+  };
+
+  
+
   if (!editor) return null;
 
   return (
     <>
       {/* -------Start Edit Modal-------- */}
-      {(config?.props && (
+      {(config?.props && config?.editor.editable && (
         <ReactModal
           ariaHideApp={false}
           isOpen={showModalEdit}
@@ -242,7 +308,7 @@ export const ShowEdit = ({
 
       {/* -------Start Delete Modal-------- BM */}
 
-      {(config?.props && (
+      {(config?.editor.delete && (
         <ReactModal
           ariaHideApp={false}
           isOpen={showModalDelete}
@@ -276,24 +342,29 @@ export const ShowEdit = ({
 
       {/* -------Start Add Modal-------- BM */}
 
-      {(config?.props && (
+      {(config?.editor.children && (
         <ReactModal
           ariaHideApp={false}
           isOpen={showModalAdd}
           contentLabel="Modal for Adding Children Components"
-          //style={customStyles}
+          className={styles.modalEdit}
+          overlayClassName={styles.modalOverlay}
+          role={"dialog"}
         >
           <Select
+            id={`deleteComponent_dropdown_${id}`}
             value={selectedOption}
             options={options}
-            placeholder="Select from the list"
+            placeholder="Select a component..."
             onChange={handleSelectChange}
           />
+          <label htmlFor={`deleteComponent_friendlyName_${id}`}>Friendly name</label>
+          <input id={`deleteComponent_friendlyName_${id}`} type="text" value={newComponentFriendlyName} onChange={handleOnChangeNewComponentFriendlyName} />
           <div className={styles.inlineButtons}>
             <Button
               text="Add Component"
               color="primary"
-              onClick={handleCloseModal}
+              onClick={handleOnClickAddComponentModal}
             />
             <Button
               text="Close Modal"
@@ -332,6 +403,8 @@ export const ShowEdit = ({
               <Button color="primary" outline onClick={handleOnClickAdd} round iconLeft="lumina-plus"/>
             )
           ) || null}
+          {!noUp && <Button color="secondary" outline onClick={handleOnClickMoveUp} round iconLeft="lumina-arrow-up"/> || null}
+          {!noDown && <Button color="secondary" outline onClick={handleOnClickMoveDown} round iconLeft="lumina-arrow-down"/> || null}
         </div>
       ) || (
         <div

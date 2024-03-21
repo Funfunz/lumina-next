@@ -13,7 +13,9 @@ export type TBuilderDataContextAction =
   | IDeletePageAction
   | ICreateComponentAction
   | IUpdateComponentAction
-  | IDeleteComponentAction;
+  | IDeleteComponentAction
+  | IMoveUpComponentAction
+  | IMoveDownComponentAction;
 
 export interface ISetBuilderDataAction {
   type: "setBuilderData";
@@ -48,7 +50,7 @@ export interface ICreateComponentAction {
   type: "createComponent";
   data: {
     parentId: string;
-  } & IComponentData;
+  } & Partial<IComponentData>;
 }
 
 export interface IUpdateComponentAction {
@@ -56,6 +58,20 @@ export interface IUpdateComponentAction {
   data: {
     id: string;
     newProps: IComponentProps;
+  };
+}
+
+export interface IMoveUpComponentAction {
+  type: "moveUpComponent";
+  data: {
+    id: string;
+  };
+}
+
+export interface IMoveDownComponentAction {
+  type: "moveDownComponent";
+  data: {
+    id: string;
   };
 }
 
@@ -73,14 +89,16 @@ export const initialBuilderDataContextState = {
 };
 
 function newComponentFactory(
-  componentData: ICreateComponentAction["data"]
+  componentData: ICreateComponentAction["data"],
+  order: number
 ): IComponentData {
-  const { type, ...rest } = componentData;
+  const { type, friendlyName, ...rest } = componentData;
   return {
     id: `${type}_${Math.random()}`,
-    type: type,
-    friendlyName: componentData.friendlyName,
+    type: type as string,
+    friendlyName: friendlyName as string,
     children: [],
+    order,
     props: { ...rest.props },
   };
 }
@@ -98,7 +116,7 @@ function createElementAt(
     !data.parentId ||
     (instanceOfIComponentData(component) && component.id === data.parentId)
   ) {
-    component.children?.push(newComponentFactory(data));
+    component.children?.push(newComponentFactory(data, Math.max(...component.children.map((element) => element.order))));
     return component;
   }
 
@@ -149,7 +167,123 @@ function deleteElement(
     .filter((e) => e) as IComponentData[];
 }
 
-deleteElement;
+function upOrderElement (
+  element: IComponentData,
+  childrens: IComponentData[],
+): IComponentData | undefined {
+  let componentToReplace: IComponentData | undefined = undefined
+  childrens.forEach(
+    (currentElement) => {
+      if (currentElement.order < element.order) {
+        if (!componentToReplace) {
+          componentToReplace = {...currentElement}
+        }
+        if (componentToReplace && currentElement.order > componentToReplace.order) {
+          componentToReplace = {...currentElement}
+        }
+      }
+    }
+  )
+
+  return componentToReplace
+}
+
+function downOrderElement (
+  element: IComponentData,
+  childrens: IComponentData[],
+): IComponentData | undefined {
+  let componentToReplace: IComponentData | undefined = undefined
+  childrens.forEach(
+    (currentElement) => {
+      if (currentElement.order > element.order) {
+        if (!componentToReplace) {
+          componentToReplace = {...currentElement}
+        }
+        if (componentToReplace && currentElement.order < componentToReplace.order) {
+          componentToReplace = {...currentElement}
+        }
+      }
+    }
+  )
+
+  return componentToReplace
+}
+
+function moveUpElement(
+  childrens: IComponentData[],
+  targetId: string
+) {
+  let componentToReplace:IComponentData | undefined
+  let oldOrder = 0
+  let newChildrens = childrens.map(
+    (element) => {
+      if (element.id === targetId) {
+        oldOrder = element.order
+        componentToReplace = upOrderElement(element, childrens)
+        if (componentToReplace) {
+          element.order = componentToReplace?.order
+        } else {
+          element.order = 0
+        }
+      }
+      if (element.children && !componentToReplace) {
+        element.children = [...moveUpElement(element.children, targetId)];
+      }
+      return element;
+    }
+  )
+
+  if (componentToReplace) {
+    return newChildrens.map(
+      (element) => {
+        if (element.id === componentToReplace?.id) {
+          element.order = oldOrder
+        }
+        return element
+      }
+    )
+  }
+
+  return newChildrens
+}
+
+function moveDownElement(
+  childrens: IComponentData[],
+  targetId: string
+) {
+  let componentToReplace:IComponentData | undefined
+  let oldOrder = 0
+  let newChildrens = childrens.map(
+    (element) => {
+      if (element.id === targetId) {
+        oldOrder = element.order
+        componentToReplace = downOrderElement(element, childrens)
+        if (componentToReplace) {
+          element.order = componentToReplace?.order
+        } else {
+          element.order = 0
+        }
+      }
+      if (element.children && !componentToReplace) {
+        element.children = [...moveDownElement(element.children, targetId)];
+      }
+      return element;
+    }
+  )
+
+  if (componentToReplace) {
+    return newChildrens.map(
+      (element) => {
+        if (element.id === componentToReplace?.id) {
+          element.order = oldOrder
+        }
+        return element
+      }
+    )
+  }
+
+  return newChildrens
+}
 
 export const builderDataContextReducer = (
   data: IBuilderDataContext,
@@ -243,9 +377,41 @@ export const builderDataContextReducer = (
           },
         },
       };
-
+    case "moveUpComponent":
+      return {
+        ...data,
+        builderData: {
+          ...data.builderData,
+          [data.selectedPage]: {
+            ...data.builderData[data.selectedPage],
+            children: [
+              ...moveUpElement(
+                data.builderData[data.selectedPage].children,
+                action.data.id
+              ),
+            ],
+          },
+        },
+      };
+    case "moveDownComponent":
+      return {
+        ...data,
+        builderData: {
+          ...data.builderData,
+          [data.selectedPage]: {
+            ...data.builderData[data.selectedPage],
+            children: [
+              ...moveDownElement(
+                data.builderData[data.selectedPage].children,
+                action.data.id
+              ),
+            ],
+          },
+        },
+      };
     default:
       break;
   }
+
   return data;
 };

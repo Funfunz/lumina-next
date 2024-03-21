@@ -3,9 +3,9 @@
 @font-face {
   font-family: '#{$icomoon-font-family}';
   src:
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?kmvf9y') format('truetype'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?kmvf9y') format('woff'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?kmvf9y##{$icomoon-font-family}') format('svg');
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?rlfw8y') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?rlfw8y') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?rlfw8y##{$icomoon-font-family}') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -39,6 +39,16 @@
 .lumina-cross {
   &:before {
     content: $lumina-cross; 
+  }
+}
+.lumina-arrow-up {
+  &:before {
+    content: $lumina-arrow-up; 
+  }
+}
+.lumina-arrow-down {
+  &:before {
+    content: $lumina-arrow-down; 
   }
 }
 

@@ -41,4 +41,13 @@
     content: $lumina-cross; 
   }
 }
-
+.lumina-arrow-up {
+  &:before {
+    content: $lumina-arrow-up; 
+  }
+}
+.lumina-arrow-down {
+  &:before {
+    content: $lumina-arrow-down; 
+  }
+}
