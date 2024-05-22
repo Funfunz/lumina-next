@@ -4,12 +4,6 @@ import styles from "@/components/editor/editor.module.scss";
 import { useCallback, useState } from "react";
 import { TreeView } from "../treeView/treeView";
 
-export type TEditorConfig = {
-  create: boolean;
-  update: boolean;
-  delete: boolean;
-};
-
 type Props = {
   children: React.ReactNode;
 };
@@ -31,9 +25,11 @@ export const Editor = ({ children }: Props) => {
           onChange={handleMenuToggler}
         />
         <div className={styles.editorHamburger}>
-          <div></div>
+            <div></div>
+          </div>
+        <div className={styles.editorBarContent}>
+          {isOpen && <TreeView />}
         </div>
-        {isOpen && <TreeView />}
       </div>
       <div>{children}</div>
     </div>

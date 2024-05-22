@@ -10,11 +10,6 @@ type TProps = {
   alt: string
 }
 
-type TData =  {
-  href: string
-  alt: string
-}
-
 export const Image = ({href, alt, id}: TProps) => {
   
   if (!href) return null

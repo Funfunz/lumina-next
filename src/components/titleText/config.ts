@@ -1,21 +1,22 @@
-import { TEditorConfig } from "../editor/editor";
-import { TElementConfig } from "../showEdit/showEdit";
+import { TConfig } from "../showEdit/showEdit";
 
-export const config: TElementConfig = [
-  {
-    type: 'string',
-    name: 'title',
-    label: 'Title'
-  },
-  {
-    type: 'string',
-    name: 'text',
-    label: 'Text'
-  },
-]
-
-export const editorConfig: TEditorConfig = {
-  create: true,
-  update: true,
-  delete: true
+export const config: TConfig = {
+  name: "Title text",
+  props: [
+    {
+      type: 'string',
+      name: 'title',
+      label: 'Title'
+    },
+    {
+      type: 'string',
+      name: 'text',
+      label: 'Text'
+    },
+  ],
+  editor: {
+    children: false,
+    editable: true,
+    delete: true
+  }
 }

@@ -12,14 +12,7 @@ type TProps = {
   color: 'black' | 'white' | 'green' | 'yellow'
 }
 
-type TData =  {
-  href: string
-  title: string
-  description: string
-  color: 'black' | 'white' | 'green' | 'yellow'
-}
-
-export const LinkBox = ({id, title, description, href, color = 'white'}: TProps) => {
+export const LinkBox = ({id, title, description, href, color = 'black'}: TProps) => {
   if (!id || !title || !description || !href) return null
   return (
     <a

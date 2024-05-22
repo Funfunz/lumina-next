@@ -3,6 +3,7 @@
   grid-template-columns: repeat(4, minmax(25%, auto));
   width: 100%;
   max-width: 100%;
+  position: relative;
 }
 
 .column {

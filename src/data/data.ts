@@ -1,11 +1,12 @@
 export interface IComponentProps  {
-  [key: string]: string | number
+  [key: string]: string | number | undefined
 }
 
 export interface IComponentData {
   type: string,
   id: string,
   friendlyName: string,
+  order: number,
   children?: IComponentData[],
   props?: IComponentProps
 }

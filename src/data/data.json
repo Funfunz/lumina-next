@@ -3,16 +3,9 @@
     "friendlyName": "Homepage",
     "children": [
       {
-        "id": "image1",
-        "type": "image",
-        "props": {
-          "alt": "paris",
-          "href": "https://www.w3schools.com/css/paris.jpg"
-        }
-      },
-      {
         "id": "image1test",
         "type": "image",
+        "order": 0,
         "props": {
           "alt": "paris",
           "href": "https://www.w3schools.com/css/paris.jpg"
@@ -21,6 +14,7 @@
       {
         "id": "grid1",
         "type": "grid",
+        "order": 1,
         "children": [
           {
             "id": "flex1",
@@ -113,6 +107,7 @@
       {
         "id": "grid2",
         "type": "grid",
+        "order": 2,
         "children": [
           {
             "id": "linkBox5",
@@ -163,6 +158,7 @@
       {
         "id": "grid3",
         "type": "grid",
+        "order": 3,
         "children": [
           {
             "id": "grid4",

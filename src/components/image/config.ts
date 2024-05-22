@@ -1,21 +1,22 @@
-import { TConfigItemSelect, TConfigItemValue } from "../showEdit/showEdit";
-import { TEditorConfig } from "../editor/editor"
+import { TConfig } from "../showEdit/showEdit";
 
-export const config: (TConfigItemValue | TConfigItemSelect)[] = [
-  {
-    type: 'string',
-    name: 'href',
-    label: 'Href'
-  },
-  {
-    type: 'string',
-    name: 'alt',
-    label: 'Alt'
+export const config: TConfig = {
+  name: 'Image',
+  props: [
+    {
+      type: 'string',
+      name: 'href',
+      label: 'Href'
+    },
+    {
+      type: 'string',
+      name: 'alt',
+      label: 'Alt'
+    }
+  ],
+  editor: {
+    children: false,
+    editable: true,
+    delete: true
   }
-]
-
-export const editorConfig: TEditorConfig = {
-  create: false,
-  update: true,
-  delete: true
 }
