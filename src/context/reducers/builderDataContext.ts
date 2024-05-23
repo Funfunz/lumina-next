@@ -111,15 +111,18 @@ function createElementAt(
   component: IPageData | IComponentData,
   data: ICreateComponentAction["data"]
 ): IPageData | IComponentData {
+  console.log("reducerCreate",data);
   if (!component.children) [(component.children = [])];
   if (
     !data.parentId ||
     (instanceOfIComponentData(component) && component.id === data.parentId)
   ) {
+    console.log("hello")
     component.children?.push(newComponentFactory(data, Math.max(...component.children.map((element) => element.order))));
     return component;
   }
 
+  console.log("hello 2")
   component.children = component.children.map((element) => {
     return createElementAt(element, data) as IComponentData;
   });
@@ -328,6 +331,7 @@ export const builderDataContextReducer = (
       return newState;
 
     case "createComponent":
+      console.log("contextCreate",data);
       const stateCreateComponent = {
         ...data,
         builderData: {
