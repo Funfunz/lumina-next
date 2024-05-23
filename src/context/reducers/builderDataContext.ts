@@ -117,12 +117,11 @@ function createElementAt(
     !data.parentId ||
     (instanceOfIComponentData(component) && component.id === data.parentId)
   ) {
-    console.log("hello")
+    
     component.children?.push(newComponentFactory(data, Math.max(...component.children.map((element) => element.order))));
     return component;
   }
 
-  console.log("hello 2")
   component.children = component.children.map((element) => {
     return createElementAt(element, data) as IComponentData;
   });
