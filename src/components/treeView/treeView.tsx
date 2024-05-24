@@ -8,6 +8,7 @@ import { ShowEdit } from "../showEdit/showEdit";
 import { configs } from "@/staticComponentsPath";
 import { Button } from "../button/buttons";
 
+
 const TreeBranch = ({ data, noUp, noDown }: { data: IComponentData, noUp: boolean, noDown: boolean }) => {
   const [showChildren, setShowChildren] = useState(false);
 
@@ -68,12 +69,27 @@ export const TreeView = () => {
     state: { builderDataContext },
     dispatch,
   } = useLuminaContext();
-  const handleAddClick = useCallback(() => {
+
+  const handleAddPageClick = useCallback(() => {
     dispatch({
       type: "createPage",
       data: { name: "testPage", friendlyName: "Test Page" },
     });
   }, [dispatch]);
+
+  const handleAddComponentClick = useCallback(() => {
+    dispatch({
+      type: "createComponent",
+      data: {
+        parentId: "123123123",
+        type: "linkBox",
+        friendlyName: "wiskasaquetas",
+        children: [],
+        props: {}
+      },
+    });
+  }, [dispatch]);
+
   return (
     <>
       {(Object.keys(builderDataContext.builderData).length && (
@@ -85,7 +101,7 @@ export const TreeView = () => {
             </div>
           ))}
           <div className={styles.treeHead}>
-            <Button text="Add new page" color="primary" outline onClick={handleAddClick} iconRight="lumina-plus"/>
+            <Button text="Add new page" color="primary" outline onClick={handleAddPageClick} iconRight="lumina-plus"/>
           </div>
         </div>
       )) ||
@@ -97,6 +113,7 @@ export const TreeView = () => {
             builderDataContext.builderData[builderDataContext.selectedPage].children
           }
         />
+      <Button text="Add new component" color="primary" outline onClick={handleAddComponentClick} iconRight="lumina-plus"/>
       </div>
     </>
   );
