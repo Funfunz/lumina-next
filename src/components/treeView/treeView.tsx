@@ -3,10 +3,8 @@
 import styles from "@/components/treeView/treeView.module.scss";
 import { useLuminaContext } from "@/context/contextProvider";
 import { IComponentData, IComponentProps } from "@/data/data";
-import { ChangeEvent, useCallback, useState } from "react";
-import ReactModal from "react-modal";
-import Select from "react-select"; 
-import { ShowEdit, TConfig } from "../showEdit/showEdit";
+import { useCallback, useState } from "react";
+import { ShowEdit } from "../showEdit/showEdit";
 import { configs } from "@/staticComponentsPath";
 import { Button } from "../button/buttons";
 
