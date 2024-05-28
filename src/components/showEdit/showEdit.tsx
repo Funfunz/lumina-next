@@ -170,7 +170,6 @@ export const ShowEdit = ({
   let handleOnClickAddComponentModal = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
-      console.log("handleCreate",id,data);
       if (!selectedOption) return
       setShowModalAdd(false);
       dispatch({
@@ -191,7 +190,7 @@ export const ShowEdit = ({
         },
       });
     },
-    [data, dispatch, id, newComponentFriendlyName, selectedOption]
+    [dispatch, id, newComponentFriendlyName, selectedOption]
   );
 
   let handleOnClickSaveData = useCallback(

@@ -37,6 +37,4 @@ export const Render = ({ elements }: IProps) => {
       )}
     </>
   )
-    
-  return null
 }
