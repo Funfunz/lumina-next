@@ -92,6 +92,7 @@ export const TreeView = () => {
         null}
       <div>
         <h3 className={styles.treeHead}>Components</h3>
+        <ShowEdit noUp={true} noDown={true} id="" data={{}} config={{name: "page", editor: {editable: false, delete: false, children: true}}} inline={true}/>
         <ComponentTree
           data={
             builderDataContext.builderData[builderDataContext.selectedPage].children
