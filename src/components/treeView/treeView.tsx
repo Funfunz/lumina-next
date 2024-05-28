@@ -68,55 +68,11 @@ const ComponentTree = ({ data }: { data: IComponentData[] }) => {
   );
 };
 
-type ShowEditProps = {
-  id: string;
-  config?: TConfig;
-  data:IComponentProps;
-};
-
-export const TreeView = ({
-    id,
-    config,
-    data,
-  }: ShowEditProps) => {
-    let {
-      state: {
-        builderDataContext,
-      },
-      dispatch,
-    } = useLuminaContext();
-
-    
-    let [showModalAdd, setShowModalAdd] = useState(false); //Add Modal - BM
-    let [selectedOption, setSelectedOption] = useState<{value: string, label: string}>(); //dropdown - new component
-    let [newComponentFriendlyName, setNewComponentFriendlyName] = useState("") //friendly name - new component
-    
-    // Options for dropdown - BM
-  const options = Object.keys(configs).map((opt) => {
-    return {
-      value: opt,
-      label: configs[opt].name,
-    };
-  });
-
-  // Handler for on Change from dropdown - BM
-  let handleSelectChange = (options: any) => {
-    setSelectedOption(options);
-  };
-
-  // Handler for on Change from dropdown - BM
-  let handleOnChangeNewComponentFriendlyName = (event: ChangeEvent<HTMLInputElement>) => {
-    setNewComponentFriendlyName(event.target.value)
-  };
-
-  let handleCloseModal = useCallback(
-    (event: React.MouseEvent<HTMLButtonElement>) => {
-      event.preventDefault();
-      event.stopPropagation()
-      setShowModalAdd(false);
-    },
-    []
-  );
+export const TreeView = () => {
+  const {
+    state: { builderDataContext },
+    dispatch,
+  } = useLuminaContext();
 
   const handleAddPageClick = useCallback(() => {
     dispatch({
@@ -125,20 +81,6 @@ export const TreeView = ({
     });
   }, [dispatch]);
 
-  const handleAddComponentClick = useCallback(() => {
-    dispatch({
-      type: "createComponent",
-      data: {
-        parentId: id,
-        type: selectedOption?.value,
-        friendlyName: newComponentFriendlyName,
-        children: [],
-        props: {}
-      }
-    });
-  }, [dispatch, id, newComponentFriendlyName, selectedOption]);
-
-  
   return (
     <>
       {(Object.keys(builderDataContext.builderData).length && (
@@ -163,43 +105,6 @@ export const TreeView = ({
             builderDataContext.builderData[builderDataContext.selectedPage].children
           }
         />
-      <Button text="Add new component" color="primary" outline onClick={handleAddComponentClick} iconRight="lumina-plus"/>
-      
-      {(config?.editor && (
-      <ReactModal
-        ariaHideApp={false}
-        isOpen={showModalAdd}
-        contentLabel="Modal for Adding Children Components"
-        className={styles.modalEdit}
-        overlayClassName={styles.modalOverlay}
-        role={"dialog"}
-      >
-        <Select
-          id={`deleteComponent_dropdown_${id}`}
-          value={selectedOption}
-          options={options}
-          placeholder="Select a component..."
-          onChange={handleSelectChange}
-        />
-        <label htmlFor={`deleteComponent_friendlyName_${id}`}>Friendly name</label>
-        <input id={`deleteComponent_friendlyName_${id}`} type="text" value={newComponentFriendlyName} onChange={handleOnChangeNewComponentFriendlyName} />
-        <div className={styles.inlineButtons}>
-          <Button
-            text="Add Component"
-            color="primary"
-            onClick={handleAddComponentClick}
-          />
-          <Button
-            text="Close Modal"
-            color="secondary"
-            outline
-            onClick={handleCloseModal}
-            iconRight="lumina-cross"
-          />
-        </div>
-      </ReactModal>
-    )) ||
-      null}
       </div>
     </>
   );

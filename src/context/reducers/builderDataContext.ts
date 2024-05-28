@@ -328,7 +328,6 @@ export const builderDataContextReducer = (
       return newState;
 
     case "createComponent":
-      console.log("contextCreate",data);
       const stateCreateComponent = {
         ...data,
         builderData: {

@@ -71,7 +71,6 @@ export const ShowEdit = ({
   noUp,
   noDown
 }: ShowEditProps) => {
-  console.log({config, props: config?.name})
   let {
     state: {
       appContext: { editor },
@@ -218,7 +217,6 @@ export const ShowEdit = ({
 
   let handleOnClickMoveUp = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
-      console.log("moveUp",id)
       event.preventDefault();
       event.stopPropagation();
       dispatch({
