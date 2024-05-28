@@ -169,7 +169,6 @@ export const ShowEdit = ({
   let handleOnClickAddComponentModal = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
-      console.log("handleCreate",id);
       if (!selectedOption) return
       setShowModalAdd(false);
       dispatch({
