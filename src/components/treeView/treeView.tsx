@@ -8,12 +8,15 @@ import { ShowEdit } from "../showEdit/showEdit";
 import { configs } from "@/staticComponentsPath";
 import { Button } from "../button/buttons";
 
+
 const TreeBranch = ({ data, noUp, noDown }: { data: IComponentData, noUp: boolean, noDown: boolean }) => {
   const [showChildren, setShowChildren] = useState(false);
 
   const handleTreeHeadClick = useCallback(() => {
     setShowChildren(!showChildren);
   }, [showChildren]);
+
+  
 
   return (
     <div className={styles.treeContainer}>
@@ -68,12 +71,14 @@ export const TreeView = () => {
     state: { builderDataContext },
     dispatch,
   } = useLuminaContext();
-  const handleAddClick = useCallback(() => {
+
+  const handleAddPageClick = useCallback(() => {
     dispatch({
       type: "createPage",
       data: { name: "testPage", friendlyName: "Test Page" },
     });
   }, [dispatch]);
+
   return (
     <>
       {(Object.keys(builderDataContext.builderData).length && (
@@ -85,13 +90,14 @@ export const TreeView = () => {
             </div>
           ))}
           <div className={styles.treeHead}>
-            <Button text="Add new page" color="primary" outline onClick={handleAddClick} iconRight="lumina-plus"/>
+            <Button text="Add new page" color="primary" outline onClick={handleAddPageClick} iconRight="lumina-plus"/>
           </div>
         </div>
       )) ||
         null}
       <div>
         <h3 className={styles.treeHead}>Components</h3>
+        <ShowEdit noUp={true} noDown={true} id="" data={{}} config={{name: "page", editor: {editable: false, delete: false, children: true}}} inline={true}/>
         <ComponentTree
           data={
             builderDataContext.builderData[builderDataContext.selectedPage].children

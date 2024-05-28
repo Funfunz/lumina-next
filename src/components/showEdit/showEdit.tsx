@@ -261,10 +261,7 @@ export const ShowEdit = ({
     setNewComponentFriendlyName(event.target.value)
   };
 
-  
-
   if (!editor) return null;
-
   return (
     <>
       {/* -------Start Edit Modal-------- */}
@@ -379,7 +376,7 @@ export const ShowEdit = ({
         null}
       {/* -------End Add Modal-------- */}
 
-      {inline && (
+      {(inline && (
         <div
           className={`${styles.showEdit} ${styles.showEditContainerInline}`}
         >
@@ -406,7 +403,7 @@ export const ShowEdit = ({
           {!noUp && <Button color="secondary" outline onClick={handleOnClickMoveUp} round iconLeft="lumina-arrow-up"/> || null}
           {!noDown && <Button color="secondary" outline onClick={handleOnClickMoveDown} round iconLeft="lumina-arrow-down"/> || null}
         </div>
-      ) || (
+      )) || (
         <div
           className={`${styles.showEdit} ${styles.showEditContainer}`}
         >
