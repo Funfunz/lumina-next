@@ -1,6 +1,6 @@
 "use client";
 
-import { Dispatch, createContext, useContext, useReducer } from 'react'
+import { Dispatch, createContext, useContext, useEffect, useReducer } from 'react'
 
 const initialContext = {
   id: '',
@@ -64,6 +64,17 @@ export function ContextProvider({
       ...initialContext,
       ...data
     }
+  )
+
+  useEffect(
+    () => {
+      dispatch(
+        {
+          type: 'update',
+          data
+        }
+      )
+    }, [data]
   )
 
   return (
