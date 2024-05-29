@@ -20,6 +20,5 @@ export const LinkBox = ({id, title, description, href, color = 'black'}: TProps)
     >
       <LinkBoxInternal/>
     </ContextProvider>
-    
   )
 }
