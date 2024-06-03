@@ -119,9 +119,10 @@ function createElementAt(
     !data.parentId ||
     (instanceOfIComponentData(component) && component.id === data.parentId)
   ) {
-    // Add the new component with the next highest order
-    component.children?.push(newComponentFactory(data, Math.max(...component.children.map((element) => element.order))));
+    // Add the new component with the highest order
+    component.children?.push(newComponentFactory(data, Math.max(0,...component.children.map((element) => element.order))+1));
     
+    // Return the updated component
     return component;
   }
 
