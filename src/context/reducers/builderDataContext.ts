@@ -111,18 +111,26 @@ function createElementAt(
   component: IPageData | IComponentData,
   data: ICreateComponentAction["data"]
 ): IPageData | IComponentData {
+  // Ensure the component has a children array
   if (!component.children) [(component.children = [])];
+
+  // Check if the component is the parent or if no parentId is specified
   if (
     !data.parentId ||
     (instanceOfIComponentData(component) && component.id === data.parentId)
   ) {
+    // Add the new component with the next highest order
     component.children?.push(newComponentFactory(data, Math.max(...component.children.map((element) => element.order))));
+    
     return component;
   }
 
+  // If not the parent, recursively search for the parent in the children
   component.children = component.children.map((element) => {
     return createElementAt(element, data) as IComponentData;
   });
+  
+  // Return the updated component
   return component;
 }
 
@@ -180,12 +188,13 @@ function upOrderElement (
         }
         if (componentToReplace && currentElement.order > componentToReplace.order) {
           componentToReplace = {...currentElement}
+          console.log(componentToReplace)
         }
       }
     }
   )
 
-  return componentToReplace
+  return componentToReplace;
 }
 
 function downOrderElement (
@@ -201,12 +210,16 @@ function downOrderElement (
         }
         if (componentToReplace && currentElement.order < componentToReplace.order) {
           componentToReplace = {...currentElement}
+          console.log(componentToReplace)
+          
         }
       }
     }
+    
   )
 
-  return componentToReplace
+  return componentToReplace;
+  
 }
 
 function moveUpElement(
@@ -283,6 +296,8 @@ function moveDownElement(
   }
 
   return newChildrens
+
+  
 }
 
 export const builderDataContextReducer = (
