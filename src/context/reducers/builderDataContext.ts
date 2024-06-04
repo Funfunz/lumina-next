@@ -65,6 +65,7 @@ export interface IMoveUpComponentAction {
   type: "moveUpComponent";
   data: {
     id: string;
+    parentId: string;
   };
 }
 
@@ -72,6 +73,7 @@ export interface IMoveDownComponentAction {
   type: "moveDownComponent";
   data: {
     id: string;
+    parentId: string;
   };
 }
 
@@ -121,7 +123,9 @@ function createElementAt(
   ) {
     // Add the new component with the highest order
     component.children?.push(newComponentFactory(data, Math.max(0,...component.children.map((element) => element.order))+1));
-    
+
+    console.log(data.parentId)
+
     // Return the updated component
     return component;
   }
@@ -136,12 +140,11 @@ function createElementAt(
 }
 
 function updateElement(
-  childrens: IComponentData[],
+  components: IComponentData[],
   targetId: string,
   newProps: IComponentProps
 ): IComponentData[] {
-  let found: IComponentData | undefined;
-  return childrens.map((element) => {
+  return components.map((element) => {
     if (element.id === targetId) {
       element.props = {
         ...element.props,
@@ -159,10 +162,10 @@ function updateElement(
 }
 
 function deleteElement(
-  childrens: IComponentData[],
+  components: IComponentData[],
   targetId: string
 ): IComponentData[] {
-  return childrens
+  return components
     .map((element) => {
       if (element.id === targetId) {
         return undefined;
@@ -178,10 +181,10 @@ function deleteElement(
 
 function upOrderElement (
   element: IComponentData,
-  childrens: IComponentData[],
+  components: IComponentData[],
 ): IComponentData | undefined {
-  let componentToReplace: IComponentData | undefined = undefined
-  childrens.forEach(
+  let componentToReplace: IComponentData | undefined = undefined;
+  components.forEach(
     (currentElement) => {
       if (currentElement.order < element.order) {
         if (!componentToReplace) {
@@ -189,7 +192,7 @@ function upOrderElement (
         }
         if (componentToReplace && currentElement.order > componentToReplace.order) {
           componentToReplace = {...currentElement}
-          console.log(componentToReplace)
+        
         }
       }
     }
@@ -198,42 +201,42 @@ function upOrderElement (
   return componentToReplace;
 }
 
+//
+
+
 function downOrderElement (
   element: IComponentData,
-  childrens: IComponentData[],
+  components: IComponentData[],
 ): IComponentData | undefined {
   let componentToReplace: IComponentData | undefined = undefined
-  childrens.forEach(
+  components.forEach(
     (currentElement) => {
-      if (currentElement.order > element.order) {
+      if (currentElement.order > element.order ) {
         if (!componentToReplace) {
           componentToReplace = {...currentElement}
         }
         if (componentToReplace && currentElement.order < componentToReplace.order) {
           componentToReplace = {...currentElement}
-          console.log(componentToReplace)
-          
         }
       }
     }
-    
-  )
+  );
 
   return componentToReplace;
   
 }
 
 function moveUpElement(
-  childrens: IComponentData[],
+  components: IComponentData[],
   targetId: string
 ) {
   let componentToReplace:IComponentData | undefined
   let oldOrder = 0
-  let newChildrens = childrens.map(
+  let newComponents = components.map(
     (element) => {
       if (element.id === targetId) {
         oldOrder = element.order
-        componentToReplace = upOrderElement(element, childrens)
+        componentToReplace = upOrderElement(element, components)
         if (componentToReplace) {
           element.order = componentToReplace?.order
         } else {
@@ -248,7 +251,7 @@ function moveUpElement(
   )
 
   if (componentToReplace) {
-    return newChildrens.map(
+    return newComponents.map(
       (element) => {
         if (element.id === componentToReplace?.id) {
           element.order = oldOrder
@@ -258,20 +261,21 @@ function moveUpElement(
     )
   }
 
-  return newChildrens
+  return newComponents
 }
 
 function moveDownElement(
-  childrens: IComponentData[],
-  targetId: string
+  components: IComponentData[],
+  targetId: string,
 ) {
   let componentToReplace:IComponentData | undefined
   let oldOrder = 0
-  let newChildrens = childrens.map(
+  let newComponents = components.map(
     (element) => {
       if (element.id === targetId) {
+        console.log(element, targetId)
         oldOrder = element.order
-        componentToReplace = downOrderElement(element, childrens)
+        componentToReplace = downOrderElement(element, components)
         if (componentToReplace) {
           element.order = componentToReplace?.order
         } else {
@@ -281,12 +285,13 @@ function moveDownElement(
       if (element.children && !componentToReplace) {
         element.children = [...moveDownElement(element.children, targetId)];
       }
+   
       return element;
     }
   )
 
   if (componentToReplace) {
-    return newChildrens.map(
+    return newComponents.map(
       (element) => {
         if (element.id === componentToReplace?.id) {
           element.order = oldOrder
@@ -296,7 +301,7 @@ function moveDownElement(
     )
   }
 
-  return newChildrens
+  return newComponents
 
   
 }
