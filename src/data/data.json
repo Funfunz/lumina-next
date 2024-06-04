@@ -18,6 +18,7 @@
         "children": [
           {
             "id": "flex1",
+            "order": 0,
             "type": "flex",
             "props": {
               "style": "column"
@@ -25,6 +26,7 @@
             "children": [
               {
                 "id": "linkBox1_1",
+                "order": 1,
                 "type": "linkBox",
                 "props": {
                   "title": "Docs",
@@ -34,6 +36,7 @@
               },
               {
                 "id": "titleText1_1",
+                "order": 2,
                 "type": "titleText",
                 "props": {
                   "title": "This is a title",
@@ -47,15 +50,17 @@
       {
         "id": "grid3",
         "type": "grid",
-        "order": 3,
+        "order": 2,
         "children": [
           {
             "id": "grid4",
             "type": "grid",
+            "order":0,
             "children": [
               {
                 "id": "grid4image1",
                 "type": "image",
+                "order": 0,
                 "props": {
                   "alt": "paris",
                   "href": "https://www.w3schools.com/css/paris.jpg"
@@ -64,6 +69,7 @@
               {
                 "id": "grid4image2",
                 "type": "image",
+                "order": 1,
                 "props": {
                   "alt": "paris",
                   "href": "https://www.w3schools.com/css/paris.jpg"
@@ -73,10 +79,12 @@
           },
           {
             "id": "grid5",
+            "order": 1,
             "type": "grid",
             "children": [
               {
                 "id": "grid5image1",
+                "order": 0,
                 "type": "image",
                 "props": {
                   "alt": "paris",
@@ -85,6 +93,7 @@
               },
               {
                 "id": "grid5image2",
+                "order": 1,
                 "type": "image",
                 "props": {
                   "alt": "paris",
