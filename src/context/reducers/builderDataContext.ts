@@ -65,7 +65,6 @@ export interface IMoveUpComponentAction {
   type: "moveUpComponent";
   data: {
     id: string;
-    parentId: string;
   };
 }
 
@@ -73,7 +72,6 @@ export interface IMoveDownComponentAction {
   type: "moveDownComponent";
   data: {
     id: string;
-    parentId: string;
   };
 }
 
@@ -123,8 +121,6 @@ function createElementAt(
   ) {
     // Add the new component with the highest order
     component.children?.push(newComponentFactory(data, Math.max(0,...component.children.map((element) => element.order))+1));
-
-    console.log(data.parentId)
 
     // Return the updated component
     return component;
