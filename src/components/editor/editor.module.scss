@@ -18,7 +18,7 @@
 .editorBar {
   transition: width 0.2s ease-in-out;
   overflow: hidden;
-  background-color: var(--lumina-bg-color);
+  background-color: var(--lum-color-background);
 }
 
 .editorBarContent {
@@ -26,7 +26,7 @@
   width: 350px;
   overflow: hidden;
   padding: 10px;
-  background-color: var(--lumina-bg-color);
+  background-color: var(--lum-color-background);
 }
 
 .editorToggler {
@@ -57,7 +57,7 @@
   position: relative;
   top: 0;
   left: 0;
-  background: var(--lumina-color-text);
+  background: var(--lum-color-text);
   height: 2px;
   width: 60%;
   transition: all 0.4s ease;
@@ -71,7 +71,7 @@ TOP AT -10PX ABOVE THE MIDDLE ONE AND BOTTOM ONE IS 10PX BELOW THE MIDDLE: */
   content: "";
   position: absolute;
   top: -10px;
-  background: var(--lumina-color-text);
+  background: var(--lum-color-text);
   width: 100%;
   height: 2px;
   transition: all 0.4s ease;

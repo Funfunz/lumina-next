@@ -1,7 +1,7 @@
 .button {
   box-sizing: border-box;
   border-radius: 5px;
-  color: var(--lumina-color-text-inverted);
+  color: var(--lum-color-button-text);
   font-weight: 600;
   font-size: 13px;
   display: flex;
@@ -36,66 +36,66 @@
   }
 
   &.outline {
-    background-color: var(--lumina-color-text-inverted);
+    background-color: var(--lum-color-text-inverse);
   }
 
   &.primary {
-    border: 1px solid #00bbb7;
-    box-shadow: 0px 0px 0px 0px #00bbb7;
+    border: 1px solid var(--lum-color-button-primary-background);
+    box-shadow: 0px 0px 0px 0px var(--lum-color-button-primary-background);
 
     &:hover {
-      box-shadow: 0px 3px 5px -1px #00bbb7;
+      box-shadow: 0px 3px 5px -1px var(--lum-color-button-primary-background);
     }
     &:not(.outline) {
-      background-color: #00bbb7;
+      background-color: var(--lum-color-button-primary-background);
     }
     &.outline {
-      color: #00bbb7;
+      color: var(--lum-color-button-primary-background);
     }
   }
 
   &.secondary {
-    border: 1px solid #5656c7;
-    box-shadow: 0px 0px 0px 0px #5656c7;
+    border: 1px solid var(--lum-color-button-secondary-background);
+    box-shadow: 0px 0px 0px 0px var(--lum-color-button-secondary-background);
 
     &:hover {
-      box-shadow: 0px 3px 5px -1px #5656c7;
+      box-shadow: 0px 3px 5px -1px var(--lum-color-button-secondary-background);
     }
     &:not(.outline) {
-      background-color: #5656c7;
+      background-color: var(--lum-color-button-secondary-background);
     }
     &.outline {
-      color: #5656c7;
+      color: var(--lum-color-button-secondary-background);
     }
   }
 
   &.warning {
-    border: 1px solid #ffc31d;
-    box-shadow: 0px 0px 0px 0px #ffc31d;
+    border: 1px solid var(--lum-color-button-warning-background);
+    box-shadow: 0px 0px 0px 0px var(--lum-color-button-warning-background);
 
     &:hover {
-      box-shadow: 0px 3px 5px -1px #ffc31d;
+      box-shadow: 0px 3px 5px -1px var(--lum-color-button-warning-background);
     }
     &:not(.outline) {
-      background-color: #ffc31d;
+      background-color: var(--lum-color-button-warning-background);
     }
     &.outline {
-      color: #ffc31d;
+      color: var(--lum-color-button-warning-background);
     }
   }
 
   &.danger {
-    border: 1px solid #fe7676;
-    box-shadow: 0px 0px 0px 0px #fe7676;
+    border: 1px solid var(--lum-color-button-danger-background);
+    box-shadow: 0px 0px 0px 0px var(--lum-color-button-danger-background);
 
     &:hover {
-      box-shadow: 0px 3px 5px -1px #fe7676;
+      box-shadow: 0px 3px 5px -1px var(--lum-color-button-danger-background);
     }
     &:not(.outline) {
-      background-color: #fe7676;
+      background-color: var(--lum-color-button-danger-background);
     }
     &.outline {
-      color: #fe7676;
+      color: var(--lum-color-button-danger-background);
     }
   }
 

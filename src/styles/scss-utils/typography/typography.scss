@@ -1,0 +1,54 @@
+@import '@/styles/scss-utils/mixins/typography';
+
+.lum-link {
+  @include lum-typo-link;
+}
+
+.lum-pre,
+.lum-code {
+  @include lum-typo-code;
+}
+
+.lum-caption {
+  @include lum-typo-caption;
+}
+
+.lum-button {
+  @include lum-typo-button;
+}
+
+.lum-small {
+  @include lum-typo-paragraph-small;
+}
+
+.lum-paragraph {
+  @include lum-typo-paragraph;
+}
+
+.lum-paragraphSmall {
+  @include lum-typo-paragraph-small;
+}
+
+.lum-heading6 {
+  @include lum-typo-heading6;
+}
+
+.lum-heading5 {
+  @include lum-typo-heading5;
+}
+
+.lum-heading4 {
+  @include lum-typo-heading4;
+}
+
+.lum-heading3 {
+  @include lum-typo-heading3;
+}
+
+.lum-heading2 {
+  @include lum-typo-heading2;
+}
+
+.lum-heading1 {
+  @include lum-typo-heading1;
+}

@@ -1,0 +1,50 @@
+:root {
+  // color scheme
+  --lum-color-black: #000;
+  --lum-color-white: #fff;
+  --lum-color-offwhite: #f4f4f4;
+  --lum-color-grey: #c1c1c1;
+  --lum-color-light-grey: #c9c9c9;
+  --lum-color-primary: var(--lum-color-black);
+  --lum-color-secondary: var(--lum-color-offwhite);
+  --lum-color-disabled: #d3d7da;
+  --lum-color-transparent: rgb(255 255 255 / 0%);
+  --lum-color-lumina-white: #dde4ee;
+  --lum-color-lumina-blue: #2b2d31;
+
+  // background
+  --lum-color-background: var(--lum-color-lumina-white);
+  --lum-color-background-inverse: var(--lum-color-lumina-blue);
+  --lum-color-background-transparent: var(--lum-color-transparent);
+
+  // text
+  --lum-color-text: var(--lum-color-primary);
+  --lum-color-text-inverse: var(--lum-color-secondary);
+  --lum-color-text-disabled: var(--lum-color-disabled);
+  --lum-color-text-placeholder: var(--lum-color-primary);
+  --lum-color-text-label: var(--lum-color-primary);
+
+  // anchor
+  --lum-link-text: var(--lum-color-primary);
+  --lum-link-hover: #1660c7;
+  --lum-link-text-inverse: var(--lum-color-secondary);
+  --lum-link-hover-inverse: #c77d16;
+
+  // border
+  --lum-color-border: var(--lum-color-primary);
+  --lum-color-border-inverse: var(--lum-color-secondary);
+  --lum-color-border-disabled: var(--lum-color-disabled);
+
+  // button
+  --lum-color-button-text: var(--lum-color-offwhite);
+  --lum-color-button-background: var(--lum-color-primary);
+  --lum-color-button-background-hover: var(--lum-color-grey);
+  --lum-color-button-text-inverse: var(--lum-color-primary);
+  --lum-color-button-background-inverse: transparent;
+  --lum-color-button-background-inverse-hover: var(--lum-color-offwhite);
+  // edit buttons
+  --lum-color-button-primary-background: #00bbb7;
+  --lum-color-button-secondary-background: #5656c7;
+  --lum-color-button-warning-background: #ffc31d;
+  --lum-color-button-danger-background: #fe7676;
+}
