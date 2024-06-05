@@ -1,7 +1,7 @@
 .treeContainer {
   padding: 0 0 0 10px;
   position: relative;
-  color: var(--lumina-color-text);
+  color: var(--lum-color-text);
   
   .treeHead {
     padding: 0;
@@ -23,7 +23,7 @@
 }
 
 .btnTreeView {
-  color: var(--lumina-color-text-inverted);
-  background-color: var(--lumina-color-text);
-  border: 2px solid --lumina-bg-color-inverted;
+  color: var(--lum-color-text-inverse);
+  background-color: var(--lum-color-background);
+  border: 2px solid var(--lum-color-background-inverse);
 }

@@ -1,0 +1,40 @@
+@import '../config/breakpoints';
+
+/*
+* Defines a specific breakpoint for a given css selector
+*
+* @example scss
+*   @include breakpoint('large', 'max-width') {
+*     // styles only applied to large screen
+*   }
+*/
+$media-direction: min-width;
+
+@mixin breakpoint($breakpoint, $direction: $media-direction, $custom-breakpoint: null) {
+  @if $custom-breakpoint {
+    // Use for exceptions if required
+    @media (#{$direction}: #{$custom-breakpoint}) {
+      @content;
+    }
+  }
+
+  @else {
+    @if map-has-key($breakpoints, $breakpoint) {
+      @if $direction =='max-width' {
+        @media (#{$direction}: #{map-get($breakpoints, $breakpoint) - 1px}) {
+          @content;
+        }
+      }
+
+      @else {
+        @media (#{$direction}: #{map-get($breakpoints, $breakpoint)}) {
+          @content;
+        }
+      }
+    }
+
+    @else {
+      @warn 'Ouuups! Invalid breakpoint value `#{$breakpoint}`. Available breakpoints: #{map-keys($breakpoints)}.';
+    }
+  }
+}
