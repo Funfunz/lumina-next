@@ -11,7 +11,6 @@ const nextConfig = {
     return config;
    },
    reactStrictMode: false,
-   ignoreBuildErrors: true,
 }
 
 module.exports = nextConfig
