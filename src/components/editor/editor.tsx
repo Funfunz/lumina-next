@@ -1,6 +1,7 @@
 "use client";
 
 import styles from "@/components/editor/editor.module.scss";
+import cx from "classnames";
 import { useCallback, useState } from "react";
 import { TreeView } from "../treeView/treeView";
 
@@ -16,8 +17,7 @@ export const Editor = ({ children }: Props) => {
 
   return (
     <div
-      className={`${styles.editorContainer}${isOpen ? " " + styles.open : ""}`}
-    >
+      className={cx(styles.editorContainer, { [String(styles.open)]: isOpen, })}>
       <div className={styles.editorBar}>
         <input
           type="checkbox"

@@ -18,17 +18,15 @@ $sidepanel-width: 350px;
 }
 
 .editorBar {
-  // display: flex;
-  // flex-direction: column;
-  // height: 100%;
   transition: width 0.2s ease-in-out;
   overflow: hidden;
   background-color: var(--lum-color-background);
+  box-shadow: 5px 5px 5px #d0d0d0, -5px -5px 5px #f0f0f0;
 }
 
 .editorBarContent {
   transition: width 0.2s ease-in-out;
-  width: $sidepanel-width;
+  width: 100%;
   overflow: hidden;
   padding: 10px;
   background-color: var(--lum-color-background);
