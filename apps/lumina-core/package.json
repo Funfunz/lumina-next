@@ -1,5 +1,5 @@
 {
-  "name": "lumina",
+  "name": "@lumina/core",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -12,16 +12,11 @@
     "packages/*"
   ],
   "scripts": {
+    "dev": "next dev -p 3002",
+    "build": "next build",
+    "start": "next start",
     "check-types": "tsc --noEmit",
-    "postinstall": "next telemetry disable",
-    "start": "turbo run start",
-    "dev": "dotenv -- turbo run dev --concurrency 20",
-    "build": "turbo run build",
-    "export": "turbo run build && next export",
-    "clean": "git clean -xdf node_modules",
-    "clean:workspaces": "turbo clean",
-    "lint": "turbo run lint",
-    "lint:fix": "turbo run lint -- --fix",
+    "lint": "next lint",
     "docs": "docsify serve ./docs"
   },
   "dependencies": {
@@ -45,7 +40,6 @@
     "@types/react-select": "^5.0.1",
     "docsify-cli": "^4.4.4",
     "dotenv": "^16.4.5",
-    "dotenv-cli": "^7.4.2",
     "eslint-config-turbo": "^2.0.3",
     "turbo": "^2.0.3"
   }
