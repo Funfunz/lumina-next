@@ -9,7 +9,14 @@
       "dependsOn": ["^check-types"]
     },
     "dev": {
-      "persistent": true,
+      "cache": false,
+      "persistent": true
+    },
+    "lint": {},
+    "clean": {
+      "cache": false
+    },
+    "//#clean": {
       "cache": false
     }
   }

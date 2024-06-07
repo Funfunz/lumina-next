@@ -181,13 +181,14 @@ export const ShowEdit = ({
           props: {}
         }
       });
-      dispatch({
-        type: "createComponentBackend",
-        data: {
-          props: {},
-          id,
-        },
-      });
+      // TODO: not implemented
+      // dispatch({
+      //   type: "createComponentBackend",
+      //   data: {
+      //     props: {},
+      //     id,
+      //   },
+      // });
     },
     [dispatch, id, newComponentFriendlyName, selectedOption]
   );

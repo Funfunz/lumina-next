@@ -2,11 +2,11 @@ import data from '@/data/data.json'
 import { IData } from "@/data/data"
 
 export async function getData(pageName: string) {
-  return (data as IData)[pageName || 'home'] || {}
+  return (data as unknown as IData)[pageName || 'home'] || {}
 }
 
 export async function getFullData() {
-  return (data as IData)
+  return (data as unknown as IData)
 }
 
 export async function getPages() {
