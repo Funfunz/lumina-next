@@ -1,0 +1,8 @@
+{
+  "name": "@lumina/eslint-config",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "eslint-config-turbo": "^2.0.3"
+  }
+}
