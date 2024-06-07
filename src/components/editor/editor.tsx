@@ -25,8 +25,8 @@ export const Editor = ({ children }: Props) => {
           onChange={handleMenuToggler}
         />
         <div className={styles.editorHamburger}>
-            <div></div>
-          </div>
+          <div></div>
+        </div>
         <div className={styles.editorBarContent}>
           {isOpen && <TreeView />}
         </div>

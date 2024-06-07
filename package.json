@@ -38,6 +38,7 @@
   "devDependencies": {
     "@types/react-modal": "^3.16.0",
     "@types/react-select": "^5.0.1",
+    "classnames": "^2.5.1",
     "docsify-cli": "^4.4.4",
     "turbo": "^2.0.3"
   }

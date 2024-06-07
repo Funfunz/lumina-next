@@ -8,7 +8,6 @@ import { ShowEdit } from "../showEdit/showEdit";
 import { configs } from "@/staticComponentsPath";
 import { Button } from "../button/buttons";
 
-
 const TreeBranch = ({ data, noUp, noDown }: { data: IComponentData, noUp: boolean, noDown: boolean }) => {
   const [showChildren, setShowChildren] = useState(false);
 
