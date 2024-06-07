@@ -1,18 +1,19 @@
 *:has(> .showEditContainer):hover {
   outline: 1px solid black;
+
   >.showEditContainer {
     visibility: visible;
   }
 }
 
-*:has(> .showEditContainerInline):hover:after {
-  width: 100%;
-  position: absolute;
-  bottom: -5px;
-  height: 1px;
-  background-color: black;
-  content: '';
-}
+// *:has(> .showEditContainerInline):hover:after {
+//   width: 100%;
+//   position: absolute;
+//   bottom: -5px;
+//   height: 1px;
+//   background-color: black;
+//   content: '';
+// }
 
 .modalEdit {
   font-family: Arial, Helvetica, sans-serif;
@@ -73,6 +74,7 @@
   border-radius: 5px;
   padding: 40px;
 }
+
 @media screen and (max-width: 950px) {
   .modal-container {
     min-width: 0;
@@ -97,4 +99,8 @@
   display: flex;
   gap: 10px;
   margin-top: 10px;
+}
+
+.inputField {
+  width: 100%;
 }

@@ -10,8 +10,8 @@ type TProps = {
   alt: string
 }
 
-export const Image = ({href, alt, id}: TProps) => {
-  
+export const Image = ({ href, alt, id }: TProps) => {
+
   if (!href) return null
   return (
     <div className={styles.imageContainer}>
@@ -20,7 +20,7 @@ export const Image = ({href, alt, id}: TProps) => {
         src={href}
         alt={alt}
       />
-      <ShowEdit id={id} config={config} data={{href, alt}}/>
+      <ShowEdit id={id} config={config} data={{ href, alt }} />
     </div>
   )
 }
