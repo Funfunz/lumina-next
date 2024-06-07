@@ -1,0 +1,10 @@
+*.md
+*.yaml
+node_modules
+.next
+.husky
+coverage
+.prettierignore
+.stylelintignore
+.gitignore
+.gitkeep
