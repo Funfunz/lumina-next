@@ -45,7 +45,7 @@ export const InputRenderer = ({config, value, handleOnChangeInput}: TProps) => {
             )}
           </select>
         ) || (
-          <input type={config.type} value={value} id={config.name} name={config.name} onChange={handleOnChangeInputElement}></input>
+          <input className={styles.inputField} type={config.type} value={value} id={config.name} name={config.name} onChange={handleOnChangeInputElement}></input>
         )}
       </td>
     </tr>
