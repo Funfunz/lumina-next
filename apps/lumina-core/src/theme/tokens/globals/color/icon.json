@@ -2,13 +2,13 @@
   "lum":{
   "color": {
     "icon": {
-      "base": { "value": "{lum.color.base.white.value}" },
-      "fill": { "value": "{lum.color.base.white.value}" },
-      "stroke": { "value": "{lum.color.base.white.value}" },
+      "base": { "value": "{lum.color.background.value}" },
+      "fill": { "value": "{lum.color.background.value}" },
+      "stroke": { "value": "{lum.color.background.value}" },
       "inverted": {
-        "base": { "value": "{lum.color.base.black.value}" },
-        "fill": { "value": "{lum.color.base.black.value}" },
-        "stroke": { "value": "{lum.color.base.black.value}" }
+        "base": { "value": "{lum.color.black.value}" },
+        "fill": { "value": "{lum.color.black.value}" },
+        "stroke": { "value": "{lum.color.black.value}" }
       }
     }
   }

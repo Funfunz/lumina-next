@@ -1,7 +1,6 @@
 {
   "lum":{
   "color": {
-    "base": {
       "white": {
         "value": "#ffffff"
       },
@@ -9,49 +8,23 @@
         "value": "#000000"
       },
       "grey": {
-        "base": {
-          "value": "#737373"
-        },
-        "darker": {
-          "value": "#2D2D2D"
-        },
-        "dark": {
-          "value": "#4B4B4B"
-        },
-        "medium-light": {
-          "value": "#DADAD8"
-        },
-        "light": {
-          "value": "#E5E5E3"
-        },
-        "offwhite": {
-          "value": "#F4F4F4"
-        }
+        "value": "#c1c1c1"
       },
-      "red": {
-        "value": "#CC0D2B"
-      }
-    },
-    "primary": {
-      "value": "#222222"
-    },
-    "primary-acr": {
-      "value": "#AD8464"
-    },
-    "primary-acs": {
-      "value": "#123258"
-    },
-    "secondary": {
-      "value": "{lum.color.base.white.value}"
-    },
-    "action": {
+      "light-grey": {
+        "value": "#c9c9c9"
+      },
       "primary": {
-        "value": "{lum.color.base.red.value}"
+        "value": "{lum.color.black.value}"
       },
       "secondary": {
-        "value": "{lum.color.base.grey.light.value}"
+        "value": "{lum.color.offwhite.value}"
+      },
+      "disabled": {
+        "value": "#d3d7da"
+      },
+      "offwhite": {
+        "value": "#F4F4F4"
       }
     }
   }
-}
 }

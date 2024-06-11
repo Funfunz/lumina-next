@@ -3,14 +3,8 @@
   "font": {
     "brand": {
       "family": {
-        "base": { "value": "{lum.font.family.base.value}" }
+        "base": { "value": "{lum.color.background.value}" }
       }
-    }
-  },
-  "color": {
-    "font": {
-      "base": { "value": "blue" },
-      "inverted": { "value": "white" }
     }
   }
 }

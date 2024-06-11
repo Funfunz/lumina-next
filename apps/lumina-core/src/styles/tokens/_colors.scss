@@ -1,5 +1,5 @@
 :root {
-  // color scheme
+  // color scheme - done
   --lum-color-black: #000;
   --lum-color-white: #fff;
   --lum-color-offwhite: #f4f4f4;
@@ -12,12 +12,12 @@
   --lum-color-lumina-white: #dde4ee;
   --lum-color-lumina-blue: #2b2d31;
 
-  // background
+  // background - done
   --lum-color-background: var(--lum-color-lumina-white);
   --lum-color-background-inverse: var(--lum-color-lumina-blue);
   --lum-color-background-transparent: var(--lum-color-transparent);
 
-  // text
+  // text - done
   --lum-color-text: var(--lum-color-primary);
   --lum-color-text-inverse: var(--lum-color-secondary);
   --lum-color-text-disabled: var(--lum-color-disabled);
@@ -30,7 +30,7 @@
   --lum-link-text-inverse: var(--lum-color-secondary);
   --lum-link-hover-inverse: #c77d16;
 
-  // border
+  // border - done
   --lum-color-border: var(--lum-color-primary);
   --lum-color-border-inverse: var(--lum-color-secondary);
   --lum-color-border-disabled: var(--lum-color-disabled);

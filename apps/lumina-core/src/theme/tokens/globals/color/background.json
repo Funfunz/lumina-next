@@ -1,42 +1,19 @@
 {
-  "lum":
-  {
+  "lum":{
   "color": {
     "background": {
-      "base": {
-        "value": "{lum.color.base.white.value}",
+        "value": "#dde4ee",
         "attributes": { "font": "base" }
-      },
-      "disabled": {
-        "value": "{lum.color.base.grey.light.value}",
+      ,
+      "transparent": {
+        "value": "rgb(255 255 255 / 0%)",
         "attributes": { "font": "base" }
       },
       "inverse": {
-        "value": "{lum.color.base.grey.base.value}",
+        "value": "#2b2d31",
         "attributes": { "font": "inverse" }
-      },
-      "success": {
-        "value": "{lum.color.base.grey.light.value}",
-        "attributes": { "font": "inverse" }
-      },
-      "error": {
-        "value": "{lum.color.base.red.value}",
-        "attributes": { "font": "inverse" }
-      },
-      "warning": {
-        "value": "{lum.color.base.red.value}",
-        "attributes": { "font": "inverse" }
-      },
-      "info": {
-        "value": "{lum.color.base.grey.light.value}",
-        "attributes": { "font": "inverse" }
-      },
-      "link": {
-        "value": "{lum.color.secondary.value}",
-        "attributes": { "font": "base" }
+        }
       }
     }
-
-  }
   }
 }

@@ -2,11 +2,10 @@
   "lum":{
   "color": {
     "border": {
-      "light": { "value": "{lum.color.base.grey.light.value}" },
-      "base": { "value": "{lum.color.base.black.value}" },
-      "dark": { "value": "{lum.color.base.grey.dark.value}" },
-      "focus": { "value": "{lum.color.action.secondary.value}" }
-    }
+      "value": "{lum.color.primary.value}",
+        "inverse": { "value": "{lum.color.secondary.value}" },
+        "disabled": { "value": "{lum.color.disabled.value}" }
+      }
   }
 }
 }
