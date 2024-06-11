@@ -1,8 +1,9 @@
 {
+  "lum":{
   "font": {
     "brand": {
       "family": {
-        "base": { "value": "{font.family.base.value}" }
+        "base": { "value": "{lum.font.family.base.value}" }
       }
     }
   },
@@ -12,4 +13,5 @@
       "inverted": { "value": "white" }
     }
   }
+}
 }

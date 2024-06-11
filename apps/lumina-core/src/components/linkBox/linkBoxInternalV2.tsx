@@ -11,7 +11,7 @@ type TData =  {
   color: 'black' | 'white' | 'green' | 'yellow'
 }
 
-export const LinkBoxInternal = () => {  
+export const LinkBoxInternal = () => {
   const {state, dispatch} = useContext(LinkBoxContext)
 
   const onUpdateCallback = (data: TData) => {
@@ -27,7 +27,7 @@ export const LinkBoxInternal = () => {
       rel="noopener noreferrer"
     >
       <ShowEdit id={state.id} onUpdate={onUpdateCallback} config={config} data={state}/>
-      <h2 style={{color: state.color}}>
+      <h2 style={{lum.color.: state.color}}>
         {state.title} <span>-&gt;</span>
       </h2>
       <p>{state.description}</p>

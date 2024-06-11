@@ -22,7 +22,7 @@ export const LinkBox = ({id, title, description, href, color = 'black'}: TProps)
       rel="noopener noreferrer"
     >
       <ShowEdit id={id}config={config} data={{id, title, description, href, color}}/>
-      <h2 style={{color}}>
+      <h2 style={{lum.color.}}>
         {title} <span>-&gt;</span>
       </h2>
       <p>{description}</p>

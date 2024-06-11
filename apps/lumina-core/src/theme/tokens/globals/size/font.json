@@ -1,4 +1,5 @@
 {
+  "lum":{
   "size": {
     "font": {
       "heading1": {
@@ -62,11 +63,11 @@
         "comment": "60px"
       },
       "code": {
-        "value": "{size.font.text.value}",
+        "value": "{lum.size.font.text.value}",
         "comment": "Pre/Code"
       },
       "base": {
-        "value": "{size.font.text.value}",
+        "value": "{lum.size.font.text.value}",
         "comment": "Equals P1"
       },
       "mobile": {
@@ -131,11 +132,11 @@
           "comment": "60px"
         },
         "code": {
-          "value": "{size.font.mobile.text.value}",
+          "value": "{lum.size.font.mobile.text.value}",
           "comment": "Pre/Code"
         },
         "base": {
-          "value": "{size.font.mobile.text.value}",
+          "value": "{lum.size.font.mobile.text.value}",
           "comment": "Equals P1"
         }
       }
@@ -281,4 +282,5 @@
       }
     }
   }
+}
 }

@@ -1,10 +1,12 @@
 {
+  "lum":{
   "color": {
     "border": {
-      "light": { "value": "{color.base.grey.light.value}" },
-      "base": { "value": "{color.base.black.value}" },
-      "dark": { "value": "{color.base.grey.dark.value}" },
-      "focus": { "value": "{color.action.secondary.value}" }
+      "light": { "value": "{lum.color.base.grey.light.value}" },
+      "base": { "value": "{lum.color.base.black.value}" },
+      "dark": { "value": "{lum.color.base.grey.dark.value}" },
+      "focus": { "value": "{lum.color.action.secondary.value}" }
     }
   }
+}
 }

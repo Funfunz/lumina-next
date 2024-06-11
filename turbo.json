@@ -18,6 +18,10 @@
     },
     "//#clean": {
       "cache": false
+    },
+    "build:tokens": {
+      "cache": false,
+      "persistent": true
     }
   }
 }

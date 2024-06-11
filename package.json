@@ -17,13 +17,13 @@
     "start": "turbo run start",
     "dev": "dotenv -- turbo run dev --concurrency 20",
     "build": "turbo run build",
+    "build:tokens": "turbo run build:tokens",
     "export": "turbo run build && next export",
     "clean": "git clean -xdf node_modules",
     "clean:workspaces": "turbo clean",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint -- --fix",
-    "docs": "docsify serve ./docs",
-    "build:theme": "node src/theme/build.js"
+    "docs": "docsify serve ./docs"
   },
   "dependencies": {
     "@types/node": "20.1.1",

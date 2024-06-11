@@ -1,37 +1,38 @@
 {
-  "lum":{
+  "lum":
+  {
   "color": {
     "background": {
       "base": {
-        "value": "{color.base.white.value}",
+        "value": "{lum.color.base.white.value}",
         "attributes": { "font": "base" }
       },
       "disabled": {
-        "value": "{color.base.grey.light.value}",
+        "value": "{lum.color.base.grey.light.value}",
         "attributes": { "font": "base" }
       },
       "inverse": {
-        "value": "{color.base.grey.base.value}",
+        "value": "{lum.color.base.grey.base.value}",
         "attributes": { "font": "inverse" }
       },
       "success": {
-        "value": "{color.base.grey.light.value}",
+        "value": "{lum.color.base.grey.light.value}",
         "attributes": { "font": "inverse" }
       },
       "error": {
-        "value": "{color.base.red.value}",
+        "value": "{lum.color.base.red.value}",
         "attributes": { "font": "inverse" }
       },
       "warning": {
-        "value": "{color.base.red.value}",
+        "value": "{lum.color.base.red.value}",
         "attributes": { "font": "inverse" }
       },
       "info": {
-        "value": "{color.base.grey.light.value}",
+        "value": "{lum.color.base.grey.light.value}",
         "attributes": { "font": "inverse" }
       },
       "link": {
-        "value": "{color.secondary.value}",
+        "value": "{lum.color.secondary.value}",
         "attributes": { "font": "base" }
       }
     }

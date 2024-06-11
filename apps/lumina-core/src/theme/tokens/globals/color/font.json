@@ -1,8 +1,10 @@
 {
+  "lum":{
   "color": {
     "font": {
-      "base": { "value": "{color.base.white.value}" },
-      "inverted": { "value": "{color.base.black.value}" }
+      "base": { "value": "{lum.color.base.white.value}" },
+      "inverted": { "value": "{lum.color.base.black.value}" }
     }
   }
+}
 }

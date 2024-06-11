@@ -1,4 +1,5 @@
 {
+  "lum":{
   "color": {
     "base": {
       "white": {
@@ -41,15 +42,16 @@
       "value": "#123258"
     },
     "secondary": {
-      "value": "{color.base.white.value}"
+      "value": "{lum.color.base.white.value}"
     },
     "action": {
       "primary": {
-        "value": "{color.base.red.value}"
+        "value": "{lum.color.base.red.value}"
       },
       "secondary": {
-        "value": "{color.base.grey.light.value}"
+        "value": "{lum.color.base.grey.light.value}"
       }
     }
   }
+}
 }

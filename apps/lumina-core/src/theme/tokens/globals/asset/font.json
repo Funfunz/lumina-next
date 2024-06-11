@@ -1,4 +1,6 @@
 {
+  "lum":
+  {
   "asset": {
     "font": {
       "evolve-regular": {
@@ -27,4 +29,5 @@
       }
     }
   }
+}
 }

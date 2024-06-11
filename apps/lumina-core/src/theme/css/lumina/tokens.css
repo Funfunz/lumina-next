@@ -1,0 +1,127 @@
+:root {
+  --lum-spacing-widget-desktop: 6.25rem;
+  --lum-spacing-widget-tablet: 5rem;
+  --lum-spacing-widget-mobile: 3.75rem;
+  --lum-spacing-xxl: 8rem; /* the 2x large space - 128px */
+  --lum-spacing-xl: 4rem; /* the extra large space - 64px */
+  --lum-spacing-l: 2rem; /* the large space - 32px */
+  --lum-spacing-ml: 1.5rem; /* the base space - 24px */
+  --lum-spacing-m: 1rem; /* the base space - 16px */
+  --lum-spacing-s: 0.5rem; /* the small space - 8px */
+  --lum-spacing-xs: 0.25rem; /* the smallest space - 4px */
+  --lum-line-height-mobile-base: 1.5rem; /* Equals P1 */
+  --lum-line-height-mobile-code: 1.5rem; /* Pre/Code */
+  --lum-line-height-mobile-hero2: 4rem;
+  --lum-line-height-mobile-hero1: 6rem;
+  --lum-line-height-mobile-link: 1.25rem; /* Link - 20px */
+  --lum-line-height-mobile-small: 1rem; /* P2 - 16px */
+  --lum-line-height-mobile-text: 1.25rem; /* P1 - 20px */
+  --lum-line-height-mobile-caption: 1.125rem; /* C - 18px */
+  --lum-line-height-mobile-heading6: 1.5rem; /* H6 - 24px */
+  --lum-line-height-mobile-heading5: 2rem; /* H5 - 32px */
+  --lum-line-height-mobile-heading4: 2.5rem; /* H4 - 40px */
+  --lum-line-height-mobile-heading3: 3rem; /* H3 - 48px */
+  --lum-line-height-mobile-heading2: 3.5rem; /* H2 - 56px */
+  --lum-line-height-mobile-heading1: 4rem; /* H1 - 100%/64px */
+  --lum-line-height-base: 1.5rem; /* Equals P1 */
+  --lum-line-height-code: 1.5rem; /* Pre/code */
+  --lum-line-height-hero2: 4rem;
+  --lum-line-height-hero1: 6rem;
+  --lum-line-height-cta: 1rem; /* CTA - 16px */
+  --lum-line-height-small: 1.25rem; /* P2 - 20px */
+  --lum-line-height-text: 1.5rem; /* P1 - 24px */
+  --lum-line-height-caption: 1.25rem; /* C - 20px */
+  --lum-line-height-heading6: 2rem; /* H6 - 32px */
+  --lum-line-height-heading5: 2.5rem; /* H5 - 40px */
+  --lum-line-height-heading4: 3rem; /* H4 - 48px */
+  --lum-line-height-heading3: 3.5rem; /* H3 - 56px */
+  --lum-line-height-heading2: 4.5rem; /* H2 - 72px */
+  --lum-line-height-heading1: 5.5rem; /* H1 - 88px */
+  --lum-size-logo-xl: 7.5rem; /* 120px */
+  --lum-size-logo-l: 6.25rem; /* 100px */
+  --lum-size-logo-ml: 5rem; /* 80px */
+  --lum-size-logo-m: 4rem; /* 64px */
+  --lum-size-logo-sm: 2.5rem; /* 40px */
+  --lum-size-logo-s: 2rem; /* 32px */
+  --lum-size-logo-xs: 1.5rem; /* 24px */
+  --lum-size-icon-xxl: 3rem; /* 48px */
+  --lum-size-icon-xl: 2rem; /* 32px */
+  --lum-size-icon-l: 1.5rem; /* 24px */
+  --lum-size-icon-m: 1.25rem; /* 20px */
+  --lum-size-icon-s: 1rem; /* 16px */
+  --lum-size-icon-xs: 0.875rem; /* 14px */
+  --lum-size-font-mobile-hero2: 3.75; /* 60px */
+  --lum-size-font-mobile-hero1: 6; /* 96px */
+  --lum-size-font-mobile-link: 1.125; /* LINK - 18px */
+  --lum-size-font-mobile-small: 0.75; /* P2 - 12px */
+  --lum-size-font-mobile-text: 0.875; /* P1 - 14px */
+  --lum-size-font-mobile-caption: 0.875; /* C - 14px */
+  --lum-size-font-mobile-heading6: 1.125; /* H6 - 18px */
+  --lum-size-font-mobile-heading5: 1.5; /* H5 - 24px */
+  --lum-size-font-mobile-heading4: 2; /* H4 - 32px */
+  --lum-size-font-mobile-heading3: 2.5; /* H3 - 40px */
+  --lum-size-font-mobile-heading2: 3; /* H2 - 48px */
+  --lum-size-font-mobile-heading1: 4; /* H1 - 64px */
+  --lum-size-font-hero2: 3.75; /* 60px */
+  --lum-size-font-hero1: 6; /* 96px */
+  --lum-size-font-cta: 0.875; /* CTA - 14px */
+  --lum-size-font-small: 0.875; /* P2 - 14px */
+  --lum-size-font-text: 1; /* P1 - 16px */
+  --lum-size-font-caption: 1; /* C - 16px */
+  --lum-size-font-heading6: 1.5; /* H6 - 24px */
+  --lum-size-font-heading5: 2; /* H5 - 32px */
+  --lum-size-font-heading4: 2.5; /* H4 - 40px */
+  --lum-size-font-heading3: 3; /* H3 - 48px */
+  --lum-size-font-heading2: 4; /* H2 - 64px */
+  --lum-size-font-heading1: 5; /* H1 - 80px */
+  --lum-asset-font-evolve-bold-woff2: assets/fonts/MADE_Evolve_Sans_Bold.woff2;
+  --lum-asset-font-evolve-bold-name: MADE Evolve Sans;
+  --lum-asset-font-evolve-medium-woff2: assets/fonts/MADE_Evolve_Sans_Medium.woff2;
+  --lum-asset-font-evolve-medium-name: MADE Evolve Sans;
+  --lum-asset-font-evolve-thin-woff2: assets/fonts/MADE_Evolve_Sans_Thin.woff2;
+  --lum-asset-font-evolve-thin-name: MADE Evolve Sans;
+  --lum-asset-font-evolve-regular-woff2: assets/fonts/MADE_Evolve_Sans_Regular.woff2;
+  --lum-asset-font-evolve-regular-name: MADE Evolve Sans;
+  --lum-color-primary-acs: #123258;
+  --lum-color-primary-acr: #AD8464;
+  --lum-color-primary: #222222;
+  --lum-color-base-red: #CC0D2B;
+  --lum-color-base-grey-offwhite: #F4F4F4;
+  --lum-color-base-grey-light: #E5E5E3;
+  --lum-color-base-grey-medium-light: #DADAD8;
+  --lum-color-base-grey-dark: #4B4B4B;
+  --lum-color-base-grey-darker: #2D2D2D;
+  --lum-color-base-grey-base: #737373;
+  --lum-color-base-black: #000000;
+  --lum-color-base-white: #ffffff;
+  --lum-font-family-base: 'MADE Evolve Sans', 'Open Sans', Helvetica, Arial, sans-serif;
+  --lum-font-family-code: ui-monospace, 'Menlo', 'Monaco', 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --lum-size-font-mobile-base: var(--lum-size-font-mobile-text); /* Equals P1 */
+  --lum-size-font-mobile-code: var(--lum-size-font-mobile-text); /* Pre/Code */
+  --lum-size-font-base: var(--lum-size-font-text); /* Equals P1 */
+  --lum-size-font-code: var(--lum-size-font-text); /* Pre/Code */
+  --lum-color-icon-inverted-stroke: var(--lum-color-base-black);
+  --lum-color-icon-inverted-fill: var(--lum-color-base-black);
+  --lum-color-icon-inverted-base: var(--lum-color-base-black);
+  --lum-color-icon-stroke: var(--lum-color-base-white);
+  --lum-color-icon-fill: var(--lum-color-base-white);
+  --lum-color-icon-base: var(--lum-color-base-white);
+  --lum-color-border-dark: var(--lum-color-base-grey-dark);
+  --lum-color-border-base: var(--lum-color-base-black);
+  --lum-color-border-light: var(--lum-color-base-grey-light);
+  --lum-color-action-secondary: var(--lum-color-base-grey-light);
+  --lum-color-action-primary: var(--lum-color-base-red);
+  --lum-color-secondary: var(--lum-color-base-white);
+  --lum-color-background-info: var(--lum-color-base-grey-light);
+  --lum-color-background-warning: var(--lum-color-base-red);
+  --lum-color-background-error: var(--lum-color-base-red);
+  --lum-color-background-success: var(--lum-color-base-grey-light);
+  --lum-color-background-inverse: var(--lum-color-base-grey-base);
+  --lum-color-background-disabled: var(--lum-color-base-grey-light);
+  --lum-color-background-base: var(--lum-color-base-white);
+  --lum-color-font-inverted: var(--lum-color-base-black);
+  --lum-color-font-base: var(--lum-color-base-white);
+  --lum-font-brand-family-base: var(--lum-font-family-base);
+  --lum-color-border-focus: var(--lum-color-action-secondary);
+  --lum-color-background-link: var(--lum-color-secondary);
+}

@@ -18,13 +18,13 @@ function getStyleDictionaryConfig(brand, _platform) {
       // `${__dirname}/tokens/platforms/${platform}/*.json`
     ],
     platforms: {
-      scss: {
-        transformGroup: 'scss',
-        buildPath: `${__dirname}/scss/${brand}/`,
+      css: {
+        transformGroup: 'css',
+        buildPath: `${__dirname}/css/${brand}/`,
         files: [
           {
-            destination: 'tokens.scss',
-            format: 'scss/variables',
+            destination: 'tokens.css',
+            format: 'css/variables',
             options: {
               showFileHeader: false, // If enabled, it will introduce changes on every npm run build locally
               outputReferences: true
