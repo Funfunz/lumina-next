@@ -1,0 +1,43 @@
+{
+  "spacing": {
+    "xs": {
+      "value": "0.25rem",
+      "comment": "the smallest space - 4px"
+    },
+    "s": {
+      "value": "0.5rem",
+      "comment": "the small space - 8px"
+    },
+    "m": {
+      "value": "1rem",
+      "comment": "the base space - 16px"
+    },
+    "ml": {
+      "value": "1.5rem",
+      "comment": "the base space - 24px"
+    },
+    "l": {
+      "value": "2rem",
+      "comment": "the large space - 32px"
+    },
+    "xl": {
+      "value": "4rem",
+      "comment": "the extra large space - 64px"
+    },
+    "xxl": {
+      "value": "8rem",
+      "comment": "the 2x large space - 128px"
+    },
+    "widget": {
+      "mobile": {
+        "value": "3.75rem"
+      },
+      "tablet": {
+        "value": "5rem"
+      },
+      "desktop": {
+        "value": "6.25rem"
+      }
+    }
+  }
+}

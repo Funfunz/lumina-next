@@ -1,0 +1,8 @@
+{
+  "color": {
+    "font": {
+      "base": { "value": "{color.base.white.value}" },
+      "inverted": { "value": "{color.base.black.value}" }
+    }
+  }
+}

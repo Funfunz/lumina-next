@@ -12,7 +12,8 @@
     "start": "next start",
     "check-types": "tsc --noEmit",
     "lint": "next lint",
-    "docs": "docsify serve ./docs"
+    "docs": "docsify serve ./docs",
+    "build:theme": "node src/theme/build.js"
   },
   "dependencies": {
     "@types/node": "20.1.1",

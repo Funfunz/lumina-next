@@ -1,0 +1,15 @@
+{
+  "font": {
+    "brand": {
+      "family": {
+        "base": { "value": "{font.family.base.value}" }
+      }
+    }
+  },
+  "color": {
+    "font": {
+      "base": { "value": "blue" },
+      "inverted": { "value": "white" }
+    }
+  }
+}

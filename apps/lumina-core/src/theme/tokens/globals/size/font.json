@@ -1,0 +1,284 @@
+{
+  "size": {
+    "font": {
+      "heading1": {
+        "value": "5",
+        "category": "typography",
+        "comment": "H1 - 80px"
+      },
+      "heading2": {
+        "value": "4",
+        "category": "typography",
+        "comment": "H2 - 64px"
+      },
+      "heading3": {
+        "value": "3",
+        "category": "typography",
+        "comment": "H3 - 48px"
+      },
+      "heading4": {
+        "value": "2.5",
+        "category": "typography",
+        "comment": "H4 - 40px"
+      },
+      "heading5": {
+        "value": "2",
+        "category": "typography",
+        "comment": "H5 - 32px"
+      },
+      "heading6": {
+        "value": "1.5",
+        "category": "typography",
+        "comment": "H6 - 24px"
+      },
+      "caption": {
+        "value": "1",
+        "category": "typography",
+        "comment": "C - 16px"
+      },
+      "text": {
+        "value": "1",
+        "category": "typography",
+        "comment": "P1 - 16px"
+      },
+      "small": {
+        "value": "0.875",
+        "category": "typography",
+        "comment": "P2 - 14px"
+      },
+      "cta": {
+        "value": "0.875",
+        "category": "typography",
+        "comment": "CTA - 14px"
+      },
+      "hero1": {
+        "value": "6",
+        "category": "typography",
+        "comment": "96px"
+      },
+      "hero2": {
+        "value": "3.75",
+        "category": "typography",
+        "comment": "60px"
+      },
+      "code": {
+        "value": "{size.font.text.value}",
+        "comment": "Pre/Code"
+      },
+      "base": {
+        "value": "{size.font.text.value}",
+        "comment": "Equals P1"
+      },
+      "mobile": {
+        "heading1": {
+          "value": "4",
+          "category": "typography",
+          "comment": "H1 - 64px"
+        },
+        "heading2": {
+          "value": "3",
+          "category": "typography",
+          "comment": "H2 - 48px"
+        },
+        "heading3": {
+          "value": "2.5",
+          "category": "typography",
+          "comment": "H3 - 40px"
+        },
+        "heading4": {
+          "value": "2",
+          "category": "typography",
+          "comment": "H4 - 32px"
+        },
+        "heading5": {
+          "value": "1.5",
+          "category": "typography",
+          "comment": "H5 - 24px"
+        },
+        "heading6": {
+          "value": "1.125",
+          "category": "typography",
+          "comment": "H6 - 18px"
+        },
+        "caption": {
+          "value": "0.875",
+          "category": "typography",
+          "comment": "C - 14px"
+        },
+        "text": {
+          "value": "0.875",
+          "category": "typography",
+          "comment": "P1 - 14px"
+        },
+        "small": {
+          "value": "0.75",
+          "category": "typography",
+          "comment": "P2 - 12px"
+        },
+        "link": {
+          "value": "1.125",
+          "category": "typography",
+          "comment": "LINK - 18px"
+        },
+        "hero1": {
+          "value": "6",
+          "category": "typography",
+          "comment": "96px"
+        },
+        "hero2": {
+          "value": "3.75",
+          "category": "typography",
+          "comment": "60px"
+        },
+        "code": {
+          "value": "{size.font.mobile.text.value}",
+          "comment": "Pre/Code"
+        },
+        "base": {
+          "value": "{size.font.mobile.text.value}",
+          "comment": "Equals P1"
+        }
+      }
+    }
+  },
+  "lineHeight": {
+    "heading1": {
+      "value": "5.5rem",
+      "category": "typography",
+      "comment": "H1 - 88px"
+    },
+    "heading2": {
+      "value": "4.5rem",
+      "category": "typography",
+      "comment": "H2 - 72px"
+    },
+    "heading3": {
+      "value": "3.5rem",
+      "category": "typography",
+      "comment": "H3 - 56px"
+    },
+    "heading4": {
+      "value": "3rem",
+      "category": "typography",
+      "comment": "H4 - 48px"
+    },
+    "heading5": {
+      "value": "2.5rem",
+      "category": "typography",
+      "comment": "H5 - 40px"
+    },
+    "heading6": {
+      "value": "2rem",
+      "category": "typography",
+      "comment": "H6 - 32px"
+    },
+    "caption": {
+      "value": "1.25rem",
+      "category": "typography",
+      "comment": "C - 20px"
+    },
+    "text": {
+      "value": "1.5rem",
+      "category": "typography",
+      "comment": "P1 - 24px"
+    },
+    "small": {
+      "value": "1.25rem",
+      "category": "typography",
+      "comment": "P2 - 20px"
+    },
+    "cta": {
+      "value": "1rem",
+      "category": "typography",
+      "comment": "CTA - 16px"
+    },
+    "hero1": {
+      "value": "6rem",
+      "category": "typography"
+    },
+    "hero2": {
+      "value": "4rem",
+      "category": "typography"
+    },
+    "code": {
+      "value": "1.5rem",
+      "category": "typography",
+      "comment": "Pre/code"
+    },
+    "base": {
+      "value": "1.5rem",
+      "category": "typography",
+      "comment": "Equals P1"
+    },
+    "mobile": {
+      "heading1": {
+        "value": "4rem",
+        "category": "typography",
+        "comment": "H1 - 100%/64px"
+      },
+      "heading2": {
+        "value": "3.5rem",
+        "category": "typography",
+        "comment": "H2 - 56px"
+      },
+      "heading3": {
+        "value": "3rem",
+        "category": "typography",
+        "comment": "H3 - 48px"
+      },
+      "heading4": {
+        "value": "2.5rem",
+        "category": "typography",
+        "comment": "H4 - 40px"
+      },
+      "heading5": {
+        "value": "2rem",
+        "category": "typography",
+        "comment": "H5 - 32px"
+      },
+      "heading6": {
+        "value": "1.5rem",
+        "category": "typography",
+        "comment": "H6 - 24px"
+      },
+      "caption": {
+        "value": "1.125rem",
+        "category": "typography",
+        "comment": "C - 18px"
+      },
+      "text": {
+        "value": "1.25rem",
+        "category": "typography",
+        "comment": "P1 - 20px"
+      },
+      "small": {
+        "value": "1rem",
+        "category": "typography",
+        "comment": "P2 - 16px"
+      },
+      "link": {
+        "value": "1.25rem",
+        "category": "typography",
+        "comment": "Link - 20px"
+      },
+      "hero1": {
+        "value": "6rem",
+        "category": "typography"
+      },
+      "hero2": {
+        "value": "4rem",
+        "category": "typography"
+      },
+      "code": {
+        "value": "1.5rem",
+        "category": "typography",
+        "comment": "Pre/Code"
+      },
+      "base": {
+        "value": "1.5rem",
+        "category": "typography",
+        "comment": "Equals P1"
+      }
+    }
+  }
+}

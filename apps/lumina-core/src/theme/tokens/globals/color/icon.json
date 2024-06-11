@@ -1,0 +1,14 @@
+{
+  "color": {
+    "icon": {
+      "base": { "value": "{color.base.white.value}" },
+      "fill": { "value": "{color.base.white.value}" },
+      "stroke": { "value": "{color.base.white.value}" },
+      "inverted": {
+        "base": { "value": "{color.base.black.value}" },
+        "fill": { "value": "{color.base.black.value}" },
+        "stroke": { "value": "{color.base.black.value}" }
+      }
+    }
+  }
+}
