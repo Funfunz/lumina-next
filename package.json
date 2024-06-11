@@ -22,7 +22,8 @@
     "clean:workspaces": "turbo clean",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint -- --fix",
-    "docs": "docsify serve ./docs"
+    "docs": "docsify serve ./docs",
+    "build:theme": "node src/theme/build.js"
   },
   "dependencies": {
     "@types/node": "20.1.1",
