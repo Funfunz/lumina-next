@@ -16,9 +16,9 @@
     "docs": "docsify serve ./docs"
   },
   "dependencies": {
-    "@types/node": "20.1.1",
-    "@types/react": "18.2.6",
-    "@types/react-dom": "18.2.4",
+    "@types/node": "^20.14.2",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
     "classnames": "^2.5.1",
     "eslint": "^8.0.0",
     "eslint-config-next": "14.2.4",
@@ -36,8 +36,6 @@
     "@types/react-select": "^5.0.1",
     "docsify-cli": "^4.4.4",
     "dotenv": "^16.4.5",
-    "eslint-config-turbo": "^2.0.3",
-    "style-dictionary": "^3.9.2",
-    "turbo": "^2.0.3"
+    "style-dictionary": "^3.9.2"
   }
 }
