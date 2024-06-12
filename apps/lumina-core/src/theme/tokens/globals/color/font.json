@@ -2,7 +2,7 @@
   "lum":{
   "color": {
     "font": {
-      "base": { "value": "{lum.color.background.value}" },
+      "base": { "value": "{lum.color.background.base.value}" },
       "inverted": { "value": "{lum.color.black.value}" }
     }
   }

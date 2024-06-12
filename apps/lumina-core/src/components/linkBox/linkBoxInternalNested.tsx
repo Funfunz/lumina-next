@@ -13,7 +13,7 @@ export const LinkBoxInternalNested = ({state, onUpdateCallback}: {state: IInitia
       rel="noopener noreferrer"
     >
       <ShowEdit id={state.id} onUpdate={onUpdateCallback} config={config} data={state}/>
-      <h2 style={{lum.color.: state.color}}>
+      <h2 style={{color: state.color}}>
         {state.title} <span>-&gt;</span>
       </h2>
       <p>{state.description}</p>

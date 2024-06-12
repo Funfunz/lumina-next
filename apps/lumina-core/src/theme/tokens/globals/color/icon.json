@@ -2,9 +2,9 @@
   "lum":{
   "color": {
     "icon": {
-      "base": { "value": "{lum.color.background.value}" },
-      "fill": { "value": "{lum.color.background.value}" },
-      "stroke": { "value": "{lum.color.background.value}" },
+      "base": { "value": "{lum.color.background.base.value}" },
+      "fill": { "value": "{lum.color.background.base.value}" },
+      "stroke": { "value": "{lum.color.background.base.value}" },
       "inverted": {
         "base": { "value": "{lum.color.black.value}" },
         "fill": { "value": "{lum.color.black.value}" },

@@ -2,11 +2,12 @@
   "lum":{
   "color": {
     "background": {
+        "base":{
         "value": "#dde4ee",
         "attributes": { "font": "base" }
-      ,
+      },
       "transparent": {
-        "value": "rgb(255 255 255 / 0%)",
+        "value": "transparent",
         "attributes": { "font": "base" }
       },
       "inverse": {

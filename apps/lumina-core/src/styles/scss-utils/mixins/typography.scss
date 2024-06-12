@@ -29,12 +29,12 @@
   font-size: var(--lum-size-font-text);
   font-weight: 400;
   line-height: var(--lum-size-line-height-text);
-  color: var(--lum-link-text);
+  color: var( --lum-color-text);
   text-decoration: none;
   letter-spacing: 0.36px;
 
   &:hover {
-    color: var(--lum-link-hover);
+    color: var( --lum-color-link-hover);
   }
 }
 

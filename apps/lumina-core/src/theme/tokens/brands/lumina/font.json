@@ -3,7 +3,7 @@
   "font": {
     "brand": {
       "family": {
-        "base": { "value": "{lum.color.background.value}" }
+        "base": { "value": "{lum.color.background.base.value}" }
       }
     }
   }
