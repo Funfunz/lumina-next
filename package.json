@@ -17,6 +17,7 @@
     "start": "turbo run start",
     "dev": "dotenv -- turbo run dev --concurrency 20",
     "build": "turbo run build",
+    "build:tokens": "turbo run build:tokens",
     "export": "turbo run build && next export",
     "clean": "git clean -xdf node_modules",
     "clean:workspaces": "turbo clean",
@@ -26,11 +27,11 @@
   },
   "dependencies": {
     "@types/node": "20.1.1",
-    "eslint": "8.40.0",
-    "eslint-config-next": "13.4.1",
-    "next": "^13.4.1",
-    "sass": "^1.62.1",
-    "typescript": "5.0.4",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "14.2.4",
+    "next": "^14.2.4",
+    "sass": "^1.77.5",
+    "typescript": "5.4.5",
     "url-loader": "^4.1.1"
   },
   "devDependencies": {
@@ -38,6 +39,7 @@
     "dotenv": "^16.4.5",
     "dotenv-cli": "^7.4.2",
     "eslint-config-turbo": "^2.0.3",
+    "style-dictionary": "^3.9.2",
     "turbo": "^2.0.3"
   }
 }

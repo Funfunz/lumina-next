@@ -11,7 +11,7 @@ type TData =  {
   color: 'black' | 'white' | 'green' | 'yellow'
 }
 
-export const LinkBoxInternal = () => {  
+export const LinkBoxInternal = () => {
   const {state, dispatch} = useContext(LinkBoxContext)
 
   const onUpdateCallback = (data: TData) => {

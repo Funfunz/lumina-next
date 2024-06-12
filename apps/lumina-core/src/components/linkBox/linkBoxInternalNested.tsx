@@ -3,7 +3,7 @@ import { ShowEdit } from '@/components/showEdit/showEdit'
 import { config } from './config'
 import { IInitialStateType } from './LinkboxContextV2'
 
-export const LinkBoxInternalNested = ({state, onUpdateCallback}: {state: IInitialStateType, onUpdateCallback: (state: IInitialStateType) => void}) => {  
+export const LinkBoxInternalNested = ({state, onUpdateCallback}: {state: IInitialStateType, onUpdateCallback: (state: IInitialStateType) => void}) => {
   if (!state) return null
   return (
     <a

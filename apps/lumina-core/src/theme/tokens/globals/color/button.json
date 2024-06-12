@@ -1,0 +1,38 @@
+{
+  "lum": {
+    "color": {
+      "button": {
+        "text": {
+          "value": "{lum.color.offwhite.value}"
+        },
+        "background": {
+          "value": "{lum.color.primary.value}"
+        },
+        "background-hover": {
+          "value": "{lum.color.grey.value}"
+        },
+        "text-inverse": {
+          "value": "{lum.color.primary.value}"
+        },
+        "background-inverse": {
+          "value": "{lum.color.background.transparent.value}"
+        },
+        "background-inverse-hover": {
+          "value": "{lum.color.offwhite.value}"
+        },
+        "primary-background": {
+          "value": "#00bbb7"
+        },
+        "secondary-background": {
+          "value": "#5656c7"
+        },
+        "warning-background": {
+          "value": "#ffc31d"
+        },
+        "danger-background": {
+          "value": "#fe7676"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "lum": {
+    "color": {
+      "text": {
+        "value": "{lum.color.primary.value}",
+        "inverse": {
+          "value": "{lum.color.secondary.value}"
+        },
+        "disabled": {
+          "value": "{lum.color.disabled.value}"
+        },
+        "placeholder": {
+          "value": "{lum.color.primary.value}"
+        },
+        "label": {
+          "value": "{lum.color.primary.value}"
+        }
+      }
+    }
+  }
+}
