@@ -36,7 +36,7 @@ export const LinkBox = ({id, title, description, href, color = 'black'}: TProps)
       rel="noopener noreferrer"
     >
       <ShowEdit id={id} onUpdate={onUpdateCallback} config={config} data={data}/>
-      <h2 style={{lum.color.: data.color}}>
+      <h2 style={{color: data.color}}>
         {data.title} <span>-&gt;</span>
       </h2>
       <p>{data.description}</p>
