@@ -1,18 +1,18 @@
 {
-  "lum":{
-  "color": {
-    "background": {
-        "base":{
-        "value": "#dde4ee",
-        "attributes": { "font": "base" }
-      },
-      "transparent": {
-        "value": "transparent",
-        "attributes": { "font": "base" }
-      },
-      "inverse": {
-        "value": "#2b2d31",
-        "attributes": { "font": "inverse" }
+  "lum": {
+    "color": {
+      "background": {
+        "base": {
+          "value": "#dde4ee",
+          "attributes": { "font": "base" }
+        },
+        "transparent": {
+          "value": "transparent",
+          "attributes": { "font": "base" }
+        },
+        "inverse": {
+          "value": "#2b2d31",
+          "attributes": { "font": "inverse" }
         }
       }
     }

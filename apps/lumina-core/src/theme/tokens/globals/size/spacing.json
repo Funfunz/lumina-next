@@ -1,7 +1,7 @@
 {
-  "lum":{
-      "size":{
-        "spacing": {
+  "lum": {
+    "size": {
+      "spacing": {
         "xs": {
           "value": "0.25rem",
           "comment": "the smallest space - 4px"

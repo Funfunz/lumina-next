@@ -1,11 +1,11 @@
 {
-  "lum":{
-  "color": {
-    "border": {
-      "value": "{lum.color.primary.value}",
+  "lum": {
+    "color": {
+      "border": {
+        "value": "{lum.color.primary.value}",
         "inverse": { "value": "{lum.color.secondary.value}" },
         "disabled": { "value": "{lum.color.disabled.value}" }
       }
+    }
   }
-}
 }

@@ -1,14 +1,14 @@
 {
-  "lum":{
-  "size": {
-    "icon": {
-      "xs": { "value": "0.875rem", "comment": "14px" },
-      "s": { "value": "1rem", "comment": "16px" },
-      "m": { "value": "1.25rem", "comment": "20px" },
-      "l": { "value": "1.5rem", "comment": "24px" },
-      "xl": { "value": "2rem", "comment": "32px" },
-      "xxl": { "value": "3rem", "comment": "48px" }
+  "lum": {
+    "size": {
+      "icon": {
+        "xs": { "value": "0.875rem", "comment": "14px" },
+        "s": { "value": "1rem", "comment": "16px" },
+        "m": { "value": "1.25rem", "comment": "20px" },
+        "l": { "value": "1.5rem", "comment": "24px" },
+        "xl": { "value": "2rem", "comment": "32px" },
+        "xxl": { "value": "3rem", "comment": "48px" }
+      }
     }
   }
-}
 }

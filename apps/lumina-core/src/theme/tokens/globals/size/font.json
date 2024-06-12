@@ -1,66 +1,66 @@
 {
-  "lum":{
-  "size": {
-    "font": {
-      "heading1": {
-        "value": "5rem",
-        "category": "typography",
-        "comment": "H1 - 80px"
+  "lum": {
+    "size": {
+      "font": {
+        "heading1": {
+          "value": "5rem",
+          "category": "typography",
+          "comment": "H1 - 80px"
+        },
+        "heading2": {
+          "value": "4rem",
+          "category": "typography",
+          "comment": "H2 - 64px"
+        },
+        "heading3": {
+          "value": "3rem",
+          "category": "typography",
+          "comment": "H3 - 48px"
+        },
+        "heading4": {
+          "value": "2.5rem",
+          "category": "typography",
+          "comment": "H4 - 40px"
+        },
+        "heading5": {
+          "value": "2rem",
+          "category": "typography",
+          "comment": "H5 - 32px"
+        },
+        "heading6": {
+          "value": "1.5rem",
+          "category": "typography",
+          "comment": "H6 - 24px"
+        },
+        "caption": {
+          "value": "1rem",
+          "category": "typography",
+          "comment": "C - 16px"
+        },
+        "text": {
+          "value": "1rem",
+          "category": "typography",
+          "comment": "P1 - 16px"
+        },
+        "tiny": {
+          "value": "0.75rem",
+          "category": "typography",
+          "comment": "P2 - 12px"
+        },
+        "small": {
+          "value": "0.875rem",
+          "category": "typography",
+          "comment": "P3 - 14px"
+        },
+        "code": {
+          "value": "{lum.size.font.small.value}",
+          "comment": "Pre/Code Equal to P1"
+        },
+        "button": {
+          "value": "{lum.size.font.small.value}",
+          "comment": "Equals P1"
+        }
       },
-      "heading2": {
-        "value": "4rem",
-        "category": "typography",
-        "comment": "H2 - 64px"
-      },
-      "heading3": {
-        "value": "3rem",
-        "category": "typography",
-        "comment": "H3 - 48px"
-      },
-      "heading4": {
-        "value": "2.5rem",
-        "category": "typography",
-        "comment": "H4 - 40px"
-      },
-      "heading5": {
-        "value": "2rem",
-        "category": "typography",
-        "comment": "H5 - 32px"
-      },
-      "heading6": {
-        "value": "1.5rem",
-        "category": "typography",
-        "comment": "H6 - 24px"
-      },
-      "caption": {
-        "value": "1rem",
-        "category": "typography",
-        "comment": "C - 16px"
-      },
-      "text": {
-        "value": "1rem",
-        "category": "typography",
-        "comment": "P1 - 16px"
-      },
-      "tiny": {
-        "value": "0.75rem",
-        "category": "typography",
-        "comment": "P2 - 12px"
-      },
-      "small": {
-        "value": "0.875rem",
-        "category": "typography",
-        "comment": "P3 - 14px"
-      },
-      "code": {
-        "value": "{lum.size.font.small.value}",
-        "comment": "Pre/Code Equal to P1"
-      },
-      "button": {
-        "value": "{lum.size.font.small.value}",
-        "comment": "Equals P1"
-      }
-    },
       "line-height": {
         "heading1": {
           "value": "5.5rem",
@@ -118,7 +118,7 @@
           "comment": "Equals to Caption"
         }
       },
-      "border":{
+      "border": {
         "size": {
           "value": "0.063rem",
           "category": "typography",

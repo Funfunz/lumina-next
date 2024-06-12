@@ -6,8 +6,7 @@ export const metadata = {
 };
 
 export default function EditorLayout({
-  children,
-  ...rest
+  children
 }: {
   children: React.ReactNode;
 }) {
