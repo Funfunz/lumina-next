@@ -2,7 +2,7 @@
   padding: 0 0 0 15px;
   position: relative;
   color: var(--lum-color-text);
-  
+
   &:hover {
     background-color: silver;
   }
@@ -43,7 +43,7 @@
 
 .btnTreeView {
   color: var(--lum-color-text-inverse);
-  background-color: var(--lum-color-background);
+  background-color: var(--lum-color-background-base);
   border: 2px solid var(--lum-color-background-inverse);
 }
 
