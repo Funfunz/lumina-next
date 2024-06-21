@@ -71,24 +71,24 @@ export const ShowEdit = ({
   noUp,
   noDown
 }: ShowEditProps) => {
-  let {
+  const {
     state: {
       appContext: { editor },
     },
     dispatch,
   } = useLuminaContext();
 
-  let [showModalEdit, setShowModalEdit] = useState(false);
-  let [showModalAdd, setShowModalAdd] = useState(false); //Add Modal - BM
-  let [showModalDelete, setShowModalDelete] = useState(false); //Delete Modal - BM
-  let [toDeleteInput, setToDeleteInput] = useState(""); //Delete Modal - Input
-  let [deleteInputError, setDeleteInputError] = useState(false); //Delete Modal - error
+  const [showModalEdit, setShowModalEdit] = useState(false);
+  const [showModalAdd, setShowModalAdd] = useState(false); //Add Modal - BM
+  const [showModalDelete, setShowModalDelete] = useState(false); //Delete Modal - BM
+  const [toDeleteInput, setToDeleteInput] = useState(""); //Delete Modal - Input
+  const [deleteInputError, setDeleteInputError] = useState(false); //Delete Modal - error
   
-  let [formData, setFormData] = useState(data || {});
-  let [selectedOption, setSelectedOption] = useState<{value: string, label: string}>(); //dropdown - new component
-  let [newComponentFriendlyName, setNewComponentFriendlyName] = useState("") //friendly name - new component
+  const [formData, setFormData] = useState(data || {});
+  const [selectedOption, setSelectedOption] = useState<{value: string, label: string}>(); //dropdown - new component
+  const [newComponentFriendlyName, setNewComponentFriendlyName] = useState("") //friendly name - new component
 
-  let handleOnChangeDeleteInput = useCallback(
+  const handleOnChangeDeleteInput = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       setToDeleteInput(event.currentTarget.value)
       setDeleteInputError(false)
@@ -96,7 +96,7 @@ export const ShowEdit = ({
     []
   )
 
-  let handleOnClickEdit = useCallback(
+  const handleOnClickEdit = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
       event.stopPropagation()
@@ -106,7 +106,7 @@ export const ShowEdit = ({
   );
 
   // Handle Delete
-  let handleDelete = useCallback(
+  const handleDelete = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault()
       event.stopPropagation()
@@ -116,7 +116,7 @@ export const ShowEdit = ({
     []
   );
 
-  let handleOnClickDelete = useCallback(
+  const handleOnClickDelete = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault()
       event.stopPropagation()
@@ -136,7 +136,7 @@ export const ShowEdit = ({
   );
 
   // Add button - BM
-  let handleOnClickAdd = useCallback(
+  const handleOnClickAdd = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
       event.stopPropagation()
@@ -145,7 +145,7 @@ export const ShowEdit = ({
     []
   );
 
-  let handleCloseModal = useCallback(
+  const handleCloseModal = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
       event.stopPropagation()
@@ -156,7 +156,7 @@ export const ShowEdit = ({
     []
   );
 
-  let handleOnChangeInput = useCallback(
+  const handleOnChangeInput = useCallback(
     (key: string, value: string | number) => {
       setFormData({
         ...formData,
@@ -166,7 +166,7 @@ export const ShowEdit = ({
     [formData]
   );
 
-  let handleOnClickAddComponentModal = useCallback(
+  const handleOnClickAddComponentModal = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
       if (!selectedOption) return
@@ -193,7 +193,7 @@ export const ShowEdit = ({
     [dispatch, id, newComponentFriendlyName, selectedOption]
   );
 
-  let handleOnClickSaveData = useCallback(
+  const handleOnClickSaveData = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
       setShowModalEdit(false);
@@ -216,7 +216,7 @@ export const ShowEdit = ({
     [dispatch, formData, id, onUpdate]
   );
 
-  let handleOnClickMoveUp = useCallback(
+  const handleOnClickMoveUp = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
       event.stopPropagation();
@@ -230,7 +230,7 @@ export const ShowEdit = ({
     [dispatch, id]
   );
 
-  let handleOnClickMoveDown = useCallback(
+  const handleOnClickMoveDown = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
       event.stopPropagation();
@@ -253,12 +253,12 @@ export const ShowEdit = ({
   });
 
   // Handler for on Change from dropdown - BM
-  let handleSelectChange = (options: any) => {
+  const handleSelectChange = (options: any) => {
     setSelectedOption(options);
   };
 
   // Handler for on Change from dropdown - BM
-  let handleOnChangeNewComponentFriendlyName = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleOnChangeNewComponentFriendlyName = (event: ChangeEvent<HTMLInputElement>) => {
     setNewComponentFriendlyName(event.target.value)
   };
 

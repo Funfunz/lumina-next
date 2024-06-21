@@ -4,7 +4,7 @@
 
 import styles from '@/components/linkBox/linkBox.module.css'
 import { ShowEdit } from '@/components/showEdit/showEdit'
-import { useEffect, useState } from 'react'
+// import { useEffect, useState } from 'react'
 import { config } from './config'
 
 type TProps = {

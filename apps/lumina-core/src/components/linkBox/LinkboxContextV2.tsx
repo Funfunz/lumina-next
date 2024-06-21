@@ -1,6 +1,6 @@
 "use client";
 
-import { Dispatch, SetStateAction, createContext, useContext, useState } from 'react'
+import { Dispatch, SetStateAction, createContext, useState } from 'react'
 
 const initialContext = {
   id: '',
@@ -36,7 +36,7 @@ export function ContextProvider({
     ...data
   })
 
-  
+
   return (
     <LinkBoxContext.Provider value={{state, dispatch: (newData) => {
       return dispatch(

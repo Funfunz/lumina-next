@@ -16,24 +16,24 @@
     "docs": "docsify serve ./docs"
   },
   "dependencies": {
-    "@types/node": "^20.14.2",
-    "@types/react": "18.3.3",
-    "@types/react-dom": "18.3.0",
-    "classnames": "^2.5.1",
     "next": "14.2.4",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-modal": "^3.16.1",
     "react-select": "^5.8.0",
-    "sass": "^1.77.5",
-    "typescript": "5.4.5",
     "url-loader": "^4.1.1"
   },
   "devDependencies": {
+    "@types/node": "^20.14.2",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
     "@types/react-modal": "^3.16.3",
     "@types/react-select": "^5.0.1",
+    "classnames": "^2.5.1",
     "docsify-cli": "^4.4.4",
     "dotenv": "^16.4.5",
-    "style-dictionary": "^3.9.2"
+    "style-dictionary": "^3.9.2",
+    "sass": "^1.77.5",
+    "typescript": "5.4.5"
   }
 }

@@ -16,14 +16,14 @@ function isSelect(config: TConfigItem): config is TConfigItemSelect {
 
 export const InputRenderer = ({config, value, handleOnChangeInput}: TProps) => {
 
-  let handleOnChangeInputElement = useCallback(
+  const handleOnChangeInputElement = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       handleOnChangeInput(config.name, event.target.value)
     },
     [handleOnChangeInput, config.name]
   )
 
-  let handleOnChangeSelectElement: ChangeEventHandler<HTMLSelectElement> = useCallback(
+  const handleOnChangeSelectElement: ChangeEventHandler<HTMLSelectElement> = useCallback(
     (event: ChangeEvent<HTMLSelectElement>) => {
       handleOnChangeInput(config.name, event.target.selectedOptions[0].value)
     },
@@ -45,7 +45,7 @@ export const InputRenderer = ({config, value, handleOnChangeInput}: TProps) => {
             )}
           </select>
         ) || (
-          <input className={styles.inputField} type={config.type} value={value} id={config.name} name={config.name} onChange={handleOnChangeInputElement}></input>
+          <input className={styles.inputField} type={config.type} value={value} id={config.name} name={config.name} onChange={handleOnChangeInputElement} />
         )}
       </td>
     </tr>
