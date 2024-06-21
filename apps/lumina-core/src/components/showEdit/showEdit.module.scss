@@ -34,9 +34,10 @@
 
 .showEditContainer {
   @extend .showEditContainerMain;
+
   position: absolute;
-  bottom: 0;
   right: 0;
+  bottom: 0;
   z-index: 1000;
   visibility: hidden;
 }
@@ -48,15 +49,12 @@
 }
 
 .modalOverlay {
-  background-color: color-mix(in srgb, var(--lum-color-background-base) 80%, transparent);
   position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  padding: 40px;
-  box-sizing: border-box;
+  inset: 0;
   z-index: 2000;
+  box-sizing: border-box;
+  padding: 40px;
+  background-color: color-mix(in srgb, var(--lum-color-background-base) 80%, transparent);
 
   * {
     box-sizing: border-box;
@@ -64,27 +62,27 @@
 }
 
 .modalEdit {
-  margin: 0 auto;
   width: 50%;
   min-width: 950px;
   max-width: 100%;
   max-height: 700px;
-  border: 1px solid;
-  background: var(--lum-color-background-base);
-  border-radius: 5px;
   padding: 40px;
+  margin: 0 auto;
+  background: var(--lum-color-background-base);
+  border: 1px solid;
+  border-radius: 5px;
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (width <= 950px) {
   .modal-container {
-    min-width: 0;
     width: 80%;
+    min-width: 0;
   }
 }
 
 .title {
-  color: var(--lum-color-text);
   margin-top: 0;
+  color: var(--lum-color-text);
 }
 
 .formTableCell {

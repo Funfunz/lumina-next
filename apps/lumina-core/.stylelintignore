@@ -1,0 +1,7 @@
+node_modules
+.gitignore
+.gitkeep
+.next
+.turbo
+**/build
+**/dist

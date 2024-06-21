@@ -27,7 +27,6 @@
   },
   "dependencies": {
     "next": "^14.2.4",
-    "typescript": "5.4.5",
     "url-loader": "^4.1.1"
   },
   "devDependencies": {
@@ -37,6 +36,7 @@
     "docsify-cli": "^4.4.4",
     "dotenv": "^16.4.5",
     "dotenv-cli": "^7.4.2",
+    "cross-env": "^7.0.3",
     "eslint": "8.46.0",
     "eslint-config-next": "^12.3.1",
     "eslint-config-prettier": "^8.10.0",
@@ -47,8 +47,10 @@
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-react": "^7.33.1",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.3.2",
     "style-dictionary": "^3.9.2",
     "turbo": "^2.0.4",
+    "typescript": "5.4.5",
     "sass": "^1.77.6"
   }
 }

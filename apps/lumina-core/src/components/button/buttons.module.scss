@@ -1,15 +1,15 @@
 .button {
   box-sizing: border-box;
-  border-radius: 5px;
-  color: var(--lum-color-button-text);
-  font-weight: 600;
-  font-size: 13px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   min-width: 22px;
   padding: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--lum-color-button-text);
   cursor: pointer;
+  border-radius: 5px;
   transition: box-shadow 0.2s ease-in-out;
 
   * {
@@ -17,21 +17,22 @@
   }
 
   &.round {
-    border-radius: 100%;
     justify-content: center;
-    &:before {
-      content: '';
+    border-radius: 100%;
+
+    &::before {
       display: inline-block;
-      vertical-align: middle;
       padding-top: 100%;
+      vertical-align: middle;
+      content: '';
     }
   }
 
   .buttonContent {
     display: flex;
+    gap: 10px;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
     padding: 5px;
   }
 
@@ -41,14 +42,16 @@
 
   &.primary {
     border: 1px solid var(--lum-color-button-primary-background);
-    box-shadow: 0px 0px 0px 0px var(--lum-color-button-primary-background);
+    box-shadow: 0 0 0 0 var(--lum-color-button-primary-background);
 
     &:hover {
-      box-shadow: 0px 3px 5px -1px var(--lum-color-button-primary-background);
+      box-shadow: 0 3px 5px -1px var(--lum-color-button-primary-background);
     }
+
     &:not(.outline) {
       background-color: var(--lum-color-button-primary-background);
     }
+
     &.outline {
       color: var(--lum-color-button-primary-background);
     }
@@ -56,14 +59,16 @@
 
   &.secondary {
     border: 1px solid var(--lum-color-button-secondary-background);
-    box-shadow: 0px 0px 0px 0px var(--lum-color-button-secondary-background);
+    box-shadow: 0 0 0 0 var(--lum-color-button-secondary-background);
 
     &:hover {
-      box-shadow: 0px 3px 5px -1px var(--lum-color-button-secondary-background);
+      box-shadow: 0 3px 5px -1px var(--lum-color-button-secondary-background);
     }
+
     &:not(.outline) {
       background-color: var(--lum-color-button-secondary-background);
     }
+
     &.outline {
       color: var(--lum-color-button-secondary-background);
     }
@@ -71,14 +76,16 @@
 
   &.warning {
     border: 1px solid var(--lum-color-button-warning-background);
-    box-shadow: 0px 0px 0px 0px var(--lum-color-button-warning-background);
+    box-shadow: 0 0 0 0 var(--lum-color-button-warning-background);
 
     &:hover {
-      box-shadow: 0px 3px 5px -1px var(--lum-color-button-warning-background);
+      box-shadow: 0 3px 5px -1px var(--lum-color-button-warning-background);
     }
+
     &:not(.outline) {
       background-color: var(--lum-color-button-warning-background);
     }
+
     &.outline {
       color: var(--lum-color-button-warning-background);
     }
@@ -86,14 +93,16 @@
 
   &.danger {
     border: 1px solid var(--lum-color-button-danger-background);
-    box-shadow: 0px 0px 0px 0px var(--lum-color-button-danger-background);
+    box-shadow: 0 0 0 0 var(--lum-color-button-danger-background);
 
     &:hover {
-      box-shadow: 0px 3px 5px -1px var(--lum-color-button-danger-background);
+      box-shadow: 0 3px 5px -1px var(--lum-color-button-danger-background);
     }
+
     &:not(.outline) {
       background-color: var(--lum-color-button-danger-background);
     }
+
     &.outline {
       color: var(--lum-color-button-danger-background);
     }

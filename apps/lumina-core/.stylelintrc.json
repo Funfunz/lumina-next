@@ -1,0 +1,28 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-prettier-scss",
+    "stylelint-config-recess-order"
+  ],
+  "defaultSeverity": "warning",
+  "rules": {
+    "order/order": [
+      "custom-properties",
+      "declarations"
+    ],
+    "order/properties-alphabetical-order": true,
+    "selector-class-pattern": null,
+    "scss/operator-no-unspaced": null,
+    "scss/media-feature-value-dollar-variable": null,
+    "scss/operator-no-newline-after": null,
+    "scss/double-slash-comment-inline": null,
+    "scss/at-function-pattern": null,
+    "function-name-case": null,
+    "selector-pseudo-class-no-unknown": null,
+    "no-descending-specificity": null
+  },
+  "ignoreFiles": [
+    "packages/**/dist/**/*",
+    "apps/**/dist/**/*"
+  ]
+}

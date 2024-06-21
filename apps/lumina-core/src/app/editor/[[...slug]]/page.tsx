@@ -6,10 +6,10 @@ import { TLuminaOptions } from "@/types/common"
 
 type TEditorPageProps = {
   params: {
-    slug: string;
-    options: TLuminaOptions;
-  };
-};
+    slug: string
+    options: TLuminaOptions
+  }
+}
 
 export default async function EditorPage({ params }: TEditorPageProps) {
   const selectedPage = params.slug || "home";

@@ -5,5 +5,5 @@ export type TLuminaOptionsComponents = {
 export type TLuminaOptions = {
   database: string,
   components: TLuminaOptionsComponents[],
-  editMode?: boolean
+  editMode?: boolean,
 }
