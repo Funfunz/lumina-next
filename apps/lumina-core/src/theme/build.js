@@ -13,7 +13,7 @@ const BRANDS_FOLDER = fs.readdirSync(path.join(__dirname, 'tokens', 'brands'))
 function getStyleDictionaryConfig(brand, _platform) {
   return {
     source: [
-      `${__dirname}/tokens/**/*.json`
+      `${__dirname}/tokens/**/*.json`,
       // `${__dirname}/tokens/brands/${brand}/*.json`,
       // `${__dirname}/tokens/platforms/${platform}/*.json`
     ],
@@ -27,12 +27,12 @@ function getStyleDictionaryConfig(brand, _platform) {
             format: 'css/variables',
             options: {
               showFileHeader: false, // If enabled, it will introduce changes on every npm run build locally
-              outputReferences: true
-            }
-          }
-        ]
-      }
-    }
+              outputReferences: true,
+            },
+          },
+        ],
+      },
+    },
   }
 }
 
@@ -45,9 +45,7 @@ BRANDS_FOLDER.forEach(brand => {
     console.log('\n==============================================')
     console.log(`\nProcessing: [${platform}] [${brand}]`)
 
-    const StyleDictionary = StyleDictionaryPackage.extend(
-      getStyleDictionaryConfig(brand, platform)
-    )
+    const StyleDictionary = StyleDictionaryPackage.extend(getStyleDictionaryConfig(brand, platform))
 
     StyleDictionary.buildPlatform(platform)
 

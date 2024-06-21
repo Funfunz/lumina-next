@@ -1,39 +1,39 @@
-"use client";
+"use client"
 
 /**
  * Documentation found at ./readme.md
  */
 
-import { useLuminaContext } from "@/context/contextProvider";
-import styles from "./showEdit.module.scss";
-import { ChangeEvent, PropsWithChildren, useCallback, useState } from "react";
-import ReactModal from "react-modal";
-import { IComponentProps } from "@/data/data";
-import { InputRenderer } from "./inputRenderer";
-import Select from "react-select"; // dropdown selection
-import { configs } from "@/staticComponentsPath"; // dropdown selection
-import { Button } from "../button/buttons";
+import { useLuminaContext } from "@/context/contextProvider"
+import styles from "./showEdit.module.scss"
+import { ChangeEvent, PropsWithChildren, useCallback, useState } from "react"
+import ReactModal from "react-modal"
+import { IComponentProps } from "@/data/data"
+import { InputRenderer } from "./inputRenderer"
+import Select from "react-select" // dropdown selection
+import { configs } from "@/staticComponentsPath" // dropdown selection
+import { Button } from "../button/buttons"
 
-export type TConfigItem = TConfigItemValue | TConfigItemSelect;
+export type TConfigItem = TConfigItemValue | TConfigItemSelect
 
 interface TConfigItemBase {
-  name: string;
-  label: string;
+  name: string
+  label: string
 }
 
 export type TEditorConfig = {
-  children: boolean;
-  editable: boolean;
-  delete: boolean;
-};
+  children: boolean
+  editable: boolean
+  delete: boolean
+}
 
 export interface TConfigItemValue extends TConfigItemBase {
-  type: "string" | "number";
+  type: "string" | "number"
 }
 
 export interface TConfigItemSelect<T = string> extends TConfigItemBase {
-  type: "singleSelect" | "multiSelect";
-  arrayValues: T[];
+  type: "singleSelect" | "multiSelect"
+  arrayValues: T[]
 }
 
 export type TConfig = {
@@ -42,23 +42,23 @@ export type TConfig = {
   editor: TEditorConfig
 }
 
-export type TElementConfig = (TConfigItemValue | TConfigItemSelect)[];
+export type TElementConfig = (TConfigItemValue | TConfigItemSelect)[]
 
 type ShowEditProps = {
-  id: string;
-  onUpdate?: (data: any) => void;
-  data: IComponentProps;
-  config?: TConfig;
-  inline?: boolean;
+  id: string
+  onUpdate?: (data: any) => void
+  data: IComponentProps
+  config?: TConfig
+  inline?: boolean
   noUp?: boolean
   noDown?: boolean
-};
+}
 
-const Title = ({name}: {name: string}) => {
+const Title = ({ name }: { name: string }) => {
   return <h1 className={styles.title}>{name}</h1>
 }
 
-const Form: React.FC<PropsWithChildren> = ({children}) => {
+const Form: React.FC<PropsWithChildren> = ({ children }) => {
   return <table className={styles.formTable}><tbody>{children}</tbody></table>
 }
 
@@ -76,16 +76,16 @@ export const ShowEdit = ({
       appContext: { editor },
     },
     dispatch,
-  } = useLuminaContext();
+  } = useLuminaContext()
 
-  const [showModalEdit, setShowModalEdit] = useState(false);
-  const [showModalAdd, setShowModalAdd] = useState(false); //Add Modal - BM
-  const [showModalDelete, setShowModalDelete] = useState(false); //Delete Modal - BM
-  const [toDeleteInput, setToDeleteInput] = useState(""); //Delete Modal - Input
-  const [deleteInputError, setDeleteInputError] = useState(false); //Delete Modal - error
-  
-  const [formData, setFormData] = useState(data || {});
-  const [selectedOption, setSelectedOption] = useState<{value: string, label: string}>(); //dropdown - new component
+  const [showModalEdit, setShowModalEdit] = useState(false)
+  const [showModalAdd, setShowModalAdd] = useState(false) //Add Modal - BM
+  const [showModalDelete, setShowModalDelete] = useState(false) //Delete Modal - BM
+  const [toDeleteInput, setToDeleteInput] = useState("") //Delete Modal - Input
+  const [deleteInputError, setDeleteInputError] = useState(false) //Delete Modal - error
+
+  const [formData, setFormData] = useState(data || {})
+  const [selectedOption, setSelectedOption] = useState<{ value: string, label: string }>() //dropdown - new component
   const [newComponentFriendlyName, setNewComponentFriendlyName] = useState("") //friendly name - new component
 
   const handleOnChangeDeleteInput = useCallback(
@@ -98,12 +98,12 @@ export const ShowEdit = ({
 
   const handleOnClickEdit = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
-      event.preventDefault();
+      event.preventDefault()
       event.stopPropagation()
-      setShowModalEdit(true);
+      setShowModalEdit(true)
     },
     []
-  );
+  )
 
   // Handle Delete
   const handleDelete = useCallback(
@@ -114,7 +114,7 @@ export const ShowEdit = ({
       setShowModalDelete(true)
     },
     []
-  );
+  )
 
   const handleOnClickDelete = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -133,44 +133,44 @@ export const ShowEdit = ({
       }
     },
     [config?.name, dispatch, id, toDeleteInput]
-  );
+  )
 
   // Add button - BM
   const handleOnClickAdd = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
-      event.preventDefault();
+      event.preventDefault()
       event.stopPropagation()
-      setShowModalAdd(true);
+      setShowModalAdd(true)
     },
     []
-  );
+  )
 
   const handleCloseModal = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
-      event.preventDefault();
+      event.preventDefault()
       event.stopPropagation()
-      setShowModalEdit(false);
-      setShowModalAdd(false);
-      setShowModalDelete(false);
+      setShowModalEdit(false)
+      setShowModalAdd(false)
+      setShowModalDelete(false)
     },
     []
-  );
+  )
 
   const handleOnChangeInput = useCallback(
     (key: string, value: string | number) => {
       setFormData({
         ...formData,
         [key]: value,
-      });
+      })
     },
     [formData]
-  );
+  )
 
   const handleOnClickAddComponentModal = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
-      event.preventDefault();
+      event.preventDefault()
       if (!selectedOption) return
-      setShowModalAdd(false);
+      setShowModalAdd(false)
       dispatch({
         type: "createComponent",
         data: {
@@ -180,7 +180,7 @@ export const ShowEdit = ({
           children: [],
           props: {}
         }
-      });
+      })
       // TODO: not implemented
       // dispatch({
       //   type: "createComponentBackend",
@@ -191,35 +191,35 @@ export const ShowEdit = ({
       // });
     },
     [dispatch, id, newComponentFriendlyName, selectedOption]
-  );
+  )
 
   const handleOnClickSaveData = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
-      event.preventDefault();
-      setShowModalEdit(false);
-      onUpdate && onUpdate(formData);
+      event.preventDefault()
+      setShowModalEdit(false)
+      onUpdate && onUpdate(formData)
       dispatch({
         type: "updateBackend",
         data: {
           props: formData,
           id,
         },
-      });
+      })
       dispatch({
         type: "updateComponent",
         data: {
           newProps: formData,
           id,
         },
-      });
+      })
     },
     [dispatch, formData, id, onUpdate]
-  );
+  )
 
   const handleOnClickMoveUp = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
-      event.preventDefault();
-      event.stopPropagation();
+      event.preventDefault()
+      event.stopPropagation()
       dispatch({
         type: "moveUpComponent",
         data: {
@@ -228,12 +228,12 @@ export const ShowEdit = ({
       })
     },
     [dispatch, id]
-  );
+  )
 
   const handleOnClickMoveDown = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
-      event.preventDefault();
-      event.stopPropagation();
+      event.preventDefault()
+      event.stopPropagation()
       dispatch({
         type: "moveDownComponent",
         data: {
@@ -242,27 +242,27 @@ export const ShowEdit = ({
       })
     },
     [dispatch, id]
-  );
+  )
 
   // Options for dropdown - BM
   const options = Object.keys(configs).map((opt) => {
     return {
       value: opt,
       label: configs[opt].name,
-    };
-  });
+    }
+  })
 
   // Handler for on Change from dropdown - BM
   const handleSelectChange = (options: any) => {
-    setSelectedOption(options);
-  };
+    setSelectedOption(options)
+  }
 
   // Handler for on Change from dropdown - BM
   const handleOnChangeNewComponentFriendlyName = (event: ChangeEvent<HTMLInputElement>) => {
     setNewComponentFriendlyName(event.target.value)
-  };
+  }
 
-  if (!editor) return null;
+  if (!editor) return null
   return (
     <>
       {/* -------Start Edit Modal-------- */}
@@ -274,7 +274,7 @@ export const ShowEdit = ({
           className={styles.modalEdit}
           overlayClassName={styles.modalOverlay}
         >
-          <Title name={config.name}/>
+          <Title name={config.name} />
           <Form>
             {config.props.map((configItem, index) => (
               <InputRenderer
@@ -317,7 +317,7 @@ export const ShowEdit = ({
         >
           <p>Are you sure you want to delete the Component?</p>
           <p>Write the component name <b>{config.name}</b> below to delete.</p>
-          <input type="text" value={toDeleteInput} onChange={handleOnChangeDeleteInput}/>
+          <input type="text" value={toDeleteInput} onChange={handleOnChangeDeleteInput} />
           {deleteInputError && "Name does not match."}
           <div className={styles.inlineButtons}>
             <Button
@@ -383,7 +383,7 @@ export const ShowEdit = ({
         >
           {(
             config?.props && config.editor.editable && (
-              <Button onClick={handleOnClickEdit} round iconLeft="lumina-pencil"/>
+              <Button onClick={handleOnClickEdit} round iconLeft="lumina-pencil" />
             )
           ) || null}
           {(
@@ -398,41 +398,41 @@ export const ShowEdit = ({
           ) || null}
           {(
             config?.editor.children && (
-              <Button color="primary" outline onClick={handleOnClickAdd} round iconLeft="lumina-plus"/>
+              <Button color="primary" outline onClick={handleOnClickAdd} round iconLeft="lumina-plus" />
             )
           ) || null}
-          {!noUp && <Button color="secondary" outline onClick={handleOnClickMoveUp} round iconLeft="lumina-arrow-up"/> || null}
-          {!noDown && <Button color="secondary" outline onClick={handleOnClickMoveDown} round iconLeft="lumina-arrow-down"/> || null}
+          {!noUp && <Button color="secondary" outline onClick={handleOnClickMoveUp} round iconLeft="lumina-arrow-up" /> || null}
+          {!noDown && <Button color="secondary" outline onClick={handleOnClickMoveDown} round iconLeft="lumina-arrow-down" /> || null}
         </div>
       )) || (
-        <div
-          className={`${styles.showEdit} ${styles.showEditContainer}`}
-        >
-          {(
-            config?.props && config.editor.editable && (
-              <Button text="Edit" onClick={handleOnClickEdit} iconRight="lumina-pencil"/>
-            )
-          ) || null}
-          {(
-            config?.editor.delete && (
-              <Button
-                text="Delete"
-                color="danger"
-                onClick={handleDelete}
-                iconRight="lumina-cross"
-              />
-            )
-          ) || null}
-          {(
-            config?.editor.children && (
-              <Button text="Add" color="primary" outline onClick={handleOnClickAdd} iconRight="lumina-plus"/>
-            )
-          ) || null}
-        </div>
-      )}
-      
+          <div
+            className={`${styles.showEdit} ${styles.showEditContainer}`}
+          >
+            {(
+              config?.props && config.editor.editable && (
+                <Button text="Edit" onClick={handleOnClickEdit} iconRight="lumina-pencil" />
+              )
+            ) || null}
+            {(
+              config?.editor.delete && (
+                <Button
+                  text="Delete"
+                  color="danger"
+                  onClick={handleDelete}
+                  iconRight="lumina-cross"
+                />
+              )
+            ) || null}
+            {(
+              config?.editor.children && (
+                <Button text="Add" color="primary" outline onClick={handleOnClickAdd} iconRight="lumina-plus" />
+              )
+            ) || null}
+          </div>
+        )}
 
-      
+
+
     </>
-  );
-};
+  )
+}

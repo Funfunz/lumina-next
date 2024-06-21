@@ -8,12 +8,12 @@ interface IProps {
   text: string
 }
 
-export const TitleText = ({id, title, text}: IProps) => {
+export const TitleText = ({ id, title, text }: IProps) => {
   return (
     <div className={styles.titleText}>
       <h1>{title}</h1>
       <p>{text}</p>
-      <ShowEdit id={id} config={config} data={{title, text}}/>
+      <ShowEdit id={id} config={config} data={{ title, text }} />
     </div>
   )
 }

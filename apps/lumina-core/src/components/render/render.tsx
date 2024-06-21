@@ -32,7 +32,7 @@ export const Render = ({ elements }: IProps) => {
         (component, index) => {
           const LoadedComponent = DynamicComponent(component.type)
           if (!LoadedComponent) return null
-          return <LoadedComponent key={index} {...component.props} id={component.id}><Render elements={component.children}/></LoadedComponent>
+          return <LoadedComponent key={index} {...component.props} id={component.id}><Render elements={component.children} /></LoadedComponent>
         }
       )}
     </>

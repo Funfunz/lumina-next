@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import { Dispatch, createContext, useContext, useEffect, useReducer } from 'react'
 
@@ -23,7 +23,7 @@ export interface ILinkBoxContextAction {
   data: IUpdateDataAction
 }
 
-export interface IUpdateDataAction extends Partial<IInitialStateType> {}
+export interface IUpdateDataAction extends Partial<IInitialStateType> { }
 
 const mainReducer = (
   linkBoxContext: IInitialStateType,
@@ -36,14 +36,14 @@ const mainReducer = (
         ...action.data
       }
     default:
-      break;
+      break
   }
   return linkBoxContext
 }
 
 export interface IContext {
   state: IInitialStateType
-  dispatch: Dispatch<ILinkBoxContextAction> 
+  dispatch: Dispatch<ILinkBoxContextAction>
 }
 
 const LinkBoxContext = createContext<IContext>({
@@ -78,7 +78,7 @@ export function ContextProvider({
   )
 
   return (
-    <LinkBoxContext.Provider value={{state, dispatch}}>
+    <LinkBoxContext.Provider value={{ state, dispatch }}>
       {children}
     </LinkBoxContext.Provider>
   )

@@ -26,13 +26,13 @@ const Content = ({
       <span className={styles.buttonContent}>
         {
           iconLeft && (
-            <span className={classnames(styles.icon, iconLeft)}/>
+            <span className={classnames(styles.icon, iconLeft)} />
           )
         }
         {text && (<span>{text}</span>)}
         {
           iconRight && (
-            <span className={classnames(styles.icon, iconRight)}/>
+            <span className={classnames(styles.icon, iconRight)} />
           )
         }
       </span>

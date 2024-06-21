@@ -1,36 +1,36 @@
-"use client";
+"use client"
 
 /**
  * Lumina main reducer
  * It turns all the reducers into a single one
  */
-import { Dispatch } from "react";
+import { Dispatch } from "react"
 import {
   IAppContext,
   TAppContextAction,
   appContextReducer,
   initialAppContextState,
-} from "./appContext";
+} from "./appContext"
 import {
   IBuilderDataContext,
   builderDataContextReducer,
   TBuilderDataContextAction,
   initialBuilderDataContextState,
-} from "./builderDataContext";
+} from "./builderDataContext"
 
 export type TAppContextDispatch = Dispatch<
   TAppContextAction | TBuilderDataContextAction
->;
+>
 
 export interface IInitialStateType {
-  appContext: IAppContext;
-  builderDataContext: IBuilderDataContext;
+  appContext: IAppContext
+  builderDataContext: IBuilderDataContext
 }
 
 export const initialContext = {
   appContext: initialAppContextState,
   builderDataContext: initialBuilderDataContextState,
-};
+}
 
 export const mainReducer = (
   { appContext, builderDataContext }: IInitialStateType,
@@ -41,4 +41,4 @@ export const mainReducer = (
     builderDataContext,
     action as TBuilderDataContextAction
   ),
-});
+})

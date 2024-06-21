@@ -12,7 +12,7 @@ type TProps = {
   color: 'black' | 'white' | 'green' | 'yellow'
 }
 
-export const LinkBox = ({id, title, description, href, color = 'black'}: TProps) => {
+export const LinkBox = ({ id, title, description, href, color = 'black' }: TProps) => {
   if (!id || !title || !description || !href) return null
   return (
     <a
@@ -21,8 +21,8 @@ export const LinkBox = ({id, title, description, href, color = 'black'}: TProps)
       target="_blank"
       rel="noopener noreferrer"
     >
-      <ShowEdit id={id}config={config} data={{id, title, description, href, color}}/>
-      <h2 style={{color}}>
+      <ShowEdit id={id} config={config} data={{ id, title, description, href, color }} />
+      <h2 style={{ color }}>
         {title} <span>-&gt;</span>
       </h2>
       <p>{description}</p>

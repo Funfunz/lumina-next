@@ -8,11 +8,11 @@ type Props = {
   id: string
 }
 
-export const Grid = ({children, style, id}: Props) => {
+export const Grid = ({ children, style, id }: Props) => {
   return (
-    <div className={styles.grid + (style ?  ' ' + styles[style] : '')}>
+    <div className={styles.grid + (style ? ' ' + styles[style] : '')}>
       {children}
-      <ShowEdit id={id} config={config} data={{style}}/>
+      <ShowEdit id={id} config={config} data={{ style }} />
     </div>
   )
 }

@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import { Dispatch, SetStateAction, createContext, useState } from 'react'
 
@@ -38,13 +38,15 @@ export function ContextProvider({
 
 
   return (
-    <LinkBoxContext.Provider value={{state, dispatch: (newData) => {
-      return dispatch(
-        (data) => {
-          return {...data, ...newData}
-        }
-      )
-    }}}>
+    <LinkBoxContext.Provider value={{
+      state, dispatch: (newData) => {
+        return dispatch(
+          (data) => {
+            return { ...data, ...newData }
+          }
+        )
+      }
+    }}>
       {children}
     </LinkBoxContext.Provider>
   )

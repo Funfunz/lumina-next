@@ -1,7 +1,7 @@
-import { Editor } from "@/components/editor/editor";
-import { getFullData } from "@/lib/dataFetcher";
-import { Render } from "@/components/render/render";
-import { ContextProvider } from "@/context/contextProvider";
+import { Editor } from "@/components/editor/editor"
+import { getFullData } from "@/lib/dataFetcher"
+import { Render } from "@/components/render/render"
+import { ContextProvider } from "@/context/contextProvider"
 import { TLuminaOptions } from "@/types/common"
 
 type TEditorPageProps = {
@@ -12,9 +12,9 @@ type TEditorPageProps = {
 }
 
 export default async function EditorPage({ params }: TEditorPageProps) {
-  const selectedPage = params.slug || "home";
-  const builderData = await getFullData();
-  if (!builderData[selectedPage]) return;
+  const selectedPage = params.slug || "home"
+  const builderData = await getFullData()
+  if (!builderData[selectedPage]) return
   return (
     <ContextProvider
       data={{
@@ -30,5 +30,5 @@ export default async function EditorPage({ params }: TEditorPageProps) {
         <Render />
       </Editor>
     </ContextProvider>
-  );
+  )
 }

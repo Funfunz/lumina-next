@@ -5,8 +5,8 @@ import { TLuminaOptions } from "@/types/common"
 
 type TLuminaAppProps = {
   params: {
-    slug: string;
-    options: TLuminaOptions;
+    slug: string
+    options: TLuminaOptions
   }
 }
 

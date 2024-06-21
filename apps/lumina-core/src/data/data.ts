@@ -1,4 +1,4 @@
-export interface IComponentProps  {
+export interface IComponentProps {
   [key: string]: string | number | undefined
 }
 

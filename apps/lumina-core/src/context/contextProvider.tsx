@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 /**
  * this is the ContextProvider component
@@ -33,9 +33,9 @@ export function ContextProvider({
   children,
   data = {},
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
   data?: {
-    appContext?: IAppContext;
+    appContext?: IAppContext
     builderDataContext?: IBuilderDataContext
   }
 }) {

@@ -1,4 +1,4 @@
-import { TConfig } from "../showEdit/showEdit";
+import { TConfig } from "../showEdit/showEdit"
 
 export const config: TConfig = {
   name: 'flex',

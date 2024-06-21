@@ -1,19 +1,19 @@
-"use client";
+"use client"
 
-import styles from "@/components/editor/editor.module.scss";
-import cx from "classnames";
-import { useCallback, useState } from "react";
-import { TreeView } from "../treeView/treeView";
+import styles from "@/components/editor/editor.module.scss"
+import cx from "classnames"
+import { useCallback, useState } from "react"
+import { TreeView } from "../treeView/treeView"
 
 type Props = {
-  children: React.ReactNode;
-};
+  children: React.ReactNode
+}
 
 export const Editor = ({ children }: Props) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
   const handleMenuToggler = useCallback(() => {
-    setIsOpen(!isOpen);
-  }, [isOpen]);
+    setIsOpen(!isOpen)
+  }, [isOpen])
 
   return (
     <div
@@ -33,5 +33,5 @@ export const Editor = ({ children }: Props) => {
       </div>
       <div>{children}</div>
     </div>
-  );
-};
+  )
+}
