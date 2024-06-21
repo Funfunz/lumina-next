@@ -83,7 +83,7 @@ export const ShowEdit = ({
   let [showModalDelete, setShowModalDelete] = useState(false); //Delete Modal - BM
   let [toDeleteInput, setToDeleteInput] = useState(""); //Delete Modal - Input
   let [deleteInputError, setDeleteInputError] = useState(false); //Delete Modal - error
-  
+
   let [formData, setFormData] = useState(data || {});
   let [selectedOption, setSelectedOption] = useState<{value: string, label: string}>(); //dropdown - new component
   let [newComponentFriendlyName, setNewComponentFriendlyName] = useState("") //friendly name - new component
@@ -430,9 +430,9 @@ export const ShowEdit = ({
           ) || null}
         </div>
       )}
-      
 
-      
+
+
     </>
   );
 };

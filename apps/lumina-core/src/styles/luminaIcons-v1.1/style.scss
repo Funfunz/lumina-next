@@ -1,0 +1,224 @@
+@import "variables";
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?iignw6') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?iignw6') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?iignw6##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="lumina-"], [class*=" lumina-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.lumina-pencil {
+  &:before {
+    content: $lumina-pencil; 
+  }
+}
+.lumina-plus {
+  &:before {
+    content: $lumina-plus; 
+  }
+}
+.lumina-cross {
+  &:before {
+    content: $lumina-cross; 
+  }
+}
+.lumina-arrow-up {
+  &:before {
+    content: $lumina-arrow-up; 
+  }
+}
+.lumina-arrow-down {
+  &:before {
+    content: $lumina-arrow-down; 
+  }
+}
+.lumina-close-up {
+  &:before {
+    content: $lumina-close-up; 
+  }
+}
+.lumina-close {
+  &:before {
+    content: $lumina-close; 
+  }
+}
+.lumina-component {
+  &:before {
+    content: $lumina-component; 
+  }
+}
+.lumina-cut {
+  &:before {
+    content: $lumina-cut; 
+  }
+}
+.lumina-delete {
+  &:before {
+    content: $lumina-delete; 
+  }
+}
+.lumina-edit {
+  &:before {
+    content: $lumina-edit; 
+  }
+}
+.lumina-figma {
+  &:before {
+    content: $lumina-figma; 
+  }
+}
+.lumina-filter {
+  &:before {
+    content: $lumina-filter; 
+  }
+}
+.lumina-folder {
+  &:before {
+    content: $lumina-folder; 
+  }
+}
+.lumina-grid {
+  &:before {
+    content: $lumina-grid; 
+  }
+}
+.lumina-hand {
+  &:before {
+    content: $lumina-hand; 
+  }
+}
+.lumina-help {
+  &:before {
+    content: $lumina-help; 
+  }
+}
+.lumina-hidden {
+  &:before {
+    content: $lumina-hidden; 
+  }
+}
+.lumina-item-add {
+  &:before {
+    content: $lumina-item-add; 
+  }
+}
+.lumina-layers {
+  &:before {
+    content: $lumina-layers; 
+  }
+}
+.lumina-library {
+  &:before {
+    content: $lumina-library; 
+  }
+}
+.lumina-link {
+  &:before {
+    content: $lumina-link; 
+  }
+}
+.lumina-menu {
+  &:before {
+    content: $lumina-menu; 
+  }
+}
+.lumina-open-down {
+  &:before {
+    content: $lumina-open-down; 
+  }
+}
+.lumina-open {
+  &:before {
+    content: $lumina-open; 
+  }
+}
+.lumina-page {
+  &:before {
+    content: $lumina-page; 
+  }
+}
+.lumina-paste {
+  &:before {
+    content: $lumina-paste; 
+  }
+}
+.lumina-picture {
+  &:before {
+    content: $lumina-picture; 
+  }
+}
+.lumina-accept {
+  &:before {
+    content: $lumina-accept; 
+  }
+}
+.lumina-search {
+  &:before {
+    content: $lumina-search; 
+  }
+}
+.lumina-add {
+  &:before {
+    content: $lumina-add; 
+  }
+}
+.lumina-settings {
+  &:before {
+    content: $lumina-settings; 
+  }
+}
+.lumina-islide {
+  &:before {
+    content: $lumina-islide; 
+  }
+}
+.lumina-slidedown {
+  &:before {
+    content: $lumina-slidedown; 
+  }
+}
+.lumina-slideup {
+  &:before {
+    content: $lumina-slideup; 
+  }
+}
+.lumina-title {
+  &:before {
+    content: $lumina-title; 
+  }
+}
+.lumina-user {
+  &:before {
+    content: $lumina-user; 
+  }
+}
+.lumina-visible {
+  &:before {
+    content: $lumina-visible; 
+  }
+}
+.lumina-clone {
+  &:before {
+    content: $lumina-clone; 
+  }
+}
+

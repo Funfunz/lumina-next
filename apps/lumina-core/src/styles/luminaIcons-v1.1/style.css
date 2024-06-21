@@ -1,0 +1,143 @@
+@font-face {
+  font-family: 'luminaIcons';
+  src:
+    url('fonts/luminaIcons.ttf?iignw6') format('truetype'),
+    url('fonts/luminaIcons.woff?iignw6') format('woff'),
+    url('fonts/luminaIcons.svg?iignw6#luminaIcons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="lumina-"], [class*=" lumina-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'luminaIcons' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.lumina-pencil:before {
+  content: "\e900";
+}
+.lumina-plus:before {
+  content: "\ea0a";
+}
+.lumina-cross:before {
+  content: "\ea0f";
+}
+.lumina-arrow-up:before {
+  content: "\ea32";
+}
+.lumina-arrow-down:before {
+  content: "\ea36";
+}
+.lumina-close-up:before {
+  content: "\e901";
+}
+.lumina-close:before {
+  content: "\e902";
+}
+.lumina-component:before {
+  content: "\e903";
+}
+.lumina-cut:before {
+  content: "\e904";
+}
+.lumina-delete:before {
+  content: "\e905";
+}
+.lumina-edit:before {
+  content: "\e906";
+}
+.lumina-figma:before {
+  content: "\e907";
+}
+.lumina-filter:before {
+  content: "\e908";
+}
+.lumina-folder:before {
+  content: "\e909";
+}
+.lumina-grid:before {
+  content: "\e90a";
+}
+.lumina-hand:before {
+  content: "\e90b";
+}
+.lumina-help:before {
+  content: "\e90c";
+}
+.lumina-hidden:before {
+  content: "\e90d";
+}
+.lumina-item-add:before {
+  content: "\e90e";
+}
+.lumina-layers:before {
+  content: "\e90f";
+}
+.lumina-library:before {
+  content: "\e910";
+}
+.lumina-link:before {
+  content: "\e911";
+}
+.lumina-menu:before {
+  content: "\e912";
+}
+.lumina-open-down:before {
+  content: "\e913";
+}
+.lumina-open:before {
+  content: "\e914";
+}
+.lumina-page:before {
+  content: "\e915";
+}
+.lumina-paste:before {
+  content: "\e916";
+}
+.lumina-picture:before {
+  content: "\e917";
+}
+.lumina-accept:before {
+  content: "\e918";
+}
+.lumina-search:before {
+  content: "\e919";
+}
+.lumina-add:before {
+  content: "\e91a";
+}
+.lumina-settings:before {
+  content: "\e91b";
+}
+.lumina-islide:before {
+  content: "\e91c";
+}
+.lumina-slidedown:before {
+  content: "\e91d";
+}
+.lumina-slideup:before {
+  content: "\e91e";
+}
+.lumina-title:before {
+  content: "\e91f";
+}
+.lumina-user:before {
+  content: "\e920";
+}
+.lumina-visible:before {
+  content: "\e921";
+}
+.lumina-clone:before {
+  content: "\e922";
+}
