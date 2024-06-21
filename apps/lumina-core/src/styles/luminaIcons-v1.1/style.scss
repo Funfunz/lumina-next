@@ -3,9 +3,9 @@
 @font-face {
   font-family: '#{$icomoon-font-family}';
   src:
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?gwscqg') format('truetype'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?gwscqg') format('woff'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?gwscqg##{$icomoon-font-family}') format('svg');
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?iignw6') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?iignw6') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?iignw6##{$icomoon-font-family}') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -51,174 +51,174 @@
     content: $lumina-arrow-down; 
   }
 }
-.lumina-iconclose-up {
+.lumina-close-up {
   &:before {
-    content: $lumina-iconclose-up; 
+    content: $lumina-close-up; 
   }
 }
-.lumina-iconclose {
+.lumina-close {
   &:before {
-    content: $lumina-iconclose; 
+    content: $lumina-close; 
   }
 }
-.lumina-iconcomponent {
+.lumina-component {
   &:before {
-    content: $lumina-iconcomponent; 
+    content: $lumina-component; 
   }
 }
-.lumina-iconcut {
+.lumina-cut {
   &:before {
-    content: $lumina-iconcut; 
+    content: $lumina-cut; 
   }
 }
-.lumina-icondelete {
+.lumina-delete {
   &:before {
-    content: $lumina-icondelete; 
+    content: $lumina-delete; 
   }
 }
-.lumina-iconedit {
+.lumina-edit {
   &:before {
-    content: $lumina-iconedit; 
+    content: $lumina-edit; 
   }
 }
-.lumina-iconfigma {
+.lumina-figma {
   &:before {
-    content: $lumina-iconfigma; 
+    content: $lumina-figma; 
   }
 }
-.lumina-iconfilter {
+.lumina-filter {
   &:before {
-    content: $lumina-iconfilter; 
+    content: $lumina-filter; 
   }
 }
-.lumina-iconfolder {
+.lumina-folder {
   &:before {
-    content: $lumina-iconfolder; 
+    content: $lumina-folder; 
   }
 }
-.lumina-icongrid {
+.lumina-grid {
   &:before {
-    content: $lumina-icongrid; 
+    content: $lumina-grid; 
   }
 }
-.lumina-iconhand {
+.lumina-hand {
   &:before {
-    content: $lumina-iconhand; 
+    content: $lumina-hand; 
   }
 }
-.lumina-iconhelp {
+.lumina-help {
   &:before {
-    content: $lumina-iconhelp; 
+    content: $lumina-help; 
   }
 }
-.lumina-iconhidden {
+.lumina-hidden {
   &:before {
-    content: $lumina-iconhidden; 
+    content: $lumina-hidden; 
   }
 }
-.lumina-iconitemadd {
+.lumina-item-add {
   &:before {
-    content: $lumina-iconitemadd; 
+    content: $lumina-item-add; 
   }
 }
-.lumina-iconlayers {
+.lumina-layers {
   &:before {
-    content: $lumina-iconlayers; 
+    content: $lumina-layers; 
   }
 }
-.lumina-iconlibrary {
+.lumina-library {
   &:before {
-    content: $lumina-iconlibrary; 
+    content: $lumina-library; 
   }
 }
-.lumina-iconlink {
+.lumina-link {
   &:before {
-    content: $lumina-iconlink; 
+    content: $lumina-link; 
   }
 }
-.lumina-iconmenu {
+.lumina-menu {
   &:before {
-    content: $lumina-iconmenu; 
+    content: $lumina-menu; 
   }
 }
-.lumina-iconopen-down {
+.lumina-open-down {
   &:before {
-    content: $lumina-iconopen-down; 
+    content: $lumina-open-down; 
   }
 }
-.lumina-iconopen {
+.lumina-open {
   &:before {
-    content: $lumina-iconopen; 
+    content: $lumina-open; 
   }
 }
-.lumina-iconpage {
+.lumina-page {
   &:before {
-    content: $lumina-iconpage; 
+    content: $lumina-page; 
   }
 }
-.lumina-iconpaste {
+.lumina-paste {
   &:before {
-    content: $lumina-iconpaste; 
+    content: $lumina-paste; 
   }
 }
-.lumina-iconpicture {
+.lumina-picture {
   &:before {
-    content: $lumina-iconpicture; 
+    content: $lumina-picture; 
   }
 }
-.lumina-iconaccept {
+.lumina-accept {
   &:before {
-    content: $lumina-iconaccept; 
+    content: $lumina-accept; 
   }
 }
-.lumina-iconsearch {
+.lumina-search {
   &:before {
-    content: $lumina-iconsearch; 
+    content: $lumina-search; 
   }
 }
-.lumina-iconadd {
+.lumina-add {
   &:before {
-    content: $lumina-iconadd; 
+    content: $lumina-add; 
   }
 }
-.lumina-iconsettings {
+.lumina-settings {
   &:before {
-    content: $lumina-iconsettings; 
+    content: $lumina-settings; 
   }
 }
-.lumina-iconslide {
+.lumina-islide {
   &:before {
-    content: $lumina-iconslide; 
+    content: $lumina-islide; 
   }
 }
-.lumina-iconslidedown {
+.lumina-slidedown {
   &:before {
-    content: $lumina-iconslidedown; 
+    content: $lumina-slidedown; 
   }
 }
-.lumina-iconslideup {
+.lumina-slideup {
   &:before {
-    content: $lumina-iconslideup; 
+    content: $lumina-slideup; 
   }
 }
-.lumina-icontitle {
+.lumina-title {
   &:before {
-    content: $lumina-icontitle; 
+    content: $lumina-title; 
   }
 }
-.lumina-iconuser {
+.lumina-user {
   &:before {
-    content: $lumina-iconuser; 
+    content: $lumina-user; 
   }
 }
-.lumina-iconvisible {
+.lumina-visible {
   &:before {
-    content: $lumina-iconvisible; 
+    content: $lumina-visible; 
   }
 }
-.lumina-iconclone {
+.lumina-clone {
   &:before {
-    content: $lumina-iconclone; 
+    content: $lumina-clone; 
   }
 }
 

@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'luminaIcons';
   src:
-    url('fonts/luminaIcons.ttf?gwscqg') format('truetype'),
-    url('fonts/luminaIcons.woff?gwscqg') format('woff'),
-    url('fonts/luminaIcons.svg?gwscqg#luminaIcons') format('svg');
+    url('fonts/luminaIcons.ttf?iignw6') format('truetype'),
+    url('fonts/luminaIcons.woff?iignw6') format('woff'),
+    url('fonts/luminaIcons.svg?iignw6#luminaIcons') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -39,105 +39,105 @@
 .lumina-arrow-down:before {
   content: "\ea36";
 }
-.lumina-iconclose-up:before {
+.lumina-close-up:before {
   content: "\e901";
 }
-.lumina-iconclose:before {
+.lumina-close:before {
   content: "\e902";
 }
-.lumina-iconcomponent:before {
+.lumina-component:before {
   content: "\e903";
 }
-.lumina-iconcut:before {
+.lumina-cut:before {
   content: "\e904";
 }
-.lumina-icondelete:before {
+.lumina-delete:before {
   content: "\e905";
 }
-.lumina-iconedit:before {
+.lumina-edit:before {
   content: "\e906";
 }
-.lumina-iconfigma:before {
+.lumina-figma:before {
   content: "\e907";
 }
-.lumina-iconfilter:before {
+.lumina-filter:before {
   content: "\e908";
 }
-.lumina-iconfolder:before {
+.lumina-folder:before {
   content: "\e909";
 }
-.lumina-icongrid:before {
+.lumina-grid:before {
   content: "\e90a";
 }
-.lumina-iconhand:before {
+.lumina-hand:before {
   content: "\e90b";
 }
-.lumina-iconhelp:before {
+.lumina-help:before {
   content: "\e90c";
 }
-.lumina-iconhidden:before {
+.lumina-hidden:before {
   content: "\e90d";
 }
-.lumina-iconitemadd:before {
+.lumina-item-add:before {
   content: "\e90e";
 }
-.lumina-iconlayers:before {
+.lumina-layers:before {
   content: "\e90f";
 }
-.lumina-iconlibrary:before {
+.lumina-library:before {
   content: "\e910";
 }
-.lumina-iconlink:before {
+.lumina-link:before {
   content: "\e911";
 }
-.lumina-iconmenu:before {
+.lumina-menu:before {
   content: "\e912";
 }
-.lumina-iconopen-down:before {
+.lumina-open-down:before {
   content: "\e913";
 }
-.lumina-iconopen:before {
+.lumina-open:before {
   content: "\e914";
 }
-.lumina-iconpage:before {
+.lumina-page:before {
   content: "\e915";
 }
-.lumina-iconpaste:before {
+.lumina-paste:before {
   content: "\e916";
 }
-.lumina-iconpicture:before {
+.lumina-picture:before {
   content: "\e917";
 }
-.lumina-iconaccept:before {
+.lumina-accept:before {
   content: "\e918";
 }
-.lumina-iconsearch:before {
+.lumina-search:before {
   content: "\e919";
 }
-.lumina-iconadd:before {
+.lumina-add:before {
   content: "\e91a";
 }
-.lumina-iconsettings:before {
+.lumina-settings:before {
   content: "\e91b";
 }
-.lumina-iconslide:before {
+.lumina-islide:before {
   content: "\e91c";
 }
-.lumina-iconslidedown:before {
+.lumina-slidedown:before {
   content: "\e91d";
 }
-.lumina-iconslideup:before {
+.lumina-slideup:before {
   content: "\e91e";
 }
-.lumina-icontitle:before {
+.lumina-title:before {
   content: "\e91f";
 }
-.lumina-iconuser:before {
+.lumina-user:before {
   content: "\e920";
 }
-.lumina-iconvisible:before {
+.lumina-visible:before {
   content: "\e921";
 }
-.lumina-iconclone:before {
+.lumina-clone:before {
   content: "\e922";
 }
