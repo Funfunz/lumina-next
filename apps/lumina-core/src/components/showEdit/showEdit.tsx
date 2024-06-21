@@ -296,7 +296,7 @@ export const ShowEdit = ({
               color="secondary"
               outline
               onClick={handleCloseModal}
-              iconRight="lumina-cut"
+              iconRight="lumina-cross"
             />
           </div>
         </ReactModal>
