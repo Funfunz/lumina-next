@@ -2,6 +2,7 @@ import { Editor } from "@/components/editor/editor";
 import { getFullData } from "@/lib/dataFetcher";
 import { Render } from "@/components/render/render";
 import { ContextProvider } from "@/context/contextProvider";
+import { TreeViewTab } from "@/components/tabs/treeView/treeView";
 
 type Props = {
   params: {
@@ -26,6 +27,7 @@ export default async function EditorPage({ params }: Props) {
     >
       <Editor>
         <Render />
+        <TreeViewTab/>
       </Editor>
     </ContextProvider>
   );

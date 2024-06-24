@@ -1,0 +1,25 @@
+.searchBar{
+  display: flex;
+  flex-direction: row;
+}
+
+.searchText {
+  position: relative;
+  border-radius: 5px;
+  border-width: 1px;
+  margin-right: 5px;
+  width: 100% ;
+  border-color: #CCCCCC;
+  padding-left: 24px;
+  font-size: 18px;
+}
+
+.searchIcon{
+  color: #111111;
+  opacity: .66;
+  margin-left: 4px;
+  margin-top: 3px;
+  position: absolute;
+  font-size: 18px;
+  z-index: 1;
+ }

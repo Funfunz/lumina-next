@@ -1,0 +1,44 @@
+.treeviewContainer{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 5px solid black ;
+}
+
+.treeHead{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.addContainer {
+  display:inline-flex;
+}
+
+.treeContainer {
+  margin-top: 15px;
+  padding: 0 0 0 15px;
+  position: relative;
+  color: var(--lum-color-text);
+
+  &:hover {
+    background-color: silver;
+  }
+}
+
+.treeHeadItem {
+  margin-bottom: 5px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  position: relative;
+  cursor: default;
+}
+
+.pointerTreeView {
+  cursor: pointer;
+}
+
