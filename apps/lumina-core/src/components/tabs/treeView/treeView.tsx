@@ -18,6 +18,7 @@ const TreeBranch = ({ data, noUp, noDown }: { data: IComponentData, noUp: boolea
 
   return (
     <div className={styles.treeContainer}>
+      <div className={styles.treeViewIcon}><span className="lumina-open-down"></span></div>
       <div
         className={cx(styles.treeHeadItem, {
           [String(styles.pointerTreeView)]: data.children?.length,
