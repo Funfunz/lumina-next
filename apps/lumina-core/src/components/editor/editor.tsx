@@ -3,7 +3,7 @@
 import styles from "@/components/editor/editor.module.scss";
 import cx from "classnames";
 import { useCallback, useState } from "react";
-import { PagesTab } from "@/components/tabs/pages/pages";
+import { PagesTab } from "@/components/tabs/pages/page";
 
 type Props = {
   children: React.ReactNode;

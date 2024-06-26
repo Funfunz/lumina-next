@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "@/components/tabs/treeView/treeView.module.scss";
+import styles from "../treeView/treeView.module.scss";
 import cx from "classnames";
 import { useLuminaContext } from "@/context/contextProvider";
 import { IComponentData, IComponentProps } from "@/data/data";
@@ -8,6 +8,7 @@ import { useCallback, useState } from "react";
 import { ShowEdit } from "../../showEdit/showEdit";
 import { configs } from "@/staticComponentsPath";
 import { SearchBar } from "../../search/search";
+import { PageLabel } from "../pages/pageLabel";
 
 const TreeBranch = ({ data, noUp, noDown }: { data: IComponentData, noUp: boolean, noDown: boolean }) => {
   const [showChildren, setShowChildren] = useState(false);
@@ -88,6 +89,7 @@ export const TreeViewTab = () => {
           </span>
           </div>
         <SearchBar/>
+        <PageLabel/>
         <ComponentTree
           data={
             builderDataContext.builderData[builderDataContext.selectedPage].children

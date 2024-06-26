@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/button/buttons";
-import styles from "@/components/tabs/pages/pages.module.scss";
+import styles from "@/components/tabs/pages/page.module.scss";
 import { useLuminaContext } from "@/context/contextProvider";
 import { useCallback } from "react";
 
