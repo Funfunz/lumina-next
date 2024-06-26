@@ -12,11 +12,12 @@
 
   .addContainer {
   display: inline-flex;
+  gap: 8px;
 }
 }
 
 .treeContainer {
-  padding: 0 0 0 30px;
+  padding:0 0 0 30px;
   position: relative;
   color: var(--lum-color-text);
 }
@@ -34,6 +35,7 @@
   position: relative;
   cursor: default;
   background-color: white;
+  font-size: 14px;
 
   &:hover{
     background-color: lightgrey;
@@ -54,6 +56,15 @@
   background-color: lightgray;
   padding: 9px;
   margin-top: 1px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
 
+.treeTitle {
+  font-size: 16px;
+}
 
+.addText {
+  font-size: 12px;
+  font-weight: 400;
 }

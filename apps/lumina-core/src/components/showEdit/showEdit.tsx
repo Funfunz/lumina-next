@@ -383,7 +383,7 @@ export const ShowEdit = ({
         >
           {(
             config?.props && config.editor.editable && (
-              <Button onClick={handleOnClickEdit} round iconLeft="lumina-pencil"/>
+              <Button onClick={handleOnClickEdit} round iconLeft="lumina-edit"/>
             )
           ) || null}
           {(
@@ -392,17 +392,17 @@ export const ShowEdit = ({
                 color="danger"
                 onClick={handleDelete}
                 round
-                iconLeft="lumina-cross"
+                iconLeft="lumina-delete"
               />
             )
           ) || null}
           {(
             config?.editor.children && (
-              <Button color="primary" outline onClick={handleOnClickAdd} round iconLeft="lumina-plus"/>
+              <Button color="primary" outline onClick={handleOnClickAdd} round iconLeft="lumina-add"/>
             )
           ) || null}
-          {!noUp && <Button color="secondary" outline onClick={handleOnClickMoveUp} round iconLeft="lumina-arrow-up"/> || null}
-          {!noDown && <Button color="secondary" outline onClick={handleOnClickMoveDown} round iconLeft="lumina-arrow-down"/> || null}
+          {!noUp && <Button color="secondary" outline onClick={handleOnClickMoveUp} round iconLeft="lumina-slideup"/> || null}
+          {!noDown && <Button color="secondary" outline onClick={handleOnClickMoveDown} round iconLeft="lumina-slidedown"/> || null}
         </div>
       )) || (
         <div
@@ -410,7 +410,7 @@ export const ShowEdit = ({
         >
           {(
             config?.props && config.editor.editable && (
-              <Button text="Edit" onClick={handleOnClickEdit} iconRight="lumina-pencil"/>
+              <Button text="Edit" onClick={handleOnClickEdit} iconRight="lumina-edit"/>
             )
           ) || null}
           {(
@@ -419,7 +419,7 @@ export const ShowEdit = ({
                 text="Delete"
                 color="danger"
                 onClick={handleDelete}
-                iconRight="lumina-cross"
+                iconRight="lumina-delete"
               />
             )
           ) || null}

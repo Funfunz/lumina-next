@@ -24,7 +24,7 @@ export const PagesTab = () => {
         <div>
           <div className={styles.treeHead}>
             <h3>Pages</h3>
-            <Button text="Add new page" color="primary" outline onClick={handleAddPageClick} iconRight="lumina-plus" />
+            <Button text="Add new page" color="primary" outline onClick={handleAddPageClick} iconRight="lumina-add" />
           </div>
           {Object.keys(builderDataContext.builderData).map((page) => (
             <div className={styles.treeHead} key={page}>
