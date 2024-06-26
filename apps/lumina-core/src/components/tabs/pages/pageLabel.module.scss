@@ -8,12 +8,15 @@
   border-radius: 4px 4px 0px 0px;
   width: 100%;
   margin-bottom: 4px;
-  height:50px;
+  height: 50px;
+  padding: 0 15px;
 }
 
 .pageTitle{
-
   font-size: 18px;
+  font-weight: bold;
+  flex-grow: 0;
+  padding: 10px;
 }
 
 .pageSubTitle {
@@ -23,12 +26,18 @@
   width: 150px;
   font-size: 16px;
   color:#999;
+  flex-grow: 0;
 }
 
-.pageIcon {
+.pageIcon{
   font-size: 18px;
+  margin-left: 5px;
+  padding-right: 5px;
 }
 
 .pageNavIcon {
   font-size: 18px;
+  margin-left: 45px;
+  flex-grow:1;
+  align-items:center;
 }
