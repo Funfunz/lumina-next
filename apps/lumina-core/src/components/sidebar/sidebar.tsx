@@ -11,12 +11,15 @@ type TSidebarEditor = {
 type TSidebarTab = {
   id: string
   icon: string
+  panel?: JSX.Element
 }
 
+// WIP
 const tabs: TSidebarTab[] = [
   {
     id: "lumPages",
-    icon: "lumina-page"
+    icon: "lumina-page",
+    panel: <TreeView/>
   },
   {
     id: "lumComponents",
@@ -30,10 +33,11 @@ const tabs: TSidebarTab[] = [
 
 export const SidebarEditor = ({isBarOpen, handleToggler} : TSidebarEditor) => {
   const [activeTab, setActiveTab] = useState<string>("")
+  const [activePanel, setActivePanel] = useState<JSX.Element>()
 
-  const handleActiveTab = (id: string) => {
-    console.log("clicked id:", id)
+  const handleActiveTab = ({id, panel}: TSidebarTab) => {
     setActiveTab(id)
+    setActivePanel(panel)
     if (!isBarOpen) handleToggler()
   }
 
@@ -41,8 +45,6 @@ export const SidebarEditor = ({isBarOpen, handleToggler} : TSidebarEditor) => {
     handleToggler()
     setActiveTab("")
   } 
-
-  console.log("active tab:", activeTab)
 
   return (
     // container
@@ -66,7 +68,7 @@ export const SidebarEditor = ({isBarOpen, handleToggler} : TSidebarEditor) => {
               return (
                 <li key={tab.id} id={tab.id} 
                     className={cx(styles.sidebarTab, {[styles.activeTab]: isActive})} 
-                    onClick={() => handleActiveTab(tab.id)}>
+                    onClick={() => handleActiveTab(tab)}>
                   <a className={tab.icon}></a>
                 </li>
               )
@@ -79,7 +81,7 @@ export const SidebarEditor = ({isBarOpen, handleToggler} : TSidebarEditor) => {
         {/* tab panel */}
         <div className={cx(styles.sidebarPanel, { "lum-display-none" : !isBarOpen })}>
           {/* insert mirrado's components here */}
-          <TreeView />
+          {activePanel}
         </div>
       </div>
     </div>
