@@ -2,35 +2,24 @@
 
 import styles from "@/components/editor/editor.module.scss";
 import cx from "classnames";
+import { SidebarEditor } from "../sidebar/sidebar";
 import { useCallback, useState } from "react";
-import { TreeView } from "../treeView/treeView";
 
 type Props = {
   children: React.ReactNode;
 };
 
 export const Editor = ({ children }: Props) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isBarOpen, setIsBarOpen] = useState<boolean>(false)
+
   const handleMenuToggler = useCallback(() => {
-    setIsOpen(!isOpen);
-  }, [isOpen]);
+    setIsBarOpen(!isBarOpen);
+  }, [isBarOpen]);
 
   return (
     <div
-      className={cx(styles.editorContainer, { [String(styles.open)]: isOpen, })}>
-      <div className={styles.editorBar}>
-        <input
-          type="checkbox"
-          className={styles.editorToggler}
-          onChange={handleMenuToggler}
-        />
-        <div className={styles.editorHamburger}>
-          <div></div>
-        </div>
-        <div className={styles.editorBarContent}>
-          {isOpen && <TreeView />}
-        </div>
-      </div>
+    className={cx(styles.editorContainer, { [String(styles.open)]: isBarOpen, })}>
+      <SidebarEditor handleToggler={handleMenuToggler} isBarOpen={isBarOpen}/>
       <div>{children}</div>
     </div>
   );
