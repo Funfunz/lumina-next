@@ -8,7 +8,7 @@ import { useCallback, useState } from "react";
 import { ShowEdit } from "../../showEdit/showEdit";
 import { configs } from "@/staticComponentsPath";
 import { SearchBar } from "../../search/search";
-import { PageLabel } from "../pages/pageLabel";
+import { TreeviewHeader } from "./treeviewHeader/treeviewHeader";
 
 const TreeBranch = ({ data, noUp, noDown }: { data: IComponentData, noUp: boolean, noDown: boolean }) => {
   const [showChildren, setShowChildren] = useState(false);
@@ -89,7 +89,7 @@ export const TreeViewTab = () => {
           </span>
           </div>
         <SearchBar/>
-        <PageLabel/>
+        <TreeviewHeader/>
         <ComponentTree
           data={
             builderDataContext.builderData[builderDataContext.selectedPage].children

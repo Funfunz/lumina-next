@@ -1,4 +1,4 @@
-.pageTitleContainer {
+.treeviewHeaderContainer {
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -12,14 +12,14 @@
   padding: 0 15px;
 }
 
-.pageTitle{
+.treeviewTitle{
   font-size: 18px;
   font-weight: 700;
   flex-grow: 0;
   padding: 10px;
 }
 
-.pageSubTitle {
+.treeviewSubTitle {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -30,15 +30,22 @@
   font-weight: 300;
 }
 
-.pageIcon{
+.treeviewHeaderIcon{
   font-size: 18px;
   margin-left: 5px;
   padding-right: 5px;
 }
 
-.pageNavIcon {
+.treeviewNavIconsContainer {
+  display:inline-flex;
   font-size: 18px;
   margin-left: 45px;
-  flex-grow:1;
-  align-items:center;
+  flex-grow: 1;
+  justify-content: space-evenly;
+
+  .treeviewNavIcon {
+
+  }
 }
+
+
