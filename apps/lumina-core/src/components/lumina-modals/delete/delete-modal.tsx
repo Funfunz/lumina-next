@@ -4,7 +4,7 @@ import styles from "../modals.module.scss"
 
 type TProps = {
   showModalDelete: boolean
-  handleOnClickDelete: (event: React.MouseEvent<HTMLButtonElement>) => void
+  handleOnClickDelete: () => void
   handleCloseModal: () => void
 }
 

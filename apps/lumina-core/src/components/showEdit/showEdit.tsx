@@ -54,27 +54,26 @@ export const ShowEdit = ({
   const [newComponentFriendlyName, setNewComponentFriendlyName] = useState("") //friendly name - new component
 
   /**
-   * Open modal handlers
+   * Open/close modal handlers
    */
   const handleOpenEditModal = () => {
     setShowModalEdit(true)
   }
 
   const handleOpenDeleteModal = () => {
-    // setToDeleteInput("")
     setShowModalDelete(true)
   }
 
   const handleOpenAddModal = () => {
     setShowModalAdd(true)
   }
-  /** */
 
   const handleCloseModal = () => {
     setShowModalEdit(false)
     setShowModalAdd(false)
     setShowModalDelete(false)
   }
+  /** */
 
   /**
    * Functional handlers
@@ -82,102 +81,89 @@ export const ShowEdit = ({
   /**
    * Adds a component to the tree
    */
-  const handleAddComponent = useCallback(
-    (event: React.MouseEvent<HTMLButtonElement>) => {
-      event.preventDefault()
-      if (!selectedOption) return
-      setShowModalAdd(false)
-      dispatch({
-        type: "createComponent",
-        data: {
-          parentId: id,
-          type: selectedOption.value,
-          friendlyName: newComponentFriendlyName,
-          children: [],
-          props: {}
-        }
-      })
-      // TODO: not implemented
-      // dispatch({
-      //   type: "createComponentBackend",
-      //   data: {
-      //     props: {},
-      //     id,
-      //   },
-      // });
-    },
+  const handleAddComponent = useCallback(() => {
+    if (!selectedOption) return
+    setShowModalAdd(false)
+    dispatch({
+      type: "createComponent",
+      data: {
+        parentId: id,
+        type: selectedOption.value,
+        friendlyName: newComponentFriendlyName,
+        children: [],
+        props: {}
+      }
+    })
+    // TODO: not implemented
+    // dispatch({
+    //   type: "createComponentBackend",
+    //   data: {
+    //     props: {},
+    //     id,
+    //   },
+    // });
+  },
     [dispatch, id, newComponentFriendlyName, selectedOption]
   );
 
   /**
    * Saves the edit data
    */
-  const handleOnClickSaveData = useCallback(
-    (event: React.MouseEvent<HTMLButtonElement>) => {
-      event.preventDefault();
-      setShowModalEdit(false);
-      onUpdate && onUpdate(formData);
-      dispatch({
-        type: "updateBackend",
-        data: {
-          props: formData,
-          id,
-        },
-      })
-      dispatch({
-        type: "updateComponent",
-        data: {
-          newProps: formData,
-          id,
-        },
-      })
-    },
+  const handleOnClickSaveData = useCallback(() => {
+    setShowModalEdit(false);
+    onUpdate && onUpdate(formData);
+    dispatch({
+      type: "updateBackend",
+      data: {
+        props: formData,
+        id,
+      },
+    })
+    dispatch({
+      type: "updateComponent",
+      data: {
+        newProps: formData,
+        id,
+      },
+    })
+  },
     [dispatch, formData, id, onUpdate]
   )
 
   /**
    * Deletes a component based on the ID
    */
-  const handleOnClickDelete = useCallback(
-    (event: React.MouseEvent<HTMLButtonElement>) => {
-      event.preventDefault()
-      event.stopPropagation()
-      dispatch({
-        type: "deleteComponent",
-        data: {
-          id,
-        },
-      })
-      setShowModalDelete(false)
-    },
+  const handleOnClickDelete = useCallback(() => {
+    dispatch({
+      type: "deleteComponent",
+      data: {
+        id,
+      },
+    })
+    setShowModalDelete(false)
+  },
     [dispatch, id]
   )
 
-  const handleOnClickMoveUp = useCallback(
-    (event: React.MouseEvent<HTMLButtonElement>) => {
-      event.preventDefault()
-      event.stopPropagation()
-      dispatch({
-        type: "moveUpComponent",
-        data: {
-          id,
-        },
-      })
-    },
+  const handleOnClickMoveUp = useCallback(() => {
+    dispatch({
+      type: "moveUpComponent",
+      data: {
+        id,
+      },
+    })
+  },
     [dispatch, id]
   )
 
-  const handleOnClickMoveDown = useCallback(
-    (event: React.MouseEvent<HTMLButtonElement>) => {
-      event.preventDefault()
-      event.stopPropagation()
-      dispatch({
-        type: "moveDownComponent",
-        data: {
-          id,
-        },
-      })
-    },
+  const handleOnClickMoveDown = useCallback(() => {
+    dispatch({
+      type: "moveDownComponent",
+      data: {
+        id,
+      },
+    })
+  },
     [dispatch, id]
   )
 

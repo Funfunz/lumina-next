@@ -10,11 +10,11 @@ type TProps = {
   id: string
   showModalAdd: boolean
   handleCloseModal: () => void
-  handleAddComponent: (e: React.MouseEvent<HTMLButtonElement>) => void
+  handleAddComponent: () => void
   selectedOption: TSelectedOption
   handleSelectChange: (options: any) => void
   newComponentFriendlyName: string
-  handleOnChangeNewComponentFriendlyName: (e: ChangeEvent<HTMLInputElement>) => void
+  handleOnChangeNewComponentFriendlyName: (event: ChangeEvent<HTMLInputElement>) => void
 }
 
 export const AddModal = (

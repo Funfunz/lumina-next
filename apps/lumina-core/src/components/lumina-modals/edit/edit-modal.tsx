@@ -10,7 +10,7 @@ import { IComponentProps } from "@/data/data";
 type TProps = {
   showModalEdit: boolean
   handleCloseModal: () => void
-  handleOnClickSaveData: (event: React.MouseEvent<HTMLButtonElement>) => void
+  handleOnClickSaveData: () => void
   handleOnChangeInput: (key: string, value: string | number) => void
   config: TConfig
   formData: IComponentProps
