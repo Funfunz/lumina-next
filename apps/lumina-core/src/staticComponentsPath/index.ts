@@ -9,8 +9,9 @@ import { config as configGrid } from "@/components/grid/config"
 import { config as configImage } from "@/components/image/config"
 import { config as configTitleText} from "@/components/titleText/config"
 import { config as configFlex } from "@/components/flex/config"
+import { TConfig } from "@/models/showEditModel"
 
-import type { TConfig } from "@/components/showEdit/showEdit"
+
 
 const paths: {
   [key: string]: (data: any) => React.JSX.Element | null
