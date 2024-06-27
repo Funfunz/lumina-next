@@ -1,5 +1,3 @@
-$sidepanel-width: 350px;
-
 .editorContainer {
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
@@ -9,91 +7,10 @@ $sidepanel-width: 350px;
   transition: grid-template-columns 0.2s ease-in-out;
 
   &.open {
-    grid-template-columns: $sidepanel-width calc(100% - $sidepanel-width);
+    grid-template-columns: var(--lum-component-size-sidebar) calc(100% - var(--lum-component-size-sidebar));
   }
 
   * {
     box-sizing: border-box;
   }
-}
-
-.editorBar {
-  transition: width 0.2s ease-in-out;
-  overflow: hidden;
-  background-color: var(--lum-color-background-base);
-  box-shadow: 5px 5px 5px #d0d0d0, -5px -5px 5px #f0f0f0;
-}
-
-.editorBarContent {
-  transition: width 0.2s ease-in-out;
-  width: 100%;
-  overflow: hidden;
-  padding: 10px;
-  background-color: var(--lum-color-background-base);
-}
-
-.editorToggler {
-  /* ALWAYS KEEPING THE TOGGLER OR THE CHECKBOX ON TOP OF EVERYTHING :  */
-  z-index: 2;
-  height: 50px;
-  width: 50px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  cursor: pointer;
-  opacity: 0;
-}
-
-.editorHamburger {
-  top: 0;
-  left: 0;
-  height: 60px;
-  width: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* CREATING THE MIDDLE LINE OF THE HAMBURGER : */
-
-.editorHamburger > div {
-  position: relative;
-  top: 0;
-  left: 0;
-  background: var(--lum-color-text);
-  height: 2px;
-  width: 60%;
-  transition: all 0.4s ease;
-}
-
-/* CREATING THE TOP AND BOTTOM LINES :
-TOP AT -10PX ABOVE THE MIDDLE ONE AND BOTTOM ONE IS 10PX BELOW THE MIDDLE: */
-
-.editorHamburger > div::before,
-.editorHamburger > div::after {
-  content: "";
-  position: absolute;
-  top: -10px;
-  background: var(--lum-color-text);
-  width: 100%;
-  height: 2px;
-  transition: all 0.4s ease;
-}
-
-.editorHamburger > div::after {
-  top: 10px;
-}
-
-/* IF THE TOGGLER IS IN ITS CHECKED STATE, THEN SETTING THE BACKGROUND OF THE MIDDLE LAYER TO COMPLETE BLACK AND OPAQUE :  */
-
-.editorToggler:checked + .editorHamburger > div::before {
-  top: 0;
-  transform: rotate(45deg);
-}
-
-/* AND ROTATING THE TOP AND BOTTOM LINES :  */
-
-.editorToggler:checked + .editorHamburger > div::after {
-  top: 0;
-  transform: rotate(135deg);
 }
