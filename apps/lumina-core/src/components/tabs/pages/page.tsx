@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/button/buttons";
+import { SearchBar } from "@/components/search/search";
 import styles from "@/components/tabs/pages/page.module.scss";
 import { useLuminaContext } from "@/context/contextProvider";
 import { useCallback } from "react";
@@ -14,26 +15,40 @@ export const PagesTab = () => {
   const handleAddPageClick = useCallback(() => {
     dispatch({
       type: "createPage",
-      data: { name: "testPage", friendlyName: "Test Page" },
+      data: { id:"dadwadada" , pageName: "testPage", friendlyName: "Test Page", extendedName: "A Page for testing purposes", dateModified: Date.now.toString(), route: "/test", status: true},
     });
   }, [dispatch]);
 
   return (
     <>
-      {(Object.keys(builderDataContext.builderData).length && (
-        <div>
-          <div className={styles.treeHead}>
-            <h3>Pages</h3>
-            <Button text="Add new page" color="primary" outline onClick={handleAddPageClick} iconRight="lumina-add" />
-          </div>
-          {Object.keys(builderDataContext.builderData).map((page) => (
-            <div className={styles.treeHead} key={page}>
-              {page}
-            </div>
-          ))}
-        </div>
-      )) ||
-        null}
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <hr/>
+    <div className={styles.pageContainer}>
+      <div className={styles.pageHead}>
+        <h3 className={styles.pageTitle}>Pages</h3>
+            {(Object.keys(builderDataContext.builderData).length && (
+              <div className={styles.addContainer}>
+                <Button color="secondary" onClick={handleAddPageClick} iconRight="lumina-add" />
+                <h5 className={styles.addText}>Add</h5>
+              </div>
+              )) ||
+            null}
+      </div>
+    <SearchBar/>
+    {Object.keys(builderDataContext.builderData).map((page) => (
+      <div className={styles.pageHead} key={page}>
+      {page}
+    </div>
+    ))}
+    </div>
+    <table>
+    </table>
     </>
   );
 };

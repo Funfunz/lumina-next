@@ -4,6 +4,7 @@ import styles from "@/components/editor/editor.module.scss";
 import cx from "classnames";
 import { useCallback, useState } from "react";
 import { PagesTab } from "@/components/tabs/pages/page";
+import { TreeViewTab } from "../tabs/treeView/treeView";
 
 type Props = {
   children: React.ReactNode;
@@ -28,7 +29,7 @@ export const Editor = ({ children }: Props) => {
           <div></div>
         </div>
         <div className={styles.editorBarContent}>
-          {isOpen && <PagesTab />}
+          {isOpen && <TreeViewTab />}
         </div>
       </div>
       <div>{children}</div>

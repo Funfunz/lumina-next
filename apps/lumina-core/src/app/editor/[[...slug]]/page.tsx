@@ -3,6 +3,7 @@ import { getFullData } from "@/lib/dataFetcher";
 import { Render } from "@/components/render/render";
 import { ContextProvider } from "@/context/contextProvider";
 import { TreeViewTab } from "@/components/tabs/treeView/treeView";
+import { PagesTab } from "@/components/tabs/pages/page";
 
 type Props = {
   params: {
@@ -27,7 +28,7 @@ export default async function EditorPage({ params }: Props) {
     >
       <Editor>
         <Render />
-        <TreeViewTab/>
+        <PagesTab/>
       </Editor>
     </ContextProvider>
   );

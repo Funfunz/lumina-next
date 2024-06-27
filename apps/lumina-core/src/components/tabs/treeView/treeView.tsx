@@ -71,15 +71,6 @@ export const TreeViewTab = () => {
     state: { builderDataContext },
   } = useLuminaContext();
   return (
-    <>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <hr/>
     <div className={styles.treeviewContainer}>
     <div className={styles.treeHead}>
           <h3 className={styles.treeTitle}>Components</h3>
@@ -91,11 +82,11 @@ export const TreeViewTab = () => {
         <SearchBar/>
         <TreeviewHeader/>
         <ComponentTree
+        // Confirmar se a data é undefined ou não
           data={
-            builderDataContext.builderData[builderDataContext.selectedPage].children
+            builderDataContext.builderData[builderDataContext.selectedPage].children!
           }
         />
       </div>
-    </>
   );
 };
