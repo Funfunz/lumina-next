@@ -1,7 +1,7 @@
 import styles from "@/components/sidebar/sidebar.module.scss";
 import cx from "classnames";
 import { TreeView } from "../treeView/treeView";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 
 type TSidebarEditor = {
   handleToggler: Function
