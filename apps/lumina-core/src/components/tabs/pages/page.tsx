@@ -20,15 +20,6 @@ export const PagesTab = () => {
   }, [dispatch]);
 
   return (
-    <>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <hr/>
     <div className={styles.pageContainer}>
       <div className={styles.pageHead}>
         <h3 className={styles.pageTitle}>Pages</h3>
@@ -47,8 +38,5 @@ export const PagesTab = () => {
     </div>
     ))}
     </div>
-    <table>
-    </table>
-    </>
   );
 };

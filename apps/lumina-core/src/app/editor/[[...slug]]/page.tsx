@@ -28,7 +28,6 @@ export default async function EditorPage({ params }: Props) {
     >
       <Editor>
         <Render />
-        <PagesTab/>
       </Editor>
     </ContextProvider>
   );

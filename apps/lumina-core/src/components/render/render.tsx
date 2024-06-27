@@ -24,7 +24,7 @@ export const Render = ({ elements }: IProps) => {
     && builderDataContext.builderData[builderDataContext.selectedPage].children
     && !elements
   ) {
-    data = builderDataContext.builderData[builderDataContext.selectedPage].children
+    data = builderDataContext.builderData[builderDataContext.selectedPage].children!
   }
   return (
     <>
