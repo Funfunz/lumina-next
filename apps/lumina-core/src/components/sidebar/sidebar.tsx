@@ -15,20 +15,35 @@ type TSidebarTab = {
 }
 
 // WIP
-const tabs: TSidebarTab[] = [
+const editorTabs: TSidebarTab[] = [
   {
-    id: "lumPages",
+    id: "lumTabPages",
     icon: "lumina-page",
     panel: <TreeView/>
   },
   {
-    id: "lumComponents",
+    id: "lumTabComponents",
     icon: "lumina-component"
   },
   {
-    id: "lumLibrary",
+    id: "lumTabLibrary",
     icon: "lumina-library"
   }
+]
+
+const helperTabs: TSidebarTab[] = [
+  {
+    id: "lumTabConfig",
+    icon: "lumina-settings"
+  },
+  {
+    id: "lumTabHelp",
+    icon: "lumina-help"
+  },
+  {
+    id: "lumTabUser",
+    icon: "lumina-user"
+  },
 ]
 
 export const SidebarEditor = ({isBarOpen, handleToggler} : TSidebarEditor) => {
@@ -44,7 +59,22 @@ export const SidebarEditor = ({isBarOpen, handleToggler} : TSidebarEditor) => {
   const closeSidebar = () => {
     handleToggler()
     setActiveTab("")
-  } 
+  }
+
+  const createTabHelper = (tabs : TSidebarTab[]) => {
+    const tabsElem: JSX.Element[] = []
+    tabs.map(tab => {
+      const isActive = tab.id === activeTab
+      tabsElem.push(
+        <li key={tab.id} id={tab.id} 
+            className={cx(styles.sidebarTab, {[styles.activeTab]: isActive})} 
+            onClick={() => handleActiveTab(tab)}>
+          <a className={tab.icon}></a>
+        </li>
+      )
+    })
+    return tabsElem
+  }
 
   return (
     // container
@@ -63,19 +93,10 @@ export const SidebarEditor = ({isBarOpen, handleToggler} : TSidebarEditor) => {
         {/* tabs */}
         <div className={styles.sidebarTabsContainer}>
           <ul className={styles.sidebarTabsList}>
-            {tabs.map(tab => {
-              const isActive = tab.id === activeTab
-              return (
-                <li key={tab.id} id={tab.id} 
-                    className={cx(styles.sidebarTab, {[styles.activeTab]: isActive})} 
-                    onClick={() => handleActiveTab(tab)}>
-                  <a className={tab.icon}></a>
-                </li>
-              )
-            })}
+            {createTabHelper(editorTabs)}
           </ul>
           <ul className={styles.sidebarTabsList}>
-            <li className={cx("lumina-user", styles.sidebarTab)}></li>
+            {createTabHelper(helperTabs)}
           </ul>
         </div>
         {/* tab panel */}
