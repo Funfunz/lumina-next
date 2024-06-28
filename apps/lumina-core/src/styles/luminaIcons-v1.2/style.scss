@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: '#{$icomoon-font-family}';
-  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?m0qqr7');
-  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?m0qqr7#iefix') format('embedded-opentype'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?m0qqr7') format('truetype'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?m0qqr7') format('woff'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?m0qqr7##{$icomoon-font-family}') format('svg');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?jp4xpv');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?jp4xpv#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?jp4xpv') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?jp4xpv') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?jp4xpv##{$icomoon-font-family}') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -29,230 +29,230 @@
 
 .lumina-add {
   &:before {
-    content: $lumina-add;
+    content: $lumina-add; 
   }
 }
 .lumina-close-modal {
   &:before {
-    content: $lumina-close-modal;
+    content: $lumina-close-modal; 
   }
 }
 .lumina-info {
   &:before {
-    content: $lumina-info;
+    content: $lumina-info; 
   }
 }
 .lumina-history {
   &:before {
-    content: $lumina-history;
+    content: $lumina-history; 
   }
 }
 .lumina-desktop {
   &:before {
-    content: $lumina-desktop;
+    content: $lumina-desktop; 
   }
 }
 .lumina-mobile {
   &:before {
-    content: $lumina-mobile;
+    content: $lumina-mobile; 
   }
 }
 .lumina-red {
   &:before {
-    content: $lumina-red;
+    content: $lumina-red;     
     color: #e86767;
   }
 }
 .lumina-yellow {
   &:before {
-    content: $lumina-yellow;
+    content: $lumina-yellow;     
     color: #ebd146;
   }
 }
 .lumina-green {
   &:before {
-    content: $lumina-green;
+    content: $lumina-green;     
     color: #a7bd68;
   }
 }
 .lumina-menu {
   &:before {
-    content: $lumina-menu;
+    content: $lumina-menu; 
   }
 }
 .lumina-filter {
   &:before {
-    content: $lumina-filter;
+    content: $lumina-filter; 
   }
 }
 .lumina-paste {
   &:before {
-    content: $lumina-paste;
+    content: $lumina-paste; 
   }
 }
 .lumina-cut {
   &:before {
-    content: $lumina-cut;
+    content: $lumina-cut; 
   }
 }
 .lumina-hidden {
   &:before {
-    content: $lumina-hidden;
+    content: $lumina-hidden; 
   }
 }
 .lumina-visible {
   &:before {
-    content: $lumina-visible;
+    content: $lumina-visible; 
   }
 }
 .lumina-user {
   &:before {
-    content: $lumina-user;
+    content: $lumina-user; 
   }
 }
 .lumina-close-up {
   &:before {
-    content: $lumina-close-up;
+    content: $lumina-close-up; 
   }
 }
 .lumina-close {
   &:before {
-    content: $lumina-close;
+    content: $lumina-close; 
   }
 }
 .lumina-open-down {
   &:before {
-    content: $lumina-open-down;
+    content: $lumina-open-down; 
   }
 }
 .lumina-open {
   &:before {
-    content: $lumina-open;
+    content: $lumina-open; 
   }
 }
 .lumina-help {
   &:before {
-    content: $lumina-help;
+    content: $lumina-help; 
   }
 }
 .lumina-settings {
   &:before {
-    content: $lumina-settings;
+    content: $lumina-settings; 
   }
 }
 .lumina-figma {
   &:before {
-    content: $lumina-figma;
+    content: $lumina-figma; 
   }
 }
 .lumina-library {
   &:before {
-    content: $lumina-library;
+    content: $lumina-library; 
   }
 }
 .lumina-custom {
   &:before {
-    content: $lumina-custom;
+    content: $lumina-custom; 
   }
 }
 .lumina-button {
   &:before {
-    content: $lumina-button;
+    content: $lumina-button; 
   }
 }
 .lumina-video {
   &:before {
-    content: $lumina-video;
+    content: $lumina-video; 
   }
 }
 .lumina-grid {
   &:before {
-    content: $lumina-grid;
+    content: $lumina-grid; 
   }
 }
 .lumina-link {
   &:before {
-    content: $lumina-link;
+    content: $lumina-link; 
   }
 }
 .lumina-title {
   &:before {
-    content: $lumina-title;
+    content: $lumina-title; 
   }
 }
 .lumina-picture {
   &:before {
-    content: $lumina-picture;
+    content: $lumina-picture; 
   }
 }
 .lumina-component {
   &:before {
-    content: $lumina-component;
+    content: $lumina-component; 
   }
 }
 .lumina-layers {
   &:before {
-    content: $lumina-layers;
+    content: $lumina-layers; 
   }
 }
 .lumina-hand {
   &:before {
-    content: $lumina-hand;
+    content: $lumina-hand; 
   }
 }
 .lumina-slide-down {
   &:before {
-    content: $lumina-slide-down;
+    content: $lumina-slide-down; 
   }
 }
 .lumina-slide-up {
   &:before {
-    content: $lumina-slide-up;
+    content: $lumina-slide-up; 
   }
 }
 .lumina-slide {
   &:before {
-    content: $lumina-slide;
+    content: $lumina-slide; 
   }
 }
 .lumina-edit {
   &:before {
-    content: $lumina-edit;
+    content: $lumina-edit; 
   }
 }
 .lumina-accept {
   &:before {
-    content: $lumina-accept;
+    content: $lumina-accept; 
   }
 }
 .lumina-delete {
   &:before {
-    content: $lumina-delete;
+    content: $lumina-delete; 
   }
 }
 .lumina-item-add {
   &:before {
-    content: $lumina-item-add;
+    content: $lumina-item-add; 
   }
 }
 .lumina-clone {
   &:before {
-    content: $lumina-clone;
+    content: $lumina-clone; 
   }
 }
 .lumina-page {
   &:before {
-    content: $lumina-page;
+    content: $lumina-page; 
   }
 }
 .lumina-search {
   &:before {
-    content: $lumina-search;
+    content: $lumina-search; 
   }
 }
 .lumina-folder {
   &:before {
-    content: $lumina-folder;
+    content: $lumina-folder; 
   }
 }
 
