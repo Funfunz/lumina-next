@@ -23,6 +23,8 @@ type ShowEditProps = {
   inline?: boolean;
   noUp?: boolean
   noDown?: boolean
+  lookUp?: boolean;
+  menu?: boolean;
 };
 
 export const ShowEdit = ({
@@ -32,7 +34,9 @@ export const ShowEdit = ({
   data,
   inline,
   noUp,
-  noDown
+  noDown,
+  lookUp,
+  menu,
 }: ShowEditProps) => {
   const {
     state: {
@@ -250,6 +254,14 @@ export const ShowEdit = ({
             iconLeft="lumina-item-add"
           />}
 
+        {inline && !lookUp &&
+          <Button
+            color="secondary"
+            outline
+            round
+            iconLeft="lumina-visible"
+          />}
+
         {inline && !noUp &&
           <Button
             color="secondary"
@@ -267,6 +279,15 @@ export const ShowEdit = ({
             round
             iconLeft="lumina-slide-down"
           />}
+
+        {inline && !menu &&
+          <Button
+            color="secondary"
+            outline
+            round
+            iconLeft="lumina-menu"
+          />}
+
       </div >
     </>
   );

@@ -21,7 +21,7 @@ const TreeBranch = ({ data, noUp, noDown }: { data: IComponentData, noUp: boolea
   const iconChange = () => {
   if (data.children?.length){
     return(
-    <span className={cx(styles.treeViewIcon, showChildren ? 'lumina-close-up' : 'lumina-open-down')} onClick={handleTreeHeadClick} ></span>)
+    <span className={cx(styles.treeViewIcon, showChildren ? 'lumina-open-down' : 'lumina-close-up')} onClick={handleTreeHeadClick} ></span>)
   }
   else
   {
@@ -43,10 +43,11 @@ const TreeBranch = ({ data, noUp, noDown }: { data: IComponentData, noUp: boolea
         <ShowEdit
           id={data.id}
           inline={true}
-          config={configs[data.type]}
           data={data.props as IComponentProps}
-          noUp={noUp}
-          noDown={noDown}
+          lookUp={false}
+          noUp={false}
+          noDown={false}
+          menu={false}
         />
       </div>
       {(data.children?.length && showChildren && (
@@ -88,7 +89,7 @@ export const TreeViewTab = () => {
     <div className={styles.treeHead}>
           <h3 className={styles.treeTitle}>Components</h3>
           <span className={styles.treeAddButton}>
-          <ShowEdit noUp={true} noDown={true} id="" data={{}} config={{ name: "page", editor: { editable: false, delete: false, children: true } }} inline={true} />
+          <ShowEdit lookUp={true} menu = {true} noUp={true} noDown={true} id="" data={{}} config={{ name: "page", editor: { editable: false, delete: false, children: true } }} inline={true} />
           Add
           </span>
           </div>
