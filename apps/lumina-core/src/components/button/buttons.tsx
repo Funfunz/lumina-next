@@ -9,7 +9,7 @@ type TProps = {
   outline?: boolean
   round?: boolean
   color?: 'primary' | 'secondary' | 'warning' | 'danger'
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
 const Content = ({

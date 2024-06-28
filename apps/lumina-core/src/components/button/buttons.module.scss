@@ -1,7 +1,7 @@
 .button {
   box-sizing: border-box;
   border-radius: 5px;
-  color: var(--lum-color-button-text);
+  color: #11111166;
   font-weight: 600;
   font-size: 13px;
   display: flex;
@@ -17,7 +17,6 @@
   }
 
   &.round {
-    border-radius: 100%;
     justify-content: center;
     &:before {
       content: '';
@@ -55,17 +54,17 @@
   }
 
   &.secondary {
-    border: 1px solid var(--lum-color-button-secondary-background);
-    box-shadow: 0px 0px 0px 0px var(--lum-color-button-secondary-background);
+    border: #111111;
+    box-shadow: #11111166;
 
     &:hover {
-      box-shadow: 0px 3px 5px -1px var(--lum-color-button-secondary-background);
+      box-shadow: #111111;
     }
     &:not(.outline) {
-      background-color: var(--lum-color-button-secondary-background);
+      background-color: #CCCCCC;
     }
     &.outline {
-      color: var(--lum-color-button-secondary-background);
+      color: #11111166;
     }
   }
 

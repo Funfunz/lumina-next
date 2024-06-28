@@ -2,6 +2,8 @@ import { Editor } from "@/components/editor/editor";
 import { getFullData } from "@/lib/dataFetcher";
 import { Render } from "@/components/render/render";
 import { ContextProvider } from "@/context/contextProvider";
+import { TreeViewTab } from "@/components/tabs/treeView/treeView";
+import { PagesTab } from "@/components/tabs/pages/page";
 
 type Props = {
   params: {

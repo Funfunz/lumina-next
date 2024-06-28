@@ -2,6 +2,10 @@ export interface IComponentProps  {
   [key: string]: string | number | undefined
 }
 
+export interface IPageProps  {
+  [key: string]: string | number | undefined
+}
+
 export interface IComponentData {
   type: string,
   id: string,
@@ -12,9 +16,15 @@ export interface IComponentData {
 }
 
 export interface IPageData {
-  friendlyName: string
-  name: string
-  children: IComponentData[]
+    id: string,
+    pageName: string,
+    friendlyName: string,
+    extendedName: string,
+    dateModified: string,
+    status: boolean,
+    children?: IComponentData[],
+    props?: IPageProps,
+    route: string
 }
 
 export interface IData {
