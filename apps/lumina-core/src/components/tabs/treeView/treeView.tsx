@@ -74,7 +74,7 @@ export const TreeViewTab = () => {
     <div className={styles.treeviewContainer}>
     <div className={styles.treeHead}>
           <h3 className={styles.treeTitle}>Components</h3>
-          <span className={styles.addContainer}>
+          <span className={styles.treeAddButton}>
           <ShowEdit noUp={true} noDown={true} id="" data={{}} config={{ name: "page", editor: { editable: false, delete: false, children: true } }} inline={true} />
           Add
           </span>

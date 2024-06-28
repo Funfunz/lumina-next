@@ -230,7 +230,7 @@ export const ShowEdit = ({
           <Button
             onClick={handleOpenEditModal}
             round
-            iconLeft="lumina-pencil"
+            iconLeft="lumina-edit"
           />}
 
         {config?.editor.delete &&
@@ -238,16 +238,16 @@ export const ShowEdit = ({
             color="danger"
             onClick={handleOpenDeleteModal}
             round
-            iconLeft="lumina-cross"
+            iconLeft="lumina-delete"
           />}
 
         {config?.editor.children &&
           <Button
-            color="primary"
+            color="secondary"
             outline
             onClick={handleOpenAddModal}
             round
-            iconLeft="lumina-plus"
+            iconLeft="lumina-item-add"
           />}
 
         {inline && !noUp &&
@@ -256,7 +256,7 @@ export const ShowEdit = ({
             outline
             onClick={handleOnClickMoveUp}
             round
-            iconLeft="lumina-arrow-up"
+            iconLeft="lumina-slide-up"
           />}
 
         {inline && !noDown &&
@@ -265,7 +265,7 @@ export const ShowEdit = ({
             outline
             onClick={handleOnClickMoveDown}
             round
-            iconLeft="lumina-arrow-down"
+            iconLeft="lumina-slide-down"
           />}
       </div >
     </>
