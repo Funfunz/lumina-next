@@ -1,0 +1,258 @@
+@import "variables";
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?jp4xpv');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?jp4xpv#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?jp4xpv') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?jp4xpv') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?jp4xpv##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="lumina-"], [class*=" lumina-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.lumina-add {
+  &:before {
+    content: $lumina-add; 
+  }
+}
+.lumina-close-modal {
+  &:before {
+    content: $lumina-close-modal; 
+  }
+}
+.lumina-info {
+  &:before {
+    content: $lumina-info; 
+  }
+}
+.lumina-history {
+  &:before {
+    content: $lumina-history; 
+  }
+}
+.lumina-desktop {
+  &:before {
+    content: $lumina-desktop; 
+  }
+}
+.lumina-mobile {
+  &:before {
+    content: $lumina-mobile; 
+  }
+}
+.lumina-red {
+  &:before {
+    content: $lumina-red;     
+    color: #e86767;
+  }
+}
+.lumina-yellow {
+  &:before {
+    content: $lumina-yellow;     
+    color: #ebd146;
+  }
+}
+.lumina-green {
+  &:before {
+    content: $lumina-green;     
+    color: #a7bd68;
+  }
+}
+.lumina-menu {
+  &:before {
+    content: $lumina-menu; 
+  }
+}
+.lumina-filter {
+  &:before {
+    content: $lumina-filter; 
+  }
+}
+.lumina-paste {
+  &:before {
+    content: $lumina-paste; 
+  }
+}
+.lumina-cut {
+  &:before {
+    content: $lumina-cut; 
+  }
+}
+.lumina-hidden {
+  &:before {
+    content: $lumina-hidden; 
+  }
+}
+.lumina-visible {
+  &:before {
+    content: $lumina-visible; 
+  }
+}
+.lumina-user {
+  &:before {
+    content: $lumina-user; 
+  }
+}
+.lumina-close-up {
+  &:before {
+    content: $lumina-close-up; 
+  }
+}
+.lumina-close {
+  &:before {
+    content: $lumina-close; 
+  }
+}
+.lumina-open-down {
+  &:before {
+    content: $lumina-open-down; 
+  }
+}
+.lumina-open {
+  &:before {
+    content: $lumina-open; 
+  }
+}
+.lumina-help {
+  &:before {
+    content: $lumina-help; 
+  }
+}
+.lumina-settings {
+  &:before {
+    content: $lumina-settings; 
+  }
+}
+.lumina-figma {
+  &:before {
+    content: $lumina-figma; 
+  }
+}
+.lumina-library {
+  &:before {
+    content: $lumina-library; 
+  }
+}
+.lumina-custom {
+  &:before {
+    content: $lumina-custom; 
+  }
+}
+.lumina-button {
+  &:before {
+    content: $lumina-button; 
+  }
+}
+.lumina-video {
+  &:before {
+    content: $lumina-video; 
+  }
+}
+.lumina-grid {
+  &:before {
+    content: $lumina-grid; 
+  }
+}
+.lumina-link {
+  &:before {
+    content: $lumina-link; 
+  }
+}
+.lumina-title {
+  &:before {
+    content: $lumina-title; 
+  }
+}
+.lumina-picture {
+  &:before {
+    content: $lumina-picture; 
+  }
+}
+.lumina-component {
+  &:before {
+    content: $lumina-component; 
+  }
+}
+.lumina-layers {
+  &:before {
+    content: $lumina-layers; 
+  }
+}
+.lumina-hand {
+  &:before {
+    content: $lumina-hand; 
+  }
+}
+.lumina-slide-down {
+  &:before {
+    content: $lumina-slide-down; 
+  }
+}
+.lumina-slide-up {
+  &:before {
+    content: $lumina-slide-up; 
+  }
+}
+.lumina-slide {
+  &:before {
+    content: $lumina-slide; 
+  }
+}
+.lumina-edit {
+  &:before {
+    content: $lumina-edit; 
+  }
+}
+.lumina-accept {
+  &:before {
+    content: $lumina-accept; 
+  }
+}
+.lumina-delete {
+  &:before {
+    content: $lumina-delete; 
+  }
+}
+.lumina-item-add {
+  &:before {
+    content: $lumina-item-add; 
+  }
+}
+.lumina-clone {
+  &:before {
+    content: $lumina-clone; 
+  }
+}
+.lumina-page {
+  &:before {
+    content: $lumina-page; 
+  }
+}
+.lumina-search {
+  &:before {
+    content: $lumina-search; 
+  }
+}
+.lumina-folder {
+  &:before {
+    content: $lumina-folder; 
+  }
+}
+
