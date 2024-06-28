@@ -76,7 +76,7 @@ export const TreeViewTab = () => {
           <h3 className={styles.treeTitle}>Components</h3>
           <span className={styles.addContainer}>
           <ShowEdit noUp={true} noDown={true} id="" data={{}} config={{ name: "page", editor: { editable: false, delete: false, children: true } }} inline={true} />
-          <h5 className={styles.addText}>Add</h5>
+          Add
           </span>
           </div>
         <SearchBar/>

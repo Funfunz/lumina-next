@@ -1,20 +1,21 @@
 
 import { Button } from "@/components/button/buttons";
 import styles from "./treeviewHeader.module.scss"
+import cx  from "classnames";
 
 export const TreeviewHeader = () => {
 
   return (
     <div className={styles.treeviewHeaderContainer}>
-      <div className={styles.treeviewHeaderIcon}><span className="lumina-page"></span></div>
-        <h5 className={styles.treeviewTitle}>Home</h5>
-        <h6 className={styles.treeviewSubTitle}>Home Page for Lumina PageBuilder</h6>
+      <span className={cx(styles.treeviewHeaderIcon, "lumina-page")}></span>
+        <p className={styles.treeviewTitle}>Home</p>
+        <p className={styles.treeviewSubTitle}>Home Page for Lumina PageBuilder</p>
       <div className={styles.treeviewNavIconsContainer}>
-        <div className={styles.treeviewNavIcon}><span className="lumina-help"></span></div>
-        <div className={styles.treeviewNavIcon}><span className="lumina-grid"></span></div>
-        <div className={styles.treeviewNavIcon}><span className="lumina-clone"></span></div>
+      <span className={cx(styles.treeviewNavIcon, "lumina-info")}></span>
+      <span className={cx(styles.treeviewNavIcon, "lumina-history")}></span>
+      <span className={cx(styles.treeviewNavIcon, "lumina-mobile")}></span>
       </div>
-      <Button text="Live" iconLeft="lumina-visible"/>
+      <Button text="Live" color="secondary" iconLeft="lumina-visible"/>
     </div>
   )
 }

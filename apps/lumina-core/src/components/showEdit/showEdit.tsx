@@ -363,6 +363,7 @@ export const ShowEdit = ({
               text="Add Component"
               color="primary"
               onClick={handleOnClickAddComponentModal}
+
             />
             <Button
               text="Close Modal"
