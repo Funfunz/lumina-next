@@ -1,7 +1,7 @@
 'use client'
 
-import { ChangeEvent, ChangeEventHandler, useCallback } from 'react'
-import { TConfigItem, TConfigItemSelect } from './showEdit';
+import { ChangeEvent, ChangeEventHandler, PropsWithChildren, useCallback } from 'react'
+import { TConfigItem, TConfigItemSelect } from '@/models/showEditModel';
 import styles from "./showEdit.module.scss";
 
 type TProps = {
@@ -10,11 +10,15 @@ type TProps = {
   handleOnChangeInput: (key: string, value: string | number) => void
 }
 
+export const Form: React.FC<PropsWithChildren> = ({ children }) => {
+  return <table className={styles.formTable}><tbody>{children}</tbody></table>
+}
+
 function isSelect(config: TConfigItem): config is TConfigItemSelect {
   return config.type === 'singleSelect' || config.type === 'multiSelect'
 }
 
-export const InputRenderer = ({config, value, handleOnChangeInput}: TProps) => {
+export const InputRenderer = ({ config, value, handleOnChangeInput }: TProps) => {
 
   let handleOnChangeInputElement = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
@@ -33,9 +37,9 @@ export const InputRenderer = ({config, value, handleOnChangeInput}: TProps) => {
   return (
     <tr>
       <td className={`${styles.formTableCell} ${styles.formTableLabel}`}>
-          <label htmlFor={config.name}>{config.label}</label>
+        <label htmlFor={config.name}>{config.label}</label>
       </td>
-      <td className={styles.formTableCell} style={{width: "100%"}}>
+      <td className={styles.formTableCell} style={{ width: "100%" }}>
         {isSelect(config) && (
           <select onChange={handleOnChangeSelectElement} value={value} id={(config as TConfigItemSelect).name}>
             {(config as TConfigItemSelect).arrayValues.map(
@@ -45,8 +49,8 @@ export const InputRenderer = ({config, value, handleOnChangeInput}: TProps) => {
             )}
           </select>
         ) || (
-          <input className={styles.inputField} type={config.type} value={value} id={config.name} name={config.name} onChange={handleOnChangeInputElement}></input>
-        )}
+            <input className={styles.inputField} type={config.type} value={value} id={config.name} name={config.name} onChange={handleOnChangeInputElement}></input>
+          )}
       </td>
     </tr>
   )
