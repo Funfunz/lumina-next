@@ -296,7 +296,7 @@ export const ShowEdit = ({
               color="secondary"
               outline
               onClick={handleCloseModal}
-              iconRight="lumina-cross"
+              iconRight="lumina-close-modal"
             />
           </div>
         </ReactModal>
@@ -330,7 +330,7 @@ export const ShowEdit = ({
               color="secondary"
               outline
               onClick={handleCloseModal}
-              iconRight="lumina-cross"
+              iconRight="lumina-close-modal"
             />
           </div>
         </ReactModal>
@@ -369,7 +369,7 @@ export const ShowEdit = ({
               color="secondary"
               outline
               onClick={handleCloseModal}
-              iconRight="lumina-cross"
+              iconRight="lumina-close-modal"
             />
           </div>
         </ReactModal>
@@ -401,8 +401,8 @@ export const ShowEdit = ({
               <Button color="primary" outline onClick={handleOnClickAdd} round iconLeft="lumina-add"/>
             )
           ) || null}
-          {!noUp && <Button color="secondary" outline onClick={handleOnClickMoveUp} round iconLeft="lumina-slideup"/> || null}
-          {!noDown && <Button color="secondary" outline onClick={handleOnClickMoveDown} round iconLeft="lumina-slidedown"/> || null}
+          {!noUp && <Button color="secondary" outline onClick={handleOnClickMoveUp} round iconLeft="lumina-slide-up"/> || null}
+          {!noDown && <Button color="secondary" outline onClick={handleOnClickMoveDown} round iconLeft="lumina-slide-down"/> || null}
         </div>
       )) || (
         <div
@@ -425,7 +425,7 @@ export const ShowEdit = ({
           ) || null}
           {(
             config?.editor.children && (
-              <Button text="Add" color="primary" outline onClick={handleOnClickAdd} iconRight="lumina-plus"/>
+              <Button text="Add" color="primary" outline onClick={handleOnClickAdd} iconRight="lumina-add"/>
             )
           ) || null}
         </div>
