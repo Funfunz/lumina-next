@@ -1,7 +1,9 @@
 import styles from "@/components/sidebar/sidebar.module.scss";
 import cx from "classnames";
-import { TreeView } from "../treeView/treeView";
+
 import { useState } from "react";
+import { TreeViewTab } from "../tabs/treeView/treeView";
+import { PagesTab } from "../tabs/pages/page";
 
 type TSidebarEditor = {
   handleToggler: Function
@@ -19,11 +21,12 @@ const editorTabs: TSidebarTab[] = [
   {
     id: "lumTabPages",
     icon: "lumina-page",
-    panel: <TreeView/>
+    panel: <PagesTab/>
   },
   {
     id: "lumTabComponents",
-    icon: "lumina-component"
+    icon: "lumina-component",
+    panel: <TreeViewTab/>
   },
   {
     id: "lumTabLibrary",
@@ -66,8 +69,8 @@ export const SidebarEditor = ({isBarOpen, handleToggler} : TSidebarEditor) => {
     tabs.map(tab => {
       const isActive = tab.id === activeTab
       tabsElem.push(
-        <li key={tab.id} id={tab.id} 
-            className={cx(styles.sidebarTab, {[styles.activeTab]: isActive})} 
+        <li key={tab.id} id={tab.id}
+            className={cx(styles.sidebarTab, {[styles.activeTab]: isActive})}
             onClick={() => handleActiveTab(tab)}>
           <a className={tab.icon}></a>
         </li>

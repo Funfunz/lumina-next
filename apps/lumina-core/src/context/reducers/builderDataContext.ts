@@ -1,4 +1,4 @@
-import { IComponentData, IComponentProps, IData, IPageData } from "@/data/data";
+import { IComponentData, IComponentProps, IData, IPageData, IPageProps } from "@/data/data";
 
 export interface IBuilderDataContext {
   builderData: IData;
@@ -25,18 +25,26 @@ export interface ISetBuilderDataAction {
 export interface ICreatePageAction {
   type: "createPage";
   data: {
-    name: string;
-    friendlyName: string;
+    id: string,
+    pageName: string,
+    friendlyName: string,
+    extendedName: string,
+    dateModified: string,
+    status: boolean,
+    route: string
   };
 }
 
 export interface IUpdatePageAction {
   type: "updatePage";
   data: {
-    name: string;
+    id: string,
+    pageName: string,
     newData: Partial<{
-      name: string;
-      friendlyName: string;
+      name: string,
+      friendlyName: string,
+      dateModified: string,
+      status: boolean,
     }>;
   };
 }
@@ -103,6 +111,26 @@ function newComponentFactory(
   };
 }
 
+function newPageFactory(
+  pageData: ICreatePageAction["data"],
+): IPageData {
+  const { id, pageName, friendlyName, extendedName, dateModified, status, route } = pageData;
+  return {
+    id: `${pageName}_${Math.random()}`,
+    pageName: pageName,
+    friendlyName: friendlyName,
+    extendedName: extendedName,
+    dateModified: dateModified,
+    status: status,
+    route: route,
+    children: []
+  };
+}
+
+const instanceOfIPageData = (object: any): object is IPageData => {
+  return object.id;
+}
+
 const instanceOfIComponentData = (object: any): object is IComponentData => {
   return object.id;
 };
@@ -130,7 +158,7 @@ function createElementAt(
   component.children = component.children.map((element) => {
     return createElementAt(element, data) as IComponentData;
   });
-  
+
   // Return the updated component
   return component;
 }
@@ -188,7 +216,7 @@ function upOrderElement (
         }
         if (componentToReplace && currentElement.order > componentToReplace.order) {
           componentToReplace = {...currentElement}
-        
+
         }
       }
     }
@@ -219,7 +247,7 @@ function downOrderElement (
   );
 
   return componentToReplace;
-  
+
 }
 
 function moveUpElement(
@@ -281,7 +309,7 @@ function moveDownElement(
       if (element.children && !componentToReplace) {
         element.children = [...moveDownElement(element.children, targetId)];
       }
-   
+
       return element;
     }
   )
@@ -299,7 +327,7 @@ function moveDownElement(
 
   return newComponents
 
-  
+
 }
 
 export const builderDataContextReducer = (
@@ -315,8 +343,8 @@ export const builderDataContextReducer = (
         ...data,
         builderData: {
           ...data.builderData,
-          [action.data.name]: {
-            name: action.data.name,
+          [action.data.pageName]: {
+            name: action.data.pageName,
             friendyName: action.data.friendlyName,
             children: [],
           },
@@ -328,8 +356,8 @@ export const builderDataContextReducer = (
         ...data,
         builderData: {
           ...data.builderData,
-          [action.data.name]: {
-            ...data.builderData[action.data.name],
+          [action.data.pageName]: {
+            ...data.builderData[action.data.pageName],
             ...action.data.newData,
           },
         },
@@ -369,7 +397,8 @@ export const builderDataContextReducer = (
             ...data.builderData[data.selectedPage],
             children: [
               ...updateElement(
-                data.builderData[data.selectedPage].children,
+                // Confirmar se a data é undefined ou não
+                data.builderData[data.selectedPage].children!,
                 action.data.id,
                 action.data.newProps
               ),
@@ -387,7 +416,8 @@ export const builderDataContextReducer = (
             ...data.builderData[data.selectedPage],
             children: [
               ...deleteElement(
-                data.builderData[data.selectedPage].children,
+                // Confirmar se a data é undefined ou não
+                data.builderData[data.selectedPage].children!,
                 action.data.id
               ),
             ],
@@ -403,7 +433,8 @@ export const builderDataContextReducer = (
             ...data.builderData[data.selectedPage],
             children: [
               ...moveUpElement(
-                data.builderData[data.selectedPage].children,
+                // Confirmar se a data é undefined ou não
+                data.builderData[data.selectedPage].children!,
                 action.data.id
               ),
             ],
@@ -419,7 +450,8 @@ export const builderDataContextReducer = (
             ...data.builderData[data.selectedPage],
             children: [
               ...moveDownElement(
-                data.builderData[data.selectedPage].children,
+                // Confirmar se a data é undefined ou não
+                data.builderData[data.selectedPage].children!,
                 action.data.id
               ),
             ],

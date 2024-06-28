@@ -1,13 +1,14 @@
 "use client";
 
-import styles from "@/components/treeView/treeView.module.scss";
+import styles from "../treeView/treeView.module.scss";
 import cx from "classnames";
 import { useLuminaContext } from "@/context/contextProvider";
 import { IComponentData, IComponentProps } from "@/data/data";
 import { useCallback, useState } from "react";
-import { ShowEdit } from "../showEdit/showEdit";
+import { ShowEdit } from "../../showEdit/showEdit";
 import { configs } from "@/staticComponentsPath";
-import { Button } from "../button/buttons";
+import { SearchBar } from "../../search/search";
+import { TreeviewHeader } from "./treeviewHeader/treeviewHeader";
 
 const TreeBranch = ({ data, noUp, noDown }: { data: IComponentData, noUp: boolean, noDown: boolean }) => {
   const [showChildren, setShowChildren] = useState(false);
@@ -18,6 +19,7 @@ const TreeBranch = ({ data, noUp, noDown }: { data: IComponentData, noUp: boolea
 
   return (
     <div className={styles.treeContainer}>
+      <div className={styles.treeViewIcon}><span className="lumina-open-down"></span></div>
       <div
         className={cx(styles.treeHeadItem, {
           [String(styles.pointerTreeView)]: data.children?.length,
@@ -64,47 +66,27 @@ const ComponentTree = ({ data }: { data: IComponentData[] }) => {
   );
 };
 
-export const TreeView = () => {
+export const TreeViewTab = () => {
   const {
     state: { builderDataContext },
-    dispatch,
   } = useLuminaContext();
-
-  const handleAddPageClick = useCallback(() => {
-    dispatch({
-      type: "createPage",
-      data: { name: "testPage", friendlyName: "Test Page" },
-    });
-  }, [dispatch]);
-
   return (
-    <>
-      {(Object.keys(builderDataContext.builderData).length && (
-        <div>
-          <div className={styles.treeHead}>
-            <h3>Pages</h3>
-            <Button text="Add new page" color="primary" outline onClick={handleAddPageClick} iconRight="lumina-plus" />
+    <div className={styles.treeviewContainer}>
+    <div className={styles.treeHead}>
+          <h3 className={styles.treeTitle}>Components</h3>
+          <span className={styles.addContainer}>
+          <ShowEdit noUp={true} noDown={true} id="" data={{}} config={{ name: "page", editor: { editable: false, delete: false, children: true } }} inline={true} />
+          <h5 className={styles.addText}>Add</h5>
+          </span>
           </div>
-          {Object.keys(builderDataContext.builderData).map((page) => (
-            <div className={styles.treeHead} key={page}>
-              {page}
-            </div>
-          ))}
-        </div>
-      )) ||
-        null}
-      <hr />
-      <div>
-        <div className={styles.treeHead}>
-          <h3>Components</h3>
-          <ShowEdit noUp={true} noDown={true} id="add-new-cmp" data={{}} config={{ name: "page", editor: { editable: false, delete: false, children: true } }} inline={true} />
-        </div>
+        <SearchBar/>
+        <TreeviewHeader/>
         <ComponentTree
+        // Confirmar se a data é undefined ou não
           data={
-            builderDataContext.builderData[builderDataContext.selectedPage].children
+            builderDataContext.builderData[builderDataContext.selectedPage].children!
           }
         />
       </div>
-    </>
   );
 };
