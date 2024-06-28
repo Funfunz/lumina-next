@@ -53,7 +53,6 @@
 }
 
 .treeViewIcon {
-  display: inline-flex;
   color: #111111;
   opacity: .66;
   position: absolute;
@@ -64,6 +63,7 @@
   margin-top: 1px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
+  cursor:pointer;
 }
 
 .treeTitle {

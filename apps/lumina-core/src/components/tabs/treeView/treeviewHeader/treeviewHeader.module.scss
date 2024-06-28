@@ -42,10 +42,8 @@
   margin-left: 45px;
   flex-grow: 1;
   justify-content: space-evenly;
-
-  .treeviewNavIcon {
-
-  }
 }
 
-
+.treeviewNavIcon {
+  cursor:pointer;
+}
