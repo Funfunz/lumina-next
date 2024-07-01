@@ -31,6 +31,9 @@
         },
         "danger-background": {
           "value": "#fe7676"
+        },
+        "disabled":{
+          "value": "#ccc"
         }
       }
     }

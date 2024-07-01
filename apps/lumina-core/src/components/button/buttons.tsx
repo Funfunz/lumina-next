@@ -8,7 +8,7 @@ type TProps = {
   iconRight?: string
   outline?: boolean
   round?: boolean
-  color?: 'primary' | 'secondary' | 'warning' | 'danger'
+  color?: 'primary' | 'secondary' | 'warning' | 'danger' | 'disabled' | 'filter'
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 

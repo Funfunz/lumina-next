@@ -7,8 +7,8 @@
 import { useLuminaContext } from "@/context/contextProvider";
 import cx from "classnames"
 import styles from "./showEdit.module.scss";
-import { ChangeEvent, useCallback, useState } from "react";
-import { IComponentProps } from "@/data/data";
+import { ChangeEvent, useCallback, useState, useEffect } from "react";
+import { IComponentData, IComponentProps } from "@/data/data";
 import { Button } from "../button/buttons";
 import { TConfig, TSelectedOption } from "@/models/showEditModel";
 import { EditModal } from "../lumina-modals/edit/edit-modal";
@@ -195,6 +195,28 @@ export const ShowEdit = ({
     [formData]
   )
 
+
+  //TODO: Work in progress for limitUp on TreeView
+  // const limitUp = ({ data }: { data: IComponentProps }) => {
+  //   console.log(data);
+  //   if (!data) {
+  //       return null;
+  //   } else if (data) {
+  //       return Object.keys(data).map((key, index) => (
+  //       <Button
+  //           key={key}
+  //           color={"disabled"}
+  //           iconLeft="lumina-slide-up"
+  //           onClick={index === 0 ? handleOnClickMoveUp : undefined}
+  //       />
+  //   ))} return (<Button
+  //       color={"secondary"}
+  //       iconLeft="lumina-slide-up"
+  //       onClick={handleOnClickMoveUp}
+  //     />);
+  //   }
+
+
   if (!editor) return null;
   return (
     <>
@@ -248,43 +270,33 @@ export const ShowEdit = ({
         {config?.editor.children &&
           <Button
             color="secondary"
-            outline
             onClick={handleOpenAddModal}
-            round
             iconLeft="lumina-item-add"
           />}
 
         {inline && !lookUp &&
           <Button
             color="secondary"
-            outline
-            round
             iconLeft="lumina-visible"
           />}
 
         {inline && !noUp &&
           <Button
-            color="secondary"
-            outline
-            onClick={handleOnClickMoveUp}
-            round
-            iconLeft="lumina-slide-up"
-          />}
+          color="secondary"
+          onClick={handleOnClickMoveUp}
+          iconLeft="lumina-slide-up"
+        />}
 
         {inline && !noDown &&
           <Button
-            color="secondary"
-            outline
+            color="disabled"
             onClick={handleOnClickMoveDown}
-            round
             iconLeft="lumina-slide-down"
           />}
 
         {inline && !menu &&
           <Button
             color="secondary"
-            outline
-            round
             iconLeft="lumina-menu"
           />}
 

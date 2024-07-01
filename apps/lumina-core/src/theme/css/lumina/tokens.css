@@ -41,6 +41,7 @@
   --lum-size-font-heading3: 3rem; /* H3 - 48px */
   --lum-size-font-heading2: 4rem; /* H2 - 64px */
   --lum-size-font-heading1: 5rem; /* H1 - 80px */
+  --lum-color-button-disabled: #ccc;
   --lum-color-button-danger-background: #fe7676;
   --lum-color-button-warning-background: #ffc31d;
   --lum-color-button-secondary-background: #5656c7;

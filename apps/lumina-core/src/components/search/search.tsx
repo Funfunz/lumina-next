@@ -7,7 +7,7 @@ export const SearchBar = () => {
     <div className={styles.searchBar}>
         <div className={styles.searchIcon}><span className="lumina-search"></span></div>
         <input type="text" className={styles.searchText} placeholder="Search..." />
-        <Button text="" color="secondary" iconRight="lumina-filter" />
+        <Button text="" color="filter" iconRight="lumina-filter" />
     </div>
   )
 }

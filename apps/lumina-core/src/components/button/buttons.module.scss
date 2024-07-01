@@ -1,7 +1,7 @@
 .button {
   box-sizing: border-box;
   border-radius: 5px;
-  color: #11111166;
+  color: #111111;
   font-weight: 600;
   font-size: 13px;
   display: flex;
@@ -11,6 +11,7 @@
   padding: 0;
   cursor: pointer;
   transition: box-shadow 0.2s ease-in-out;
+  border: none;
 
   * {
     box-sizing: border-box;
@@ -61,10 +62,26 @@
       box-shadow: #111111;
     }
     &:not(.outline) {
-      background-color: #CCCCCC;
+      background-color: var(--lum-color-background-transparent);
     }
     &.outline {
-      color: #11111166;
+      color: #111111;
+      border: 1px solid lightgray;
+
+      &:hover{
+        color:white;
+        background-color: black;
+      }
+    }
+  }
+
+  &.filter {
+    color: #11111166;
+    border: 1px solid lightgray;
+
+    &:hover{
+      color:white;
+      background-color: black;
     }
   }
 
@@ -98,7 +115,13 @@
     }
   }
 
+  &.disabled{
+    cursor: not-allowed;
+    color: var(--lum-color-button-disabled);
+    background-color: var(--lum-color-background-transparent);
+  }
+
   .icon {
-    font-size: 12px;
+    font-size: 14px;
   }
 }

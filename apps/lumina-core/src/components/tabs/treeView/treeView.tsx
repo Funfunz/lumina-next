@@ -6,11 +6,10 @@ import { useLuminaContext } from "@/context/contextProvider";
 import { IComponentData, IComponentProps } from "@/data/data";
 import { useCallback, useState } from "react";
 import { ShowEdit } from "../../showEdit/showEdit";
-import { configs } from "@/staticComponentsPath";
 import { SearchBar } from "../../search/search";
 import { TreeviewHeader } from "./treeviewHeader/treeviewHeader";
 
-const TreeBranch = ({ data, noUp, noDown }: { data: IComponentData, noUp: boolean, noDown: boolean }) => {
+const TreeBranch = ({ data}: { data: IComponentData, noUp: boolean, noDown: boolean }) => {
   const [showChildren, setShowChildren] = useState(false);
 
   const handleTreeHeadClick = useCallback(() => {
@@ -26,7 +25,7 @@ const TreeBranch = ({ data, noUp, noDown }: { data: IComponentData, noUp: boolea
   else
   {
     return (
-    <span className={cx(styles.treeViewIcon, 'lumina-open-down')} onClick={handleTreeHeadClick} ></span>)
+    <span className={cx(styles.treeViewIcon, 'lumina-component')} onClick={handleTreeHeadClick} ></span>)
   }
 }
 
@@ -95,12 +94,14 @@ export const TreeViewTab = () => {
           </div>
         <SearchBar/>
         <TreeviewHeader/>
+        <div className={styles.treeScroll}>
         <ComponentTree
         // Confirmar se a data é undefined ou não
           data={
             builderDataContext.builderData[builderDataContext.selectedPage].children!
           }
         />
+        </div>
       </div>
   );
 };
