@@ -7,8 +7,8 @@
 import { useLuminaContext } from "@/context/contextProvider";
 import cx from "classnames"
 import styles from "./showEdit.module.scss";
-import { ChangeEvent, useCallback, useState, useEffect } from "react";
-import { IComponentData, IComponentProps } from "@/data/data";
+import { ChangeEvent, useCallback, useState } from "react";
+import { IComponentProps } from "@/data/data";
 import { Button } from "../button/buttons";
 import { TConfig, TSelectedOption } from "@/models/showEditModel";
 import { EditModal } from "../lumina-modals/edit/edit-modal";
@@ -304,3 +304,5 @@ export const ShowEdit = ({
     </>
   );
 };
+export type { TConfig };
+
