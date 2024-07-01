@@ -1,11 +1,11 @@
 import { LuminaTitle } from "@/components/lumina-title/lumina-title"
 import { Form, InputRenderer } from "@/components/showEdit/inputRenderer"
-import { useCallback, useState } from "react";
 import ReactModal from "react-modal"
 import styles from "../modals.module.scss"
 import { Button } from "@/components/button/buttons";
 import { TConfig } from "@/models/showEditModel";
 import { IComponentProps } from "@/data/data";
+import cx from "classnames"
 
 type TProps = {
   showModalEdit: boolean
@@ -28,7 +28,7 @@ export const EditModal = (
       ariaHideApp={false}
       isOpen={showModalEdit}
       contentLabel="Component editor"
-      className={styles.modalEdit}
+      className={cx(styles.modalEdit)}
       overlayClassName={styles.modalOverlay}
     >
       <LuminaTitle title={config.name} />

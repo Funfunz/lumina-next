@@ -13,7 +13,6 @@ export interface IUpdateBackendAction {
     props: IComponentProps,
     id: string
   }
-  
 }
 
 export const initialAppContextState = {
@@ -25,7 +24,7 @@ export const appContextReducer = (data: IAppContext, action: TAppContextAction) 
     case 'updateBackend':
       apiDispatcher(action.data)
       break;
-  
+
     default:
       break;
   }

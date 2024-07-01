@@ -1,10 +1,7 @@
-import { IComponentData, IComponentProps, IData, IPageData, IPageProps } from "@/data/data";
-
-export interface IBuilderDataContext {
-  builderData: IData;
-  selectedPage: string;
-  pages: string[];
-}
+import { IComponentData, IComponentProps, IPageData } from "@/data/data";
+import { ICreatePageAction, IDeletePageAction, IUpdatePageAction } from "./models/builderPageModels";
+import { IBuilderDataContext, ISetBuilderDataAction } from "./models/builderDataModels";
+import { ICreateComponentAction, IDeleteComponentAction, IMoveDownComponentAction, IMoveUpComponentAction, IUpdateComponentAction } from "./models/builderComponentModels";
 
 export type TBuilderDataContextAction =
   | ISetBuilderDataAction
@@ -16,79 +13,6 @@ export type TBuilderDataContextAction =
   | IDeleteComponentAction
   | IMoveUpComponentAction
   | IMoveDownComponentAction;
-
-export interface ISetBuilderDataAction {
-  type: "setBuilderData";
-  data: IBuilderDataContext;
-}
-
-export interface ICreatePageAction {
-  type: "createPage";
-  data: {
-    id: string,
-    pageName: string,
-    friendlyName: string,
-    extendedName: string,
-    dateModified: string,
-    status: boolean,
-    route: string
-  };
-}
-
-export interface IUpdatePageAction {
-  type: "updatePage";
-  data: {
-    id: string,
-    pageName: string,
-    newData: Partial<{
-      name: string,
-      friendlyName: string,
-      dateModified: string,
-      status: boolean,
-    }>;
-  };
-}
-
-export interface IDeletePageAction {
-  type: "deletePage";
-  data: string;
-}
-
-export interface ICreateComponentAction {
-  type: "createComponent";
-  data: {
-    parentId: string;
-  } & Partial<IComponentData>;
-}
-
-export interface IUpdateComponentAction {
-  type: "updateComponent";
-  data: {
-    id: string;
-    newProps: IComponentProps;
-  };
-}
-
-export interface IMoveUpComponentAction {
-  type: "moveUpComponent";
-  data: {
-    id: string;
-  };
-}
-
-export interface IMoveDownComponentAction {
-  type: "moveDownComponent";
-  data: {
-    id: string;
-  };
-}
-
-export interface IDeleteComponentAction {
-  type: "deleteComponent";
-  data: {
-    id: string;
-  };
-}
 
 export const initialBuilderDataContextState = {
   builderData: {},
@@ -102,7 +26,7 @@ function newComponentFactory(
 ): IComponentData {
   const { type, friendlyName, ...rest } = componentData;
   return {
-    id: `${type}_${Math.random()}`,
+    id: `${type}_${Math.random()}`, //TODO get a better randomiser
     type: type as string,
     friendlyName: friendlyName as string,
     children: [],
@@ -148,7 +72,7 @@ function createElementAt(
     (instanceOfIComponentData(component) && component.id === data.parentId)
   ) {
     // Add the new component with the highest order
-    component.children?.push(newComponentFactory(data, Math.max(0,...component.children.map((element) => element.order))+1));
+    component.children?.push(newComponentFactory(data, Math.max(0, ...component.children.map((element) => element.order)) + 1));
 
     // Return the updated component
     return component;
@@ -203,7 +127,7 @@ function deleteElement(
     .filter((e) => e) as IComponentData[];
 }
 
-function upOrderElement (
+function upOrderElement(
   element: IComponentData,
   components: IComponentData[],
 ): IComponentData | undefined {
@@ -212,10 +136,10 @@ function upOrderElement (
     (currentElement) => {
       if (currentElement.order < element.order) {
         if (!componentToReplace) {
-          componentToReplace = {...currentElement}
+          componentToReplace = { ...currentElement }
         }
         if (componentToReplace && currentElement.order > componentToReplace.order) {
-          componentToReplace = {...currentElement}
+          componentToReplace = { ...currentElement }
 
         }
       }
@@ -225,22 +149,19 @@ function upOrderElement (
   return componentToReplace;
 }
 
-//
-
-
-function downOrderElement (
+function downOrderElement(
   element: IComponentData,
   components: IComponentData[],
 ): IComponentData | undefined {
   let componentToReplace: IComponentData | undefined = undefined
   components.forEach(
     (currentElement) => {
-      if (currentElement.order > element.order ) {
+      if (currentElement.order > element.order) {
         if (!componentToReplace) {
-          componentToReplace = {...currentElement}
+          componentToReplace = { ...currentElement }
         }
         if (componentToReplace && currentElement.order < componentToReplace.order) {
-          componentToReplace = {...currentElement}
+          componentToReplace = { ...currentElement }
         }
       }
     }
@@ -254,7 +175,7 @@ function moveUpElement(
   components: IComponentData[],
   targetId: string
 ) {
-  let componentToReplace:IComponentData | undefined
+  let componentToReplace: IComponentData | undefined
   let oldOrder = 0
   let newComponents = components.map(
     (element) => {
@@ -292,7 +213,7 @@ function moveDownElement(
   components: IComponentData[],
   targetId: string,
 ) {
-  let componentToReplace:IComponentData | undefined
+  let componentToReplace: IComponentData | undefined
   let oldOrder = 0
   let newComponents = components.map(
     (element) => {
@@ -326,8 +247,6 @@ function moveDownElement(
   }
 
   return newComponents
-
-
 }
 
 export const builderDataContextReducer = (
@@ -464,3 +383,5 @@ export const builderDataContextReducer = (
 
   return data;
 };
+export type { IBuilderDataContext };
+

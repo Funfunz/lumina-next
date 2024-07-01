@@ -10,7 +10,7 @@
 
 ## Add action
 
-On click, shows a modal with a list of available components that can be added has a children of the current component.
+On click, shows a modal with a list of available components that can be added as a children of the current component.
 
 The user is then capable of selecting a component from the list and add it as a children component.
 

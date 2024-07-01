@@ -21,12 +21,12 @@ const editorTabs: TSidebarTab[] = [
   {
     id: "lumTabPages",
     icon: "lumina-page",
-    panel: <PagesTab/>
+    panel: <PagesTab />
   },
   {
     id: "lumTabComponents",
     icon: "lumina-component",
-    panel: <TreeViewTab/>
+    panel: <TreeViewTab />
   },
   {
     id: "lumTabLibrary",
@@ -49,11 +49,11 @@ const helperTabs: TSidebarTab[] = [
   },
 ]
 
-export const SidebarEditor = ({isBarOpen, handleToggler} : TSidebarEditor) => {
+export const SidebarEditor = ({ isBarOpen, handleToggler }: TSidebarEditor) => {
   const [activeTab, setActiveTab] = useState<string>("")
   const [activePanel, setActivePanel] = useState<JSX.Element>()
 
-  const handleActiveTab = ({id, panel}: TSidebarTab) => {
+  const handleActiveTab = ({ id, panel }: TSidebarTab) => {
     setActiveTab(id)
     setActivePanel(panel)
     if (!isBarOpen) handleToggler()
@@ -64,14 +64,14 @@ export const SidebarEditor = ({isBarOpen, handleToggler} : TSidebarEditor) => {
     setActiveTab("")
   }
 
-  const createTabHelper = (tabs : TSidebarTab[]) => {
+  const createTabHelper = (tabs: TSidebarTab[]) => {
     const tabsElem: JSX.Element[] = []
     tabs.map(tab => {
       const isActive = tab.id === activeTab
       tabsElem.push(
         <li key={tab.id} id={tab.id}
-            className={cx(styles.sidebarTab, {[styles.activeTab]: isActive})}
-            onClick={() => handleActiveTab(tab)}>
+          className={cx(styles.sidebarTab, { [styles.activeTab]: isActive })}
+          onClick={() => handleActiveTab(tab)}>
           <a className={tab.icon}></a>
         </li>
       )
@@ -87,7 +87,7 @@ export const SidebarEditor = ({isBarOpen, handleToggler} : TSidebarEditor) => {
           <div className={styles.sidebarLuminaIcon}></div>
         </div>
         {/* expand icon */}
-        <div className={cx(styles.sidebarToogler, { "lum-display-none" : !isBarOpen })}
+        <div className={cx(styles.sidebarToogler, { "lum-display-none": !isBarOpen })}
           onClick={() => closeSidebar()}>
           <a className={isBarOpen ? "lumina-close" : "lumina-open"}></a>
         </div>
@@ -103,7 +103,7 @@ export const SidebarEditor = ({isBarOpen, handleToggler} : TSidebarEditor) => {
           </ul>
         </div>
         {/* tab panel */}
-        <div className={cx(styles.sidebarPanel, { "lum-display-none" : !isBarOpen })}>
+        <div className={cx(styles.sidebarPanel, { "lum-display-none": !isBarOpen })}>
           {/* insert mirrado's components here */}
           {activePanel}
         </div>
