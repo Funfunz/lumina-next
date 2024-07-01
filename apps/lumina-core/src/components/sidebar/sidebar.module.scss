@@ -44,11 +44,11 @@
 .sidebarBody {
   display: flex;
   height: 100%;
-  
+
   .sidebarPanel {
     background-color: var(--lum-color-white);
     flex: 1 1 0;
-    padding: var(--lum-size-spacing-m);
+    padding: 0 var(--lum-size-spacing-m) var(--lum-size-spacing-m);
   }
 
   .sidebarTabsContainer {
@@ -59,7 +59,7 @@
     align-items: center;
     max-width: 60px;
     padding-bottom: var(--lum-size-spacing-m);
-    
+
     .sidebarTabsList {
       list-style: none;
       margin: 0;
@@ -67,7 +67,7 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      
+
       .sidebarTab {
         cursor: pointer;
         font-size: var(--lum-size-font-text);
@@ -75,11 +75,11 @@
         height: 40px;
         padding: 12px;
         text-align: center;
-        
+
         &:not(:last-of-type) {
           border-bottom: 1px solid var(--lum-color-white);
         }
-        
+
         &:hover {
           background-color: var(--lum-color-white);
         }

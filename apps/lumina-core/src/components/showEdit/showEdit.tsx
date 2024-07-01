@@ -22,6 +22,8 @@ type ShowEditProps = {
   inline?: boolean;
   noUp?: boolean
   noDown?: boolean
+  lookUp?: boolean;
+  menu?: boolean;
 };
 
 export const ShowEdit = ({
@@ -31,7 +33,9 @@ export const ShowEdit = ({
   data,
   inline,
   noUp,
-  noDown
+  noDown,
+  lookUp,
+  menu,
 }: ShowEditProps) => {
   const {
     state: {
@@ -49,6 +53,7 @@ export const ShowEdit = ({
         <EditComponentButton id={id} dispatch={dispatch} onUpdate={onUpdate} data={data} config={config} />}
 
       {config?.editor.children &&
+
         <AddComponentButton dispatch={dispatch} id={id} />}
 
       {config?.editor.delete &&
@@ -62,3 +67,5 @@ export const ShowEdit = ({
     </div >
   );
 };
+export type { TConfig };
+
