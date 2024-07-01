@@ -21,12 +21,12 @@ const TreeBranch = ({ data, noUp, noDown }: { data: IComponentData, noUp: boolea
   const iconChange = () => {
   if (data.children?.length){
     return(
-    <span className={cx(styles.treeViewIcon, showChildren ? 'lumina-open-down' : 'lumina-close-up')} onClick={handleTreeHeadClick} ></span>)
+    <span className={cx(styles.treeViewIcon, showChildren ? 'lumina-close-up' : 'lumina-open-down')} onClick={handleTreeHeadClick} ></span>)
   }
   else
   {
     return (
-    <span className={cx(styles.treeViewIcon, 'lumina-close-up')} onClick={handleTreeHeadClick} ></span>)
+    <span className={cx(styles.treeViewIcon, 'lumina-open-down')} onClick={handleTreeHeadClick} ></span>)
   }
 }
 
