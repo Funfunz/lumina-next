@@ -13,6 +13,8 @@ import { AddComponentButton } from "../lumina-action-buttons/add/lumina-add-comp
 import { DeleteComponentButton } from "../lumina-action-buttons/delete/lumina-delete-component";
 import { EditComponentButton } from "../lumina-action-buttons/edit/lumina-edit-component";
 import { MoveComponentButton } from "../lumina-action-buttons/move/lumina-move-component";
+import { VisibleComponentButton } from "../lumina-action-buttons/visible/lumina-visible-component";
+import { MenuComponentButton } from "../lumina-action-buttons/menu/lumina-menu-component";
 
 type ShowEditProps = {
   id: string;
@@ -22,7 +24,7 @@ type ShowEditProps = {
   inline?: boolean;
   noUp?: boolean
   noDown?: boolean
-  lookUp?: boolean;
+  visible?: boolean;
   menu?: boolean;
 };
 
@@ -34,7 +36,7 @@ export const ShowEdit = ({
   inline,
   noUp,
   noDown,
-  lookUp,
+  visible,
   menu,
 }: ShowEditProps) => {
   const {
@@ -59,11 +61,17 @@ export const ShowEdit = ({
       {config?.editor.delete &&
         <DeleteComponentButton dispatch={dispatch} id={id} />}
 
+      {inline && !visible &&
+        <VisibleComponentButton/>}
+
       {inline && !noUp &&
         <MoveComponentButton moveDirection="up" dispatch={dispatch} id={id} />}
 
       {inline && !noDown &&
         <MoveComponentButton moveDirection="down" dispatch={dispatch} id={id} />}
+
+      {inline && !menu &&
+        <MenuComponentButton/>}
     </div >
   );
 };

@@ -8,6 +8,7 @@ import { useCallback, useState } from "react";
 import { ShowEdit } from "../../showEdit/showEdit";
 import { SearchBar } from "../../search/search";
 import { TreeviewHeader } from "./treeviewHeader/treeviewHeader";
+import { AddComponentButton } from "@/components/lumina-action-buttons/add/lumina-add-component";
 
 const TreeBranch = ({ data}: { data: IComponentData, noUp: boolean, noDown: boolean }) => {
   const [showChildren, setShowChildren] = useState(false);
@@ -43,7 +44,7 @@ const TreeBranch = ({ data}: { data: IComponentData, noUp: boolean, noDown: bool
           id={data.id}
           inline={true}
           data={data.props as IComponentProps}
-          lookUp={false}
+          visible={false}
           noUp={false}
           noDown={false}
           menu={false}
@@ -88,8 +89,7 @@ export const TreeViewTab = () => {
     <div className={styles.treeHead}>
           <h3 className={styles.treeTitle}>Components</h3>
           <span className={styles.treeAddButton}>
-          <ShowEdit lookUp={true} menu = {true} noUp={true} noDown={true} id="" data={{}} config={{ name: "page", editor: { editable: false, delete: false, children: true } }} inline={true} />
-          Add
+          <AddComponentButton dispatch={""} id={""} text="Add"/>
           </span>
           </div>
         <SearchBar/>
