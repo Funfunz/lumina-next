@@ -34,9 +34,7 @@ export const MoveComponentButton = ({ id, dispatch, moveDirection }: TProps) => 
   return (
     <Button
       color="secondary"
-      outline
       onClick={direction ? handleOnClickMoveUp : handleOnClickMoveDown}
-      round
       iconLeft={direction ? "lumina-slide-up" : "lumina-slide-down"}
     />
   )

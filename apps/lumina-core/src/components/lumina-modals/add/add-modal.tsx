@@ -7,7 +7,7 @@ import { TSelectedOption } from "@/models/showEditModel"
 import { ChangeEvent } from "react"
 
 type TProps = {
-  id: string
+  id?: string
   showModalAdd: boolean
   handleCloseModal: () => void
   handleAddComponent: () => void
@@ -57,7 +57,7 @@ export const AddModal = (
       <div className={styles.inlineButtons}>
         <Button
           text="Add Component"
-          color="primary"
+          color="secondary"
           onClick={handleAddComponent}
         />
         <Button

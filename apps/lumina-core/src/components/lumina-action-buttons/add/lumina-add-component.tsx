@@ -4,11 +4,12 @@ import { TSelectedOption } from "@/models/showEditModel";
 import { ChangeEvent, useCallback, useState } from "react";
 
 type TProps = {
-  id: string,
+  id?: string
   dispatch: any
+  text?: string
 }
 
-export const AddComponentButton = ({ id, dispatch }: TProps) => {
+export const AddComponentButton = ({ id, dispatch, text }: TProps) => {
   const initialSelectedOption: TSelectedOption = {
     value: "",
     label: ""
@@ -59,11 +60,10 @@ export const AddComponentButton = ({ id, dispatch }: TProps) => {
   return (
     <>
       <Button
-        color="primary"
-        outline
+        color="secondary"
         onClick={handleToggleAddModal}
-        round
-        iconLeft="lumina-add"
+        text={text}
+        iconLeft="lumina-item-add"
       />
 
       <AddModal showModalAdd={showModalAdd}
