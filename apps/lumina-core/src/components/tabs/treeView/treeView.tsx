@@ -21,7 +21,7 @@ const TreeBranch = ({ data }: { data: IComponentData, noUp: boolean, noDown: boo
   const iconChange = () => {
     if (data.children?.length) {
       return (
-        <span className={cx(styles.treeViewIcon, showChildren ? 'lumina-close-up' : 'lumina-open-down')} onClick={handleTreeHeadClick}></span>)
+        <span className={cx(styles.treeViewIcon, showChildren ? 'lumina-close-up' : 'lumina-open-down', styles.treeViewPointer)} onClick={handleTreeHeadClick}></span>)
     }
     else {
       return (
