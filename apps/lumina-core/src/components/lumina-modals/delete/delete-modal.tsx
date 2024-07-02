@@ -28,6 +28,7 @@ export const DeleteModal = (
         <Button
           text="Yes"
           color="danger"
+          outline
           onClick={handleOnClickDelete}
         />
         <Button
@@ -35,7 +36,6 @@ export const DeleteModal = (
           color="secondary"
           outline
           onClick={handleCloseModal}
-          iconRight="lumina-cross"
         />
       </div>
     </ReactModal>

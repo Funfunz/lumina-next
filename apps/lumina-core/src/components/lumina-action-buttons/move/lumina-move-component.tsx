@@ -1,15 +1,17 @@
 import { Button } from "@/components/button/buttons"
+import { useLuminaContext } from "@/context/contextProvider"
 import { useCallback } from "react"
 
 type TProps = {
   id: string
-  dispatch: any
   moveDirection: "up" | "down"
 }
 
-export const MoveComponentButton = ({ id, dispatch, moveDirection }: TProps) => {
+export const MoveComponentButton = ({ id, moveDirection }: TProps) => {
+  const { dispatch } = useLuminaContext()
   const direction = moveDirection === "up" // more user friendly to use string and transform to boolean
-  const handleOnClickMoveUp = useCallback((event:any) => {
+
+  const handleOnClickMoveUp = useCallback((event: any) => {
     event.stopPropagation()
     dispatch({
       type: "moveUpComponent",

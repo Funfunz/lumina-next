@@ -46,6 +46,7 @@ export const EditModal = (
         <Button
           text="Save data"
           color="primary"
+          outline
           onClick={handleOnClickSaveData}
         />
         <Button
@@ -53,7 +54,6 @@ export const EditModal = (
           color="secondary"
           outline
           onClick={handleCloseModal}
-          iconRight="lumina-cross"
         />
       </div>
     </ReactModal>

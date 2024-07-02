@@ -59,6 +59,14 @@ const instanceOfIComponentData = (object: any): object is IComponentData => {
   return object.id;
 };
 
+/**
+ * Parameter "data" contains info from the parent component
+ * If no parentId is given the create should happen in the root of the page
+ * If parentId is present the component is created inside the element matching the parentId
+ * @param component 
+ * @param data 
+ * @returns 
+ */
 function createElementAt(
   component: IPageData | IComponentData,
   data: ICreateComponentAction["data"]

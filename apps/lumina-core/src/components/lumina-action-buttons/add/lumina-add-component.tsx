@@ -1,15 +1,16 @@
 import { Button } from "@/components/button/buttons"
 import { AddModal } from "@/components/lumina-modals/add/add-modal";
+import { useLuminaContext } from "@/context/contextProvider";
 import { TSelectedOption } from "@/models/showEditModel";
 import { ChangeEvent, useCallback, useState } from "react";
 
 type TProps = {
   id?: string
-  dispatch: any
   text?: string
 }
 
-export const AddComponentButton = ({ id, dispatch, text }: TProps) => {
+export const AddComponentButton = ({ id, text }: TProps) => {
+  const { dispatch } = useLuminaContext()
   const initialSelectedOption: TSelectedOption = {
     value: "",
     label: ""
@@ -28,7 +29,7 @@ export const AddComponentButton = ({ id, dispatch, text }: TProps) => {
     dispatch({
       type: "createComponent",
       data: {
-        parentId: id,
+        parentId: id || '',
         type: selectedOption.value,
         friendlyName: newComponentFriendlyName,
         children: [],
