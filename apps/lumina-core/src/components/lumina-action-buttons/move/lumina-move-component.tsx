@@ -9,7 +9,8 @@ type TProps = {
 
 export const MoveComponentButton = ({ id, dispatch, moveDirection }: TProps) => {
   const direction = moveDirection === "up" // more user friendly to use string and transform to boolean
-  const handleOnClickMoveUp = useCallback(() => {
+  const handleOnClickMoveUp = useCallback((event:any) => {
+    event.stopPropagation()
     dispatch({
       type: "moveUpComponent",
       data: {
@@ -20,7 +21,8 @@ export const MoveComponentButton = ({ id, dispatch, moveDirection }: TProps) => 
     [dispatch, id]
   )
 
-  const handleOnClickMoveDown = useCallback(() => {
+  const handleOnClickMoveDown = useCallback((event: any) => {
+    event.stopPropagation()
     dispatch({
       type: "moveDownComponent",
       data: {
