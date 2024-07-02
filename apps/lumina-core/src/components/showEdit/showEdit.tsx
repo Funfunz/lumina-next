@@ -42,8 +42,7 @@ export const ShowEdit = ({
   const {
     state: {
       appContext: { editor },
-    },
-    dispatch,
+    }
   } = useLuminaContext();
 
   if (!editor) return null;
@@ -51,27 +50,26 @@ export const ShowEdit = ({
     <div
       className={cx(styles.showEdit, inline ? styles.showEditContainerInline : styles.showEditContainer)}
     >
-      {config?.props && config.editor.editable &&
-        <EditComponentButton id={id} dispatch={dispatch} onUpdate={onUpdate} data={data} config={config} />}
+      {config?.editor.editable &&
+        <EditComponentButton id={id} onUpdate={onUpdate} data={data} config={config} />}
 
       {config?.editor.children &&
-
-        <AddComponentButton dispatch={dispatch} id={id} />}
+        <AddComponentButton id={id} />}
 
       {config?.editor.delete &&
-        <DeleteComponentButton dispatch={dispatch} id={id} />}
+        <DeleteComponentButton id={id} />}
 
       {inline && !visible &&
-        <VisibleComponentButton/>}
+        <VisibleComponentButton />}
 
       {inline && !noUp &&
-        <MoveComponentButton moveDirection="up" dispatch={dispatch} id={id} />}
+        <MoveComponentButton moveDirection="up" id={id} />}
 
       {inline && !noDown &&
-        <MoveComponentButton moveDirection="down" dispatch={dispatch} id={id} />}
+        <MoveComponentButton moveDirection="down" id={id} />}
 
       {inline && !menu &&
-        <MenuComponentButton/>}
+        <MenuComponentButton />}
     </div >
   );
 };

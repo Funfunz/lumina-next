@@ -1,18 +1,19 @@
 import { Button } from "@/components/button/buttons";
 import { EditModal } from "@/components/lumina-modals/edit/edit-modal";
+import { useLuminaContext } from "@/context/contextProvider";
 import { IComponentProps } from "@/data/data";
 import { TConfig } from "@/models/showEditModel";
 import { useCallback, useState } from "react";
 
 type TProps = {
   id: string
-  dispatch: any
   data: IComponentProps
-  onUpdate?: (data: any) => void
+  onUpdate?: (data: IComponentProps) => void
   config: TConfig
 }
 
-export const EditComponentButton = ({ id, dispatch, data, onUpdate, config }: TProps) => {
+export const EditComponentButton = ({ id, data, onUpdate, config }: TProps) => {
+  const { dispatch } = useLuminaContext()
   const [showModalEdit, setShowModalEdit] = useState(false);
   const [formData, setFormData] = useState(data || {});
 

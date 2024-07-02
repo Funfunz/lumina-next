@@ -58,6 +58,7 @@ export const AddModal = (
         <Button
           text="Add Component"
           color="secondary"
+          outline
           onClick={handleAddComponent}
         />
         <Button
@@ -65,7 +66,6 @@ export const AddModal = (
           color="secondary"
           outline
           onClick={handleCloseModal}
-          iconRight="lumina-cross"
         />
       </div>
     </ReactModal>

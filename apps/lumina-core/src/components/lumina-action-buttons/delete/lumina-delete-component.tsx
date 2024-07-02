@@ -1,12 +1,13 @@
 import { Button } from "@/components/button/buttons";
 import { DeleteModal } from "@/components/lumina-modals/delete/delete-modal";
+import { useLuminaContext } from "@/context/contextProvider";
 import { useCallback, useState } from "react";
 
 type TProps = {
   id: string,
-  dispatch: any
 }
-export const DeleteComponentButton = ({ id, dispatch }: TProps) => {
+export const DeleteComponentButton = ({ id }: TProps) => {
+  const { dispatch } = useLuminaContext()
   const [showModalDelete, setShowModalDelete] = useState(false);
 
   const handleToggleDeleteModal = () => {
