@@ -1,5 +1,5 @@
 import styles from '@/components/grid/grid.module.css'
-import { ShowEdit } from '../showEdit/showEdit'
+import { LuminaShowEdit } from '../lumina-showEdit/lumina-showEdit'
 import { config } from './config'
 
 type Props = {
@@ -12,7 +12,7 @@ export const Grid = ({children, style, id}: Props) => {
   return (
     <div className={styles.grid + (style ?  ' ' + styles[style] : '')}>
       {children}
-      <ShowEdit id={id} config={config} data={{style}}/>
+      <LuminaShowEdit id={id} config={config} data={{style}}/>
     </div>
   )
 }

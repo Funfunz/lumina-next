@@ -1,7 +1,7 @@
 // does not support server side render
 
 import styles from '@/components/linkBox/linkBox.module.css'
-import { ShowEdit } from '@/components/showEdit/showEdit'
+import { LuminaShowEdit } from '@/components/lumina-showEdit/lumina-showEdit'
 import { config } from './config'
 import { useData, useDataUpdated } from './data'
 
@@ -35,7 +35,7 @@ export const LinkBox = ({id, title, description, href, color = 'black'}: TProps)
       target="_blank"
       rel="noopener noreferrer"
     >
-      <ShowEdit id={id} onUpdate={onUpdateCallback} config={config} data={data}/>
+      <LuminaShowEdit id={id} onUpdate={onUpdateCallback} config={config} data={data}/>
       <h2 style={{color: data.color}}>
         {data.title} <span>-&gt;</span>
       </h2>

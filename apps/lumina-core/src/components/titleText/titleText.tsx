@@ -1,6 +1,6 @@
-import { ShowEdit } from '@/components/showEdit/showEdit'
+import { LuminaShowEdit } from '@/components/lumina-showEdit/lumina-showEdit'
 import { config } from './config'
-import styles from '@/components/titleText/titleText.module.css'
+import styles from '@/components/titleText/titleText.module.scss'
 
 interface IProps {
   id: string
@@ -13,7 +13,7 @@ export const TitleText = ({id, title, text}: IProps) => {
     <div className={styles.titleText}>
       <h1>{title}</h1>
       <p>{text}</p>
-      <ShowEdit id={id} config={config} data={{title, text}}/>
+      <LuminaShowEdit id={id} config={config} data={{title, text}}/>
     </div>
   )
 }

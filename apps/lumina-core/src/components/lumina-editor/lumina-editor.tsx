@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "@/components/editor/editor.module.scss";
+import styles from "@/components/lumina-editor/lumina-editor.module.scss";
 import cx from "classnames";
 import { LuminaSidebarEditor } from "../lumina-sidebar/lumina-sidebar";
 import { useCallback, useState } from "react";
@@ -9,7 +9,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-export const Editor = ({ children }: Props) => {
+export const LuminaEditor = ({ children }: Props) => {
   const [isBarOpen, setIsBarOpen] = useState<boolean>(false)
 
   const handleMenuToggler = useCallback(() => {

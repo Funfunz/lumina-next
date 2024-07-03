@@ -3,7 +3,7 @@ import ReactModal from "react-modal"
 import styles from "../lumina-modals.module.scss"
 import Select from "react-select"
 import { configs } from "@/staticComponentsPath"
-import { TSelectedOption } from "@/models/showEditModel"
+import { TSelectedOption } from "@/lumina-models/lumina-showEditModel"
 import { ChangeEvent } from "react"
 
 type TProps = {

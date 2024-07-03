@@ -7,12 +7,11 @@ type TProps = {
   moveDirection: "up" | "down"
 }
 
-export const MoveComponentButton = ({ id, moveDirection }: TProps) => {
+export const LuminaMoveComponentButton = ({ id, moveDirection }: TProps) => {
   const { dispatch } = useLuminaContext()
   const direction = moveDirection === "up" // more user friendly to use string and transform to boolean
 
-  const handleOnClickMoveUp = useCallback((event: any) => {
-    event.stopPropagation()
+  const handleOnClickMoveUp = useCallback(() => {
     dispatch({
       type: "moveUpComponent",
       data: {
@@ -23,8 +22,7 @@ export const MoveComponentButton = ({ id, moveDirection }: TProps) => {
     [dispatch, id]
   )
 
-  const handleOnClickMoveDown = useCallback((event: any) => {
-    event.stopPropagation()
+  const handleOnClickMoveDown = useCallback(() => {
     dispatch({
       type: "moveDownComponent",
       data: {

@@ -6,7 +6,7 @@ import { useCallback, useState } from "react";
 type TProps = {
   id: string,
 }
-export const DeleteComponentButton = ({ id }: TProps) => {
+export const LuminaDeleteComponentButton = ({ id }: TProps) => {
   const { dispatch } = useLuminaContext()
   const [showModalDelete, setShowModalDelete] = useState(false);
 

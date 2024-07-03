@@ -1,4 +1,4 @@
-import styles from "@/components/search/lumina-search.module.scss";
+import styles from "@/components/lumina-search/lumina-search.module.scss";
 import { LuminaButton } from "../lumina-button/lumina-button";
 
 export const LuminaSearchBar = () => {

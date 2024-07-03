@@ -1,4 +1,4 @@
-import { TConfig } from "../showEdit/showEdit";
+import { TConfig } from "../lumina-showEdit/lumina-showEdit";
 
 export const config: TConfig = {
   name: "Title text",

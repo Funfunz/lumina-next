@@ -2,11 +2,11 @@
 
 import { LuminaButton } from "@/components/lumina-button/lumina-button";
 import { LuminaSearchBar } from "@/components/lumina-search/lumina-search";
-import styles from "@/components/tabs/pages/lumina-page.module.scss";
+import styles from "@/components/lumina-tabs/pages/lumina-page.module.scss";
 import { useLuminaContext } from "@/context/contextProvider";
 import { useCallback } from "react";
 
-export const PagesTab = () => {
+export const LuminaPagesTab = () => {
   const {
     state: { builderDataContext },
     dispatch,

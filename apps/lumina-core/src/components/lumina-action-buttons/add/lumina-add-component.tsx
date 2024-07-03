@@ -1,7 +1,7 @@
 import { LuminaButton } from "@/components/lumina-button/lumina-button"
 import { LuminaAddModal } from "@/components/lumina-modals/add/lumina-add-modal";
 import { useLuminaContext } from "@/context/contextProvider";
-import { TSelectedOption } from "@/models/showEditModel";
+import { TSelectedOption } from "@/lumina-models/lumina-showEditModel";
 import { ChangeEvent, useCallback, useState } from "react";
 
 type TProps = {
@@ -9,7 +9,7 @@ type TProps = {
   text?: string
 }
 
-export const AddComponentButton = ({ id, text }: TProps) => {
+export const LuminaAddComponentButton = ({ id, text }: TProps) => {
   const { dispatch } = useLuminaContext()
   const initialSelectedOption: TSelectedOption = {
     value: "",

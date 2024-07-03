@@ -3,7 +3,7 @@ import { LuminaButton } from "@/components/lumina-button/lumina-button";
 import styles from "./lumina-treeViewHeader.module.scss"
 import cx  from "classnames";
 
-export const TreeviewHeader = () => {
+export const LuminaTreeviewHeader = () => {
 
   return (
     <div className={styles.treeviewHeaderContainer}>

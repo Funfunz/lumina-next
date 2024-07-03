@@ -1,9 +1,9 @@
 import { LuminaTitle } from "@/components/lumina-title/lumina-title"
-import { Form, InputRenderer } from "@/components/showEdit/inputRenderer"
+import { Form, LuminaInputRenderer } from "@/components/lumina-showEdit/lumina-inputRenderer"
 import ReactModal from "react-modal"
 import styles from "../lumina-modals.module.scss"
 import { LuminaButton } from "@/components/lumina-button/lumina-button";
-import { TConfig } from "@/models/showEditModel";
+import { TConfig } from "@/lumina-models/lumina-showEditModel"
 import { IComponentProps } from "@/data/data";
 import cx from "classnames"
 
@@ -34,7 +34,7 @@ export const LuminaEditModal = (
       <LuminaTitle title={config.name} />
       <Form>
         {config.props!.map((configItem, index) => (
-          <InputRenderer
+          <LuminaInputRenderer
             key={index}
             config={configItem}
             value={formData[configItem.name] || ""}

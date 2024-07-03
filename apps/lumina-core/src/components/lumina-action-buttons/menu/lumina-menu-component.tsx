@@ -1,6 +1,6 @@
 import { LuminaButton } from "@/components/lumina-button/lumina-button"
 
-export const MenuComponentButton = () => {
+export const LuminaMenuComponentButton = () => {
   return (
     <LuminaButton
       color="secondary"

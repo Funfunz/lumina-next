@@ -1,7 +1,7 @@
 'use client'
 
 import styles from '@/components/image/image.module.css'
-import { ShowEdit } from '@/components/showEdit/showEdit'
+import { LuminaShowEdit } from '@/components/lumina-showEdit/lumina-showEdit'
 import { config } from './config'
 
 type TProps = {
@@ -20,7 +20,7 @@ export const Image = ({ href, alt, id }: TProps) => {
         src={href}
         alt={alt}
       />
-      <ShowEdit id={id} config={config} data={{ href, alt }} />
+      <LuminaShowEdit id={id} config={config} data={{ href, alt }} />
     </div>
   )
 }
