@@ -1,7 +1,7 @@
 import { LuminaButton } from "@/components/lumina-button/lumina-button"
 import { LuminaAddModal } from "@/components/lumina-modals/add/lumina-add-modal";
 import { useLuminaContext } from "@/context/contextProvider";
-import { TSelectedOption } from "@/lumina-models/lumina-showEditModel";
+import { TSelectedOption } from "@/models/showEditModel";
 import { ChangeEvent, useCallback, useState } from "react";
 
 type TProps = {

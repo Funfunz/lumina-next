@@ -8,7 +8,7 @@ import { useLuminaContext } from "@/context/contextProvider";
 import cx from "classnames"
 import styles from "./lumina-showEdit.module.scss";
 import { IComponentProps } from "@/data/data";
-import { TConfig } from "@/lumina-models/lumina-showEditModel";
+import { TConfig } from "@/models/showEditModel";
 import { LuminaAddComponentButton } from "../lumina-action-buttons/add/lumina-add-component";
 import { LuminaDeleteComponentButton } from "../lumina-action-buttons/delete/lumina-delete-component";
 import { LuminaEditComponentButton } from "../lumina-action-buttons/edit/lumina-edit-component";
@@ -73,5 +73,5 @@ export const LuminaShowEdit = ({
     </div >
   );
 };
-export type { TConfig };
+
 

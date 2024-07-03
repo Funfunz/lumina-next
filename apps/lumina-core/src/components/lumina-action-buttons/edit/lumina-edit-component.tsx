@@ -2,7 +2,7 @@ import { LuminaButton } from "@/components/lumina-button/lumina-button";
 import { LuminaEditModal } from "@/components/lumina-modals/edit/lumina-edit-modal";
 import { useLuminaContext } from "@/context/contextProvider";
 import { IComponentProps } from "@/data/data";
-import { TConfig } from "@/lumina-models/lumina-showEditModel";
+import { TConfig } from "@/models/showEditModel";
 import { useCallback, useState } from "react";
 
 type TProps = {

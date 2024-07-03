@@ -1,5 +1,5 @@
 import styles from "./lumina-button.module.scss"
-import classnames from 'classnames'
+import cx from 'classnames'
 
 type TProps = {
   href?: string
@@ -26,13 +26,13 @@ const Content = ({
       <span className={styles.buttonContent}>
         {
           iconLeft && (
-            <span className={classnames(styles.icon, iconLeft)}/>
+            <span className={cx(styles.icon, iconLeft)}/>
           )
         }
         {text && (<span>{text}</span>)}
         {
           iconRight && (
-            <span className={classnames(styles.icon, iconRight)}/>
+            <span className={cx(styles.icon, iconRight)}/>
           )
         }
       </span>
@@ -50,7 +50,7 @@ export const LuminaButton = ({
   color = 'primary',
   onClick
 }: TProps) => {
-  const mainClassNames = classnames(
+  const mainClassNames = cx(
     styles[color],
     styles.button,
     {

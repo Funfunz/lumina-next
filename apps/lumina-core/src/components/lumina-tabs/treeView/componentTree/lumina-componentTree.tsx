@@ -1,5 +1,6 @@
 import { IComponentData } from "@/data/data";
-import { LuminaTreeBranch } from "./lumina-treebranch";
+import { LuminaTreeBranch } from "../treeBranch/lumina-treeBranch";
+
 
 export const LuminaComponentTree = ({ data }: { data: IComponentData[] }) => {
   if (!data) return null;

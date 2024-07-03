@@ -1,9 +1,9 @@
 import { IComponentData, IComponentProps } from "@/data/data";
 import { useState, useCallback } from "react";
 import cx from "classnames"
-import styles from "./lumina-treeView.module.scss"
+import styles from "./lumina-treeBranch.module.scss";
 import { LuminaShowEdit } from "@/components/lumina-showEdit/lumina-showEdit";
-import { LuminaComponentTree } from "./lumina-componentTree";
+import { LuminaComponentTree } from "../componentTree/lumina-componentTree";
 
 export const LuminaTreeBranch = ({ data }: { data: IComponentData, noUp: boolean, noDown: boolean }) => {
   const [showChildren, setShowChildren] = useState(false);

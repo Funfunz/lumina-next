@@ -1,8 +1,8 @@
 'use client'
 
 import { ChangeEvent, ChangeEventHandler, PropsWithChildren, useCallback } from 'react'
-import { TConfigItem, TConfigItemSelect } from '@/lumina-models/lumina-showEditModel';
 import styles from "./lumina-showEdit.module.scss";
+import { TConfigItem, TConfigItemSelect } from '@/models/showEditModel';
 
 type TProps = {
   config: TConfigItem

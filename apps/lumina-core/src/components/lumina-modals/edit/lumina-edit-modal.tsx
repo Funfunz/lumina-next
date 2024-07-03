@@ -3,9 +3,9 @@ import { Form, LuminaInputRenderer } from "@/components/lumina-showEdit/lumina-i
 import ReactModal from "react-modal"
 import styles from "../lumina-modals.module.scss"
 import { LuminaButton } from "@/components/lumina-button/lumina-button";
-import { TConfig } from "@/lumina-models/lumina-showEditModel"
 import { IComponentProps } from "@/data/data";
 import cx from "classnames"
+import { TConfig } from "@/models/showEditModel";
 
 type TProps = {
   showModalEdit: boolean
