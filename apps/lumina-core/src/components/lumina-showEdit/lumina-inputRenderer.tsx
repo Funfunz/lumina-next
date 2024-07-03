@@ -1,8 +1,8 @@
 'use client'
 
 import { ChangeEvent, ChangeEventHandler, PropsWithChildren, useCallback } from 'react'
+import styles from "./lumina-showEdit.module.scss";
 import { TConfigItem, TConfigItemSelect } from '@/models/showEditModel';
-import styles from "./showEdit.module.scss";
 
 type TProps = {
   config: TConfigItem
@@ -18,7 +18,7 @@ function isSelect(config: TConfigItem): config is TConfigItemSelect {
   return config.type === 'singleSelect' || config.type === 'multiSelect'
 }
 
-export const InputRenderer = ({ config, value, handleOnChangeInput }: TProps) => {
+export const LuminaInputRenderer = ({ config, value, handleOnChangeInput }: TProps) => {
 
   let handleOnChangeInputElement = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {

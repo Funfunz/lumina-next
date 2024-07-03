@@ -1,18 +1,14 @@
 "use client"
-import staticComponentsPath from "@/staticComponentsPath"
+
 import { useLuminaContext } from "@/context/contextProvider"
 import { IComponentData } from "@/data/data"
-
-const DynamicComponent = (type: string) => {
-  if (!staticComponentsPath[type]) return null
-  return staticComponentsPath[type]
-}
+import { LuminaDynamicComponent } from "./lumina-dynamicComponent"
 
 interface IProps {
   elements?: IComponentData[]
 }
 
-export const Render = ({ elements }: IProps) => {
+export const LuminaRender = ({ elements }: IProps) => {
   const { state: { builderDataContext } } = useLuminaContext()
   let data: IComponentData[] = []
   if (elements) {
@@ -30,9 +26,9 @@ export const Render = ({ elements }: IProps) => {
     <>
       {data.map(
         (component, index) => {
-          const LoadedComponent = DynamicComponent(component.type)
-          if (!LoadedComponent) return null
-          return <LoadedComponent key={index} {...component.props} id={component.id}><Render elements={component.children}/></LoadedComponent>
+          const LuminaLoadedComponent = LuminaDynamicComponent(component.type)
+          if (!LuminaLoadedComponent) return null
+          return <LuminaLoadedComponent key={index} {...component.props} id={component.id}><LuminaRender elements={component.children}/></LuminaLoadedComponent>
         }
       )}
     </>

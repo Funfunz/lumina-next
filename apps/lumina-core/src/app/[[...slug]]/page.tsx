@@ -1,5 +1,5 @@
 import { getFullData } from "@/lib/dataFetcher"
-import { Render } from "@/components/render/render"
+import { LuminaRender } from "@/components/lumina-render/lumina-render"
 import { ContextProvider } from '@/context/contextProvider'
 
 type Props = {
@@ -14,7 +14,7 @@ export default async function EditorPage({params}: Props) {
   if (!builderData[selectedPage]) return
   return (
     <ContextProvider data={{builderDataContext: {builderData, selectedPage, pages: Object.keys(builderData)}}}>
-      <Render/>
+      <LuminaRender/>
     </ContextProvider>
   )
 }

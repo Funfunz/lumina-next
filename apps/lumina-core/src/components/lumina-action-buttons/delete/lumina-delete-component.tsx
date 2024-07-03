@@ -1,12 +1,12 @@
-import { Button } from "@/components/button/buttons";
-import { DeleteModal } from "@/components/lumina-modals/delete/delete-modal";
+import { LuminaButton } from "@/components/lumina-button/lumina-button";
+import { LuminaDeleteModal } from "@/components/lumina-modals/delete/lumina-delete-modal";
 import { useLuminaContext } from "@/context/contextProvider";
 import { useCallback, useState } from "react";
 
 type TProps = {
   id: string,
 }
-export const DeleteComponentButton = ({ id }: TProps) => {
+export const LuminaDeleteComponentButton = ({ id }: TProps) => {
   const { dispatch } = useLuminaContext()
   const [showModalDelete, setShowModalDelete] = useState(false);
 
@@ -30,13 +30,13 @@ export const DeleteComponentButton = ({ id }: TProps) => {
   )
 
   return (
-    <><Button
+    <><LuminaButton
       color="danger"
       onClick={handleToggleDeleteModal}
       round
       iconLeft="lumina-delete"
     />
-      <DeleteModal showModalDelete={showModalDelete}
+      <LuminaDeleteModal showModalDelete={showModalDelete}
         handleCloseModal={handleToggleDeleteModal}
         handleOnClickDelete={handleOnClickDelete}
       />

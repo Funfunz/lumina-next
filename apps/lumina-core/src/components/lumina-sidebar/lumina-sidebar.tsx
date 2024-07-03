@@ -1,9 +1,8 @@
-import styles from "@/components/sidebar/sidebar.module.scss";
+import styles from "@/components/lumina-sidebar/lumina-sidebar.module.scss";
 import cx from "classnames";
-
 import { useState } from "react";
-import { TreeViewTab } from "../tabs/treeView/treeView";
-import { PagesTab } from "../tabs/pages/page";
+import { LuminaTreeViewTab } from "../lumina-tabs/treeView/lumina-treeView";
+import { LuminaPagesTab } from "../lumina-tabs/pages/lumina-page";
 
 type TSidebarEditor = {
   handleToggler: Function
@@ -21,12 +20,12 @@ const editorTabs: TSidebarTab[] = [
   {
     id: "lumTabPages",
     icon: "lumina-page",
-    panel: <PagesTab />
+    panel: <LuminaPagesTab />
   },
   {
     id: "lumTabComponents",
     icon: "lumina-component",
-    panel: <TreeViewTab />
+    panel: <LuminaTreeViewTab />
   },
   {
     id: "lumTabLibrary",
@@ -49,7 +48,7 @@ const helperTabs: TSidebarTab[] = [
   },
 ]
 
-export const SidebarEditor = ({ isBarOpen, handleToggler }: TSidebarEditor) => {
+export const LuminaSidebarEditor = ({ isBarOpen, handleToggler }: TSidebarEditor) => {
   const [activeTab, setActiveTab] = useState<string>("")
   const [activePanel, setActivePanel] = useState<JSX.Element>()
 

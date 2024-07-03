@@ -1,28 +1,3 @@
-.treeviewContainer{
-  position: relative;
-  width: 100%;
-  height: 100%;
-
-
-}
-
-.treeScroll {
-  overflow-y: scroll;
-}
-
-.treeHead{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  .treeAddButton {
-  display: flex;
-  font-size: 12px;
-  align-items: center;
-  }
-
-}
-
 .treeContainer {
   position: relative;
   color: var(--lum-color-text);
@@ -79,4 +54,3 @@
   font-size: 12px;
   font-weight: 400;
 }
-

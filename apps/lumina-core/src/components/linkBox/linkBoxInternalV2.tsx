@@ -1,5 +1,5 @@
 import styles from '@/components/linkBox/linkBox.module.css'
-import { ShowEdit } from '@/components/showEdit/showEdit'
+import { LuminaShowEdit } from '@/components/lumina-showEdit/lumina-showEdit'
 import { config } from './config'
 import { LinkBoxContext } from './LinkboxContextV2'
 import { useContext } from 'react'
@@ -26,7 +26,7 @@ export const LinkBoxInternal = () => {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <ShowEdit id={state.id} onUpdate={onUpdateCallback} config={config} data={state}/>
+      <LuminaShowEdit id={state.id} onUpdate={onUpdateCallback} config={config} data={state}/>
       <h2 style={{color: state.color}}>
         {state.title} <span>-&gt;</span>
       </h2>
