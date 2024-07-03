@@ -1,4 +1,4 @@
-import { TConfig } from "@/models/showEditModel";
+import { TConfig } from "@/lumina-models/lumina-showEditModel";
 
 export const config: TConfig = {
   name: 'Image',
