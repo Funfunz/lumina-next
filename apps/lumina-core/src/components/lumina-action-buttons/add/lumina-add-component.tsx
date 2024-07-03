@@ -66,16 +66,17 @@ export const LuminaAddComponentButton = ({ id, text }: TProps) => {
         text={text}
         iconLeft="lumina-item-add"
       />
-
-      <LuminaAddModal showModalAdd={showModalAdd}
-        handleCloseModal={handleToggleAddModal}
-        handleAddComponent={handleAddComponent}
-        selectedOption={selectedOption}
-        handleSelectChange={handleSelectChange}
-        handleOnChangeNewComponentFriendlyName={handleOnChangeNewComponentFriendlyName}
-        newComponentFriendlyName={newComponentFriendlyName}
-        id={id}
-      />
+      {showModalAdd &&
+        <LuminaAddModal showModalAdd={showModalAdd}
+          handleCloseModal={handleToggleAddModal}
+          handleAddComponent={handleAddComponent}
+          selectedOption={selectedOption}
+          handleSelectChange={handleSelectChange}
+          handleOnChangeNewComponentFriendlyName={handleOnChangeNewComponentFriendlyName}
+          newComponentFriendlyName={newComponentFriendlyName}
+          id={id}
+        />
+      }
     </>
   )
 }
