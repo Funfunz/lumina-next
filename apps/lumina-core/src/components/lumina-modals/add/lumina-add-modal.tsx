@@ -1,6 +1,6 @@
-import { Button } from "@/components/button/buttons"
+import { LuminaButton } from "@/components/lumina-button/lumina-button"
 import ReactModal from "react-modal"
-import styles from "../modals.module.scss"
+import styles from "../lumina-modals.module.scss"
 import Select from "react-select"
 import { configs } from "@/staticComponentsPath"
 import { TSelectedOption } from "@/models/showEditModel"
@@ -17,7 +17,7 @@ type TProps = {
   handleOnChangeNewComponentFriendlyName: (event: ChangeEvent<HTMLInputElement>) => void
 }
 
-export const AddModal = (
+export const LuminaAddModal = (
   { id,
     showModalAdd,
     handleCloseModal,
@@ -55,13 +55,13 @@ export const AddModal = (
         value={newComponentFriendlyName}
         onChange={handleOnChangeNewComponentFriendlyName} />
       <div className={styles.inlineButtons}>
-        <Button
+        <LuminaButton
           text="Add Component"
           color="secondary"
           outline
           onClick={handleAddComponent}
         />
-        <Button
+        <LuminaButton
           text="Close Modal"
           color="secondary"
           outline

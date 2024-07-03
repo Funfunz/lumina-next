@@ -1,6 +1,6 @@
-import { Button } from "@/components/button/buttons"
+import { LuminaButton } from "@/components/lumina-button/lumina-button"
 import ReactModal from "react-modal"
-import styles from "../modals.module.scss"
+import styles from "../lumina-modals.module.scss"
 
 type TProps = {
   showModalDelete: boolean
@@ -8,7 +8,7 @@ type TProps = {
   handleCloseModal: () => void
 }
 
-export const DeleteModal = (
+export const LuminaDeleteModal = (
   { showModalDelete,
     handleCloseModal,
     handleOnClickDelete
@@ -25,13 +25,13 @@ export const DeleteModal = (
       <p>Are you sure you want to delete the Component?</p>
       <p>This action is irreversible.</p>
       <div className={styles.inlineButtons}>
-        <Button
+        <LuminaButton
           text="Yes"
           color="danger"
           outline
           onClick={handleOnClickDelete}
         />
-        <Button
+        <LuminaButton
           text="Cancel"
           color="secondary"
           outline

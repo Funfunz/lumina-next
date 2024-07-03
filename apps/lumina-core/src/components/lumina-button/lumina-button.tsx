@@ -1,4 +1,4 @@
-import styles from "./buttons.module.scss"
+import styles from "./lumina-button.module.scss"
 import classnames from 'classnames'
 
 type TProps = {
@@ -40,7 +40,7 @@ const Content = ({
   )
 }
 
-export const Button = ({
+export const LuminaButton = ({
   href,
   text,
   iconLeft,

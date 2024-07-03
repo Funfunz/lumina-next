@@ -3,7 +3,7 @@ import { getFullData } from "@/lib/dataFetcher";
 import { Render } from "@/components/render/render";
 import { ContextProvider } from "@/context/contextProvider";
 import { TreeViewTab } from "@/components/tabs/treeView/treeView";
-import { PagesTab } from "@/components/tabs/pages/page";
+import { PagesTab } from "@/components/lumina-tabs/pages/page";
 
 type Props = {
   params: {

@@ -1,13 +1,13 @@
 "use client";
 
-import styles from "../treeView/treeView.module.scss";
+import styles from "./lumina-treeView.module.scss";
 import cx from "classnames";
 import { useLuminaContext } from "@/context/contextProvider";
 import { IComponentData, IComponentProps } from "@/data/data";
 import { useCallback, useState } from "react";
 import { ShowEdit } from "../../showEdit/showEdit";
-import { SearchBar } from "../../search/search";
-import { TreeviewHeader } from "./treeviewHeader/treeviewHeader";
+import { LuminaSearchBar } from "../../lumina-search/lumina-search";
+import { TreeviewHeader } from "./treeviewHeader/lumina-treeViewHeader";
 import { AddComponentButton } from "@/components/lumina-action-buttons/add/lumina-add-component";
 
 const TreeBranch = ({ data }: { data: IComponentData, noUp: boolean, noDown: boolean }) => {
@@ -90,7 +90,7 @@ export const TreeViewTab = () => {
           <AddComponentButton id={""} text="Add" />
         </span>
       </div>
-      <SearchBar />
+      <LuminaSearchBar />
       <TreeviewHeader />
       <div className={styles.treeScroll}>
         <ComponentTree

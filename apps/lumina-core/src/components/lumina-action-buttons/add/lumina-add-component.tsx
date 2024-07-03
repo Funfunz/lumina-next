@@ -1,5 +1,5 @@
-import { Button } from "@/components/button/buttons"
-import { AddModal } from "@/components/lumina-modals/add/add-modal";
+import { LuminaButton } from "@/components/lumina-button/lumina-button"
+import { LuminaAddModal } from "@/components/lumina-modals/add/lumina-add-modal";
 import { useLuminaContext } from "@/context/contextProvider";
 import { TSelectedOption } from "@/models/showEditModel";
 import { ChangeEvent, useCallback, useState } from "react";
@@ -60,14 +60,14 @@ export const AddComponentButton = ({ id, text }: TProps) => {
 
   return (
     <>
-      <Button
+      <LuminaButton
         color="secondary"
         onClick={handleToggleAddModal}
         text={text}
         iconLeft="lumina-item-add"
       />
 
-      <AddModal showModalAdd={showModalAdd}
+      <LuminaAddModal showModalAdd={showModalAdd}
         handleCloseModal={handleToggleAddModal}
         handleAddComponent={handleAddComponent}
         selectedOption={selectedOption}

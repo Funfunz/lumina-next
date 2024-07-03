@@ -1,8 +1,8 @@
 import { LuminaTitle } from "@/components/lumina-title/lumina-title"
 import { Form, InputRenderer } from "@/components/showEdit/inputRenderer"
 import ReactModal from "react-modal"
-import styles from "../modals.module.scss"
-import { Button } from "@/components/button/buttons";
+import styles from "../lumina-modals.module.scss"
+import { LuminaButton } from "@/components/lumina-button/lumina-button";
 import { TConfig } from "@/models/showEditModel";
 import { IComponentProps } from "@/data/data";
 import cx from "classnames"
@@ -16,7 +16,7 @@ type TProps = {
   formData: IComponentProps
 }
 
-export const EditModal = (
+export const LuminaEditModal = (
   { showModalEdit,
     handleCloseModal,
     handleOnClickSaveData,
@@ -43,13 +43,13 @@ export const EditModal = (
         ))}
       </Form>
       <div className={styles.inlineButtons}>
-        <Button
+        <LuminaButton
           text="Save data"
           color="primary"
           outline
           onClick={handleOnClickSaveData}
         />
-        <Button
+        <LuminaButton
           text="Close Modal"
           color="secondary"
           outline

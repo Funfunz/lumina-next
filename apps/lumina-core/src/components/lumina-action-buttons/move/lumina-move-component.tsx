@@ -1,4 +1,4 @@
-import { Button } from "@/components/button/buttons"
+import { LuminaButton } from "@/components/lumina-button/lumina-button"
 import { useLuminaContext } from "@/context/contextProvider"
 import { useCallback } from "react"
 
@@ -36,7 +36,7 @@ export const MoveComponentButton = ({ id, moveDirection }: TProps) => {
   )
 
   return (
-    <Button
+    <LuminaButton
       color="secondary"
       onClick={direction ? handleOnClickMoveUp : handleOnClickMoveDown}
       iconLeft={direction ? "lumina-slide-up" : "lumina-slide-down"}

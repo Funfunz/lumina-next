@@ -1,8 +1,8 @@
 "use client";
 
-import { Button } from "@/components/button/buttons";
-import { SearchBar } from "@/components/search/search";
-import styles from "@/components/tabs/pages/page.module.scss";
+import { LuminaButton } from "@/components/lumina-button/lumina-button";
+import { LuminaSearchBar } from "@/components/lumina-search/lumina-search";
+import styles from "@/components/tabs/pages/lumina-page.module.scss";
 import { useLuminaContext } from "@/context/contextProvider";
 import { useCallback } from "react";
 
@@ -25,13 +25,13 @@ export const PagesTab = () => {
         <h3 className={styles.pageTitle}>Pages</h3>
             {(Object.keys(builderDataContext.builderData).length && (
               <div className={styles.addContainer}>
-                <Button color="secondary" onClick={handleAddPageClick} iconRight="lumina-add" />
+                <LuminaButton color="secondary" onClick={handleAddPageClick} iconRight="lumina-add" />
                 <h5 className={styles.addText}>Add</h5>
               </div>
               )) ||
             null}
       </div>
-    <SearchBar/>
+    <LuminaSearchBar/>
     {Object.keys(builderDataContext.builderData).map((page) => (
       <div className={styles.pageHead} key={page}>
       {page}
