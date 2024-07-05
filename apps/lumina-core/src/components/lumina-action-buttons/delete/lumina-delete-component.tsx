@@ -30,16 +30,19 @@ export const LuminaDeleteComponentButton = ({ id }: TProps) => {
   )
 
   return (
-    <><LuminaButton
-      color="danger"
-      onClick={handleToggleDeleteModal}
-      round
-      iconLeft="lumina-delete"
-    />
-      <LuminaDeleteModal showModalDelete={showModalDelete}
-        handleCloseModal={handleToggleDeleteModal}
-        handleOnClickDelete={handleOnClickDelete}
+    <>
+      <LuminaButton
+        color="danger"
+        onClick={handleToggleDeleteModal}
+        round
+        iconLeft="lumina-delete"
       />
+      {showModalDelete &&
+        <LuminaDeleteModal showModalDelete={showModalDelete}
+          handleCloseModal={handleToggleDeleteModal}
+          handleOnClickDelete={handleOnClickDelete}
+        />
+      }
     </>
   )
 }

@@ -18,7 +18,7 @@ export const LuminaEditComponentButton = ({ id, data, onUpdate, config }: TProps
   const [formData, setFormData] = useState(data || {});
 
   const handleToggleEditModal = () => {
-    setShowModalEdit(true)
+    setShowModalEdit(!showModalEdit)
   }
 
   const handleOnClickSaveData = useCallback(() => {
@@ -59,14 +59,15 @@ export const LuminaEditComponentButton = ({ id, data, onUpdate, config }: TProps
         round
         iconLeft="lumina-edit"
       />
-
-      <LuminaEditModal showModalEdit={showModalEdit}
-        handleCloseModal={handleToggleEditModal}
-        handleOnClickSaveData={handleOnClickSaveData}
-        handleOnChangeInput={handleOnChangeInput}
-        config={config}
-        formData={formData}
-      />
+      {showModalEdit &&
+        <LuminaEditModal showModalEdit={showModalEdit}
+          handleCloseModal={handleToggleEditModal}
+          handleOnClickSaveData={handleOnClickSaveData}
+          handleOnChangeInput={handleOnChangeInput}
+          config={config}
+          formData={formData}
+        />
+      }
     </>
   )
 }
