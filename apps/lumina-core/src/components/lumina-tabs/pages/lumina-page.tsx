@@ -15,7 +15,7 @@ export const LuminaPagesTab = () => {
   const handleAddPageClick = useCallback(() => {
     dispatch({
       type: "createPage",
-      data: { id:"dadwadada" , pageName: "testPage", friendlyName: "Test Page", extendedName: "A Page for testing purposes", dateModified: Date.now.toString(), route: "/test", status: true},
+      data: { id: "dadwadada", pageName: "testPage", friendlyName: "Test Page", extendedName: "A Page for testing purposes", dateModified: Date.now.toString(), route: "/test", status: true },
     });
   }, [dispatch]);
 
@@ -23,20 +23,20 @@ export const LuminaPagesTab = () => {
     <div className={styles.pageContainer}>
       <div className={styles.pageHead}>
         <h3 className={styles.pageTitle}>Pages</h3>
-            {(Object.keys(builderDataContext.builderData).length && (
-              <div className={styles.addContainer}>
-                <LuminaButton color="secondary" onClick={handleAddPageClick} iconRight="lumina-add" />
-                <h5 className={styles.addText}>Add</h5>
-              </div>
-              )) ||
-            null}
+        {(Object.keys(builderDataContext.builderData).length && (
+          <div className={styles.addContainer}>
+            <LuminaButton color="secondary" onClick={handleAddPageClick} iconRight="lum-icon-add" />
+            <h5 className={styles.addText}>Add</h5>
+          </div>
+        )) ||
+          null}
       </div>
-    <LuminaSearchBar/>
-    {Object.keys(builderDataContext.builderData).map((page) => (
-      <div className={styles.pageHead} key={page}>
-      {page}
-    </div>
-    ))}
+      <LuminaSearchBar />
+      {Object.keys(builderDataContext.builderData).map((page) => (
+        <div className={styles.pageHead} key={page}>
+          {page}
+        </div>
+      ))}
     </div>
   );
 };

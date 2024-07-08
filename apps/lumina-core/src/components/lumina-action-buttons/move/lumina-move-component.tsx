@@ -37,7 +37,7 @@ export const LuminaMoveComponentButton = ({ id, moveDirection }: TProps) => {
     <LuminaButton
       color="secondary"
       onClick={direction ? handleOnClickMoveUp : handleOnClickMoveDown}
-      iconLeft={direction ? "lumina-slide-up" : "lumina-slide-down"}
+      iconLeft={direction ? "lum-icon-arrow-up" : "lum-icon-arrow-down"}
     />
   )
 }

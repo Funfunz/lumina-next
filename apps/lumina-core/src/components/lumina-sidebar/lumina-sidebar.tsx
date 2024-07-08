@@ -19,32 +19,32 @@ type TSidebarTab = {
 const editorTabs: TSidebarTab[] = [
   {
     id: "lumTabPages",
-    icon: "lumina-page",
+    icon: "lum-icon-page",
     panel: <LuminaPagesTab />
   },
   {
     id: "lumTabComponents",
-    icon: "lumina-component",
+    icon: "lum-icon-component",
     panel: <LuminaTreeViewTab />
   },
   {
     id: "lumTabLibrary",
-    icon: "lumina-library"
+    icon: "lum-icon-library"
   }
 ]
 
 const helperTabs: TSidebarTab[] = [
   {
     id: "lumTabConfig",
-    icon: "lumina-settings"
+    icon: "lum-icon-settings"
   },
   {
     id: "lumTabHelp",
-    icon: "lumina-help"
+    icon: "lum-icon-help-fill"
   },
   {
     id: "lumTabUser",
-    icon: "lumina-user"
+    icon: "lum-icon-user"
   },
 ]
 
@@ -88,7 +88,7 @@ export const LuminaSidebarEditor = ({ isBarOpen, handleToggler }: TSidebarEditor
         {/* expand icon */}
         <div className={cx(styles.sidebarToogler, { "lum-display-none": !isBarOpen })}
           onClick={() => closeSidebar()}>
-          <a className={isBarOpen ? "lumina-close" : "lumina-open"}></a>
+          <a className="lum-icon-cross"></a>
         </div>
       </div>
       <div className={styles.sidebarBody}>

@@ -57,7 +57,7 @@ export const LuminaEditComponentButton = ({ id, data, onUpdate, config }: TProps
       <LuminaButton
         onClick={handleToggleEditModal}
         round
-        iconLeft="lumina-edit"
+        iconLeft="lum-icon-edit"
       />
       {showModalEdit &&
         <LuminaEditModal showModalEdit={showModalEdit}

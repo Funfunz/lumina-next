@@ -15,11 +15,11 @@ export const LuminaTreeBranch = ({ data }: { data: IComponentData, noUp: boolean
   const iconChange = () => {
     if (data.children?.length) {
       return (
-        <span className={cx(styles.treeViewIcon, showChildren ? 'lumina-close-up' : 'lumina-open-down', styles.treeViewPointer)} onClick={handleTreeHeadClick}></span>)
+        <span className={cx(styles.treeViewIcon, showChildren ? 'lum-icon-chevron-up' : 'lum-icon-chevron-down', styles.treeViewPointer)} onClick={handleTreeHeadClick}></span>)
     }
     else {
       return (
-        <span className={cx(styles.treeViewIcon, 'lumina-component')}></span>)
+        <span className={cx(styles.treeViewIcon, 'lum-icon-component')}></span>)
     }
   }
 
