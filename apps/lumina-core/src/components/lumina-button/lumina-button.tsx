@@ -1,5 +1,6 @@
 import styles from "./lumina-button.module.scss"
 import cx from 'classnames'
+import { ButtonContent } from "./lumina-buttonContent/lumina-buttonContent"
 
 type TProps = {
   href?: string
@@ -10,34 +11,6 @@ type TProps = {
   round?: boolean
   color?: 'primary' | 'secondary' | 'warning' | 'danger' | 'disabled' | 'filter'
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
-}
-
-const Content = ({
-  text,
-  iconLeft,
-  iconRight,
-}: {
-  text?: string
-  iconLeft?: string
-  iconRight?: string
-}) => {
-  return (
-    <>
-      <span className={styles.buttonContent}>
-        {
-          iconLeft && (
-            <span className={cx(styles.icon, iconLeft)}/>
-          )
-        }
-        {text && (<span>{text}</span>)}
-        {
-          iconRight && (
-            <span className={cx(styles.icon, iconRight)}/>
-          )
-        }
-      </span>
-    </>
-  )
 }
 
 export const LuminaButton = ({
@@ -61,7 +34,7 @@ export const LuminaButton = ({
   if (href) {
     return (
       <a href={href}>
-        <Content
+        <ButtonContent
           text={text}
           iconLeft={iconLeft}
           iconRight={iconRight}
@@ -71,7 +44,7 @@ export const LuminaButton = ({
   }
   return (
     <button className={mainClassNames} onClick={onClick}>
-      <Content
+      <ButtonContent
         text={text}
         iconLeft={iconLeft}
         iconRight={iconRight}
