@@ -64,7 +64,7 @@ export const LuminaAddComponentButton = ({ id, text }: TProps) => {
         color="secondary"
         onClick={handleToggleAddModal}
         text={text}
-        iconLeft="lumina-item-add"
+        iconLeft="lum-icon-plus-fill"
       />
       {showModalAdd &&
         <LuminaAddModal showModalAdd={showModalAdd}
