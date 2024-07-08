@@ -12,6 +12,8 @@
 import * as React from 'react';
 import type { LinkProps } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import styles from "../lumina-button.module.scss";
+import cx from 'classnames'
 
 type TProps = {
   children?: React.ReactNode
@@ -51,14 +53,15 @@ type BtnProps =
 | ButtonAsUnstyled
 
 export function LuminaButtonX(props:BtnProps): React.ReactElement {
-  const allClassNames = `${props.styleType ? props.styleType: ''} ${props.className ? props.className: ''
+  const allClassNames = `${props.styleType ? cx(styles[props.styleType]): "" } ${props.className ? props.className: ''
+  } ${props.text ? props.text: ''
   }`
 
   if (props.as === 'link') {
-    const {className, styleType, as, ...rest} = props as ButtonAsLink;
-    return <Link className={allClassNames} {...rest}/>
+    const {className, styleType, as, text, ...rest} = props as ButtonAsLink;
+    return <Link className={allClassNames} {...rest}>{text}</Link>
   }else if (props.as === 'externalLink') {
-    const {className, styleType, as, ...rest} = props as ButtonAsExternal;
+    const {className, styleType, as, text, ...rest} = props as ButtonAsExternal;
     return (
       <a
         className={allClassNames}
@@ -66,15 +69,16 @@ export function LuminaButtonX(props:BtnProps): React.ReactElement {
         rel='noopener noreferrer'
         {...rest}
       >
+        {text}
         {props.children}
       </a>
     )
   } else if (props.as === 'unstyled') {
-    const {className, styleType, as, ...rest} = props as ButtonAsUnstyled;
-    return <button className={className} {...rest} />
+    const {className, styleType, as, text, ...rest} = props as ButtonAsUnstyled;
+    return <button className={className} {...rest}>{text}</button>
   } else {
-    const {className, styleType, as, ...rest} = props as ButtonAsButton;
-    return <button className={allClassNames} {...rest} />
+    const {className, styleType, as, text, ...rest} = props as ButtonAsButton;
+    return <button className={allClassNames} {...rest}>{text}</button>
   }
 
 }
