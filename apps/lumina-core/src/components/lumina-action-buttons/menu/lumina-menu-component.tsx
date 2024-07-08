@@ -4,7 +4,7 @@ export const LuminaMenuComponentButton = () => {
   return (
     <LuminaButton
       color="secondary"
-      iconLeft={"lumina-menu"}
+      iconLeft={"lum-icon-menu"}
     />
   )
 }
