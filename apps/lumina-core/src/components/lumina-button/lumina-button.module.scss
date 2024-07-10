@@ -16,67 +16,57 @@
   * {
     box-sizing: border-box;
   }
+}
 
-  &.round {
-    justify-content: center;
-    &:before {
-      content: '';
-      display: inline-block;
-      vertical-align: middle;
-      padding-top: 100%;
-    }
+.round {
+  justify-content: center;
+  &:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    padding-top: 100%;
   }
+}
 
-  .buttonContent {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 5px;
+.buttonContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 5px;
+}
+
+.outline {
+  background-color: var(--lum-color-text-inverse);
+}
+
+.primary {
+  border: 1px solid var(--lum-color-button-primary-background);
+  box-shadow: 0px 0px 0px 0px var(--lum-color-button-primary-background);
+
+  &:hover {
+    box-shadow: 0px 3px 5px -1px var(--lum-color-button-primary-background);
   }
-
+  &:not(.outline) {
+    background-color: var(--lum-color-button-primary-background);
+  }
   &.outline {
-    background-color: var(--lum-color-text-inverse);
+    color: var(--lum-color-button-primary-background);
   }
+}
 
-  &.primary {
-    border: 1px solid var(--lum-color-button-primary-background);
-    box-shadow: 0px 0px 0px 0px var(--lum-color-button-primary-background);
+.secondary {
+  border: #111111;
+  box-shadow: #11111166;
 
-    &:hover {
-      box-shadow: 0px 3px 5px -1px var(--lum-color-button-primary-background);
-    }
-    &:not(.outline) {
-      background-color: var(--lum-color-button-primary-background);
-    }
-    &.outline {
-      color: var(--lum-color-button-primary-background);
-    }
+  &:hover {
+    box-shadow: #111111;
   }
-
-  &.secondary {
-    border: #111111;
-    box-shadow: #11111166;
-
-    &:hover {
-      box-shadow: #111111;
-    }
-    &:not(.outline) {
-      background-color: var(--lum-color-background-transparent);
-    }
-    &.outline {
-      color: #111111;
-      border: 1px solid lightgray;
-
-      &:hover{
-        color:white;
-        background-color: black;
-      }
-    }
+  &:not(.outline) {
+    background-color: var(--lum-color-background-transparent);
   }
-
-  &.filter {
-    color: #11111166;
+  &.outline {
+    color: #111111;
     border: 1px solid lightgray;
 
     &:hover{
@@ -84,49 +74,54 @@
       background-color: black;
     }
   }
+}
 
-  &.warning {
-    border: 1px solid var(--lum-color-button-warning-background);
-    box-shadow: 0px 0px 0px 0px var(--lum-color-button-warning-background);
+.filter {
+  color: #11111166;
+  border: 1px solid lightgray;
 
-    &:hover {
-      box-shadow: 0px 3px 5px -1px var(--lum-color-button-warning-background);
-    }
-    &:not(.outline) {
-      background-color: var(--lum-color-button-warning-background);
-    }
-    &.outline {
-      color: var(--lum-color-button-warning-background);
-    }
-  }
-
-  &.danger {
-    border: 1px solid var(--lum-color-button-danger-background);
-    box-shadow: 0px 0px 0px 0px var(--lum-color-button-danger-background);
-
-    &:hover {
-      box-shadow: 0px 3px 5px -1px var(--lum-color-button-danger-background);
-    }
-    &:not(.outline) {
-      background-color: var(--lum-color-button-danger-background);
-    }
-    &.outline {
-      color: var(--lum-color-button-danger-background);
-    }
-  }
-
-  &.disabled{
-    cursor: not-allowed;
-    color: var(--lum-color-button-disabled);
-    background-color: var(--lum-color-background-transparent);
-  }
-
-  .icon {
-    font-size: 14px;
+  &:hover{
+    color:white;
+    background-color: black;
   }
 }
 
-.primary {
-  color: red;
-  background: green;
+.warning {
+  border: 1px solid var(--lum-color-button-warning-background);
+  box-shadow: 0px 0px 0px 0px var(--lum-color-button-warning-background);
+
+  &:hover {
+    box-shadow: 0px 3px 5px -1px var(--lum-color-button-warning-background);
+  }
+  &:not(.outline) {
+    background-color: var(--lum-color-button-warning-background);
+  }
+  &.outline {
+    color: var(--lum-color-button-warning-background);
+  }
+}
+
+.danger {
+  border: 1px solid var(--lum-color-button-danger-background);
+  box-shadow: 0px 0px 0px 0px var(--lum-color-button-danger-background);
+
+  &:hover {
+    box-shadow: 0px 3px 5px -1px var(--lum-color-button-danger-background);
+  }
+  &:not(.outline) {
+    background-color: var(--lum-color-button-danger-background);
+  }
+  &.outline {
+    color: var(--lum-color-button-danger-background);
+  }
+}
+
+.disabled{
+  cursor: not-allowed;
+  color: var(--lum-color-button-disabled);
+  background-color: var(--lum-color-background-transparent);
+}
+
+.icon {
+  font-size: 14px;
 }

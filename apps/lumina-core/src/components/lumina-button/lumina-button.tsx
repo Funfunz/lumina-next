@@ -1,54 +1,74 @@
 import styles from "./lumina-button.module.scss"
-import cx from 'classnames'
 import { ButtonContent } from "./lumina-buttonContent/lumina-buttonContent"
+import { TLumButton } from "./lumina-button-models"
+import { Link } from "react-router-dom"
+import cx from "classnames"
 
-type TProps = {
-  href?: string
-  text?: string
-  iconLeft?: string
-  iconRight?: string
-  outline?: boolean
-  round?: boolean
-  color?: 'primary' | 'secondary' | 'warning' | 'danger' | 'disabled' | 'filter'
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
-}
+
 
 export const LuminaButton = ({
+  classNames = "",
+  target='_blank',
+  rel='noopener noreferrer',
+  to = '/',
   href,
   text,
   iconLeft,
   iconRight,
-  outline,
-  round,
-  color = 'primary',
+  style = 'primary',
+  disabled = false,
+  buttonType,
   onClick
-}: TProps) => {
-  const mainClassNames = cx(
-    styles[color],
-    styles.button,
-    {
-      [styles.outline]: outline,
-      [styles.round]: round,
-    }
-  )
-  if (href) {
+}: TLumButton) => {
+
+  const allClassNames = `${style ? style : ''} ${classNames ? classNames: ''}`
+
+  switch (buttonType){
+    case "button":
     return (
-      <a href={href}>
+      <button
+        className={allClassNames}
+        onClick={onClick}
+        disabled={disabled}
+      >
         <ButtonContent
           text={text}
           iconLeft={iconLeft}
           iconRight={iconRight}
         />
-      </a>
+      </button>
+      )
+    case "externalLink":
+    return (
+      <a className={allClassNames} href={href} target={target} rel={rel}>
+          <ButtonContent
+            text={text}
+            iconLeft={iconLeft}
+            iconRight={iconRight}
+          />
+        </a>
     )
+    case "link":
+    return (
+      <Link className={allClassNames} to={to}>
+          <ButtonContent
+            text={text}
+            iconLeft={iconLeft}
+            iconRight={iconRight}
+          />
+      </Link>
+    )
+    case "menutButton":
+    return (
+      <button className={allClassNames} onClick={onClick} disabled={disabled}>
+        <ButtonContent
+          text={text}
+          iconLeft={iconLeft}
+          iconRight={iconRight}
+        />
+      </button>
+    )
+    default:
+    return null
+    }
   }
-  return (
-    <button className={mainClassNames} onClick={onClick}>
-      <ButtonContent
-        text={text}
-        iconLeft={iconLeft}
-        iconRight={iconRight}
-      />
-    </button>
-  )
-}

@@ -3,7 +3,7 @@ import cx from "classnames";
 import { useState } from "react";
 import { LuminaTreeViewTab } from "../lumina-tabs/treeView/lumina-treeView";
 import { LuminaPagesTab } from "../lumina-tabs/pages/lumina-page";
-import { LuminaButtonX } from "../lumina-button/lumina-button-test/lumina-button-test";
+import { LuminaButton } from "../lumina-button/lumina-button";
 
 type TSidebarEditor = {
   handleToggler: Function
@@ -31,7 +31,15 @@ const editorTabs: TSidebarTab[] = [
   {
     id: "lumTabLibrary",
     icon: "lum-icon-library",
-    panel: <LuminaButtonX as= "default" styleType= "primary" text="hi" />
+    panel: <div>
+            <LuminaButton buttonType={"button"} text="Hi" style="primary"/>
+            <br/>
+            <LuminaButton buttonType={"externalLink"} text="Hi" style="primary" href='https://www.google.pt'/>
+            <br/>
+            {/* <LuminaButton buttonType={"link"} text="Hi" style="primary" to='/'/>
+            <br/> */}
+            <LuminaButton buttonType={"menutButton"} text="Hi" style="primary" iconLeft="lum-icon-cross"/>
+          </div>
   }
 ]
 
