@@ -7,15 +7,15 @@ export const LuminaTreeviewHeader = () => {
 
   return (
     <div className={styles.treeviewHeaderContainer}>
-      <span className={cx(styles.treeviewHeaderIcon, "lumina-page")}></span>
+      <span className={cx(styles.treeviewHeaderIcon, "lum-icon-page")}></span>
       <p className={styles.treeviewTitle}>Home</p>
       <p className={styles.treeviewSubTitle}>Home Page for Lumina PageBuilder</p>
       <div className={styles.treeviewNavIconsContainer}>
-        <span className={cx(styles.treeviewNavIcon, "lumina-info")}></span>
-        <span className={cx(styles.treeviewNavIcon, "lumina-history")}></span>
-        <span className={cx(styles.treeviewNavIcon, "lumina-mobile")}></span>
+        <span className={cx(styles.treeviewNavIcon, "lum-icon-help-fill")}></span>
+        <span className={cx(styles.treeviewNavIcon, "lum-icon-history")}></span>
+        <span className={cx(styles.treeviewNavIcon, "lum-icon-mobile")}></span>
       </div>
-      <LuminaButton buttonType="button" text="Live" style="secondary" iconLeft="lum-icon-visible" />
+      <LuminaButton buttonType="button" text="Live" iconLeft="lum-icon-visible" />
     </div>
   )
 }

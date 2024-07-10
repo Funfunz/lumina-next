@@ -90,7 +90,7 @@ export const LuminaSidebarEditor = ({ isBarOpen, handleToggler }: TSidebarEditor
         {/* expand icon */}
         <div className={cx(styles.sidebarToogler, { "lum-display-none": !isBarOpen })}
           onClick={() => closeSidebar()}>
-          <a className="lum-icon-cross"></a>
+          <a className="lum-icon-chevron-left"></a>
         </div>
       </div>
       <div className={styles.sidebarBody}>
