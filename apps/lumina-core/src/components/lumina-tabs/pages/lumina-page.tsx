@@ -25,7 +25,7 @@ export const LuminaPagesTab = () => {
         <h3 className={styles.pageTitle}>Pages</h3>
         {(Object.keys(builderDataContext.builderData).length && (
           <div className={styles.addContainer}>
-            <LuminaButton color="secondary" onClick={handleAddPageClick} iconRight="lum-icon-add" />
+            <LuminaButton buttonType="button" style="primary" onClick={handleAddPageClick} iconRight="lum-icon-add" />
             <h5 className={styles.addText}>Add</h5>
           </div>
         )) ||

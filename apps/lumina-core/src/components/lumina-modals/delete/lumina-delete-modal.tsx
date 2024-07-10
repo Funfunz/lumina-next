@@ -26,15 +26,15 @@ export const LuminaDeleteModal = (
       <p>This action is irreversible.</p>
       <div className={styles.inlineButtons}>
         <LuminaButton
+          buttonType="button"
           text="Yes"
-          color="danger"
-          outline
+          style="danger"
           onClick={handleOnClickDelete}
         />
         <LuminaButton
+          buttonType="button"
           text="Cancel"
-          color="secondary"
-          outline
+          style="primary"
           onClick={handleCloseModal}
         />
       </div>

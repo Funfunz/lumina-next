@@ -15,7 +15,7 @@ export const LuminaTreeviewHeader = () => {
         <span className={cx(styles.treeviewNavIcon, "lumina-history")}></span>
         <span className={cx(styles.treeviewNavIcon, "lumina-mobile")}></span>
       </div>
-      <LuminaButton text="Live" color="secondary" outline iconLeft="lum-icon-visible" />
+      <LuminaButton buttonType="button" text="Live" style="secondary" iconLeft="lum-icon-visible" />
     </div>
   )
 }
