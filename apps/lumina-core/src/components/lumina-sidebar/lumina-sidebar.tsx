@@ -30,15 +30,7 @@ const editorTabs: TSidebarTab[] = [
   },
   {
     id: "lumTabLibrary",
-    icon: "lum-icon-library",
-    panel: <div>
-      <LuminaButton buttonType="button" text="Hi" />
-      <LuminaButton buttonType="button" text="Hi" isMenuButton />
-      <br />
-      <LuminaButton buttonType="externalLink" text="Hi" href="/" />
-      <br />
-      <LuminaButton buttonType="link" text="Hi" href="/" />
-    </div>
+    icon: "lum-icon-library"
   }
 ]
 
@@ -77,10 +69,11 @@ export const LuminaSidebarEditor = ({ isBarOpen, handleToggler }: TSidebarEditor
     tabs.map(tab => {
       const isActive = tab.id === activeTab
       tabsElem.push(
-        <li key={tab.id} id={tab.id}
-          className={cx(styles.sidebarTab, { [styles.activeTab]: isActive })}
-          onClick={() => handleActiveTab(tab)}>
-          <a className={tab.icon}></a>
+        <li key={tab.id} id={tab.id}>
+            <LuminaButton buttonType="button"
+            iconLeft={tab.icon}
+            onClick={() => handleActiveTab(tab)}
+            className={cx(styles.sidebarTab, { [styles.activeTab]: isActive })} />
         </li>
       )
     })
@@ -112,7 +105,6 @@ export const LuminaSidebarEditor = ({ isBarOpen, handleToggler }: TSidebarEditor
         </div>
         {/* tab panel */}
         <div className={cx(styles.sidebarPanel, { "lum-display-none": !isBarOpen })}>
-          {/* insert mirrado's components here */}
           {activePanel}
         </div>
       </div>

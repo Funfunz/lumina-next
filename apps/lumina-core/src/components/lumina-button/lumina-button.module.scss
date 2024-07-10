@@ -1,6 +1,5 @@
 .button {
   box-sizing: border-box;
-  border-radius: 5px;
   color: #111111;
   font-weight: 600;
   font-size: 13px;
@@ -12,7 +11,7 @@
   cursor: pointer;
   transition: box-shadow 0.2s ease-in-out;
   border: none;
-
+  background-color: transparent;
   * {
     box-sizing: border-box;
   }

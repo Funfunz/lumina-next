@@ -1,32 +1,30 @@
-type TLumButton = {
-  classNames?: string
+type TLumButtonBase = {
+  className?: string
   text?: string
   iconLeft?: string
   iconRight?: string
   style?: 'primary' | 'secondary' | 'warning' | 'danger'
+  size?: 'small' | 'large'
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
   disabled?: boolean;
-  buttonType: 'button' | 'link' | 'externalLink'
 }
 
-type TLumButtonAsButton = TLumButton & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, keyof TLumButton> & {
+type TLumButtonAsButton = TLumButtonBase & {
   buttonType: 'button'
   isMenuButton?: boolean
 }
 
-type TLumButtonExternalLink = TLumButton & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, keyof TLumButton> & {
+type TLumButtonLinkBase = TLumButtonBase & {
+  target?: string
+  href: string
+}
+
+type TLumButtonExternalLink = TLumButtonLinkBase & {
   buttonType: 'externalLink'
-  target?: string
-  href: string
 }
 
-type TLumButtonLink = TLumButton & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, keyof TLumButton> & {
+type TLumButtonLink = TLumButtonLinkBase & {
   buttonType: 'link'
-  target?: string
-  href: string
 }
 
-export type TLumButtonProps =
-  | TLumButtonAsButton
-  | TLumButtonLink
-  | TLumButtonExternalLink
+export type TLumButton = TLumButtonAsButton | TLumButtonExternalLink | TLumButtonLink;
