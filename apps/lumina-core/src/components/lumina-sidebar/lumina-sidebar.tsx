@@ -32,14 +32,13 @@ const editorTabs: TSidebarTab[] = [
     id: "lumTabLibrary",
     icon: "lum-icon-library",
     panel: <div>
-            <LuminaButton buttonType={"button"} text="Hi" style="primary"/>
-            <br/>
-            <LuminaButton buttonType={"externalLink"} text="Hi" style="primary" href='https://www.google.pt'/>
-            <br/>
-            {/* <LuminaButton buttonType={"link"} text="Hi" style="primary" to='/'/>
-            <br/> */}
-            <LuminaButton buttonType={"menutButton"} text="Hi" style="primary" iconLeft="lum-icon-cross"/>
-          </div>
+      <LuminaButton buttonType="button" text="Hi" />
+      <LuminaButton buttonType="button" text="Hi" isMenuButton />
+      <br />
+      <LuminaButton buttonType="externalLink" text="Hi" href="/" />
+      <br />
+      <LuminaButton buttonType="link" text="Hi" href="/" />
+    </div>
   }
 ]
 

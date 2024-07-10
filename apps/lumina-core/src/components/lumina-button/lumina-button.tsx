@@ -1,33 +1,27 @@
 import styles from "./lumina-button.module.scss"
 import { ButtonContent } from "./lumina-buttonContent/lumina-buttonContent"
-import { TLumButton } from "./lumina-button-models"
-import { Link } from "react-router-dom"
+import { TLumButtonProps } from "./lumina-button-models"
+import Link from "next/link"
 import cx from "classnames"
 
 
+/**
+ * 
+ * @param buttonType defines the type of button to be rendered (ex: 'button' | 'link' | 'externalLink' | 'menutButton')
+ * @param style 
+ * @param classNames 
+ * @returns 
+ */
+export const LuminaButton = (props: TLumButtonProps) => {
+  const { classNames, style, buttonType, text, iconLeft, iconRight } = props
+  const allClassNames = `${style ? styles[style] : ''} ${classNames ? classNames : ''}`
 
-export const LuminaButton = ({
-  classNames = "",
-  target='_blank',
-  rel='noopener noreferrer',
-  to = '/',
-  href,
-  text,
-  iconLeft,
-  iconRight,
-  style = 'primary',
-  disabled = false,
-  buttonType,
-  onClick
-}: TLumButton) => {
 
-  const allClassNames = `${style ? style : ''} ${classNames ? classNames: ''}`
-
-  switch (buttonType){
-    case "button":
+  if (buttonType === "button") {
+    const { onClick, disabled, isMenuButton } = props
     return (
       <button
-        className={allClassNames}
+        className={cx(styles.button, allClassNames, { [styles.menuButton]: isMenuButton })}
         onClick={onClick}
         disabled={disabled}
       >
@@ -37,38 +31,29 @@ export const LuminaButton = ({
           iconRight={iconRight}
         />
       </button>
-      )
-    case "externalLink":
-    return (
-      <a className={allClassNames} href={href} target={target} rel={rel}>
-          <ButtonContent
-            text={text}
-            iconLeft={iconLeft}
-            iconRight={iconRight}
-          />
-        </a>
     )
-    case "link":
+  } else if (buttonType === "externalLink") {
+    const { href, target } = props
     return (
-      <Link className={allClassNames} to={to}>
-          <ButtonContent
-            text={text}
-            iconLeft={iconLeft}
-            iconRight={iconRight}
-          />
-      </Link>
-    )
-    case "menutButton":
-    return (
-      <button className={allClassNames} onClick={onClick} disabled={disabled}>
+      <a className={allClassNames} href={href} target={target}>
         <ButtonContent
           text={text}
           iconLeft={iconLeft}
           iconRight={iconRight}
         />
-      </button>
+      </a>
     )
-    default:
-    return null
-    }
+  } else if (buttonType === "link") {
+    const { href } = props
+    return (
+      <Link className={allClassNames} href={href}>
+        <ButtonContent
+          text={text}
+          iconLeft={iconLeft}
+          iconRight={iconRight}
+        />
+      </Link>
+    )
   }
+}
+
