@@ -28,13 +28,14 @@ export const LuminaButton = (props: TLumButton) => {
     const { onClick, disabled, isMenuButton } = props
     return (
       <button
-        className={cx(styles.button, allClassNames, { [styles.menuButton]: isMenuButton }, { [styles[`${style}-disabled`]]: disabled })}
+        className={cx(styles.button, allClassNames, { [styles.menuButton]: isMenuButton })}
         onClick={onClick}
+        disabled={disabled}
       >
         <ButtonContent
           text={text}
-          iconLeft={iconLeft ? `${iconLeft} ${disabled ? 'icon-disabled' : ''}` : ''}
-          iconRight={iconRight ? `${iconRight} ${disabled ? 'icon-disabled' : ''}` : ''}
+          iconLeft={iconLeft}
+          iconRight={iconRight}
         />
       </button>
     )

@@ -12,12 +12,17 @@
   transition: box-shadow 0.2s ease-in-out;
   border: none;
   background-color: transparent;
+
   * {
     box-sizing: border-box;
   }
-}
 
-// CSS for button content
+  &:disabled {
+    color:#A7BDD9;
+    cursor: not-allowed;
+  }
+
+  // CSS for button content
 .buttonContent {
   display: flex;
   align-items: center;
@@ -30,37 +35,29 @@
   font-weight: 400;
   line-height: normal;
 
-  &-disabled {
-    color:#A7BDD9;
-    cursor: not-allowed;
-  }
-  .icon {
-    font-size: 14px;
-    color:#122F54;
-
-    &-disabled {
-      color: #9F9FA3;
-      cursor:not-allowed;
-    }
+    .icon {
+      font-size: 14px;
+      color:#122F54;
+      }
   }
 }
 
-// CSS for 'primary' | 'secondary' | 'warning' | 'danger' | 'filter'
+  // CSS for 'primary' | 'secondary' | 'warning' | 'danger' | 'filter' | 'live'
 .primary {
   color: white;
   background-color: var(--lum-color-button-primary-background);
 
-  &:not(&-disabled):hover {
+  &:hover {
     background-color: #005B5E;
   }
 
-  &:not(&-disabled):focus {
+  &:focus {
     border-radius: 3px;
     border: 1px solid  #FDFDFD;
     box-shadow: 0 0 0 2px var(--lum-color-button-primary-background);
   }
 
-  &-disabled {
+  &:disabled {
     color: white;
     background-color: #5E5E61;
     cursor: not-allowed;
@@ -72,19 +69,19 @@
   background-color: white;
   border: 1px solid var(--lum-color-button-primary-background);
 
-  &:not(&-disabled):hover {
+  &:hover {
     background-color: #E6F7F6;
     color: #046158;
     border: 1px solid #046158;
   }
 
-  &:not(&-disabled):focus {
+  &:focus {
     color: var(--lum-color-button-primary-background);
     border-radius: 3px;
     border: 2px solid var(--lum-color-button-primary-background);
   }
 
-  &-disabled {
+  &:disabled {
     color: #5E5E61;
     background-color: #F5F5F7;
     border: none;
@@ -163,10 +160,10 @@
 }
 
 .small {
-border-radius: 3px;
-padding: 3px 10px;
-font-size: 14px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
+  border-radius: 3px;
+  padding: 3px 10px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
