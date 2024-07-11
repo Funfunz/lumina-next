@@ -14,7 +14,7 @@
   box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.06), 0px 4px 6px -1px rgba(0, 0, 0, 0.10);
   border-radius: 5px;
   margin-bottom: 2px;
-  padding: 5px;
+  padding: 7px;
   padding-left: 45px;
   display: flex;
   align-items: center;
@@ -37,11 +37,11 @@
   color: #111111;
   opacity: .66;
   position: absolute;
-  font-size: 18px;
+  border-radius: 5px;
+  font-size: 14px;
   z-index: 1;
   background-color: #F7F7F7;
   padding: 9px;
-  margin-top: 1px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
