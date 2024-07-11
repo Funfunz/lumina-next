@@ -17,26 +17,12 @@
   }
 }
 
-.round {
-  justify-content: center;
-  &:before {
-    content: '';
-    display: inline-block;
-    vertical-align: middle;
-    padding-top: 100%;
-  }
-}
-
 .buttonContent {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
   padding: 5px;
-}
-
-.outline {
-  background-color: var(--lum-color-text-inverse);
 }
 
 .primary {
