@@ -1,127 +1,27 @@
-.button {
-  box-sizing: border-box;
-  border-radius: 5px;
-  color: #111111;
-  font-weight: 600;
-  font-size: 13px;
+.buttonContent {
   display: flex;
-  justify-content: center;
   align-items: center;
-  min-width: 22px;
-  padding: 0;
-  cursor: pointer;
-  transition: box-shadow 0.2s ease-in-out;
-  border: none;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 5px;
+  color:#121212;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 
-  * {
-    box-sizing: border-box;
-  }
-
-  &.round {
-    justify-content: center;
-    &:before {
-      content: '';
-      display: inline-block;
-      vertical-align: middle;
-      padding-top: 100%;
-    }
-  }
-
-  .buttonContent {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 5px;
-  }
-
-  &.outline {
-    background-color: var(--lum-color-text-inverse);
-  }
-
-  &.primary {
-    border: 1px solid var(--lum-color-button-primary-background);
-    box-shadow: 0px 0px 0px 0px var(--lum-color-button-primary-background);
-
-    &:hover {
-      box-shadow: 0px 3px 5px -1px var(--lum-color-button-primary-background);
-    }
-    &:not(.outline) {
-      background-color: var(--lum-color-button-primary-background);
-    }
-    &.outline {
-      color: var(--lum-color-button-primary-background);
-    }
-  }
-
-  &.secondary {
-    border: #111111;
-    box-shadow: #11111166;
-
-    &:hover {
-      box-shadow: #111111;
-    }
-    &:not(.outline) {
-      background-color: var(--lum-color-background-transparent);
-    }
-    &.outline {
-      color: #111111;
-      border: 1px solid lightgray;
-
-      &:hover{
-        color:white;
-        background-color: black;
-      }
-    }
-  }
-
-  &.filter {
-    color: #11111166;
-    border: 1px solid lightgray;
-
-    &:hover{
-      color:white;
-      background-color: black;
-    }
-  }
-
-  &.warning {
-    border: 1px solid var(--lum-color-button-warning-background);
-    box-shadow: 0px 0px 0px 0px var(--lum-color-button-warning-background);
-
-    &:hover {
-      box-shadow: 0px 3px 5px -1px var(--lum-color-button-warning-background);
-    }
-    &:not(.outline) {
-      background-color: var(--lum-color-button-warning-background);
-    }
-    &.outline {
-      color: var(--lum-color-button-warning-background);
-    }
-  }
-
-  &.danger {
-    border: 1px solid var(--lum-color-button-danger-background);
-    box-shadow: 0px 0px 0px 0px var(--lum-color-button-danger-background);
-
-    &:hover {
-      box-shadow: 0px 3px 5px -1px var(--lum-color-button-danger-background);
-    }
-    &:not(.outline) {
-      background-color: var(--lum-color-button-danger-background);
-    }
-    &.outline {
-      color: var(--lum-color-button-danger-background);
-    }
-  }
-
-  &.disabled{
+  &-disabled {
+    color:#A7BDD9;
     cursor: not-allowed;
-    color: var(--lum-color-button-disabled);
-    background-color: var(--lum-color-background-transparent);
   }
+}
 
-  .icon {
-    font-size: 14px;
+.icon {
+  font-size: 14px;
+  color:#122F54;
+
+  &-disabled {
+    color: #9F9FA3;
+    cursor:not-allowed;
   }
 }

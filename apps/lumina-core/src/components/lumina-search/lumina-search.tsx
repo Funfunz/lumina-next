@@ -5,11 +5,13 @@ export const LuminaSearchBar = () => {
   return (
 
     <div className={styles.searchBar}>
-      <div className={styles.searchIcon}><span className="lumina-search"></span></div>
+      <div className={styles.searchIcon}><span className="lum-icon-search"></span></div>
       <input type="text" className={styles.searchText} placeholder="Search..." />
       <LuminaButton
         buttonType="button"
-        iconRight="lum-icon-filter" />
+        iconRight="lum-icon-filter"
+        style='filter'
+        />
     </div>
   )
 }

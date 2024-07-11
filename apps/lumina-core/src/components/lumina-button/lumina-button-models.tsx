@@ -5,7 +5,7 @@ type TLumButtonBase = {
   text?: string
   iconLeft?: string
   iconRight?: string
-  style?: 'primary' | 'secondary' | 'warning' | 'danger'
+  style?: 'primary' | 'secondary' | 'warning' | 'danger' | 'filter' | 'live'
   size?: 'small' | 'large'
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
   disabled?: boolean;

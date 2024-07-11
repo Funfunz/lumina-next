@@ -7,7 +7,7 @@ import { TLumButton } from "./lumina-button-models"
 /**
  *
  * @param buttonType defines the type of button to be rendered (ex: 'button' | 'link' | 'externalLink')
- * @param style defines the CSS type for the button (ex: 'primary' | 'secondary' | 'warning' | 'danger')
+ * @param style defines the CSS type for the button (ex: 'primary' | 'secondary' | 'warning' | 'danger' | 'filter' | 'live')
  * @param size defines the size of the button ('small' | 'large')
  * @param className allows you to use multiple classes inside
  * @param text allows you to put a text in the button
@@ -15,22 +15,21 @@ import { TLumButton } from "./lumina-button-models"
  * @param iconRight positions the icon on right side of the text
  * @param onClick allows you to use functions inside the onClick prop
  * @param href only useable on 'externalLink' and 'link'
- * @param disabled disables the button
+ * @param disabled disables the button, no need to ={true} as when it's being called it's already "true"
  * @param target sets the target page, only useable on 'externalLink' and 'link'
  * @returns
  */
 
 export const LuminaButton = (props: TLumButton) => {
-  const { className, style, buttonType, text, iconLeft, iconRight } = props
-  const allClassNames = `${style ? styles[style] : ''} ${className ? className : ''}`
+  const { className, style, buttonType, text, iconLeft, iconRight, size } = props
+  const allClassNames = `${style ? styles[style] : ''} ${className ? className : ''} ${size ? styles[size] : '' }`
 
   if (buttonType === "button") {
     const { onClick, disabled, isMenuButton } = props
     return (
       <button
-        className={cx(styles.button, allClassNames, { [styles.menuButton]: isMenuButton })}
+        className={cx(styles.button, allClassNames, { [styles.menuButton]: isMenuButton }, { [styles[`${style}-disabled`]]: disabled })}
         onClick={onClick}
-        disabled={disabled}
       >
         <ButtonContent
           text={text}

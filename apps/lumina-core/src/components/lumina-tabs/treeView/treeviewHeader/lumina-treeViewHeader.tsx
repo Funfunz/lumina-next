@@ -11,11 +11,11 @@ export const LuminaTreeviewHeader = () => {
       <p className={styles.treeviewTitle}>Home</p>
       <p className={styles.treeviewSubTitle}>Home Page for Lumina PageBuilder</p>
       <div className={styles.treeviewNavIconsContainer}>
-        <span className={cx(styles.treeviewNavIcon, "lum-icon-info-fill")}></span>
-        <span className={cx(styles.treeviewNavIcon, "lum-icon-history")}></span>
-        <span className={cx(styles.treeviewNavIcon, "lum-icon-mobile")}></span>
+        <LuminaButton buttonType="button" iconLeft="lum-icon-info-fill"/>
+        <LuminaButton buttonType="button" iconLeft="lum-icon-history"/>
+        <LuminaButton buttonType="button" iconLeft="lum-icon-mobile"/>
       </div>
-      <LuminaButton buttonType="button" text="Live" iconLeft="lum-icon-visible" />
+      <LuminaButton buttonType="button" text="Live" style='live' iconLeft="lum-icon-visible" />
     </div>
   )
 }
