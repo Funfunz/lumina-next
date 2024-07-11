@@ -146,7 +146,12 @@
 
 // CSS for isMenuButton attribute inside button component
 .menuButton {
+  justify-content: start;
   width: 100%;
+
+  &:hover{
+    background-color: #E6F7F6;
+  }
 }
 
 // Used for prop size to set between small or large sizes for the button
