@@ -1,4 +1,4 @@
-import styles from "./lumina-buttonContent.module.scss";
+import styles from "../lumina-button.module.scss";
 import cx from 'classnames';
 
 export const ButtonContent = ({

@@ -33,8 +33,8 @@ export const LuminaButton = (props: TLumButton) => {
       >
         <ButtonContent
           text={text}
-          iconLeft={iconLeft}
-          iconRight={iconRight}
+          iconLeft={iconLeft ? `${iconLeft} ${disabled ? 'icon-disabled' : ''}` : ''}
+          iconRight={iconRight ? `${iconRight} ${disabled ? 'icon-disabled' : ''}` : ''}
         />
       </button>
     )

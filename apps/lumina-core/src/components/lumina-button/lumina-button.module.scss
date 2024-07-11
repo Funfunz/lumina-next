@@ -17,6 +17,34 @@
   }
 }
 
+// CSS for button content
+.buttonContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 5px;
+  color:#121212;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  &-disabled {
+    color:#A7BDD9;
+    cursor: not-allowed;
+  }
+  .icon {
+    font-size: 14px;
+    color:#122F54;
+
+    &-disabled {
+      color: #9F9FA3;
+      cursor:not-allowed;
+    }
+  }
+}
+
 // CSS for 'primary' | 'secondary' | 'warning' | 'danger' | 'filter'
 .primary {
   color: white;
