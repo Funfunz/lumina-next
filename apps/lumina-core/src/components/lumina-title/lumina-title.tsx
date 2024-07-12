@@ -34,16 +34,17 @@ export const LuminaTitle = (
     classnames
   }: TProps) => {
 
-  const HeadingTag = `h${hLevel}`
+  const HeadingTag = `h${hLevel}` as keyof JSX.IntrinsicElements;
 
-  const inlineStyles = {
+  const inlineStyles: React.CSSProperties = {
     fontSize: fontSize,
     fontWeight: weight,
     lineHeight: lineHeight,
     color: color
   }
+
   return (
-    <HeadingTag style={inlineStyles} className={cx(styles.luminaTitle, classnames)}>
+    <HeadingTag style={classnames ? {} : inlineStyles} className={cx(styles.luminaTitle, classnames)}>
       {content}
     </HeadingTag>
   )
