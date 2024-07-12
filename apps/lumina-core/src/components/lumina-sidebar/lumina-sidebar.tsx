@@ -3,6 +3,7 @@ import cx from "classnames";
 import { useState } from "react";
 import { LuminaTreeViewTab } from "../lumina-tabs/treeView/lumina-treeView";
 import { LuminaPagesTab } from "../lumina-tabs/pages/lumina-page";
+import { LuminaButton } from "../lumina-button/lumina-button";
 
 type TSidebarEditor = {
   handleToggler: Function
@@ -29,7 +30,8 @@ const editorTabs: TSidebarTab[] = [
   },
   {
     id: "lumTabLibrary",
-    icon: "lum-icon-library"
+    icon: "lum-icon-library",
+    panel: <LuminaButton buttonType="button" text="Button" isFullWidth iconLeft='lum-icon-component' size="large" />
   }
 ]
 
@@ -68,10 +70,11 @@ export const LuminaSidebarEditor = ({ isBarOpen, handleToggler }: TSidebarEditor
     tabs.map(tab => {
       const isActive = tab.id === activeTab
       tabsElem.push(
-        <li key={tab.id} id={tab.id}
-          className={cx(styles.sidebarTab, { [styles.activeTab]: isActive })}
-          onClick={() => handleActiveTab(tab)}>
-          <a className={tab.icon}></a>
+        <li key={tab.id} id={tab.id}>
+            <LuminaButton buttonType="button"
+            iconLeft={tab.icon}
+            onClick={() => handleActiveTab(tab)}
+            className={cx(styles.sidebarTab, { [styles.activeTab]: isActive })} />
         </li>
       )
     })
@@ -88,7 +91,7 @@ export const LuminaSidebarEditor = ({ isBarOpen, handleToggler }: TSidebarEditor
         {/* expand icon */}
         <div className={cx(styles.sidebarToogler, { "lum-display-none": !isBarOpen })}
           onClick={() => closeSidebar()}>
-          <a className="lum-icon-cross"></a>
+          <a className="lum-icon-chevron-left"></a>
         </div>
       </div>
       <div className={styles.sidebarBody}>
@@ -103,7 +106,6 @@ export const LuminaSidebarEditor = ({ isBarOpen, handleToggler }: TSidebarEditor
         </div>
         {/* tab panel */}
         <div className={cx(styles.sidebarPanel, { "lum-display-none": !isBarOpen })}>
-          {/* insert mirrado's components here */}
           {activePanel}
         </div>
       </div>

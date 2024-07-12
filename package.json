@@ -30,11 +30,16 @@
     "eslint": "^8.0.0",
     "eslint-config-next": "14.2.4",
     "next": "^14.2.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.24.1",
     "sass": "^1.77.5",
     "typescript": "5.4.5",
     "url-loader": "^4.1.1"
   },
   "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
     "docsify-cli": "^4.4.4",
     "dotenv": "^16.4.5",
     "dotenv-cli": "^7.4.2",
