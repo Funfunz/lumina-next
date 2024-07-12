@@ -21,14 +21,14 @@ export const LuminaTreeViewTab = () => {
       </div>
       <LuminaSearchBar />
       <LuminaTreeviewHeader />
-      <div className={styles.treeScroll}>
+
         <LuminaComponentTree
           // Confirmar se a data é undefined ou não
           data={
             builderDataContext.builderData[builderDataContext.selectedPage].children!
           }
         />
-      </div>
+
     </div>
   );
 };
