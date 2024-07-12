@@ -144,7 +144,11 @@
   }
 }
 
-// CSS for isMenuButton attribute inside button component
+// CSS Gives full width to a button
+.fullWidth {
+  width: 100%;
+}
+
 .menuButton {
   justify-content: start;
   width: 100%;
@@ -153,6 +157,7 @@
     background-color: #E6F7F6;
   }
 }
+
 
 // Used for prop size to set between small or large sizes for the button
 .large {

@@ -31,7 +31,7 @@ const editorTabs: TSidebarTab[] = [
   {
     id: "lumTabLibrary",
     icon: "lum-icon-library",
-    panel: <LuminaButton buttonType="button" text="Button" isMenuButton iconLeft='lum-icon-component' size="large" />
+    panel: <LuminaButton buttonType="button" text="Button" isFullWidth iconLeft='lum-icon-component' size="large" />
   }
 ]
 

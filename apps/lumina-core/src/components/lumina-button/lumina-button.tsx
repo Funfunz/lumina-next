@@ -7,7 +7,7 @@ import { TLumButton } from "./lumina-button-models"
 /**
  *
  * @param buttonType defines the type of button to be rendered (ex: 'button' | 'link' | 'externalLink')
- * @param style defines the CSS type for the button (ex: 'primary' | 'secondary' | 'warning' | 'danger' | 'filter' | 'live')
+ * @param style defines the CSS type for the button (ex: 'primary' | 'secondary' | 'warning' | 'danger' | 'filter' | 'live' | 'menuButton')
  * @param size defines the size of the button ('small' | 'large')
  * @param className allows you to use multiple classes inside
  * @param text allows you to put a text in the button
@@ -25,10 +25,10 @@ export const LuminaButton = (props: TLumButton) => {
   const allClassNames = `${style ? styles[style] : ''} ${className ? className : ''} ${size ? styles[size] : '' }`
 
   if (buttonType === "button") {
-    const { onClick, disabled, isMenuButton } = props
+    const { onClick, disabled, isFullWidth } = props
     return (
       <button
-        className={cx(styles.button, allClassNames, { [styles.menuButton]: isMenuButton })}
+        className={cx(styles.button, allClassNames, { [styles.fullWidth]: isFullWidth })}
         onClick={onClick}
         disabled={disabled}
       >

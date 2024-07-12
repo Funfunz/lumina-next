@@ -5,7 +5,7 @@ type TLumButtonBase = {
   text?: string
   iconLeft?: string
   iconRight?: string
-  style?: 'primary' | 'secondary' | 'warning' | 'danger' | 'filter' | 'live'
+  style?: 'primary' | 'secondary' | 'warning' | 'danger' | 'filter' | 'live'| 'menuButton'
   size?: 'small' | 'large'
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
   disabled?: boolean;
@@ -13,7 +13,7 @@ type TLumButtonBase = {
 
 type TLumButtonAsButton = TLumButtonBase & {
   buttonType: 'button'
-  isMenuButton?: boolean
+  isFullWidth?: boolean
 }
 
 type TLumButtonLinkBase = TLumButtonBase & {
