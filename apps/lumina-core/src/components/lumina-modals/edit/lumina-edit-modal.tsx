@@ -31,7 +31,7 @@ export const LuminaEditModal = (
       className={cx(styles.modalEdit)}
       overlayClassName={styles.modalOverlay}
     >
-      <LuminaTitle title={config.name} />
+      <LuminaTitle content={config.name} />
       <Form>
         {config.props!.map((configItem, index) => (
           <LuminaInputRenderer
