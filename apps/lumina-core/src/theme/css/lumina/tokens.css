@@ -21,6 +21,9 @@
   --lum-size-icon-xs: 0.875rem; /* 14px */
   --lum-size-border-radius: 0.625rem; /* 4px */
   --lum-size-border-size: 0.063rem; /* 1px */
+  --lum-size-font-weight-bold: 700; /* Bold */
+  --lum-size-font-weight-medium: 600; /* Medium */
+  --lum-size-font-weight-regular: 400; /* Regular */
   --lum-size-line-height-code: 1rem; /* Pre/code 16px */
   --lum-size-line-height-small: 1.25rem; /* P2 - 20px */
   --lum-size-line-height-text: 1.5rem; /* P1 - 24px */

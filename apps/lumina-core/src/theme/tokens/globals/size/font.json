@@ -118,6 +118,23 @@
           "comment": "Equals to Caption"
         }
       },
+      "font-weight": {
+        "regular": {
+          "value": "400",
+          "category": "typography",
+          "comment": "Regular"
+        },
+        "medium": {
+          "value": "600",
+          "category": "typography",
+          "comment": "Medium"
+        },
+        "bold": {
+          "value": "700",
+          "category": "typography",
+          "comment": "Bold"
+        }
+      },
       "border": {
         "size": {
           "value": "0.063rem",
