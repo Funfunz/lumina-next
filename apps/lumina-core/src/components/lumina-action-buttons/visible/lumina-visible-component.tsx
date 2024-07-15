@@ -4,7 +4,7 @@ export const LuminaVisibleComponentButton = () => {
 
   return (
     <LuminaButton
-      color="secondary"
+      buttonType="button"
       iconLeft={"lum-icon-visible"}
     />
   )

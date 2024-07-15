@@ -8,8 +8,10 @@
   border-radius: 4px 4px 0px 0px;
   width: 100%;
   margin-bottom: 4px;
+  padding-left: 10px;
+  padding-right: 20px;
   height: 50px;
-  padding: 0 15px;
+
 }
 
 .treeviewTitle{
@@ -32,8 +34,8 @@
 
 .treeviewHeaderIcon{
   font-size: 18px;
-  margin-left: 5px;
-  padding-right: 5px;
+  padding-right: 4px;
+
 }
 
 .treeviewNavIconsContainer {
@@ -46,4 +48,9 @@
 
 .treeviewNavIcon {
   cursor:pointer;
+}
+
+.treeViewButtonLive {
+
+  background-color:red;
 }

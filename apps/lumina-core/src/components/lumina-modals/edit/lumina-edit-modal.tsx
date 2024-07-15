@@ -31,7 +31,7 @@ export const LuminaEditModal = (
       className={cx(styles.modalEdit)}
       overlayClassName={styles.modalOverlay}
     >
-      <LuminaTitle title={config.name} />
+      <LuminaTitle content={config.name} />
       <Form>
         {config.props!.map((configItem, index) => (
           <LuminaInputRenderer
@@ -44,15 +44,15 @@ export const LuminaEditModal = (
       </Form>
       <div className={styles.inlineButtons}>
         <LuminaButton
+          buttonType="button"
           text="Save data"
-          color="primary"
-          outline
+          style="primary"
           onClick={handleOnClickSaveData}
         />
         <LuminaButton
+          buttonType="button"
           text="Close Modal"
-          color="secondary"
-          outline
+          style="primary"
           onClick={handleCloseModal}
         />
       </div>

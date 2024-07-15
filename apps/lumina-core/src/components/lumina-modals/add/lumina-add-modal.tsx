@@ -63,15 +63,15 @@ export const LuminaAddModal = (
       />
       <div className={styles.inlineButtons}>
         <LuminaButton
+          buttonType="button"
           text="Add Component"
-          color="secondary"
-          outline
+          style="primary"
           onClick={handleAddComponent}
         />
         <LuminaButton
+          buttonType="button"
           text="Close Modal"
-          color="secondary"
-          outline
+          style="primary"
           onClick={handleCloseModal}
         />
       </div>

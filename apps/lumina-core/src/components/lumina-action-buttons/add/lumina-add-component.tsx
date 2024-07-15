@@ -61,7 +61,7 @@ export const LuminaAddComponentButton = ({ id, text }: TProps) => {
   return (
     <>
       <LuminaButton
-        color="secondary"
+        buttonType="button"
         onClick={handleToggleAddModal}
         text={text}
         iconLeft="lum-icon-plus-fill"
