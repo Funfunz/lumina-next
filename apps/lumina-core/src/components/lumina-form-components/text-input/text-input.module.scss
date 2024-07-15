@@ -1,0 +1,18 @@
+.textInputContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  margin-bottom: 32px;
+
+  .textInput {
+    font-size: 18px;
+    line-height: 32px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+    &:focus,
+    &:hover {
+      border: 1px solid #777;
+    }
+  }
+}

@@ -5,7 +5,7 @@ import { TSelectedOption } from "@/models/showEditModel";
 import { ChangeEvent, useCallback, useState } from "react";
 
 type TProps = {
-  id?: string
+  id: string
   text?: string
 }
 
@@ -49,8 +49,8 @@ export const LuminaAddComponentButton = ({ id, text }: TProps) => {
   )
 
   // Handler for on Change from dropdown - BM
-  const handleSelectChange = (options: any) => {
-    setSelectedOption(options)
+  const handleSelectChange = (option: TSelectedOption) => {
+    setSelectedOption(option)
   }
 
   // Handler for on Change from dropdown - BM

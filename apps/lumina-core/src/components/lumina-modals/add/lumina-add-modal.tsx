@@ -1,13 +1,15 @@
 import { LuminaButton } from "@/components/lumina-button/lumina-button"
 import ReactModal from "react-modal"
 import styles from "../lumina-modals.module.scss"
-import Select from "react-select"
 import { configs } from "@/staticComponentsPath"
 import { ChangeEvent } from "react"
 import { TSelectedOption } from "@/models/showEditModel"
+import { LuminaTextInput } from "@/components/lumina-form-components/text-input/text-input"
+import { LuminaDropdownSelect } from "@/components/lumina-form-components/dropdown-select/dropdown-select"
+import { LuminaTitle } from "@/components/lumina-title/lumina-title"
 
 type TProps = {
-  id?: string
+  id: string
   showModalAdd: boolean
   handleCloseModal: () => void
   handleAddComponent: () => void
@@ -42,18 +44,23 @@ export const LuminaAddModal = (
       overlayClassName={styles.modalOverlay}
       role={"dialog"}
     >
-      <Select
-        id={`deleteComponent_dropdown_${id}`}
-        value={selectedOption}
+      <LuminaTitle
+        content="Add Component" />
+      <LuminaDropdownSelect
+        id={id}
+        selectedOption={selectedOption}
         options={options}
         placeholder="Select a component..."
         onChange={handleSelectChange}
+        label="Choose a component"
+        helperText="this is just an helper string"
       />
-      <label htmlFor={`deleteComponent_friendlyName_${id}`}>Friendly name</label>
-      <input id={`deleteComponent_friendlyName_${id}`}
-        type="text"
+      <LuminaTextInput
+        id={id}
         value={newComponentFriendlyName}
-        onChange={handleOnChangeNewComponentFriendlyName} />
+        onChange={handleOnChangeNewComponentFriendlyName}
+        label="Component's Name"
+      />
       <div className={styles.inlineButtons}>
         <LuminaButton
           text="Add Component"
