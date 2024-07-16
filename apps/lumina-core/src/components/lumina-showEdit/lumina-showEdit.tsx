@@ -8,7 +8,6 @@ import { useLuminaContext } from "@/context/contextProvider";
 import cx from "classnames"
 import styles from "./lumina-showEdit.module.scss";
 import { IComponentProps } from "@/data/data";
-import { TConfig } from "@/models/showEditModel";
 import { LuminaAddComponentButton } from "../lumina-action-buttons/add/lumina-add-component";
 import { LuminaDeleteComponentButton } from "../lumina-action-buttons/delete/lumina-delete-component";
 import { LuminaEditComponentButton } from "../lumina-action-buttons/edit/lumina-edit-component";
@@ -17,22 +16,20 @@ import { LuminaVisibleComponentButton } from "../lumina-action-buttons/visible/l
 import { LuminaMenuComponentButton } from "../lumina-action-buttons/menu/lumina-menu-component";
 
 type ShowEditProps = {
-  id: string;
-  onUpdate?: (data: any) => void;
-  data: IComponentProps;
-  config?: TConfig;
-  inline?: boolean;
+  id: string
+  componentProps: IComponentProps
+  componentType: string
+  inline?: boolean
   noUp?: boolean
   noDown?: boolean
-  visible?: boolean;
-  menu?: boolean;
-};
+  visible?: boolean
+  menu?: boolean
+}
 
 export const LuminaShowEdit = ({
   id,
-  onUpdate,
-  config,
-  data,
+  componentProps,
+  componentType,
   inline,
   noUp,
   noDown,
@@ -42,21 +39,25 @@ export const LuminaShowEdit = ({
   const {
     state: {
       appContext: { editor },
+      componentsConfig
     }
-  } = useLuminaContext();
+  } = useLuminaContext()
+
+  // Uses the type of the component to get the configs for it
+  const currentComponentConfig = componentsConfig[componentType]
 
   if (!editor) return null;
   return (
     <div
       className={cx(styles.showEdit, inline ? styles.showEditContainerInline : styles.showEditContainer)}
     >
-      {config?.editor.editable &&
-        <LuminaEditComponentButton id={id} onUpdate={onUpdate} data={data} config={config} />}
+      {currentComponentConfig?.editor.editable &&
+        <LuminaEditComponentButton id={id} data={componentProps} config={currentComponentConfig} />}
 
-      {config?.editor.children &&
+      {currentComponentConfig?.editor.children &&
         <LuminaAddComponentButton id={id} buttonType="button" iconLeft="lum-icon-plus-fill" />}
 
-      {config?.editor.delete &&
+      {currentComponentConfig?.editor.delete &&
         <LuminaDeleteComponentButton id={id} />}
 
       {inline && !visible &&
@@ -69,7 +70,7 @@ export const LuminaShowEdit = ({
         <LuminaMoveComponentButton moveDirection="down" id={id} />}
 
       {inline && !menu &&
-        <LuminaMenuComponentButton />}
+        <LuminaMenuComponentButton config={currentComponentConfig} data={componentProps} />}
     </div >
   );
 };

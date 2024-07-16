@@ -17,6 +17,7 @@ import {
   TBuilderDataContextAction,
   initialBuilderDataContextState,
 } from "./builderDataContext";
+import { IComponentsConfig } from "@/data/data";
 
 export type TAppContextDispatch = Dispatch<
   TAppContextAction | TBuilderDataContextAction
@@ -25,15 +26,17 @@ export type TAppContextDispatch = Dispatch<
 export interface IInitialStateType {
   appContext: IAppContext;
   builderDataContext: IBuilderDataContext;
+  componentsConfig: IComponentsConfig;
 }
 
 export const initialContext = {
   appContext: initialAppContextState,
   builderDataContext: initialBuilderDataContextState,
+  componentsConfig: {}
 };
 
 export const mainReducer = (
-  { appContext, builderDataContext }: IInitialStateType,
+  { appContext, builderDataContext, componentsConfig }: IInitialStateType,
   action: TAppContextAction | TBuilderDataContextAction
 ) => ({
   appContext: appContextReducer(appContext, action as TAppContextAction),
@@ -41,4 +44,5 @@ export const mainReducer = (
     builderDataContext,
     action as TBuilderDataContextAction
   ),
+  componentsConfig: componentsConfig
 });

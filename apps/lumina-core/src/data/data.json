@@ -30,16 +30,6 @@
             },
             "children": [
               {
-                "id": "linkBox1_1",
-                "order": 1,
-                "type": "linkBox",
-                "props": {
-                  "title": "Docs",
-                  "description": "Find in-depth information about Next.js features and API.",
-                  "href": "https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-                }
-              },
-              {
                 "id": "titleText1_1",
                 "order": 2,
                 "type": "titleText",
@@ -60,7 +50,7 @@
           {
             "id": "grid4",
             "type": "grid",
-            "order":0,
+            "order": 0,
             "children": [
               {
                 "id": "grid4image1",
@@ -111,7 +101,7 @@
       }
     ]
   },
-"About": {
+  "About": {
     "id": "page2",
     "friendlyName": "About",
     "extendedName": "About for Lumina Page Builder",
@@ -171,7 +161,7 @@
           {
             "id": "grid4",
             "type": "grid",
-            "order":0,
+            "order": 0,
             "children": [
               {
                 "id": "grid4image1",
@@ -282,7 +272,7 @@
           {
             "id": "grid4",
             "type": "grid",
-            "order":0,
+            "order": 0,
             "children": [
               {
                 "id": "grid4image1",

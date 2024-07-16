@@ -35,7 +35,8 @@ export const LuminaTreeBranch = ({ data }: { data: IComponentData, noUp: boolean
         <LuminaShowEdit
           id={data.id}
           inline={true}
-          data={data.props as IComponentProps}
+          componentProps={data.props as IComponentProps}
+          componentType={data.type}
           visible={false}
           noUp={false}
           noDown={false}
