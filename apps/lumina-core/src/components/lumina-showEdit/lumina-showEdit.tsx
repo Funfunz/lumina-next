@@ -51,13 +51,13 @@ export const LuminaShowEdit = ({
     <div
       className={cx(styles.showEdit, inline ? styles.showEditContainerInline : styles.showEditContainer)}
     >
-      {currentComponentConfig?.editor.editable &&
+      {currentComponentConfig?.editor.editable && !inline &&
         <LuminaEditComponentButton id={id} data={componentProps} config={currentComponentConfig} />}
 
-      {currentComponentConfig?.editor.children &&
+      {currentComponentConfig?.editor.children && !inline &&
         <LuminaAddComponentButton id={id} buttonType="button" iconLeft="lum-icon-plus-fill" />}
 
-      {currentComponentConfig?.editor.delete &&
+      {currentComponentConfig?.editor.delete && !inline &&
         <LuminaDeleteComponentButton id={id} />}
 
       {inline && !visible &&
