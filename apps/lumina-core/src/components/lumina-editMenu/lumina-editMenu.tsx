@@ -1,9 +1,9 @@
 import { LuminaButton } from "../lumina-button/lumina-button";
-import styles from "./lumina-dropdown.module.scss";
+import styles from "./lumina-editMenu.module.scss";
 
-export const LuminaDropdown = () => {
+export const LuminaEditMenu = () => {
   return(
-  <div className={styles.dropdownContainer}>
+  <div className={styles.editMenuContainer}>
   <LuminaButton buttonType="button" style="menuButton" text="Add child" iconLeft="lum-icon-plus" />
   <LuminaButton buttonType="button" style="menuButton" text="Edit" iconLeft="lum-icon-edit" />
   <LuminaButton buttonType="button" style="menuButton" text="Cut" iconLeft="lum-icon-cut" />

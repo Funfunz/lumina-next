@@ -1,5 +1,5 @@
 import { LuminaButton } from "@/components/lumina-button/lumina-button"
-import { LuminaDropdown } from "@/components/lumina-dropdown/lumina-dropdown";
+import { LuminaEditMenu } from "@/components/lumina-editMenu/lumina-editMenu";
 import { useState, useEffect, useRef } from 'react';
 
 export const LuminaMenuComponentButton = () => {
@@ -30,7 +30,7 @@ export const LuminaMenuComponentButton = () => {
       iconLeft={"lum-icon-menu"}
       onClick={handleOpenMenu}
     />
-    {showMenu && <LuminaDropdown/>}
+    {showMenu && <LuminaEditMenu/>}
 </div>
   )
 }
