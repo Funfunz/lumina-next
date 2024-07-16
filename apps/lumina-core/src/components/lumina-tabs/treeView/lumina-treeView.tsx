@@ -16,18 +16,22 @@ export const LuminaTreeViewTab = () => {
       <div className={styles.treeHead}>
         <h3 className={styles.treeTitle}>Components</h3>
         <span className={styles.treeAddButton}>
-          <LuminaAddComponentButton id={""} text="Add" />
+          <LuminaAddComponentButton
+            text="Add"
+            buttonType="button"
+            iconLeft="lum-icon-plus-fill"
+          />
         </span>
       </div>
       <LuminaSearchBar />
       <LuminaTreeviewHeader />
 
-        <LuminaComponentTree
-          // Confirmar se a data é undefined ou não
-          data={
-            builderDataContext.builderData[builderDataContext.selectedPage].children!
-          }
-        />
+      <LuminaComponentTree
+        // Confirmar se a data é undefined ou não
+        data={
+          builderDataContext.builderData[builderDataContext.selectedPage].children!
+        }
+      />
 
     </div>
   );

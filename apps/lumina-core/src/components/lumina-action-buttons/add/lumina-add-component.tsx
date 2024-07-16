@@ -1,15 +1,15 @@
 import { LuminaButton } from "@/components/lumina-button/lumina-button"
+import { TLumButtonAsButton } from "@/components/lumina-button/lumina-button-models";
 import { LuminaAddModal } from "@/components/lumina-modals/add/lumina-add-modal";
 import { useLuminaContext } from "@/context/contextProvider";
 import { TSelectedOption } from "@/models/showEditModel";
 import { ChangeEvent, useCallback, useState } from "react";
 
-type TProps = {
+type TProps = TLumButtonAsButton & {
   id?: string
-  text?: string
 }
 
-export const LuminaAddComponentButton = ({ id, text }: TProps) => {
+export const LuminaAddComponentButton = ({ id, style, className, iconLeft, iconRight, text }: TProps) => {
   const { dispatch } = useLuminaContext()
   const initialSelectedOption: TSelectedOption = {
     value: "",
@@ -62,9 +62,12 @@ export const LuminaAddComponentButton = ({ id, text }: TProps) => {
     <>
       <LuminaButton
         buttonType="button"
+        style={style}
         onClick={handleToggleAddModal}
         text={text}
-        iconLeft="lum-icon-plus-fill"
+        iconLeft={iconLeft}
+        iconRight={iconRight}
+        className={className}
       />
       {showModalAdd &&
         <LuminaAddModal showModalAdd={showModalAdd}

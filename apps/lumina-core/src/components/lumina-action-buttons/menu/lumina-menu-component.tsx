@@ -17,20 +17,20 @@ export const LuminaMenuComponentButton = () => {
   }
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("click", handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("click", handleClickOutside);
     };
   }, []);
 
   return (
     <div ref={menuRef}>
-    <LuminaButton
-      buttonType="button"
-      iconLeft={"lum-icon-menu"}
-      onClick={handleOpenMenu}
-    />
-    {showMenu && <LuminaEditMenu/>}
-</div>
+      <LuminaButton
+        buttonType="button"
+        iconLeft={"lum-icon-menu"}
+        onClick={handleOpenMenu}
+      />
+      {showMenu && <LuminaEditMenu />}
+    </div>
   )
 }

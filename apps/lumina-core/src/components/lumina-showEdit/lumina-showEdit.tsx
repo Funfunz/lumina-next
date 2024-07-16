@@ -54,7 +54,7 @@ export const LuminaShowEdit = ({
         <LuminaEditComponentButton id={id} onUpdate={onUpdate} data={data} config={config} />}
 
       {config?.editor.children &&
-        <LuminaAddComponentButton id={id} />}
+        <LuminaAddComponentButton id={id} buttonType="button" iconLeft="lum-icon-plus-fill" />}
 
       {config?.editor.delete &&
         <LuminaDeleteComponentButton id={id} />}
