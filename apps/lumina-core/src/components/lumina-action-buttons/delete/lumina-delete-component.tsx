@@ -1,12 +1,13 @@
 import { LuminaButton } from "@/components/lumina-button/lumina-button";
+import { TLumButtonAsButton } from "@/components/lumina-button/lumina-button-models";
 import { LuminaDeleteModal } from "@/components/lumina-modals/delete/lumina-delete-modal";
 import { useLuminaContext } from "@/context/contextProvider";
 import { useCallback, useState } from "react";
 
-type TProps = {
+type TDeleteProps = TLumButtonAsButton & {
   id: string,
 }
-export const LuminaDeleteComponentButton = ({ id }: TProps) => {
+export const LuminaDeleteComponentButton = ({ id, style, className, iconLeft, iconRight, text }: TDeleteProps) => {
   const { dispatch } = useLuminaContext()
   const [showModalDelete, setShowModalDelete] = useState(false);
 
@@ -33,9 +34,12 @@ export const LuminaDeleteComponentButton = ({ id }: TProps) => {
     <>
       <LuminaButton
         buttonType="button"
-        style="danger"
         onClick={handleToggleDeleteModal}
-        iconLeft="lum-icon-cross"
+        style={style}
+        text={text}
+        iconLeft={iconLeft}
+        iconRight={iconRight}
+        className={className}
       />
       {showModalDelete &&
         <LuminaDeleteModal showModalDelete={showModalDelete}

@@ -1,18 +1,19 @@
 import { LuminaButton } from "@/components/lumina-button/lumina-button";
+import { TLumButtonAsButton } from "@/components/lumina-button/lumina-button-models";
 import { LuminaEditModal } from "@/components/lumina-modals/edit/lumina-edit-modal";
 import { useLuminaContext } from "@/context/contextProvider";
 import { IComponentProps } from "@/data/data";
 import { TConfig } from "@/models/showEditModel";
 import { useCallback, useState } from "react";
 
-type TProps = {
+type TEditProps = TLumButtonAsButton & {
   id: string
   data: IComponentProps
   onUpdate?: (data: IComponentProps) => void
   config: TConfig
 }
 
-export const LuminaEditComponentButton = ({ id, data, onUpdate, config }: TProps) => {
+export const LuminaEditComponentButton = ({ id, data, onUpdate, config, style, className, iconLeft, iconRight, text}: TEditProps) => {
   const { dispatch } = useLuminaContext()
   const [showModalEdit, setShowModalEdit] = useState(false);
   const [formData, setFormData] = useState(data || {});
@@ -57,7 +58,11 @@ export const LuminaEditComponentButton = ({ id, data, onUpdate, config }: TProps
       <LuminaButton
         buttonType="button"
         onClick={handleToggleEditModal}
-        iconLeft="lum-icon-edit"
+        style={style}
+        text={text}
+        iconLeft={iconLeft}
+        iconRight={iconRight}
+        className={className}
       />
       {showModalEdit &&
         <LuminaEditModal showModalEdit={showModalEdit}

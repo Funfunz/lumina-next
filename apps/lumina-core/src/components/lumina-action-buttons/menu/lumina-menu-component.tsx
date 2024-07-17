@@ -1,8 +1,16 @@
 import { LuminaButton } from "@/components/lumina-button/lumina-button"
 import { LuminaEditMenu } from "@/components/lumina-editMenu/lumina-editMenu";
+import { IComponentProps } from "@/data/data";
+import { TConfig } from "@/models/showEditModel";
 import { useState, useEffect, useRef } from 'react';
 
-export const LuminaMenuComponentButton = () => {
+type TProps = {
+  id: string
+  config: TConfig
+  data:IComponentProps
+}
+
+export const LuminaMenuComponentButton = ({id, config, data}:TProps) => {
   const [showMenu, setShowMenu] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null); // Specify the type here
 
@@ -30,7 +38,7 @@ export const LuminaMenuComponentButton = () => {
         iconLeft={"lum-icon-menu"}
         onClick={handleOpenMenu}
       />
-      {showMenu && <LuminaEditMenu />}
+      {showMenu && <LuminaEditMenu id={id} config={config} data={data} />}
     </div>
   )
 }

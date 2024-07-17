@@ -17,15 +17,15 @@ import { LuminaVisibleComponentButton } from "../lumina-action-buttons/visible/l
 import { LuminaMenuComponentButton } from "../lumina-action-buttons/menu/lumina-menu-component";
 
 type ShowEditProps = {
-  id: string;
-  onUpdate?: (data: any) => void;
-  data: IComponentProps;
-  config?: TConfig;
-  inline?: boolean;
+  id: string
+  onUpdate?: (data: any) => void
+  data: IComponentProps
+  config: TConfig
+  inline?: boolean
   noUp?: boolean
   noDown?: boolean
-  visible?: boolean;
-  menu?: boolean;
+  visible?: boolean
+  menu?: boolean
 };
 
 export const LuminaShowEdit = ({
@@ -69,7 +69,7 @@ export const LuminaShowEdit = ({
         <LuminaMoveComponentButton moveDirection="down" id={id} />}
 
       {inline && !menu &&
-        <LuminaMenuComponentButton />}
+        <LuminaMenuComponentButton id={id} config={config} data={data}/>}
     </div >
   );
 };
