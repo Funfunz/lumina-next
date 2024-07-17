@@ -1,4 +1,5 @@
 import { TConfig } from "@/models/showEditModel";
+import { TConfig } from "@/models/showEditModel";
 import { LuminaAddComponentButton } from "../lumina-action-buttons/add/lumina-add-component";
 import { LuminaDeleteComponentButton } from "../lumina-action-buttons/delete/lumina-delete-component";
 import { LuminaEditComponentButton } from "../lumina-action-buttons/edit/lumina-edit-component";

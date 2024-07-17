@@ -18,6 +18,7 @@ import {
   IBuilderDataContext,
   initialBuilderDataContextState,
 } from "./reducers/builderDataContext"
+import { IComponentsConfig } from "@/data/data";
 
 export interface IContext {
   state: IInitialStateType
@@ -33,10 +34,11 @@ export function ContextProvider({
   children,
   data = {},
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
   data?: {
-    appContext?: IAppContext;
+    appContext?: IAppContext
     builderDataContext?: IBuilderDataContext
+    componentsConfig?: IComponentsConfig
   }
 }) {
   const initialState = {
@@ -49,6 +51,7 @@ export function ContextProvider({
       ...initialBuilderDataContextState,
       ...(data.builderDataContext || {}),
     },
+    componentsConfig: data.componentsConfig || {}
   }
   const [state, dispatch] = useReducer(mainReducer, initialState)
 

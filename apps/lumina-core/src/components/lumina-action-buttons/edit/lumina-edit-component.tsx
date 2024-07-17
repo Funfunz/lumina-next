@@ -9,7 +9,6 @@ import { useCallback, useState } from "react";
 type TEditProps = TLumButtonAsButton & {
   id: string
   data: IComponentProps
-  onUpdate?: (data: IComponentProps) => void
   config: TConfig
 }
 
@@ -24,7 +23,6 @@ export const LuminaEditComponentButton = ({ id, data, onUpdate, config, style, c
 
   const handleOnClickSaveData = useCallback(() => {
     setShowModalEdit(false);
-    onUpdate && onUpdate(formData);
     dispatch({
       type: "updateBackend",
       data: {
@@ -40,7 +38,7 @@ export const LuminaEditComponentButton = ({ id, data, onUpdate, config, style, c
       },
     })
   },
-    [dispatch, formData, id, onUpdate]
+    [dispatch, formData, id]
   )
 
   const handleOnChangeInput = useCallback(

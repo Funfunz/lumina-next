@@ -4,13 +4,18 @@ import { IComponentProps } from "@/data/data";
 import { TConfig } from "@/models/showEditModel";
 import { useState, useEffect, useRef } from 'react';
 
+type Tprops = {
+  config: TConfig
+  data: IComponentProps
+}
+
 type TProps = {
   id: string
   config: TConfig
   data:IComponentProps
 }
 
-export const LuminaMenuComponentButton = ({id, config, data}:TProps) => {
+export const LuminaMenuComponentButton = ({ config, data }: Tprops{id, config, data}:TProps) => {
   const [showMenu, setShowMenu] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null); // Specify the type here
 
@@ -38,7 +43,7 @@ export const LuminaMenuComponentButton = ({id, config, data}:TProps) => {
         iconLeft={"lum-icon-menu"}
         onClick={handleOpenMenu}
       />
-      {showMenu && <LuminaEditMenu id={id} config={config} data={data} />}
+      {showMenu && <LuminaEditMenu config={config} data={data} />}
     </div>
   )
 }
