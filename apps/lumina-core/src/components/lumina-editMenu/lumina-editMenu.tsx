@@ -12,22 +12,16 @@ type TMenuProps = {
   data: IComponentProps
 }
 
-//TODO: Create a condition for make the add button disabled in case the user wants to add children to an Image (should not be possible)
-// const isImage = ({ data }: { data: IComponentData}) => {
-//   if ( data.friendlyName === "image"){
-//    return (<LuminaAddComponentButton buttonType="button" style="menuButton" text="Add Children" iconLeft="lum-icon-plus" disabled/>)
-//   }
-//   return <LuminaAddComponentButton buttonType="button" style="menuButton" text="Add Children" iconLeft="lum-icon-plus"/>
-// }
-
 export const LuminaEditMenu = ({id, config, data}:TMenuProps) => {
-  return (
+
+    return (
     <div className={styles.editMenuContainer}>
       <LuminaAddComponentButton
         buttonType="button"
         style="menuButton"
         text="Add Children"
         iconLeft="lum-icon-plus"
+        disabled={!config.editor.children}
         />
       <LuminaEditComponentButton
         buttonType="button"

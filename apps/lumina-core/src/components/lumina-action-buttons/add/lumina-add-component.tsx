@@ -9,7 +9,7 @@ type TAddProps = TLumButtonAsButton & {
   id?: string
 }
 
-export const LuminaAddComponentButton = ({ id, style, className, iconLeft, iconRight, text }: TAddProps) => {
+export const LuminaAddComponentButton = ({ id, disabled, style, className, iconLeft, iconRight, text }: TAddProps) => {
   const { dispatch } = useLuminaContext()
   const initialSelectedOption: TSelectedOption = {
     value: "",
@@ -68,6 +68,7 @@ export const LuminaAddComponentButton = ({ id, style, className, iconLeft, iconR
         iconLeft={iconLeft}
         iconRight={iconRight}
         className={className}
+        disabled={disabled}
       />
       {showModalAdd &&
         <LuminaAddModal showModalAdd={showModalAdd}

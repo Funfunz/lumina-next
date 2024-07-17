@@ -17,29 +17,27 @@
     box-sizing: border-box;
   }
 
-  &:disabled {
-    color:#A7BDD9;
-    cursor: not-allowed;
-  }
-
   // CSS for button content
-.buttonContent {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 5px;
-  color:#121212;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  .buttonContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 5px;
+    }
+
+    .buttonText{
+      color:#121212;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
 
     .icon {
       font-size: 14px;
       color:#122F54;
-      }
-  }
+    }
 }
 
   // CSS for 'primary' | 'secondary' | 'warning' | 'danger' | 'filter' | 'live'
@@ -149,15 +147,27 @@
   width: 100%;
 }
 
+// CSS for menuButton style that also affects buttonText and icon in the menuButton
 .menuButton {
   justify-content: start;
   width: 100%;
 
-  &:hover{
+  &:not(:disabled):hover {
     background-color: #E6F7F6;
   }
-}
 
+  &:disabled {
+    background-color:#F7F7F7;
+    cursor: not-allowed;
+
+    .buttonText {
+      color: #9F9FA3;
+    }
+    .icon {
+      color:#A7BDD9;
+    }
+  }
+}
 
 // Used for prop size to set between small or large sizes for the button
 .large {

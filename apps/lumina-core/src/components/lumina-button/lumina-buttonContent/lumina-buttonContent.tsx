@@ -12,13 +12,13 @@ export const ButtonContent = ({
 }) => {
   return (
     <>
-      <span className={styles.buttonContent}>
+      <span className={styles.buttonContainer}>
         {
           iconLeft && (
             <span className={cx(styles.icon, iconLeft)}/>
           )
         }
-        {text && (<span>{text}</span>)}
+        {text && (<span className={styles.buttonText}>{text}</span>)}
         {
           iconRight && (
             <span className={cx(styles.icon, iconRight)}/>
