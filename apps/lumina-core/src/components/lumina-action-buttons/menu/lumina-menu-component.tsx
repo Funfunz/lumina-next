@@ -4,18 +4,13 @@ import { IComponentProps } from "@/data/data";
 import { TConfig } from "@/models/showEditModel";
 import { useState, useEffect, useRef } from 'react';
 
-type Tprops = {
+type TProps = {
   config: TConfig
   data: IComponentProps
 }
 
-type TProps = {
-  id: string
-  config: TConfig
-  data:IComponentProps
-}
 
-export const LuminaMenuComponentButton = ({ config, data }: Tprops{id, config, data}:TProps) => {
+export const LuminaMenuComponentButton = ({ config, data }: TProps) => {
   const [showMenu, setShowMenu] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null); // Specify the type here
 

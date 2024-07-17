@@ -22,9 +22,9 @@ type ShowEditProps = {
   inline?: boolean
   noUp?: boolean
   noDown?: boolean
-  visible?: boolean;
-  menu?: boolean;
-};
+  visible?: boolean
+  menu?: boolean
+}
 
 export const LuminaShowEdit = ({
   id,
@@ -52,13 +52,13 @@ export const LuminaShowEdit = ({
       className={cx(styles.showEdit, inline ? styles.showEditContainerInline : styles.showEditContainer)}
     >
       {currentComponentConfig?.editor.editable && !inline &&
-        <LuminaEditComponentButton id={id} data={componentProps} config={currentComponentConfig} />}
+        <LuminaEditComponentButton id={id} buttonType="button" data={componentProps} config={currentComponentConfig} />}
 
       {currentComponentConfig?.editor.children && !inline &&
         <LuminaAddComponentButton id={id} buttonType="button" iconLeft="lum-icon-plus-fill" />}
 
       {currentComponentConfig?.editor.delete && !inline &&
-        <LuminaDeleteComponentButton id={id} />}
+        <LuminaDeleteComponentButton id={id} buttonType="button" />}
 
       {inline && !visible &&
         <LuminaVisibleComponentButton />}
@@ -70,7 +70,7 @@ export const LuminaShowEdit = ({
         <LuminaMoveComponentButton moveDirection="down" id={id} />}
 
       {inline && !menu &&
-        <LuminaMenuComponentButton />}
+        <LuminaMenuComponentButton config={currentComponentConfig} data={componentProps} />}
     </div >
   );
 };

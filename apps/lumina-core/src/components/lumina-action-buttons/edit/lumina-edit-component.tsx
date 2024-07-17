@@ -12,7 +12,7 @@ type TEditProps = TLumButtonAsButton & {
   config: TConfig
 }
 
-export const LuminaEditComponentButton = ({ id, data, onUpdate, config, style, className, iconLeft, iconRight, text}: TEditProps) => {
+export const LuminaEditComponentButton = ({ id, data, config, style, className, iconLeft, iconRight, text}: TEditProps) => {
   const { dispatch } = useLuminaContext()
   const [showModalEdit, setShowModalEdit] = useState(false);
   const [formData, setFormData] = useState(data || {});
