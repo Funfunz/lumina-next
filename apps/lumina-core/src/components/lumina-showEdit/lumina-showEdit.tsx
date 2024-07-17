@@ -70,7 +70,7 @@ export const LuminaShowEdit = ({
         <LuminaMoveComponentButton moveDirection="down" id={id} />}
 
       {inline && !menu &&
-        <LuminaMenuComponentButton config={currentComponentConfig} data={componentProps} />}
+        <LuminaMenuComponentButton id={id} config={currentComponentConfig} data={componentProps} />}
     </div >
   );
 };

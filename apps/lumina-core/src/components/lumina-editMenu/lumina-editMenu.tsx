@@ -1,5 +1,4 @@
 import { TConfig } from "@/models/showEditModel";
-import { TConfig } from "@/models/showEditModel";
 import { LuminaAddComponentButton } from "../lumina-action-buttons/add/lumina-add-component";
 import { LuminaDeleteComponentButton } from "../lumina-action-buttons/delete/lumina-delete-component";
 import { LuminaEditComponentButton } from "../lumina-action-buttons/edit/lumina-edit-component";
@@ -62,6 +61,7 @@ export const LuminaEditMenu = ({id, config, data}:TMenuProps) => {
         style="menuButton"
         text="Delete"
         iconLeft="lum-icon-cross"
+        id={id}
         />
     </div>
   );
