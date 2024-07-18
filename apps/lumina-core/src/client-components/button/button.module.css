@@ -1,0 +1,23 @@
+.small {
+  height: 10px;
+  width: 15px;
+}
+
+.medium {
+  height: 15px;
+  width: 20px;
+}
+
+.large {
+  height: 20px;
+  width: 25px;
+}
+
+.outlined {
+  border: 1px solid black;
+}
+
+.rounded {
+  border: 1px solid black;
+  border-radius: 5px;
+}

@@ -9,6 +9,8 @@ import { config as configImage } from '@/client-components/image/config'
 import { config as configTitleText } from '@/client-components/titleText/config'
 import { config as configFlex } from '@/client-components/flex/config'
 import { TConfig } from '@/models/editor-buttonModel'
+import { Button } from '@/client-components/button/button'
+import { config as configButton } from '@/client-components/button/config'
 
 const paths: {
   [key: string]: (data: any) => React.JSX.Element | null
@@ -18,6 +20,7 @@ const paths: {
   image: Image,
   titleText: TitleText,
   flex: Flex,
+  button: Button,
 }
 
 export default paths
@@ -30,4 +33,5 @@ export const configs: {
   image: configImage,
   titleText: configTitleText,
   flex: configFlex,
+  button: configButton,
 }
