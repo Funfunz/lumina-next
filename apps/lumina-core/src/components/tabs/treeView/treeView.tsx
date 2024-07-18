@@ -16,7 +16,7 @@ export const TreeViewTab = () => {
       <div className={styles.treeHead}>
         <h3 className={styles.treeTitle}>Components</h3>
         <span className={styles.treeAddButton}>
-          <AddComponentButton id={""} text="Add" />
+          <AddComponentButton buttonType="button" id={""} text="Add" />
         </span>
       </div>
       <SearchBar />

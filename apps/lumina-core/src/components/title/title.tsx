@@ -1,8 +1,6 @@
 import styles from "./title.module.scss"
 import cx from "classnames"
 
-
-
 type TProps = {
   content: string
   hLevel?: 1 | 2 | 3 | 4 | 5 | 6
