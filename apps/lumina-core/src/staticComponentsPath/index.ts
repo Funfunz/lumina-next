@@ -4,15 +4,17 @@ import { Image } from '@/client-components/image/image'
 import { Title } from '@/client-components/title/title'
 import { Text } from '@/client-components/text/text'
 import { Flex } from '@/client-components/flex/flex'
+import { Button } from '@/client-components/button/button'
+import { Navbar } from '@/client-components/navbar/navbar'
 import { config as configLinkBox } from '@/client-components/linkBox/config'
 import { config as configGrid } from '@/client-components/grid/config'
 import { config as configImage } from '@/client-components/image/config'
 import { config as configTitle } from '@/client-components/title/config'
 import { config as configText } from '@/client-components/text/config'
 import { config as configFlex } from '@/client-components/flex/config'
-import { TConfig } from '@/models/editor-buttonModel'
-import { Button } from '@/client-components/button/button'
 import { config as configButton } from '@/client-components/button/config'
+import { config as configNavbar } from '@/client-components/navbar/config'
+import { TConfig } from '@/models/editor-buttonModel'
 
 const paths: {
   [key: string]: (data: any) => React.JSX.Element | null
@@ -24,6 +26,7 @@ const paths: {
   flex: Flex,
   button: Button,
   text: Text,
+  navbar: Navbar,
 }
 
 export default paths
@@ -38,4 +41,5 @@ export const configs: {
   flex: configFlex,
   button: configButton,
   text: configText,
+  navbar: configNavbar,
 }

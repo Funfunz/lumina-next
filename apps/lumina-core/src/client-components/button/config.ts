@@ -1,7 +1,7 @@
 import { TConfig } from '@/models/editor-buttonModel'
 
 export const config: TConfig = {
-  name: 'button',
+  name: 'Button',
   props: [
     {
       type: 'string',

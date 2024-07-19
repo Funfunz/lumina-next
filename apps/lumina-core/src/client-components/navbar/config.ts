@@ -5,8 +5,8 @@ export const config: TConfig = {
   props: [
     {
       type: 'string',
-      name: 'navbar',
-      label: 'Navbar',
+      name: 'brandName',
+      label: 'Brand Name',
     },
   ],
   editor: {
