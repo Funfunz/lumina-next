@@ -1,16 +1,16 @@
 .small {
-  height: 10px;
-  width: 15px;
+  height: 25px;
+  width: 65px;
 }
 
 .medium {
-  height: 15px;
-  width: 20px;
+  height: 35px;
+  width: 95px;
 }
 
 .large {
-  height: 20px;
-  width: 25px;
+  height: 45px;
+  width: 125px;
 }
 
 .outlined {
@@ -20,4 +20,8 @@
 .rounded {
   border: 1px solid black;
   border-radius: 5px;
+}
+
+.buttonContainer {
+  position: relative;
 }
