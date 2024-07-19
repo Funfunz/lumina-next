@@ -11,8 +11,19 @@ export const Navbar = ({id}:TProps) => {
 
   return(
   <>
-  <div>
+  <nav>
+  <input type="checkbox" id="check"/>
+        <label for="check" className="checkbtn">
+            <i className="fas fa-bars"></i>
+        </label>
+        <label className="logo">Cozy</label>
+        <ul>
+            <li><a className="active" href="#">HTML</a></li>
+            <li><a href="#">JavaScript</a></li>
+            <li><a href="#">ReactJS</a></li>
+            <li><a href="#">NodeJS</a></li>
+        </ul>
     <EditorButton id={id} config={config} data={{}} />
-  </div>
+  </nav>
   </>)
 }
