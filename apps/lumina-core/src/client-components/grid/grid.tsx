@@ -2,13 +2,13 @@ import styles from '@/client-components/grid/grid.module.css'
 import { EditorButton } from '../../components/editor-button/editor-button'
 import { config } from './config'
 
-type Props = {
+type TProps = {
   children: React.ReactNode
   style?: "column"
   id: string
 }
 
-export const Grid = ({children, style, id}: Props) => {
+export const Grid = ({children, style, id}: TProps) => {
   return (
     <div className={styles.grid + (style ?  ' ' + styles[style] : '')}>
       {children}
