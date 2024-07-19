@@ -1,7 +1,8 @@
-import { LuminaEditor } from "@/components/lumina-editor/lumina-editor";
+
 import { getFullData } from "@/lib/dataFetcher";
-import { LuminaRender } from "@/components/lumina-render/lumina-render";
 import { ContextProvider } from "@/context/contextProvider";
+import { Editor } from "@/components/editor/editor";
+import { Render } from "@/components/render/render";
 
 type Props = {
   params: {
@@ -24,9 +25,9 @@ export default async function EditorPage({ params }: Props) {
         },
       }}
     >
-      <LuminaEditor>
-        <LuminaRender />
-      </LuminaEditor>
+      <Editor>
+        <Render/>
+      </Editor>
     </ContextProvider>
   );
 }
