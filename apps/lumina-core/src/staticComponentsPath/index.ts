@@ -1,12 +1,14 @@
 import { LinkBox } from '@/client-components/linkBox/linkBoxV3'
 import { Grid } from '@/client-components/grid/grid'
 import { Image } from '@/client-components/image/image'
-import { TitleText } from '@/client-components/titleText/titleText'
+import { Title } from '@/client-components/title/title'
+import { Text } from '@/client-components/text/text'
 import { Flex } from '@/client-components/flex/flex'
 import { config as configLinkBox } from '@/client-components/linkBox/config'
 import { config as configGrid } from '@/client-components/grid/config'
 import { config as configImage } from '@/client-components/image/config'
-import { config as configTitleText } from '@/client-components/titleText/config'
+import { config as configTitle } from '@/client-components/title/config'
+import { config as configText } from '@/client-components/text/config'
 import { config as configFlex } from '@/client-components/flex/config'
 import { TConfig } from '@/models/editor-buttonModel'
 import { Button } from '@/client-components/button/button'
@@ -18,9 +20,10 @@ const paths: {
   linkBox: LinkBox,
   grid: Grid,
   image: Image,
-  titleText: TitleText,
+  title: Title,
   flex: Flex,
   button: Button,
+  text: Text,
 }
 
 export default paths
@@ -31,7 +34,8 @@ export const configs: {
   linkBox: configLinkBox,
   grid: configGrid,
   image: configImage,
-  titleText: configTitleText,
+  title: configTitle,
   flex: configFlex,
   button: configButton,
+  text: configText,
 }
