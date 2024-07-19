@@ -18,7 +18,7 @@ const paths: {
   linkBox: LinkBox,
   grid: Grid,
   image: Image,
-  titlet: Title,
+  title: Title,
   flex: Flex,
   text: Text,
 }
@@ -31,7 +31,7 @@ export const configs: {
   linkBox: configLinkBox,
   grid: configGrid,
   image: configImage,
-  titleText: configTitle,
+  title: configTitle,
   flex: configFlex,
   text: configText,
 }
