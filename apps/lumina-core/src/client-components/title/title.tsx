@@ -1,19 +1,17 @@
 import { EditorButton } from '@/components/editor-button/editor-button'
 import { config } from './config'
-import styles from './titleText.module.scss'
+import styles from './title.module.scss'
 
 interface IProps {
   id: string
   title: string
-  text: string
 }
 
-export const TitleText = ({id, title, text}: IProps) => {
+export const Title = ({id, title}: IProps) => {
   return (
     <div className={styles.titleText}>
       <h1>{title}</h1>
-      <p>{text}</p>
-      <EditorButton id={id} config={config} data={{title, text}}/>
+      <EditorButton id={id} config={config} data={{title}}/>
     </div>
   )
 }

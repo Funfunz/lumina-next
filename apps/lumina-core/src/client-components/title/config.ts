@@ -8,11 +8,6 @@ export const config: TConfig = {
       name: 'title',
       label: 'Title',
     },
-    {
-      type: 'string',
-      name: 'text',
-      label: 'Text',
-    },
   ],
   editor: {
     children: false,
