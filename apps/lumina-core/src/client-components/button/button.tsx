@@ -11,9 +11,16 @@ type TProps = {
 }
 
 export const Button = ({id, size="medium", style="outlined", text="button"}:TProps) => {
+  const buttonStyles = cx(
+    styles.button,
+    style && styles[style],
+    size && styles[size],
+    styles.buttonContainer
+  );
+
   return(
     <div>
-      <button className={cx(styles.button + (style ?  ' ' + styles[style] : ''), styles.button + (size ?  ' ' + styles[size] : ''), styles.buttonContainer)}>
+      <button className={buttonStyles}>
         {text}
         <EditorButton id={id} config={config} data={{size, style, text}}/>
       </button>
