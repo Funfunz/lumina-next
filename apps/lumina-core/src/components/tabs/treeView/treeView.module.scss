@@ -1,4 +1,4 @@
-.treeviewContainer{
+.treeviewContainer {
   position: relative;
   width: 100%;
   height: 100%;
@@ -6,19 +6,18 @@
 
 .treeScroll {
   overflow-y: scroll;
-  
+
 }
 
-.treeHead{
+.treeHead {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   .treeAddButton {
-  display: flex;
-  font-size: 12px;
-  align-items: center;
+    display: flex;
+    font-size: 12px;
+    align-items: center;
   }
 
 }
-
