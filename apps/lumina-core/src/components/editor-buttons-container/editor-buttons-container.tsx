@@ -6,7 +6,7 @@
 
 import { useLuminaContext } from "@/context/contextProvider";
 import cx from "classnames"
-import styles from "./editor-button.module.scss";
+import styles from "./styles.module.scss";
 import { IComponentProps } from "@/data/data";
 import { TConfig } from "@/models/editor-buttonModel";
 import { EditComponentButton } from "../action-buttons/edit/edit-component";
@@ -16,7 +16,7 @@ import { VisibleComponentButton } from "../action-buttons/visible/visible-compon
 import { MoveComponentButton } from "../action-buttons/move/move-component";
 import { MenuComponentButton } from "../action-buttons/menu/menu-component";
 
-type EditorButtonProps = {
+type TProps = {
   id: string;
   onUpdate?: (data: any) => void;
   data: IComponentProps;
@@ -28,7 +28,7 @@ type EditorButtonProps = {
   menu?: boolean;
 };
 
-export const EditorButton = ({
+export const EditorButtonsContainer = ({
   id,
   onUpdate,
   config,
@@ -38,7 +38,7 @@ export const EditorButton = ({
   noDown,
   visible,
   menu,
-}: EditorButtonProps) => {
+}: TProps) => {
   const {
     state: {
       appContext: { editor },
@@ -51,13 +51,14 @@ export const EditorButton = ({
       className={cx(styles.showEdit, inline ? styles.showEditContainerInline : styles.showEditContainer)}
     >
       {config.editor.editable && !inline &&
-        <EditComponentButton buttonType="button" id={id} onUpdate={onUpdate} data={data} config={config} />}
+        <EditComponentButton buttonType="button" id={id} onUpdate={onUpdate} data={data} config={config} iconLeft="lum-icon-edit" />}
 
       {config.editor.children && !inline &&
-        <AddComponentButton buttonType="button" id={id} />}
+        <AddComponentButton id={id} buttonType="button" iconLeft="lum-icon-plus-fill" />}
+
 
       {config.editor.delete && !inline &&
-        <DeleteComponentButton buttonType="button" id={id} />}
+        <DeleteComponentButton buttonType="button" id={id} iconLeft="lum-icon-cross" />}
 
       {inline && !visible &&
         <VisibleComponentButton />}

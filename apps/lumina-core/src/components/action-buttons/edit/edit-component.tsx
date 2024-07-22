@@ -13,7 +13,7 @@ type TProps = TLumButtonAsButton & {
   config: TConfig
 }
 
-export const EditComponentButton = ({ id, data, onUpdate, config }: TProps) => {
+export const EditComponentButton = ({ id, data, onUpdate, config, iconLeft, iconRight, style, className, text }: TProps) => {
   const { dispatch } = useLuminaContext()
   const [showModalEdit, setShowModalEdit] = useState(false);
   const [formData, setFormData] = useState(data || {});
@@ -58,7 +58,11 @@ export const EditComponentButton = ({ id, data, onUpdate, config }: TProps) => {
       <Button
         buttonType="button"
         onClick={handleToggleEditModal}
-        iconLeft="lum-icon-edit"
+        text={text}
+        style={style}
+        className={className}
+        iconLeft={iconLeft}
+        iconRight={iconRight}
       />
       {showModalEdit &&
         <EditModal showModalEdit={showModalEdit}

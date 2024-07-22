@@ -10,7 +10,7 @@ type TProps = TLumButtonAsButton & {
   text?: string
 }
 
-export const AddComponentButton = ({ id, text }: TProps) => {
+export const AddComponentButton = ({ id, text, disabled, iconLeft, iconRight, style, className }: TProps) => {
   const { dispatch } = useLuminaContext()
   const initialSelectedOption: TSelectedOption = {
     value: "",
@@ -65,7 +65,11 @@ export const AddComponentButton = ({ id, text }: TProps) => {
         buttonType="button"
         onClick={handleToggleAddModal}
         text={text}
-        iconLeft="lum-icon-plus-fill"
+        style={style}
+        iconLeft={iconLeft}
+        iconRight={iconRight}
+        className={className}
+        disabled={disabled}
       />
       {showModalAdd &&
         <AddModal showModalAdd={showModalAdd}

@@ -7,7 +7,7 @@ import { useCallback, useState } from "react";
 type TProps = TLumButtonAsButton & {
   id: string,
 }
-export const DeleteComponentButton = ({ id }: TProps) => {
+export const DeleteComponentButton = ({ id, text, iconLeft, iconRight, className, style }: TProps) => {
   const { dispatch } = useLuminaContext()
   const [showModalDelete, setShowModalDelete] = useState(false);
 
@@ -34,9 +34,13 @@ export const DeleteComponentButton = ({ id }: TProps) => {
     <>
       <Button
         buttonType="button"
-        style="danger"
         onClick={handleToggleDeleteModal}
-        iconLeft="lum-icon-cross"
+        style={style}
+        text={text}
+        iconLeft={iconLeft}
+        iconRight={iconRight}
+        className={className}
+
       />
       {showModalDelete &&
         <DeleteModal showModalDelete={showModalDelete}

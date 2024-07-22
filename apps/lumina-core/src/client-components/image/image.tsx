@@ -2,7 +2,7 @@
 
 import styles from '@/client-components/image/image.module.css'
 import { config } from './config'
-import { EditorButton } from '@/components/editor-button/editor-button'
+import { EditorButtonsContainer } from '@/components/editor-buttons-container/editor-buttons-container'
 
 type TProps = {
   id: string
@@ -20,7 +20,7 @@ export const Image = ({ href, alt, id }: TProps) => {
         src={href}
         alt={alt}
       />
-      <EditorButton id={id} config={config} data={{ href, alt }} />
+      <EditorButtonsContainer id={id} config={config} data={{ href, alt }} />
     </div>
   )
 }

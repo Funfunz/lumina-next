@@ -1,4 +1,4 @@
-import { EditorButton } from '../../components/editor-button/editor-button';
+import { EditorButtonsContainer } from "@/components/editor-buttons-container/editor-buttons-container";
 import styles from "./button.module.css";
 import { config } from './config'
 import cx from 'classnames';
@@ -10,7 +10,7 @@ type TProps = {
   id: string
 }
 
-export const Button = ({id, size="medium", style="outlined", text="button"}:TProps) => {
+export const Button = ({ id, size = "medium", style = "outlined", text = "button" }: TProps) => {
   const buttonStyles = cx(
     styles.button,
     style && styles[style],
@@ -18,11 +18,11 @@ export const Button = ({id, size="medium", style="outlined", text="button"}:TPro
     styles.buttonContainer
   );
 
-  return(
+  return (
     <div>
       <button className={buttonStyles}>
         {text}
-        <EditorButton id={id} config={config} data={{size, style, text}}/>
+        <EditorButtonsContainer id={id} config={config} data={{ size, style, text }} />
       </button>
     </div>
   )

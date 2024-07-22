@@ -2,9 +2,9 @@ import { IComponentData, IComponentProps } from "@/data/data";
 import { useState, useCallback } from "react";
 import cx from "classnames"
 import styles from "./treeBranch.module.scss";
-import { EditorButton } from "@/components/editor-button/editor-button";
 import { ComponentTree } from "../componentTree/componentTree";
 import { configs } from "@/staticComponentsPath"
+import { EditorButtonsContainer } from "@/components/editor-buttons-container/editor-buttons-container";
 
 
 export const TreeBranch = ({ data }: { data: IComponentData, noUp: boolean, noDown: boolean }) => {
@@ -34,7 +34,7 @@ export const TreeBranch = ({ data }: { data: IComponentData, noUp: boolean, noDo
         })}
       >
         {data.type} - {data.friendlyName || data.id}{" "}
-        <EditorButton
+        <EditorButtonsContainer
           id={data.id}
           inline={true}
           data={data.props as IComponentProps}

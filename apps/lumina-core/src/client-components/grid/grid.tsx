@@ -1,6 +1,6 @@
 import styles from '@/client-components/grid/grid.module.css'
-import { EditorButton } from '../../components/editor-button/editor-button'
 import { config } from './config'
+import { EditorButtonsContainer } from '@/components/editor-buttons-container/editor-buttons-container'
 
 type TProps = {
   children: React.ReactNode
@@ -8,11 +8,11 @@ type TProps = {
   id: string
 }
 
-export const Grid = ({children, style, id}: TProps) => {
+export const Grid = ({ children, style, id }: TProps) => {
   return (
-    <div className={styles.grid + (style ?  ' ' + styles[style] : '')}>
+    <div className={styles.grid + (style ? ' ' + styles[style] : '')}>
       {children}
-      <EditorButton id={id} config={config} data={{style}}/>
+      <EditorButtonsContainer id={id} config={config} data={{ style }} />
     </div>
   )
 }

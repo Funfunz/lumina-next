@@ -1,7 +1,7 @@
 'use client'
 
 import { ChangeEvent, ChangeEventHandler, PropsWithChildren, useCallback } from 'react'
-import styles from "./editor-button.module.scss";
+import styles from "./styles.module.scss";
 import { TConfigItem, TConfigItemSelect } from "@/models/editor-buttonModel";
 
 type TProps = {

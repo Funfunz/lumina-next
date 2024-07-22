@@ -1,5 +1,5 @@
 import { Title } from "@/components/title/title"
-import { Form, LuminaInputRenderer } from "@/components/editor-button/inputRenderer"
+import { Form, LuminaInputRenderer } from "@/components/editor-buttons-container/inputRenderer"
 import ReactModal from "react-modal"
 import styles from "../modals.module.scss"
 import { Button } from "@/components/button/button";
