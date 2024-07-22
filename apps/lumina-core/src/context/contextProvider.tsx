@@ -18,7 +18,6 @@ import {
   IBuilderDataContext,
   initialBuilderDataContextState,
 } from "./reducers/builderDataContext"
-import { IComponentsConfig } from "@/data/data";
 
 export interface IContext {
   state: IInitialStateType
@@ -38,7 +37,6 @@ export function ContextProvider({
   data?: {
     appContext?: IAppContext
     builderDataContext?: IBuilderDataContext
-    componentsConfig?: IComponentsConfig
   }
 }) {
   const initialState = {
@@ -50,8 +48,7 @@ export function ContextProvider({
     builderDataContext: {
       ...initialBuilderDataContextState,
       ...(data.builderDataContext || {}),
-    },
-    componentsConfig: data.componentsConfig || {}
+    }
   }
   const [state, dispatch] = useReducer(mainReducer, initialState)
 

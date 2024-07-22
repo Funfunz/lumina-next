@@ -1,5 +1,6 @@
 import styles from '@/components/flex/flex.module.css'
 import { LuminaShowEdit } from '../lumina-showEdit/lumina-showEdit'
+import { config } from "./config"
 
 type Props = {
   id: string
@@ -14,7 +15,7 @@ export const Flex = ({ id, children, style }: Props) => {
       <div className={styles.flex + (style ? ' ' + styles[style] : '')}>
         {children}
       </div>
-      <LuminaShowEdit id={id} componentType={type} componentProps={{ style }} />
+      <LuminaShowEdit id={id} config={config} componentProps={{ style }} />
     </>
   )
 }

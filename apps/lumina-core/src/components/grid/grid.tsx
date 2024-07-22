@@ -9,11 +9,10 @@ type Props = {
 }
 
 export const Grid = ({ children, style, id }: Props) => {
-  const type = "grid"
   return (
     <div className={styles.grid + (style ? ' ' + styles[style] : '')}>
       {children}
-      <LuminaShowEdit id={id} componentType={type} componentProps={{ style }} />
+      <LuminaShowEdit id={id} config={config} componentProps={{ style }} />
     </div>
   )
 }

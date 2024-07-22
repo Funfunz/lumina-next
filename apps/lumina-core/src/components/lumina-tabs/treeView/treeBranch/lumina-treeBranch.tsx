@@ -4,6 +4,7 @@ import cx from "classnames"
 import styles from "./lumina-treeBranch.module.scss";
 import { LuminaShowEdit } from "@/components/lumina-showEdit/lumina-showEdit";
 import { LuminaComponentTree } from "../componentTree/lumina-componentTree";
+import { configs } from "@/staticComponentsPath"
 
 export const LuminaTreeBranch = ({ data }: { data: IComponentData, noUp: boolean, noDown: boolean }) => {
   const [showChildren, setShowChildren] = useState(false);
@@ -36,7 +37,7 @@ export const LuminaTreeBranch = ({ data }: { data: IComponentData, noUp: boolean
           id={data.id}
           inline={true}
           componentProps={data.props as IComponentProps}
-          componentType={data.type}
+          config={configs[data.type]}
           visible={false}
           noUp={false}
           noDown={false}

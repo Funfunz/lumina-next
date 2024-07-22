@@ -11,8 +11,6 @@ type TProps = {
 }
 
 export const Image = ({ href, alt, id }: TProps) => {
-  const type = "image"
-
   if (!href) return null
   return (
     <div className={styles.imageContainer}>
@@ -21,7 +19,7 @@ export const Image = ({ href, alt, id }: TProps) => {
         src={href}
         alt={alt}
       />
-      <LuminaShowEdit id={id} componentType={type} componentProps={{ href, alt }} />
+      <LuminaShowEdit id={id} config={config} componentProps={{ href, alt }} />
     </div>
   )
 }
