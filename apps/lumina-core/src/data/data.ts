@@ -1,5 +1,3 @@
-import { TConfig } from "@/models/showEditModel"
-
 export interface IComponentProps {
   [key: string]: string | number | undefined
 }
