@@ -32,7 +32,3 @@ export interface IPageData {
 export interface IData {
   [key: string]: IPageData
 }
-
-export interface IComponentsConfig {
-  [key: string]: TConfig
-}
