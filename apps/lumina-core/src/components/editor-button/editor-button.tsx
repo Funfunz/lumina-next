@@ -20,7 +20,7 @@ type EditorButtonProps = {
   id: string;
   onUpdate?: (data: any) => void;
   data: IComponentProps;
-  config?: TConfig;
+  config: TConfig;
   inline?: boolean;
   noUp?: boolean
   noDown?: boolean
@@ -50,13 +50,13 @@ export const EditorButton = ({
     <div
       className={cx(styles.showEdit, inline ? styles.showEditContainerInline : styles.showEditContainer)}
     >
-      {config?.editor.editable &&
+      {config.editor.editable && !inline &&
         <EditComponentButton buttonType="button" id={id} onUpdate={onUpdate} data={data} config={config} />}
 
-      {config?.editor.children &&
+      {config.editor.children && !inline &&
         <AddComponentButton buttonType="button" id={id} />}
 
-      {config?.editor.delete &&
+      {config.editor.delete && !inline &&
         <DeleteComponentButton buttonType="button" id={id} />}
 
       {inline && !visible &&
@@ -69,7 +69,7 @@ export const EditorButton = ({
         <MoveComponentButton moveDirection="down" id={id} />}
 
       {inline && !menu &&
-        <MenuComponentButton />}
+        <MenuComponentButton id={id} config={config} data={data} />}
     </div >
   );
 };
