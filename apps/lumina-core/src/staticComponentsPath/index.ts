@@ -1,14 +1,18 @@
-import { LinkBox } from "@/components/linkBox/linkBoxV3"
-import { Grid } from "@/components/grid/grid"
-import { Image } from "@/components/image/image"
-import { TitleText } from "@/components/titleText/titleText"
-import { Flex } from "@/components/flex/flex"
-import { config as configLinkBox } from "@/components/linkBox/config"
-import { config as configGrid } from "@/components/grid/config"
-import { config as configImage } from "@/components/image/config"
-import { config as configTitleText} from "@/components/titleText/config"
-import { config as configFlex } from "@/components/flex/config"
-import { TConfig } from "@/models/showEditModel"
+import { LinkBox } from '@/client-components/linkBox/linkBoxV3'
+import { Grid } from '@/client-components/grid/grid'
+import { Image } from '@/client-components/image/image'
+import { Title } from '@/client-components/title/title'
+import { Text } from '@/client-components/text/text'
+import { Flex } from '@/client-components/flex/flex'
+import { config as configLinkBox } from '@/client-components/linkBox/config'
+import { config as configGrid } from '@/client-components/grid/config'
+import { config as configImage } from '@/client-components/image/config'
+import { config as configTitle } from '@/client-components/title/config'
+import { config as configText } from '@/client-components/text/config'
+import { config as configFlex } from '@/client-components/flex/config'
+import { TConfig } from '@/models/editor-buttonModel'
+import { Button } from '@/client-components/button/button'
+import { config as configButton } from '@/client-components/button/config'
 
 const paths: {
   [key: string]: (data: any) => React.JSX.Element | null
@@ -16,18 +20,22 @@ const paths: {
   linkBox: LinkBox,
   grid: Grid,
   image: Image,
-  titleText: TitleText,
+  title: Title,
   flex: Flex,
+  button: Button,
+  text: Text,
 }
 
 export default paths
 
 export const configs: {
-  [key: string]: TConfig;
+  [key: string]: TConfig
 } = {
   linkBox: configLinkBox,
   grid: configGrid,
   image: configImage,
-  titleText: configTitleText,
-  flex: configFlex
+  title: configTitle,
+  flex: configFlex,
+  button: configButton,
+  text: configText,
 }
