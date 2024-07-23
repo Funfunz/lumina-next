@@ -5,8 +5,16 @@ import styles from "./treeBranch.module.scss";
 import { EditorButton } from "@/components/editor-button/editor-button";
 import { ComponentTree } from "../componentTree/componentTree";
 
+type TProps = {
+  data: IComponentData
+  handleMenus: any
+  isMenuOpen: any
+  noUp: boolean
+  noDown: boolean
+}
 
-export const TreeBranch = ({ data }: { data: IComponentData, noUp: boolean, noDown: boolean }) => {
+
+export const TreeBranch = ({ data, noUp, noDown, handleMenus, isMenuOpen }: TProps) => {
   const [showChildren, setShowChildren] = useState(false);
 
   const handleTreeHeadClick = useCallback(() => {
@@ -38,9 +46,11 @@ export const TreeBranch = ({ data }: { data: IComponentData, noUp: boolean, noDo
           inline={true}
           data={data.props as IComponentProps}
           visible={false}
-          noUp={false}
-          noDown={false}
+          noUp={noUp}
+          noDown={noDown}
           menu={false}
+          handleMenus={handleMenus}
+          isMenuOpen={isMenuOpen}
         />
       </div>
       {(data.children?.length && showChildren && (

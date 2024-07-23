@@ -6,11 +6,11 @@ import { IComponentProps } from "@/data/data";
 import { TConfig } from "@/models/editor-buttonModel";
 import { useCallback, useState } from "react";
 
-type TProps = TLumButtonAsButton &{
+type TProps = TLumButtonAsButton & {
   id: string
   data: IComponentProps
   onUpdate?: (data: IComponentProps) => void
-  config: TConfig
+  config?: TConfig
 }
 
 export const EditComponentButton = ({ id, data, onUpdate, config }: TProps) => {

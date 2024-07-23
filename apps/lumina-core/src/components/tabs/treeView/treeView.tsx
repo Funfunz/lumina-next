@@ -21,7 +21,7 @@ export const TreeViewTab = () => {
       </div>
       <SearchBar />
       <TreeviewHeader />
-      <div className={styles.treeScroll}>
+      <div>
         <ComponentTree
           // Confirmar se a data é undefined ou não
           data={

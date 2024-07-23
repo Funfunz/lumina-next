@@ -12,7 +12,7 @@ type TProps = {
   handleCloseModal: () => void
   handleOnClickSaveData: () => void
   handleOnChangeInput: (key: string, value: string | number) => void
-  config: TConfig
+  config?: TConfig
   formData: IComponentProps
 }
 
@@ -31,9 +31,9 @@ export const EditModal = (
       className={cx(styles.modalEdit)}
       overlayClassName={styles.modalOverlay}
     >
-      <Title content={config.name} />
+      <Title content={config?.name} />
       <Form>
-        {config.props!.map((configItem, index) => (
+        {config?.props!.map((configItem, index) => (
           <LuminaInputRenderer
             key={index}
             config={configItem}
