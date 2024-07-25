@@ -4,6 +4,9 @@ import { useState } from "react";
 import { Button } from "../button/button";
 import { PagesTab } from "../tabs/pages/page";
 import { TreeViewTab } from "../tabs/treeView/treeView";
+import { Modal } from "../modal-dialog/modal";
+import { IComponentData } from "@/data/data";
+import { TConfig } from "@/models/editor-buttonModel";
 
 type TSidebarEditor = {
   handleToggler: Function
@@ -30,7 +33,7 @@ const editorTabs: TSidebarTab[] = [
   {
     id: "lumTabLibrary",
     icon: "lum-icon-library",
-    panel: <Button buttonType="button" text="Button" isFullWidth iconLeft='lum-icon-component' size="large" />
+    panel: <Modal/>
   }
 ]
 
