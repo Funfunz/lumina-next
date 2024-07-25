@@ -20,12 +20,12 @@ const editorTabs: TSidebarTab[] = [
   {
     id: "lumTabPages",
     icon: "lum-icon-page",
-    panel: <PagesTab/>
+    panel: <PagesTab />
   },
   {
     id: "lumTabComponents",
     icon: "lum-icon-component",
-    panel: <TreeViewTab/>
+    panel: <TreeViewTab />
   },
   {
     id: "lumTabLibrary",
@@ -70,7 +70,7 @@ export const SidebarEditor = ({ isBarOpen, handleToggler }: TSidebarEditor) => {
       const isActive = tab.id === activeTab
       tabsElem.push(
         <li key={tab.id} id={tab.id}>
-            <Button buttonType="button"
+          <Button buttonType="button"
             iconLeft={tab.icon}
             onClick={() => handleActiveTab(tab)}
             className={cx(styles.sidebarTab, { [styles.activeTab]: isActive })} />
@@ -104,9 +104,11 @@ export const SidebarEditor = ({ isBarOpen, handleToggler }: TSidebarEditor) => {
           </ul>
         </div>
         {/* tab panel */}
-        <div className={cx(styles.sidebarPanel, { "lum-display-none": !isBarOpen })}>
-          {activePanel}
-        </div>
+        {isBarOpen &&
+          <div className={cx(styles.sidebarPanel, { "lum-display-none": !isBarOpen })}>
+            {activePanel}
+          </div>
+        }
       </div>
     </div>
   )

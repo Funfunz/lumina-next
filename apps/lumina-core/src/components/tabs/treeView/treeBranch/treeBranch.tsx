@@ -7,14 +7,11 @@ import { ComponentTree } from "../componentTree/componentTree";
 
 type TProps = {
   data: IComponentData
-  handleMenus: any
-  isMenuOpen: any
   noUp: boolean
   noDown: boolean
 }
 
-
-export const TreeBranch = ({ data, noUp, noDown, handleMenus, isMenuOpen }: TProps) => {
+export const TreeBranch = ({ data, noUp, noDown }: TProps) => {
   const [showChildren, setShowChildren] = useState(false);
 
   const handleTreeHeadClick = useCallback(() => {
@@ -49,8 +46,6 @@ export const TreeBranch = ({ data, noUp, noDown, handleMenus, isMenuOpen }: TPro
           noUp={noUp}
           noDown={noDown}
           menu={false}
-          handleMenus={handleMenus}
-          isMenuOpen={isMenuOpen}
         />
       </div>
       {(data.children?.length && showChildren && (

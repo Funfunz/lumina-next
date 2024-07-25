@@ -33,6 +33,8 @@ export const AddModal = (
     };
   });
 
+  console.log("show modal:", showModalAdd)
+
   return (
     <ReactModal
       ariaHideApp={false}

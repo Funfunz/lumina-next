@@ -2,8 +2,9 @@ import { Button } from "@/components/button/button"
 import { TLumButtonAsButton } from "@/components/button/button-models";
 import { AddModal } from "@/components/modals/add/add-modal";
 import { useLuminaContext } from "@/context/contextProvider";
+import { useToggleMenuContext } from "@/context/toggleMenuContext";
 import { TSelectedOption } from "@/models/editor-buttonModel";
-import { ChangeEvent, useCallback, useState } from "react";
+import { ChangeEvent, useCallback, useContext, useState } from "react";
 
 type TProps = TLumButtonAsButton & {
   id?: string
@@ -12,6 +13,7 @@ type TProps = TLumButtonAsButton & {
 
 export const AddComponentButton = ({ id, text }: TProps) => {
   const { dispatch } = useLuminaContext()
+  const { handleToggleMenu } = useToggleMenuContext()
   const initialSelectedOption: TSelectedOption = {
     value: "",
     label: ""
@@ -20,13 +22,20 @@ export const AddComponentButton = ({ id, text }: TProps) => {
   const [newComponentFriendlyName, setNewComponentFriendlyName] = useState("") //friendly name - new component
   const [selectedOption, setSelectedOption] = useState<TSelectedOption>(initialSelectedOption); //dropdown - new component
 
-  const handleToggleAddModal = () => {
-    setShowModalAdd(!showModalAdd)
+  const handleOpenModal = () => {
+    setShowModalAdd(true)
+    handleToggleMenu(id)
   }
+
+  const handleCloseModal = () => {
+    setShowModalAdd(false)
+  }
+
+  console.log("render", showModalAdd)
 
   const handleAddComponent = useCallback(() => {
     if (!selectedOption) return
-    setShowModalAdd(false)
+    handleCloseModal()
     dispatch({
       type: "createComponent",
       data: {
@@ -63,13 +72,13 @@ export const AddComponentButton = ({ id, text }: TProps) => {
     <>
       <Button
         buttonType="button"
-        onClick={handleToggleAddModal}
+        onClick={handleOpenModal}
         text={text}
         iconLeft="lum-icon-plus-fill"
       />
       {showModalAdd &&
         <AddModal showModalAdd={showModalAdd}
-          handleCloseModal={handleToggleAddModal}
+          handleCloseModal={handleCloseModal}
           handleAddComponent={handleAddComponent}
           selectedOption={selectedOption}
           handleSelectChange={handleSelectChange}

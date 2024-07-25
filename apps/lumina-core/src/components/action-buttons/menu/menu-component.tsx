@@ -1,27 +1,34 @@
 import { Button } from "@/components/button/button"
 import { MenuButton } from "@/components/menu-button/menu-button"
+import { useToggleMenuContext } from "@/context/toggleMenuContext"
 import { IComponentProps } from "@/data/data"
 import { TConfig } from "@/models/editor-buttonModel"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 
 type TProps = {
   id: string
   data: IComponentProps
   config?: TConfig
-  handleMenus: any
-  isMenuOpen: any
 }
 
-export const MenuComponentButton = ({ id, data, config, handleMenus, isMenuOpen }: TProps) => {
+export const MenuComponentButton = ({ id, data, config }: TProps) => {
+  const { handleToggleMenu, menuState } = useToggleMenuContext()
+
+  const [isOpen, setIsMenuOpen] = useState(false)
+
+  useEffect(() => {
+    setIsMenuOpen(menuState.id === id && menuState.isOpen)
+  }, [menuState.isOpen, menuState.id, id])
+
   return (
     <>
       <Button
         buttonType="button"
         iconLeft={"lum-icon-menu"}
-        onClick={() => handleMenus(id)}
+        onClick={() => handleToggleMenu(id)}
       />
-      {isMenuOpen.id === id && isMenuOpen.isOpen && <MenuButton id={id} config={config} data={data} />}
+      {isOpen && <MenuButton id={id} config={config} data={data} />}
     </>
   )
 }

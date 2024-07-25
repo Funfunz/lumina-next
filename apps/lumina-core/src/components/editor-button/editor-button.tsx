@@ -26,8 +26,6 @@ type EditorButtonProps = {
   noDown?: boolean
   visible?: boolean;
   menu?: boolean;
-  handleMenus: any
-  isMenuOpen: any
 };
 
 export const EditorButton = ({
@@ -39,9 +37,7 @@ export const EditorButton = ({
   noUp,
   noDown,
   visible,
-  menu,
-  handleMenus,
-  isMenuOpen
+  menu
 }: EditorButtonProps) => {
   const {
     state: {
@@ -73,7 +69,7 @@ export const EditorButton = ({
         <MoveComponentButton moveDirection="down" id={id} />}
 
       {inline && !menu &&
-        <MenuComponentButton id={id} handleMenus={handleMenus} isMenuOpen={isMenuOpen} config={config} data={data} />}
+        <MenuComponentButton id={id} config={config} data={data} />}
     </div >
   );
 };
