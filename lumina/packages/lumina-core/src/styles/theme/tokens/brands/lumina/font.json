@@ -1,0 +1,11 @@
+{
+  "lum":{
+  "font": {
+    "brand": {
+      "family": {
+        "base": { "value": "{lum.color.background.base.value}" }
+      }
+    }
+  }
+}
+}

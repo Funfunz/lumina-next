@@ -1,0 +1,56 @@
+.treeviewHeaderContainer {
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-self: stretch;
+  background-color: #F7F7F7;
+  border-radius: 4px 4px 0px 0px;
+  width: 100%;
+  margin-bottom: 4px;
+  padding-left: 10px;
+  padding-right: 20px;
+  height: 50px;
+
+}
+
+.treeviewTitle{
+  font-size: 18px;
+  font-weight: 700;
+  flex-grow: 0;
+  padding: 10px;
+}
+
+.treeviewSubTitle {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 150px;
+  font-size: 16px;
+  color:#999;
+  flex-grow: 0;
+  font-weight: 300;
+}
+
+.treeviewHeaderIcon{
+  font-size: 18px;
+  padding-right: 4px;
+
+}
+
+.treeviewNavIconsContainer {
+  display:inline-flex;
+  font-size: 18px;
+  margin-left: 45px;
+  flex-grow: 1;
+  justify-content: space-evenly;
+}
+
+.treeviewNavIcon {
+  cursor:pointer;
+}
+
+.treeViewButtonLive {
+
+  background-color:red;
+}

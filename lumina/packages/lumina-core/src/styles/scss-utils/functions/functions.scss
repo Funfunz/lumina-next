@@ -1,0 +1,15 @@
+@use 'sass:math';
+
+@function px-to-rem($pxValue) {
+  @return math.div($pxValue, 16) * 1rem;
+}
+
+// Fetches and reads values from a provided list of values
+@function map-fetch($map, $keys) {
+  @each $key in $keys {
+    /* stylelint-disable-next-line scss/no-global-function-names */
+    $map: map-get($map, $key);
+  }
+
+  @return $map;
+}

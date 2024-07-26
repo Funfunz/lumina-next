@@ -1,0 +1,32 @@
+{
+  "name": "@repo/lumina-core",
+  "version": "1.0.0",
+  "description": "",
+  "exports": {
+    ".": {
+      "import": "./dist/main.js"
+    },
+    "./style.css": "./dist/css/index.css",
+    "./font1.eot": "./fonts/LuminaIcon.eot",
+    "./font1.svg": "./fonts/LuminaIcon.svg",
+    "./LuminaIcon.ttf": "./fonts/LuminaIcon.ttf",
+    "./font1.woff": "./fonts/LuminaIcon.woff"
+  },
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "npm run build && watch -p 'src/**/*' -c 'npm run build'",
+    "build": "tsc && tsc-alias && sass src/styles/index.scss dist/css/index.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "dependencies": {
+    "sass": "^1.77.8",
+    "tsc-alias": "^1.8.10",
+    "typescript": "^5.5.4",
+    "watch-cli": "^0.2.3"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "lum": {
+    "color": {
+      "link": {
+        "text": {
+          "value": "{lum.color.primary.value}"
+        },
+        "hover": {
+          "value": "#1660c7"
+        },
+        "text-inverse": {
+          "value": "{lum.color.secondary.value}"
+        },
+        "hover-inverse": {
+          "value": "#c77d16"
+        }
+      }
+    }
+  }
+}
