@@ -1,5 +1,79 @@
-.modalContainer{
-  z-index: 10;
-  display: block;
+.modal{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  border: 0;
+  border-radius:5px;
+  box-shadow: 0 0 1em rgb(0 0 0 / .3);
+  width: 600px;
+  height: 350px;
+
+  // Backdrop is not working for some reason
+  &::backdrop{
+    background: linear-gradient(45deg, gray,blue);
+    opacity: .4;
+  }
 }
 
+.modalDrop{
+  margin-top: 5px;
+  width: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.modalIcon{
+  margin-top: 25px;
+  display: inline-flex;
+  font-size: 27px;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+}
+
+.modalTitle{
+  font-weight: 700;
+  font-size: 25px;
+  align-self: flex-start;
+  width: 100%;
+}
+
+.modalForm, .modalForm label{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+
+}
+
+.modalForm label{
+  padding-top: 15px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.inputFriendly{
+  width:86%;
+  margin-left:40px;
+  border:1px solid lightgray;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+
+.modalForm .ModalBtn {
+  align-self: center;
+}
+
+.btnContainer{
+  padding-top: 25px;
+  display:flex;
+  gap:15px;
+  padding-left: 40px;
+}
+
+.modalBtn{
+  border: 1px solid gray;
+}

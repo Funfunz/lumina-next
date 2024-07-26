@@ -5,56 +5,63 @@ import { Button } from "../button/button";
 import { PagesTab } from "../tabs/pages/page";
 import { TreeViewTab } from "../tabs/treeView/treeView";
 import { Modal } from "../modal-dialog/modal";
-import { IComponentData } from "@/data/data";
-import { TConfig } from "@/models/editor-buttonModel";
 
 type TSidebarEditor = {
   handleToggler: Function
   isBarOpen: boolean
 }
 
-type TSidebarTab = {
-  id: string
-  icon: string
-  panel?: JSX.Element
-}
-
-const editorTabs: TSidebarTab[] = [
-  {
-    id: "lumTabPages",
-    icon: "lum-icon-page",
-    panel: <PagesTab/>
-  },
-  {
-    id: "lumTabComponents",
-    icon: "lum-icon-component",
-    panel: <TreeViewTab/>
-  },
-  {
-    id: "lumTabLibrary",
-    icon: "lum-icon-library",
-    panel: <Modal/>
-  }
-]
-
-const helperTabs: TSidebarTab[] = [
-  {
-    id: "lumTabConfig",
-    icon: "lum-icon-settings"
-  },
-  {
-    id: "lumTabHelp",
-    icon: "lum-icon-help-fill"
-  },
-  {
-    id: "lumTabUser",
-    icon: "lum-icon-user"
-  },
-]
 
 export const SidebarEditor = ({ isBarOpen, handleToggler }: TSidebarEditor) => {
+  const [openModal, setOpenModal] = useState(false)
+
+
+  type TSidebarTab = {
+    id: string
+    icon: string
+    panel?: JSX.Element
+  }
+
+  const editorTabs: TSidebarTab[] = [
+    {
+      id: "lumTabPages",
+      icon: "lum-icon-page",
+      panel: <PagesTab/>
+    },
+    {
+      id: "lumTabComponents",
+      icon: "lum-icon-component",
+      panel: <TreeViewTab/>
+    },
+    {
+      id: "lumTabLibrary",
+      icon: "lum-icon-library",
+      panel: <>
+      <Modal openModal={!openModal} setOpenModal={setOpenModal}/>
+      </>
+    }
+  ]
+
+  const helperTabs: TSidebarTab[] = [
+    {
+      id: "lumTabConfig",
+      icon: "lum-icon-settings"
+    },
+    {
+      id: "lumTabHelp",
+      icon: "lum-icon-help-fill"
+    },
+    {
+      id: "lumTabUser",
+      icon: "lum-icon-user"
+    },
+  ]
+
+
+
   const [activeTab, setActiveTab] = useState<string>("")
   const [activePanel, setActivePanel] = useState<JSX.Element>()
+
 
   const handleActiveTab = ({ id, panel }: TSidebarTab) => {
     setActiveTab(id)
@@ -114,3 +121,5 @@ export const SidebarEditor = ({ isBarOpen, handleToggler }: TSidebarEditor) => {
     </div>
   )
 }
+
+

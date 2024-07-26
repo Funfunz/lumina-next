@@ -65,7 +65,8 @@ export const AddComponentButton = ({ id, text }: TProps) => {
         buttonType="button"
         onClick={handleToggleAddModal}
         text={text}
-        iconLeft="lum-icon-plus-fill"
+        style="secondary"
+        size="large"
       />
       {showModalAdd &&
         <AddModal showModalAdd={showModalAdd}
