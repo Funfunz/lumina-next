@@ -6,12 +6,7 @@
 
 import { useLuminaContext } from "@/context/contextProvider";
 import cx from "classnames"
-<<<<<<<< HEAD:apps/lumina-core/src/components/editor-buttons-container/editor-buttons-container.tsx
-import styles from "./styles.module.scss";
-import { IComponentProps } from "@/data/data";
-========
-import { IComponentProps } from "@/models/data";
->>>>>>>> master:packages/lumina-core/src/components/editor-button/editor-button.tsx
+
 import { TConfig } from "@/models/editor-buttonModel";
 import { EditComponentButton } from "../action-buttons/edit/edit-component";
 import { AddComponentButton } from "../action-buttons/add/add-component";
@@ -19,6 +14,7 @@ import { DeleteComponentButton } from "../action-buttons/delete/delete-component
 import { VisibleComponentButton } from "../action-buttons/visible/visible-component";
 import { MoveComponentButton } from "../action-buttons/move/move-component";
 import { MenuComponentButton } from "../action-buttons/menu/menu-component";
+import { IComponentProps } from "@/models/data";
 
 type TProps = {
   id: string;

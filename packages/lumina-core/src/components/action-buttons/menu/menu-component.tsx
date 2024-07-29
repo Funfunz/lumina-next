@@ -1,6 +1,6 @@
 import { Button } from "@/components/button/button"
+import {ExpandableEditorMenu} from "@/components/expandable-menu-button/expandable-menu-button"
 import { IComponentProps } from "@/models/data";
-
 import { TConfig } from "@/models/editor-buttonModel";
 import { useState, useEffect, useRef } from 'react';
 
@@ -10,7 +10,7 @@ type TProps = {
   config: TConfig
 }
 
-export const ExpandableEditorMenu = ({ id, data, config }: TProps) => {
+export const MenuComponentButton = ({ id, data, config }: TProps) => {
   const [showMenu, setShowMenu] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null); // Specify the type here
 

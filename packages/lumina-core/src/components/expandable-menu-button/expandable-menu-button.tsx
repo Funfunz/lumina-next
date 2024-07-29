@@ -1,13 +1,10 @@
-import { TConfig } from "@/models/editor-buttonModel";
-import { IComponentProps } from "@/models/data";
-import { Button } from "../button/button";
-import { AddComponentButton } from "../action-buttons/add/add-component";
-import { EditComponentButton } from "../action-buttons/edit/edit-component";
-import { DeleteComponentButton } from "../action-buttons/delete/delete-component";
-<<<<<<<< HEAD:apps/lumina-core/src/components/expandable-editor-menu/index.tsx
-import styles from "./styles.module.scss";
-========
->>>>>>>> master:packages/lumina-core/src/components/menu-button/menu-button.tsx
+import { IComponentProps } from "../../models/data"
+import { TConfig } from "../../models/editor-buttonModel"
+import { AddComponentButton } from "../action-buttons/add/add-component"
+import { EditComponentButton } from "../action-buttons/edit/edit-component"
+import { Button } from "../button/button"
+import { DeleteComponentButton } from "../action-buttons/delete/delete-component"
+
 
 type TMenuProps = {
   id: string
@@ -17,13 +14,8 @@ type TMenuProps = {
 
 export const ExpandableEditorMenu = ({ id, config, data }: TMenuProps) => {
 
-<<<<<<<< HEAD:apps/lumina-core/src/components/expandable-editor-menu/index.tsx
   return (
-    <div className={styles.editMenuContainer}>
-========
-    return (
     <div className='editMenuContainer'>
->>>>>>>> master:packages/lumina-core/src/components/menu-button/menu-button.tsx
       <AddComponentButton
         buttonType="button"
         style="menuButton"

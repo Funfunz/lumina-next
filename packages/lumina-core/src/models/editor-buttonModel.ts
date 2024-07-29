@@ -21,14 +21,14 @@ export interface TConfigItemSelect<T = string> extends TConfigItemBase {
 }
 
 export type TConfig = {
-  name: string
-  props?: (TConfigItemValue | TConfigItemSelect)[]
-  editor: TEditorConfig
-}
+  name: string;
+  props?: (TConfigItemValue | TConfigItemSelect)[];
+  editor: TEditorConfig;
+};
 
 export type TElementConfig = (TConfigItemValue | TConfigItemSelect)[];
 
 export type TSelectedOption = {
-  label: string
-  value: string
-}
+  label: string;
+  value: string;
+};

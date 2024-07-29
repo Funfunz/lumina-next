@@ -73,7 +73,7 @@ export default function Lumina({ selectedPage, getData, components }: TProps = d
   );
 }
 
-export { EditorButton } from './components/editor-button/editor-button'
+export { EditorButtonsContainer } from './components/editor-buttons-container/editor-buttons-container'
 export type { TConfig } from './models/editor-buttonModel'
 
 export type { IData, IPageData }
