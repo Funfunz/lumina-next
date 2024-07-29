@@ -53,9 +53,8 @@ export const EditorButtonsContainer = ({
       {config.editor.editable && !inline &&
         <EditComponentButton buttonType="button" id={id} onUpdate={onUpdate} data={data} config={config} iconLeft="lum-icon-edit" />}
 
-      {config.editor.children && !inline &&
-        <AddComponentButton id={id} buttonType="button" iconLeft="lum-icon-plus-fill" />}
-
+      {config?.editor.children &&
+        <AddComponentButton id={id} />}
 
       {config.editor.delete && !inline &&
         <DeleteComponentButton buttonType="button" id={id} iconLeft="lum-icon-cross" />}

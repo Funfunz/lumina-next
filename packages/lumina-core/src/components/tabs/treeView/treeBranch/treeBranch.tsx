@@ -54,7 +54,7 @@ export const TreeBranch = ({ data }: { data: IComponentData, noUp: boolean, noDo
         <div className='treeChildren'>
           <ComponentTree data={data.children} />
         </div>
-      ))}
+      )) || null}
     </div>
   );
 };

@@ -17,12 +17,8 @@ export const ExpandableEditorMenu = ({ id, config, data }: TMenuProps) => {
   return (
     <div className='editMenuContainer'>
       <AddComponentButton
-        buttonType="button"
-        style="menuButton"
         text="Add Children"
-        iconLeft="lum-icon-plus"
-        disabled={!config.editor.children}
-      />
+        />
       <EditComponentButton
         buttonType="button"
         style="menuButton"
