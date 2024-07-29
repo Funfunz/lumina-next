@@ -83,5 +83,6 @@ export const AddComponentButton = ({ id, text, disabled, iconLeft, iconRight, st
         />
       }
     </>
+
   )
 }
