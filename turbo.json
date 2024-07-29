@@ -1,25 +1,16 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
-    "check-types": {
-      "dependsOn": ["^check-types"]
+    "lint": {
+      "dependsOn": ["^lint"]
     },
     "dev": {
-      "cache": false,
-      "persistent": true
-    },
-    "lint": {},
-    "clean": {
-      "cache": false
-    },
-    "//#clean": {
-      "cache": false
-    },
-    "build:tokens": {
       "cache": false,
       "persistent": true
     }

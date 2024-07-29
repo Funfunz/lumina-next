@@ -1,50 +1,22 @@
 {
   "name": "lumina",
-  "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "20.x",
-    "npm": "^10.x"
-  },
-  "packageManager": "npm@10.2.4",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
-    "check-types": "tsc --noEmit",
-    "postinstall": "next telemetry disable",
-    "start": "turbo run start",
-    "dev": "dotenv -- turbo run dev --concurrency 20",
-    "build": "turbo run build",
-    "build:tokens": "turbo run build:tokens",
-    "export": "turbo run build && next export",
-    "clean": "git clean -xdf node_modules",
-    "clean:workspaces": "turbo clean",
-    "lint": "turbo run lint",
-    "lint:fix": "turbo run lint -- --fix",
-    "docs": "docsify serve ./docs"
-  },
-  "dependencies": {
-    "@types/node": "20.1.1",
-    "eslint": "^8.0.0",
-    "eslint-config-next": "14.2.4",
-    "next": "^14.2.4",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.24.1",
-    "sass": "^1.77.5",
-    "typescript": "5.4.5",
-    "url-loader": "^4.1.1"
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "docsify-cli": "^4.4.4",
-    "dotenv": "^16.4.5",
-    "dotenv-cli": "^7.4.2",
-    "eslint-config-turbo": "^2.0.3",
-    "style-dictionary": "^3.9.2",
-    "turbo": "^2.0.3"
+    "prettier": "^3.2.5",
+    "turbo": "^2.0.9",
+    "typescript": "^5.4.5"
+  },
+  "packageManager": "pnpm@8.15.6",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@changesets/cli": "^2.27.7"
   }
 }
