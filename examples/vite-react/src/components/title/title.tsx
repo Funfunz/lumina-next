@@ -1,4 +1,4 @@
-import { EditorButton } from '@repo/lumina-core'
+import { EditorButtonsContainer } from '@repo/lumina-core'
 import { config } from './config'
 import styles from './title.module.scss'
 
@@ -11,7 +11,7 @@ export const Title = ({id, title="This is a title"}: IProps) => {
   return (
     <div className={styles.title}>
       <h1>{title}</h1>
-      <EditorButton id={id} config={config} data={{title}}/>
+      <EditorButtonsContainer id={id} config={config} data={{title}}/>
     </div>
   )
 }

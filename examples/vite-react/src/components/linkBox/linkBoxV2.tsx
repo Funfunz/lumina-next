@@ -2,7 +2,7 @@
 
 import { config } from './config'
 import { useData, useDataUpdated } from './data'
-import { EditorButton } from '@repo/lumina-core'
+import { EditorButtonsContainer } from '@repo/lumina-core'
 
 type TProps = {
   id: string
@@ -34,7 +34,7 @@ export const LinkBox = ({id, title, description, href, color = 'black'}: TProps)
       target="_blank"
       rel="noopener noreferrer"
     >
-      <EditorButton id={id} onUpdate={onUpdateCallback} config={config} data={data}/>
+      <EditorButtonsContainer id={id} onUpdate={onUpdateCallback} config={config} data={data}/>
       <h2 style={{color: data.color}}>
         {data.title} <span>-&gt;</span>
       </h2>

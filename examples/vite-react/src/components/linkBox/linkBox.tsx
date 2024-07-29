@@ -3,7 +3,7 @@
 // does not support server side render
 
 import { config } from './config'
-import { EditorButton } from '@repo/lumina-core'
+import { EditorButtonsContainer } from '@repo/lumina-core'
 
 type TProps = {
   id: string
@@ -23,7 +23,7 @@ export const LinkBox = ({id, title, description, href, color = 'black'}: TProps)
       target="_blank"
       rel="noopener noreferrer"
     >
-      <EditorButton id={id} config={config} data={{ title, description, href, color}}/>
+      <EditorButtonsContainer id={id} config={config} data={{ title, description, href, color}}/>
       <h2 style={{color}}>
         {title} <span>-&gt;</span>
       </h2>

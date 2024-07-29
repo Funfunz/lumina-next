@@ -1,7 +1,7 @@
 import { config } from './config'
 import { LinkBoxContext } from './LinkboxContextV2'
 import { useContext } from 'react'
-import { EditorButton } from '@repo/lumina-core'
+import { EditorButtonsContainer } from '@repo/lumina-core'
 
 type TData =  {
   href: string
@@ -25,7 +25,7 @@ export const LinkBoxInternal = () => {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <EditorButton id={state.id} onUpdate={onUpdateCallback} config={config} data={state}/>
+      <EditorButtonsContainer id={state.id} onUpdate={onUpdateCallback} config={config} data={state}/>
       <h2 style={{color: state.color}}>
         {state.title} <span>-&gt;</span>
       </h2>
