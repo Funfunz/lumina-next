@@ -4,6 +4,7 @@ import cx from "classnames"
 import styles from "./treeBranch.module.scss";
 import { EditorButton } from "@/components/editor-button/editor-button";
 import { ComponentTree } from "../componentTree/componentTree";
+import { configs } from "@/staticComponentsPath";
 
 type TProps = {
   data: IComponentData
@@ -42,6 +43,7 @@ export const TreeBranch = ({ data, noUp, noDown }: TProps) => {
           id={data.id}
           inline={true}
           data={data.props as IComponentProps}
+          config={configs[data.type]}
           visible={false}
           noUp={noUp}
           noDown={noDown}

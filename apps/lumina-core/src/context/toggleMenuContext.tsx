@@ -1,7 +1,7 @@
 import { ReactNode, createContext, useContext, useEffect, useRef, useState } from "react";
 
-type TToggleMenu = {
-  [key: string]: any
+type TToggleMenuContext = {
+  handleToggleMenu: (id: string) => void
   menuState: EditorExpandMenu
 }
 
@@ -15,7 +15,7 @@ const INITIALSTATE: EditorExpandMenu = {
   isOpen: false
 }
 
-const ToggleMenuContext = createContext<TToggleMenu>({
+const ToggleMenuContext = createContext<TToggleMenuContext>({
   handleToggleMenu: (id: string) => null,
   menuState: INITIALSTATE
 })

@@ -17,6 +17,7 @@ export const MenuButton = ({ id, config, data }: TMenuProps) => {
   return (
     <div className={styles.editMenuContainer}>
       <AddComponentButton
+        id={id}
         buttonType="button"
         style="menuButton"
         text="Add Children"

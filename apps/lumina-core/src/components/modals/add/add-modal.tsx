@@ -3,29 +3,23 @@ import ReactModal from "react-modal"
 import styles from "../modals.module.scss"
 import Select from "react-select"
 import { configs } from "@/staticComponentsPath"
-import { ChangeEvent } from "react"
+import { ChangeEvent, useCallback, useEffect, useState } from "react"
 import { TSelectedOption } from "@/models/editor-buttonModel"
+import { ADDMODAL, useToggleModalContext } from "@/context/toggleModalContext"
+import { useLuminaContext } from "@/context/contextProvider"
 
-type TProps = {
-  id?: string
-  showModalAdd: boolean
-  handleCloseModal: () => void
-  handleAddComponent: () => void
-  selectedOption: TSelectedOption
-  handleSelectChange: (options: any) => void
-  newComponentFriendlyName: string
-  handleOnChangeNewComponentFriendlyName: (event: ChangeEvent<HTMLInputElement>) => void
-}
+export const AddModal = () => {
+  const { handleCloseModal, modalState } = useToggleModalContext()
+  const { dispatch } = useLuminaContext()
+  const [newComponentFriendlyName, setNewComponentFriendlyName] = useState("")
+  const initialSelectedOption: TSelectedOption = {
+    value: "",
+    label: ""
+  }
 
-export const AddModal = (
-  { id,
-    showModalAdd,
-    handleCloseModal,
-    handleAddComponent,
-    selectedOption,
-    handleSelectChange,
-    newComponentFriendlyName,
-    handleOnChangeNewComponentFriendlyName }: TProps) => {
+  const { id, isOpen, modalType } = modalState
+  const [selectedOption, setSelectedOption] = useState<TSelectedOption>(initialSelectedOption);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
   const options = Object.keys(configs).map((opt) => {
     return {
       value: opt,
@@ -33,26 +27,63 @@ export const AddModal = (
     };
   });
 
-  console.log("show modal:", showModalAdd)
+  useEffect(() => {
+    setIsModalOpen(isOpen && modalType === ADDMODAL)
+  }, [modalType, isOpen])
+
+  const handleAddComponent = useCallback(() => {
+    if (!selectedOption) return
+    handleCloseModal()
+    dispatch({
+      type: "createComponent",
+      data: {
+        parentId: id || '',
+        type: selectedOption.value,
+        friendlyName: newComponentFriendlyName,
+        children: [],
+        props: {}
+      }
+    })
+    // TODO: not implemented
+    // dispatch({
+    //   type: "createComponentBackend",
+    //   data: {
+    //     props: {},
+    //     id,
+    //   },
+    // });
+  },
+    [dispatch, id, newComponentFriendlyName, selectedOption, handleCloseModal]
+  )
+
+  // Handler for on Change from dropdown - BM
+  const handleSelectChange = (options: any) => {
+    setSelectedOption(options)
+  }
+
+  // Handler for on Change from dropdown - BM
+  const handleOnChangeNewComponentFriendlyName = (event: ChangeEvent<HTMLInputElement>) => {
+    setNewComponentFriendlyName(event.target.value)
+  }
 
   return (
     <ReactModal
       ariaHideApp={false}
-      isOpen={showModalAdd}
+      isOpen={isModalOpen}
       contentLabel="Modal for Adding Children Components"
       className={styles.modalEdit}
       overlayClassName={styles.modalOverlay}
       role={"dialog"}
     >
       <Select
-        id={`deleteComponent_dropdown_${id}`}
+        id={`addComponent_dropdown_${id}`}
         value={selectedOption}
         options={options}
         placeholder="Select a component..."
         onChange={handleSelectChange}
       />
-      <label htmlFor={`deleteComponent_friendlyName_${id}`}>Friendly name</label>
-      <input id={`deleteComponent_friendlyName_${id}`}
+      <label htmlFor={`addComponent_friendlyName_${id}`}>Friendly name</label>
+      <input id={`addComponent_friendlyName_${id}`}
         type="text"
         value={newComponentFriendlyName}
         onChange={handleOnChangeNewComponentFriendlyName} />

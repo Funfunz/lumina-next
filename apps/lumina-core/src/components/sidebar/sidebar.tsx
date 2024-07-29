@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "../button/button";
 import { PagesTab } from "../tabs/pages/page";
 import { TreeViewTab } from "../tabs/treeView/treeView";
+import { ModalRender } from "../modals/modal";
 
 type TSidebarEditor = {
   handleToggler: Function
@@ -110,6 +111,7 @@ export const SidebarEditor = ({ isBarOpen, handleToggler }: TSidebarEditor) => {
           </div>
         }
       </div>
+
     </div>
   )
 }

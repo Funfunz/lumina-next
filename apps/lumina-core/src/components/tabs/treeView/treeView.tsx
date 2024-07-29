@@ -7,6 +7,7 @@ import { AddComponentButton } from "@/components/action-buttons/add/add-componen
 import { SearchBar } from "@/components/search-bar/search-bar";
 import { ComponentTree } from "./componentTree/componentTree";
 import { ToggleMenuContextProvider } from "@/context/toggleMenuContext";
+import { ToggleModalContextProvider } from "@/context/toggleModalContext";
 
 export const TreeViewTab = () => {
   const {
@@ -14,24 +15,26 @@ export const TreeViewTab = () => {
   } = useLuminaContext();
   return (
     <ToggleMenuContextProvider>
-      <div className={styles.treeviewContainer}>
-        <div className={styles.treeHead}>
-          <h3 className={styles.treeTitle}>Components</h3>
-          <span className={styles.treeAddButton}>
-            <AddComponentButton buttonType="button" id={""} text="Add" />
-          </span>
+      <ToggleModalContextProvider>
+        <div className={styles.treeviewContainer}>
+          <div className={styles.treeHead}>
+            <h3 className={styles.treeTitle}>Components</h3>
+            <span className={styles.treeAddButton}>
+              <AddComponentButton buttonType="button" id={""} text="Add" />
+            </span>
+          </div>
+          <SearchBar />
+          <TreeviewHeader />
+          <div>
+            <ComponentTree
+              // Confirmar se a data é undefined ou não
+              data={
+                builderDataContext.builderData[builderDataContext.selectedPage].children!
+              }
+            />
+          </div>
         </div>
-        <SearchBar />
-        <TreeviewHeader />
-        <div>
-          <ComponentTree
-            // Confirmar se a data é undefined ou não
-            data={
-              builderDataContext.builderData[builderDataContext.selectedPage].children!
-            }
-          />
-        </div>
-      </div>
+      </ToggleModalContextProvider>
     </ToggleMenuContextProvider>
   );
 };
