@@ -1,11 +1,10 @@
 import { Button } from "@/components/button/button"
-import { TLumButtonAsButton } from "@/components/button/button-models";
 import { AddModal } from "@/components/modals/add/add-modal";
 import { useLuminaContext } from "@/context/contextProvider";
 import { TSelectedOption } from "@/models/editor-buttonModel";
 import { ChangeEvent, useCallback, useState } from "react";
 
-type TProps = TLumButtonAsButton & {
+type TProps = {
   id?: string
   text?: string
 }
@@ -30,6 +29,7 @@ export const AddComponentButton = ({ id, text }: TProps) => {
     dispatch({
       type: "createComponent",
       data: {
+        id: `${selectedOption.value}_${Math.random()}`,
         parentId: id || '',
         type: selectedOption.value,
         friendlyName: newComponentFriendlyName,
