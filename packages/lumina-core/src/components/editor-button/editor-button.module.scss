@@ -1,0 +1,63 @@
+*:has(> .showEditContainer):hover {
+  outline: 1px solid black;
+
+  >.showEditContainer {
+    visibility: visible;
+  }
+}
+
+// *:has(> .showEditContainerInline):hover:after {
+//   width: 100%;
+//   position: absolute;
+//   bottom: -5px;
+//   height: 1px;
+//   background-color: black;
+//   content: '';
+// }
+
+.showEdit * {
+  box-sizing: border-box;
+}
+
+.showEditContainerMain {
+  display: inline-flex;
+  gap: 5px;
+}
+
+.showEditContainerInline {
+  @extend .showEditContainerMain;
+}
+
+.showEditContainer {
+  @extend .showEditContainerMain;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+  visibility: hidden;
+}
+
+.btnShowEdit {
+  color: black;
+  background-color: var(--lum-color-button-background);
+  border: 2px solid var(--lum-color-border-inverse);
+}
+
+@media screen and (max-width: 950px) {
+  .modal-container {
+    min-width: 0;
+    width: 80%;
+  }
+}
+
+.formTableCell {
+  padding-bottom: 8px;
+}
+
+.formTableLabel {
+  padding-right: 8px;
+}
+
+.inputField {
+  width: 100%;
+}
