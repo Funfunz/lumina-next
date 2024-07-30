@@ -1,60 +1,101 @@
 import { Button } from "@/components/button/button"
 import ReactModal from "react-modal"
 import Select from "react-select"
-import { ChangeEvent } from "react"
+import { ChangeEvent, useCallback, useEffect, useState } from "react"
 import { TSelectedOption } from "@/models/editor-buttonModel"
+import { ADDMODAL, useToggleModalContext } from "@/context/handleModalsContext"
+import { useLuminaContext } from "@/context/contextProvider"
 import { getComponentConfig } from "@/main"
 
-type TProps = {
-  id?: string
-  showModalAdd: boolean
-  handleCloseModal: () => void
-  handleAddComponent: () => void
-  selectedOption: TSelectedOption
-  handleSelectChange: (options: any) => void
-  newComponentFriendlyName: string
-  handleOnChangeNewComponentFriendlyName: (event: ChangeEvent<HTMLInputElement>) => void
-}
+export const AddModal = () => {
+  const { handleCloseModal, modalState } = useToggleModalContext()
+  const { dispatch } = useLuminaContext()
+  const componentConfig = getComponentConfig()
+  const { id, isOpen, modalType } = modalState
 
-export const AddModal = (
-  { id,
-    showModalAdd,
-    handleCloseModal,
-    handleAddComponent,
-    selectedOption,
-    handleSelectChange,
-    newComponentFriendlyName,
-    handleOnChangeNewComponentFriendlyName }: TProps) => {
-  const configs = getComponentConfig()
-  const options = Object.keys(configs).map((opt) => {
+  const [newComponentFriendlyName, setNewComponentFriendlyName] = useState("")
+  const initialSelectedOption: TSelectedOption = {
+    value: "",
+    label: ""
+  }
+  const [selectedOption, setSelectedOption] = useState<TSelectedOption>(initialSelectedOption);
+  const options = Object.entries(componentConfig).map(([label, opt]) => {
     return {
-      value: opt,
-      label: configs[opt].config.name,
+      value: opt.config.name,
+      label: opt.config.name,
     };
   });
+
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+
+  /**
+   * 
+   */
+  useEffect(() => {
+    setIsModalOpen(isOpen && modalType === ADDMODAL)
+  }, [modalType, isOpen])
+
+  /**
+   * 
+   */
+  const handleAddComponent = useCallback(() => {
+    if (!selectedOption) return
+    handleCloseModal()
+    dispatch({
+      type: "createComponent",
+      data: {
+        parentId: id || '',
+        id: (Math.floor(Math.random() * 100) + 1).toString(),
+        type: selectedOption.value,
+        friendlyName: newComponentFriendlyName,
+        children: [],
+        props: {}
+      }
+    })
+    // TODO: not implemented
+    // dispatch({
+    //   type: "createComponentBackend",
+    //   data: {
+    //     props: {},
+    //     id,
+    //   },
+    // });
+  },
+    [dispatch, id, newComponentFriendlyName, selectedOption, handleCloseModal]
+  )
+
+  // Handler for on Change from dropdown - BM
+  const handleSelectChange = (options: any) => {
+    setSelectedOption(options)
+  }
+
+  // Handler for on Change from dropdown - BM
+  const handleOnChangeNewComponentFriendlyName = (event: ChangeEvent<HTMLInputElement>) => {
+    setNewComponentFriendlyName(event.target.value)
+  }
 
   return (
     <ReactModal
       ariaHideApp={false}
-      isOpen={showModalAdd}
+      isOpen={isModalOpen}
       contentLabel="Modal for Adding Children Components"
-      className='modalEdit'
-      overlayClassName='modalOverlay'
+      className="modalEdit"
+      overlayClassName="modalOverlay"
       role={"dialog"}
     >
       <Select
-        id={`deleteComponent_dropdown_${id}`}
+        id={`addComponent_dropdown_${id}`}
         value={selectedOption}
         options={options}
         placeholder="Select a component..."
         onChange={handleSelectChange}
       />
-      <label htmlFor={`deleteComponent_friendlyName_${id}`}>Friendly name</label>
-      <input id={`deleteComponent_friendlyName_${id}`}
+      <label htmlFor={`addComponent_friendlyName_${id}`}>Friendly name</label>
+      <input id={`addComponent_friendlyName_${id}`}
         type="text"
         value={newComponentFriendlyName}
         onChange={handleOnChangeNewComponentFriendlyName} />
-      <div className='inlineButtons'>
+      <div className="inlineButtons">
         <Button
           buttonType="button"
           text="Add Component"

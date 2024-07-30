@@ -1,38 +1,64 @@
 import { Title } from "@/components/title/title"
 import { Form, LuminaInputRenderer } from "@/components/editor-buttons-container/inputRenderer"
 import ReactModal from "react-modal"
-import { Button } from "@/components/button/button";
-import { IComponentProps } from "@/models/data";
-import cx from "classnames"
-import { TConfig } from "@/models/editor-buttonModel";
+import { Button } from "@/components/button/button"
+import { EDITMODAL, useToggleModalContext } from "@/context/handleModalsContext"
+import { useCallback, useEffect, useState } from "react"
+import { useLuminaContext } from "@/context/contextProvider"
 
-type TProps = {
-  showModalEdit: boolean
-  handleCloseModal: () => void
-  handleOnClickSaveData: () => void
-  handleOnChangeInput: (key: string, value: string | number) => void
-  config: TConfig
-  formData: IComponentProps
-}
+export const EditModal = () => {
+  const { dispatch } = useLuminaContext()
+  const { handleCloseModal, modalState } = useToggleModalContext()
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+  const [formData, setFormData] = useState(modalState.data || {})
+  const { id, onUpdate, isOpen, config, modalType } = modalState
 
-export const EditModal = (
-  { showModalEdit,
-    handleCloseModal,
-    handleOnClickSaveData,
-    handleOnChangeInput,
-    config,
-    formData }: TProps) => {
+  const handleOnClickSaveData = () => {
+    handleCloseModal()
+    onUpdate && onUpdate(formData)
+    dispatch({
+      type: "updateBackend",
+      data: {
+        props: formData,
+        id: id!,
+      },
+    })
+    dispatch({
+      type: "updateComponent",
+      data: {
+        newProps: formData,
+        id: id!,
+      },
+    })
+  }
+
+  const handleOnChangeInput = useCallback(
+    (key: string, value: string | number) => {
+      setFormData({
+        ...formData,
+        [key]: value,
+      })
+    },
+    [formData]
+  )
+
+  useEffect(() => {
+    setIsModalOpen(isOpen && modalType === EDITMODAL)
+  }, [modalType, isOpen])
+
+  console.log("isModalOpen:", isModalOpen)
+  console.log("is State Open:", isOpen)
   return (
     <ReactModal
       ariaHideApp={false}
-      isOpen={showModalEdit}
+      isOpen={isModalOpen}
       contentLabel="Component editor"
-      className='modalEdit'
-      overlayClassName='modalOverlay'
+      className="modalEdit"
+      overlayClassName="modalOverlay"
     >
-      <Title content={config.name} />
+      <Title content={config?.name} />
       <Form>
-        {config.props!.map((configItem, index) => (
+        {config?.props?.map((configItem, index) => (
           <LuminaInputRenderer
             key={index}
             config={configItem}
@@ -41,7 +67,7 @@ export const EditModal = (
           />
         ))}
       </Form>
-      <div className='inlineButtons'>
+      <div className="inlineButtons">
         <Button
           buttonType="button"
           text="Save data"

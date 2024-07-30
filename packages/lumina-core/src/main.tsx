@@ -45,13 +45,13 @@ export default function Lumina({ selectedPage, getData, components }: TProps = d
       }
       fetchData();
 
-    },[getData]
+    }, [getData]
   )
 
   useEffect(
     () => {
       if (components) setComponentConfig(components)
-    },[components]
+    }, [components]
   )
 
   if (!builderData[selectedPage]) return null
@@ -67,7 +67,7 @@ export default function Lumina({ selectedPage, getData, components }: TProps = d
       }}
     >
       <Editor>
-        <Render/>
+        <Render />
       </Editor>
     </ContextProvider>
   );

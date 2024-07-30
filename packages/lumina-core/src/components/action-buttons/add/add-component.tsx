@@ -1,8 +1,7 @@
 import { Button } from "@/components/button/button"
 import { AddModal } from "@/components/modals/add/add-modal";
-import { useLuminaContext } from "@/context/contextProvider";
-import { TSelectedOption } from "@/models/editor-buttonModel";
-import { ChangeEvent, useCallback, useState } from "react";
+import { ADDMODAL, useToggleModalContext } from "@/context/handleModalsContext";
+import { useToggleMenuContext } from "@/context/toggleMenuContext";
 
 type TProps = {
   id?: string
@@ -10,73 +9,22 @@ type TProps = {
 }
 
 export const AddComponentButton = ({ id, text }: TProps) => {
-  const { dispatch } = useLuminaContext()
-  const initialSelectedOption: TSelectedOption = {
-    value: "",
-    label: ""
-  }
-  const [showModalAdd, setShowModalAdd] = useState(false);
-  const [newComponentFriendlyName, setNewComponentFriendlyName] = useState("") //friendly name - new component
-  const [selectedOption, setSelectedOption] = useState<TSelectedOption>(initialSelectedOption); //dropdown - new component
+  const { handleToggleMenu } = useToggleMenuContext()
+  const { handleOpenModal } = useToggleModalContext()
 
-  const handleToggleAddModal = () => {
-    setShowModalAdd(!showModalAdd)
-  }
-
-  const handleAddComponent = useCallback(() => {
-    if (!selectedOption) return
-    setShowModalAdd(false)
-    dispatch({
-      type: "createComponent",
-      data: {
-        id: `${selectedOption.value}_${Math.random()}`,
-        parentId: id || '',
-        type: selectedOption.value,
-        friendlyName: newComponentFriendlyName,
-        children: [],
-        props: {}
-      }
-    })
-    // TODO: not implemented
-    // dispatch({
-    //   type: "createComponentBackend",
-    //   data: {
-    //     props: {},
-    //     id,
-    //   },
-    // });
-  },
-    [dispatch, id, newComponentFriendlyName, selectedOption]
-  )
-
-  // Handler for on Change from dropdown - BM
-  const handleSelectChange = (options: any) => {
-    setSelectedOption(options)
-  }
-
-  // Handler for on Change from dropdown - BM
-  const handleOnChangeNewComponentFriendlyName = (event: ChangeEvent<HTMLInputElement>) => {
-    setNewComponentFriendlyName(event.target.value)
+  const handleButtonClick = () => {
+    handleOpenModal({ id: id, modalType: ADDMODAL })
+    handleToggleMenu(id!)
   }
 
   return (
     <>
       <Button
         buttonType="button"
-        onClick={handleToggleAddModal}
+        onClick={handleButtonClick}
         text={text}
       />
-      {showModalAdd &&
-        <AddModal showModalAdd={showModalAdd}
-          handleCloseModal={handleToggleAddModal}
-          handleAddComponent={handleAddComponent}
-          selectedOption={selectedOption}
-          handleSelectChange={handleSelectChange}
-          handleOnChangeNewComponentFriendlyName={handleOnChangeNewComponentFriendlyName}
-          newComponentFriendlyName={newComponentFriendlyName}
-          id={id}
-        />
-      }
+      <AddModal />
     </>
 
   )

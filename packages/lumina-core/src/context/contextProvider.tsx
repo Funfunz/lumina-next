@@ -1,5 +1,3 @@
-"use client";
-
 /**
  * this is the ContextProvider component
  * it contains all the page builder context
@@ -39,7 +37,6 @@ export function ContextProvider({
     builderDataContext?: IBuilderDataContext
   }
 }) {
-  console.log("ContextProvider")
   const initialState = {
     ...initialContext,
     appContext: {

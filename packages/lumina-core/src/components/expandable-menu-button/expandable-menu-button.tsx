@@ -1,5 +1,5 @@
-import { IComponentProps } from "../../models/data"
-import { TConfig } from "../../models/editor-buttonModel"
+import { IComponentProps } from "@/models/data"
+import { TConfig } from "@/models/editor-buttonModel"
 import { AddComponentButton } from "../action-buttons/add/add-component"
 import { EditComponentButton } from "../action-buttons/edit/edit-component"
 import { Button } from "../button/button"
@@ -18,7 +18,7 @@ export const ExpandableEditorMenu = ({ id, config, data }: TMenuProps) => {
     <div className='editMenuContainer'>
       <AddComponentButton
         text="Add Children"
-        />
+      />
       <EditComponentButton
         buttonType="button"
         style="menuButton"

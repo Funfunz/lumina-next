@@ -1,7 +1,7 @@
 import cx from "classnames"
 
 type TProps = {
-  content: string
+  content?: string
   hLevel?: 1 | 2 | 3 | 4 | 5 | 6
   fontSize?: string
   weight?: number | string

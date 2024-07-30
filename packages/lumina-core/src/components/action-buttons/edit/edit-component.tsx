@@ -1,10 +1,10 @@
 import { Button } from "@/components/button/button";
 import { TLumButtonAsButton } from "@/components/button/button-models";
 import { EditModal } from "@/components/modals/edit/edit-modal";
-import { useLuminaContext } from "@/context/contextProvider";
+import { EDITMODAL, useToggleModalContext } from "@/context/handleModalsContext";
+import { useToggleMenuContext } from "@/context/toggleMenuContext";
 import { IComponentProps } from "@/models/data";
 import { TConfig } from "@/models/editor-buttonModel";
-import { useCallback, useState } from "react";
 
 type TProps = TLumButtonAsButton & {
   id: string
@@ -14,44 +14,19 @@ type TProps = TLumButtonAsButton & {
 }
 
 export const EditComponentButton = ({ id, data, onUpdate, config, iconLeft, iconRight, style, className, text }: TProps) => {
-  const { dispatch } = useLuminaContext()
-  const [showModalEdit, setShowModalEdit] = useState(false);
-  const [formData, setFormData] = useState(data || {});
+  const { handleOpenModal } = useToggleModalContext()
+  const { handleToggleMenu } = useToggleMenuContext()
 
   const handleToggleEditModal = () => {
-    setShowModalEdit(!showModalEdit)
+    handleOpenModal({
+      id,
+      data,
+      config,
+      modalType: EDITMODAL,
+      onUpdate
+    })
+    handleToggleMenu(id)
   }
-
-  const handleOnClickSaveData = useCallback(() => {
-    setShowModalEdit(false);
-    onUpdate && onUpdate(formData);
-    dispatch({
-      type: "updateBackend",
-      data: {
-        props: formData,
-        id,
-      },
-    })
-    dispatch({
-      type: "updateComponent",
-      data: {
-        newProps: formData,
-        id,
-      },
-    })
-  },
-    [dispatch, formData, id, onUpdate]
-  )
-
-  const handleOnChangeInput = useCallback(
-    (key: string, value: string | number) => {
-      setFormData({
-        ...formData,
-        [key]: value,
-      })
-    },
-    [formData]
-  )
 
   return (
     <>
@@ -64,15 +39,7 @@ export const EditComponentButton = ({ id, data, onUpdate, config, iconLeft, icon
         iconLeft={iconLeft}
         iconRight={iconRight}
       />
-      {showModalEdit &&
-        <EditModal showModalEdit={showModalEdit}
-          handleCloseModal={handleToggleEditModal}
-          handleOnClickSaveData={handleOnClickSaveData}
-          handleOnChangeInput={handleOnChangeInput}
-          config={config}
-          formData={formData}
-        />
-      }
+      <EditModal />
     </>
   )
 }

@@ -4,6 +4,7 @@ import cx from "classnames"
 
 import { ComponentTree } from "../componentTree/componentTree";
 import { EditorButtonsContainer } from "@/components/editor-buttons-container/editor-buttons-container";
+import { DynamicComponent } from "@/components/render/dynamicComponent";
 
 
 export const TreeBranch = ({ data }: { data: IComponentData, noUp: boolean, noDown: boolean }) => {
@@ -24,6 +25,10 @@ export const TreeBranch = ({ data }: { data: IComponentData, noUp: boolean, noDo
     }
   }
 
+  // TODO temporary workaround for missing config
+  const component = DynamicComponent(data.type)
+  if (!component) return null
+
   return (
     <div className='treeContainer'>
       {iconChange()}
@@ -40,15 +45,9 @@ export const TreeBranch = ({ data }: { data: IComponentData, noUp: boolean, noDo
           visible={false}
           noUp={false}
           noDown={false}
-          menu={false} config={{
-            name: "",
-            props: undefined,
-            editor: {
-              children: false,
-              editable: false,
-              delete: false
-            }
-          }}        />
+          menu={false}
+          config={component.config}
+        />
       </div>
       {(data.children?.length && showChildren && (
         <div className='treeChildren'>
