@@ -1,49 +1,48 @@
 .treeviewHeaderContainer {
-  border-radius: 4px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   align-self: stretch;
-  background-color: #F7F7F7;
-  border-radius: 4px 4px 0px 0px;
+  justify-content: space-between;
   width: 100%;
-  margin-bottom: 4px;
-  padding-left: 10px;
-  padding-right: 20px;
   height: 50px;
+  padding-right: 20px;
+  padding-left: 10px;
+  margin-bottom: 4px;
+  background-color: #F7F7F7;
+  border-radius: 4px 4px 0 0;
 
 }
 
 .treeviewTitle{
-  font-size: 18px;
-  font-weight: 700;
   flex-grow: 0;
   padding: 10px;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .treeviewSubTitle {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  width: 150px;
-  font-size: 16px;
-  color:#999;
   flex-grow: 0;
+  width: 150px;
+  overflow: hidden;
+  font-size: 16px;
   font-weight: 300;
+  color:#999;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .treeviewHeaderIcon{
-  font-size: 18px;
   padding-right: 4px;
+  font-size: 18px;
 
 }
 
 .treeviewNavIconsContainer {
   display:inline-flex;
-  font-size: 18px;
-  margin-left: 45px;
   flex-grow: 1;
   justify-content: space-evenly;
+  margin-left: 45px;
+  font-size: 18px;
 }
 
 .treeviewNavIcon {
@@ -51,6 +50,5 @@
 }
 
 .treeViewButtonLive {
-
   background-color:red;
 }

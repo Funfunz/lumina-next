@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // Ideas taken from https://dev.to/frehner/polymorphic-button-component-in-typescript-c28
 
 type TLumButtonBase = {

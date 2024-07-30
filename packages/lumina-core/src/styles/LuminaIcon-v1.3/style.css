@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'LuminaIcon';
+  font-family: LuminaIcon;
   src:  url('fonts/LuminaIcon.eot?6ky3es');
   src:  url('fonts/LuminaIcon.eot?6ky3es#iefix') format('embedded-opentype'),
     url('fonts/LuminaIcon.ttf?6ky3es') format('truetype'),
@@ -12,7 +12,7 @@
 
 [class^="lum-icon-"], [class*=" lum-icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'LuminaIcon' !important;
+  font-family: LuminaIcon !important;
   speak: never;
   font-style: normal;
   font-weight: normal;
@@ -25,141 +25,185 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.lum-icon-plus:before {
+.lum-icon-plus::before {
   content: "\e900";
 }
-.lum-icon-cross-fill:before {
+
+.lum-icon-cross-fill::before {
   content: "\e901";
 }
-.lum-icon-info-fill:before {
+
+.lum-icon-info-fill::before {
   content: "\e902";
 }
-.lum-icon-history:before {
+
+.lum-icon-history::before {
   content: "\e903";
 }
-.lum-icon-desktop:before {
+
+.lum-icon-desktop::before {
   content: "\e904";
 }
-.lum-icon-mobile:before {
+
+.lum-icon-mobile::before {
   content: "\e905";
 }
-.lum-icon-red:before {
+
+.lum-icon-red::before {
   content: "\e906";
   color: #e86767;
 }
-.lum-icon-yellow:before {
+
+.lum-icon-yellow::before {
   content: "\e907";
   color: #ebd146;
 }
-.lum-icon-green:before {
+
+.lum-icon-green::before {
   content: "\e908";
   color: #a7bd68;
 }
-.lum-icon-menu:before {
+
+.lum-icon-menu::before {
   content: "\e909";
 }
-.lum-icon-filter:before {
+
+.lum-icon-filter::before {
   content: "\e90a";
 }
-.lum-icon-paste:before {
+
+.lum-icon-paste::before {
   content: "\e90b";
 }
-.lum-icon-cut:before {
+
+.lum-icon-cut::before {
   content: "\e90c";
 }
-.lum-icon-hidden:before {
+
+.lum-icon-hidden::before {
   content: "\e90d";
 }
-.lum-icon-visible:before {
+
+.lum-icon-visible::before {
   content: "\e90e";
 }
-.lum-icon-user:before {
+
+.lum-icon-user::before {
   content: "\e90f";
 }
-.lum-icon-chevron-up:before {
+
+.lum-icon-chevron-up::before {
   content: "\e910";
 }
-.lum-icon-chevron-left:before {
+
+.lum-icon-chevron-left::before {
   content: "\e911";
 }
-.lum-icon-chevron-down:before {
+
+.lum-icon-chevron-down::before {
   content: "\e912";
 }
-.lum-icon-chevron-right:before {
+
+.lum-icon-chevron-right::before {
   content: "\e913";
 }
-.lum-icon-help-fill:before {
+
+.lum-icon-help-fill::before {
   content: "\e914";
 }
-.lum-icon-settings:before {
+
+.lum-icon-settings::before {
   content: "\e915";
 }
-.lum-icon-figma:before {
+
+.lum-icon-figma::before {
   content: "\e916";
 }
-.lum-icon-library:before {
+
+.lum-icon-library::before {
   content: "\e917";
 }
-.lum-icon-custom:before {
+
+.lum-icon-custom::before {
   content: "\e918";
 }
-.lum-icon-button:before {
+
+.lum-icon-button::before {
   content: "\e919";
 }
-.lum-icon-video:before {
+
+.lum-icon-video::before {
   content: "\e91a";
 }
-.lum-icon-grid:before {
+
+.lum-icon-grid::before {
   content: "\e91b";
 }
-.lum-icon-link:before {
+
+.lum-icon-link::before {
   content: "\e91c";
 }
-.lum-icon-title:before {
+
+.lum-icon-title::before {
   content: "\e91d";
 }
-.lum-icon-picture:before {
+
+.lum-icon-picture::before {
   content: "\e91e";
 }
-.lum-icon-component:before {
+
+.lum-icon-component::before {
   content: "\e91f";
 }
-.lum-icon-layers:before {
+
+.lum-icon-layers::before {
   content: "\e920";
 }
-.lum-icon-hand:before {
+
+.lum-icon-hand::before {
   content: "\e921";
 }
-.lum-icon-arrow-down:before {
+
+.lum-icon-arrow-down::before {
   content: "\e922";
 }
-.lum-icon-arrow-up:before {
+
+.lum-icon-arrow-up::before {
   content: "\e923";
 }
-.lum-icon-slide:before {
+
+.lum-icon-slide::before {
   content: "\e924";
 }
-.lum-icon-edit:before {
+
+.lum-icon-edit::before {
   content: "\e925";
 }
-.lum-icon-accept:before {
+
+.lum-icon-accept::before {
   content: "\e926";
 }
-.lum-icon-cross:before {
+
+.lum-icon-cross::before {
   content: "\e927";
 }
-.lum-icon-plus-fill:before {
+
+.lum-icon-plus-fill::before {
   content: "\e928";
 }
-.lum-icon-clone:before {
+
+.lum-icon-clone::before {
   content: "\e929";
 }
-.lum-icon-page:before {
+
+.lum-icon-page::before {
   content: "\e92a";
 }
-.lum-icon-search:before {
+
+.lum-icon-search::before {
   content: "\e92b";
 }
-.lum-icon-folder:before {
+
+.lum-icon-folder::before {
   content: "\e92c";
 }

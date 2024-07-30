@@ -7,12 +7,12 @@
 }
 
 // *:has(> .showEditContainerInline):hover:after {
-//   width: 100%;
-//   position: absolute;
-//   bottom: -5px;
-//   height: 1px;
-//   background-color: black;
-//   content: '';
+//   width: 100%;width
+//   position: absolute;position
+//   bottom: -5px;bottom
+//   height: 1px;height
+//   background-color: black;background-color
+//   content: '';content
 // }
 
 .showEdit * {
@@ -30,9 +30,10 @@
 
 .showEditContainer {
   @extend .showEditContainerMain;
+
   position: absolute;
-  bottom: 0;
   right: 0;
+  bottom: 0;
   z-index: 1000;
   visibility: hidden;
 }
@@ -43,10 +44,10 @@
   border: 2px solid var(--lum-color-border-inverse);
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (width <= 950px) {
   .modal-container {
-    min-width: 0;
     width: 80%;
+    min-width: 0;
   }
 }
 

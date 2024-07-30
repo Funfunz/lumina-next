@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Button } from "@/components/button/button"
 import ReactModal from "react-modal"
 import Select from "react-select"
