@@ -1,4 +1,4 @@
-import { IData } from "@repo/lumina-core"
+import { IData } from "@lumina/core"
 
 const data: IData = {
   "home": {

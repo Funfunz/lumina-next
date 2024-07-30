@@ -1,7 +1,7 @@
 {
-  "name": "@repo/lumina-core",
+  "name": "@lumina/core",
   "version": "0.0.1",
-  "description": "",
+  "description": "Lumina package",
   "exports": {
     ".": {
       "import": "./dist/main.js"

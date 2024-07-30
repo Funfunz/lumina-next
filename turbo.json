@@ -11,6 +11,11 @@
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "storybook": {
+      "cache": true,
+      "persistent": true,
+      "dependsOn": ["^build"]
     }
   }
 }
