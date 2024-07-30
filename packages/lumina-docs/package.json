@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && pnpm run build:storybook",
+    "build": "rimraf ./dist && rimraf ./storybook-static && tsc -b && vite build && pnpm run build:storybook",
     "build:storybook": "storybook build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
@@ -37,6 +37,7 @@
     "eslint-plugin-storybook": "^0.8.0",
     "storybook": "^8.2.6",
     "typescript": "^5.2.2",
-    "vite": "^5.3.4"
+    "vite": "^5.3.4",
+    "rimraf": "^6.0.1"
   }
 }
