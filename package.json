@@ -1,5 +1,5 @@
 {
-  "name": "lumina",
+  "name": "repo-lumina",
   "private": true,
   "scripts": {
     "build": "turbo build",
