@@ -10,31 +10,31 @@ type EditorExpandMenu = {
   isOpen: boolean
 }
 
-const INITIALSTATE: EditorExpandMenu = {
+const initialMenuState: EditorExpandMenu = {
   id: "",
   isOpen: false
 }
 
 const ToggleMenuContext = createContext<TToggleMenuContext>({
   handleToggleMenu: (id: string) => null,
-  menuState: INITIALSTATE
+  menuState: initialMenuState
 })
 
 export const ToggleMenuContextProvider = ({ children }: { children: ReactNode }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState<EditorExpandMenu>(INITIALSTATE)
+  const [menuState, setMenuState] = useState<EditorExpandMenu>(initialMenuState)
 
-  let previousState = useRef<EditorExpandMenu>(INITIALSTATE)
+  let previousState = useRef<EditorExpandMenu>(initialMenuState)
 
   useEffect(() => {
-    previousState.current = isMenuOpen
-  }, [isMenuOpen])
+    previousState.current = menuState
+  }, [menuState])
 
 
   const handleToggleMenu = (id: string) => {
     if (previousState.current.id === id) {
-      setIsMenuOpen(INITIALSTATE)
+      setMenuState(initialMenuState)
     } else {
-      setIsMenuOpen({
+      setMenuState({
         id: id,
         isOpen: true
       })
@@ -42,7 +42,7 @@ export const ToggleMenuContextProvider = ({ children }: { children: ReactNode })
   }
 
   return (
-    <ToggleMenuContext.Provider value={{ handleToggleMenu, menuState: isMenuOpen }}>
+    <ToggleMenuContext.Provider value={{ handleToggleMenu, menuState }}>
       {children}
     </ToggleMenuContext.Provider >
   )

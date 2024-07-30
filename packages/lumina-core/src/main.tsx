@@ -5,6 +5,10 @@ import { Render } from "./components/render/render"
 import type { IData, IPageData } from "./models/data";
 import { useEffect, useState } from "react";
 import { TConfig } from "./models/editor-buttonModel";
+import { ToggleModalContextProvider } from "./context/handleModalsContext";
+import { AddModal } from "./components/modals/add/add-modal";
+import { EditModal } from "./components/modals/edit/edit-modal";
+import { DeleteModal } from "./components/modals/delete/delete-modal";
 
 export type TComponentConfig = {
   [key: string]: {
@@ -66,9 +70,14 @@ export default function Lumina({ selectedPage, getData, components }: TProps = d
         },
       }}
     >
-      <Editor>
-        <Render />
-      </Editor>
+      <ToggleModalContextProvider>
+        <Editor>
+          <AddModal />
+          <EditModal />
+          <DeleteModal />
+          <Render />
+        </Editor>
+      </ToggleModalContextProvider>
     </ContextProvider>
   );
 }

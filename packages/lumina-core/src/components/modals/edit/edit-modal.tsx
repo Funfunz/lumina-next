@@ -9,10 +9,21 @@ import { useLuminaContext } from "@/context/contextProvider"
 export const EditModal = () => {
   const { dispatch } = useLuminaContext()
   const { handleCloseModal, modalState } = useToggleModalContext()
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
-  const [formData, setFormData] = useState(modalState.data || {})
   const { id, onUpdate, isOpen, config, modalType } = modalState
+  const [formData, setFormData] = useState(modalState.data || {})
 
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+
+  /**
+   * 
+   */
+  useEffect(() => {
+    setIsModalOpen(isOpen && modalType === EDITMODAL)
+  }, [modalType, isOpen, modalState])
+
+  /**
+   * 
+   */
   const handleOnClickSaveData = () => {
     handleCloseModal()
     onUpdate && onUpdate(formData)
@@ -32,6 +43,9 @@ export const EditModal = () => {
     })
   }
 
+  /**
+   * 
+   */
   const handleOnChangeInput = useCallback(
     (key: string, value: string | number) => {
       setFormData({
@@ -42,12 +56,6 @@ export const EditModal = () => {
     [formData]
   )
 
-  useEffect(() => {
-    setIsModalOpen(isOpen && modalType === EDITMODAL)
-  }, [modalType, isOpen])
-
-  console.log("isModalOpen:", isModalOpen)
-  console.log("is State Open:", isOpen)
   return (
     <ReactModal
       ariaHideApp={false}

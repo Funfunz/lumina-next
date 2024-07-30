@@ -7,9 +7,11 @@ import ReactModal from "react-modal"
 export const DeleteModal = () => {
   const { dispatch } = useLuminaContext()
   const { handleCloseModal, modalState } = useToggleModalContext()
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
   const { isOpen, id, modalType } = modalState
 
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+
+  /** */
   useEffect(() => {
     setIsModalOpen(isOpen && modalType === DELETEMODAL)
   }, [modalType, isOpen])

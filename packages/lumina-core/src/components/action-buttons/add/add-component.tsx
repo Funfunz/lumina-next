@@ -24,8 +24,6 @@ export const AddComponentButton = ({ id, text }: TProps) => {
         onClick={handleButtonClick}
         text={text}
       />
-      <AddModal />
     </>
-
   )
 }
