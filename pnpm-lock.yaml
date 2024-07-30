@@ -165,6 +165,9 @@ importers:
       '@storybook/blocks':
         specifier: ^8.2.6
         version: 8.2.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.6(@babel/preset-env@7.25.2(@babel/core@7.24.9)))
+      '@storybook/manager-api':
+        specifier: ^8.2.6
+        version: 8.2.6(storybook@8.2.6(@babel/preset-env@7.25.2(@babel/core@7.24.9)))
       '@storybook/react':
         specifier: ^8.2.6
         version: 8.2.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.6(@babel/preset-env@7.25.2(@babel/core@7.24.9)))(typescript@5.5.4)
@@ -172,6 +175,9 @@ importers:
         specifier: ^8.2.6
         version: 8.2.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.19.0)(storybook@8.2.6(@babel/preset-env@7.25.2(@babel/core@7.24.9)))(typescript@5.5.4)(vite@5.3.5(@types/node@20.11.24)(sass@1.77.8)(terser@5.31.3))
       '@storybook/test':
+        specifier: ^8.2.6
+        version: 8.2.6(storybook@8.2.6(@babel/preset-env@7.25.2(@babel/core@7.24.9)))
+      '@storybook/theming':
         specifier: ^8.2.6
         version: 8.2.6(storybook@8.2.6(@babel/preset-env@7.25.2(@babel/core@7.24.9)))
       '@types/react':
