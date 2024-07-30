@@ -34,6 +34,12 @@ export const LumForm = () => {
             name="singleCheckbox"
             text="Single Checkbox"
         />
+        </Form>
+        <Form 
+        fields={[
+            'radioButton',
+        ]}
+        onChange={function noRefCheck() {}}>
         <Radio
             className=""
             help="Help text"
@@ -56,6 +62,12 @@ export const LumForm = () => {
             }
             ]}
         />
+        </Form>
+        <Form 
+        fields={[
+            'Select'
+        ]}
+        onChange={function noRefCheck() {}}>
         <Select
             className=""
             help="Help text"
@@ -81,6 +93,12 @@ export const LumForm = () => {
             prefix=""
             suffix=""
         />
+        </Form>
+        <Form 
+        fields={[
+            'Slider'
+        ]}
+        onChange={function noRefCheck() {}}>
         <Slider
             className=""
             help="Help text"
@@ -90,6 +108,12 @@ export const LumForm = () => {
             name="example"
             unit="km"
         />
+         </Form>
+         <Form 
+        fields={[
+            'switches'
+        ]}
+        onChange={function noRefCheck() {}}>
         <SwitchList
             className=""
             help="Help text"
@@ -108,6 +132,12 @@ export const LumForm = () => {
             }
             ]}
         />
+        </Form>
+        <Form 
+        fields={[
+            'TextArea'
+        ]}
+        onChange={function noRefCheck() {}}>
         <TextArea
             className=""
             help="Help text"
@@ -120,6 +150,12 @@ export const LumForm = () => {
             rows={5}
             suffix=""
         />
+         </Form>
+        <Form 
+        fields={[
+            'Input'
+        ]}
+        onChange={function noRefCheck() {}}>
         <Input
             className=""
             help="Help text"
@@ -132,6 +168,12 @@ export const LumForm = () => {
             suffix="€"
             type="text"
         />
+         </Form>
+        <Form 
+        fields={[
+            'ImageSelect'
+        ]}
+        onChange={function noRefCheck() {}}>
         <ImageSelect
             className=""
             help="Help text"
@@ -160,6 +202,12 @@ export const LumForm = () => {
             }
             ]}
         />
+         </Form>
+        <Form 
+        fields={[
+            'MultiSelect'
+        ]}
+        onChange={function noRefCheck() {}}>
         <MultiSelect
             className=""
             help="Help text"
