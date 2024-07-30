@@ -18,48 +18,64 @@
   }
 
   &:disabled {
-    color:#A7BDD9;
+    color: #a7bdd9;
     cursor: not-allowed;
   }
 
+  //Exception for sidebar
+  &:hover {
+    &:not(.sidebarTab) {
+      background-color: grey;
+      border-radius: 25%;
+      .buttonContent {
+        color: whitesmoke;
+        .icon {
+          &:not(.sidebarLuminaIcon) {
+            color: whitesmoke;
+          }
+        }
+      }
+    }
+  }
+
   // CSS for button content
-.buttonContent {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 5px;
-  color:#121212;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  .buttonContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 5px;
+    color: #121212;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 
     .icon {
       font-size: 14px;
-      color:#122F54;
-      }
+      color: #122f54;
+    }
   }
 }
 
-  // CSS for 'primary' | 'secondary' | 'warning' | 'danger' | 'filter' | 'live'
+// CSS for 'primary' | 'secondary' | 'warning' | 'danger' | 'filter' | 'live'
 .primary {
   color: white;
   background-color: var(--lum-color-button-primary-background);
 
-  &:hover {
-    background-color: #005B5E;
-  }
+  // &:hover {
+  //   background-color: #005b5e;
+  // }
 
   &:focus {
     border-radius: 3px;
-    border: 1px solid  #FDFDFD;
+    border: 1px solid #fdfdfd;
     box-shadow: 0 0 0 2px var(--lum-color-button-primary-background);
   }
 
   &:disabled {
     color: white;
-    background-color: #5E5E61;
+    background-color: #5e5e61;
     cursor: not-allowed;
   }
 }
@@ -70,7 +86,7 @@
   border: 1px solid var(--lum-color-button-primary-background);
 
   &:hover {
-    background-color: #E6F7F6;
+    background-color: #e6f7f6;
     color: #046158;
     border: 1px solid #046158;
   }
@@ -82,10 +98,10 @@
   }
 
   &:disabled {
-    color: #5E5E61;
-    background-color: #F5F5F7;
+    color: #5e5e61;
+    background-color: #f5f5f7;
     border: none;
-    cursor:not-allowed;
+    cursor: not-allowed;
   }
 }
 
@@ -94,10 +110,10 @@
   border: 1px solid lightgray;
   border-radius: 5px;
   padding: 7px;
-  background-color:#F7F7F7 ;
+  background-color: #f7f7f7;
 
-  &:hover{
-    color:white;
+  &:hover {
+    color: white;
     background-color: gray;
   }
 }
@@ -106,10 +122,10 @@
   color: #11111177;
   border: 1px solid lightgray;
   border-radius: 5px;
-  background-color:#F7F7F7 ;
+  background-color: #f7f7f7;
 
-  &:hover{
-    color:white;
+  &:hover {
+    color: white;
     background-color: gray;
   }
 }
@@ -153,11 +169,10 @@
   justify-content: start;
   width: 100%;
 
-  &:hover{
-    background-color: #E6F7F6;
+  &:hover {
+    background-color: #e6f7f6;
   }
 }
-
 
 // Used for prop size to set between small or large sizes for the button
 .large {
