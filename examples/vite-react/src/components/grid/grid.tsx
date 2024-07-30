@@ -1,4 +1,4 @@
-import { EditorButton } from '@repo/lumina-core'
+import { EditorButton } from '@lumina/core'
 import styles from './grid.module.scss'
 import { config } from './config'
 
