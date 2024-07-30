@@ -1,14 +1,15 @@
 import { Button } from "@/components/button/button"
+import { TLumButtonAsButton } from "@/components/button/button-models";
 import { AddModal } from "@/components/modals/add/add-modal";
 import { ADDMODAL, useToggleModalContext } from "@/context/handleModalsContext";
 import { useToggleMenuContext } from "@/context/toggleMenuContext";
 
-type TProps = {
+type TProps = TLumButtonAsButton & {
   id?: string
   text?: string
 }
 
-export const AddComponentButton = ({ id, text }: TProps) => {
+export const AddComponentButton = ({ id, text, disabled, style }: TProps) => {
   const { handleToggleMenu } = useToggleMenuContext()
   const { handleOpenModal } = useToggleModalContext()
 
@@ -18,12 +19,12 @@ export const AddComponentButton = ({ id, text }: TProps) => {
   }
 
   return (
-    <>
-      <Button
-        buttonType="button"
-        onClick={handleButtonClick}
-        text={text}
-      />
-    </>
+    <Button
+      buttonType="button"
+      onClick={handleButtonClick}
+      text={text}
+      disabled={disabled}
+      style={style}
+    />
   )
 }
