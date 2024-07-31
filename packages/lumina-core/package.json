@@ -13,9 +13,13 @@
     "./font1.woff": "./fonts/LuminaIcon.woff"
   },
   "main": "dist/main.js",
+  "type": "module",
   "scripts": {
     "dev": "npm run build && watch -p 'src/**/*' -c 'npm run build'",
-    "build": "tsc && tsc-alias && sass src/styles/index.scss dist/css/index.css",
+    "build": "npm run build:theme && npm run build:js && npm run build:css",
+    "build:theme": "node ./src/styles/theme/build.js",
+    "build:js": "tsc && tsc-alias",
+    "build:css": "sass src/styles/index.scss dist/css/index.css",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "eslint ./src --fix --report-unused-disable-directives --max-warnings 10",
     "lint:css": "stylelint --fix \"**/*.{css,scss}\" --config ../../.stylelintrc.json"
@@ -35,13 +39,15 @@
     "npm": "^10.8.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "style-dictionary": "^4.0.1",
     "stylelint": "^16.8.1",
     "stylelint-config-recess-order": "^5.0.1",
     "stylelint-config-standard-scss": "^13.1.0",
     "stylelint-config-standard": "^36.0.1",
     "stylelint-config-prettier-scss": "^1.0.0",
     "typescript-eslint": "^7.18.0",
-    "prettier": "^3.3.3"
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1"
   },
   "dependencies": {
     "classnames": "^2.5.1",

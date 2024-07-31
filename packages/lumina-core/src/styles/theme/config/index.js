@@ -1,5 +1,2 @@
-/* eslint-disable no-undef */
  // config.js
- const STYLE_DICTIONAIRY_PLATFORMS = ['css'] // Options: css, scss, less, web, android, ios, flutter, sketch, json, js, ts
-
- module.exports = [STYLE_DICTIONAIRY_PLATFORMS]
+ export const STYLE_DICTIONAIRY_PLATFORMS = ['css'] // Options: css, scss, less, web, android, ios, flutter, sketch, json, js, ts

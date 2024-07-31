@@ -1,25 +1,20 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-disable no-undef */
-// build.js
-const fs = require('fs')
-const path = require('path')
+import fs from 'fs'
+import path from 'path'
+import StyleDictionary from 'style-dictionary'
+import { STYLE_DICTIONAIRY_PLATFORMS } from "./config/index.js"
 
-const StyleDictionaryPackage = require('style-dictionary')
-
-const STYLE_DICTIONAIRY_PLATFORMS = require('./config')
-
+const __dirname = import.meta.dirname
 const BRANDS_FOLDER = fs.readdirSync(path.join(__dirname, 'tokens', 'brands'))
 
 // HAVE THE STYLE DICTIONARY CONFIG DYNAMICALLY GENERATED
-
-function getStyleDictionaryConfig(brand, _platform) {
+const getStyleDictionaryConfig = (brand, _platform) => {
   return {
     source: [
-      `${__dirname}/tokens/**/*.json`
-      // `${__dirname}/tokens/brands/${brand}/*.json`,
-      // `${__dirname}/tokens/platforms/${platform}/*.json`
+      `${__dirname}/tokens/**/*.json`,
+      // 'tokens/globals/**/*.json',
+      // `tokens/platforms/${platform}/*.json`,
     ],
     platforms: {
       css: {
@@ -31,31 +26,25 @@ function getStyleDictionaryConfig(brand, _platform) {
             format: 'css/variables',
             options: {
               showFileHeader: false, // If enabled, it will introduce changes on every npm run build locally
-              outputReferences: true
-            }
-          }
-        ]
-      }
-    }
+              outputReferences: true,
+            },
+          },
+        ],
+      },
+    },
   }
 }
 
-console.log('Tokens: build started...')
+console.log('Tokens build started...')
 
 // PROCESS THE DESIGN TOKENS FOR THE DIFFEREN BRANDS AND PLATFORMS
-
-BRANDS_FOLDER.forEach(brand => {
-  STYLE_DICTIONAIRY_PLATFORMS.forEach(platform => {
+BRANDS_FOLDER.map(function (brand) {
+  STYLE_DICTIONAIRY_PLATFORMS.map(function (platform) {
     console.log('\n==============================================')
     console.log(`\nProcessing: [${platform}] [${brand}]`)
 
-    const StyleDictionary = StyleDictionaryPackage.extend(
-      getStyleDictionaryConfig(brand, platform)
-    )
-
-    StyleDictionary.buildPlatform(platform)
-
-    console.log('\nEnd processing')
+    const sd = new StyleDictionary(getStyleDictionaryConfig(brand, platform))
+    sd.buildPlatform(platform)
   })
 })
 
