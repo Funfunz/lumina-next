@@ -2,11 +2,7 @@
 
 import { config } from './config'
 import { useData, useDataUpdated } from './data'
-<<<<<<< HEAD:apps/lumina-core/src/client-components/linkBox/linkBoxV2.tsx
-import { EditorButtonsContainer } from '@/components/editor-buttons-container/editor-buttons-container'
-=======
 import { EditorButton } from '@lumina/core'
->>>>>>> master:examples/vite-react/src/components/linkBox/linkBoxV2.tsx
 
 type TProps = {
   id: string

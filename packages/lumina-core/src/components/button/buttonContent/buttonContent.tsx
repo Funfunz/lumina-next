@@ -11,20 +11,16 @@ export const ButtonContent = ({
 }) => {
   return (
     <>
-<<<<<<< HEAD:apps/lumina-core/src/components/button/buttonContent/buttonContent.tsx
-      <span className={styles.buttonContainer}>
-=======
       <span className='buttonContent'>
->>>>>>> master:packages/lumina-core/src/components/button/buttonContent/buttonContent.tsx
         {
           iconLeft && (
-            <span className={cx('icon', iconLeft)}/>
+            <span className={cx('icon', iconLeft)} />
           )
         }
         {text && (<span className={styles.buttonText}>{text}</span>)}
         {
           iconRight && (
-            <span className={cx('icon', iconRight)}/>
+            <span className={cx('icon', iconRight)} />
           )
         }
       </span>

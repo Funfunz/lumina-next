@@ -1,11 +1,7 @@
 import { config } from './config'
 import { LinkBoxContext } from './LinkboxContextV2'
 import { useContext } from 'react'
-<<<<<<< HEAD:apps/lumina-core/src/client-components/linkBox/linkBoxInternalV2.tsx
-import { EditorButtonsContainer } from '@/components/editor-buttons-container/editor-buttons-container'
-=======
 import { EditorButton } from '@lumina/core'
->>>>>>> master:examples/vite-react/src/components/linkBox/linkBoxInternalV2.tsx
 
 type TData = {
   href: string

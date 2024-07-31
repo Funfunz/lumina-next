@@ -1,12 +1,6 @@
-<<<<<<< HEAD:apps/lumina-core/src/client-components/text/text.tsx
-import { config } from './config'
-import styles from './text.module.css'
-import { EditorButtonsContainer } from '@/components/editor-buttons-container/editor-buttons-container'
-=======
 import { EditorButton } from '@lumina/core'
 import { config } from './config'
 import styles from './text.module.scss'
->>>>>>> master:examples/vite-react/src/components/text/text.tsx
 
 interface IProps {
   id: string

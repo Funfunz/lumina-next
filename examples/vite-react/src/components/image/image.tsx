@@ -1,12 +1,8 @@
 'use client'
 
 import { config } from './config'
-<<<<<<< HEAD:apps/lumina-core/src/client-components/image/image.tsx
-import { EditorButtonsContainer } from '@/components/editor-buttons-container/editor-buttons-container'
-=======
 import { EditorButton } from '@lumina/core'
 import styles from './image.module.scss'
->>>>>>> master:examples/vite-react/src/components/image/image.tsx
 
 type TProps = {
   id: string

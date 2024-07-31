@@ -3,11 +3,7 @@
 // does not support server side render
 
 import { config } from './config'
-<<<<<<< HEAD:apps/lumina-core/src/client-components/linkBox/linkBox.tsx
-import { EditorButtonsContainer } from '@/components/editor-buttons-container/editor-buttons-container'
-=======
 import { EditorButton } from '@lumina/core'
->>>>>>> master:examples/vite-react/src/components/linkBox/linkBox.tsx
 
 type TProps = {
   id: string

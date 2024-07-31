@@ -1,11 +1,7 @@
 import { config } from './config'
 import { IInitialStateType } from './LinkboxContextV2'
-<<<<<<< HEAD:apps/lumina-core/src/client-components/linkBox/linkBoxInternalNested.tsx
-import { EditorButtonsContainer } from '@/components/editor-buttons-container/editor-buttons-container'
-=======
 import { EditorButton } from '@lumina/core'
 import styles from './linkBox.module.scss'
->>>>>>> master:examples/vite-react/src/components/linkBox/linkBoxInternalNested.tsx
 
 export const LinkBoxInternalNested = ({ state, onUpdateCallback }: { state: IInitialStateType, onUpdateCallback: (state: IInitialStateType) => void }) => {
   if (!state) return null

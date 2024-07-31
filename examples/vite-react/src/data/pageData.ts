@@ -36,9 +36,6 @@ const data: IData = {
             },
             "children": [
               {
-<<<<<<< HEAD:apps/lumina-core/src/data/data.json
-                "id": "titleText1_1",
-=======
                 "id": "linkBox1_1",
                 "friendlyName": "linkBox1_1",
                 "order": 1,
@@ -52,7 +49,6 @@ const data: IData = {
               {
                 "id": "title1_1",
                 "friendlyName": "title1_1",
->>>>>>> master:examples/vite-react/src/data/pageData.ts
                 "order": 2,
                 "type": "title",
                 "props": {
@@ -379,10 +375,6 @@ const data: IData = {
       }
     ]
   }
-<<<<<<< HEAD:apps/lumina-core/src/data/data.json
-}
-=======
 }
 
 export default data
->>>>>>> master:examples/vite-react/src/data/pageData.ts
