@@ -2,7 +2,7 @@
 
 import { config } from './config'
 import { useData, useDataUpdated } from './data'
-import { EditorButtonsContainer } from '@repo/lumina-core'
+import { EditorButtonsContainer } from '@lumina/core'
 
 type TProps = {
   id: string
@@ -12,16 +12,16 @@ type TProps = {
   color: 'black' | 'white' | 'green' | 'yellow'
 }
 
-type TData =  {
+type TData = {
   href: string
   title: string
   description: string
   color: 'black' | 'white' | 'green' | 'yellow'
 }
 
-export const LinkBox = ({id, title, description, href, color = 'black'}: TProps) => {
-  const [data, setData] = useData<TData>({href, title, description, color})
-  useDataUpdated(setData, {href, title, description, color})
+export const LinkBox = ({ id, title, description, href, color = 'black' }: TProps) => {
+  const [data, setData] = useData<TData>({ href, title, description, color })
+  useDataUpdated(setData, { href, title, description, color })
   const onUpdateCallback = (data: TData) => {
     setData(data)
   }
@@ -34,8 +34,8 @@ export const LinkBox = ({id, title, description, href, color = 'black'}: TProps)
       target="_blank"
       rel="noopener noreferrer"
     >
-      <EditorButtonsContainer id={id} onUpdate={onUpdateCallback} config={config} data={data}/>
-      <h2 style={{color: data.color}}>
+      <EditorButtonsContainer id={id} onUpdate={onUpdateCallback} config={config} data={data} />
+      <h2 style={{ color: data.color }}>
         {data.title} <span>-&gt;</span>
       </h2>
       <p>{data.description}</p>

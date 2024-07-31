@@ -1,7 +1,7 @@
 'use client'
 
 import { config } from './config'
-import { EditorButtonsContainer } from '@repo/lumina-core'
+import { EditorButtonsContainer } from '@lumina/core'
 import styles from './image.module.scss'
 
 type TProps = {

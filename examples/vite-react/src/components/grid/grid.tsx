@@ -1,4 +1,4 @@
-import { EditorButtonsContainer } from '@repo/lumina-core'
+import { EditorButtonsContainer } from '@lumina/core'
 import styles from './grid.module.scss'
 import { config } from './config'
 
@@ -8,11 +8,11 @@ type TProps = {
   id: string
 }
 
-export const Grid = ({children, style, id}: TProps) => {
+export const Grid = ({ children, style, id }: TProps) => {
   return (
-    <div className={styles.grid + (style ?  ' ' + style : '')}>
+    <div className={styles.grid + (style ? ' ' + style : '')}>
       {children}
-      <EditorButtonsContainer id={id} config={config} data={{style}}/>
+      <EditorButtonsContainer id={id} config={config} data={{ style }} />
     </div>
   )
 }
