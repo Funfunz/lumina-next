@@ -40,7 +40,6 @@ export const EditComponentButton = ({ id, data, onUpdate, config, iconLeft, icon
         iconLeft={iconLeft}
         iconRight={iconRight}
       />
-      <EditModal />
     </>
   )
 }

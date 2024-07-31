@@ -30,7 +30,6 @@ export const DeleteComponentButton = ({ id, text, iconLeft, iconRight, className
         iconRight={iconRight}
         className={className}
       />
-      <DeleteModal />
     </>
   )
 }
