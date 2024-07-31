@@ -1,9 +1,9 @@
 .editorContainer {
-  font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
   display: grid;
-  height: 100vh;
   grid-template-columns: 60px calc(100% - 60px);
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
   transition: grid-template-columns 0.2s ease-in-out;
 
   &.open {

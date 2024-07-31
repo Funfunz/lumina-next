@@ -10,19 +10,19 @@
 }
 
 .treeHeadItem {
-  border: 1px solid transparent;
-  box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.06), 0px 4px 6px -1px rgba(0, 0, 0, 0.10);
-  border-radius: 5px;
-  margin-bottom: 2px;
-  padding: 4px;
-  padding-left: 45px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
+  padding: 4px;
+  padding-left: 45px;
+  margin-bottom: 2px;
+  font-size: 14px;
   cursor: default;
   background-color: white;
-  font-size: 14px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px -1px rgb(0 0 0 / 6%), 0 4px 6px -1px rgb(0 0 0 / 10%);
 
   &:hover{
     background-color: #F7F7F7;
@@ -34,16 +34,16 @@
 }
 
 .treeViewIcon {
-  color: #111111;
-  opacity: .66;
   position: absolute;
-  border-radius: 5px;
-  font-size: 14px;
   z-index: 1;
-  background-color: #F7F7F7;
   padding: 10px;
+  font-size: 14px;
+  color: #111;
+  background-color: #F7F7F7;
+  border-radius: 5px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
+  opacity: .66;
 }
 
 .treeTitle {

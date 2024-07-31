@@ -1,10 +1,11 @@
+/* eslint-disable no-unused-vars */
 
 import { ContextProvider } from "./context/contextProvider"
 import { Editor } from "./components/editor/editor"
 import { Render } from "./components/render/render"
-import type { IData, IPageData } from "./models/data";
-import { useEffect, useState } from "react";
-import { TConfig } from "./models/editor-buttonModel";
+import type { IData, IPageData } from "./models/data"
+import { useEffect, useState } from "react"
+import { TConfig } from "./models/editor-buttonModel"
 import { ToggleModalContextProvider } from "./context/handleModalsContext";
 import { AddModal } from "./components/modals/add/add-modal";
 import { EditModal } from "./components/modals/edit/edit-modal";
@@ -12,8 +13,8 @@ import { DeleteModal } from "./components/modals/delete/delete-modal";
 
 export type TComponentConfig = {
   [key: string]: {
-    component: (data: any) => React.JSX.Element | null;
-    config: TConfig;
+    component: (data: any) => React.JSX.Element | null
+    config: TConfig
   }
 }
 
@@ -21,7 +22,7 @@ type TProps = {
   selectedPage: string
   getData: () => Promise<IData>
   components: TComponentConfig
-};
+}
 
 const defaultValues: TProps = {
   selectedPage: 'home',
@@ -47,7 +48,7 @@ export default function Lumina({ selectedPage, getData, components }: TProps = d
       async function fetchData() {
         setBuilderData(await getData())
       }
-      fetchData();
+      fetchData()
 
     }, [getData]
   )
@@ -79,7 +80,7 @@ export default function Lumina({ selectedPage, getData, components }: TProps = d
         </Editor>
       </ToggleModalContextProvider>
     </ContextProvider>
-  );
+  )
 }
 
 export { EditorButtonsContainer } from './components/editor-buttons-container/editor-buttons-container'

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Title } from "@/components/title/title"
 import { Form, LuminaInputRenderer } from "@/components/editor-buttons-container/inputRenderer"
 import ReactModal from "react-modal"

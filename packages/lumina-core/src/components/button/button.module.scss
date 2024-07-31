@@ -1,16 +1,17 @@
 .button {
   box-sizing: border-box;
-  font-weight: 600;
-  font-size: 13px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   min-width: 22px;
   padding: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #111;
   cursor: pointer;
-  transition: box-shadow 0.2s ease-in-out;
-  border: none;
   background-color: transparent;
+  border: none;
+  transition: box-shadow 0.2s ease-in-out;
 
   * {
     box-sizing: border-box;
@@ -19,15 +20,20 @@
   // CSS for button content
   .buttonContent {
     display: flex;
+    gap: 10px;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
     padding: 5px;
-  }
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: #121212;
 
-  .icon {
-    font-size: 14px;
-    color: #122F54;
+    .icon {
+      font-size: 14px;
+      color: #122F54;
+    }
   }
 }
 
@@ -41,15 +47,15 @@
   }
 
   &:focus {
-    border-radius: 3px;
     border: 1px solid #FDFDFD;
+    border-radius: 3px;
     box-shadow: 0 0 0 2px var(--lum-color-button-primary-background);
   }
 
   &:disabled {
     color: white;
-    background-color: #5E5E61;
     cursor: not-allowed;
+    background-color: #5E5E61;
   }
 }
 
@@ -59,31 +65,31 @@
   border: 1px solid var(--lum-color-button-primary-background);
 
   &:hover {
-    background-color: #E6F7F6;
     color: #046158;
+    background-color: #E6F7F6;
     border: 1px solid #046158;
   }
 
   &:focus {
     color: var(--lum-color-button-primary-background);
-    border-radius: 3px;
     border: 2px solid var(--lum-color-button-primary-background);
+    border-radius: 3px;
   }
 
   &:disabled {
     color: #5E5E61;
+    cursor: not-allowed;
     background-color: #F5F5F7;
     border: none;
-    cursor: not-allowed;
   }
 }
 
 .filter {
-  color: #11111177;
+  padding: 7px;
+  color: #1117;
+  background-color: #F7F7F7;
   border: 1px solid lightgray;
   border-radius: 5px;
-  padding: 7px;
-  background-color: #F7F7F7;
 
   &:hover {
     color: white;
@@ -92,10 +98,10 @@
 }
 
 .live {
-  color: #11111177;
+  color: #1117;
+  background-color: #F7F7F7;
   border: 1px solid lightgray;
   border-radius: 5px;
-  background-color: #F7F7F7;
 
   &:hover {
     color: white;
@@ -105,10 +111,10 @@
 
 .warning {
   border: 1px solid var(--lum-color-button-warning-background);
-  box-shadow: 0px 0px 0px 0px var(--lum-color-button-warning-background);
+  box-shadow: 0 0 0 0 var(--lum-color-button-warning-background);
 
   &:hover {
-    box-shadow: 0px 3px 5px -1px var(--lum-color-button-warning-background);
+    box-shadow: 0 3px 5px -1px var(--lum-color-button-warning-background);
   }
 
   &:not(.outline) {
@@ -122,10 +128,10 @@
 
 .danger {
   border: 1px solid var(--lum-color-button-danger-background);
-  box-shadow: 0px 0px 0px 0px var(--lum-color-button-danger-background);
+  box-shadow: 0 0 0 0 var(--lum-color-button-danger-background);
 
   &:hover {
-    box-shadow: 0px 3px 5px -1px var(--lum-color-button-danger-background);
+    box-shadow: 0 3px 5px -1px var(--lum-color-button-danger-background);
   }
 
   &:not(.outline) {
@@ -142,40 +148,31 @@
   width: 100%;
 }
 
-// CSS for menuButton style that also affects buttonText and icon in the menuButton
 .menuButton {
   justify-content: start;
   width: 100%;
 
-  &:not(:disabled):hover {
+  &:hover {
     background-color: #E6F7F6;
-  }
-
-  &:disabled {
-    background-color: #F7F7F7;
-    cursor: not-allowed;
-
-    .icon {
-      color: #A7BDD9;
-    }
   }
 }
 
+
 // Used for prop size to set between small or large sizes for the button
 .large {
-  border-radius: 3px;
   padding: 12px 18px;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: 24px;
+  border-radius: 3px;
 }
 
 .small {
-  border-radius: 3px;
   padding: 3px 10px;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  border-radius: 3px;
 }
