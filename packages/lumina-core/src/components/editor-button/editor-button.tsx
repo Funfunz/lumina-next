@@ -48,13 +48,19 @@ export const EditorButtonsContainer = ({
       className={cx('showEdit', inline ? 'showEditContainerInline' : 'showEditContainer')}
     >
       {config.editor.editable && !inline &&
-        <EditComponentButton buttonType="button" id={id} onUpdate={onUpdate} data={data} config={config} iconLeft="lum-icon-edit" />}
+        <EditComponentButton
+          componentId={id}
+          onUpdate={onUpdate}
+          data={data}
+          config={config}
+        />
+      }
 
       {config?.editor.children && !inline &&
-        <AddComponentButton id={id} buttonType="button" />}
+        <AddComponentButton componentId={id} />}
 
       {config.editor.delete && !inline &&
-        <DeleteComponentButton buttonType="button" id={id} iconLeft="lum-icon-cross" />}
+        <DeleteComponentButton componentId={id} />}
 
       {inline && !visible &&
         <VisibleComponentButton />}
