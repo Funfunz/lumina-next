@@ -1,4 +1,4 @@
-import { EditorButton } from '@lumina/core'
+import { EditorButtonsContainer } from '@lumina/core'
 import { config } from './config'
 import styles from './text.module.scss'
 

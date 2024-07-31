@@ -1,7 +1,7 @@
 import { config } from './config'
 import { LinkBoxContext } from './LinkboxContextV2'
 import { useContext } from 'react'
-import { EditorButton } from '@lumina/core'
+import { EditorButtonsContainer } from '@lumina/core'
 
 type TData = {
   href: string

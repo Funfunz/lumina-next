@@ -1,34 +1,23 @@
 import { Button } from "@/components/button/button";
 import { TLumButtonAsButton } from "@/components/button/button-models";
 import { DeleteModal } from "@/components/modals/delete/delete-modal";
-import { useLuminaContext } from "@/context/contextProvider";
-import { useCallback, useState } from "react";
+import { DELETEMODAL, useToggleModalContext } from "@/context/handleModalsContext";
+import { useToggleMenuContext } from "@/context/toggleMenuContext";
 
 type TProps = TLumButtonAsButton & {
   id: string,
 }
+
 export const DeleteComponentButton = ({ id, text, iconLeft, iconRight, className, style }: TProps) => {
-  const { dispatch } = useLuminaContext()
-  const [showModalDelete, setShowModalDelete] = useState(false);
-
+  const { handleOpenModal } = useToggleModalContext()
+  const { handleToggleMenu } = useToggleMenuContext()
   const handleToggleDeleteModal = () => {
-    setShowModalDelete(!showModalDelete)
-  }
-
-  /**
- * Deletes a component based on the ID
- */
-  const handleOnClickDelete = useCallback(() => {
-    dispatch({
-      type: "deleteComponent",
-      data: {
-        id,
-      },
+    handleOpenModal({
+      id,
+      modalType: DELETEMODAL
     })
-    setShowModalDelete(false)
-  },
-    [dispatch, id]
-  )
+    handleToggleMenu(id)
+  }
 
   return (
     <>
@@ -40,14 +29,8 @@ export const DeleteComponentButton = ({ id, text, iconLeft, iconRight, className
         iconLeft={iconLeft}
         iconRight={iconRight}
         className={className}
-
       />
-      {showModalDelete &&
-        <DeleteModal showModalDelete={showModalDelete}
-          handleCloseModal={handleToggleDeleteModal}
-          handleOnClickDelete={handleOnClickDelete}
-        />
-      }
+      <DeleteModal />
     </>
   )
 }

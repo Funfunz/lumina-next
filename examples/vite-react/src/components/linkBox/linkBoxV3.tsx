@@ -13,13 +13,12 @@ type TProps = {
   color: 'black' | 'white' | 'green' | 'yellow'
 }
 
-export const LinkBox = ({id, title, description, href, color = 'black'}: TProps) => {
-  console.log({id, title, description, href, color})
+export const LinkBox = ({ id, title, description, href, color = 'black' }: TProps) => {
   return (
     <ContextProvider
-      data={{id, title, description, href, color}}
+      data={{ id, title, description, href, color }}
     >
-      <LinkBoxInternal/>
+      <LinkBoxInternal />
     </ContextProvider>
   )
 }

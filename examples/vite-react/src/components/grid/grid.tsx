@@ -1,7 +1,6 @@
-import { EditorButton } from '@lumina/core'
 import styles from './grid.module.scss'
 import { config } from './config'
-import { EditorButtonsContainer } from '@/components/editor-buttons-container/editor-buttons-container'
+import { EditorButtonsContainer } from '@lumina/core'
 
 type TProps = {
   children: React.ReactNode

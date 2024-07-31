@@ -1,8 +1,9 @@
+import { useState, useEffect } from 'react'
+import { useToggleMenuContext } from "@/context/toggleMenuContext"
 import { Button } from "@/components/button/button"
-import { ExpandableEditorMenu } from "@/components/expandable-editor-menu";
-import { IComponentProps } from "@/data/data";
-import { TConfig } from "@/models/editor-buttonModel";
-import { useState, useEffect, useRef } from 'react';
+import { ExpandableEditorMenu } from "@/components/expandable-menu-button/expandable-menu-button"
+import { IComponentProps } from "@/models/data"
+import { TConfig } from "@/models/editor-buttonModel"
 
 type TProps = {
   id: string
@@ -11,34 +12,22 @@ type TProps = {
 }
 
 export const MenuComponentButton = ({ id, data, config }: TProps) => {
-  const [showMenu, setShowMenu] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null); // Specify the type here
+  const { handleToggleMenu, menuState } = useToggleMenuContext()
 
-  const handleOpenMenu = () => {
-    setShowMenu(!showMenu);
-  }
-
-  const handleClickOutside = (event: any) => {
-    if (menuRef.current && !menuRef.current.contains(event.target)) {
-      setShowMenu(false);
-    }
-  }
+  const [isOpen, setIsMenuOpen] = useState(false)
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+    setIsMenuOpen(menuState.id === id && menuState.isOpen)
+  }, [menuState.isOpen, menuState.id, id])
 
   return (
-    <div ref={menuRef}>
+    <div>
       <Button
         buttonType="button"
         iconLeft={"lum-icon-menu"}
-        onClick={handleOpenMenu}
+        onClick={() => handleToggleMenu(id)}
       />
-      {showMenu && <ExpandableEditorMenu id={id} config={config} data={data} />}
+      {isOpen && <ExpandableEditorMenu id={id} config={config} data={data} />}
     </div>
   )
 }

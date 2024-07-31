@@ -2,10 +2,6 @@
 'use client'
 
 import { ChangeEvent, ChangeEventHandler, PropsWithChildren, useCallback } from 'react'
-<<<<<<<< HEAD:apps/lumina-core/src/components/editor-buttons-container/inputRenderer.tsx
-import styles from "./styles.module.scss";
-========
->>>>>>>> master:packages/lumina-core/src/components/editor-button/inputRenderer.tsx
 import { TConfigItem, TConfigItemSelect } from "@/models/editor-buttonModel";
 
 type TProps = {

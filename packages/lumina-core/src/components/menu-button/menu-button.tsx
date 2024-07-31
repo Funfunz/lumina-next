@@ -1,9 +1,10 @@
-import { TConfig } from "@/models/editor-buttonModel";
-import { IComponentProps } from "@/models/data";
-import { Button } from "../button/button";
-import { AddComponentButton } from "../action-buttons/add/add-component";
-import { EditComponentButton } from "../action-buttons/edit/edit-component";
-import { DeleteComponentButton } from "../action-buttons/delete/delete-component";
+import { IComponentProps } from "@/models/data"
+import { TConfig } from "@/models/editor-buttonModel"
+import { AddComponentButton } from "../action-buttons/add/add-component"
+import { EditComponentButton } from "../action-buttons/edit/edit-component"
+import { Button } from "../button/button"
+import { DeleteComponentButton } from "../action-buttons/delete/delete-component"
+
 
 type TMenuProps = {
   id: string

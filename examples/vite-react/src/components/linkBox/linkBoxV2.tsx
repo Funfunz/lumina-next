@@ -2,7 +2,7 @@
 
 import { config } from './config'
 import { useData, useDataUpdated } from './data'
-import { EditorButton } from '@lumina/core'
+import { EditorButtonsContainer } from '@lumina/core'
 
 type TProps = {
   id: string

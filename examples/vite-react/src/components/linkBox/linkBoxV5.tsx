@@ -1,7 +1,7 @@
 // does not support server side render
 
 import { config } from './config'
-import { EditorButton } from '@lumina/core'
+import { EditorButtonsContainer } from '@lumina/core'
 
 type TProps = {
   id: string

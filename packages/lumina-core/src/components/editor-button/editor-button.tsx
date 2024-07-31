@@ -1,37 +1,29 @@
-/* eslint-disable no-unused-vars */
-"use client";
-
 /**
  * Documentation found at ./readme.md
  */
 
-import { useLuminaContext } from "@/context/contextProvider";
+import { useLuminaContext } from "@/context/contextProvider"
 import cx from "classnames"
-<<<<<<<< HEAD:apps/lumina-core/src/components/editor-buttons-container/editor-buttons-container.tsx
-import styles from "./styles.module.scss";
-import { IComponentProps } from "@/data/data";
-========
-import { IComponentProps } from "@/models/data";
->>>>>>>> master:packages/lumina-core/src/components/editor-button/editor-button.tsx
-import { TConfig } from "@/models/editor-buttonModel";
-import { EditComponentButton } from "../action-buttons/edit/edit-component";
-import { AddComponentButton } from "../action-buttons/add/add-component";
-import { DeleteComponentButton } from "../action-buttons/delete/delete-component";
-import { VisibleComponentButton } from "../action-buttons/visible/visible-component";
-import { MoveComponentButton } from "../action-buttons/move/move-component";
-import { MenuComponentButton } from "../action-buttons/menu/menu-component";
+import { TConfig } from "@/models/editor-buttonModel"
+import { EditComponentButton } from "../action-buttons/edit/edit-component"
+import { AddComponentButton } from "../action-buttons/add/add-component"
+import { DeleteComponentButton } from "../action-buttons/delete/delete-component"
+import { VisibleComponentButton } from "../action-buttons/visible/visible-component"
+import { MoveComponentButton } from "../action-buttons/move/move-component"
+import { MenuComponentButton } from "../action-buttons/menu/menu-component"
+import { IComponentProps } from "@/models/data"
 
 type TProps = {
-  id: string;
-  onUpdate?: (data: any) => void;
-  data: IComponentProps;
-  config: TConfig;
-  inline?: boolean;
+  id: string
+  onUpdate?: (data: any) => void
+  data: IComponentProps
+  config: TConfig
+  inline?: boolean
   noUp?: boolean
   noDown?: boolean
-  visible?: boolean;
-  menu?: boolean;
-};
+  visible?: boolean
+  menu?: boolean
+}
 
 export const EditorButtonsContainer = ({
   id,
@@ -48,9 +40,9 @@ export const EditorButtonsContainer = ({
     state: {
       appContext: { editor },
     }
-  } = useLuminaContext();
+  } = useLuminaContext()
 
-  if (!editor) return null;
+  if (!editor) return null
   return (
     <div
       className={cx('showEdit', inline ? 'showEditContainerInline' : 'showEditContainer')}
@@ -58,14 +50,8 @@ export const EditorButtonsContainer = ({
       {config.editor.editable && !inline &&
         <EditComponentButton buttonType="button" id={id} onUpdate={onUpdate} data={data} config={config} iconLeft="lum-icon-edit" />}
 
-<<<<<<<< HEAD:apps/lumina-core/src/components/editor-buttons-container/editor-buttons-container.tsx
-      {config.editor.children && !inline &&
-        <AddComponentButton id={id} buttonType="button" iconLeft="lum-icon-plus-fill" />}
-========
-      {config?.editor.children &&
+      {config?.editor.children && !inline &&
         <AddComponentButton id={id} />}
->>>>>>>> master:packages/lumina-core/src/components/editor-button/editor-button.tsx
-
 
       {config.editor.delete && !inline &&
         <DeleteComponentButton buttonType="button" id={id} iconLeft="lum-icon-cross" />}
@@ -82,7 +68,7 @@ export const EditorButtonsContainer = ({
       {inline && !menu &&
         <MenuComponentButton id={id} config={config} data={data} />}
     </div >
-  );
-};
+  )
+}
 
 

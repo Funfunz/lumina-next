@@ -1,21 +1,38 @@
 import { Button } from "@/components/button/button"
+import { useLuminaContext } from "@/context/contextProvider"
+import { DELETEMODAL, useToggleModalContext } from "@/context/handleModalsContext"
+import { useCallback, useEffect, useState } from "react"
 import ReactModal from "react-modal"
 
-type TProps = {
-  showModalDelete: boolean
-  handleOnClickDelete: () => void
-  handleCloseModal: () => void
-}
+export const DeleteModal = () => {
+  const { dispatch } = useLuminaContext()
+  const { handleCloseModal, modalState } = useToggleModalContext()
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+  const { isOpen, id, modalType } = modalState
 
-export const DeleteModal = (
-  { showModalDelete,
-    handleCloseModal,
-    handleOnClickDelete
-  }: TProps) => {
+  useEffect(() => {
+    setIsModalOpen(isOpen && modalType === DELETEMODAL)
+  }, [modalType, isOpen])
+
+  /**
+   * Deletes a component based on the ID
+   */
+  const handleOnClickDelete = useCallback(() => {
+    dispatch({
+      type: "deleteComponent",
+      data: {
+        id: id!,
+      },
+    })
+    handleCloseModal()
+  },
+    [dispatch, id]
+  )
+
   return (
     <ReactModal
       ariaHideApp={false}
-      isOpen={showModalDelete}
+      isOpen={isModalOpen}
       contentLabel="Component Deletion"
       className='modalEdit'
       overlayClassName='modalOverlay'
