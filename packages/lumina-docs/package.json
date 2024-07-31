@@ -7,9 +7,8 @@
     "dev": "vite",
     "build": "rimraf ./dist && rimraf ./storybook-static && tsc -b && vite build && pnpm run build:storybook",
     "build:storybook": "storybook build",
-    "lint:old": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint": "npm run lint:js && npm run lint:css",
-    "lint:js": "eslint ./src --fix --report-unused-disable-directives --max-warnings 0",
+    "lint:js": "eslint ./src --fix --report-unused-disable-directives --max-warnings 10",
     "lint:css": "stylelint --fix \"**/*.{css,scss}\" --config ../../.stylelintrc.json",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006"

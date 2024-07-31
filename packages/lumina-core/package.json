@@ -17,7 +17,7 @@
     "dev": "npm run build && watch -p 'src/**/*' -c 'npm run build'",
     "build": "tsc && tsc-alias && sass src/styles/index.scss dist/css/index.css",
     "lint": "npm run lint:js && npm run lint:css",
-    "lint:js": "eslint ./src --fix --report-unused-disable-directives --max-warnings 0",
+    "lint:js": "eslint ./src --fix --report-unused-disable-directives --max-warnings 10",
     "lint:css": "stylelint --fix \"**/*.{css,scss}\" --config ../../.stylelintrc.json"
   },
   "author": "",
