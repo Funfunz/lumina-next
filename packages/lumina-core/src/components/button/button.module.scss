@@ -1,6 +1,5 @@
 .button {
   box-sizing: border-box;
-  color: #111111;
   font-weight: 600;
   font-size: 13px;
   display: flex;
@@ -18,29 +17,21 @@
   }
 
   // CSS for button content
-  .buttonContainer {
+  .buttonContent {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
     padding: 5px;
-    }
+  }
 
-    .buttonText{
-      color:#121212;
-      font-size: 12px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-    }
-
-    .icon {
-      font-size: 14px;
-      color:#122F54;
-    }
+  .icon {
+    font-size: 14px;
+    color: #122F54;
+  }
 }
 
-  // CSS for 'primary' | 'secondary' | 'warning' | 'danger' | 'filter' | 'live'
+// CSS for 'primary' | 'secondary' | 'warning' | 'danger' | 'filter' | 'live'
 .primary {
   color: white;
   background-color: var(--lum-color-button-primary-background);
@@ -51,7 +42,7 @@
 
   &:focus {
     border-radius: 3px;
-    border: 1px solid  #FDFDFD;
+    border: 1px solid #FDFDFD;
     box-shadow: 0 0 0 2px var(--lum-color-button-primary-background);
   }
 
@@ -83,7 +74,7 @@
     color: #5E5E61;
     background-color: #F5F5F7;
     border: none;
-    cursor:not-allowed;
+    cursor: not-allowed;
   }
 }
 
@@ -92,10 +83,10 @@
   border: 1px solid lightgray;
   border-radius: 5px;
   padding: 7px;
-  background-color:#F7F7F7 ;
+  background-color: #F7F7F7;
 
-  &:hover{
-    color:white;
+  &:hover {
+    color: white;
     background-color: gray;
   }
 }
@@ -104,10 +95,10 @@
   color: #11111177;
   border: 1px solid lightgray;
   border-radius: 5px;
-  background-color:#F7F7F7 ;
+  background-color: #F7F7F7;
 
-  &:hover{
-    color:white;
+  &:hover {
+    color: white;
     background-color: gray;
   }
 }
@@ -119,9 +110,11 @@
   &:hover {
     box-shadow: 0px 3px 5px -1px var(--lum-color-button-warning-background);
   }
+
   &:not(.outline) {
     background-color: var(--lum-color-button-warning-background);
   }
+
   &.outline {
     color: var(--lum-color-button-warning-background);
   }
@@ -134,9 +127,11 @@
   &:hover {
     box-shadow: 0px 3px 5px -1px var(--lum-color-button-danger-background);
   }
+
   &:not(.outline) {
     background-color: var(--lum-color-button-danger-background);
   }
+
   &.outline {
     color: var(--lum-color-button-danger-background);
   }
@@ -157,14 +152,11 @@
   }
 
   &:disabled {
-    background-color:#F7F7F7;
+    background-color: #F7F7F7;
     cursor: not-allowed;
 
-    .buttonText {
-      color: #9F9FA3;
-    }
     .icon {
-      color:#A7BDD9;
+      color: #A7BDD9;
     }
   }
 }

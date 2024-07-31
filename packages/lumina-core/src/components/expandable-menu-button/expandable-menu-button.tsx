@@ -5,32 +5,35 @@ import { EditComponentButton } from "../action-buttons/edit/edit-component"
 import { Button } from "../button/button"
 import { DeleteComponentButton } from "../action-buttons/delete/delete-component"
 
-
 type TMenuProps = {
   id: string
   config: TConfig
   data: IComponentProps
 }
 
+/**
+ * Expandable editor menu for the treeview
+ * @param id the component id to be edited
+ * @param config the compoennt's config for the lumina editor
+ * @param data the editable data from the component
+ * @returns 
+ */
 export const ExpandableEditorMenu = ({ id, config, data }: TMenuProps) => {
-
   return (
-    <div className='editMenuContainer'>
+    <div className='expandable_editor_menu'>
       <AddComponentButton
-        text="Add Children"
-        buttonType="button"
-        style="menuButton"
-        disabled={!config.editor.children}
+        componentId={id}
+        buttonLabel="Add Children"
+        isDisabled={!config.editor.children}
+        isMenuButton
       />
       <EditComponentButton
-        buttonType="button"
-        style="menuButton"
-        text="Edit"
-        iconLeft="lum-icon-edit"
-        id={id}
+        buttonLabel="Edit"
+        componentId={id}
         config={config}
         data={data}
-        disabled={!config.editor.editable}
+        isDisabled={!config.editor.editable}
+        isMenuButton
       />
       <Button
         buttonType="button"
@@ -51,12 +54,10 @@ export const ExpandableEditorMenu = ({ id, config, data }: TMenuProps) => {
         iconLeft="lum-icon-paste"
       />
       <DeleteComponentButton
-        buttonType="button"
-        style="menuButton"
-        text="Delete"
-        iconLeft="lum-icon-cross"
-        id={id}
-        disabled={!config.editor.delete}
+        buttonLabel="Delete"
+        componentId={id}
+        isDisabled={!config.editor.delete}
+        isMenuButton
       />
     </div>
   );
