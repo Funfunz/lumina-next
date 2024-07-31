@@ -1,3 +1,7 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable no-undef */
 // build.js
 const fs = require('fs')
 const path = require('path')

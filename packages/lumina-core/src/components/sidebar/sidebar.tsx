@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import cx from "classnames";
 import { useState } from "react";
 import { Button } from "../button/button";

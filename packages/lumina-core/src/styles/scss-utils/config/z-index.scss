@@ -1,5 +1,5 @@
 // z-index master list
-// Warning: please, avoid to customize these values
+// Warning: please, avoid to customize these values;
 $z-index: (
   negative: -1,
   reset-stack: 1,
@@ -9,4 +9,4 @@ $z-index: (
   backdrop: 600,
   overlay: 800,
   content-blocker: 1000,
-);
+)
