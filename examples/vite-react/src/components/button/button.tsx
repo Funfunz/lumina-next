@@ -1,4 +1,4 @@
-import { EditorButton } from '@lumina/core'
+import { EditorButtonsContainer } from '@lumina/core'
 import { config } from './config'
 import cx from 'classnames';
 import styles from './button.module.scss'
@@ -22,7 +22,7 @@ export const Button = ({ id, size = "medium", style = "outlined", text = "button
     <div>
       <button className={buttonStyles}>
         {text}
-        <EditorButton id={id} config={config} data={{ size, style, text }} />
+        <EditorButtonsContainer id={id} config={config} data={{ size, style, text }} />
       </button>
     </div>
   )
