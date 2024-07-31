@@ -1,8 +1,8 @@
 import { IComponentData, IComponentProps } from "@/models/data";
 import { useState, useCallback } from "react";
 import cx from "classnames"
-import { ComponentTree } from "../componentTree/componentTree";
-import { EditorButtonsContainer } from "@/components/editor-button/editor-button"
+import { ComponentTree } from "../componentTree";
+import { EditorButtonsContainer } from "@/components/editor-buttons-container"
 import { DynamicComponent } from "@/components/render/dynamicComponent";
 
 

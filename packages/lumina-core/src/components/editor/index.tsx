@@ -2,7 +2,7 @@
 
 import cx from "classnames"
 import { useCallback, useState } from "react"
-import { SidebarEditor } from "@/components/sidebar/sidebar"
+import { SidebarEditor } from "@/components/sidebar"
 
 type Props = {
   children: React.ReactNode;
@@ -17,8 +17,8 @@ export const Editor = ({ children }: Props) => {
 
   return (
     <div
-    className={cx('editorContainer', { open: isBarOpen, })}>
-      <SidebarEditor handleToggler={handleMenuToggler} isBarOpen={isBarOpen}/>
+      className={cx('editorContainer', { open: isBarOpen, })}>
+      <SidebarEditor handleToggler={handleMenuToggler} isBarOpen={isBarOpen} />
       <div>{children}</div>
     </div>
   )

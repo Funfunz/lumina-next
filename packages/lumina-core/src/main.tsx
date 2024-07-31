@@ -1,15 +1,15 @@
 /* eslint-disable no-unused-vars */
 
 import { ContextProvider } from "./context/contextProvider"
-import { Editor } from "./components/editor/editor"
-import { Render } from "./components/render/render"
+import { Editor } from "./components/editor"
+import { Render } from "./components/render"
 import type { IData, IPageData } from "./models/data";
 import { useEffect, useState } from "react";
 import { TConfig } from "./models/editor-buttonModel";
 import { ToggleModalContextProvider } from "./context/handleModalsContext";
-import { AddModal } from "./components/modals/add/add-modal";
-import { EditModal } from "./components/modals/edit/edit-modal";
-import { DeleteModal } from "./components/modals/delete/delete-modal";
+import { AddModal } from "./components/modals/add";
+import { EditModal } from "./components/modals/edit";
+import { DeleteModal } from "./components/modals/delete";
 
 export type TComponentConfig = {
   [key: string]: {
@@ -83,7 +83,7 @@ export default function Lumina({ selectedPage, getData, components }: TProps = d
   )
 }
 
-export { EditorButtonsContainer } from './components/editor-button/editor-button'
+export { EditorButtonsContainer } from './components/editor-buttons-container'
 export type { TConfig } from './models/editor-buttonModel'
 
 export type { IData, IPageData }

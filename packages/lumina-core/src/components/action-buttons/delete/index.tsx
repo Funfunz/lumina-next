@@ -1,6 +1,4 @@
-import { Button } from "@/components/button/button";
-import { TLumButtonAsButton } from "@/components/button/button-models";
-import { DeleteModal } from "@/components/modals/delete/delete-modal";
+import { Button } from "@/components/button";
 import { DELETEMODAL, useToggleModalContext } from "@/context/handleModalsContext";
 import { useToggleMenuContext } from "@/context/toggleMenuContext";
 

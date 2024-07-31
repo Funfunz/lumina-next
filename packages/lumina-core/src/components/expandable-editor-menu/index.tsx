@@ -1,9 +1,9 @@
 import { IComponentProps } from "@/models/data"
 import { TConfig } from "@/models/editor-buttonModel"
-import { AddComponentButton } from "../action-buttons/add/add-component"
-import { EditComponentButton } from "../action-buttons/edit/edit-component"
-import { Button } from "../button/button"
-import { DeleteComponentButton } from "../action-buttons/delete/delete-component"
+import { AddComponentButton } from "../action-buttons/add"
+import { EditComponentButton } from "../action-buttons/edit"
+import { Button } from "../button"
+import { DeleteComponentButton } from "../action-buttons/delete"
 
 type TMenuProps = {
   id: string

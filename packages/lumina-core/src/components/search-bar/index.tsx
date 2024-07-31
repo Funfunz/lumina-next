@@ -1,4 +1,4 @@
-import { Button } from "../button/button";
+import { Button } from "../button";
 import cx from 'classnames';
 
 export const SearchBar = () => {
@@ -11,7 +11,7 @@ export const SearchBar = () => {
         buttonType="button"
         iconRight="lum-icon-filter"
         style='filter'
-        />
+      />
     </div>
   )
 }

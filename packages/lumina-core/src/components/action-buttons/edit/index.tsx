@@ -1,7 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { Button } from "@/components/button/button";
-import { TLumButtonAsButton } from "@/components/button/button-models";
-import { EditModal } from "@/components/modals/edit/edit-modal";
+import { Button } from "@/components/button";
 import { EDITMODAL, useToggleModalContext } from "@/context/handleModalsContext";
 import { useToggleMenuContext } from "@/context/toggleMenuContext";
 import { IComponentProps } from "@/models/data";

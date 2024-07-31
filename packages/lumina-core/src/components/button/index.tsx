@@ -1,5 +1,5 @@
 
-import { ButtonContent } from "./buttonContent/buttonContent"
+import { ButtonContent } from "./buttonContent"
 import cx from "classnames"
 import { TLumButton } from "./button-models"
 
@@ -21,7 +21,7 @@ import { TLumButton } from "./button-models"
 
 export const Button = (props: TLumButton) => {
   const { className, style, buttonType, text, iconLeft, iconRight, size } = props
-  const allClassNames = `${style ? style : ''} ${className ? className : ''} ${size ? size : '' }`
+  const allClassNames = `${style ? style : ''} ${className ? className : ''} ${size ? size : ''}`
 
   if (buttonType === "button") {
     const { onClick, disabled, isFullWidth } = props

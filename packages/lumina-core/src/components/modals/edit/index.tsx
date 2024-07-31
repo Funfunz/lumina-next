@@ -1,8 +1,8 @@
- 
-import { Title } from "@/components/title/title"
+
+import { Title } from "@/components/title"
 import { Form, LuminaInputRenderer } from "@/components/editor-buttons-container/inputRenderer"
 import ReactModal from "react-modal"
-import { Button } from "@/components/button/button"
+import { Button } from "@/components/button"
 import { EDITMODAL, useToggleModalContext } from "@/context/handleModalsContext"
 import { useCallback, useEffect, useState } from "react"
 import { useLuminaContext } from "@/context/contextProvider"

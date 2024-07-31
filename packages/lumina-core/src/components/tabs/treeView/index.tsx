@@ -1,10 +1,10 @@
 "use client"
 
 import { useLuminaContext } from "@/context/contextProvider"
-import { TreeviewHeader } from "./treeviewHeader/treeViewHeader"
-import { AddComponentButton } from "@/components/action-buttons/add/add-component"
-import { SearchBar } from "@/components/search-bar/search-bar"
-import { ComponentTree } from "./componentTree/componentTree"
+import { TreeviewHeader } from "./treeviewHeader"
+import { AddComponentButton } from "@/components/action-buttons/add"
+import { SearchBar } from "@/components/search-bar"
+import { ComponentTree } from "./componentTree"
 import { ToggleMenuContextProvider } from "@/context/toggleMenuContext"
 
 export const TreeViewTab = () => {

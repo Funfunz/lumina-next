@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import cx from "classnames";
 import { useState } from "react";
-import { Button } from "../button/button";
-import { PagesTab } from "../tabs/pages/page";
-import { TreeViewTab } from "../tabs/treeView/treeView";
+import { Button } from "../button";
+import { PagesTab } from "../tabs/pages";
+import { TreeViewTab } from "../tabs/treeView";
 
 type TSidebarEditor = {
   handleToggler: Function

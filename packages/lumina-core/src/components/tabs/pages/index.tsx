@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@/components/button/button";
-import { SearchBar } from "@/components/search-bar/search-bar";
+import { Button } from "@/components/button";
+import { SearchBar } from "@/components/search-bar";
 import { useLuminaContext } from "@/context/contextProvider";
 import { useCallback } from "react";
 

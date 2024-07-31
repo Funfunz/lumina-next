@@ -1,4 +1,4 @@
-import { Button } from "@/components/button/button"
+import { Button } from "@/components/button"
 import { useLuminaContext } from "@/context/contextProvider"
 import { DELETEMODAL, useToggleModalContext } from "@/context/handleModalsContext"
 import { useCallback, useEffect, useState } from "react"

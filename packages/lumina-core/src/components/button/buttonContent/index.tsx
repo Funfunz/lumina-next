@@ -17,7 +17,7 @@ export const ButtonContent = ({
             <span className={cx('icon', iconLeft)} />
           )
         }
-        {text && (<span className={styles.buttonText}>{text}</span>)}
+        {text && (<span>{text}</span>)}
         {
           iconRight && (
             <span className={cx('icon', iconRight)} />

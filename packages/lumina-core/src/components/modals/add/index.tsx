@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { Button } from "@/components/button/button"
+import { Button } from "@/components/button"
 import ReactModal from "react-modal"
 import Select from "react-select"
 import { ChangeEvent, useCallback, useEffect, useState } from "react"

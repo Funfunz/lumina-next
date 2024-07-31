@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useToggleMenuContext } from "@/context/toggleMenuContext"
-import { Button } from "@/components/button/button"
-import { ExpandableEditorMenu } from "@/components/expandable-menu-button/expandable-menu-button"
+import { Button } from "@/components/button"
+import { ExpandableEditorMenu } from "@/components/expandable-editor-menu"
 import { IComponentProps } from "@/models/data"
 import { TConfig } from "@/models/editor-buttonModel"
 
@@ -11,7 +11,7 @@ type TProps = {
   config: TConfig
 }
 
-export const MenuComponentButton = ({ id, data, config }: TProps) => {
+export const ExpandMenuButton = ({ id, data, config }: TProps) => {
   const { handleToggleMenu, menuState } = useToggleMenuContext()
 
   const [isOpen, setIsMenuOpen] = useState(false)

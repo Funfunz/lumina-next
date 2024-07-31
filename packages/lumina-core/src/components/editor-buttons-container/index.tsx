@@ -5,12 +5,12 @@
 import { useLuminaContext } from "@/context/contextProvider"
 import cx from "classnames"
 import { TConfig } from "@/models/editor-buttonModel"
-import { EditComponentButton } from "../action-buttons/edit/edit-component"
-import { AddComponentButton } from "../action-buttons/add/add-component"
-import { DeleteComponentButton } from "../action-buttons/delete/delete-component"
-import { VisibleComponentButton } from "../action-buttons/visible/visible-component"
-import { MoveComponentButton } from "../action-buttons/move/move-component"
-import { MenuComponentButton } from "../action-buttons/menu/menu-component"
+import { EditComponentButton } from "../action-buttons/edit"
+import { AddComponentButton } from "../action-buttons/add"
+import { DeleteComponentButton } from "../action-buttons/delete"
+import { VisibleComponentButton } from "../action-buttons/visible"
+import { MoveComponentButton } from "../action-buttons/move"
+import { ExpandMenuButton } from "../action-buttons/menu"
 import { IComponentProps } from "@/models/data"
 
 type TProps = {
@@ -72,7 +72,7 @@ export const EditorButtonsContainer = ({
         <MoveComponentButton moveDirection="down" id={id} />}
 
       {inline && !menu &&
-        <MenuComponentButton id={id} config={config} data={data} />}
+        <ExpandMenuButton id={id} config={config} data={data} />}
     </div >
   )
 }
