@@ -1,12 +1,7 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "spellright.language": [
-    "en_US"
-  ],
-  "spellright.documentTypes": [
-    "markdown",
-    "latex",
-    "plaintext"
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
   ]
 }
