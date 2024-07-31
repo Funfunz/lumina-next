@@ -29,7 +29,7 @@ export const TreeBranch = ({ data }: { data: IComponentData, noUp: boolean, noDo
   if (!component) return null
 
   return (
-    <div className='treeContainer'>
+    <div className='branch_container'>
       {iconChange()}
       <div
         className={cx('treeHeadItem', {
@@ -49,7 +49,7 @@ export const TreeBranch = ({ data }: { data: IComponentData, noUp: boolean, noDo
         />
       </div>
       {(data.children?.length && showChildren && (
-        <div className='treeChildren'>
+        <div className='branch_children'>
           <ComponentTree data={data.children} />
         </div>
       )) || null}

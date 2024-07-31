@@ -21,13 +21,13 @@ export const ExpandMenuButton = ({ id, data, config }: TProps) => {
   }, [menuState.isOpen, menuState.id, id])
 
   return (
-    <div>
+    <>
       <Button
         buttonType="button"
         iconLeft={"lum-icon-menu"}
         onClick={() => handleToggleMenu(id)}
       />
       {isOpen && <ExpandableEditorMenu id={id} config={config} data={data} />}
-    </div>
+    </>
   )
 }

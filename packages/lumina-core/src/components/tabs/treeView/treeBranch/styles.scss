@@ -1,11 +1,11 @@
-.treeContainer {
+.branch_container {
   position: relative;
   color: var(--lum-color-text);
 
 
- & .treeChildren{
-  padding:0 0 0 35px;
- }
+  & .branch_children {
+    padding: 0 0 0 35px;
+  }
 
 }
 
@@ -24,7 +24,7 @@
   border-radius: 5px;
   box-shadow: 0 1px 4px -1px rgb(0 0 0 / 6%), 0 4px 6px -1px rgb(0 0 0 / 10%);
 
-  &:hover{
+  &:hover {
     background-color: #F7F7F7;
   }
 }
