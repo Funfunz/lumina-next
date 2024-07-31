@@ -9,7 +9,7 @@ export const DELETEMODAL = "DELETE"
 type TToggleModalProps = {
   data?: IComponentProps
   config?: TConfig
-  onUpdate?: (data: IComponentProps) => void
+  onUpdate?: ({ ...args }: IComponentProps) => void
   id?: string
   modalType: typeof ADDMODAL | typeof EDITMODAL | typeof DELETEMODAL | null
 }
@@ -34,7 +34,7 @@ const initialModalState: TModalState = {
 }
 
 type TToggleModalContext = {
-  handleOpenModal: ({ data, config, id, modalType }: TToggleModalProps) => void
+  handleOpenModal: ({ ...args }: TToggleModalProps) => void
   handleCloseModal: () => void
   modalState: TModalState
 }
@@ -50,11 +50,11 @@ export const ToggleModalContextProvider = ({ children }: { children: ReactNode }
 
   const handleOpenModal = ({ id, config, data, modalType }: TToggleModalProps) => {
     setModalState({
-      data: data,
-      config: config,
-      id: id,
+      data,
+      config,
+      id,
       isOpen: true,
-      modalType: modalType
+      modalType
     })
   }
 

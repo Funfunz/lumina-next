@@ -16,14 +16,14 @@ const initialMenuState: EditorExpandMenu = {
 }
 
 const ToggleMenuContext = createContext<TToggleMenuContext>({
-  handleToggleMenu: (id: string) => null,
+  handleToggleMenu: () => null,
   menuState: initialMenuState
 })
 
 export const ToggleMenuContextProvider = ({ children }: { children: ReactNode }) => {
   const [menuState, setMenuState] = useState<EditorExpandMenu>(initialMenuState)
 
-  let previousState = useRef<EditorExpandMenu>(initialMenuState)
+  const previousState = useRef<EditorExpandMenu>(initialMenuState)
 
   useEffect(() => {
     previousState.current = menuState
@@ -35,7 +35,7 @@ export const ToggleMenuContextProvider = ({ children }: { children: ReactNode })
       setMenuState(initialMenuState)
     } else {
       setMenuState({
-        id: id,
+        id,
         isOpen: true
       })
     }

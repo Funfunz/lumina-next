@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+ 
 import { Button } from "@/components/button/button"
 import ReactModal from "react-modal"
 import Select from "react-select"
@@ -20,7 +20,7 @@ export const AddModal = () => {
     label: ""
   }
   const [selectedOption, setSelectedOption] = useState<TSelectedOption>(initialSelectedOption);
-  const options = Object.entries(componentConfig).map(([label, opt]) => {
+  const options = Object.entries(componentConfig).map(([, opt]) => {
     return {
       value: opt.config.name,
       label: opt.config.name,
