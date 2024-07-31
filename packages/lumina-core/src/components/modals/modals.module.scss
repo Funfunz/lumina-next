@@ -5,15 +5,15 @@
 }
 
 .modalEdit {
-  margin: 0 auto;
-  width: 50%;
-  padding: 40px;
-  border: 1px solid var(--lum-color-white);
-  background: var(--lum-color-white);
-  border-radius: 10px;
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.06), 0px 4px 6px -1px rgba(0, 0, 0, 0.10);
   position: absolute;
   top: 20%;
   left: 50%;
+  width: 50%;
+  padding: 40px;
+  margin: 0 auto;
+  background: var(--lum-color-white);
+  border: 1px solid var(--lum-color-white);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 6%), 0 4px 6px -1px rgb(0 0 0 / 10%);
   transform: translateX(-50%);
 }

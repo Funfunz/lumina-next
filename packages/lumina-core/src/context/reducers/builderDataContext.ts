@@ -24,9 +24,9 @@ function newComponentFactory(
   componentData: ICreateComponentAction["data"],
   order: number
 ): IComponentData {
-  const { type, friendlyName, ...rest } = componentData;
+  const { type, friendlyName, id, ...rest } = componentData;
   return {
-    id: `${type}_${Math.random()}`, //TODO get a better randomiser
+    id,
     type: type as string,
     friendlyName: friendlyName as string,
     children: [],
@@ -59,8 +59,9 @@ function createElementAt(
     !data.parentId ||
     (instanceOfIComponentData(component) && component.id === data.parentId)
   ) {
-    // Add the new component with the highest order
-    component.children?.push(newComponentFactory(data, Math.max(0, ...component.children.map((element) => element.order)) + 1));
+    if (!component.children.find((children) => children.id === data.id))
+      // Add the new component with the highest order
+      component.children?.push(newComponentFactory(data, Math.max(0, ...component.children.map((element) => element.order)) + 1));
 
     // Return the updated component
     return component;
@@ -165,7 +166,7 @@ function moveUpElement(
 ) {
   let componentToReplace: IComponentData | undefined
   let oldOrder = 0
-  let newComponents = components.map(
+  const newComponents = components.map(
     (element) => {
       if (element.id === targetId) {
         oldOrder = element.order
@@ -203,7 +204,7 @@ function moveDownElement(
 ) {
   let componentToReplace: IComponentData | undefined
   let oldOrder = 0
-  let newComponents = components.map(
+  const newComponents = components.map(
     (element) => {
       if (element.id === targetId) {
         console.log(element, targetId)

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 'use client'
 
 import { ChangeEvent, ChangeEventHandler, PropsWithChildren, useCallback } from 'react'
@@ -19,14 +20,14 @@ function isSelect(config: TConfigItem): config is TConfigItemSelect {
 
 export const LuminaInputRenderer = ({ config, value, handleOnChangeInput }: TProps) => {
 
-  let handleOnChangeInputElement = useCallback(
+  const handleOnChangeInputElement = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       handleOnChangeInput(config.name, event.target.value)
     },
     [handleOnChangeInput, config.name]
   )
 
-  let handleOnChangeSelectElement: ChangeEventHandler<HTMLSelectElement> = useCallback(
+  const handleOnChangeSelectElement: ChangeEventHandler<HTMLSelectElement> = useCallback(
     (event: ChangeEvent<HTMLSelectElement>) => {
       handleOnChangeInput(config.name, event.target.selectedOptions[0].value)
     },

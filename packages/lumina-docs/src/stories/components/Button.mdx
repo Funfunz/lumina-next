@@ -1,0 +1,29 @@
+{/* Build custom documentation */}
+ 
+import { Canvas, Meta } from '@storybook/blocks'; 
+import * as ButtonStories from './Button.stories';
+ 
+<Meta of={ButtonStories} />
+ 
+# Button component
+
+## Concepts
+
+A Button is a clickable element that can trigger events on a page. 
+ 
+Use Buttons provide interaction capabilities to your component.
+
+## Usage
+
+```jsx
+// my-react-script.jsx
+<Button
+  label="Some label"
+  onClick={() => { console.log("Button clicked...") }}
+  primary | secondary | large | small
+/>
+```
+
+<Canvas of={ButtonStories.Primary} />
+
+<Canvas of={ButtonStories.Secondary} />

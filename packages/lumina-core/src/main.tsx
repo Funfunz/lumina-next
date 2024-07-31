@@ -1,15 +1,16 @@
+/* eslint-disable no-unused-vars */
 
 import { ContextProvider } from "./context/contextProvider"
 import { Editor } from "./components/editor/editor"
 import { Render } from "./components/render/render"
-import type { IData, IPageData } from "./models/data";
-import { useEffect, useState } from "react";
-import { TConfig } from "./models/editor-buttonModel";
+import type { IData, IPageData } from "./models/data"
+import { useEffect, useState } from "react"
+import { TConfig } from "./models/editor-buttonModel"
 
 export type TComponentConfig = {
   [key: string]: {
-    component: (data: any) => React.JSX.Element | null;
-    config: TConfig;
+    component: (data: any) => React.JSX.Element | null
+    config: TConfig
   }
 }
 
@@ -17,7 +18,7 @@ type TProps = {
   selectedPage: string
   getData: () => Promise<IData>
   components: TComponentConfig
-};
+}
 
 const defaultValues: TProps = {
   selectedPage: 'home',
@@ -43,15 +44,15 @@ export default function Lumina({ selectedPage, getData, components }: TProps = d
       async function fetchData() {
         setBuilderData(await getData())
       }
-      fetchData();
+      fetchData()
 
-    },[getData]
+    }, [getData]
   )
 
   useEffect(
     () => {
       if (components) setComponentConfig(components)
-    },[components]
+    }, [components]
   )
 
   if (!builderData[selectedPage]) return null
@@ -67,10 +68,10 @@ export default function Lumina({ selectedPage, getData, components }: TProps = d
       }}
     >
       <Editor>
-        <Render/>
+        <Render />
       </Editor>
     </ContextProvider>
-  );
+  )
 }
 
 export { EditorButton } from './components/editor-button/editor-button'

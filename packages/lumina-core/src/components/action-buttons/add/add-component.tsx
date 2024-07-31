@@ -1,11 +1,11 @@
+import React from "react"
 import { Button } from "@/components/button/button"
-import { TLumButtonAsButton } from "@/components/button/button-models";
-import { AddModal } from "@/components/modals/add/add-modal";
-import { useLuminaContext } from "@/context/contextProvider";
-import { TSelectedOption } from "@/models/editor-buttonModel";
-import { ChangeEvent, useCallback, useState } from "react";
+import { AddModal } from "@/components/modals/add/add-modal"
+import { useLuminaContext } from "@/context/contextProvider"
+import { TSelectedOption } from "@/models/editor-buttonModel"
+import { ChangeEvent, useCallback, useState } from "react"
 
-type TProps = TLumButtonAsButton & {
+type TProps = {
   id?: string
   text?: string
 }
@@ -16,9 +16,9 @@ export const AddComponentButton = ({ id, text }: TProps) => {
     value: "",
     label: ""
   }
-  const [showModalAdd, setShowModalAdd] = useState(false);
+  const [showModalAdd, setShowModalAdd] = useState(false)
   const [newComponentFriendlyName, setNewComponentFriendlyName] = useState("") //friendly name - new component
-  const [selectedOption, setSelectedOption] = useState<TSelectedOption>(initialSelectedOption); //dropdown - new component
+  const [selectedOption, setSelectedOption] = useState<TSelectedOption>(initialSelectedOption) //dropdown - new component
 
   const handleToggleAddModal = () => {
     setShowModalAdd(!showModalAdd)
@@ -30,6 +30,7 @@ export const AddComponentButton = ({ id, text }: TProps) => {
     dispatch({
       type: "createComponent",
       data: {
+        id: `${selectedOption.value}_${Math.random()}`,
         parentId: id || '',
         type: selectedOption.value,
         friendlyName: newComponentFriendlyName,

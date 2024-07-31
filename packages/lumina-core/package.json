@@ -1,7 +1,7 @@
 {
-  "name": "@repo/lumina-core",
+  "name": "@lumina/core",
   "version": "0.0.1",
-  "description": "",
+  "description": "Lumina package",
   "exports": {
     ".": {
       "import": "./dist/main.js"
@@ -15,17 +15,33 @@
   "main": "dist/main.js",
   "scripts": {
     "dev": "npm run build && watch -p 'src/**/*' -c 'npm run build'",
-    "build": "tsc && tsc-alias && sass src/styles/index.scss dist/css/index.css"
+    "build": "tsc && tsc-alias && sass src/styles/index.scss dist/css/index.css",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "eslint ./src --fix --report-unused-disable-directives --max-warnings 10",
+    "lint:css": "stylelint --fix \"**/*.{css,scss}\" --config ../../.stylelintrc.json"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "^9.8.0",
     "@types/react": "^18.3.3",
     "@types/react-modal": "^3.16.3",
+    "eslint": "9.x",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.8.0",
     "i": "^0.3.7",
     "npm": "^10.8.2",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "stylelint": "^16.8.1",
+    "stylelint-config-recess-order": "^5.0.1",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "stylelint-config-standard": "^36.0.1",
+    "stylelint-config-prettier-scss": "^1.0.0",
+    "typescript-eslint": "^7.18.0",
+    "prettier": "^3.3.3"
   },
   "dependencies": {
     "classnames": "^2.5.1",

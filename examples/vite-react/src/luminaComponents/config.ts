@@ -10,7 +10,7 @@ import { config as configImage } from '../components/image/config'
 import { config as configTitle } from '../components/title/config'
 import { config as configText } from '../components/text/config'
 import { config as configFlex } from '../components/flex/config'
-import { TComponentConfig } from '@repo/lumina-core'
+import { TComponentConfig } from '@lumina/core'
 import { Button } from '../components/button/button'
 import { config as configButton } from '../components/button/config'
 

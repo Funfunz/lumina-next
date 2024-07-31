@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 "use client";
 
 /**
@@ -53,7 +54,7 @@ export const EditorButton = ({
         <EditComponentButton buttonType="button" id={id} onUpdate={onUpdate} data={data} config={config} />}
 
       {config?.editor.children &&
-        <AddComponentButton buttonType="button" id={id} />}
+        <AddComponentButton id={id} />}
 
       {config?.editor.delete &&
         <DeleteComponentButton buttonType="button" id={id} />}

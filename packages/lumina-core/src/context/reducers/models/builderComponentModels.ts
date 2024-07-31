@@ -3,7 +3,8 @@ import { IComponentData, IComponentProps } from "@/models/data";
 export interface ICreateComponentAction {
   type: "createComponent";
   data: {
-    parentId: string;
+    parentId: string,
+    id: string,
   } & Partial<IComponentData>;
 }
 
