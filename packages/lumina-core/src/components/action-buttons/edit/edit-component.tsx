@@ -14,7 +14,7 @@ type TProps = TLumButtonAsButton & {
   config: TConfig
 }
 
-export const EditComponentButton = ({ id, data, onUpdate, config, iconLeft, iconRight, style, className, text }: TProps) => {
+export const EditComponentButton = ({ id, data, onUpdate, config, iconLeft, iconRight, style, className, text, disabled }: TProps) => {
   const { handleOpenModal } = useToggleModalContext()
   const { handleToggleMenu } = useToggleMenuContext()
 
@@ -30,16 +30,15 @@ export const EditComponentButton = ({ id, data, onUpdate, config, iconLeft, icon
   }
 
   return (
-    <>
-      <Button
-        buttonType="button"
-        onClick={handleToggleEditModal}
-        text={text}
-        style={style}
-        className={className}
-        iconLeft={iconLeft}
-        iconRight={iconRight}
-      />
-    </>
+    <Button
+      buttonType="button"
+      onClick={handleToggleEditModal}
+      text={text}
+      style={style}
+      className={className}
+      iconLeft={iconLeft}
+      iconRight={iconRight}
+      disabled={disabled}
+    />
   )
 }

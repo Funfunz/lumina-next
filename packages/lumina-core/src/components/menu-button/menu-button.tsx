@@ -18,6 +18,9 @@ export const menuButton = ({ id, config, data }: TMenuProps) => {
     <div className='editMenuContainer'>
       <AddComponentButton
         text="Add Children"
+        buttonType="button"
+        style="menuButton"
+        disabled={!config.editor.children}
       />
       <EditComponentButton
         buttonType="button"
@@ -27,6 +30,7 @@ export const menuButton = ({ id, config, data }: TMenuProps) => {
         id={id}
         config={config}
         data={data}
+        disabled={!config.editor.editable}
       />
       <Button
         buttonType="button"
@@ -52,6 +56,7 @@ export const menuButton = ({ id, config, data }: TMenuProps) => {
         text="Delete"
         iconLeft="lum-icon-cross"
         id={id}
+        disabled={!config.editor.delete}
       />
     </div>
   );

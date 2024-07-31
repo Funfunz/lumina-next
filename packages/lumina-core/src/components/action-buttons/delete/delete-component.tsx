@@ -8,7 +8,7 @@ type TProps = TLumButtonAsButton & {
   id: string,
 }
 
-export const DeleteComponentButton = ({ id, text, iconLeft, iconRight, className, style }: TProps) => {
+export const DeleteComponentButton = ({ id, text, iconLeft, iconRight, className, style, disabled }: TProps) => {
   const { handleOpenModal } = useToggleModalContext()
   const { handleToggleMenu } = useToggleMenuContext()
   const handleToggleDeleteModal = () => {
@@ -20,16 +20,15 @@ export const DeleteComponentButton = ({ id, text, iconLeft, iconRight, className
   }
 
   return (
-    <>
-      <Button
-        buttonType="button"
-        onClick={handleToggleDeleteModal}
-        style={style}
-        text={text}
-        iconLeft={iconLeft}
-        iconRight={iconRight}
-        className={className}
-      />
-    </>
+    <Button
+      buttonType="button"
+      onClick={handleToggleDeleteModal}
+      style={style}
+      text={text}
+      iconLeft={iconLeft}
+      iconRight={iconRight}
+      className={className}
+      disabled={disabled}
+    />
   )
 }
