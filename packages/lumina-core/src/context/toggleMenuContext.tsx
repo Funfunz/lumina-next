@@ -1,4 +1,6 @@
-import { ReactNode, createContext, useContext, useEffect, useRef, useState } from "react";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
+import { ReactNode, createContext, useContext, useEffect, useRef, useState } from 'react'
 
 type TToggleMenuContext = {
   handleToggleMenu: (id: string) => void
@@ -11,13 +13,13 @@ type EditorExpandMenu = {
 }
 
 const initialMenuState: EditorExpandMenu = {
-  id: "",
-  isOpen: false
+  id: '',
+  isOpen: false,
 }
 
 const ToggleMenuContext = createContext<TToggleMenuContext>({
   handleToggleMenu: (id: string) => null,
-  menuState: initialMenuState
+  menuState: initialMenuState,
 })
 
 export const ToggleMenuContextProvider = ({ children }: { children: ReactNode }) => {
@@ -29,14 +31,13 @@ export const ToggleMenuContextProvider = ({ children }: { children: ReactNode })
     previousState.current = menuState
   }, [menuState])
 
-
   const handleToggleMenu = (id: string) => {
     if (previousState.current.id === id) {
       setMenuState(initialMenuState)
     } else {
       setMenuState({
         id: id,
-        isOpen: true
+        isOpen: true,
       })
     }
   }
@@ -44,7 +45,7 @@ export const ToggleMenuContextProvider = ({ children }: { children: ReactNode })
   return (
     <ToggleMenuContext.Provider value={{ handleToggleMenu, menuState }}>
       {children}
-    </ToggleMenuContext.Provider >
+    </ToggleMenuContext.Provider>
   )
 }
 

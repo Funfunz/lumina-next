@@ -1,10 +1,11 @@
-import { ReactNode, createContext, useContext, useState } from "react"
-import { IComponentProps } from "../models/data"
-import { TConfig } from "@/models/editor-buttonModel"
+/* eslint-disable no-unused-vars */
+import { ReactNode, createContext, useContext, useState } from 'react'
+import { IComponentProps } from '../models/data'
+import { TConfig } from '@/models/editor-buttonModel'
 
-export const ADDMODAL = "ADD"
-export const EDITMODAL = "EDIT"
-export const DELETEMODAL = "DELETE"
+export const ADDMODAL = 'ADD'
+export const EDITMODAL = 'EDIT'
+export const DELETEMODAL = 'DELETE'
 
 type TToggleModalProps = {
   data?: IComponentProps
@@ -22,15 +23,15 @@ const initialModalState: TModalState = {
   isOpen: false,
   data: {},
   config: {
-    name: "",
+    name: '',
     editor: {
       children: false,
       editable: false,
-      delete: false
-    }
+      delete: false,
+    },
   },
-  id: "",
-  modalType: null
+  id: '',
+  modalType: null,
 }
 
 type TToggleModalContext = {
@@ -42,7 +43,7 @@ type TToggleModalContext = {
 const ToggleModalContext = createContext<TToggleModalContext>({
   handleCloseModal: () => null,
   handleOpenModal: () => null,
-  modalState: initialModalState
+  modalState: initialModalState,
 })
 
 export const ToggleModalContextProvider = ({ children }: { children: ReactNode }) => {
@@ -54,18 +55,18 @@ export const ToggleModalContextProvider = ({ children }: { children: ReactNode }
       config: config,
       id: id,
       isOpen: true,
-      modalType: modalType
+      modalType: modalType,
     })
   }
 
   const handleCloseModal = () => {
     setModalState({
       ...modalState,
-      isOpen: false
+      isOpen: false,
     })
   }
 
-  console.log("modalState:", modalState)
+  console.log('modalState:', modalState)
 
   return (
     <ToggleModalContext.Provider value={{ handleCloseModal, handleOpenModal, modalState }}>
