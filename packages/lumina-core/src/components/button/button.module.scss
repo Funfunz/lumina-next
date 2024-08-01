@@ -22,7 +22,7 @@
     cursor: not-allowed;
   }
 
-  //Exception for sidebar - working
+  //Exception for sidebar
   &:hover {
     &:not(.sidebarTab) {
       background-color: grey;

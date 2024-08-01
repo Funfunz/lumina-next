@@ -1,26 +1,34 @@
-'use client'
+"use client";
 
-import { config } from './config'
-import { EditorButton } from '@lumina/core'
-import styles from './image.module.scss'
+import { config } from "./config";
+import { EditorButton } from "@lumina/core";
+import styles from "./image.module.scss";
+import { useState } from "react";
 
 type TProps = {
-  id: string
-  href: string
-  alt: string
-}
+  id: string;
+  href: string;
+  alt: string;
+};
 
 export const Image = ({ href, alt, id }: TProps) => {
+  const [isHovered, setIsHovered] = useState(false);
 
-  if (!href) return null
+  if (!href) return null;
+
   return (
-    <div className={styles.imageContainer}>
-      <img
-        className='image'
-        src={href}
-        alt={alt}
+    <div
+      className={styles.imageContainer}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <img className="image" src={href} alt={alt} />
+      <EditorButton
+        id={id}
+        config={config}
+        data={{ href, alt }}
+        isHovered={isHovered}
       />
-      <EditorButton id={id} config={config} data={{ href, alt }} />
     </div>
-  )
-}
+  );
+};

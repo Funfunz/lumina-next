@@ -1,8 +1,16 @@
 *:has(> .showEditContainer):hover {
   outline: 1px solid black;
 
-  >.showEditContainer {
+  > .showEditContainer {
     visibility: visible;
+  }
+}
+
+.onHover {
+  background-color: grey;
+  border-radius: 25%;
+  .icon {
+    color: whitesmoke !important;
   }
 }
 
