@@ -1,8 +1,8 @@
-export interface IComponentProps  {
+export interface IComponentProps {
   [key: string]: string | number | undefined
 }
 
-export interface IPageProps  {
+export interface IPageProps {
   [key: string]: string | number | undefined
 }
 
@@ -16,15 +16,15 @@ export interface IComponentData {
 }
 
 export interface IPageData {
-    id: string,
-    pageName: string,
-    friendlyName: string,
-    extendedName: string,
-    dateModified: string,
-    status: string,
-    children?: IComponentData[],
-    props?: IPageProps,
-    route: string
+  id: string,
+  pageName: string,
+  friendlyName: string,
+  extendedName: string,
+  dateModified: string,
+  status: string,
+  children?: IComponentData[],
+  props?: IPageProps,
+  route: string
 }
 
 export interface IData {

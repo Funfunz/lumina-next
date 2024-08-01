@@ -1,5 +1,3 @@
-"use client";
-
 /**
  * this is the ContextProvider component
  * it contains all the page builder context
@@ -33,13 +31,12 @@ export function ContextProvider({
   children,
   data = {},
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
   data?: {
-    appContext?: IAppContext;
+    appContext?: IAppContext
     builderDataContext?: IBuilderDataContext
   }
 }) {
-  console.log("ContextProvider")
   const initialState = {
     ...initialContext,
     appContext: {
@@ -49,7 +46,7 @@ export function ContextProvider({
     builderDataContext: {
       ...initialBuilderDataContextState,
       ...(data.builderDataContext || {}),
-    },
+    }
   }
   const [state, dispatch] = useReducer(mainReducer, initialState)
 

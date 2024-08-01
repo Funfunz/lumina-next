@@ -3,7 +3,11 @@
   "version": "0.0.1",
   "description": "Lumina documentation",
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
+    "prepare": "husky",
     "dev": "vite",
     "build": "rimraf ./dist && rimraf ./storybook-static && tsc -b && vite build && pnpm run build:storybook",
     "build:storybook": "storybook build",
@@ -44,6 +48,8 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "globals": "^15.8.0",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.7",
     "stylelint": "^16.8.1",
     "stylelint-config-recess-order": "^5.0.1",
     "stylelint-config-standard-scss": "^13.1.0",
@@ -55,5 +61,18 @@
     "typescript": "^5.5.4",
     "vite": "^5.3.5",
     "rimraf": "^6.0.1"
+  },
+  "lint-staged": {
+    "*.{scss,css}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --quiet --fix",
+      "prettier --write"
+    ],
+    "!(*.scss|*.css|*.js|*.jsx|*.ts|*.tsx)": [
+      "prettier --write"
+    ]
   }
 }

@@ -2,6 +2,8 @@
   "name": "@lumina/core",
   "version": "0.0.1",
   "description": "Lumina package",
+  "author": "",
+  "license": "ISC",
   "exports": {
     ".": {
       "import": "./dist/main.js"
@@ -13,15 +15,21 @@
     "./font1.woff": "./fonts/LuminaIcon.woff"
   },
   "main": "dist/main.js",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
+    "prepare": "husky",
     "dev": "npm run build && watch -p 'src/**/*' -c 'npm run build'",
-    "build": "tsc && tsc-alias && sass src/styles/index.scss dist/css/index.css",
+    "build": "npm run build:theme && npm run build:js && npm run build:css",
+    "build:theme": "node ./src/styles/theme/build.js",
+    "build:js": "tsc && tsc-alias",
+    "build:css": "sass src/styles/index.scss dist/css/index.css",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "eslint ./src --fix --report-unused-disable-directives --max-warnings 10",
     "lint:css": "stylelint --fix \"**/*.{css,scss}\" --config ../../.stylelintrc.json"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^9.8.0",
     "@types/react": "^18.3.3",
@@ -30,18 +38,22 @@
     "eslint-plugin-react": "^7.35.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.7",
     "globals": "^15.8.0",
     "i": "^0.3.7",
     "npm": "^10.8.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "style-dictionary": "^4.0.1",
     "stylelint": "^16.8.1",
     "stylelint-config-recess-order": "^5.0.1",
     "stylelint-config-standard-scss": "^13.1.0",
     "stylelint-config-standard": "^36.0.1",
     "stylelint-config-prettier-scss": "^1.0.0",
     "typescript-eslint": "^7.18.0",
-    "prettier": "^3.3.3"
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1"
   },
   "dependencies": {
     "classnames": "^2.5.1",
@@ -51,5 +63,18 @@
     "tsc-alias": "^1.8.10",
     "typescript": "^5.5.4",
     "watch-cli": "^0.2.3"
+  },
+  "lint-staged": {
+    "*.{scss,css}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --quiet --fix",
+      "prettier --write"
+    ],
+    "!(*.scss|*.css|*.js|*.jsx|*.ts|*.tsx)": [
+      "prettier --write"
+    ]
   }
 }

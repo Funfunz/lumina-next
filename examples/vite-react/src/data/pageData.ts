@@ -69,7 +69,7 @@ const data: IData = {
             "id": "grid4",
             "friendlyName": "grid4",
             "type": "grid",
-            "order":0,
+            "order": 0,
             "children": [
               {
                 "id": "grid4image1",
@@ -194,7 +194,7 @@ const data: IData = {
             "id": "grid4",
             "friendlyName": "grid4",
             "type": "grid",
-            "order":0,
+            "order": 0,
             "children": [
               {
                 "id": "grid4image1",
@@ -319,7 +319,7 @@ const data: IData = {
             "id": "grid4",
             "friendlyName": "grid4",
             "type": "grid",
-            "order":0,
+            "order": 0,
             "children": [
               {
                 "id": "grid4image1",

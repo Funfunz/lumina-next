@@ -1,9 +1,9 @@
 import { config } from './config'
 import { IInitialStateType } from './LinkboxContextV2'
-import { EditorButton } from '@lumina/core'
+import { EditorButtonsContainer } from '@lumina/core'
 import styles from './linkBox.module.scss'
 
-export const LinkBoxInternalNested = ({state, onUpdateCallback}: {state: IInitialStateType, onUpdateCallback: (state: IInitialStateType) => void}) => {
+export const LinkBoxInternalNested = ({ state, onUpdateCallback }: { state: IInitialStateType, onUpdateCallback: (state: IInitialStateType) => void }) => {
   if (!state) return null
   return (
     <a
@@ -12,8 +12,8 @@ export const LinkBoxInternalNested = ({state, onUpdateCallback}: {state: IInitia
       target="_blank"
       rel="noopener noreferrer"
     >
-      <EditorButton id={state.id} onUpdate={onUpdateCallback} config={config} data={state}/>
-      <h2 style={{color: state.color}}>
+      <EditorButtonsContainer id={state.id} onUpdate={onUpdateCallback} config={config} data={state} />
+      <h2 style={{ color: state.color }}>
         {state.title} <span>-&gt;</span>
       </h2>
       <p>{state.description}</p>
