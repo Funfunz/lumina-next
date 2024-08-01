@@ -25,18 +25,5 @@
   },
   "dependencies": {
     "@changesets/cli": "^2.27.7"
-  },
-  "lint-staged": {
-    "*.{scss,css}": [
-      "stylelint --fix",
-      "prettier --write"
-    ],
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --quiet --fix",
-      "prettier --write"
-    ],
-    "!(*.scss|*.css|*.js|*.jsx|*.ts|*.tsx)": [
-      "prettier --write"
-    ]
   }
 }
