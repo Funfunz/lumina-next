@@ -1,5 +1,5 @@
-@import "./treeviewHeader/styles";
-@import "./treeBranch/styles";
+@import './treeviewHeader/styles';
+@import './treeBranch/styles';
 
 .treeview_container {
   position: relative;
@@ -14,9 +14,9 @@
 .treeview_header {
   display: flex;
   flex-wrap: wrap;
+  row-gap: var(--lum-size-spacing-m);
   align-items: center;
   justify-content: space-between;
-  row-gap: var(--lum-size-spacing-m);
 
   .treeAddButton {
     display: flex;
