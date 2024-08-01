@@ -14,6 +14,9 @@
   },
   "main": "dist/main.js",
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "npm run build && watch -p 'src/**/*' -c 'npm run build'",
     "build": "npm run build:theme && npm run build:js && npm run build:css",

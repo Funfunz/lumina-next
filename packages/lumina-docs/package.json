@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Lumina documentation",
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "vite",
     "build": "rimraf ./dist && rimraf ./storybook-static && tsc -b && vite build && pnpm run build:storybook",
