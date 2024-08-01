@@ -1,0 +1,26 @@
+@import "./treeviewHeader/styles";
+@import "./treeBranch/styles";
+
+.treeview_container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.treeScroll {
+  overflow-y: scroll;
+}
+
+.treeview_header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  row-gap: var(--lum-size-spacing-m);
+
+  .treeAddButton {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+  }
+}

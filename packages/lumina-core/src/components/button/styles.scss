@@ -1,0 +1,182 @@
+.button {
+  box-sizing: border-box;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  transition: box-shadow 0.2s ease-in-out;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  // CSS for button content
+  .buttonContent {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+  }
+
+  .icon {
+    font-size: 14px;
+    color: #122F54;
+  }
+}
+
+// CSS for 'primary' | 'secondary' | 'warning' | 'danger' | 'filter' | 'live'
+.primary {
+  color: white;
+  background-color: var(--lum-color-button-primary-background);
+
+  &:hover {
+    background-color: #005B5E;
+  }
+
+  &:focus {
+    border-radius: 3px;
+    border: 1px solid #FDFDFD;
+    box-shadow: 0 0 0 2px var(--lum-color-button-primary-background);
+  }
+
+  &:disabled {
+    color: white;
+    background-color: #5E5E61;
+    cursor: not-allowed;
+  }
+}
+
+.secondary {
+  color: var(--lum-color-button-primary-background);
+  background-color: white;
+  border: 1px solid var(--lum-color-button-primary-background);
+
+  &:hover {
+    background-color: #E6F7F6;
+    color: #046158;
+    border: 1px solid #046158;
+  }
+
+  &:focus {
+    color: var(--lum-color-button-primary-background);
+    border-radius: 3px;
+    border: 2px solid var(--lum-color-button-primary-background);
+  }
+
+  &:disabled {
+    color: #5E5E61;
+    background-color: #F5F5F7;
+    border: none;
+    cursor: not-allowed;
+  }
+}
+
+.filter {
+  color: #11111177;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 7px;
+  background-color: #F7F7F7;
+
+  &:hover {
+    color: white;
+    background-color: gray;
+  }
+}
+
+.live {
+  color: #11111177;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background-color: #F7F7F7;
+
+  &:hover {
+    color: white;
+    background-color: gray;
+  }
+}
+
+.warning {
+  border: 1px solid var(--lum-color-button-warning-background);
+  box-shadow: 0px 0px 0px 0px var(--lum-color-button-warning-background);
+
+  &:hover {
+    box-shadow: 0px 3px 5px -1px var(--lum-color-button-warning-background);
+  }
+
+  &:not(.outline) {
+    background-color: var(--lum-color-button-warning-background);
+  }
+
+  &.outline {
+    color: var(--lum-color-button-warning-background);
+  }
+}
+
+.danger {
+  border: 1px solid var(--lum-color-button-danger-background);
+  box-shadow: 0px 0px 0px 0px var(--lum-color-button-danger-background);
+
+  &:hover {
+    box-shadow: 0px 3px 5px -1px var(--lum-color-button-danger-background);
+  }
+
+  &:not(.outline) {
+    background-color: var(--lum-color-button-danger-background);
+  }
+
+  &.outline {
+    color: var(--lum-color-button-danger-background);
+  }
+}
+
+// CSS Gives full width to a button
+.fullWidth {
+  width: 100%;
+}
+
+// CSS for menuButton style that also affects buttonText and icon in the menuButton
+.menuButton {
+  justify-content: start;
+  width: 100%;
+
+  &:not(:disabled):hover {
+    background-color: #E6F7F6;
+  }
+
+  &:disabled {
+    background-color: #F7F7F7;
+    cursor: not-allowed;
+
+    .icon {
+      color: #A7BDD9;
+    }
+  }
+}
+
+// Used for prop size to set between small or large sizes for the button
+.large {
+  border-radius: 3px;
+  padding: 12px 18px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.small {
+  border-radius: 3px;
+  padding: 3px 10px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}

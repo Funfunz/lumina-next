@@ -1,0 +1,56 @@
+.branch_container {
+  position: relative;
+  color: var(--lum-color-text);
+
+
+  & .branch_children {
+    padding: 0 0 0 35px;
+  }
+
+}
+
+.treeHeadItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px;
+  padding-left: 45px;
+  margin-bottom: 2px;
+  font-size: 14px;
+  cursor: default;
+  background-color: white;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px -1px rgb(0 0 0 / 6%), 0 4px 6px -1px rgb(0 0 0 / 10%);
+
+  &:hover {
+    background-color: #F7F7F7;
+  }
+}
+
+.treeViewPointer {
+  cursor: pointer;
+}
+
+.treeViewIcon {
+  position: absolute;
+  z-index: 1;
+  padding: 10px;
+  font-size: 14px;
+  color: #111;
+  background-color: #F7F7F7;
+  border-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  opacity: .66;
+}
+
+.treeTitle {
+  font-size: 16px;
+}
+
+.addText {
+  font-size: 12px;
+  font-weight: 400;
+}
