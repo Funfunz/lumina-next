@@ -1,9 +1,9 @@
-import { IComponentProps } from "@/models/data"
-import { TConfig } from "@/models/editor-buttonModel"
-import { AddComponentButton } from "../action-buttons/add"
-import { EditComponentButton } from "../action-buttons/edit"
-import { Button } from "../button"
-import { DeleteComponentButton } from "../action-buttons/delete"
+import { IComponentProps } from '@/models/data'
+import { TConfig } from '@/models/editor-buttonModel'
+import { AddComponentButton } from '../action-buttons/add'
+import { EditComponentButton } from '../action-buttons/edit'
+import { Button } from '../button'
+import { DeleteComponentButton } from '../action-buttons/delete'
 
 type TMenuProps = {
   id: string
@@ -16,11 +16,11 @@ type TMenuProps = {
  * @param id the component id to be edited
  * @param config the compoennt's config for the lumina editor
  * @param data the editable data from the component
- * @returns 
+ * @returns
  */
 export const ExpandableEditorMenu = ({ id, config, data }: TMenuProps) => {
   return (
-    <div className='expandable_editor_menu'>
+    <div className="expandable_editor_menu">
       <AddComponentButton
         componentId={id}
         buttonLabel="Add Children"
@@ -40,18 +40,21 @@ export const ExpandableEditorMenu = ({ id, config, data }: TMenuProps) => {
         style="menuButton"
         text="Cut"
         iconLeft="lum-icon-cut"
+        disabled={true}
       />
       <Button
         buttonType="button"
         style="menuButton"
         text="Copy"
         iconLeft="lum-icon-clone"
+        disabled={true}
       />
       <Button
         buttonType="button"
         style="menuButton"
         text="Paste"
         iconLeft="lum-icon-paste"
+        disabled={true}
       />
       <DeleteComponentButton
         buttonLabel="Delete"
@@ -60,5 +63,5 @@ export const ExpandableEditorMenu = ({ id, config, data }: TMenuProps) => {
         isMenuButton
       />
     </div>
-  );
+  )
 }

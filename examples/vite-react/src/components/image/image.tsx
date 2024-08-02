@@ -1,7 +1,7 @@
 "use client";
 
 import { config } from "./config";
-import { EditorButton } from "@lumina/core";
+import { EditorButtonsContainer } from "@lumina/core";
 import styles from "./image.module.scss";
 import { useState } from "react";
 
@@ -23,7 +23,7 @@ export const Image = ({ href, alt, id }: TProps) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <img className="image" src={href} alt={alt} />
-      <EditorButton
+      <EditorButtonsContainer
         id={id}
         config={config}
         data={{ href, alt }}

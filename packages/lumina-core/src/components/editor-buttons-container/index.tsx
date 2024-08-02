@@ -24,6 +24,7 @@ type TProps = {
   noDown?: boolean
   visible?: boolean
   menu?: boolean
+  isHovered?: boolean
 }
 
 export const EditorButtonsContainer = ({
@@ -36,6 +37,7 @@ export const EditorButtonsContainer = ({
   noDown,
   visible,
   menu,
+  isHovered,
 }: TProps) => {
   const {
     state: {
@@ -45,9 +47,20 @@ export const EditorButtonsContainer = ({
 
   if (!editor) return null
   return (
-    <div className={cx('showEdit', inline ? 'showEditContainerInline' : 'showEditContainer')}>
+    <div
+      className={cx(
+        'showEdit',
+        inline ? 'showEditContainerInline' : 'showEditContainer',
+        isHovered ? 'onHover' : ''
+      )}>
       {config.editor.editable && !inline && (
-        <EditComponentButton componentId={id} onUpdate={onUpdate} data={data} config={config} />
+        <EditComponentButton
+          componentId={id}
+          onUpdate={onUpdate}
+          data={data}
+          config={config}
+          isHovered={isHovered}
+        />
       )}
 
       {config?.editor.children && !inline && <AddComponentButton componentId={id} />}

@@ -32,7 +32,7 @@ export const AddComponentButton = ({ componentId, buttonLabel, isDisabled, isMen
       onClick={handleButtonClick}
       text={buttonLabel}
       disabled={isDisabled}
-      style={isMenuButton ? "menuButton" : ""}
+      style={isMenuButton ? "menuButton" : "red"}
       iconLeft="lum-icon-plus"
     />
   )
