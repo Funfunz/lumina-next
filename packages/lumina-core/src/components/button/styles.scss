@@ -1,15 +1,14 @@
 .button {
+  @include lum-typo-button;
+
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
   min-width: 22px;
   padding: 0;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 24px;
   cursor: pointer;
-  background-color: transparent;
+  background-color: var(--lum-color-transparent);
   border: none;
   transition: box-shadow 0.2s ease-in-out;
 
@@ -27,18 +26,19 @@
   }
 
   .icon {
-    font-size: 14px;
+    font-size: var(--lum-size-icon-s);
     color: #122f54;
   }
 }
 
 // CSS for 'primary' | 'secondary' | 'warning' | 'danger' | 'filter' | 'live'
+// TODO: use var() instead of hardcoded values, match Figma colors scheme
 .primary {
   color: white;
   background-color: var(--lum-color-button-primary-background);
 
   &:hover {
-    background-color: #005b5e;
+    background-color: var(--lum-color-button-background-hover);
   }
 
   &:focus {
@@ -48,9 +48,9 @@
   }
 
   &:disabled {
-    color: white;
+    color: var(--lum-color-button-disabled);
     cursor: not-allowed;
-    background-color: #5e5e61;
+    background-color: var(--lum-color-button-background-hover);
   }
 }
 

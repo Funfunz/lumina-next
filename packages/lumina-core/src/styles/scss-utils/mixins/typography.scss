@@ -1,6 +1,18 @@
 // @import '@/styles/tokens/index.scss';
 
+@mixin lum-typo-reset {
+  font-family: var(--lum-font-family-reset);
+
+  // font-size: var(--lum-size-font-text);
+  font-style: normal;
+
+  // font-weight: 400;
+  // line-height: var(--lum-size-line-height-text);
+  // letter-spacing: 0.36px;
+}
+
 @mixin lum-typo-body {
+  font-family: var(--lum-font-family-regular);
   font-size: var(--lum-size-font-text);
   font-style: normal;
   font-weight: 400;
@@ -9,6 +21,7 @@
 }
 
 @mixin lum-typo-code {
+  font-family: var(--lum-font-family-code);
   font-size: var(--lum-size-font-code);
   font-style: normal;
   font-weight: 400;
@@ -16,7 +29,26 @@
   letter-spacing: 0.36px;
 }
 
+@mixin lum-typo-icon {
+  font-family: var(--lum-font-family-regular);
+  font-size: var(--lum-size-font-icon);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--lum-size-line-height-code);
+  letter-spacing: 0.36px;
+}
+
+@mixin lum-typo-input {
+  font-family: var(--lum-font-family-regular);
+  font-size: var(--lum-size-font-text);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--lum-size-line-height-text);
+  letter-spacing: 0.12px;
+}
+
 @mixin lum-typo-button {
+  font-family: var(--lum-font-family-regular);
   font-size: var(--lum-size-font-button);
   font-style: normal;
   font-weight: 500;
@@ -26,19 +58,21 @@
 }
 
 @mixin lum-typo-link {
+  font-family: var(--lum-font-family-regular);
   font-size: var(--lum-size-font-text);
   font-weight: 400;
   line-height: var(--lum-size-line-height-text);
-  color: var( --lum-color-text);
+  color: var(--lum-color-text);
   text-decoration: none;
   letter-spacing: 0.36px;
 
   &:hover {
-    color: var( --lum-color-link-hover);
+    color: var(--lum-color-link-hover);
   }
 }
 
 @mixin lum-typo-caption {
+  font-family: var(--lum-font-family-regular);
   font-size: var(--lum-size-font-caption);
   font-weight: 500;
   line-height: var(--lum-size-line-height-caption);
@@ -47,13 +81,23 @@
 }
 
 @mixin lum-typo-small {
+  font-family: var(--lum-font-family-regular);
   font-size: var(--lum-size-font-small);
   font-weight: 400;
   line-height: var(--lum-size-line-height-small);
   letter-spacing: 0.12px;
 }
 
+@mixin lum-typo-tiny {
+  font-family: var(--lum-font-family-regular);
+  font-size: var(--lum-size-font-tiny);
+  font-weight: 400;
+  line-height: var(--lum-size-line-height-small);
+  letter-spacing: 0.12px;
+}
+
 @mixin lum-typo-paragraph {
+  font-family: var(--lum-font-family-regular);
   font-size: var(--lum-size-font-text);
   font-style: normal;
   font-weight: 400;
@@ -62,6 +106,7 @@
 }
 
 @mixin lum-typo-paragraph-small {
+  font-family: var(--lum-font-family-regular);
   font-size: var(--lum-size-font-small);
   font-style: normal;
   font-weight: 400;
@@ -70,24 +115,28 @@
 }
 
 @mixin lum-typo-heading1 {
+  font-family: var(--lum-font-family-regular);
   font-size: var(--lum-size-font-heading1);
   font-weight: 400;
   line-height: var(--lum-size-line-height-heading1);
 }
 
 @mixin lum-typo-heading2 {
+  font-family: var(--lum-font-family-regular);
   font-size: var(--lum-size-font-heading2);
   font-weight: 400;
   line-height: var(--lum-size-line-height-heading2);
 }
 
 @mixin lum-typo-heading3 {
+  font-family: var(--lum-font-family-regular);
   font-size: var(--lum-size-font-heading3);
   font-weight: 400;
   line-height: var(--lum-size-line-height-heading3);
 }
 
 @mixin lum-typo-heading4 {
+  font-family: var(--lum-font-family-regular);
   font-size: var(--lum-size-font-heading4);
   font-weight: 400;
   line-height: var(--lum-size-line-height-heading4);
@@ -95,6 +144,7 @@
 }
 
 @mixin lum-typo-heading5 {
+  font-family: var(--lum-font-family-regular);
   font-size: var(--lum-size-font-heading5);
   font-weight: 400;
   line-height: var(--lum-size-line-height-heading5);
@@ -102,6 +152,7 @@
 }
 
 @mixin lum-typo-heading6 {
+  font-family: var(--lum-font-family-regular);
   font-size: var(--lum-size-font-heading6);
   font-weight: 400;
   line-height: var(--lum-size-line-height-heading6);

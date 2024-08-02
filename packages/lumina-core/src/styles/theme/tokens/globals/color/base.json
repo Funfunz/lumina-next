@@ -2,10 +2,10 @@
   "lum": {
     "color": {
       "white": {
-        "value": "#ffffff"
+        "value": "#FDFDFD"
       },
       "black": {
-        "value": "#000000"
+        "value": "#121212"
       },
       "grey": {
         "value": "#c1c1c1"
@@ -13,17 +13,57 @@
       "light-grey": {
         "value": "#c9c9c9"
       },
+      "transparent": {
+        "value": "transparent"
+      },
+      "surface": {
+        "default": {
+          "value": "#FDFDFD"
+        },
+        "strong": {
+          "value": "#E6E6EB"
+        },
+        "stronger": {
+          "value": "#CCCCD1"
+        }
+      },
+      "fg": {
+        "default": {
+          "value": "#5E5E61"
+        },
+        "weak": {
+          "value": "#7B7B7F"
+        },
+        "weaker": {
+          "value": "#9F9FA3"
+        },
+        "strong": {
+          "value": "#121212"
+        }
+      },
       "primary": {
-        "value": "{lum.color.black.value}"
+        "default": {
+          "value": "#662F8F"
+        },
+        "weak": {
+          "value": "#B99FCB"
+        }
       },
       "secondary": {
-        "value": "{lum.color.offwhite.value}"
+        "default": {
+          "value": "#F7901E"
+        },
+        "weak": {
+          "value": "#FDDDB9"
+        }
       },
-      "disabled": {
-        "value": "#d3d7da"
-      },
-      "offwhite": {
-        "value": "#F4F4F4"
+      "accent": {
+        "default": {
+          "value": "#07B0A0"
+        },
+        "weak": {
+          "value": "#B2E7E2"
+        }
       }
     }
   }
