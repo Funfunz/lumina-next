@@ -5,12 +5,13 @@
 }
 
 .searchText {
+  @include lum-typo-input;
+
   width: 100%;
   padding: 8px 0;
   padding-left: var(--lum-size-spacing-l);
   margin-right: 5px;
-  font-size: 14px;
-  border: 1px solid #CCC;
+  border: 1px solid #ccc;
   border-radius: 5px;
 }
 
@@ -20,5 +21,5 @@
   margin-left: 8px;
   font-size: 18px;
   color: #111;
-  opacity: .66;
+  opacity: 0.66;
 }

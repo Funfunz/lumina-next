@@ -3,16 +3,16 @@
     "color": {
       "background": {
         "base": {
-          "value": "#dde4ee",
-          "attributes": { "font": "base" }
+          "value": "{lum.color.surface.default.value}",
+          "attributes": { "font": "regular" }
         },
         "transparent": {
           "value": "transparent",
-          "attributes": { "font": "base" }
+          "attributes": { "font": "regular" }
         },
         "inverse": {
-          "value": "#2b2d31",
-          "attributes": { "font": "inverse" }
+          "value": "{lum.color.surface.stronger.value}",
+          "attributes": { "font": "regular" }
         }
       }
     }

@@ -18,6 +18,15 @@
   letter-spacing: 0.36px;
 }
 
+@mixin lum-typo-input {
+  font-family: var(--lum-font-family-regular);
+  font-size: var(--lum-size-font-text);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--lum-size-line-height-text);
+  letter-spacing: 0.12px;
+}
+
 @mixin lum-typo-button {
   font-family: var(--lum-font-family-regular);
   font-size: var(--lum-size-font-button);
