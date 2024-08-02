@@ -1,15 +1,19 @@
-/* eslint-disable no-unused-vars */
-import { Button } from "@/components/button"
-import ReactModal from "react-modal"
-import { useCallback, useEffect, useMemo, useState } from "react"
-import { TSelectedOption } from "@/models/editor-buttonModel"
-import { ADDMODAL, DELETEMODAL, EDITMODAL, useToggleModalContext } from "@/context/handleModalsContext"
-import { useLuminaContext } from "@/context/contextProvider"
-import { Title } from "@/components/title"
-import { IComponentProps } from "@/models/data"
-import { AddModal } from "./add"
-import { EditModal } from "./edit"
-import { DeleteModal } from "./delete"
+import { Button } from '@/components/button'
+import ReactModal from 'react-modal'
+import { useCallback, useEffect, useState } from 'react'
+import { TSelectedOption } from '@/models/editor-buttonModel'
+import {
+  ADDMODAL,
+  DELETEMODAL,
+  EDITMODAL,
+  useToggleModalContext,
+} from '@/context/handleModalsContext'
+import { useLuminaContext } from '@/context/contextProvider'
+import { Title } from '@/components/title'
+import { IComponentProps } from '@/models/data'
+import { AddModal } from './add'
+import { EditModal } from './edit'
+import { DeleteModal } from './delete'
 
 export type TAddModalProps = {
   selectedOption: TSelectedOption | undefined
@@ -25,22 +29,21 @@ export const EditorModal = () => {
     modalName: '',
     modalAriaLabel: '',
     modalOkButtonLabel: '',
-    modalClickHandler: () => { },
+    modalClickHandler: () => {},
   }
   const [modalData, setModalData] = useState(initialModalData)
 
   // Add modal props
   const initialAddState: TAddModalProps = {
     selectedOption: undefined,
-    cmpName: ""
+    cmpName: '',
   }
   const [addModalProps, setAddModalProps] = useState<TAddModalProps>(initialAddState)
 
   // Edit modal props
   const [formData, setFormData] = useState<IComponentProps>()
   useEffect(() => {
-    if (data)
-      setFormData(data)
+    if (data) setFormData(data)
   }, [data])
 
   /**
@@ -51,15 +54,15 @@ export const EditorModal = () => {
   const handleAddComponent = useCallback(() => {
     if (!addModalProps.selectedOption?.value) return
     dispatch({
-      type: "createComponent",
+      type: 'createComponent',
       data: {
         parentId: id || '',
         id: (Math.floor(Math.random() * 100) + 1).toString(),
         type: addModalProps.selectedOption?.value,
         friendlyName: addModalProps.cmpName,
         children: [],
-        props: {}
-      }
+        props: {},
+      },
     })
     // TODO: not implemented
     // dispatch({
@@ -71,9 +74,7 @@ export const EditorModal = () => {
     // });
     setAddModalProps(initialAddState)
     handleCloseModal()
-  },
-    [dispatch, id, handleCloseModal, addModalProps]
-  )
+  }, [dispatch, id, handleCloseModal, addModalProps])
 
   /**
    * Edits the component data
@@ -82,23 +83,24 @@ export const EditorModal = () => {
     if (formData) {
       onUpdate && onUpdate(formData)
       dispatch({
-        type: "updateBackend",
+        type: 'updateBackend',
         data: {
           props: formData,
           id: id!,
         },
       })
       dispatch({
-        type: "updateComponent",
+        type: 'updateComponent',
         data: {
           newProps: formData,
           id: id!,
         },
       })
       handleCloseModal()
-    } else (error: any) => {
-      throw error
-    }
+    } else
+      (error: any) => {
+        throw error
+      }
   }, [formData, onUpdate, id, dispatch])
 
   /**
@@ -106,46 +108,45 @@ export const EditorModal = () => {
    */
   const handleDeleteComponent = useCallback(() => {
     dispatch({
-      type: "deleteComponent",
+      type: 'deleteComponent',
       data: {
         id: id!,
       },
     })
     handleCloseModal()
-  },
-    [dispatch, id]
-  )
+  }, [dispatch, id])
 
   /**
-  * Set the modal labels and click handler
-  */
+   * Set the modal labels and click handler
+   */
   useEffect(() => {
     switch (modalType) {
       case ADDMODAL:
         setModalData({
-          modalName: "Add Component",
-          modalAriaLabel: "Add a component Modal",
+          modalName: 'Add Component',
+          modalAriaLabel: 'Add a component Modal',
           modalOkButtonLabel: 'Add component',
           modalClickHandler: () => handleAddComponent(),
         })
         break
       case EDITMODAL:
         setModalData({
-          modalName: "Edit Component",
-          modalAriaLabel: "Edit a component Modal",
+          modalName: 'Edit Component',
+          modalAriaLabel: 'Edit a component Modal',
           modalOkButtonLabel: 'Save changes',
           modalClickHandler: () => handleSaveData(),
         })
         break
       case DELETEMODAL:
         setModalData({
-          modalName: "Delete Component",
-          modalAriaLabel: "Delete a component Modal",
+          modalName: 'Delete Component',
+          modalAriaLabel: 'Delete a component Modal',
           modalOkButtonLabel: 'Yes, delete',
           modalClickHandler: () => handleDeleteComponent(),
         })
         break
-      default: null
+      default:
+        null
     }
   }, [modalType, isOpen, handleAddComponent, handleDeleteComponent, handleSaveData])
 
@@ -156,18 +157,13 @@ export const EditorModal = () => {
   const renderModalType = () => {
     switch (modalType) {
       case ADDMODAL:
-        return (
-          <AddModal handleModalProps={setAddModalProps} modalProps={addModalProps!} />
-        )
+        return <AddModal handleModalProps={setAddModalProps} modalProps={addModalProps!} />
       case EDITMODAL:
-        return (
-          <EditModal formData={formData} setFormData={setFormData} />
-        )
+        return <EditModal formData={formData} setFormData={setFormData} />
       case DELETEMODAL:
-        return (
-          <DeleteModal />
-        )
-      default: return null
+        return <DeleteModal />
+      default:
+        return null
     }
   }
 
@@ -178,7 +174,7 @@ export const EditorModal = () => {
       contentLabel={modalData.modalAriaLabel}
       className="editor-modal"
       overlayClassName="modalOverlay"
-      role={"dialog"}
+      role={'dialog'}
     >
       <div className="editor-modal_content-header">
         <Title content={modalData.modalName} />
@@ -191,9 +187,7 @@ export const EditorModal = () => {
         />
       </div>
 
-      <div className="editor-modal_form-content">
-        {renderModalType()}
-      </div>
+      <div className="editor-modal_form-content">{renderModalType()}</div>
 
       <div className="editor-modal_buttons-container">
         <Button
@@ -202,12 +196,7 @@ export const EditorModal = () => {
           style="primary"
           onClick={modalData.modalClickHandler}
         />
-        <Button
-          buttonType="button"
-          text="Cancel"
-          style="secondary"
-          onClick={handleCloseModal}
-        />
+        <Button buttonType="button" text="Cancel" style="secondary" onClick={handleCloseModal} />
       </div>
     </ReactModal>
   )

@@ -1,8 +1,7 @@
-
-import { Form, LuminaInputRenderer } from "@/components/editor-buttons-container/inputRenderer"
-import { useToggleModalContext } from "@/context/handleModalsContext"
-import { IComponentProps } from "@/models/data"
-import { Dispatch, SetStateAction, useCallback, useState } from "react"
+import { Form, LuminaInputRenderer } from '@/components/editor-buttons-container/inputRenderer'
+import { useToggleModalContext } from '@/context/handleModalsContext'
+import { IComponentProps } from '@/models/data'
+import { Dispatch, SetStateAction, useCallback } from 'react'
 
 type TProps = {
   formData: IComponentProps | undefined
@@ -13,7 +12,7 @@ export const EditModal = ({ formData, setFormData }: TProps) => {
   const { config } = modalState
 
   /**
-   * 
+   *
    */
   const handleOnChangeInput = useCallback(
     (key: string, value: string | number) => {
@@ -31,7 +30,7 @@ export const EditModal = ({ formData, setFormData }: TProps) => {
         <LuminaInputRenderer
           key={index}
           config={configItem}
-          value={formData![configItem.name] || ""}
+          value={formData![configItem.name] || ''}
           handleOnChangeInput={handleOnChangeInput}
         />
       ))}
