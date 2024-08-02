@@ -1,5 +1,16 @@
 // @import '@/styles/tokens/index.scss';
 
+@mixin lum-typo-reset {
+  font-family: var(--lum-font-family-reset);
+
+  // font-size: var(--lum-size-font-text);
+  font-style: normal;
+
+  // font-weight: 400;
+  // line-height: var(--lum-size-line-height-text);
+  // letter-spacing: 0.36px;
+}
+
 @mixin lum-typo-body {
   font-family: var(--lum-font-family-regular);
   font-size: var(--lum-size-font-text);
@@ -12,6 +23,15 @@
 @mixin lum-typo-code {
   font-family: var(--lum-font-family-code);
   font-size: var(--lum-size-font-code);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--lum-size-line-height-code);
+  letter-spacing: 0.36px;
+}
+
+@mixin lum-typo-icon {
+  font-family: var(--lum-font-family-regular);
+  font-size: var(--lum-size-font-icon);
   font-style: normal;
   font-weight: 400;
   line-height: var(--lum-size-line-height-code);
@@ -63,6 +83,14 @@
 @mixin lum-typo-small {
   font-family: var(--lum-font-family-regular);
   font-size: var(--lum-size-font-small);
+  font-weight: 400;
+  line-height: var(--lum-size-line-height-small);
+  letter-spacing: 0.12px;
+}
+
+@mixin lum-typo-tiny {
+  font-family: var(--lum-font-family-regular);
+  font-size: var(--lum-size-font-tiny);
   font-weight: 400;
   line-height: var(--lum-size-line-height-small);
   letter-spacing: 0.12px;

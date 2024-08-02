@@ -2,14 +2,17 @@
   "lum": {
     "font": {
       "family": {
+        "reset": {
+          "value": "'Helvetica', 'Arial', 'sans-serif'"
+        },
         "code": {
-          "value": "ui-monospace, 'Menlo', 'Monaco', 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace"
+          "value": "'ui-monospace', 'Menlo', 'Monaco', 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', 'monospace'"
         },
         "regular": {
-          "value": "'ProximaNova-Regular', Helvetica, Arial, sans-serif"
+          "value": "'ProximaNova-Regular', 'Helvetica', 'Arial', 'sans-serif'"
         },
         "bold": {
-          "value": "'ProximaNova-Bold', Helvetica, Arial, sans-serif"
+          "value": "'ProximaNova-Bold', 'Helvetica', 'Arial', 'sans-serif'"
         }
       }
     }

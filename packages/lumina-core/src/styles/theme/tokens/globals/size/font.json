@@ -56,6 +56,11 @@
           "value": "{lum.size.font.small.value}",
           "comment": "Pre/Code Equal to P1"
         },
+        "icon": {
+          "value": "0.875rem",
+          "category": "typography",
+          "comment": "P3 - 14px"
+        },
         "button": {
           "value": "{lum.size.font.small.value}",
           "comment": "Equals P1"
