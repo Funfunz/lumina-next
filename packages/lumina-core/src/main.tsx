@@ -10,6 +10,7 @@ import { ToggleModalContextProvider } from "./context/handleModalsContext";
 import { AddModal } from "./components/modals/add";
 import { EditModal } from "./components/modals/edit";
 import { DeleteModal } from "./components/modals/delete";
+import { EditorModal } from "./components/modals";
 
 export type TComponentConfig = {
   [key: string]: {
@@ -73,9 +74,7 @@ export default function Lumina({ selectedPage, getData, components }: TProps = d
     >
       <ToggleModalContextProvider>
         <Editor>
-          <AddModal />
-          <EditModal />
-          <DeleteModal />
+          <EditorModal />
           <Render />
         </Editor>
       </ToggleModalContextProvider>

@@ -1,10 +1,4 @@
-.inlineButtons {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.modalEdit {
+.editor-modal {
   position: absolute;
   top: 20%;
   left: 50%;
@@ -16,4 +10,20 @@
   border-radius: 10px;
   box-shadow: 0 2px 4px -1px rgb(0 0 0 / 6%), 0 4px 6px -1px rgb(0 0 0 / 10%);
   transform: translateX(-50%);
+
+  &_close-button {
+    position: absolute;
+    top: -16px;
+    right: -16px;
+    border-radius: 100%;
+  }
+
+  &_form-content {
+    margin-bottom: 35px;
+  }
+
+  &_buttons-container {
+    display: flex;
+    gap: 10px;
+  }
 }

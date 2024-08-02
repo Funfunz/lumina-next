@@ -207,7 +207,6 @@ function moveDownElement(
   const newComponents = components.map(
     (element) => {
       if (element.id === targetId) {
-        console.log(element, targetId)
         oldOrder = element.order
         componentToReplace = downOrderElement(element, components)
         if (componentToReplace) {
@@ -281,6 +280,7 @@ export const builderDataContextReducer = (
       return newState;
 
     case "createComponent":
+      console.log('create cmp: ', data)
       const stateCreateComponent = {
         ...data,
         builderData: {
@@ -297,6 +297,7 @@ export const builderDataContextReducer = (
       return stateCreateComponent;
 
     case "updateComponent":
+      console.log('edit cmp:', data)
       const stateUpdateComponent = {
         ...data,
         builderData: {
