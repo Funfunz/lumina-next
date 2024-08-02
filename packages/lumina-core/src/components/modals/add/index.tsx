@@ -20,8 +20,8 @@ export const AddModal = ({ handleModalProps, modalProps }: TProps) => {
     return {
       value: opt.config.name,
       label: opt.config.name,
-    };
-  });
+    }
+  })
 
 
   // Handler for on Change from dropdown - BM

@@ -49,7 +49,7 @@
   --lum-color-button-warning-background: #ffc31d;
   --lum-color-button-secondary-background: #5656c7;
   --lum-color-button-primary-background: #00bbb7;
-  --lum-color-offwhite: #F4F4F4;
+  --lum-color-offwhite: #f4f4f4;
   --lum-color-disabled: #d3d7da;
   --lum-color-light-grey: #c9c9c9;
   --lum-color-grey: #c1c1c1;
@@ -70,7 +70,9 @@
   --lum-asset-font-evolve-regular-name: made evolve sans;
   --lum-component-size-sidebar: 37.5rem; /* 600px */
   --lum-font-family-base: 'MADE Evolve Sans', 'Open Sans', helvetica, arial, sans-serif;
-  --lum-font-family-code: ui-monospace, 'Menlo', 'Monaco', 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --lum-font-family-code: ui-monospace, 'Menlo', 'Monaco', 'Cascadia Mono', 'Segoe UI Mono',
+    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono',
+    'Droid Sans Mono', 'Courier New', monospace;
   --lum-size-line-height-button: var(--lum-size-line-height-caption); /* Equals to Caption */
   --lum-size-font-button: var(--lum-size-font-small); /* Equals P1 */
   --lum-size-font-code: var(--lum-size-font-small); /* Pre/Code Equal to P1 */

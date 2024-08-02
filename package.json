@@ -1,21 +1,27 @@
 {
   "name": "repo-lumina",
   "private": true,
+  "packageManager": "pnpm@8.15.6",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
+    "prepare": "husky",
     "build": "turbo build",
-    "dev": "turbo dev",
+    "dev": "turbo run dev --concurrency 20",
     "storybook": "turbo storybook",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "lint": "turbo run lint -- --fix",
+    "format": "prettier --write \"**/*.{js,ts,tsx,md,json}\" --ignore-path .gitignore",
+    "clean": "git clean -xdf node_modules",
+    "clean:workspaces": "turbo clean"
   },
   "devDependencies": {
+    "dotenv": "^16.4.5",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.7",
     "prettier": "^3.2.5",
     "turbo": "^2.0.9",
     "typescript": "^5.4.5"
-  },
-  "packageManager": "pnpm@8.15.6",
-  "engines": {
-    "node": ">=18"
   },
   "dependencies": {
     "@changesets/cli": "^2.27.7"
