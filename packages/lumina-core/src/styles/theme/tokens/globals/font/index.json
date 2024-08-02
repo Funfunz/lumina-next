@@ -5,8 +5,11 @@
         "code": {
           "value": "ui-monospace, 'Menlo', 'Monaco', 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace"
         },
-        "base": {
-          "value": "'MADE Evolve Sans', 'Open Sans', Helvetica, Arial, sans-serif"
+        "regular": {
+          "value": "'ProximaNova-Regular', Helvetica, Arial, sans-serif"
+        },
+        "bold": {
+          "value": "'ProximaNova-Bold', Helvetica, Arial, sans-serif"
         }
       }
     }
