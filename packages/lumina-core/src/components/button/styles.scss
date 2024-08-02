@@ -22,8 +22,10 @@
     &:not(.sidebarTab) {
       background-color: grey;
       border-radius: 15%;
+
       .buttonContent {
         color: whitesmoke;
+
         .icon {
           &:not(.sidebarLuminaIcon) {
             color: whitesmoke;
@@ -163,15 +165,15 @@
 .red {
   background-color: lightgrey;
   border-radius: 25%;
+
   .buttonContent {
     color: darkblue;
+
     .icon {
       color: darkblue;
     }
   }
 }
-
-
 
 .menuButton {
   justify-content: start;
