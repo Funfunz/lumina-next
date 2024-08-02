@@ -16,6 +16,24 @@
     box-sizing: border-box;
   }
 
+  //Exception for sidebar
+  &:hover {
+    &:not(.sidebarTab) {
+      background-color: grey;
+      border-radius: 15%;
+
+      .buttonContent {
+        color: whitesmoke;
+
+        .icon {
+          &:not(.sidebarLuminaIcon) {
+            color: whitesmoke;
+          }
+        }
+      }
+    }
+  }
+
   // CSS for button content
   .buttonContent {
     display: flex;
@@ -144,6 +162,19 @@
 }
 
 // CSS for menuButton style that also affects buttonText and icon in the menuButton
+.onHover {
+  background-color: lightgrey;
+  border-radius: 25%;
+
+  .buttonContent {
+    color: darkblue;
+
+    .icon {
+      color: darkblue;
+    }
+  }
+}
+
 .menuButton {
   justify-content: start;
   width: 100%;
