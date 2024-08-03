@@ -40,6 +40,13 @@ export const AddModal = () => {
   /**
    *
    */
+
+  //Closing with ESC when clicked on modal first. overlay not context?
+  const clickOutside = () => {
+    console.log('clicked outside the box')
+    handleCloseModal()
+  }
+
   const handleAddComponent = useCallback(() => {
     if (!selectedOption) return
     handleCloseModal()
@@ -82,6 +89,8 @@ export const AddModal = () => {
       className="modalEdit"
       overlayClassName="modalOverlay"
       role={'dialog'}
+      onRequestClose={clickOutside}
+      shouldCloseOnOverlayClick={true}
     >
       <Select
         id={`addComponent_dropdown_${id}`}
