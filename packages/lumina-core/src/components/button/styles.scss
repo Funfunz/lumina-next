@@ -16,11 +16,11 @@
     box-sizing: border-box;
   }
 
-  //Exception for sidebar
   &:hover {
     &:not(.sidebarTab) {
-      background-color: grey;
-      border-radius: 15%;
+      color: white;
+      background-color: var(--lum-color-button-primary-background);
+      border-radius: 3px;
 
       .buttonContent {
         color: whitesmoke;
@@ -118,7 +118,7 @@
 
   &:hover {
     color: white;
-    background-color: gray;
+    background-color: #06a092;
   }
 }
 
@@ -163,14 +163,14 @@
 
 // CSS for menuButton style that also affects buttonText and icon in the menuButton
 .onHover {
-  background-color: lightgrey;
-  border-radius: 25%;
+  background-color: #046158;
+  border-radius: 3px;
 
   .buttonContent {
-    color: darkblue;
+    color: white;
 
     .icon {
-      color: darkblue;
+      color: white;
     }
   }
 }
