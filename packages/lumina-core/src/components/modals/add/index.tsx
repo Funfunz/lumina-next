@@ -82,6 +82,7 @@ export const AddModal = () => {
   }
 
   return (
+    //Add a "simple" ReactModal
     <ReactModal
       ariaHideApp={false}
       isOpen={isModalOpen}

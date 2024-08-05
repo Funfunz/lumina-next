@@ -1,15 +1,15 @@
 /* eslint-disable no-unused-vars */
 
-import { ContextProvider } from "./context/contextProvider"
-import { Editor } from "./components/editor"
-import { Render } from "./components/render"
-import type { IData, IPageData } from "./models/data";
-import { useEffect, useState } from "react";
-import { TConfig } from "./models/editor-buttonModel";
-import { ToggleModalContextProvider } from "./context/handleModalsContext";
-import { AddModal } from "./components/modals/add";
-import { EditModal } from "./components/modals/edit";
-import { DeleteModal } from "./components/modals/delete";
+import { ContextProvider } from './context/contextProvider'
+import { Editor } from './components/editor'
+import { Render } from './components/render'
+import type { IData, IPageData } from './models/data'
+import { useEffect, useState } from 'react'
+import { TConfig } from './models/editor-buttonModel'
+import { ToggleModalContextProvider } from './context/handleModalsContext'
+import { AddModal } from './components/modals/add'
+import { EditModal } from './components/modals/edit'
+import { DeleteModal } from './components/modals/delete'
 
 export type TComponentConfig = {
   [key: string]: {
@@ -27,13 +27,17 @@ type TProps = {
 const defaultValues: TProps = {
   selectedPage: 'home',
   getData: async () => ({}),
-  components: {}
+  components: {},
 }
 
 let componentConfig: TComponentConfig = {}
 
 export function getComponentConfig() {
   return componentConfig
+}
+
+window.onclick = e => {
+  console.log('clicked on: ', e.target) // to get the element
 }
 
 function setComponentConfig(newComponentConfig: TComponentConfig) {
@@ -43,21 +47,16 @@ function setComponentConfig(newComponentConfig: TComponentConfig) {
 
 export default function Lumina({ selectedPage, getData, components }: TProps = defaultValues) {
   const [builderData, setBuilderData] = useState<IData>({})
-  useEffect(
-    () => {
-      async function fetchData() {
-        setBuilderData(await getData())
-      }
-      fetchData()
+  useEffect(() => {
+    async function fetchData() {
+      setBuilderData(await getData())
+    }
+    fetchData()
+  }, [getData])
 
-    }, [getData]
-  )
-
-  useEffect(
-    () => {
-      if (components) setComponentConfig(components)
-    }, [components]
-  )
+  useEffect(() => {
+    if (components) setComponentConfig(components)
+  }, [components])
 
   if (!builderData[selectedPage]) return null
   return (

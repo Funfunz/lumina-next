@@ -14,6 +14,23 @@
   background: var(--lum-color-white);
   border: 1px solid var(--lum-color-white);
   border-radius: 10px;
-  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 6%), 0 4px 6px -1px rgb(0 0 0 / 10%);
+  box-shadow:
+    0 2px 4px -1px rgb(0 0 0 / 6%),
+    0 4px 6px -1px rgb(0 0 0 / 10%);
   transform: translateX(-50%);
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+.ReactModalPortal {
+  position: fixed;
+  z-index: 100;
 }
