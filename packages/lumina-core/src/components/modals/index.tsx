@@ -200,9 +200,16 @@ export const EditorModal = () => {
           buttonType="button"
           text={modalData.modalOkButtonLabel}
           style="primary"
+          size="large"
           onClick={modalData.modalClickHandler}
         />
-        <Button buttonType="button" text="Cancel" style="secondary" onClick={handleCloseModal} />
+        <Button
+          buttonType="button"
+          text="Cancel"
+          style="secondary"
+          size="large"
+          onClick={handleCloseModal}
+        />
       </div>
     </ReactModal>
   )
