@@ -1,22 +1,30 @@
-"use client";
+'use client'
 
-import { Button } from "@/components/button";
-import { SearchBar } from "@/components/search-bar";
-import { useLuminaContext } from "@/context/contextProvider";
-import { useCallback } from "react";
+import { Button } from '@/components/button'
+import { SearchBar } from '@/components/search-bar'
+import { useLuminaContext } from '@/context/contextProvider'
+import { useCallback } from 'react'
 
 export const PagesTab = () => {
   const {
     state: { builderDataContext },
     dispatch,
-  } = useLuminaContext();
+  } = useLuminaContext()
 
   const handleAddPageClick = useCallback(() => {
     dispatch({
-      type: "createPage",
-      data: { id: "dadwadada", pageName: "testPage", friendlyName: "Test Page", extendedName: "A Page for testing purposes", dateModified: Date.now.toString(), route: "/test", status: true },
-    });
-  }, [dispatch]);
+      type: 'createPage',
+      data: {
+        id: 'dadwadada',
+        pageName: 'testPage',
+        friendlyName: 'Test Page',
+        extendedName: 'A Page for testing purposes',
+        dateModified: Date.now.toString(),
+        route: '/test',
+        status: true,
+      },
+    })
+  }, [dispatch])
 
   return (
     <div className='pageContainer'>
@@ -24,17 +32,22 @@ export const PagesTab = () => {
         <h3 className='pageTitle'>Pages</h3>
         {(Object.keys(builderDataContext.builderData).length && (
           <div className='addContainer'>
-            <Button buttonType="button" text="Add" onClick={handleAddPageClick} iconLeft="lum-icon-plus-fill" />
+            <Button
+              buttonType='button'
+              text='Add'
+              onClick={handleAddPageClick}
+              iconLeft='lum-icon-plus-fill'
+            />
           </div>
         )) ||
           null}
       </div>
       <SearchBar />
-      {Object.keys(builderDataContext.builderData).map((page) => (
+      {Object.keys(builderDataContext.builderData).map(page => (
         <div className='pageHead' key={page}>
           {page}
         </div>
       ))}
     </div>
-  );
-};
+  )
+}

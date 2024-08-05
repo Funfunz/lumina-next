@@ -1,11 +1,5 @@
-import { Button } from "@/components/button";
+import { Button } from '@/components/button'
 
 export const VisibleComponentButton = () => {
-
-  return (
-    <Button
-      buttonType="button"
-      iconLeft={"lum-icon-visible"}
-    />
-  )
+  return <Button buttonType='button' iconLeft={'lum-icon-visible'} />
 }

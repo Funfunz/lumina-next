@@ -11,6 +11,7 @@ export default [
   pluginReact.configs.flat.recommended,
   {
     rules: {
+      quotes: [2, 'single', { avoidEscape: true }],
       eqeqeq: 'off',
       'no-unused-vars': 'error',
       'prefer-const': ['error', { ignoreReadBeforeAssign: true }],

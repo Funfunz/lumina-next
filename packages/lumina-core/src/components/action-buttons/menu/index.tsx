@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import { useToggleMenuContext } from "@/context/toggleMenuContext"
-import { Button } from "@/components/button"
-import { ExpandableEditorMenu } from "@/components/expandable-editor-menu"
-import { IComponentProps } from "@/models/data"
-import { TConfig } from "@/models/editor-buttonModel"
+import { useToggleMenuContext } from '@/context/toggleMenuContext'
+import { Button } from '@/components/button'
+import { ExpandableEditorMenu } from '@/components/expandable-editor-menu'
+import { IComponentProps } from '@/models/data'
+import { TConfig } from '@/models/editor-buttonModel'
 
 type TProps = {
   id: string
@@ -22,11 +22,7 @@ export const ExpandMenuButton = ({ id, data, config }: TProps) => {
 
   return (
     <>
-      <Button
-        buttonType="button"
-        iconLeft={"lum-icon-menu"}
-        onClick={() => handleToggleMenu(id)}
-      />
+      <Button buttonType='button' iconLeft={'lum-icon-menu'} onClick={() => handleToggleMenu(id)} />
       {isOpen && <ExpandableEditorMenu id={id} config={config} data={data} />}
     </>
   )
