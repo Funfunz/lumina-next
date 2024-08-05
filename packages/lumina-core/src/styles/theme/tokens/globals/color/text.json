@@ -2,18 +2,18 @@
   "lum": {
     "color": {
       "text": {
-        "value": "{lum.color.primary.value}",
+        "value": "{lum.color.fg.default.value}",
         "inverse": {
-          "value": "{lum.color.secondary.value}"
+          "value": "{lum.color.surface.default.value}"
         },
         "disabled": {
-          "value": "{lum.color.disabled.value}"
+          "value": "{lum.color.surface.strong.value}"
         },
         "placeholder": {
-          "value": "{lum.color.primary.value}"
+          "value": "{lum.color.fg.default.value}"
         },
         "label": {
-          "value": "{lum.color.primary.value}"
+          "value": "{lum.color.fg.default.value}"
         }
       }
     }

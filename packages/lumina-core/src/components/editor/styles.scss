@@ -3,14 +3,52 @@
   display: grid;
   grid-template-columns: 60px calc(100% - 60px);
   height: 100vh;
-  font-family: Arial, Helvetica, sans-serif;
   transition: grid-template-columns 0.2s ease-in-out;
 
   &.open {
-    grid-template-columns: var(--lum-component-size-sidebar) calc(100% - var(--lum-component-size-sidebar));
+    grid-template-columns: var(--lum-component-size-sidebar) calc(
+        100% - var(--lum-component-size-sidebar)
+      );
   }
 
   * {
     box-sizing: border-box;
+  }
+}
+
+.rendererSection {
+  @include lum-typo-reset;
+
+  .debugStylesCta {
+    @include lum-typo-tiny;
+
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: var(--lum-color-surface-default);
+    border: none;
+
+    // prevent debugging the button itself
+    border: 1px solid lightgray !important;
+    border-radius: 5px !important;
+    outline: unset !important;
+    transition: box-shadow 0.2s ease-in-out;
+
+    > span,
+    .buttonContent > span {
+      outline: unset !important;
+    }
+  }
+
+  &:hover .debugStylesCta {
+    display: flex;
+    background-color: var(--lum-color-secondary-weak);
   }
 }

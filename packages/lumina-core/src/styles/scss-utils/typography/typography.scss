@@ -4,6 +4,8 @@
   @include lum-typo-link;
 }
 
+pre,
+code,
 .lum-pre,
 .lum-code {
   @include lum-typo-code;

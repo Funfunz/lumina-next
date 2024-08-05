@@ -3,7 +3,7 @@
 import fs from 'fs'
 import path from 'path'
 import StyleDictionary from 'style-dictionary'
-import { STYLE_DICTIONAIRY_PLATFORMS } from "./config/index.js"
+import { STYLE_DICTIONAIRY_PLATFORMS } from './config/index.js'
 
 const __dirname = import.meta.dirname
 const BRANDS_FOLDER = fs.readdirSync(path.join(__dirname, 'tokens', 'brands'))
@@ -11,6 +11,9 @@ const BRANDS_FOLDER = fs.readdirSync(path.join(__dirname, 'tokens', 'brands'))
 // HAVE THE STYLE DICTIONARY CONFIG DYNAMICALLY GENERATED
 const getStyleDictionaryConfig = (brand, _platform) => {
   return {
+    log: {
+      verbosity: 'verbose',
+    },
     source: [
       `${__dirname}/tokens/**/*.json`,
       // 'tokens/globals/**/*.json',
