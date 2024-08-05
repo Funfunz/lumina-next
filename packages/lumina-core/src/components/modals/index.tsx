@@ -14,6 +14,7 @@ import { IComponentProps } from '@/models/data'
 import { AddModal } from './add'
 import { EditModal } from './edit'
 import { DeleteModal } from './delete'
+import cx from 'classnames'
 
 export type TAddModalProps = {
   selectedOption: TSelectedOption | undefined
@@ -30,6 +31,7 @@ export const EditorModal = () => {
     modalAriaLabel: '',
     modalOkButtonLabel: '',
     modalClickHandler: () => {},
+    titleIcon: '',
   }
   const [modalData, setModalData] = useState(initialModalData)
 
@@ -127,6 +129,7 @@ export const EditorModal = () => {
           modalAriaLabel: 'Add a component Modal',
           modalOkButtonLabel: 'Add component',
           modalClickHandler: () => handleAddComponent(),
+          titleIcon: 'lum-icon-component',
         })
         break
       case EDITMODAL:
@@ -135,6 +138,7 @@ export const EditorModal = () => {
           modalAriaLabel: 'Edit a component Modal',
           modalOkButtonLabel: 'Save changes',
           modalClickHandler: () => handleSaveData(),
+          titleIcon: 'lum-icon-edit',
         })
         break
       case DELETEMODAL:
@@ -143,6 +147,7 @@ export const EditorModal = () => {
           modalAriaLabel: 'Delete a component Modal',
           modalOkButtonLabel: 'Yes, delete',
           modalClickHandler: () => handleDeleteComponent(),
+          titleIcon: 'lum-icon-cross',
         })
         break
       default:
@@ -177,7 +182,8 @@ export const EditorModal = () => {
       role={'dialog'}
     >
       <div className="editor-modal_content-header">
-        <Title content={modalData.modalName} />
+        <span className={cx('title-icon', modalData.titleIcon)}></span>
+        <Title classnames="editor-modal_content-header__title" content={modalData.modalName} />
         <Button
           buttonType="button"
           iconLeft="lum-icon-cross"
