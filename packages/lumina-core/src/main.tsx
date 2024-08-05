@@ -41,6 +41,7 @@ function setComponentConfig(newComponentConfig: TComponentConfig) {
 
 export default function Lumina({ selectedPage, getData, components }: TProps = defaultValues) {
   const [builderData, setBuilderData] = useState<IData>({})
+
   useEffect(() => {
     async function fetchData() {
       setBuilderData(await getData())

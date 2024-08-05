@@ -19,6 +19,7 @@ import cx from 'classnames'
 export type TAddModalProps = {
   selectedOption: TSelectedOption | undefined
   cmpName: string
+  formData: IComponentProps | undefined
 }
 
 export const EditorModal = () => {
@@ -34,16 +35,28 @@ export const EditorModal = () => {
     titleIcon: '',
   }
   const [modalData, setModalData] = useState(initialModalData)
+  const [formData, setFormData] = useState<IComponentProps>()
 
   // Add modal props
   const initialAddState: TAddModalProps = {
     selectedOption: undefined,
     cmpName: '',
+    formData: formData,
   }
   const [addModalProps, setAddModalProps] = useState<TAddModalProps>(initialAddState)
 
   // Edit modal props
-  const [formData, setFormData] = useState<IComponentProps>()
+  /**
+   *
+   */
+  const handleOnChangeInput = (key: string, value: string | number) => {
+    console.log('data change', formData)
+    setFormData({
+      ...formData,
+      [key]: value,
+    })
+  }
+
   useEffect(() => {
     if (data) setFormData(data)
   }, [data])
@@ -63,7 +76,7 @@ export const EditorModal = () => {
         type: addModalProps.selectedOption?.value,
         friendlyName: addModalProps.cmpName,
         children: [],
-        props: {},
+        props: formData,
       },
     })
     // TODO: not implemented
@@ -119,7 +132,7 @@ export const EditorModal = () => {
   }, [dispatch, id])
 
   /**
-   * Set the modal labels and click handler
+   * Set the modal's labels and click handler
    */
   useEffect(() => {
     switch (modalType) {
@@ -162,9 +175,21 @@ export const EditorModal = () => {
   const renderModalType = () => {
     switch (modalType) {
       case ADDMODAL:
-        return <AddModal handleModalProps={setAddModalProps} modalProps={addModalProps!} />
+        return (
+          <AddModal
+            handleModalProps={setAddModalProps}
+            modalProps={addModalProps!}
+            handleOnChangeInput={handleOnChangeInput}
+          />
+        )
       case EDITMODAL:
-        return <EditModal formData={formData} setFormData={setFormData} />
+        return (
+          <EditModal
+            formData={formData}
+            setFormData={setFormData}
+            handleOnChangeInput={handleOnChangeInput}
+          />
+        )
       case DELETEMODAL:
         return <DeleteModal />
       default:

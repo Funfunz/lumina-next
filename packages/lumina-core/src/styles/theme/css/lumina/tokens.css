@@ -82,7 +82,7 @@
   --lum-color-icon-fill: var(--lum-color-fg-default);
   --lum-color-icon-base: var(--lum-color-fg-default);
   --lum-color-font-inverted: var(--lum-color-surface-default);
-  --lum-color-font-base: var(--lum-color-fg-default);
+  --lum-color-font-base: var(--lum-color-fg-strong);
   --lum-color-button-disabled: var(--lum-color-surface-stronger);
   --lum-color-button-danger-background: var(--lum-color-secondary-default);
   --lum-color-button-warning-background: var(--lum-color-secondary-weak);
