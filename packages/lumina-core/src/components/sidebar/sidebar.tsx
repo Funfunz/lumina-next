@@ -3,8 +3,8 @@ import { useState } from "react";
 import { Button } from "../button/button";
 import { PagesTab } from "../tabs/pages/page";
 import { TreeViewTab } from "../tabs/treeView/treeView";
-import { LumForm } from "../form/form";
-import { FormThemeProvider } from "react-form-component";
+import { LumFormExample } from "../form-components/packageExample/formExample";
+import { LumInput } from "../form-components/input";
 
 type TSidebarEditor = {
   handleToggler: Function
@@ -31,7 +31,7 @@ const editorTabs: TSidebarTab[] = [
   {
     id: "lumTabLibrary",
     icon: "lum-icon-library",
-    panel: <LumForm/>
+    panel: <LumFormExample/>
   }
 ]
 

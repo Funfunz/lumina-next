@@ -1,9 +1,9 @@
 import { useCallback, useState } from 'react';
 import Form, { Input, Select, Checkbox, FormThemeProvider, Radio, Slider, SwitchList, TextArea, ImageSelect, MultiSelect } from 'react-form-component'
-import { Button } from '../button/button';
+import { Button } from '../../button/button';
 import ReactModal from 'react-modal';
 
-export const LumForm = () => {
+export const LumFormExample = () => {
     const [openForm, setOpenForm] = useState<boolean>(false)
 
     const handleOpenForm = useCallback(() => {
@@ -28,11 +28,10 @@ export const LumForm = () => {
         ]}
         onChange={function noRefCheck() {}}>
         <Checkbox
-            className=""
-            help=""
-            label="Optional Input Label"
+            className="testCheckbox"
             name="singleCheckbox"
             text="Single Checkbox"
+            mandatory
         />
         </Form>
         <Form 
