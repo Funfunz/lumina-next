@@ -21,7 +21,7 @@
   },
   "scripts": {
     "prepare": "husky",
-    "dev": "npm run build && watch -p 'src/**/*' -c 'npm run build'",
+    "dev": "npm run build && watch -p \"src/**/*\" -c \"npm run build\"",
     "build": "npm run build:theme && npm run build:js && npm run build:css",
     "build:theme": "node ./src/styles/theme/build.js",
     "build:js": "tsc && tsc-alias",
