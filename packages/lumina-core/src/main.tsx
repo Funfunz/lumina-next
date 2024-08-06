@@ -19,10 +19,6 @@ export type TComponentConfig = {
   }
 }
 
-type FormProps ={
-  name: string[]
-}
-
 type TProps = {
   selectedPage: string
   getData: () => Promise<IData>
@@ -86,7 +82,6 @@ export default function Lumina({ selectedPage, getData, components }: TProps = d
           <Render />
         </Editor>
       </ToggleModalContextProvider>
-
       <Editor>
         <Render/>
       </Editor>

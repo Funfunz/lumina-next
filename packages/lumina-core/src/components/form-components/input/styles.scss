@@ -1,18 +1,20 @@
 .inputLabel{
     label{
-        color:black;
         margin-bottom:10px;
         font-size: 16px;
         font-weight: 600;
+        color:black;
     }
+
     input.rfc-input{
-        border-radius: 5px;
         width:100%;
         margin-bottom: 10px;
+        border-radius: 5px;
     }
+
     span{
-        color:black;
         font-weight: 100;
+        color:black;
     }
 
     // In case of button usage

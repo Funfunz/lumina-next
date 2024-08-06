@@ -1,7 +1,7 @@
 .testCheckbox {
     color: pink;
 
-    input:checked:after{
+    input:checked::after{
         color:black;
         background-color: pink;
     }
