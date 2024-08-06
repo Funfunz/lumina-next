@@ -2,7 +2,7 @@
 'use client'
 
 import { ChangeEvent, ChangeEventHandler, PropsWithChildren, useCallback } from 'react'
-import { TConfigItem, TConfigItemSelect } from "@/models/editor-buttonModel";
+import { TConfigItem, TConfigItemSelect } from '@/models/editor-buttonModel'
 
 type TProps = {
   config: TConfigItem
@@ -11,7 +11,11 @@ type TProps = {
 }
 
 export const Form: React.FC<PropsWithChildren> = ({ children }) => {
-  return <table className='formTable'><tbody>{children}</tbody></table>
+  return (
+    <table className='formTable'>
+      <tbody>{children}</tbody>
+    </table>
+  )
 }
 
 function isSelect(config: TConfigItem): config is TConfigItemSelect {
@@ -19,7 +23,6 @@ function isSelect(config: TConfigItem): config is TConfigItemSelect {
 }
 
 export const LuminaInputRenderer = ({ config, value, handleOnChangeInput }: TProps) => {
-
   const handleOnChangeInputElement = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       handleOnChangeInput(config.name, event.target.value)
@@ -39,18 +42,29 @@ export const LuminaInputRenderer = ({ config, value, handleOnChangeInput }: TPro
       <td className='formTableCell formTableLabel'>
         <label htmlFor={config.name}>{config.label}</label>
       </td>
-      <td className='formTableCell' style={{ width: "100%" }}>
-        {isSelect(config) && (
-          <select onChange={handleOnChangeSelectElement} value={value} id={(config as TConfigItemSelect).name}>
-            {(config as TConfigItemSelect).arrayValues.map(
-              (item) => (
-                <option key={item} value={item}>{item}</option>
-              )
-            )}
+      <td className='formTableCell' style={{ width: '100%' }}>
+        {(isSelect(config) && (
+          <select
+            onChange={handleOnChangeSelectElement}
+            value={value}
+            id={(config as TConfigItemSelect).name}
+          >
+            {(config as TConfigItemSelect).arrayValues.map(item => (
+              <option key={item} value={item}>
+                {item}
+              </option>
+            ))}
           </select>
-        ) || (
-            <input className='inputField' type={config.type} value={value} id={config.name} name={config.name} onChange={handleOnChangeInputElement}></input>
-          )}
+        )) || (
+          <input
+            className='inputField'
+            type={config.type}
+            value={value}
+            id={config.name}
+            name={config.name}
+            onChange={handleOnChangeInputElement}
+          ></input>
+        )}
       </td>
     </tr>
   )

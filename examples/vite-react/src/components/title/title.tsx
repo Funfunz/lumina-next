@@ -7,7 +7,7 @@ interface IProps {
   title: string
 }
 
-export const Title = ({ id, title = "This is a title" }: IProps) => {
+export const Title = ({ id, title = 'This is a title' }: IProps) => {
   return (
     <div className={styles.title}>
       <h1>{title}</h1>

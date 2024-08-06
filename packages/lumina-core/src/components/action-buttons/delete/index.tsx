@@ -1,9 +1,9 @@
-import { Button } from "@/components/button";
-import { DELETEMODAL, useToggleModalContext } from "@/context/handleModalsContext";
-import { useToggleMenuContext } from "@/context/toggleMenuContext";
+import { Button } from '@/components/button'
+import { DELETEMODAL, useToggleModalContext } from '@/context/handleModalsContext'
+import { useToggleMenuContext } from '@/context/toggleMenuContext'
 
 type TProps = {
-  componentId: string,
+  componentId: string
   buttonLabel?: string
   isDisabled?: boolean
   isMenuButton?: boolean
@@ -11,28 +11,33 @@ type TProps = {
 
 /**
  * Enables calling the delete button easily by providing fewer props
- * @param param0 
- * @returns 
+ * @param param0
+ * @returns
  */
-export const DeleteComponentButton = ({ componentId, buttonLabel, isDisabled, isMenuButton }: TProps) => {
+export const DeleteComponentButton = ({
+  componentId,
+  buttonLabel,
+  isDisabled,
+  isMenuButton,
+}: TProps) => {
   const { handleOpenModal } = useToggleModalContext()
   const { handleToggleMenu } = useToggleMenuContext()
 
   const handleToggleDeleteModal = () => {
     handleOpenModal({
       id: componentId,
-      modalType: DELETEMODAL
+      modalType: DELETEMODAL,
     })
     handleToggleMenu(componentId)
   }
 
   return (
     <Button
-      buttonType="button"
+      buttonType='button'
       onClick={handleToggleDeleteModal}
-      style={isMenuButton ? "menuButton" : ""}
+      style={isMenuButton ? 'menuButton' : ''}
       text={buttonLabel}
-      iconLeft="lum-icon-cross"
+      iconLeft='lum-icon-cross'
       disabled={isDisabled}
     />
   )

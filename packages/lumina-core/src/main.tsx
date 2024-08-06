@@ -47,7 +47,16 @@ export default function Lumina({ selectedPage, getData, components }: TProps = d
     }
     fetchData()
   }, [getData])
+  useEffect(() => {
+    async function fetchData() {
+      setBuilderData(await getData())
+    }
+    fetchData()
+  }, [getData])
 
+  useEffect(() => {
+    if (components) setComponentConfig(components)
+  }, [components])
   useEffect(() => {
     if (components) setComponentConfig(components)
   }, [components])

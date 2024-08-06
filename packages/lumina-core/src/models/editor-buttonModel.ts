@@ -1,23 +1,23 @@
-export type TConfigItem = TConfigItemValue | TConfigItemSelect;
+export type TConfigItem = TConfigItemValue | TConfigItemSelect
 
 interface TConfigItemBase {
-  name: string;
-  label: string;
+  name: string
+  label: string
 }
 
 export type TEditorConfig = {
-  children: boolean;
-  editable: boolean;
-  delete: boolean;
-};
+  children: boolean
+  editable: boolean
+  delete: boolean
+}
 
 export interface TConfigItemValue extends TConfigItemBase {
-  type: "string" | "number";
+  type: 'string' | 'number'
 }
 
 export interface TConfigItemSelect<T = string> extends TConfigItemBase {
-  type: "singleSelect" | "multiSelect";
-  arrayValues: T[];
+  type: 'singleSelect' | 'multiSelect'
+  arrayValues: T[]
 }
 
 export type TConfig = {
@@ -26,7 +26,7 @@ export type TConfig = {
   editor: TEditorConfig
 }
 
-export type TElementConfig = (TConfigItemValue | TConfigItemSelect)[];
+export type TElementConfig = (TConfigItemValue | TConfigItemSelect)[]
 
 export type TSelectedOption = {
   label: string

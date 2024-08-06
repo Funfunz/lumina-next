@@ -1,6 +1,6 @@
-import { Button } from "@/components/button"
-import { ADDMODAL, useToggleModalContext } from "@/context/handleModalsContext";
-import { useToggleMenuContext } from "@/context/toggleMenuContext";
+import { Button } from '@/components/button'
+import { ADDMODAL, useToggleModalContext } from '@/context/handleModalsContext'
+import { useToggleMenuContext } from '@/context/toggleMenuContext'
 
 type TProps = {
   componentId?: string
@@ -12,12 +12,17 @@ type TProps = {
 /**
  * React Component to create the Add Component button easily
  * @param componentId the ID of the parent component if exists
- * @param buttonlabel 
+ * @param buttonlabel
  * @param isDisabled allows to disable the button from interactions
  * @param isMenuButton allows to style the button to be inside the expandable editor menu
- * @returns 
+ * @returns
  */
-export const AddComponentButton = ({ componentId, buttonLabel, isDisabled, isMenuButton }: TProps) => {
+export const AddComponentButton = ({
+  componentId,
+  buttonLabel,
+  isDisabled,
+  isMenuButton,
+}: TProps) => {
   const { handleToggleMenu } = useToggleMenuContext()
   const { handleOpenModal } = useToggleModalContext()
 
@@ -28,12 +33,12 @@ export const AddComponentButton = ({ componentId, buttonLabel, isDisabled, isMen
 
   return (
     <Button
-      buttonType="button"
+      buttonType='button'
       onClick={handleButtonClick}
       text={buttonLabel}
       disabled={isDisabled}
-      style={isMenuButton ? "menuButton" : ""}
-      iconLeft="lum-icon-plus"
+      style={isMenuButton ? 'menuButton' : ''}
+      iconLeft='lum-icon-plus'
     />
   )
 }

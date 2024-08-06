@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import { Dispatch, SetStateAction, createContext, useState } from 'react'
 
@@ -7,7 +7,7 @@ const initialContext = {
   title: '',
   description: '',
   href: '',
-  color: 'white'
+  color: 'white',
 }
 
 export type IInitialStateType = {
@@ -25,26 +25,27 @@ export const LinkBoxContext = createContext({
 
 export function ContextProvider({
   children,
-  data
+  data,
 }: {
-  children: React.ReactNode,
+  children: React.ReactNode
   data: IInitialStateType
 }) {
-
   const [state, dispatch] = useState<IInitialStateType>({
     ...initialContext,
-    ...data
+    ...data,
   })
 
-
   return (
-    <LinkBoxContext.Provider value={{state, dispatch: (newData) => {
-      return dispatch(
-        (data) => {
-          return {...data, ...newData}
-        }
-      )
-    }}}>
+    <LinkBoxContext.Provider
+      value={{
+        state,
+        dispatch: newData => {
+          return dispatch(data => {
+            return { ...data, ...newData }
+          })
+        },
+      }}
+    >
       {children}
     </LinkBoxContext.Provider>
   )

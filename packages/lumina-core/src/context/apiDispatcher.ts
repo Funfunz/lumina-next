@@ -1,10 +1,10 @@
-import { IComponentProps } from "@/models/data";
+import { IComponentProps } from '@/models/data'
 
 export interface IUpdateBackendData {
-  props: IComponentProps;
-  id: string;
+  props: IComponentProps
+  id: string
 }
 
 export const apiDispatcher = (data: IUpdateBackendData) => {
-  console.log(data);
-};
+  console.log(data)
+}
