@@ -16,6 +16,26 @@
     box-sizing: border-box;
   }
 
+  &:hover {
+    &:not(.treeAddButton) {
+      &:not(.sidebarTab) {
+        color: white;
+        background-color: var(--lum-color-button-primary-background);
+        border-radius: 3px;
+
+        .buttonContent {
+          color: var(--lum-color-white-smoke);
+
+          .icon {
+            &:not(.sidebarLuminaIcon) {
+              color: hsl(0deg 0% 96%);
+            }
+          }
+        }
+      }
+    }
+  }
+
   // CSS for button content
   & > .buttonContent {
     display: flex;
@@ -139,7 +159,22 @@
   }
 
   // CSS for menuButton style that also affects buttonText and icon in the menuButton
-  &.menuButton {
+  &.onHover {
+    &:not(.treeAddButton > .button) {
+      background-color: var(--lum-color-foundation-green);
+      border-radius: 3px;
+
+      .buttonContent {
+        color: white;
+
+        .icon {
+          color: white;
+        }
+      }
+    }
+  }
+
+  .menuButton {
     justify-content: start;
     width: 100%;
 
