@@ -3,6 +3,7 @@
 import { useLuminaContext } from '@/context/contextProvider'
 import { IComponentData } from '@/models/data'
 import { DynamicComponent } from './dynamicComponent'
+import { useEffect, useState } from 'react'
 
 interface IProps {
   elements?: IComponentData[]
@@ -12,21 +13,27 @@ export const Render = ({ elements }: IProps) => {
   const {
     state: { builderDataContext },
   } = useLuminaContext()
-  let data: IComponentData[] = []
-  if (elements) {
-    data = elements
-  }
-  if (
-    builderDataContext.builderData &&
-    builderDataContext.selectedPage &&
-    builderDataContext.builderData[builderDataContext.selectedPage].children &&
-    !elements
-  ) {
-    data = builderDataContext.builderData[builderDataContext.selectedPage].children!
-  }
+  const [pageCmps, setPageCmps] = useState<IComponentData[]>()
+
+  useEffect(() => {
+    if (elements) {
+      setPageCmps(elements)
+    }
+    if (
+      builderDataContext.builderData &&
+      builderDataContext.selectedPage &&
+      builderDataContext.builderData[builderDataContext.selectedPage].children &&
+      !elements
+    ) {
+      setPageCmps(builderDataContext.builderData[builderDataContext.selectedPage].children!)
+    }
+  }, [elements])
+
+  if (!pageCmps) return null
+
   return (
     <>
-      {data.map((component, index) => {
+      {pageCmps.map((component, index) => {
         const LoadedComponent = DynamicComponent(component.type)?.component
         if (!LoadedComponent) return null
         return (

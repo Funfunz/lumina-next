@@ -2,7 +2,6 @@ import { IComponentData } from '@/models/data'
 import { TreeBranch } from '../treeBranch'
 
 export const ComponentTree = ({ data }: { data: IComponentData[] }) => {
-  if (!data) return null
   return (
     <>
       {data

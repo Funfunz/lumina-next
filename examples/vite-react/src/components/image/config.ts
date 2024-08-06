@@ -2,6 +2,7 @@ import type { TConfig } from '@lumina/core'
 
 export const config: TConfig = {
   name: 'Image',
+  value: 'image',
   props: [
     {
       type: 'string',

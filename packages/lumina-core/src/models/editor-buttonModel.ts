@@ -22,6 +22,7 @@ export interface TConfigItemSelect<T = string> extends TConfigItemBase {
 
 export type TConfig = {
   name: string
+  value: string
   props?: (TConfigItemValue | TConfigItemSelect)[]
   editor: TEditorConfig
 }

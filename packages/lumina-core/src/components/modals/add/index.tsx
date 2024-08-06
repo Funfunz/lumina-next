@@ -16,7 +16,7 @@ export const AddModal = ({ handleModalProps, modalProps }: TProps) => {
 
   const options = Object.entries(componentConfig).map(([, opt]) => {
     return {
-      value: opt.config.name,
+      value: opt.config.value,
       label: opt.config.name,
     }
   })
@@ -37,13 +37,13 @@ export const AddModal = ({ handleModalProps, modalProps }: TProps) => {
         id={`addComponent_dropdown_${id}`}
         value={modalProps.selectedOption}
         options={options}
-        placeholder="Select a component..."
+        placeholder='Select a component...'
         onChange={handleSelectChange}
       />
       <label htmlFor={`addComponent_friendlyName_${id}`}>Friendly name</label>
       <input
         id={`addComponent_friendlyName_${id}`}
-        type="text"
+        type='text'
         value={modalProps.cmpName}
         onChange={handleOnChangeNewComponentFriendlyName}
       />

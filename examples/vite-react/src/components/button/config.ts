@@ -1,7 +1,8 @@
 import type { TConfig } from '@lumina/core'
 
 export const config: TConfig = {
-  name: 'button',
+  name: 'Button',
+  value: 'button',
   props: [
     {
       type: 'string',
@@ -19,11 +20,11 @@ export const config: TConfig = {
       name: 'style',
       label: 'Style',
       arrayValues: ['outlined', 'rounded'],
-    }
+    },
   ],
   editor: {
     children: false,
     editable: true,
     delete: true,
-  }
+  },
 }
