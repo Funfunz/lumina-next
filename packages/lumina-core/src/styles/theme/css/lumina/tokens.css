@@ -64,6 +64,12 @@
   --lum-color-surface-stronger: #ccccd1;
   --lum-color-surface-strong: #e6e6eb;
   --lum-color-surface-default: #fdfdfd;
+  --lum-color-grey-800: #7b7b7f;
+  --lum-color-grey-600: #ccccd1;
+  --lum-color-grey-400: #e6e6eb;
+  --lum-color-green-800: #046158;
+  --lum-color-green-600: #06a092;
+  --lum-color-charcoal: #122f54;
   --lum-color-white-smoke: #f5f5f5;
   --lum-color-foundation-green-weak: #06a092;
   --lum-color-foundation-green: #046158;
@@ -85,7 +91,7 @@
   --lum-color-icon-fill: var(--lum-color-fg-default);
   --lum-color-icon-base: var(--lum-color-fg-default);
   --lum-color-font-inverted: var(--lum-color-surface-default);
-  --lum-color-font-base: var(--lum-color-fg-default);
+  --lum-color-font-base: var(--lum-color-fg-strong);
   --lum-color-button-disabled: var(--lum-color-surface-stronger);
   --lum-color-button-danger-background: var(--lum-color-secondary-default);
   --lum-color-button-warning-background: var(--lum-color-secondary-weak);
@@ -94,8 +100,8 @@
   --lum-color-button-background-inverse-hover: var(--lum-color-surface-strong);
   --lum-color-button-background-inverse: var(--lum-color-transparent);
   --lum-color-button-text-inverse: var(--lum-color-fg-default);
-  --lum-color-button-background-hover: var(--lum-color-grey);
-  --lum-color-button-background: var(--lum-color-fg-default);
+  --lum-color-button-background-hover: var(--lum-color-green-800);
+  --lum-color-button-background: var(--lum-color-green-600);
   --lum-color-button-text: var(--lum-color-surface-default);
   --lum-color-border: var(--lum-color-fg-default);
   --lum-color-background-inverse: var(--lum-color-surface-stronger);

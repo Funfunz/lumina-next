@@ -37,7 +37,7 @@ export const AddComponentButton = ({
       onClick={handleButtonClick}
       text={buttonLabel}
       disabled={isDisabled}
-      style={isMenuButton ? 'menuButton' : 'onHover'}
+      style={isMenuButton ? 'menuButton' : 'secondary'}
       iconLeft='lum-icon-plus'
     />
   )

@@ -24,7 +24,6 @@ type TProps = {
   noDown?: boolean
   visible?: boolean
   menu?: boolean
-  isHovered?: boolean
 }
 
 export const EditorButtonsContainer = ({
@@ -37,7 +36,6 @@ export const EditorButtonsContainer = ({
   noDown,
   visible,
   menu,
-  isHovered,
 }: TProps) => {
   const {
     state: {
@@ -49,13 +47,7 @@ export const EditorButtonsContainer = ({
   return (
     <div className={cx('showEdit', inline ? 'showEditContainerInline' : 'showEditContainer')}>
       {config.editor.editable && !inline && (
-        <EditComponentButton
-          componentId={id}
-          onUpdate={onUpdate}
-          data={data}
-          config={config}
-          isHovered={isHovered}
-        />
+        <EditComponentButton componentId={id} onUpdate={onUpdate} data={data} config={config} />
       )}
 
       {config?.editor.children && !inline && <AddComponentButton componentId={id} />}
@@ -64,9 +56,9 @@ export const EditorButtonsContainer = ({
 
       {inline && !visible && <VisibleComponentButton />}
 
-      {inline && !noUp && <MoveComponentButton moveDirection="up" id={id} />}
+      {inline && !noUp && <MoveComponentButton moveDirection='up' id={id} />}
 
-      {inline && !noDown && <MoveComponentButton moveDirection="down" id={id} />}
+      {inline && !noDown && <MoveComponentButton moveDirection='down' id={id} />}
 
       {inline && !menu && <ExpandMenuButton id={id} config={config} data={data} />}
     </div>

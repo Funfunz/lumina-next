@@ -4,7 +4,6 @@ import { EDITMODAL, useToggleModalContext } from '@/context/handleModalsContext'
 import { useToggleMenuContext } from '@/context/toggleMenuContext'
 import { IComponentProps } from '@/models/data'
 import { TConfig } from '@/models/editor-buttonModel'
-import cx from 'classnames'
 
 type TProps = {
   componentId: string
@@ -14,7 +13,6 @@ type TProps = {
   buttonLabel?: string
   isDisabled?: boolean
   isMenuButton?: boolean
-  isHovered?: boolean
 }
 
 /**
@@ -30,7 +28,6 @@ export const EditComponentButton = ({
   buttonLabel,
   isDisabled,
   isMenuButton,
-  isHovered,
 }: TProps) => {
   const { handleOpenModal } = useToggleModalContext()
   const { handleToggleMenu } = useToggleMenuContext()
@@ -51,7 +48,7 @@ export const EditComponentButton = ({
       buttonType='button'
       onClick={handleToggleEditModal}
       text={buttonLabel}
-      style={cx(isHovered ? 'onHover' : '', isMenuButton ? 'menuButton' : 'onHover')}
+      style={isMenuButton ? 'menuButton' : 'secondary'}
       iconLeft='lum-icon-edit'
       disabled={isDisabled}
     />
