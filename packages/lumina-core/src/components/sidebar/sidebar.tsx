@@ -3,8 +3,8 @@ import { useState } from "react";
 import { Button } from "../button/button";
 import { PagesTab } from "../tabs/pages/page";
 import { TreeViewTab } from "../tabs/treeView/treeView";
-import { LumFormExample } from "../form-components/packageExample/formExample";
 import { LumInput } from "../form-components/input";
+import Form, { anyObject, value } from "react-form-component";
 
 type TSidebarEditor = {
   handleToggler: Function
@@ -31,7 +31,20 @@ const editorTabs: TSidebarTab[] = [
   {
     id: "lumTabLibrary",
     icon: "lum-icon-library",
-    panel: <LumFormExample/>
+    panel: 
+    <Form fields={["testInput"]}>
+      <LumInput 
+        className="inputLabel"
+        name="testInput" 
+        initialValue=""
+        placeholder="type your email here"
+        mandatory 
+        label="E-Mail" 
+        type="password" 
+        help="You are expected to input your email here."
+        min={5}
+         />
+    </Form>
   }
 ]
 
