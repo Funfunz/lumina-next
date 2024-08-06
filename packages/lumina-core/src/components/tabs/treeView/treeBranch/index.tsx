@@ -41,7 +41,7 @@ export const TreeBranch = ({ data }: { data: IComponentData; noUp: boolean; noDo
           pointerTreeView: data.children?.length,
         })}
       >
-        {data.type} - {data.friendlyName || data.id}{' '}
+        {data.type} - {data.friendlyName || data.id}
         <EditorButtonsContainer
           id={data.id}
           inline={true}

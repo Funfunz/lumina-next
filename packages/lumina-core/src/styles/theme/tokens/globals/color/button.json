@@ -6,10 +6,10 @@
           "value": "{lum.color.surface.default.value}"
         },
         "background": {
-          "value": "{lum.color.fg.default.value}"
+          "value": "{lum.color.green-600.value}"
         },
         "background-hover": {
-          "value": "{lum.color.grey.value}"
+          "value": "{lum.color.green-800.value}"
         },
         "text-inverse": {
           "value": "{lum.color.fg.default.value}"
