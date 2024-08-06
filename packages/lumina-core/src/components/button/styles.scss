@@ -17,17 +17,19 @@
   }
 
   &:hover {
-    &:not(.sidebarTab) {
-      color: white;
-      background-color: var(--lum-color-button-primary-background);
-      border-radius: 3px;
+    &:not(.treeAddButton) {
+      &:not(.sidebarTab) {
+        color: white;
+        background-color: var(--lum-color-button-primary-background);
+        border-radius: 3px;
 
-      .buttonContent {
-        color: whitesmoke;
+        .buttonContent {
+          color: var(--lum-color-white-smoke);
 
-        .icon {
-          &:not(.sidebarLuminaIcon) {
-            color: whitesmoke;
+          .icon {
+            &:not(.sidebarLuminaIcon) {
+              color: hsl(0deg 0% 96%);
+            }
           }
         }
       }
@@ -52,7 +54,7 @@
 // CSS for 'primary' | 'secondary' | 'warning' | 'danger' | 'filter' | 'live'
 // TODO: use var() instead of hardcoded values, match Figma colors scheme
 .primary {
-  color: white;
+  color: #fff;
   background-color: var(--lum-color-button-primary-background);
 
   &:hover {
@@ -60,7 +62,7 @@
   }
 
   &:focus {
-    border: 1px solid #fdfdfd;
+    border: 1px solid var(--lum-color-white);
     border-radius: 3px;
     box-shadow: 0 0 0 2px var(--lum-color-button-primary-background);
   }
@@ -78,9 +80,9 @@
   border: 1px solid var(--lum-color-button-primary-background);
 
   &:hover {
-    color: #046158;
+    color: var(--lum-color-foundation-green);
     background-color: #e6f7f6;
-    border: 1px solid #046158;
+    border: 1px solid var(--lum-color-foundation-green);
   }
 
   &:focus {
@@ -118,7 +120,7 @@
 
   &:hover {
     color: white;
-    background-color: #06a092;
+    background-color: var(--lum-color-foundation-green-weak);
   }
 }
 
@@ -163,14 +165,16 @@
 
 // CSS for menuButton style that also affects buttonText and icon in the menuButton
 .onHover {
-  background-color: #046158;
-  border-radius: 3px;
+  &:not(.treeAddButton > .button) {
+    background-color: var(--lum-color-foundation-green);
+    border-radius: 3px;
 
-  .buttonContent {
-    color: white;
-
-    .icon {
+    .buttonContent {
       color: white;
+
+      .icon {
+        color: white;
+      }
     }
   }
 }
