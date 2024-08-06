@@ -1,0 +1,30 @@
+//The .radioBtn class should be added to classNames on the radio-button you want to render
+.radioBtn {
+  width: 100%;
+
+  .rfc-label {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+  }
+
+  .rfc-checkitem {
+    font-size: 16px;
+    font-weight: 300;
+    color: black;
+  }
+
+  input:checked::after {
+    color: black;
+    background-color: #777;
+    border-color: #777;
+  }
+
+  span {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #777;
+  }
+}

@@ -1,28 +1,38 @@
-.inputLabel{
-    label{
-        margin-bottom:10px;
-        font-size: 16px;
-        font-weight: 600;
-        color:black;
+//The .inputLabel class should be added to classNames on the labels you want to render
+.inputLabel {
+  width: 100%;
+
+  label {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+  }
+
+  input.rfc-input {
+    padding-left: 20px;
+    margin-bottom: 10px;
+    color: black;
+    border-color: #77777740;
+    border-radius: 5px;
+
+    &::placeholder {
+      color: #77777780;
     }
+  }
 
-    input.rfc-input{
-        width:100%;
-        margin-bottom: 10px;
-        border-radius: 5px;
-    }
+  span {
+    font-size: 16px;
+    font-weight: 400;
+    color: #777;
+  }
 
-    span{
-        font-weight: 100;
-        color:black;
-    }
+  // In case of button usage
+  // .rfc-suffix{
+  //     bottom: -10px;
+  // }
 
-    // In case of button usage
-    // .rfc-suffix{
-    //     bottom: -10px;
-    // }
-
-    // button.lum-icon-visible{
-    //     font-size:18px;
-    // }
+  // button.lum-icon-visible{
+  //     font-size:18px;
+  // }
 }

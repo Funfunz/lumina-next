@@ -4,8 +4,7 @@ import { useState } from 'react'
 import { Button } from '../button'
 import { PagesTab } from '../tabs/pages'
 import { TreeViewTab } from '../tabs/treeView'
-import Form from 'react-form-component'
-import { LumInput } from '../form-components/input'
+import Form, { Slider } from 'react-form-component'
 
 type TSidebarEditor = {
   handleToggler: Function
@@ -32,19 +31,18 @@ const editorTabs: TSidebarTab[] = [
   {
     id: 'lumTabLibrary',
     icon: 'lum-icon-library',
-    panel: <Form fields={["testInput"]}>
-    <LumInput
-      className="inputLabel"
-      name="testInput"
-      initialValue=""
-      placeholder="type your email here"
-      mandatory
-      label="E-Mail"
-      type="password"
-      help="You are expected to input your email here."
-      min={5}
-       />
-  </Form>
+    panel: (
+      <Form fields={['test']}>
+        <Slider
+          className="slider"
+          name="test"
+          mandatory
+          label="Field Label"
+          type="text"
+          help="This is the optional help text for this field"
+        />
+      </Form>
+    ),
   },
 ]
 
