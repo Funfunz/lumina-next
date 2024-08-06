@@ -48,7 +48,7 @@ export const EditComponentButton = ({
       buttonType='button'
       onClick={handleToggleEditModal}
       text={buttonLabel}
-      style={isMenuButton ? 'menuButton' : ''}
+      style={isMenuButton ? 'menuButton' : 'secondary'}
       iconLeft='lum-icon-edit'
       disabled={isDisabled}
     />

@@ -10,6 +10,8 @@ type TProps = {
   alt: string
 }
 
+//block of buttons
+
 export const Image = ({ href, alt, id }: TProps) => {
   if (!href) return null
   return (

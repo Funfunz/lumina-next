@@ -1,7 +1,7 @@
 *:has(> .showEditContainer):hover {
   outline: 1px solid black;
 
-  >.showEditContainer {
+  > .showEditContainer {
     visibility: visible;
   }
 }
