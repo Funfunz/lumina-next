@@ -1,5 +1,3 @@
-'use client'
-
 import { useLuminaContext } from '@/context/contextProvider'
 import { IComponentData } from '@/models/data'
 import { DynamicComponent } from './dynamicComponent'
@@ -24,6 +22,7 @@ export const Render = ({ elements }: IProps) => {
   ) {
     data = builderDataContext.builderData[builderDataContext.selectedPage].children!
   }
+
   return (
     <>
       {data.map((component, index) => {

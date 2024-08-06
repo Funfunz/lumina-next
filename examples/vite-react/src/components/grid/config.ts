@@ -1,7 +1,8 @@
 import type { TConfig } from '@lumina/core'
 
 export const config: TConfig = {
-  name: 'Grid',
+  name: 'Grid Container',
+  type: 'grid',
   props: [
     {
       type: 'singleSelect',

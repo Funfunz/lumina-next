@@ -16,7 +16,7 @@ export const AddModal = ({ handleModalProps, modalProps }: TProps) => {
 
   const options = Object.entries(componentConfig).map(([, opt]) => {
     return {
-      value: opt.config.name,
+      value: opt.config.type,
       label: opt.config.name,
     }
   })

@@ -12,6 +12,10 @@ export const TreeViewTab = () => {
   const {
     state: { builderDataContext },
   } = useLuminaContext()
+
+  const cmpData = builderDataContext.builderData[builderDataContext.selectedPage].children!
+
+  if (!cmpData) return null //TODO return an error message
   return (
     <ToggleMenuContextProvider>
       <div className='treeview_container'>
@@ -23,10 +27,7 @@ export const TreeViewTab = () => {
           <SearchBar />
         </div>
         <TreeviewHeader />
-        <ComponentTree
-          // Confirmar se a data é undefined ou não
-          data={builderDataContext.builderData[builderDataContext.selectedPage].children!}
-        />
+        <ComponentTree data={cmpData} />
       </div>
     </ToggleMenuContextProvider>
   )
