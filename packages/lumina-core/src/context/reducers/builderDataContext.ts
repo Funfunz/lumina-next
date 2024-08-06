@@ -166,7 +166,7 @@ function moveUpElement(
 ) {
   let componentToReplace: IComponentData | undefined
   let oldOrder = 0
-  let newComponents = components.map(
+  const newComponents = components.map(
     (element) => {
       if (element.id === targetId) {
         oldOrder = element.order
@@ -204,7 +204,7 @@ function moveDownElement(
 ) {
   let componentToReplace: IComponentData | undefined
   let oldOrder = 0
-  let newComponents = components.map(
+  const newComponents = components.map(
     (element) => {
       if (element.id === targetId) {
         console.log(element, targetId)

@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import Form, { Input, Select, Checkbox, FormThemeProvider, Radio, Slider, SwitchList, TextArea, ImageSelect, MultiSelect } from 'react-form-component'
-import { Button } from '../../button/button';
+import { Button } from '../../button/index';
 import ReactModal from 'react-modal';
 
 export const LumFormExample = () => {
@@ -14,7 +14,7 @@ export const LumFormExample = () => {
    return (
     <>
     <Button buttonType='button' onClick={handleOpenForm} text="Open Form" style="primary"/>
-    {openForm && <ReactModal isOpen><FormThemeProvider><Form 
+    {openForm && <ReactModal isOpen><FormThemeProvider><Form
         fields={[
             'singleCheckBox',
             'radioButton',
@@ -34,7 +34,7 @@ export const LumFormExample = () => {
             mandatory
         />
         </Form>
-        <Form 
+        <Form
         fields={[
             'radioButton',
         ]}
@@ -62,7 +62,7 @@ export const LumFormExample = () => {
             ]}
         />
         </Form>
-        <Form 
+        <Form
         fields={[
             'Select'
         ]}
@@ -93,7 +93,7 @@ export const LumFormExample = () => {
             suffix=""
         />
         </Form>
-        <Form 
+        <Form
         fields={[
             'Slider'
         ]}
@@ -108,7 +108,7 @@ export const LumFormExample = () => {
             unit="km"
         />
          </Form>
-         <Form 
+         <Form
         fields={[
             'switches'
         ]}
@@ -132,7 +132,7 @@ export const LumFormExample = () => {
             ]}
         />
         </Form>
-        <Form 
+        <Form
         fields={[
             'TextArea'
         ]}
@@ -150,7 +150,7 @@ export const LumFormExample = () => {
             suffix=""
         />
          </Form>
-        <Form 
+        <Form
         fields={[
             'Input'
         ]}
@@ -168,7 +168,7 @@ export const LumFormExample = () => {
             type="text"
         />
          </Form>
-        <Form 
+        <Form
         fields={[
             'ImageSelect'
         ]}
@@ -202,7 +202,7 @@ export const LumFormExample = () => {
             ]}
         />
          </Form>
-        <Form 
+        <Form
         fields={[
             'MultiSelect'
         ]}

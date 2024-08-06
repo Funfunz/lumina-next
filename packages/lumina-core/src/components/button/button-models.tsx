@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // Ideas taken from https://dev.to/frehner/polymorphic-button-component-in-typescript-c28
 
 type TLumButtonBase = {
@@ -5,8 +6,8 @@ type TLumButtonBase = {
   text?: string
   iconLeft?: string
   iconRight?: string
-  style?: 'primary' | 'secondary' | 'warning' | 'danger' | 'filter' | 'live'| 'menuButton'
-  size?: 'small' | 'large'
+  style?: 'primary' | 'secondary' | 'warning' | 'danger' | 'filter' | 'live' | 'menuButton' | string
+  size?: 'small' | 'large' | string
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
   disabled?: boolean;
 }

@@ -1,11 +1,11 @@
-@import "./theme/css/lumina/tokens.scss";
-@import "./css-utils/index.scss";
-@import "./scss-utils/index.scss";
-@import "./LuminaIcon-v1.3/style.scss";
-
+@import './theme/css/lumina/tokens';
+@import './assets/fontsets';
+@import './css-utils/index';
+@import './scss-utils/index';
+@import './LuminaIcon-v1.3/style';
 
 body {
   margin: 0;
 }
 
-@import "../components/styles.scss";
+@import '../components/styles';

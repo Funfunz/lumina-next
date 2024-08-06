@@ -3,37 +3,37 @@
     "color": {
       "button": {
         "text": {
-          "value": "{lum.color.offwhite.value}"
+          "value": "{lum.color.surface.default.value}"
         },
         "background": {
-          "value": "{lum.color.primary.value}"
+          "value": "{lum.color.fg.default.value}"
         },
         "background-hover": {
           "value": "{lum.color.grey.value}"
         },
         "text-inverse": {
-          "value": "{lum.color.primary.value}"
+          "value": "{lum.color.fg.default.value}"
         },
         "background-inverse": {
-          "value": "{lum.color.background.transparent.value}"
+          "value": "{lum.color.transparent.value}"
         },
         "background-inverse-hover": {
-          "value": "{lum.color.offwhite.value}"
+          "value": "{lum.color.surface.strong.value}"
         },
         "primary-background": {
-          "value": "#00bbb7"
+          "value": "{lum.color.accent.default.value}"
         },
         "secondary-background": {
-          "value": "#5656c7"
+          "value": "{lum.color.primary.default.value}"
         },
         "warning-background": {
-          "value": "#ffc31d"
+          "value": "{lum.color.secondary.weak.value}"
         },
         "danger-background": {
-          "value": "#fe7676"
+          "value": "{lum.color.secondary.default.value}"
         },
-        "disabled":{
-          "value": "#ccc"
+        "disabled": {
+          "value": "{lum.color.surface.stronger.value}"
         }
       }
     }

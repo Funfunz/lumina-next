@@ -3,16 +3,16 @@
     "color": {
       "link": {
         "text": {
-          "value": "{lum.color.primary.value}"
+          "value": "{lum.color.fg.default.value}"
         },
         "hover": {
-          "value": "#1660c7"
+          "value": "{lum.color.primary.default.value}"
         },
         "text-inverse": {
-          "value": "{lum.color.secondary.value}"
+          "value": "{lum.color.surface.default.value}"
         },
         "hover-inverse": {
-          "value": "#c77d16"
+          "value": "{lum.color.secondary.default.value}"
         }
       }
     }

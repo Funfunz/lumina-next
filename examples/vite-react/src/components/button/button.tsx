@@ -1,4 +1,4 @@
-import { EditorButton } from '@repo/lumina-core'
+import { EditorButtonsContainer } from '@lumina/core'
 import { config } from './config'
 import cx from 'classnames';
 import styles from './button.module.scss'
@@ -10,7 +10,7 @@ type TProps = {
   id: string
 }
 
-export const Button = ({id, size="medium", style="outlined", text="button"}:TProps) => {
+export const Button = ({ id, size = "medium", style = "outlined", text = "button" }: TProps) => {
   const buttonStyles = cx(
     styles.button,
     style,
@@ -18,11 +18,11 @@ export const Button = ({id, size="medium", style="outlined", text="button"}:TPro
     styles.buttonContainer
   );
 
-  return(
+  return (
     <div>
       <button className={buttonStyles}>
         {text}
-        <EditorButton id={id} config={config} data={{size, style, text}}/>
+        <EditorButtonsContainer id={id} config={config} data={{ size, style, text }} />
       </button>
     </div>
   )

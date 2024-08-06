@@ -1,5 +1,5 @@
 ---
-'@repo/lumina-core': patch
+'@lumina/core': patch
 'vite-react': patch
 ---
 

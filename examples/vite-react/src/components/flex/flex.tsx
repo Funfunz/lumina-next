@@ -5,9 +5,9 @@ type Props = {
   style: string
 }
 
-export const Flex = ({children, style}: Props) => {
+export const Flex = ({ children, style }: Props) => {
   return (
-    <div className={styles.flex + (style ?  ' ' + style : '')}>
+    <div className={styles.flex + (style ? ' ' + style : '')}>
       {children}
     </div>
   )

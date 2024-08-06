@@ -29,7 +29,7 @@ export interface IInitialStateType {
 
 export const initialContext = {
   appContext: initialAppContextState,
-  builderDataContext: initialBuilderDataContextState,
+  builderDataContext: initialBuilderDataContextState
 };
 
 export const mainReducer = (
@@ -40,5 +40,5 @@ export const mainReducer = (
   builderDataContext: builderDataContextReducer(
     builderDataContext,
     action as TBuilderDataContextAction
-  ),
+  )
 });

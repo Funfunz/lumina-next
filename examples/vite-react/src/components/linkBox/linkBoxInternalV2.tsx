@@ -1,9 +1,9 @@
 import { config } from './config'
 import { LinkBoxContext } from './LinkboxContextV2'
 import { useContext } from 'react'
-import { EditorButton } from '@repo/lumina-core'
+import { EditorButtonsContainer } from '@lumina/core'
 
-type TData =  {
+type TData = {
   href: string
   title: string
   description: string
@@ -11,7 +11,7 @@ type TData =  {
 }
 
 export const LinkBoxInternal = () => {
-  const {state, dispatch} = useContext(LinkBoxContext)
+  const { state, dispatch } = useContext(LinkBoxContext)
 
   const onUpdateCallback = (data: TData) => {
     dispatch(data)
@@ -25,8 +25,8 @@ export const LinkBoxInternal = () => {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <EditorButton id={state.id} onUpdate={onUpdateCallback} config={config} data={state}/>
-      <h2 style={{color: state.color}}>
+      <EditorButtonsContainer id={state.id} onUpdate={onUpdateCallback} config={config} data={state} />
+      <h2 style={{ color: state.color }}>
         {state.title} <span>-&gt;</span>
       </h2>
       <p>{state.description}</p>

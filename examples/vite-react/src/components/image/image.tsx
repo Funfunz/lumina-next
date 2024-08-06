@@ -1,7 +1,7 @@
 'use client'
 
 import { config } from './config'
-import { EditorButton } from '@repo/lumina-core'
+import { EditorButtonsContainer } from '@lumina/core'
 import styles from './image.module.scss'
 
 type TProps = {
@@ -20,7 +20,7 @@ export const Image = ({ href, alt, id }: TProps) => {
         src={href}
         alt={alt}
       />
-      <EditorButton id={id} config={config} data={{ href, alt }} />
+      <EditorButtonsContainer id={id} config={config} data={{ href, alt }} />
     </div>
   )
 }

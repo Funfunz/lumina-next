@@ -2,9 +2,9 @@
   "lum": {
     "color": {
       "border": {
-        "value": "{lum.color.primary.value}",
-        "inverse": { "value": "{lum.color.secondary.value}" },
-        "disabled": { "value": "{lum.color.disabled.value}" }
+        "value": "{lum.color.fg.default.value}",
+        "inverse": { "value": "{lum.color.surface.default.value}" },
+        "disabled": { "value": "{lum.color.surface.stronger.value}" }
       }
     }
   }

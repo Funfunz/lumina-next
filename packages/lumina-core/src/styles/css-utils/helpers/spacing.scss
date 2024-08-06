@@ -1,7 +1,9 @@
-// Vertical rhythm: always apply margins to bottom, never to top
-//
-// Handle component-specific cases by adding a custom classe, e.g.:
-//  .add-custom-bottom-margin { margin-top: 100px; }
+/* Vertical rhythm: always apply margins to bottom, never to top
+*
+* Handle component-specific cases by adding a custom classe, e.g.:
+* .add-custom-bottom-margin { margin-top: 100px; }
+*/
+
 .lum-vs {
   margin-bottom: var(--lum-size-spacing-m);
 
