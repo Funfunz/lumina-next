@@ -9,22 +9,6 @@
     color: black;
   }
 
-  .rfc-checkitem {
-    font-size: 16px;
-    font-weight: 300;
-    color: black;
-  }
-
-  input:checked {
-    background-color: black;
-  }
-
-  input:checked::after {
-    color: black;
-    background-color: #777;
-    border-color: #777;
-  }
-
   span {
     margin-top: 10px;
     font-size: 16px;
