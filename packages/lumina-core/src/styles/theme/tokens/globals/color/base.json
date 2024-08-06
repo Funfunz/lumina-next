@@ -25,6 +25,24 @@
       "white-smoke": {
         "value": "#f5f5f5"
       },
+      "charcoal": {
+        "value": "#122F54"
+      },
+      "green-600": {
+        "value": "#06A092"
+      },
+      "green-800": {
+        "value": "#046158"
+      },
+      "grey-400": {
+        "value": "#E6E6EB"
+      },
+      "grey-600": {
+        "value": "#CCCCD1"
+      },
+      "grey-800": {
+        "value": "#7B7B7F"
+      },
       "surface": {
         "default": {
           "value": "#FDFDFD"

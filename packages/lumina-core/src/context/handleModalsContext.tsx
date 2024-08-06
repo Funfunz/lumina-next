@@ -66,8 +66,6 @@ export const ToggleModalContextProvider = ({ children }: { children: ReactNode }
     })
   }
 
-  console.log('modalState:', modalState)
-
   return (
     <ToggleModalContext.Provider value={{ handleCloseModal, handleOpenModal, modalState }}>
       {children}

@@ -1,4 +1,4 @@
-.button {
+.lum-button {
   @include lum-typo-button;
 
   box-sizing: border-box;
@@ -37,7 +37,7 @@
   }
 
   // CSS for button content
-  .buttonContent {
+  & > .buttonContent {
     display: flex;
     gap: 10px;
     align-items: center;
@@ -47,171 +47,167 @@
 
   .icon {
     font-size: var(--lum-size-icon-s);
-    color: #122f54;
-  }
-}
-
-// CSS for 'primary' | 'secondary' | 'warning' | 'danger' | 'filter' | 'live'
-// TODO: use var() instead of hardcoded values, match Figma colors scheme
-.primary {
-  color: #fff;
-  background-color: var(--lum-color-button-primary-background);
-
-  &:hover {
-    background-color: var(--lum-color-button-background-hover);
+    color: var(--lum-color-charcoal);
   }
 
-  &:focus {
-    border: 1px solid var(--lum-color-white);
-    border-radius: 3px;
-    box-shadow: 0 0 0 2px var(--lum-color-button-primary-background);
-  }
-
-  &:disabled {
-    color: var(--lum-color-button-disabled);
-    cursor: not-allowed;
-    background-color: var(--lum-color-button-background-hover);
-  }
-}
-
-.secondary {
-  color: var(--lum-color-button-primary-background);
-  background-color: white;
-  border: 1px solid var(--lum-color-button-primary-background);
-
-  &:hover {
-    color: var(--lum-color-foundation-green);
-    background-color: #e6f7f6;
-    border: 1px solid var(--lum-color-foundation-green);
-  }
-
-  &:focus {
-    color: var(--lum-color-button-primary-background);
-    border: 2px solid var(--lum-color-button-primary-background);
-    border-radius: 3px;
-  }
-
-  &:disabled {
-    color: #5e5e61;
-    cursor: not-allowed;
-    background-color: #f5f5f7;
-    border: none;
-  }
-}
-
-.filter {
-  padding: 7px;
-  color: #1117;
-  background-color: #f7f7f7;
-  border: 1px solid lightgray;
-  border-radius: 5px;
-
-  &:hover {
+  // CSS for 'primary' | 'secondary' | 'warning' | 'danger' | 'filter' | 'live'
+  // TODO: use var() instead of hardcoded values, match Figma colors scheme
+  &.primary {
     color: white;
-    background-color: gray;
-  }
-}
+    background-color: var(--lum-color-green-600);
 
-.live {
-  color: #1117;
-  background-color: #f7f7f7;
-  border: 1px solid lightgray;
-  border-radius: 5px;
+    &:hover {
+      background-color: var(--lum-color-green-800);
+    }
 
-  &:hover {
-    color: white;
-    background-color: var(--lum-color-foundation-green-weak);
-  }
-}
+    &:focus {
+      border: 1px solid #fdfdfd;
+      border-radius: 3px;
+      box-shadow: 0 0 0 2px var(--lum-color-green-600);
+    }
 
-.warning {
-  border: 1px solid var(--lum-color-button-warning-background);
-  box-shadow: 0 0 0 0 var(--lum-color-button-warning-background);
-
-  &:hover {
-    box-shadow: 0 3px 5px -1px var(--lum-color-button-warning-background);
+    &:disabled {
+      color: var(--lum-color-button-disabled);
+      cursor: not-allowed;
+      background-color: var(--lum-color-button-background-hover);
+    }
   }
 
-  &:not(.outline) {
-    background-color: var(--lum-color-button-warning-background);
+  &.secondary {
+    color: var(--lum-color-grey-800);
+    background-color: var(--lum-color-white);
+    border: 1px solid var(--lum-color-grey-800);
+
+    &:hover {
+      background-color: var(--lum-color-grey-400);
+    }
+
+    &:focus {
+      border: 2px solid var(--lum-color-green-800);
+    }
+
+    &:disabled {
+      color: #5e5e61;
+      cursor: not-allowed;
+      background-color: #f5f5f7;
+      border: none;
+    }
   }
 
-  &.outline {
-    color: var(--lum-color-button-warning-background);
-  }
-}
+  &.filter {
+    padding: 7px;
+    color: #1117;
+    background-color: #f7f7f7;
+    border: 1px solid lightgray;
+    border-radius: 5px;
 
-.danger {
-  border: 1px solid var(--lum-color-button-danger-background);
-  box-shadow: 0 0 0 0 var(--lum-color-button-danger-background);
-
-  &:hover {
-    box-shadow: 0 3px 5px -1px var(--lum-color-button-danger-background);
-  }
-
-  &:not(.outline) {
-    background-color: var(--lum-color-button-danger-background);
-  }
-
-  &.outline {
-    color: var(--lum-color-button-danger-background);
-  }
-}
-
-// CSS Gives full width to a button
-.fullWidth {
-  width: 100%;
-}
-
-// CSS for menuButton style that also affects buttonText and icon in the menuButton
-.onHover {
-  &:not(.treeAddButton > .button) {
-    background-color: var(--lum-color-foundation-green);
-    border-radius: 3px;
-
-    .buttonContent {
+    &:hover {
       color: white;
+      background-color: gray;
+    }
+  }
 
-      .icon {
+  &.live {
+    color: #1117;
+    background-color: #f7f7f7;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+
+    &:hover {
+      color: white;
+      background-color: gray;
+    }
+  }
+
+  &.warning {
+    border: 1px solid var(--lum-color-button-warning-background);
+    box-shadow: 0 0 0 0 var(--lum-color-button-warning-background);
+
+    &:hover {
+      box-shadow: 0 3px 5px -1px var(--lum-color-button-warning-background);
+    }
+
+    &:not(.outline) {
+      background-color: var(--lum-color-button-warning-background);
+    }
+
+    &.outline {
+      color: var(--lum-color-button-warning-background);
+    }
+  }
+
+  &.danger {
+    border: 1px solid var(--lum-color-button-danger-background);
+    box-shadow: 0 0 0 0 var(--lum-color-button-danger-background);
+
+    &:hover {
+      box-shadow: 0 3px 5px -1px var(--lum-color-button-danger-background);
+    }
+
+    &:not(.outline) {
+      background-color: var(--lum-color-button-danger-background);
+    }
+
+    &.outline {
+      color: var(--lum-color-button-danger-background);
+    }
+  }
+
+  // CSS Gives full width to a button
+  &.fullWidth {
+    width: 100%;
+  }
+
+  // CSS for menuButton style that also affects buttonText and icon in the menuButton
+  &.onHover {
+    &:not(.treeAddButton > .button) {
+      background-color: var(--lum-color-foundation-green);
+      border-radius: 3px;
+
+      .buttonContent {
         color: white;
+
+        .icon {
+          color: white;
+        }
       }
     }
   }
-}
 
-.menuButton {
-  justify-content: start;
-  width: 100%;
+  .menuButton {
+    justify-content: start;
+    width: 100%;
 
-  &:not(:disabled):hover {
-    background-color: #e6f7f6;
-  }
+    &:not(:disabled):hover {
+      background-color: #e6f7f6;
+    }
 
-  &:disabled {
-    cursor: not-allowed;
-    background-color: #f7f7f7;
+    &:disabled {
+      cursor: not-allowed;
+      background-color: #f7f7f7;
 
-    .icon {
-      color: #a7bdd9;
+      .icon {
+        color: #a7bdd9;
+      }
     }
   }
-}
 
-// Used for prop size to set between small or large sizes for the button
-.large {
-  padding: 12px 18px;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 24px;
-  border-radius: 3px;
-}
+  // Used for prop size to set between small or large sizes for the button
+  &.large {
+    padding: 12px 18px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1;
+    border-radius: 3px;
+  }
 
-.small {
-  padding: 3px 10px;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  border-radius: 3px;
+  &.small {
+    padding: 3px 10px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border-radius: 3px;
+  }
 }
