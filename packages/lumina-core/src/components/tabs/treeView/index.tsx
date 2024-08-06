@@ -7,27 +7,15 @@ import { SearchBar } from '@/components/search-bar'
 import { ComponentTree } from './componentTree'
 import { ToggleMenuContextProvider } from '@/context/toggleMenuContext'
 import { Title } from '@/components/title'
-import { useEffect, useState } from 'react'
-import { IComponentData } from '@/models/data'
 
 export const TreeViewTab = () => {
   const {
     state: { builderDataContext },
   } = useLuminaContext()
-  const [cmpsData, setCmpsData] = useState<IComponentData[]>()
 
-  useEffect(() => {
-    if (
-      builderDataContext.builderData &&
-      builderDataContext.selectedPage &&
-      builderDataContext.builderData[builderDataContext.selectedPage].children
-    ) {
-      setCmpsData(builderDataContext.builderData[builderDataContext.selectedPage].children)
-    }
-  }, [])
+  const cmpData = builderDataContext.builderData[builderDataContext.selectedPage].children!
 
-  if (!cmpsData) return null
-
+  if (!cmpData) return null //TODO return an error message
   return (
     <ToggleMenuContextProvider>
       <div className='treeview_container'>
@@ -39,10 +27,7 @@ export const TreeViewTab = () => {
           <SearchBar />
         </div>
         <TreeviewHeader />
-        <ComponentTree
-          // Confirmar se a data é undefined ou não
-          data={cmpsData}
-        />
+        <ComponentTree data={cmpData} />
       </div>
     </ToggleMenuContextProvider>
   )

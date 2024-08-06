@@ -2,7 +2,7 @@ import type { TConfig } from '@lumina/core'
 
 export const config: TConfig = {
   name: 'Button',
-  value: 'button',
+  type: 'button',
   props: [
     {
       type: 'string',

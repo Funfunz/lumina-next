@@ -24,7 +24,7 @@ const initialModalState: TModalState = {
   data: {},
   config: {
     name: '',
-    value: '',
+    type: '',
     editor: {
       children: false,
       editable: false,

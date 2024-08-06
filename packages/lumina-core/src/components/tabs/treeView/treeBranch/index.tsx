@@ -31,7 +31,7 @@ export const TreeBranch = ({ data }: { data: IComponentData; noUp: boolean; noDo
 
   // TODO temporary workaround for missing config
   const component = DynamicComponent(data.type)
-  if (!component) return null
+  if (!component) return null //TODO data should return true always but if not an error should be returned here
 
   return (
     <div className='branch_container'>

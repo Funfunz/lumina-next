@@ -2,7 +2,7 @@ import type { TConfig } from '@lumina/core'
 
 export const config: TConfig = {
   name: 'Linkbox',
-  value: 'linkbox',
+  type: 'linkbox',
   props: [
     {
       type: 'string',
