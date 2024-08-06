@@ -37,7 +37,12 @@
     position: absolute;
     top: -16px;
     right: -16px;
+    background-color: var(--lum-color-black);
     border-radius: 100%;
+
+    .icon {
+      color: var(--lum-color-white);
+    }
   }
 
   &_form-content {

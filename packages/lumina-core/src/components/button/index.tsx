@@ -26,7 +26,7 @@ export const Button = (props: TLumButton) => {
     const { onClick, disabled, isFullWidth } = props
     return (
       <button
-        className={cx('button', allClassNames, { fullWidth: isFullWidth })}
+        className={cx('lum-button', allClassNames, { fullWidth: isFullWidth })}
         onClick={onClick}
         disabled={disabled}
       >

@@ -177,37 +177,36 @@ export const EditorModal = () => {
       ariaHideApp={false}
       isOpen={isOpen}
       contentLabel={modalData.modalAriaLabel}
-      className="editor-modal"
-      overlayClassName="modalOverlay"
+      className='editor-modal'
+      overlayClassName='modalOverlay'
       role={'dialog'}
     >
-      <div className="editor-modal_content-header">
+      <div className='editor-modal_content-header'>
         <span className={cx('title-icon', modalData.titleIcon)}></span>
-        <Title classnames="editor-modal_content-header__title" content={modalData.modalName} />
+        <Title classnames='editor-modal_content-header__title' content={modalData.modalName} />
         <Button
-          buttonType="button"
-          iconLeft="lum-icon-cross"
-          className="editor-modal_close-button"
+          buttonType='button'
+          iconLeft='lum-icon-cross'
+          className='editor-modal_close-button'
           onClick={handleCloseModal}
-          style="primary"
         />
       </div>
 
-      <div className="editor-modal_form-content">{renderModalType()}</div>
+      <div className='editor-modal_form-content'>{renderModalType()}</div>
 
-      <div className="editor-modal_buttons-container">
+      <div className='editor-modal_buttons-container'>
         <Button
-          buttonType="button"
+          buttonType='button'
           text={modalData.modalOkButtonLabel}
-          style="primary"
-          size="large"
+          style='primary'
+          size='large'
           onClick={modalData.modalClickHandler}
         />
         <Button
-          buttonType="button"
-          text="Cancel"
-          style="secondary"
-          size="large"
+          buttonType='button'
+          text='Cancel'
+          style='secondary'
+          size='large'
           onClick={handleCloseModal}
         />
       </div>
