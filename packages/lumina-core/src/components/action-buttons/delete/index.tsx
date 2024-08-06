@@ -33,11 +33,11 @@ export const DeleteComponentButton = ({
 
   return (
     <Button
-      buttonType="button"
+      buttonType='button'
       onClick={handleToggleDeleteModal}
       style={isMenuButton ? 'menuButton' : 'onHover'}
       text={buttonLabel}
-      iconLeft="lum-icon-cross"
+      iconLeft='lum-icon-cross'
       disabled={isDisabled}
     />
   )

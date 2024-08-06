@@ -48,11 +48,11 @@ export const EditComponentButton = ({
 
   return (
     <Button
-      buttonType="button"
+      buttonType='button'
       onClick={handleToggleEditModal}
       text={buttonLabel}
       style={cx(isHovered ? 'onHover' : '', isMenuButton ? 'menuButton' : 'onHover')}
-      iconLeft="lum-icon-edit"
+      iconLeft='lum-icon-edit'
       disabled={isDisabled}
     />
   )

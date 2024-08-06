@@ -1,11 +1,10 @@
-
-import { Title } from "@/components/title"
-import { Form, LuminaInputRenderer } from "@/components/editor-buttons-container/inputRenderer"
-import ReactModal from "react-modal"
-import { Button } from "@/components/button"
-import { EDITMODAL, useToggleModalContext } from "@/context/handleModalsContext"
-import { useCallback, useEffect, useState } from "react"
-import { useLuminaContext } from "@/context/contextProvider"
+import { Title } from '@/components/title'
+import { Form, LuminaInputRenderer } from '@/components/editor-buttons-container/inputRenderer'
+import ReactModal from 'react-modal'
+import { Button } from '@/components/button'
+import { EDITMODAL, useToggleModalContext } from '@/context/handleModalsContext'
+import { useCallback, useEffect, useState } from 'react'
+import { useLuminaContext } from '@/context/contextProvider'
 
 export const EditModal = () => {
   const { dispatch } = useLuminaContext()
@@ -16,27 +15,27 @@ export const EditModal = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
   /**
-   * 
+   *
    */
   useEffect(() => {
     setIsModalOpen(isOpen && modalType === EDITMODAL)
   }, [modalType, isOpen, modalState])
 
   /**
-   * 
+   *
    */
   const handleOnClickSaveData = () => {
     handleCloseModal()
     onUpdate && onUpdate(formData)
     dispatch({
-      type: "updateBackend",
+      type: 'updateBackend',
       data: {
         props: formData,
         id: id!,
       },
     })
     dispatch({
-      type: "updateComponent",
+      type: 'updateComponent',
       data: {
         newProps: formData,
         id: id!,
@@ -45,7 +44,7 @@ export const EditModal = () => {
   }
 
   /**
-   * 
+   *
    */
   const handleOnChangeInput = useCallback(
     (key: string, value: string | number) => {
@@ -61,9 +60,9 @@ export const EditModal = () => {
     <ReactModal
       ariaHideApp={false}
       isOpen={isModalOpen}
-      contentLabel="Component editor"
-      className="modalEdit"
-      overlayClassName="modalOverlay"
+      contentLabel='Component editor'
+      className='modalEdit'
+      overlayClassName='modalOverlay'
     >
       <Title content={config?.name} />
       <Form>
@@ -71,24 +70,19 @@ export const EditModal = () => {
           <LuminaInputRenderer
             key={index}
             config={configItem}
-            value={formData[configItem.name] || ""}
+            value={formData[configItem.name] || ''}
             handleOnChangeInput={handleOnChangeInput}
           />
         ))}
       </Form>
-      <div className="inlineButtons">
+      <div className='inlineButtons'>
         <Button
-          buttonType="button"
-          text="Save data"
-          style="primary"
+          buttonType='button'
+          text='Save data'
+          style='primary'
           onClick={handleOnClickSaveData}
         />
-        <Button
-          buttonType="button"
-          text="Close Modal"
-          style="primary"
-          onClick={handleCloseModal}
-        />
+        <Button buttonType='button' text='Close Modal' style='primary' onClick={handleCloseModal} />
       </div>
     </ReactModal>
   )

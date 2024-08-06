@@ -33,12 +33,12 @@ export const AddComponentButton = ({
 
   return (
     <Button
-      buttonType="button"
+      buttonType='button'
       onClick={handleButtonClick}
       text={buttonLabel}
       disabled={isDisabled}
       style={isMenuButton ? 'menuButton' : 'onHover'}
-      iconLeft="lum-icon-plus"
+      iconLeft='lum-icon-plus'
     />
   )
 }
