@@ -6,7 +6,7 @@ import { TConfigItem, TConfigItemSelect } from '@/models/editor-buttonModel'
 
 type TProps = {
   config: TConfigItem
-  value: string | number
+  value: string | number | undefined
   handleOnChangeInput: (key: string, value: string | number) => void
 }
 

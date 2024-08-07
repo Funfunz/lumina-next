@@ -41,21 +41,29 @@ export const EditorModal = () => {
   const initialAddState: TAddModalProps = {
     selectedOption: undefined,
     cmpName: '',
-    formData: formData,
+    formData: {},
   }
   const [addModalProps, setAddModalProps] = useState<TAddModalProps>(initialAddState)
 
-  // Edit modal props
   /**
-   *
+   * Updates a value of a property of a component
+   * Used in both edit and add modal
+   * @param key defines the name of the property, this is given by the configuration of the component
+   * @param value
    */
   const handleOnChangeInput = (key: string, value: string | number) => {
-    console.log('data change', formData)
     setFormData({
       ...formData,
       [key]: value,
     })
   }
+
+  useEffect(() => {
+    setAddModalProps({
+      ...addModalProps,
+      formData,
+    })
+  }, [formData])
 
   useEffect(() => {
     if (data) setFormData(data)
@@ -177,7 +185,7 @@ export const EditorModal = () => {
       case ADDMODAL:
         return (
           <AddModal
-            handleModalProps={setAddModalProps}
+            setAddModalProps={setAddModalProps}
             modalProps={addModalProps!}
             handleOnChangeInput={handleOnChangeInput}
           />

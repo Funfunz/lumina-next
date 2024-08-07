@@ -6,13 +6,13 @@ import { TAddModalProps } from '..'
 import { Form, LuminaInputRenderer } from '@/components/editor-buttons-container/inputRenderer'
 
 type TProps = {
-  handleModalProps: Dispatch<SetStateAction<TAddModalProps>>
+  setAddModalProps: Dispatch<SetStateAction<TAddModalProps>>
   modalProps: TAddModalProps
   /* eslint-disable no-unused-vars */
   handleOnChangeInput: (key: string, value: string | number) => void
 }
 
-export const AddModal = ({ handleModalProps, modalProps, handleOnChangeInput }: TProps) => {
+export const AddModal = ({ setAddModalProps, modalProps, handleOnChangeInput }: TProps) => {
   const { modalState } = useToggleModalContext()
   const componentConfig = getComponentConfig()
   const { id } = modalState
@@ -20,7 +20,7 @@ export const AddModal = ({ handleModalProps, modalProps, handleOnChangeInput }: 
 
   useEffect(() => {
     if (modalProps.selectedOption) {
-      setSelectedConfig(componentConfig[modalProps.selectedOption.value.toLowerCase()].config)
+      setSelectedConfig(componentConfig[modalProps.selectedOption.value].config)
     }
   }, [modalProps.selectedOption, componentConfig])
 
@@ -33,12 +33,12 @@ export const AddModal = ({ handleModalProps, modalProps, handleOnChangeInput }: 
 
   // Handler for on Change from dropdown - BM
   const handleSelectChange = (options: any) => {
-    handleModalProps({ ...modalProps, selectedOption: options })
+    setAddModalProps({ ...modalProps, selectedOption: options })
   }
 
   // Handler for on Change from dropdown - BM
   const handleOnChangeNewComponentFriendlyName = (event: ChangeEvent<HTMLInputElement>) => {
-    handleModalProps({ ...modalProps, cmpName: event.target.value })
+    setAddModalProps({ ...modalProps, cmpName: event.target.value })
   }
 
   return (
@@ -66,7 +66,7 @@ export const AddModal = ({ handleModalProps, modalProps, handleOnChangeInput }: 
               <LuminaInputRenderer
                 key={index}
                 config={configItem}
-                value={modalProps.formData![configItem.name] || ''}
+                value={modalProps.formData ? modalProps.formData[configItem.name] : ''}
                 handleOnChangeInput={handleOnChangeInput}
               />
             ))}
