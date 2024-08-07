@@ -1,24 +1,34 @@
-//The .checkBox class should be added to classNames on the checkbox you want to render
-.checkBox {
+//The .lum__checkbox class should be added to classNames on the checkbox you want to render
+.lum__checkbox {
   width: 100%;
 
   .rfc-label {
     margin-bottom: 10px;
     font-size: 16px;
     font-weight: 600;
-    color: black;
+    color: var(--lum-color-black);
+  }
+
+  input::before {
+    margin: -1px;
+    color: var(--lum-color-accent-default);
+    background-color: var(--lum-color-surface-default);
+    border: 1px solid var(--lum-color-accent-default);
+    border-radius: 3px;
   }
 
   input:checked::after {
-    color: black;
-    background-color: #777;
-    border-color: #777;
+    margin: -2px;
+    color: var(--lum-color-accent-default);
+    background-color: var(--lum-color-surface-default);
+    border: 1px solid var(--lum-color-accent-default);
+    border-radius: 3px;
   }
 
   span {
     margin-top: 10px;
     font-size: 16px;
     font-weight: 400;
-    color: #777;
+    color: var(--lum-color-grey);
   }
 }

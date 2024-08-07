@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Button } from '../button'
 import { PagesTab } from '../tabs/pages'
 import { TreeViewTab } from '../tabs/treeView'
-import Form, { Slider } from 'react-form-component'
+import Form, { Checkbox, Input, Radio, Slider, SwitchList, TextArea } from 'react-form-component'
 
 type TSidebarEditor = {
   handleToggler: Function
@@ -32,16 +32,102 @@ const editorTabs: TSidebarTab[] = [
     id: 'lumTabLibrary',
     icon: 'lum-icon-library',
     panel: (
-      <Form fields={['test']}>
-        <Slider
-          className="slider"
-          name="test"
-          mandatory
-          label="Field Label"
-          type="text"
-          help="This is the optional help text for this field"
-        />
-      </Form>
+      <>
+        <Form fields={['test0']}>
+          <Checkbox
+            className="lum__checkbox"
+            name="test0"
+            mandatory
+            label="Field Label"
+            text="Checkbox Test"
+            help="This is the optional help text for this field"
+          />
+        </Form>
+        <br />
+        <hr />
+        <br />
+        <Form fields={['test1']}>
+          <Slider
+            className="lum__slider"
+            name="test1"
+            mandatory
+            label="Field Label"
+            type="text"
+            help="This is the optional help text for this field"
+          />
+        </Form>
+        <br />
+        <hr />
+        <br />
+        <Form fields={['test2']}>
+          <TextArea
+            className="lum__text-area"
+            name="test2"
+            mandatory
+            label="Field Label"
+            type="text"
+            help="This is the optional help text for this field"
+            placeholder="Type something"
+          />
+        </Form>
+        <br />
+        <hr />
+        <br />
+        <Form fields={['test3']}>
+          <Radio
+            className="lum__radio-button"
+            name="test3"
+            mandatory
+            label="Field Label"
+            type="text"
+            help="This is the optional help text for this field"
+            options={['Radio Test 1', 'Radio Test 2']}
+          />
+          <br />
+          <hr />
+          <br />
+        </Form>
+        <Form fields={['test4']}>
+          <Input
+            className="lum__input"
+            name="test4"
+            mandatory
+            placeholder="Type something"
+            label="Field Label"
+            type="text"
+            help="This is the optional help text for this field"
+          />
+        </Form>
+        <br />
+        <hr />
+        <br />
+        <Form fields={['test5']}>
+          <SwitchList
+            className="lum__switch-list"
+            name="test5"
+            mandatory
+            label="Field Label"
+            type="text"
+            help="This is the optional help text for this field"
+            options={['Switch-List test']}
+          />
+        </Form>
+        <br />
+        <hr />
+        <br />
+        <Form fields={['test5']}>
+          <Input
+            className="lum__input"
+            name="test5"
+            mandatory
+            placeholder="pick a password"
+            label="Validation Test"
+            type="password"
+            help="To validate, enter a password with a minimum 8 characters."
+            min={8}
+          />
+        </Form>
+      </>
     ),
   },
 ]

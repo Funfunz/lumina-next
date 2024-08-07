@@ -1,22 +1,18 @@
 //The .slider class should be added to classNames on the slider you want to render
-.slider {
+.lum__slider {
   width: 100%;
 
   .rfc-label {
     margin-bottom: 10px;
     font-size: 16px;
     font-weight: 600;
-    color: black;
-  }
-
-  input[type='range']::-ms-thumb {
-    color: red;
+    color: var(--lum-color-black);
   }
 
   span {
     margin-top: 10px;
     font-size: 16px;
     font-weight: 400;
-    color: #777;
+    color: var(--lum-color-grey);
   }
 }
