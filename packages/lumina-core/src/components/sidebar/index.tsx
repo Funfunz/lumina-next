@@ -4,7 +4,8 @@ import { useState } from 'react'
 import { Button } from '../button'
 import { PagesTab } from '../tabs/pages'
 import { TreeViewTab } from '../tabs/treeView'
-import Form, { Checkbox, Input, Radio, Slider, SwitchList, TextArea } from 'react-form-component'
+import Form, { Input, Radio, Slider, SwitchList, TextArea } from 'react-form-component'
+import { LumCheckbox } from '../form-components/checkbox'
 
 type TSidebarEditor = {
   handleToggler: Function
@@ -34,8 +35,7 @@ const editorTabs: TSidebarTab[] = [
     panel: (
       <>
         <Form fields={['test0']}>
-          <Checkbox
-            className="lum__checkbox"
+          <LumCheckbox
             name="test0"
             mandatory
             label="Field Label"

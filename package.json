@@ -22,9 +22,5 @@
     "prettier": "^3.2.5",
     "turbo": "^2.0.9",
     "typescript": "^5.4.5"
-  },
-  "dependencies": {
-    "@changesets/cli": "^2.27.7",
-    "react-form-component": "^2.6.6"
   }
 }
