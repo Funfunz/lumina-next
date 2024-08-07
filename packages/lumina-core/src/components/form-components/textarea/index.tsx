@@ -1,10 +1,15 @@
 import React from 'react'
-import { TextArea } from 'react-form-component'
+import { ControlLogicProps, setValue, TextArea, value } from 'react-form-component'
 
-interface IProps {
+interface IProps extends ControlLogicProps {
   className?: string
   name: string
-  [key: string]: any
+  value?: value
+  placeholder?: string
+  mandatory?: boolean
+  setValue?: setValue
+  rows?: number
+  min?: number
 }
 
 export class LumTextArea extends React.Component<IProps> {

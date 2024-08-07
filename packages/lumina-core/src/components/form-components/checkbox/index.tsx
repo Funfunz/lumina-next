@@ -1,10 +1,14 @@
 import React from 'react'
-import { Checkbox } from 'react-form-component'
+import { Checkbox, ControlLogicProps, setValue, value } from 'react-form-component'
 
-interface IProps {
+interface IProps extends ControlLogicProps {
   className?: string
   name: string
-  [key: string]: any
+  value?: value
+  text?: React.ReactNode
+  mandatory?: boolean
+  setValue?: setValue
+  small?: boolean
 }
 
 export class LumCheckbox extends React.Component<IProps> {

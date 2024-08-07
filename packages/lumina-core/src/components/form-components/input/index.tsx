@@ -1,10 +1,8 @@
 import React from 'react'
-import { Input } from 'react-form-component'
+import { Input, InputProps } from 'react-form-component'
 
-interface IProps {
+interface IProps extends InputProps {
   className?: string
-  name: string
-  [key: string]: any
 }
 
 export class LumInput extends React.Component<IProps> {

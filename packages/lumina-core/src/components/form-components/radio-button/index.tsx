@@ -1,10 +1,16 @@
 import React from 'react'
-import { Radio } from 'react-form-component'
+import { ControlLogicProps, options, Radio, setValue, value } from 'react-form-component'
 
-interface IProps {
+interface IProps extends ControlLogicProps {
   className?: string
   name: string
-  [key: string]: any
+  value?: value
+  mandatory?: boolean
+  small?: boolean
+  // eslint-disable-next-line no-unused-vars
+  onChange?: (value: value) => void
+  setValue?: setValue
+  options?: options
 }
 
 export class LumRadio extends React.Component<IProps> {

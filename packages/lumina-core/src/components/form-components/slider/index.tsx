@@ -1,10 +1,16 @@
 import React from 'react'
-import { Slider } from 'react-form-component'
+import { ControlLogicProps, setValue, Slider, value } from 'react-form-component'
 
-interface IProps {
+interface IProps extends ControlLogicProps {
   className?: string
   name: string
-  [key: string]: any
+  value?: value
+  mandatory?: boolean
+  setValue?: setValue
+  min?: number
+  max?: number
+  step?: number
+  unit?: string
 }
 
 export class LumSlider extends React.Component<IProps> {

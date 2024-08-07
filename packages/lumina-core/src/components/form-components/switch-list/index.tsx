@@ -1,10 +1,13 @@
 import React from 'react'
-import { SwitchList } from 'react-form-component'
+import { ControlLogicProps, options, setValue, SwitchList, value } from 'react-form-component'
 
-interface IProps {
+interface IProps extends ControlLogicProps {
   className?: string
   name: string
-  [key: string]: any
+  value?: value
+  mandatory?: boolean
+  setValue?: setValue
+  options?: options
 }
 
 export class LumSwitchList extends React.Component<IProps> {
