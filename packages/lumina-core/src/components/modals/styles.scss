@@ -1,19 +1,56 @@
-.inlineButtons {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.modalEdit {
+.editor-modal {
   position: absolute;
   top: 20%;
   left: 50%;
-  width: 50%;
-  padding: 40px;
+  width: 600px;
+  padding: 40px 80px 60px;
   margin: 0 auto;
   background: var(--lum-color-white);
   border: 1px solid var(--lum-color-white);
   border-radius: 10px;
-  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 6%), 0 4px 6px -1px rgb(0 0 0 / 10%);
+  box-shadow:
+    0 2px 4px -1px rgb(0 0 0 / 6%),
+    0 4px 6px -1px rgb(0 0 0 / 10%);
   transform: translateX(-50%);
+
+  &_content-header {
+    margin-bottom: 20px;
+
+    .title-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin-top: 43px;
+      margin-left: 45px;
+      font-size: 24px;
+    }
+
+    &__title {
+      font-family: var(--lum-font-family-bold);
+      font-size: var(--lum-size-font-heading6);
+      font-weight: 700;
+      color: var(--lum-color-fg-strong);
+    }
+  }
+
+  &_close-button {
+    position: absolute;
+    top: -16px;
+    right: -16px;
+    background-color: var(--lum-color-black);
+    border-radius: 100%;
+
+    .icon {
+      color: var(--lum-color-white);
+    }
+  }
+
+  &_form-content {
+    margin-bottom: 35px;
+  }
+
+  &_buttons-container {
+    display: flex;
+    gap: 10px;
+  }
 }

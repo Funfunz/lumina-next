@@ -7,9 +7,7 @@ import type { IData, IPageData } from './models/data'
 import { useEffect, useState } from 'react'
 import { TConfig } from './models/editor-buttonModel'
 import { ToggleModalContextProvider } from './context/handleModalsContext'
-import { AddModal } from './components/modals/add'
-import { EditModal } from './components/modals/edit'
-import { DeleteModal } from './components/modals/delete'
+import { EditorModal } from './components/modals'
 import { FormThemeProvider } from 'react-form-component'
 
 export type TComponentConfig = {
@@ -50,6 +48,12 @@ export default function Lumina({ selectedPage, getData, components }: TProps = d
     }
     fetchData()
   }, [getData])
+  useEffect(() => {
+    async function fetchData() {
+      setBuilderData(await getData())
+    }
+    fetchData()
+  }, [getData])
 
   useEffect(() => {
     if (components) setComponentConfig(components)
@@ -70,9 +74,7 @@ export default function Lumina({ selectedPage, getData, components }: TProps = d
       <FormThemeProvider theme={{ colors: { success: 'none' } }}>
         <ToggleModalContextProvider>
           <Editor>
-            <AddModal />
-            <EditModal />
-            <DeleteModal />
+            <EditorModal />
             <Render />
           </Editor>
         </ToggleModalContextProvider>

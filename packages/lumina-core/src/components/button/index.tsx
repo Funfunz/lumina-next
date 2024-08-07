@@ -1,7 +1,6 @@
-
-import { ButtonContent } from "./buttonContent"
-import cx from "classnames"
-import { TLumButton } from "./button-models"
+import { ButtonContent } from './buttonContent'
+import cx from 'classnames'
+import { TLumButton } from './button-models'
 
 /**
  *
@@ -23,43 +22,30 @@ export const Button = (props: TLumButton) => {
   const { className, style, buttonType, text, iconLeft, iconRight, size } = props
   const allClassNames = `${style ? style : ''} ${className ? className : ''} ${size ? size : ''}`
 
-  if (buttonType === "button") {
+  if (buttonType === 'button') {
     const { onClick, disabled, isFullWidth } = props
     return (
       <button
-        className={cx('button', allClassNames, { fullWidth: isFullWidth })}
+        className={cx('lum-button', allClassNames, { fullWidth: isFullWidth })}
         onClick={onClick}
         disabled={disabled}
       >
-        <ButtonContent
-          text={text}
-          iconLeft={iconLeft}
-          iconRight={iconRight}
-        />
+        <ButtonContent text={text} iconLeft={iconLeft} iconRight={iconRight} />
       </button>
     )
-  } else if (buttonType === "externalLink") {
+  } else if (buttonType === 'externalLink') {
     const { href, target } = props
     return (
       <a className={allClassNames} href={href} target={target}>
-        <ButtonContent
-          text={text}
-          iconLeft={iconLeft}
-          iconRight={iconRight}
-        />
+        <ButtonContent text={text} iconLeft={iconLeft} iconRight={iconRight} />
       </a>
     )
-  } else if (buttonType === "link") {
+  } else if (buttonType === 'link') {
     const { href } = props
     return (
       <a className={allClassNames} href={href}>
-        <ButtonContent
-          text={text}
-          iconLeft={iconLeft}
-          iconRight={iconRight}
-        />
+        <ButtonContent text={text} iconLeft={iconLeft} iconRight={iconRight} />
       </a>
     )
   }
 }
-

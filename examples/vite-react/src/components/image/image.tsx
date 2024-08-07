@@ -10,16 +10,13 @@ type TProps = {
   alt: string
 }
 
-export const Image = ({ href, alt, id }: TProps) => {
+//block of buttons
 
+export const Image = ({ href, alt, id }: TProps) => {
   if (!href) return null
   return (
     <div className={styles.imageContainer}>
-      <img
-        className='image'
-        src={href}
-        alt={alt}
-      />
+      <img className='image' src={href} alt={alt} />
       <EditorButtonsContainer id={id} config={config} data={{ href, alt }} />
     </div>
   )

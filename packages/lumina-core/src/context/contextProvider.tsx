@@ -4,18 +4,15 @@
  * including the page structure and component data
  */
 
-import { createContext, useContext, useReducer } from "react"
+import { createContext, useContext, useReducer } from 'react'
 import {
   IInitialStateType,
   TAppContextDispatch,
   initialContext,
   mainReducer,
-} from "./reducers/luminaReducer"
-import { IAppContext, initialAppContextState } from "./reducers/appContext"
-import {
-  IBuilderDataContext,
-  initialBuilderDataContextState,
-} from "./reducers/builderDataContext"
+} from './reducers/luminaReducer'
+import { IAppContext, initialAppContextState } from './reducers/appContext'
+import { IBuilderDataContext, initialBuilderDataContextState } from './reducers/builderDataContext'
 
 export interface IContext {
   state: IInitialStateType
@@ -46,15 +43,11 @@ export function ContextProvider({
     builderDataContext: {
       ...initialBuilderDataContextState,
       ...(data.builderDataContext || {}),
-    }
+    },
   }
   const [state, dispatch] = useReducer(mainReducer, initialState)
 
-  return (
-    <LuminaContext.Provider value={{ state, dispatch }}>
-      {children}
-    </LuminaContext.Provider>
-  )
+  return <LuminaContext.Provider value={{ state, dispatch }}>{children}</LuminaContext.Provider>
 }
 
 export const useLuminaContext = () => {

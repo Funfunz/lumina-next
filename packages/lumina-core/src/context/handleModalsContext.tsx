@@ -24,6 +24,7 @@ const initialModalState: TModalState = {
   data: {},
   config: {
     name: '',
+    type: '',
     editor: {
       children: false,
       editable: false,
@@ -65,8 +66,6 @@ export const ToggleModalContextProvider = ({ children }: { children: ReactNode }
       isOpen: false,
     })
   }
-
-  console.log('modalState:', modalState)
 
   return (
     <ToggleModalContext.Provider value={{ handleCloseModal, handleOpenModal, modalState }}>
