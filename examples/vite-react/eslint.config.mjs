@@ -13,7 +13,7 @@ export default [
     rules: {
       quotes: [2, 'single', { avoidEscape: true }],
       eqeqeq: 'off',
-      'no-unused-vars': 'error',
+      'no-unused-vars': 'warn',
       'prefer-const': ['error', { ignoreReadBeforeAssign: true }],
       '@typescript-eslint/no-explicit-any': 'off',
       'react/react-in-jsx-scope': 'off',

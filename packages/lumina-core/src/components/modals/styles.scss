@@ -4,7 +4,7 @@
   position: absolute;
   top: 20%;
   left: 50%;
-  width: 50%;
+  width: 600px;
   padding: 40px 80px 60px;
   margin: 0 auto;
   background: var(--lum-color-white);
@@ -28,8 +28,10 @@
     }
 
     &__title {
+      font-family: var(--lum-font-family-bold);
       font-size: var(--lum-size-font-heading6);
       font-weight: 700;
+      color: var(--lum-color-fg-strong);
     }
   }
 
@@ -37,7 +39,12 @@
     position: absolute;
     top: -16px;
     right: -16px;
+    background-color: var(--lum-color-black);
     border-radius: 100%;
+
+    .icon {
+      color: var(--lum-color-white);
+    }
   }
 
   &_form-content {

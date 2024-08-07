@@ -56,9 +56,9 @@ export const EditorButtonsContainer = ({
 
       {inline && !visible && <VisibleComponentButton />}
 
-      {inline && !noUp && <MoveComponentButton moveDirection="up" id={id} />}
+      {inline && !noUp && <MoveComponentButton moveDirection='up' id={id} />}
 
-      {inline && !noDown && <MoveComponentButton moveDirection="down" id={id} />}
+      {inline && !noDown && <MoveComponentButton moveDirection='down' id={id} />}
 
       {inline && !menu && <ExpandMenuButton id={id} config={config} data={data} />}
     </div>

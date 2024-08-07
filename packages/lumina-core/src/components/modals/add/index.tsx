@@ -26,7 +26,7 @@ export const AddModal = ({ handleModalProps, modalProps, handleOnChangeInput }: 
 
   const options = Object.entries(componentConfig).map(([, opt]) => {
     return {
-      value: opt.config.name,
+      value: opt.config.type,
       label: opt.config.name,
     }
   })
@@ -42,24 +42,24 @@ export const AddModal = ({ handleModalProps, modalProps, handleOnChangeInput }: 
   }
 
   return (
-    <div className="add-modal-content">
+    <div className='add-modal-content'>
       <Select
         id={`addComponent_dropdown_${id}`}
         value={modalProps.selectedOption}
         options={options}
-        placeholder="Select a component..."
+        placeholder='Select a component...'
         onChange={handleSelectChange}
       />
-      <div className="add-modal-content__cmp-name">
+      <div className='add-modal-content__cmp-name'>
         <label htmlFor={`addComponent_friendlyName_${id}`}>Friendly name</label>
         <input
           id={`addComponent_friendlyName_${id}`}
-          type="text"
+          type='text'
           value={modalProps.cmpName}
           onChange={handleOnChangeNewComponentFriendlyName}
         />
       </div>
-      <div className="add-modal-content__cmp-config">
+      <div className='add-modal-content__cmp-config'>
         {selectedConfig && (
           <Form>
             {selectedConfig?.props?.map((configItem, index) => (
