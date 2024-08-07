@@ -1,11 +1,7 @@
 import React from 'react'
-import { Input, InputProps } from 'react-form-component'
+import { ControlLogicProps, Input } from 'react-form-component'
 
-interface IProps extends InputProps {
-  className?: string
-}
-
-export class LumInput extends React.Component<IProps> {
+export class LumInput extends React.Component<ControlLogicProps> {
   render() {
     const className = this.props.className || 'lum__input'
     const name = this.props.name
