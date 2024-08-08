@@ -62,7 +62,7 @@ export const ToggleModalContextProvider = ({ children }: { children: ReactNode }
 
   const handleCloseModal = () => {
     setModalState({
-      ...modalState,
+      ...initialModalState,
       isOpen: false,
     })
   }
