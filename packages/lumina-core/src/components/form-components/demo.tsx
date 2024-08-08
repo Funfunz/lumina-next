@@ -6,7 +6,7 @@ import { LumRadio } from './radio-button'
 import { LumInput } from './input'
 import { LumSwitchList } from './switch-list'
 
-// For Demonstration purposes, please call this Component on /packages/lumina-core/src/components/slider
+// For Demonstration purposes, please call this Component on /packages/lumina-core/src/components/sidebar
 // and apply it like this on line 34: panel: <DemoForm/>
 
 export const DemoForm = () => {
