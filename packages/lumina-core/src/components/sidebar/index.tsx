@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Button } from '../button'
 import { PagesTab } from '../tabs/pages'
 import { TreeViewTab } from '../tabs/treeView'
+import { DemoForm } from '../form-components/demo'
 
 type TSidebarEditor = {
   handleToggler: Function
@@ -30,6 +31,7 @@ const editorTabs: TSidebarTab[] = [
   {
     id: 'lumTabLibrary',
     icon: 'lum-icon-library',
+    panel: <DemoForm />,
   },
 ]
 
@@ -70,7 +72,7 @@ export const SidebarEditor = ({ isBarOpen, handleToggler }: TSidebarEditor) => {
       tabsElem.push(
         <li key={tab.id} id={tab.id}>
           <Button
-            buttonType="button"
+            buttonType='button'
             iconLeft={tab.icon}
             onClick={() => handleActiveTab(tab)}
             className={cx('sidebarTab', { activeTab: isActive })}
@@ -83,24 +85,24 @@ export const SidebarEditor = ({ isBarOpen, handleToggler }: TSidebarEditor) => {
 
   return (
     // container
-    <div className="sidebarSection">
+    <div className='sidebarSection'>
       <div className={cx('sidebarHeader', { open: isBarOpen })}>
-        <div className="sidebarHeaderIcon">
-          <div className="sidebarLuminaIcon"></div>
+        <div className='sidebarHeaderIcon'>
+          <div className='sidebarLuminaIcon'></div>
         </div>
         {/* expand icon */}
         <div
           className={cx('sidebarToogler', { 'lum-display-none': !isBarOpen })}
           onClick={() => closeSidebar()}
         >
-          <a className="lum-icon-chevron-left"></a>
+          <a className='lum-icon-chevron-left'></a>
         </div>
       </div>
       <div className={'sidebarBody'}>
         {/* tabs */}
-        <div className="sidebarTabsContainer">
-          <ul className="sidebarTabsList">{createTabHelper(editorTabs)}</ul>
-          <ul className="sidebarTabsList">{createTabHelper(helperTabs)}</ul>
+        <div className='sidebarTabsContainer'>
+          <ul className='sidebarTabsList'>{createTabHelper(editorTabs)}</ul>
+          <ul className='sidebarTabsList'>{createTabHelper(helperTabs)}</ul>
         </div>
         {/* tab panel */}
         <div className={cx('sidebarPanel', { 'lum-display-none': !isBarOpen })}>{activePanel}</div>

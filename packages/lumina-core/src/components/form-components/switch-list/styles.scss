@@ -1,0 +1,38 @@
+// The .lum__switch-list class should be added to classNames on the switch-list you want to render
+.lum__switch-list {
+  width: 100%;
+
+  .rfc-label {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--lum-color-black);
+  }
+
+  .rfc-checkitem {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--lum-color-black);
+  }
+
+  input[type='checkbox'] {
+    background-color: var(--lum-color-surface-default);
+    border: 1px solid var(--lum-color-grey);
+
+    &::after {
+      background-color: var(--lum-color-accent-default);
+    }
+  }
+
+  input:checked {
+    color: var(--lum-color-surface-default);
+    border: 1px solid var(--lum-color-accent-default);
+  }
+
+  span {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--lum-color-grey);
+  }
+}
