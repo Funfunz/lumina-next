@@ -28,6 +28,9 @@
       "charcoal": {
         "value": "#122F54"
       },
+      "black-oppacity": {
+        "value": "#00000075"
+      },
       "green-600": {
         "value": "#06A092"
       },

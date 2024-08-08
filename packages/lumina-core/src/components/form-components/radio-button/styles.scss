@@ -1,0 +1,40 @@
+// The .lum__radio-button class should be added to classNames on the radio-button you want to render
+.lum__radio-button {
+  width: 100%;
+
+  .rfc-label {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--lum-color-black);
+  }
+
+  .rfc-checkitem {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--lum-color-black);
+  }
+
+  input::before {
+    margin: 0;
+    color: var(--lum-color-accent-default);
+    background-color: var(--lum-color-surface-default);
+    border: 1px solid var(--lum-color-accent-default);
+    border-radius: 10px;
+  }
+
+  input:checked::after {
+    margin: -1px;
+    color: var(--lum-color-accent-default);
+    background-color: var(--lum-color-accent-default);
+    border: 1px solid var(--lum-color-accent-default);
+    border-radius: 10px;
+  }
+
+  span {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--lum-color-grey);
+  }
+}

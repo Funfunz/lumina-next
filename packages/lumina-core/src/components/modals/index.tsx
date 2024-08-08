@@ -230,6 +230,8 @@ export const EditorModal = () => {
       contentLabel={modalData.modalAriaLabel}
       className='editor-modal'
       overlayClassName='modalOverlay'
+      onRequestClose={handleCloseModal}
+      shouldCloseOnOverlayClick={true}
       role={'dialog'}
     >
       <div className='editor-modal_content-header'>

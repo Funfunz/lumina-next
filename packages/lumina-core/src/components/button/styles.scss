@@ -159,21 +159,6 @@
   }
 
   // CSS for menuButton style that also affects buttonText and icon in the menuButton
-  &.onHover {
-    &:not(.treeAddButton > .button) {
-      background-color: var(--lum-color-foundation-green);
-      border-radius: 3px;
-
-      .buttonContent {
-        color: white;
-
-        .icon {
-          color: white;
-        }
-      }
-    }
-  }
-
   .menuButton {
     justify-content: start;
     width: 100%;
