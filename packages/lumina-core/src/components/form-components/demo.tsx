@@ -14,7 +14,7 @@ export const DemoForm = () => {
     <>
       <Form fields={['test0']}>
         <LumCheckbox
-          className='lum__checkbox'
+          className=''
           name='test0'
           mandatory
           label='Field Label'
@@ -27,7 +27,7 @@ export const DemoForm = () => {
       <br />
       <Form fields={['test1']}>
         <LumSlider
-          className='lum__slider'
+          className=''
           name='test1'
           mandatory
           label='Field Label'
@@ -40,7 +40,7 @@ export const DemoForm = () => {
       <br />
       <Form fields={['test2']}>
         <LumTextArea
-          className='lum__text-area'
+          className=''
           name='test2'
           mandatory
           label='Field Label'
@@ -54,7 +54,7 @@ export const DemoForm = () => {
       <br />
       <Form fields={['test3']}>
         <LumRadio
-          className='lum__radio-button'
+          className=''
           name='test3'
           mandatory
           label='Field Label'
@@ -68,7 +68,7 @@ export const DemoForm = () => {
       </Form>
       <Form fields={['test4']}>
         <LumInput
-          className='lum__input'
+          className=''
           name='test4'
           mandatory
           placeholder='Type something'
@@ -82,7 +82,7 @@ export const DemoForm = () => {
       <br />
       <Form fields={['test5']}>
         <LumSwitchList
-          className='lum__switch-list'
+          className=''
           name='test5'
           mandatory
           label='Field Label'
@@ -96,7 +96,7 @@ export const DemoForm = () => {
       <br />
       <Form fields={['test5']}>
         <LumInput
-          className='lum__input'
+          className=''
           name='test5'
           mandatory
           placeholder='pick a password'
