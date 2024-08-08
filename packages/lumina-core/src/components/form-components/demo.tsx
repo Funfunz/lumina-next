@@ -66,20 +66,6 @@ export const DemoForm = () => {
         <hr />
         <br />
       </Form>
-      <Form fields={['test4']}>
-        <LumInput
-          className=''
-          name='test4'
-          mandatory
-          placeholder='Type something'
-          label='Field Label'
-          type='text'
-          help='This is the optional help text for this field'
-        />
-      </Form>
-      <br />
-      <hr />
-      <br />
       <Form fields={['test5']}>
         <LumSwitchList
           className=''

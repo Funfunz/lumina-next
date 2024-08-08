@@ -1,13 +1,13 @@
-import { create } from "@storybook/theming/create"
+import { create } from '@storybook/theming/create'
 
 export default create({
-  base: "light",
+  base: 'light',
   // brand and logo
-  brandTitle: "Lumina Storybook",
-  brandUrl: "https://www.merkle.com",
-  brandImage: "../src/assets/logo-default-xl.svg",
-  brandTarget: "_new",
+  brandTitle: 'Lumina Storybook',
+  brandUrl: 'https://www.merkle.com',
+  brandImage: '../src/assets/logo-default-xl.svg',
+  brandTarget: '_new',
   // colors
   colorPrimary: '#662F8F',
-  colorSecondary: '#F7901E',
+  colorSecondary: '#AF94C6',
 })

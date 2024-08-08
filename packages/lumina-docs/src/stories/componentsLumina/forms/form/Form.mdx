@@ -1,0 +1,21 @@
+{/* Build custom documentation */}
+
+import { Canvas, Meta } from '@storybook/blocks'
+import * as FormStories from './Form.stories'
+
+<Meta of={FormStories} />
+
+# Form component
+
+## Concepts
+
+This component doesn't provide a display, but is necessary to wrap the form components.
+
+## Usage
+
+```jsx
+// my-react-script.jsx
+<Form fields={['']} />
+```
+
+<Canvas of={FormStories.Example} />

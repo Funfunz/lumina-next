@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Input } from './Input'
+import Form from 'react-form-component'
 
 // This could be imported from your own or external component library
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'Components Lumina/Forms/Input',
-  component: Input,
+  title: 'Components Lumina/Forms/Form',
+  component: Form,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered',
@@ -18,7 +18,7 @@ const meta = {
   argTypes: {},
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: {},
-} satisfies Meta<typeof Input>
+} satisfies Meta<typeof Form>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -26,15 +26,10 @@ type Story = StoryObj<typeof meta>
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Example: Story = {
   args: {
-    name: 'test4', // This is the ID to be used on calling <Form fields={['']}>
-    mandatory: true,
-    placeholder: 'Type something',
-    label: 'Field Label',
-    type: 'text',
-    help: 'This is the optional help text for this field',
+    fields: ['test'],
+    mandatory: ['test'],
+    allMandatory: true,
     className: '',
-    disabled: false,
-    noBottomGutter: false,
-    inlineLabel: false,
+    children: '',
   },
 }
