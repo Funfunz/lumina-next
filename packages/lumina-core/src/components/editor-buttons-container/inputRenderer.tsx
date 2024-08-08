@@ -7,6 +7,7 @@ import { TConfigItem, TConfigItemSelect } from '@/models/editor-buttonModel'
 type TProps = {
   config: TConfigItem
   value: string | number | undefined
+  /* eslint-disable no-unused-vars */
   handleOnChangeInput: (key: string, value: string | number) => void
 }
 

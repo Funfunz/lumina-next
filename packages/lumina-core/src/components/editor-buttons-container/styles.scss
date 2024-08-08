@@ -6,6 +6,10 @@
   }
 }
 
+*:has(> .showEditContainer) {
+  min-height: 50px;
+}
+
 // *:has(> .showEditContainerInline):hover:after {
 //   width: 100%;width
 //   position: absolute;position

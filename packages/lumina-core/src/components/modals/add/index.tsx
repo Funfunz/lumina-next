@@ -33,7 +33,7 @@ export const AddModal = ({ setAddModalProps, modalProps, handleOnChangeInput }: 
 
   // Handler for on Change from dropdown - BM
   const handleSelectChange = (options: any) => {
-    setAddModalProps({ ...modalProps, selectedOption: options })
+    setAddModalProps({ ...modalProps, selectedOption: options, formData: {} })
   }
 
   // Handler for on Change from dropdown - BM
@@ -59,8 +59,8 @@ export const AddModal = ({ setAddModalProps, modalProps, handleOnChangeInput }: 
           onChange={handleOnChangeNewComponentFriendlyName}
         />
       </div>
-      <div className='add-modal-content__cmp-config'>
-        {selectedConfig && (
+      {selectedConfig && (
+        <div className='add-modal-content__cmp-config'>
           <Form>
             {selectedConfig?.props?.map((configItem, index) => (
               <LuminaInputRenderer
@@ -71,8 +71,8 @@ export const AddModal = ({ setAddModalProps, modalProps, handleOnChangeInput }: 
               />
             ))}
           </Form>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   )
 }

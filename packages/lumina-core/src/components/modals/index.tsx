@@ -58,16 +58,34 @@ export const EditorModal = () => {
     })
   }
 
+  /**
+   * ADD MODE
+   * addModalProps = reset when !isOpen
+   * set data when isOpen
+   * EDIT MODE
+   * formData = data coming from context
+   */
   useEffect(() => {
-    setAddModalProps({
-      ...addModalProps,
-      formData,
-    })
-  }, [formData])
+    if (isOpen) {
+      setAddModalProps({
+        ...addModalProps,
+        formData,
+      })
+    } else {
+      setAddModalProps(initialAddState)
+    }
+  }, [formData, isOpen])
 
   useEffect(() => {
     if (data) setFormData(data)
   }, [data])
+
+  const generateId = (): string => {
+    const randomString = Math.random()
+      .toString(36)
+      .slice(2, 10 + 2)
+    return randomString
+  }
 
   /**
    * Adds a new component
@@ -80,8 +98,8 @@ export const EditorModal = () => {
       type: 'createComponent',
       data: {
         parentId: id || '',
-        id: (Math.floor(Math.random() * 100) + 1).toString(),
-        type: addModalProps.selectedOption?.value,
+        id: addModalProps.selectedOption.value + '_' + generateId(),
+        type: addModalProps.selectedOption.value,
         friendlyName: addModalProps.cmpName,
         children: [],
         props: formData,
