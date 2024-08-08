@@ -23,7 +23,7 @@
     "turbo": "^2.0.9",
     "typescript": "^5.4.5"
   },
-  "Dependancies":{
+  "dependancies":{
     "@changesets/cli": "^2.27.7",
   },
 }
