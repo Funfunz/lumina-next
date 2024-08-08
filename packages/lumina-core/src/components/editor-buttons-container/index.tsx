@@ -54,7 +54,7 @@ export const EditorButtonsContainer = ({
 
       {config.editor.delete && !inline && <DeleteComponentButton componentId={id} />}
 
-      {inline && !visible && <VisibleComponentButton />}
+      {inline && !visible && <VisibleComponentButton id={id} />}
 
       {inline && !noUp && <MoveComponentButton moveDirection='up' id={id} />}
 
