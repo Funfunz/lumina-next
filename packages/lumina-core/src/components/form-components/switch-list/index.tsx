@@ -1,11 +1,10 @@
 import React from 'react'
 import { ControlLogicProps, SwitchList } from 'react-form-component'
 
-export class LumSwitchList extends React.Component<ControlLogicProps> {
-  render() {
-    const className = this.props.className || 'lum__switch-list'
-    const name = this.props.name
+export const LumSwitchList: React.FC<ControlLogicProps> = props => {
+  const defaultClass = 'lum__switch-list'
+  const className = `${defaultClass} ${props.className || ''}`
+  const name = props.name
 
-    return <SwitchList {...this.props} name={name} className={className} />
-  }
+  return <SwitchList {...props} name={name} className={className} />
 }

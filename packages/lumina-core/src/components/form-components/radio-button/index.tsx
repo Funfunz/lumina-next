@@ -1,11 +1,10 @@
 import React from 'react'
 import { ControlLogicProps, Radio } from 'react-form-component'
 
-export class LumRadio extends React.Component<ControlLogicProps> {
-  render() {
-    const className = this.props.className || 'lum__radio-button'
-    const name = this.props.name
+export const LumRadio: React.FC<ControlLogicProps> = props => {
+  const defaultClass = 'lum__radio-button'
+  const className = `${defaultClass} ${props.className || ''}`
+  const name = props.name
 
-    return <Radio {...this.props} name={name} className={className} />
-  }
+  return <Radio {...props} name={name} className={className} />
 }
