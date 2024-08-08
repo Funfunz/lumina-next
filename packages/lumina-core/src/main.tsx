@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import { TConfig } from './models/editor-buttonModel'
 import { ToggleModalContextProvider } from './context/handleModalsContext'
 import { EditorModal } from './components/modals'
+import { FormThemeProvider } from 'react-form-component'
 
 export type TComponentConfig = {
   [key: string]: {
@@ -57,9 +58,6 @@ export default function Lumina({ selectedPage, getData, components }: TProps = d
   useEffect(() => {
     if (components) setComponentConfig(components)
   }, [components])
-  useEffect(() => {
-    if (components) setComponentConfig(components)
-  }, [components])
 
   if (!builderData[selectedPage]) return null
   return (
@@ -73,12 +71,14 @@ export default function Lumina({ selectedPage, getData, components }: TProps = d
         },
       }}
     >
-      <ToggleModalContextProvider>
-        <Editor>
-          <EditorModal />
-          <Render />
-        </Editor>
-      </ToggleModalContextProvider>
+      <FormThemeProvider theme={{ colors: { success: 'none' } }}>
+        <ToggleModalContextProvider>
+          <Editor>
+            <EditorModal />
+            <Render />
+          </Editor>
+        </ToggleModalContextProvider>
+      </FormThemeProvider>
     </ContextProvider>
   )
 }
