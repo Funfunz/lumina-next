@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { Button } from '../button'
 import { PagesTab } from '../tabs/pages'
 import { TreeViewTab } from '../tabs/treeView'
-import { DemoForm } from '../form-components/demo'
 
 type TSidebarEditor = {
   handleToggler: Function
@@ -31,7 +30,6 @@ const editorTabs: TSidebarTab[] = [
   {
     id: 'lumTabLibrary',
     icon: 'lum-icon-library',
-    panel: <DemoForm />,
   },
 ]
 
