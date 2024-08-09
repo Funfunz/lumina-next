@@ -1,6 +1,5 @@
-import { Input } from 'react-form-component'
+import { Input, type ControlLogicProps } from 'react-form-component'
 import cx from 'classnames'
-import type { ControlLogicProps } from 'react-form-component'
 
 export type { ControlLogicProps }
 

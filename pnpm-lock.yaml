@@ -240,9 +240,6 @@ importers:
       '@lumina/core':
         specifier: workspace:*
         version: link:../lumina-core
-      '@storybook/addon-docs':
-        specifier: ^8.2.8
-        version: 8.2.8(storybook@8.2.7(@babel/preset-env@7.25.3(@babel/core@7.24.9)))
       '@storybook/addon-essentials':
         specifier: ^8.2.6
         version: 8.2.7(storybook@8.2.7(@babel/preset-env@7.25.3(@babel/core@7.24.9)))
@@ -288,6 +285,9 @@ importers:
       '@vitejs/plugin-react':
         specifier: ^4.3.1
         version: 4.3.1(vite@5.3.5(@types/node@20.11.24)(sass@1.77.8)(terser@5.31.3))
+      classnames:
+        specifier: ^2.5.1
+        version: 2.5.1
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
@@ -1634,11 +1634,6 @@ packages:
     peerDependencies:
       storybook: ^8.2.7
 
-  '@storybook/addon-docs@8.2.8':
-    resolution: {integrity: sha512-8hqUYYveJjR3e/XdXt0vduA7TxFRIFWgXoa9jN5axa63kqfiHcfkpFYPjM8jCRhsfDIRgdrwe2qxsA0wewO1pA==}
-    peerDependencies:
-      storybook: ^8.2.8
-
   '@storybook/addon-essentials@8.2.7':
     resolution: {integrity: sha512-5qe7La9B2Z4Y9Fet3C35y8zOZwKgrqduNk8yAUmPRAOwopdo8SGKYpnFTnAtTfTCVk6Y+AZlRfQq0yLUk0Wl3g==}
     peerDependencies:
@@ -1700,18 +1695,6 @@ packages:
       react-dom:
         optional: true
 
-  '@storybook/blocks@8.2.8':
-    resolution: {integrity: sha512-AHBXu9s73Xv9r1JageIL7C4eGf5XYEByai4Y6NYQsE+jF7b7e8oaSUoLW6fWSyLGuqvjRx+5P7GMNI2K1EngBA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
-      storybook: ^8.2.8
-    peerDependenciesMeta:
-      react:
-        optional: true
-      react-dom:
-        optional: true
-
   '@storybook/builder-vite@8.2.7':
     resolution: {integrity: sha512-CoEQjsfAQdZeAavfh1sBTMmC453kUFLKHr1zs6MZAlkejxky+U21t1Zb1qEU+IsEr/AlzvJr60pxUNL/dy6PVQ==}
     peerDependencies:
@@ -1743,11 +1726,6 @@ packages:
     resolution: {integrity: sha512-rBdplL6xcVJcuq+uM0eidomMQ5BtAlVAejYrOTNiqBk/zVh5JSvchYzYG9n6Fo2PdKLLKdlZ874zhsVuNriNBQ==}
     peerDependencies:
       storybook: ^8.2.7
-
-  '@storybook/csf-plugin@8.2.8':
-    resolution: {integrity: sha512-CEHY7xloBPE8d8h0wg2AM2kRaZkHK8/vkYMNZPbccqAYj6PQIdTuOcXZIBAhAGydyIBULZmsmmsASxM9RO5fKA==}
-    peerDependencies:
-      storybook: ^8.2.8
 
   '@storybook/csf@0.0.1':
     resolution: {integrity: sha512-USTLkZze5gkel8MYCujSRBVIrUQ3YPBrLOx7GNk/0wttvVtlzWXAq9eLbQ4p/NicGxP+3T7KPEMVV//g+yubpw==}
@@ -1786,13 +1764,6 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
       storybook: ^8.2.7
-
-  '@storybook/react-dom-shim@8.2.8':
-    resolution: {integrity: sha512-2my3dGBOpBe30+FsSdQOIYCfxMyT68+SEq0qcXxfuax0BkhhJnZLpwvpqOna6EOVTgBD+Tk1TKmjpGwxuwp4rg==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
-      storybook: ^8.2.8
 
   '@storybook/react-vite@8.2.7':
     resolution: {integrity: sha512-OvC4c4VpMbMNWNR8zBfWPwSS+LilMZ5O7cUbFSFOsAAI5cYcReo1d0MqpiaWybQynkBFj81zRT+dr+B/5Y2Ajg==}
@@ -7694,25 +7665,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@storybook/addon-docs@8.2.8(storybook@8.2.7(@babel/preset-env@7.25.3(@babel/core@7.24.9)))':
-    dependencies:
-      '@babel/core': 7.24.9
-      '@mdx-js/react': 3.0.1(@types/react@18.3.3)(react@18.3.1)
-      '@storybook/blocks': 8.2.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.7(@babel/preset-env@7.25.3(@babel/core@7.24.9)))
-      '@storybook/csf-plugin': 8.2.8(storybook@8.2.7(@babel/preset-env@7.25.3(@babel/core@7.24.9)))
-      '@storybook/global': 5.0.0
-      '@storybook/react-dom-shim': 8.2.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.7(@babel/preset-env@7.25.3(@babel/core@7.24.9)))
-      '@types/react': 18.3.3
-      fs-extra: 11.2.0
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      rehype-external-links: 3.0.0
-      rehype-slug: 6.0.0
-      storybook: 8.2.7(@babel/preset-env@7.25.3(@babel/core@7.24.9))
-      ts-dedent: 2.2.0
-    transitivePeerDependencies:
-      - supports-color
-
   '@storybook/addon-essentials@8.2.7(storybook@8.2.7(@babel/preset-env@7.25.3(@babel/core@7.24.9)))':
     dependencies:
       '@storybook/addon-actions': 8.2.7(storybook@8.2.7(@babel/preset-env@7.25.3(@babel/core@7.24.9)))
@@ -7807,27 +7759,6 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@storybook/blocks@8.2.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.7(@babel/preset-env@7.25.3(@babel/core@7.24.9)))':
-    dependencies:
-      '@storybook/csf': 0.1.11
-      '@storybook/global': 5.0.0
-      '@storybook/icons': 1.2.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@types/lodash': 4.17.7
-      color-convert: 2.0.1
-      dequal: 2.0.3
-      lodash: 4.17.21
-      markdown-to-jsx: 7.4.7(react@18.3.1)
-      memoizerific: 1.11.3
-      polished: 4.3.1
-      react-colorful: 5.6.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      storybook: 8.2.7(@babel/preset-env@7.25.3(@babel/core@7.24.9))
-      telejson: 7.2.0
-      ts-dedent: 2.2.0
-      util-deprecate: 1.0.2
-    optionalDependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-
   '@storybook/builder-vite@8.2.7(storybook@8.2.7(@babel/preset-env@7.25.3(@babel/core@7.24.9)))(typescript@5.5.4)(vite@5.3.5(@types/node@20.11.24)(sass@1.77.8)(terser@5.31.3))':
     dependencies:
       '@storybook/csf-plugin': 8.2.7(storybook@8.2.7(@babel/preset-env@7.25.3(@babel/core@7.24.9)))
@@ -7893,11 +7824,6 @@ snapshots:
       storybook: 8.2.7(@babel/preset-env@7.25.3(@babel/core@7.24.9))
       unplugin: 1.12.0
 
-  '@storybook/csf-plugin@8.2.8(storybook@8.2.7(@babel/preset-env@7.25.3(@babel/core@7.24.9)))':
-    dependencies:
-      storybook: 8.2.7(@babel/preset-env@7.25.3(@babel/core@7.24.9))
-      unplugin: 1.12.0
-
   '@storybook/csf@0.0.1':
     dependencies:
       lodash: 4.17.21
@@ -7929,12 +7855,6 @@ snapshots:
       storybook: 8.2.7(@babel/preset-env@7.25.3(@babel/core@7.24.9))
 
   '@storybook/react-dom-shim@8.2.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.7(@babel/preset-env@7.25.3(@babel/core@7.24.9)))':
-    dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      storybook: 8.2.7(@babel/preset-env@7.25.3(@babel/core@7.24.9))
-
-  '@storybook/react-dom-shim@8.2.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.7(@babel/preset-env@7.25.3(@babel/core@7.24.9)))':
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
