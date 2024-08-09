@@ -1,28 +1,17 @@
 import { Form, LuminaInputRenderer } from '@/components/editor-buttons-container/inputRenderer'
 import { useToggleModalContext } from '@/context/handleModalsContext'
-import { IComponentProps } from '@/models/data'
-import { Dispatch, SetStateAction, useCallback } from 'react'
+import type { IComponentProps } from '@/models/data'
+import { Dispatch, SetStateAction } from 'react'
 
 type TProps = {
   formData: IComponentProps | undefined
   setFormData: Dispatch<SetStateAction<IComponentProps | undefined>>
+  /* eslint-disable no-unused-vars */
+  handleOnChangeInput: (key: string, value: string | number) => void
 }
-export const EditModal = ({ formData, setFormData }: TProps) => {
+export const EditModal = ({ formData, handleOnChangeInput }: TProps) => {
   const { modalState } = useToggleModalContext()
   const { config } = modalState
-
-  /**
-   *
-   */
-  const handleOnChangeInput = useCallback(
-    (key: string, value: string | number) => {
-      setFormData({
-        ...formData,
-        [key]: value,
-      })
-    },
-    [formData]
-  )
 
   return (
     <Form>

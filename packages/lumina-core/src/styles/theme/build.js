@@ -7,6 +7,7 @@ import { STYLE_DICTIONAIRY_PLATFORMS } from './config/index.js'
 
 const __dirname = import.meta.dirname
 const BRANDS_FOLDER = fs.readdirSync(path.join(__dirname, 'tokens', 'brands'))
+const BRANDS = BRANDS_FOLDER.filter(folder => !folder.startsWith('.')) // Exclude hidden folders
 
 // HAVE THE STYLE DICTIONARY CONFIG DYNAMICALLY GENERATED
 const getStyleDictionaryConfig = (brand, _platform) => {
@@ -38,10 +39,10 @@ const getStyleDictionaryConfig = (brand, _platform) => {
   }
 }
 
-console.log('Tokens build started...')
+console.log('Tokens build started for', BRANDS)
 
 // PROCESS THE DESIGN TOKENS FOR THE DIFFEREN BRANDS AND PLATFORMS
-BRANDS_FOLDER.map(function (brand) {
+BRANDS.map(function (brand) {
   STYLE_DICTIONAIRY_PLATFORMS.map(function (platform) {
     console.log('\n==============================================')
     console.log(`\nProcessing: [${platform}] [${brand}]`)

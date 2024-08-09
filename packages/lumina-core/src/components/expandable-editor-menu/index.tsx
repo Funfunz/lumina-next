@@ -1,5 +1,5 @@
-import { IComponentProps } from '@/models/data'
-import { TConfig } from '@/models/editor-buttonModel'
+import type { IComponentProps } from '@/models/data'
+import type { TConfig } from '@/models/editor-buttonModel'
 import { AddComponentButton } from '../action-buttons/add'
 import { EditComponentButton } from '../action-buttons/edit'
 import { Button } from '../button'
@@ -20,15 +20,15 @@ type TMenuProps = {
  */
 export const ExpandableEditorMenu = ({ id, config, data }: TMenuProps) => {
   return (
-    <div className="expandable_editor_menu">
+    <div className='expandable_editor_menu'>
       <AddComponentButton
         componentId={id}
-        buttonLabel="Add Children"
+        buttonLabel='Add Children'
         isDisabled={!config.editor.children}
         isMenuButton
       />
       <EditComponentButton
-        buttonLabel="Edit"
+        buttonLabel='Edit'
         componentId={id}
         config={config}
         data={data}
@@ -36,28 +36,28 @@ export const ExpandableEditorMenu = ({ id, config, data }: TMenuProps) => {
         isMenuButton
       />
       <Button
-        buttonType="button"
-        style="menuButton"
-        text="Cut"
-        iconLeft="lum-icon-cut"
+        buttonType='button'
+        style='menuButton'
+        text='Cut'
+        iconLeft='lum-icon-cut'
         disabled={true}
       />
       <Button
-        buttonType="button"
-        style="menuButton"
-        text="Copy"
-        iconLeft="lum-icon-clone"
+        buttonType='button'
+        style='menuButton'
+        text='Copy'
+        iconLeft='lum-icon-clone'
         disabled={true}
       />
       <Button
-        buttonType="button"
-        style="menuButton"
-        text="Paste"
-        iconLeft="lum-icon-paste"
+        buttonType='button'
+        style='menuButton'
+        text='Paste'
+        iconLeft='lum-icon-paste'
         disabled={true}
       />
       <DeleteComponentButton
-        buttonLabel="Delete"
+        buttonLabel='Delete'
         componentId={id}
         isDisabled={!config.editor.delete}
         isMenuButton
