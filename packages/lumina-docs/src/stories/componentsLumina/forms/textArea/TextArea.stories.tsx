@@ -1,11 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { TextArea } from './TextArea'
 
+type LumTextAreaType = typeof TextArea & { displayName?: string }
+;(TextArea as LumTextAreaType).displayName = 'LumTextArea'
+
 const meta = {
   title: 'Components Lumina/Forms/TextArea',
   component: TextArea,
   tags: ['autodocs'],
   parameters: {
+    layout: 'centered',
     componentSubtitle: 'An Input component that can be used as validation text as well.',
   },
 } satisfies Meta<typeof TextArea>

@@ -1,11 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Switch } from './Switch'
 
+type LumSwitchType = typeof Switch & { displayName?: string }
+;(Switch as LumSwitchType).displayName = 'LumSwitch'
+
 const meta = {
   title: 'Components Lumina/Forms/Switch',
   component: Switch,
   tags: ['autodocs'],
   parameters: {
+    layout: 'centered',
     componentSubtitle: 'A single Switch component, that can be rendered by calling <LumSwitch/>',
   },
 } satisfies Meta<typeof Switch>

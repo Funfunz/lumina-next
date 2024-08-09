@@ -1,11 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Radio } from './Radio'
 
+type LumRadioType = typeof Radio & { displayName?: string }
+;(Radio as LumRadioType).displayName = 'LumRadio'
+
 const meta = {
   title: 'Components Lumina/Forms/Radio',
   component: Radio,
   tags: ['autodocs'],
   parameters: {
+    layout: 'centered',
     componentSubtitle: 'A Radio button component that can be rendered by calling <LumRadio/>',
   },
 } satisfies Meta<typeof Radio>

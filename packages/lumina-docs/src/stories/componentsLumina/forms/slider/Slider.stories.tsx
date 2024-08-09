@@ -1,11 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Slider } from './Slider'
 
+type LumSliderType = typeof Slider & { displayName?: string }
+;(Slider as LumSliderType).displayName = 'LumSlider'
+
 const meta = {
   title: 'Components Lumina/Forms/Slider',
   component: Slider,
   tags: ['autodocs'],
   parameters: {
+    layout: 'centered',
     componentSubtitle: 'A simple Range component, that can be rendered by calling <LumSlider/>',
   },
 } satisfies Meta<typeof Slider>

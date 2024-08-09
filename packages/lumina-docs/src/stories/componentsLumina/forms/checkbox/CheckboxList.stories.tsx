@@ -1,11 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { CheckboxList } from './Checkbox'
 
+type LumCheckboxListType = typeof CheckboxList & { displayName?: string }
+;(CheckboxList as LumCheckboxListType).displayName = 'LumCheckboxList'
+
 const meta = {
   title: 'Components Lumina/Forms/Checkbox',
   component: CheckboxList,
   tags: ['autodocs'],
   parameters: {
+    layout: 'centered',
     componentSubtitle: 'An Input component that can be used as validation text as well.',
   },
 } satisfies Meta<typeof CheckboxList>

@@ -1,11 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Input } from './Input'
 
+type LumInputType = typeof Input & { displayName?: string }
+;(Input as LumInputType).displayName = 'LumInput'
+
 const meta = {
   title: 'Components Lumina/Forms/Input',
   component: Input,
   tags: ['autodocs'],
   parameters: {
+    layout: 'centered',
     componentSubtitle:
       'A simple Input component that can be used as validation text as well, can be rendered by calling <LumInput/>.',
   },
