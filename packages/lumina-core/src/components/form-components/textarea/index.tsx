@@ -1,8 +1,9 @@
-import React from 'react'
-import { ControlLogicProps, TextArea } from 'react-form-component'
+import { TextArea, type ControlLogicProps } from 'react-form-component'
 import cx from 'classnames'
 
-export const LumTextArea: React.FC<ControlLogicProps> = props => {
+export type { ControlLogicProps }
+
+export const LumTextArea = (props: ControlLogicProps) => {
   const defaultClass = 'lum__text-area'
   const className = cx(defaultClass, props.className)
   const name = props.name

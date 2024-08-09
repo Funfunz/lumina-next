@@ -1,8 +1,9 @@
-import React from 'react'
-import { ControlLogicProps, Slider } from 'react-form-component'
+import { Slider, type ControlLogicProps } from 'react-form-component'
 import cx from 'classnames'
 
-export const LumSlider: React.FC<ControlLogicProps> = props => {
+export type { ControlLogicProps }
+
+export const LumSlider = (props: ControlLogicProps) => {
   const defaultClass = 'lum__slider'
   const className = cx(defaultClass, props.className)
   const name = props.name

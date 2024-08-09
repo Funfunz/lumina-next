@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 'use client'
 
 import { ChangeEvent, ChangeEventHandler, PropsWithChildren, useCallback } from 'react'

@@ -2,6 +2,8 @@ import { ButtonContent } from './buttonContent'
 import cx from 'classnames'
 import { TLumButton } from './button-models'
 
+export type { TLumButton }
+
 /**
  *
  * @param buttonType defines the type of button to be rendered (ex: 'button' | 'link' | 'externalLink')

@@ -4,11 +4,7 @@
     "declaration": true,
     "outDir": "./dist",
     "rootDir": "./src",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -23,9 +19,7 @@
     "jsx": "react-jsx",
     "paths": {
       "@/*": ["./src/*"]
-    },
+    }
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }
