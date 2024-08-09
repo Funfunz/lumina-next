@@ -47,24 +47,26 @@
   --lum-size-font-heading1: 5rem; /* H1 - 80px */
   --lum-font-family-bold: 'ProximaNova-Bold', 'Helvetica', 'Arial', 'sans-serif';
   --lum-font-family-regular: 'ProximaNova-Regular', 'Helvetica', 'Arial', 'sans-serif';
-  --lum-font-family-code: 'ui-monospace', 'Menlo', 'Monaco', 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', 'monospace';
+  --lum-font-family-code: 'ui-monospace', 'Menlo', 'Monaco', 'Cascadia Mono', 'Segoe UI Mono',
+    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono',
+    'Droid Sans Mono', 'Courier New', 'monospace';
   --lum-font-family-reset: 'Helvetica', 'Arial', 'sans-serif';
-  --lum-color-accent-weak: #B2E7E2;
-  --lum-color-accent-default: #07B0A0;
-  --lum-color-secondary-weak: #FDDDB9;
-  --lum-color-secondary-default: #F7901E;
-  --lum-color-primary-weak: #B99FCB;
-  --lum-color-primary-default: #662F8F;
+  --lum-color-accent-weak: #b2e7e2;
+  --lum-color-accent-default: #07b0a0;
+  --lum-color-secondary-weak: #fdddb9;
+  --lum-color-secondary-default: #f7901e;
+  --lum-color-primary-weak: #b99fcb;
+  --lum-color-primary-default: #662f8f;
   --lum-color-fg-strong: #121212;
-  --lum-color-fg-weaker: #9F9FA3;
-  --lum-color-fg-weak: #7B7B7F;
-  --lum-color-fg-default: #5E5E61;
-  --lum-color-surface-stronger: #CCCCD1;
-  --lum-color-surface-strong: #E6E6EB;
-  --lum-color-surface-default: #FDFDFD;
-  --lum-color-grey-800: #7B7B7F;
-  --lum-color-grey-600: #CCCCD1;
-  --lum-color-grey-400: #E6E6EB;
+  --lum-color-fg-weaker: #9f9fa3;
+  --lum-color-fg-weak: #7b7b7f;
+  --lum-color-fg-default: #5e5e61;
+  --lum-color-surface-stronger: #ccccd1;
+  --lum-color-surface-strong: #e6e6eb;
+  --lum-color-surface-default: #fdfdfd;
+  --lum-color-grey-800: #7b7b7f;
+  --lum-color-grey-600: #ccccd1;
+  --lum-color-grey-400: #e6e6eb;
   --lum-color-green-800: #046158;
   --lum-color-green-600: #06A092;
   --lum-color-black-oppacity: #00000075;
@@ -76,7 +78,7 @@
   --lum-color-light-grey: #c9c9c9;
   --lum-color-grey: #c1c1c1;
   --lum-color-black: #121212;
-  --lum-color-white: #FDFDFD;
+  --lum-color-white: #fdfdfd;
   --lum-color-background-transparent: transparent;
   --lum-component-size-sidebar: 37.5rem; /* 600px */
   --lum-size-line-height-button: var(--lum-size-line-height-caption); /* Equals to Caption */
