@@ -1,0 +1,11 @@
+.add-modal-content {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--lum-size-spacing-m);
+  padding-left: 5px;
+
+  &__cmp-config {
+    padding: 12px 0;
+    border-top: 1px solid var(--lum-color-background-inverse);
+  }
+}

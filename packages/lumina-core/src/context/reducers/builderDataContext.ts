@@ -109,6 +109,7 @@ function deleteElement(components: IComponentData[], targetId: string): ICompone
     .map(element => {
       if (element.id === targetId) {
         return undefined
+        return undefined
       }
       if (element.children) {
         element.children = [...deleteElement(element.children, targetId)]
@@ -252,6 +253,7 @@ export const builderDataContextReducer = (
           },
         },
       }
+
     case 'deletePage':
       const newState = {
         ...data,
@@ -296,6 +298,7 @@ export const builderDataContextReducer = (
         },
       }
       return stateUpdateComponent
+
     case 'deleteComponent':
       return {
         ...data,
@@ -313,6 +316,7 @@ export const builderDataContextReducer = (
           },
         },
       }
+
     case 'moveUpComponent':
       return {
         ...data,
@@ -330,6 +334,7 @@ export const builderDataContextReducer = (
           },
         },
       }
+
     case 'moveDownComponent':
       return {
         ...data,
@@ -347,6 +352,7 @@ export const builderDataContextReducer = (
           },
         },
       }
+
     default:
       break
   }
