@@ -1,6 +1,6 @@
 import cx from 'classnames'
 
-export type TProps = {
+export type TTitleProps = {
   content?: string
   hLevel?: 1 | 2 | 3 | 4 | 5 | 6
   fontSize?: string
@@ -29,7 +29,7 @@ export const Title = ({
   weight = 400,
   color = '',
   classnames,
-}: TProps) => {
+}: TTitleProps) => {
   const HeadingTag = `h${hLevel}` as keyof JSX.IntrinsicElements
 
   const inlineStyles: React.CSSProperties = {
