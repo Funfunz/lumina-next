@@ -1,4 +1,4 @@
-import type { Preview } from "@storybook/react"
+import type { Preview } from '@storybook/react'
 
 const preview: Preview = {
   parameters: {
@@ -12,7 +12,8 @@ const preview: Preview = {
       storySort: {
         order: [
           'Configure your project', // NOTE: to be removed soon...
-          'Introduction', ['Overview', 'Getting Started', ''],
+          'Introduction',
+          ['Overview', 'Getting Started', ''],
           'Docs',
           'Components',
           'Pages',

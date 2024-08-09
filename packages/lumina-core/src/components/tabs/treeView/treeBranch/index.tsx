@@ -51,6 +51,7 @@ export const TreeBranch = ({ data }: { data: IComponentData; noUp: boolean; noDo
           noDown={false}
           menu={false}
           config={component.config}
+          hidden={false}
         />
       </div>
       {(data.children?.length && showChildren && (

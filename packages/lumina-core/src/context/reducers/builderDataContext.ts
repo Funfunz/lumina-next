@@ -30,7 +30,8 @@ export const initialBuilderDataContextState = {
 
 function newComponentFactory(
   componentData: ICreateComponentAction['data'],
-  order: number
+  order: number,
+  hidden: boolean
 ): IComponentData {
   const { type, friendlyName, id, ...rest } = componentData
   return {
@@ -39,6 +40,7 @@ function newComponentFactory(
     friendlyName: friendlyName as string,
     children: [],
     order,
+    hidden,
     props: { ...rest.props },
   }
 }
@@ -69,7 +71,8 @@ function createElementAt(
       component.children?.push(
         newComponentFactory(
           data,
-          Math.max(0, ...component.children.map(element => element.order)) + 1
+          Math.max(0, ...component.children.map(element => element.order)) + 1,
+          false
         )
       )
 
@@ -161,10 +164,12 @@ function downOrderElement(
 
 function toggleVisibilityElement(components: IComponentData[], targetId: string): IComponentData[] {
   return components.map(element => {
+    console.log('Components:', components)
+    console.log('hidden:', element.hidden)
     if (element.id === targetId) {
       return {
         ...element,
-        visible: !element.visible,
+        hidden: !element.hidden,
       }
     }
 

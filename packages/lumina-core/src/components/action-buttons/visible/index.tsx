@@ -6,24 +6,26 @@ import { useCallback, useState } from 'react'
 
 type TProps = {
   id: string
-  isVisibleContext?: boolean
+  hidden: boolean
 }
 
-export const VisibleComponentButton = ({ id, isVisibleContext }: TProps) => {
+export const VisibleComponentButton = ({ id, hidden }: TProps) => {
   const { dispatch } = useLuminaContext()
-  console.log('visible:', isVisibleContext)
+  console.log('data:', id)
+  console.log('hidden:', hidden)
+  console.log()
 
   const handleOnClickVisibility = useCallback(() => {
     dispatch({
       type: 'visibilityComponent',
-      data: { id },
+      data: { id, hidden },
     })
   }, [dispatch, id])
 
   return (
     <Button
       buttonType='button'
-      iconLeft={isVisibleContext ? 'lum-icon-visible' : 'lum-icon-hidden'}
+      iconLeft={hidden! ? 'lum-icon-visible' : 'lum-icon-hidden'}
       onClick={handleOnClickVisibility}
     />
   )

@@ -15,6 +15,7 @@ const data: IData = {
         friendlyName: 'image1test',
         type: 'image',
         order: 0,
+        hidden: true,
         props: {
           alt: 'paris',
           href: 'https://www.w3schools.com/css/paris.jpg',
@@ -25,12 +26,14 @@ const data: IData = {
         friendlyName: 'grid1',
         type: 'grid',
         order: 1,
+        hidden: true,
         children: [
           {
             id: 'flex1',
             friendlyName: 'flex1',
             order: 0,
             type: 'flex',
+            hidden: false,
             props: {
               style: 'column',
             },
@@ -40,6 +43,7 @@ const data: IData = {
                 friendlyName: 'linkBox1_1',
                 order: 1,
                 type: 'linkbox',
+                hidden: false,
                 props: {
                   title: 'Docs',
                   description: 'Find in-depth information about Next.js features and API.',
@@ -51,6 +55,7 @@ const data: IData = {
                 friendlyName: 'title1_1',
                 order: 2,
                 type: 'title',
+                hidden: false,
                 props: {
                   title: 'This is a title',
                 },
@@ -64,12 +69,14 @@ const data: IData = {
         friendlyName: 'grid3',
         type: 'grid',
         order: 2,
+        hidden: false,
         children: [
           {
             id: 'grid4image1',
             friendlyName: 'grid4image1',
             type: 'image',
             order: 0,
+            hidden: false,
             props: {
               alt: 'paris',
               href: 'https://www.w3schools.com/css/paris.jpg',
@@ -79,6 +86,7 @@ const data: IData = {
             id: 'grid4image2',
             friendlyName: 'grid4image2',
             type: 'image',
+            hidden: false,
             order: 1,
             props: {
               alt: 'paris',

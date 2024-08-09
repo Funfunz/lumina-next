@@ -23,6 +23,7 @@ type TProps = {
   noUp?: boolean
   noDown?: boolean
   visible?: boolean
+  hidden: boolean
   menu?: boolean
 }
 
@@ -35,6 +36,7 @@ export const EditorButtonsContainer = ({
   noUp,
   noDown,
   visible,
+  hidden,
   menu,
 }: TProps) => {
   const {
@@ -42,8 +44,6 @@ export const EditorButtonsContainer = ({
       appContext: { editor },
     },
   } = useLuminaContext()
-
-  const isVisibleContext = visible
 
   if (!editor) return null
   return (
@@ -56,7 +56,7 @@ export const EditorButtonsContainer = ({
 
       {config.editor.delete && !inline && <DeleteComponentButton componentId={id} />}
 
-      {inline && !visible && <VisibleComponentButton id={id} isVisibleContext={isVisibleContext} />}
+      {inline && !visible && <VisibleComponentButton id={id} hidden={hidden} />}
 
       {inline && !noUp && <MoveComponentButton moveDirection='up' id={id} />}
 

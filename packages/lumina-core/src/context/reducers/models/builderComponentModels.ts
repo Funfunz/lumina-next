@@ -41,5 +41,6 @@ export interface IVisibleComponentAction {
   type: 'visibilityComponent'
   data: {
     id: string
+    hidden: boolean
   }
 }
