@@ -10,7 +10,12 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    componentSubtitle: 'An Input component that can be used as validation text as well.',
+    componentSubtitle: 'Example',
+    docs: {
+      description: {
+        component: 'A Text Area component, that can be rendered by calling `<LumTextArea/>`.',
+      },
+    },
   },
 } satisfies Meta<typeof TextArea>
 

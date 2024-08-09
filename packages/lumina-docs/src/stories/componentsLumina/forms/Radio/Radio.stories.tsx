@@ -10,7 +10,12 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    componentSubtitle: 'A Radio button component that can be rendered by calling <LumRadio/>',
+    componentSubtitle: 'Example',
+    docs: {
+      description: {
+        component: 'A Radio button component that can be rendered by calling `<LumRadio/>`.',
+      },
+    },
   },
 } satisfies Meta<typeof Radio>
 

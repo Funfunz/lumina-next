@@ -10,8 +10,13 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    componentSubtitle:
-      'A simple Input component that can be used as validation text as well, can be rendered by calling <LumInput/>.',
+    componentSubtitle: 'Example',
+    docs: {
+      description: {
+        component:
+          'A simple Input component that can be used as validation text as well, can be rendered by calling `<LumInput/>`.',
+      },
+    },
   },
 } satisfies Meta<typeof Input>
 

@@ -10,7 +10,12 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    componentSubtitle: 'A simple Range component, that can be rendered by calling <LumSlider/>',
+    componentSubtitle: 'Example',
+    docs: {
+      description: {
+        component: 'A simple Range component, that can be rendered by calling `<LumSlider/>`.',
+      },
+    },
   },
 } satisfies Meta<typeof Slider>
 

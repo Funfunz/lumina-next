@@ -5,9 +5,14 @@ const meta = {
   title: 'Components Lumina/Forms/Form',
   component: Form,
   parameters: {
-    componentSubtitle:
-      "This component doesn't provide a display, but is necessary to wrap the form components, can be called by typing <Form>{ Insert Form components here. }</Form>.",
     layout: 'centered',
+    componentSubtitle: 'Example',
+    docs: {
+      description: {
+        component:
+          'This component doesnt provide a display, but is necessary to wrap the form components, can be called by typing `<Form>{ Insert Form components here. }</Form>.`.',
+      },
+    },
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof Form>

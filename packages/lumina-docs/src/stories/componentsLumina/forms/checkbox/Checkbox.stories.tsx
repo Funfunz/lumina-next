@@ -10,7 +10,13 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    componentSubtitle: 'An Input component that can be used as validation text as well.',
+    componentSubtitle: 'Example',
+    docs: {
+      description: {
+        component:
+          'This is a single Checkbox component, that must be rendered using `<LumCheckbox/>`.',
+      },
+    },
   },
 } satisfies Meta<typeof Checkbox>
 

@@ -10,7 +10,12 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    componentSubtitle: 'A single Switch component, that can be rendered by calling <LumSwitch/>',
+    componentSubtitle: 'Example',
+    docs: {
+      description: {
+        component: 'A single Switch component, that can be rendered by calling `<LumSwitch/>`.',
+      },
+    },
   },
 } satisfies Meta<typeof Switch>
 
