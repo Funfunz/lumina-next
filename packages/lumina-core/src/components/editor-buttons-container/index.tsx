@@ -43,6 +43,8 @@ export const EditorButtonsContainer = ({
     },
   } = useLuminaContext()
 
+  const isVisibleContext = visible
+
   if (!editor) return null
   return (
     <div className={cx('showEdit', inline ? 'showEditContainerInline' : 'showEditContainer')}>
@@ -54,7 +56,7 @@ export const EditorButtonsContainer = ({
 
       {config.editor.delete && !inline && <DeleteComponentButton componentId={id} />}
 
-      {inline && !visible && <VisibleComponentButton id={id} />}
+      {inline && !visible && <VisibleComponentButton id={id} isVisibleContext={isVisibleContext} />}
 
       {inline && !noUp && <MoveComponentButton moveDirection='up' id={id} />}
 

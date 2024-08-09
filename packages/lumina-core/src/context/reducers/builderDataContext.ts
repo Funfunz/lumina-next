@@ -7,6 +7,7 @@ import {
   IMoveDownComponentAction,
   IMoveUpComponentAction,
   IUpdateComponentAction,
+  IVisibleComponentAction,
 } from './models/builderComponentModels'
 
 export type TBuilderDataContextAction =
@@ -19,6 +20,7 @@ export type TBuilderDataContextAction =
   | IDeleteComponentAction
   | IMoveUpComponentAction
   | IMoveDownComponentAction
+  | IVisibleComponentAction
 
 export const initialBuilderDataContextState = {
   builderData: {},
@@ -156,6 +158,52 @@ function downOrderElement(
 
   return componentToReplace
 }
+
+function toggleVisibilityElement(components: IComponentData[], targetId: string): IComponentData[] {
+  return components.map(element => {
+    if (element.id === targetId) {
+      return {
+        ...element,
+        visible: !element.visible,
+      }
+    }
+
+    if (element.children) {
+      const newChildren = toggleVisibilityElement(element.children, targetId)
+      return {
+        ...element,
+        children: newChildren,
+      }
+    }
+
+    return element
+  })
+}
+
+// function toggleVisibilityElement(components: IComponentData[], targetId: string): IComponentData[] {
+//   const newComponents = components.map(element => {
+//     if (element.id === targetId) {
+//       return {
+//         ...element,
+//         visible: !element.visible,
+//       }
+//     }
+
+//     if (element.children) {
+//       const newChildren = toggleVisibilityElement(element.children, targetId)
+
+//       if (newChildren != element.children) {
+//         return {
+//           ...element,
+//           children: newChildren,
+//         }
+//       }
+//     }
+//     return element
+//   })
+
+//   return newComponents
+// }
 
 function moveUpElement(components: IComponentData[], targetId: string) {
   let componentToReplace: IComponentData | undefined
@@ -310,6 +358,23 @@ export const builderDataContextReducer = (
                 action.data.id
               ),
             ],
+          },
+        },
+      }
+    case 'visibilityComponent':
+      console.log('Before update:', data.builderData[data.selectedPage].children)
+      const updatedChildren = toggleVisibilityElement(
+        data.builderData[data.selectedPage].children!,
+        action.data.id
+      )
+      console.log('After update:', updatedChildren)
+      return {
+        ...data,
+        builderData: {
+          ...data.builderData,
+          [data.selectedPage]: {
+            ...data.builderData[data.selectedPage],
+            children: updatedChildren,
           },
         },
       }
