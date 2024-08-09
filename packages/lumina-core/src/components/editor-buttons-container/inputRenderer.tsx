@@ -2,7 +2,7 @@
 'use client'
 
 import { ChangeEvent, ChangeEventHandler, PropsWithChildren, useCallback } from 'react'
-import { TConfigItem, TConfigItemSelect } from '@/models/editor-buttonModel'
+import type { TConfigItem, TConfigItemSelect } from '@/models/editor-buttonModel'
 
 type TProps = {
   config: TConfigItem

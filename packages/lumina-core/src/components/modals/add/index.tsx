@@ -1,8 +1,9 @@
 import Select from 'react-select'
 import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { useToggleModalContext } from '@/context/handleModalsContext'
-import { TConfig, getComponentConfig } from '@/main'
-import { TAddModalProps } from '..'
+import { getComponentConfig } from '@/main'
+import type { TConfig } from '@/models/editor-buttonModel'
+import type { TAddModalProps } from '@/components/modals'
 import { Form, LuminaInputRenderer } from '@/components/editor-buttons-container/inputRenderer'
 
 type TProps = {

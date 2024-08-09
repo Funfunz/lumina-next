@@ -1,6 +1,6 @@
 import { Form, LuminaInputRenderer } from '@/components/editor-buttons-container/inputRenderer'
 import { useToggleModalContext } from '@/context/handleModalsContext'
-import { IComponentProps } from '@/models/data'
+import type { IComponentProps } from '@/models/data'
 import { Dispatch, SetStateAction } from 'react'
 
 type TProps = {

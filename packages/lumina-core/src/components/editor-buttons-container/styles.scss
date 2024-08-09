@@ -6,19 +6,6 @@
   }
 }
 
-*:has(> .showEditContainer) {
-  min-height: 50px;
-}
-
-// *:has(> .showEditContainerInline):hover:after {
-//   width: 100%;width
-//   position: absolute;position
-//   bottom: -5px;bottom
-//   height: 1px;height
-//   background-color: black;background-color
-//   content: '';content
-// }
-
 .showEdit * {
   box-sizing: border-box;
 }

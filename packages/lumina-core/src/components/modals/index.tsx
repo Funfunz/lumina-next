@@ -1,7 +1,7 @@
 import { Button } from '@/components/button'
 import ReactModal from 'react-modal'
 import { useCallback, useEffect, useState } from 'react'
-import { TSelectedOption } from '@/models/editor-buttonModel'
+import type { TSelectedOption } from '@/models/editor-buttonModel'
 import {
   ADDMODAL,
   DELETEMODAL,
@@ -10,7 +10,7 @@ import {
 } from '@/context/handleModalsContext'
 import { useLuminaContext } from '@/context/contextProvider'
 import { Title } from '@/components/title'
-import { IComponentProps } from '@/models/data'
+import type { IComponentProps } from '@/models/data'
 import { AddModal } from './add'
 import { EditModal } from './edit'
 import { DeleteModal } from './delete'
