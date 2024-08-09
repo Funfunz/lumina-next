@@ -5,7 +5,15 @@ import { ComponentTree } from '../componentTree'
 import { EditorButtonsContainer } from '@/components/editor-buttons-container'
 import { DynamicComponent } from '@/components/render/dynamicComponent'
 
-export const TreeBranch = ({ data }: { data: IComponentData; noUp: boolean; noDown: boolean }) => {
+export const TreeBranch = ({
+  data,
+  noUp,
+  noDown,
+}: {
+  data: IComponentData
+  noUp: boolean
+  noDown: boolean
+}) => {
   const [showChildren, setShowChildren] = useState(false)
 
   const handleTreeHeadClick = useCallback(() => {
@@ -47,11 +55,11 @@ export const TreeBranch = ({ data }: { data: IComponentData; noUp: boolean; noDo
           inline={true}
           data={data.props as IComponentProps}
           visible={false}
-          noUp={false}
-          noDown={false}
+          noUp={noUp}
+          noDown={noDown}
           menu={false}
           config={component.config}
-          hidden={false}
+          hidden={data.hidden}
         />
       </div>
       {(data.children?.length && showChildren && (

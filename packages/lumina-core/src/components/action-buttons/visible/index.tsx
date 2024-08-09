@@ -25,7 +25,7 @@ export const VisibleComponentButton = ({ id, hidden }: TProps) => {
   return (
     <Button
       buttonType='button'
-      iconLeft={hidden! ? 'lum-icon-visible' : 'lum-icon-hidden'}
+      iconLeft={hidden ? 'lum-icon-visible' : 'lum-icon-hidden'}
       onClick={handleOnClickVisibility}
     />
   )
