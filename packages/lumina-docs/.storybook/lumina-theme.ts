@@ -9,5 +9,5 @@ export default create({
   brandTarget: '_new',
   // colors
   colorPrimary: '#662F8F',
-  colorSecondary: '#AF94C6',
+  colorSecondary: '#F7901E',
 })
