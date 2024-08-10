@@ -183,31 +183,6 @@ function toggleVisibilityElement(components: IComponentData[], targetId: string)
   })
 }
 
-// function toggleVisibilityElement(components: IComponentData[], targetId: string): IComponentData[] {
-//   const newComponents = components.map(element => {
-//     if (element.id === targetId) {
-//       return {
-//         ...element,
-//         visible: !element.visible,
-//       }
-//     }
-
-//     if (element.children) {
-//       const newChildren = toggleVisibilityElement(element.children, targetId)
-
-//       if (newChildren != element.children) {
-//         return {
-//           ...element,
-//           children: newChildren,
-//         }
-//       }
-//     }
-//     return element
-//   })
-
-//   return newComponents
-// }
-
 function moveUpElement(components: IComponentData[], targetId: string) {
   let componentToReplace: IComponentData | undefined
   let oldOrder = 0
