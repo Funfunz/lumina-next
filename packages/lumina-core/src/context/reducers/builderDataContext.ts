@@ -164,8 +164,6 @@ function downOrderElement(
 
 function toggleVisibilityElement(components: IComponentData[], targetId: string): IComponentData[] {
   return components.map(element => {
-    console.log('Components:', components)
-    console.log('hidden:', element.hidden)
     if (element.id === targetId) {
       return {
         ...element,
@@ -367,12 +365,10 @@ export const builderDataContextReducer = (
         },
       }
     case 'visibilityComponent':
-      console.log('Before update:', data.builderData[data.selectedPage].children)
       const updatedChildren = toggleVisibilityElement(
         data.builderData[data.selectedPage].children!,
         action.data.id
       )
-      console.log('After update:', updatedChildren)
       return {
         ...data,
         builderData: {

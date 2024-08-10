@@ -11,9 +11,6 @@ type TProps = {
 
 export const VisibleComponentButton = ({ id, hidden }: TProps) => {
   const { dispatch } = useLuminaContext()
-  console.log('data:', id)
-  console.log('hidden:', hidden)
-  console.log()
 
   const handleOnClickVisibility = useCallback(() => {
     dispatch({
@@ -25,7 +22,7 @@ export const VisibleComponentButton = ({ id, hidden }: TProps) => {
   return (
     <Button
       buttonType='button'
-      iconLeft={hidden ? 'lum-icon-visible' : 'lum-icon-hidden'}
+      iconLeft={hidden ? 'lum-icon-hidden' : 'lum-icon-visible'}
       onClick={handleOnClickVisibility}
     />
   )
