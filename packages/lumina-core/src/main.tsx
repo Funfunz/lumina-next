@@ -5,7 +5,7 @@ import { Editor } from './components/editor'
 import { Render } from './components/render'
 import type { IData, IPageData } from './models/data'
 import { useEffect, useState } from 'react'
-import { TConfig } from './models/editor-buttonModel'
+import type { TConfig } from './models/editor-buttonModel'
 import { ToggleModalContextProvider } from './context/handleModalsContext'
 import { EditorModal } from './components/modals'
 import { FormThemeProvider } from 'react-form-component'
@@ -42,6 +42,7 @@ function setComponentConfig(newComponentConfig: TComponentConfig) {
 
 export default function Lumina({ selectedPage, getData, components }: TProps = defaultValues) {
   const [builderData, setBuilderData] = useState<IData>({})
+
   useEffect(() => {
     async function fetchData() {
       setBuilderData(await getData())

@@ -1,8 +1,9 @@
-import React from 'react'
-import { ControlLogicProps, Radio } from 'react-form-component'
+import { Radio, type ControlLogicProps } from 'react-form-component'
 import cx from 'classnames'
 
-export const LumRadio: React.FC<ControlLogicProps> = props => {
+export type { ControlLogicProps }
+
+export const LumRadio = (props: ControlLogicProps) => {
   const defaultClass = 'lum__radio-button'
   const className = cx(defaultClass, props.className)
   const name = props.name

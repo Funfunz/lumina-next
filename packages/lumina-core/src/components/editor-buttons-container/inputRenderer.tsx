@@ -1,12 +1,12 @@
-/* eslint-disable no-unused-vars */
 'use client'
 
 import { ChangeEvent, ChangeEventHandler, PropsWithChildren, useCallback } from 'react'
-import { TConfigItem, TConfigItemSelect } from '@/models/editor-buttonModel'
+import type { TConfigItem, TConfigItemSelect } from '@/models/editor-buttonModel'
 
 type TProps = {
   config: TConfigItem
-  value: string | number
+  value: string | number | undefined
+  /* eslint-disable no-unused-vars */
   handleOnChangeInput: (key: string, value: string | number) => void
 }
 
