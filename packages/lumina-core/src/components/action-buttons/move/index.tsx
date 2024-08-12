@@ -30,8 +30,6 @@ export const MoveComponentButton = ({ id, moveDirection, active }: TProps) => {
     })
   }, [dispatch, id])
 
-  console.log({ active })
-
   return (
     <Button
       disabled={active}
