@@ -1,7 +1,7 @@
 import { Button } from '@/components/button'
 import ReactModal from 'react-modal'
 import { useCallback, useEffect, useState } from 'react'
-import { TSelectedOption } from '@/models/editor-buttonModel'
+import type { TSelectedOption } from '@/models/editor-buttonModel'
 import {
   ADDMODAL,
   DELETEMODAL,
@@ -10,7 +10,7 @@ import {
 } from '@/context/handleModalsContext'
 import { useLuminaContext } from '@/context/contextProvider'
 import { Title } from '@/components/title'
-import { IComponentProps } from '@/models/data'
+import type { IComponentProps } from '@/models/data'
 import { AddModal } from './add'
 import { EditModal } from './edit'
 import { DeleteModal } from './delete'
@@ -19,6 +19,7 @@ import cx from 'classnames'
 export type TAddModalProps = {
   selectedOption: TSelectedOption | undefined
   cmpName: string
+  formData: IComponentProps | undefined
 }
 
 export const EditorModal = () => {
@@ -34,19 +35,57 @@ export const EditorModal = () => {
     titleIcon: '',
   }
   const [modalData, setModalData] = useState(initialModalData)
+  const [formData, setFormData] = useState<IComponentProps>()
 
   // Add modal props
   const initialAddState: TAddModalProps = {
     selectedOption: undefined,
     cmpName: '',
+    formData: {},
   }
   const [addModalProps, setAddModalProps] = useState<TAddModalProps>(initialAddState)
 
-  // Edit modal props
-  const [formData, setFormData] = useState<IComponentProps>()
+  /**
+   * Updates a value of a property of a component
+   * Used in both edit and add modal
+   * @param key defines the name of the property, this is given by the configuration of the component
+   * @param value
+   */
+  const handleOnChangeInput = (key: string, value: string | number) => {
+    setFormData({
+      ...formData,
+      [key]: value,
+    })
+  }
+
+  /**
+   * ADD MODE
+   * addModalProps = reset when !isOpen
+   * set data when isOpen
+   * EDIT MODE
+   * formData = data coming from context
+   */
+  useEffect(() => {
+    if (isOpen) {
+      setAddModalProps({
+        ...addModalProps,
+        formData,
+      })
+    } else {
+      setAddModalProps(initialAddState)
+    }
+  }, [formData, isOpen])
+
   useEffect(() => {
     if (data) setFormData(data)
   }, [data])
+
+  const generateId = (): string => {
+    const randomString = Math.random()
+      .toString(36)
+      .slice(2, 10 + 2)
+    return randomString
+  }
 
   /**
    * Adds a new component
@@ -59,11 +98,11 @@ export const EditorModal = () => {
       type: 'createComponent',
       data: {
         parentId: id || '',
-        id: (Math.floor(Math.random() * 100) + 1).toString(),
-        type: addModalProps.selectedOption?.value,
+        id: addModalProps.selectedOption.value + '_' + generateId(),
+        type: addModalProps.selectedOption.value,
         friendlyName: addModalProps.cmpName,
         children: [],
-        props: {},
+        props: formData,
       },
     })
     // TODO: not implemented
@@ -119,7 +158,7 @@ export const EditorModal = () => {
   }, [dispatch, id])
 
   /**
-   * Set the modal labels and click handler
+   * Set the modal's labels and click handler
    */
   useEffect(() => {
     switch (modalType) {
@@ -162,9 +201,21 @@ export const EditorModal = () => {
   const renderModalType = () => {
     switch (modalType) {
       case ADDMODAL:
-        return <AddModal handleModalProps={setAddModalProps} modalProps={addModalProps!} />
+        return (
+          <AddModal
+            setAddModalProps={setAddModalProps}
+            modalProps={addModalProps!}
+            handleOnChangeInput={handleOnChangeInput}
+          />
+        )
       case EDITMODAL:
-        return <EditModal formData={formData} setFormData={setFormData} />
+        return (
+          <EditModal
+            formData={formData}
+            setFormData={setFormData}
+            handleOnChangeInput={handleOnChangeInput}
+          />
+        )
       case DELETEMODAL:
         return <DeleteModal />
       default:
