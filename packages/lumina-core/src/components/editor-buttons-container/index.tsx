@@ -36,7 +36,7 @@ export const EditorButtonsContainer = ({
   noUp,
   noDown,
   visible,
-  hidden,
+  hidden = false,
   menu,
 }: TProps) => {
   const {
@@ -56,7 +56,7 @@ export const EditorButtonsContainer = ({
 
       {config.editor.delete && !inline && <DeleteComponentButton componentId={id} />}
 
-      {inline && !visible && <VisibleComponentButton id={id} hidden={hidden || false} />}
+      {inline && !visible && <VisibleComponentButton id={id} hidden={hidden} />}
 
       {inline && <MoveComponentButton active={noUp!} moveDirection='up' id={id} />}
 

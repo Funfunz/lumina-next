@@ -26,7 +26,7 @@ export const Render = ({ elements }: IProps) => {
   return (
     <>
       {data.map((component, index) => {
-        if (component.hidden) return
+        if (component?.hidden) return
         const LoadedComponent = DynamicComponent(component.type)?.component
         if (!LoadedComponent) return null
         return (

@@ -13,7 +13,7 @@ export interface IComponentData {
   order: number
   children?: IComponentData[]
   props?: IComponentProps
-  hidden: boolean
+  hidden?: boolean
 }
 
 export interface IPageData {

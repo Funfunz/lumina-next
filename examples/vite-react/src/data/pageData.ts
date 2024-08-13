@@ -15,7 +15,7 @@ const data: IData = {
         friendlyName: 'image1test',
         type: 'image',
         order: 0,
-        hidden: true,
+        hidden: false,
         props: {
           alt: 'paris',
           href: 'https://www.w3schools.com/css/paris.jpg',
@@ -26,7 +26,7 @@ const data: IData = {
         friendlyName: 'grid1',
         type: 'grid',
         order: 1,
-        hidden: true,
+        hidden: false,
         children: [
           {
             id: 'flex1',
