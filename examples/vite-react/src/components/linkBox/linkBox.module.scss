@@ -1,10 +1,13 @@
 .card {
+  pointer-events: none;
   position: relative;
   padding: 1rem 1.2rem;
   border-radius: 12px;
   background: rgba(180, 185, 188, 0);
   border: 1px solid rgba(180, 185, 188, 0);
-  transition: background 200ms, border 200ms;
+  transition:
+    background 200ms,
+    border 200ms;
 }
 
 .card span {

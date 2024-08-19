@@ -30,8 +30,7 @@ export const Button = (props: TLumButton) => {
       <button
         className={cx('lum-button', allClassNames, { fullWidth: isFullWidth })}
         onClick={onClick}
-        disabled={disabled}
-      >
+        disabled={disabled}>
         <ButtonContent text={text} iconLeft={iconLeft} iconRight={iconRight} />
       </button>
     )

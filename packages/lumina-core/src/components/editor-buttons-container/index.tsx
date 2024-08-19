@@ -13,6 +13,7 @@ import { VisibleComponentButton } from '../action-buttons/visible'
 import { MoveComponentButton } from '../action-buttons/move'
 import { ExpandMenuButton } from '../action-buttons/menu'
 import type { IComponentProps } from '@/models/data'
+import { useRef } from 'react'
 
 type TProps = {
   id: string
@@ -45,6 +46,8 @@ export const EditorButtonsContainer = ({
     },
   } = useLuminaContext()
 
+  const menuRef = useRef<HTMLDivElement | null>(null)
+
   if (!editor) return null
   return (
     <div className={cx('showEdit', inline ? 'showEditContainerInline' : 'showEditContainer')}>
@@ -62,7 +65,7 @@ export const EditorButtonsContainer = ({
 
       {inline && <MoveComponentButton active={noDown!} moveDirection='down' id={id} />}
 
-      {inline && !menu && <ExpandMenuButton id={id} config={config} data={data} />}
+      {inline && !menu && <ExpandMenuButton id={id} config={config} data={data} ref={menuRef} />}
     </div>
   )
 }

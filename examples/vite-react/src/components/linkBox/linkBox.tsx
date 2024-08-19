@@ -14,15 +14,9 @@ type TProps = {
 }
 
 export const LinkBox = ({ id, title, description, href, color = 'black' }: TProps) => {
-
   if (!title || !description || !href) return null
   return (
-    <a
-      href={href}
-      className='card'
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a href={href} className='card' target='_blank' rel='noopener noreferrer'>
       <EditorButtonsContainer id={id} config={config} data={{ title, description, href, color }} />
       <h2 style={{ color }}>
         {title} <span>-&gt;</span>

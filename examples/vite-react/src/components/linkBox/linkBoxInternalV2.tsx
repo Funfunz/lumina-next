@@ -19,13 +19,13 @@ export const LinkBoxInternal = () => {
 
   if (!state) return null
   return (
-    <a
-      href={state.href}
-      className='card'
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <EditorButtonsContainer id={state.id} onUpdate={onUpdateCallback} config={config} data={state} />
+    <a href={state.href} className='card' target='_blank' rel='noopener noreferrer'>
+      <EditorButtonsContainer
+        id={state.id}
+        onUpdate={onUpdateCallback}
+        config={config}
+        data={state}
+      />
       <h2 style={{ color: state.color }}>
         {state.title} <span>-&gt;</span>
       </h2>
