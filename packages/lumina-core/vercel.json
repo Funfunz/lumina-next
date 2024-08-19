@@ -1,6 +1,3 @@
 {
-  "rewrites": [
-    { "source": "/", "destination": "packages/lumina-core/src/components/render/index.tsx" },
-    { "source": "/editor", "destination": "packages/lumina-core/src/components/editor/index.tsx" }
-  ]
+  "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }]
 }
