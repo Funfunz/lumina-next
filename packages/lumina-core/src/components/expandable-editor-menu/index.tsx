@@ -7,13 +7,12 @@ import { EditComponentButton } from '../action-buttons/edit'
 import { Button } from '../button'
 import { DeleteComponentButton } from '../action-buttons/delete'
 import { MutableRefObject, useEffect, useRef, useState } from 'react'
-import { useToggleMenuContext } from '@/context/toggleMenuContext'
 
 type TMenuProps = {
   id: string
   config: TConfig
   data: IComponentProps
-  ref: MutableRefObject<HTMLDivElement | null>
+  menuRef: React.RefObject<HTMLDivElement>
 }
 
 /**
@@ -23,46 +22,7 @@ type TMenuProps = {
  * @param data the editable data from the component
  * @returns
  */
-export const ExpandableEditorMenu = ({ id, config, data }: TMenuProps) => {
-  const { handleToggleMenu, menuState } = useToggleMenuContext()
-  const [isOpen, setIsMenuOpen] = useState(false)
-  const menuRef = useRef<HTMLDivElement | null>(null)
-
-  const handleClickOutside = (e: MouseEvent) => {
-    console.log('Event triggered:', e)
-
-    if (!menuRef.current) {
-      console.log('menuRef is null') //Getting this log when click outside
-      return
-    }
-
-    if (!menuRef.current.contains(e.target as Node)) {
-      console.log('Clicked outside menu, closing it')
-      setIsMenuOpen(false)
-    } else {
-      console.log('Clicked inside menu, nothing happens')
-    }
-  }
-
-  useEffect(() => {
-    setIsMenuOpen(menuState.id === id && menuState.isOpen)
-  }, [menuState.isOpen, menuState.id, id])
-
-  useEffect(() => {
-    if (isOpen) {
-      console.log('Menu is open, adding event listener', isOpen)
-      document.addEventListener('mousedown', handleClickOutside)
-    } else {
-      console.log('Menu is closed, removing event listener', isOpen)
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-
-    return () => {
-      console.log('Cleaning up event listener', isOpen)
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [isOpen])
-
+export const ExpandableEditorMenu = ({ id, config, data, menuRef }: TMenuProps) => {
   return (
     <div className='expandable_editor_menu' ref={menuRef}>
       <AddComponentButton
