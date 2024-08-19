@@ -1,16 +1,27 @@
 import { IComponentData, IComponentProps } from '@/models/data'
-import { useState, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import cx from 'classnames'
 import { ComponentTree } from '../componentTree'
 import { EditorButtonsContainer } from '@/components/editor-buttons-container'
 import { DynamicComponent } from '@/components/render/dynamicComponent'
 
-export const TreeBranch = ({ data }: { data: IComponentData; noUp: boolean; noDown: boolean }) => {
-  const [showChildren, setShowChildren] = useState(false)
+type TProps = {
+  data: IComponentData
+  noDown: boolean
+  noUp: boolean
+}
 
-  const handleTreeHeadClick = useCallback(() => {
+export const TreeBranch = ({ data, noDown, noUp }: TProps) => {
+  console.log(data.friendlyName, ':', data.hasFilterChildren)
+  const [showChildren, setShowChildren] = useState<boolean>()
+
+  useEffect(() => {
+    setShowChildren(data.hasFilterChildren)
+  }, [data.hasFilterChildren])
+
+  const handleTreeHeadClick = () => {
     setShowChildren(!showChildren)
-  }, [showChildren])
+  }
 
   const iconChange = () => {
     if (data.children?.length) {
@@ -34,10 +45,12 @@ export const TreeBranch = ({ data }: { data: IComponentData; noUp: boolean; noDo
   if (!component) return null //TODO data should return true always but if not an error should be returned here
 
   return (
-    <div className='branch_container'>
+    <div
+      className={cx('branch_container', data.hasFilterChildren ? 'branch_container__filter' : '')}
+    >
       {iconChange()}
       <div
-        className={cx('treeHeadItem', {
+        className={cx('tree_head-item', {
           pointerTreeView: data.children?.length,
         })}
       >
@@ -47,8 +60,8 @@ export const TreeBranch = ({ data }: { data: IComponentData; noUp: boolean; noDo
           inline={true}
           data={data.props as IComponentProps}
           visible={false}
-          noUp={false}
-          noDown={false}
+          noUp={noUp}
+          noDown={noDown}
           menu={false}
           config={component.config}
         />
