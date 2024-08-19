@@ -12,7 +12,11 @@
     .tree_head-item {
       @keyframes lightTextUp {
         0% {
-          color: #919;
+          color: initial;
+        }
+
+        50% {
+          color: var(--lum-color-green-600);
         }
 
         100% {
@@ -20,7 +24,7 @@
         }
       }
 
-      animation: lightTextUp 5s;
+      animation: lightTextUp 5s infinite;
     }
   }
 

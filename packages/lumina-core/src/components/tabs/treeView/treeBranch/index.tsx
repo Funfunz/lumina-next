@@ -45,9 +45,7 @@ export const TreeBranch = ({ data, noDown, noUp }: TProps) => {
   if (!component) return null //TODO data should return true always but if not an error should be returned here
 
   return (
-    <div
-      className={cx('branch_container', data.hasFilterChildren ? 'branch_container__filter' : '')}
-    >
+    <div className={cx('branch_container', data.isMatch ? 'branch_container__filter' : '')}>
       {iconChange()}
       <div
         className={cx('tree_head-item', {

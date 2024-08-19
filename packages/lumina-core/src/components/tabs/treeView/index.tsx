@@ -32,6 +32,9 @@ export const TreeViewTab = () => {
       else if (searchValLower.length >= 5 && friendlyNameLower.includes(searchValLower))
         matches = true
 
+      // boolean check to signal the filtered elements
+      if (matches) el.isMatch = true
+
       // If the current element has children, recursively filter the children
       if (el.children && el.children.length > 0) {
         const filteredChildren = filterData(el.children)
