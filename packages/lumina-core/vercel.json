@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/" },
-    { "source": "/editor", "destination": "/editor" }
+    { "source": "/", "destination": "packages/lumina-core/src/components/render/index.tsx" },
+    { "source": "/editor", "destination": "packages/lumina-core/src/components/editor/index.tsx" }
   ]
 }
