@@ -36,3 +36,11 @@ export interface IDeleteComponentAction {
     id: string
   }
 }
+
+export interface IVisibleComponentAction {
+  type: 'visibilityComponent'
+  data: {
+    id: string
+    hidden?: boolean
+  }
+}

@@ -23,6 +23,7 @@ type TProps = {
   noUp?: boolean
   noDown?: boolean
   visible?: boolean
+  hidden?: boolean
   menu?: boolean
 }
 
@@ -35,6 +36,7 @@ export const EditorButtonsContainer = ({
   noUp,
   noDown,
   visible,
+  hidden = false,
   menu,
 }: TProps) => {
   const {
@@ -54,11 +56,11 @@ export const EditorButtonsContainer = ({
 
       {config.editor.delete && !inline && <DeleteComponentButton componentId={id} />}
 
-      {inline && !visible && <VisibleComponentButton />}
+      {inline && !visible && <VisibleComponentButton id={id} hidden={hidden} />}
 
-      {inline && !noUp && <MoveComponentButton moveDirection='up' id={id} />}
+      {inline && <MoveComponentButton active={noUp!} moveDirection='up' id={id} />}
 
-      {inline && !noDown && <MoveComponentButton moveDirection='down' id={id} />}
+      {inline && <MoveComponentButton active={noDown!} moveDirection='down' id={id} />}
 
       {inline && !menu && <ExpandMenuButton id={id} config={config} data={data} />}
     </div>

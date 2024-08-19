@@ -64,6 +64,7 @@ export const TreeBranch = ({ data, noDown, noUp }: TProps) => {
           noDown={noDown}
           menu={false}
           config={component.config}
+          hidden={data.hidden}
         />
       </div>
       {(data.children?.length && showChildren && (
