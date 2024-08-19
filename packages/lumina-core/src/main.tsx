@@ -86,7 +86,7 @@ export default function Lumina({ selectedPage, getData, components }: TProps = d
                     <Render />
                   </Editor>
                 }
-              ></Route>
+              />
             </Routes>
           </BrowserRouter>
         </ToggleModalContextProvider>
