@@ -12,7 +12,6 @@ type TProps = {
 }
 
 export const TreeBranch = ({ data, noDown, noUp }: TProps) => {
-  console.log(data.friendlyName, ':', data.hasFilterChildren)
   const [showChildren, setShowChildren] = useState<boolean>()
 
   useEffect(() => {
