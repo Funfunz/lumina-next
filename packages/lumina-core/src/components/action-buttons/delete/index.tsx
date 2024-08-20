@@ -23,7 +23,8 @@ export const DeleteComponentButton = ({
   const { handleOpenModal } = useToggleModalContext()
   const { handleToggleMenu } = useToggleMenuContext()
 
-  const handleToggleDeleteModal = () => {
+  const handleToggleDeleteModal = (event: any) => {
+    event.preventDefault()
     handleOpenModal({
       id: componentId,
       modalType: DELETEMODAL,

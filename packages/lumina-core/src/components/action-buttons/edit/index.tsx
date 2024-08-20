@@ -32,7 +32,8 @@ export const EditComponentButton = ({
   const { handleOpenModal } = useToggleModalContext()
   const { handleToggleMenu } = useToggleMenuContext()
 
-  const handleToggleEditModal = () => {
+  const handleToggleEditModal = (event: any) => {
+    event.preventDefault()
     handleOpenModal({
       id: componentId,
       data,
