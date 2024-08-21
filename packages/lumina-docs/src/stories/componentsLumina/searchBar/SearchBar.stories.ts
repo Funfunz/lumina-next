@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react'
 
 import { SearchBar } from '@lumina/core/src/components/search-bar/index.tsx'
 // This could be imported from your own or external component library
@@ -17,10 +17,16 @@ const meta = {
   argTypes: {},
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: {},
-} satisfies Meta<typeof SearchBar>;
+} satisfies Meta<typeof SearchBar>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary: Story = {}
+export const Primary: Story = {
+  args: {
+    searchValue: 'foo',
+    setSearchValue: arg => console.log('setSearchValue()', arg),
+    onClickSearch: () => console.log('onClickSearch()'),
+  },
+}
