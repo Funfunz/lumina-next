@@ -18,12 +18,10 @@ export const ExpandMenuButton = ({ id, data, config }: TProps) => {
   const buttonRef = useRef<HTMLButtonElement | null>(null)
 
   const handleClickOutside = (e: MouseEvent) => {
-    if (
-      menuRef.current &&
-      !menuRef.current.contains(e.target as Node) &&
-      buttonRef.current &&
-      !buttonRef.current.contains(e.target as Node)
-    ) {
+    const hasMenuTarget = menuRef?.current?.contains(e.target as Node)
+    const hasButtonTarget = buttonRef?.current?.contains(e.target as Node)
+
+    if (!hasMenuTarget && !hasButtonTarget) {
       handleToggleMenu('')
     }
   }
