@@ -1,7 +1,6 @@
-import { Dispatch, SetStateAction } from 'react'
+import { ChangeEvent, Dispatch, SetStateAction } from 'react'
 import { Button } from '../button'
 import cx from 'classnames'
-import { LumInput } from '../form-components/input'
 
 type TProps = {
   searchValue: string
@@ -11,12 +10,12 @@ type TProps = {
 
 export const SearchBar = ({ searchValue, setSearchValue, onClickSearch }: TProps) => {
   return (
-    <div className='searchBar'>
-      <span className={cx('searchIcon', 'lum-icon-search')}></span>
-      <LumInput
-        name='componentTreeSearchInput'
-        type='search'
-        onChange={setSearchValue}
+    <div className='search-bar'>
+      <span className={cx('search-bar__icon', 'lum-icon-search')}></span>
+      <input
+        className='search-bar__text'
+        type='text'
+        onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchValue(e.target.value)}
         value={searchValue}
         placeholder='Search...'
       />

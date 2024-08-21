@@ -1,15 +1,19 @@
-.searchBar {
+.search-bar {
   position: relative;
   display: flex;
   column-gap: 8px;
   width: 100%;
   margin-bottom: 12px;
 
-  .lum__input {
-    margin-bottom: 0;
+  &__text {
+    @include lum-typo-input;
+
+    width: 100%;
+    padding: 8px 0 8px 30px;
+    margin-right: 5px;
   }
 
-  .searchIcon {
+  &__icon {
     position: absolute;
     top: 50%;
     left: 8px;
