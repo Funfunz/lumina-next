@@ -11,7 +11,6 @@ type TProps = {
 export const SearchBar = ({ searchValue, setSearchValue, onClickSearch }: TProps) => {
   const handleKeyDown = (e: ReactKeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      console.log('Searching with enter:', searchValue)
       onClickSearch()
     }
   }
