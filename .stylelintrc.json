@@ -26,6 +26,7 @@
     "scss/at-extend-no-missing-placeholder": null
   },
   "ignoreFiles": [
+    "packages/lumina-core/src/styles/theme/css/lumina/tokens.css",
     "**/LuminaIcon-v1.3/**/*.css",
     "**/dist/**/*",
     "**/storybook-static/**/*"
