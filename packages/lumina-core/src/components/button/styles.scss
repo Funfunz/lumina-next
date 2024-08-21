@@ -1,4 +1,8 @@
 .lum-button {
+  * {
+    box-sizing: border-box;
+  }
+
   @include lum-typo-button;
 
   box-sizing: border-box;
@@ -11,10 +15,6 @@
   background-color: var(--lum-color-transparent);
   border: none;
   transition: box-shadow 0.2s ease-in-out;
-
-  * {
-    box-sizing: border-box;
-  }
 
   &:hover {
     &:not(.treeAddButton) {
@@ -33,6 +33,16 @@
           }
         }
       }
+    }
+  }
+
+  &:disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    background-color: transparent;
+
+    .icon {
+      color: var(--lum-color-button-disabled);
     }
   }
 
