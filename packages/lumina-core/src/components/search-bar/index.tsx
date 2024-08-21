@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, SetStateAction } from 'react'
+import { ChangeEvent, Dispatch, SetStateAction, KeyboardEvent as ReactKeyboardEvent } from 'react'
 import { Button } from '../button'
 import cx from 'classnames'
 
@@ -9,6 +9,13 @@ type TProps = {
 }
 
 export const SearchBar = ({ searchValue, setSearchValue, onClickSearch }: TProps) => {
+  const handleKeyDown = (e: ReactKeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      console.log('Searching with enter:', searchValue)
+      onClickSearch()
+    }
+  }
+
   return (
     <div className='search-bar'>
       <span className={cx('search-bar__icon', 'lum-icon-search')}></span>
@@ -18,6 +25,7 @@ export const SearchBar = ({ searchValue, setSearchValue, onClickSearch }: TProps
         onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchValue(e.target.value)}
         value={searchValue}
         placeholder='Search...'
+        onKeyDown={handleKeyDown}
       />
       <Button
         buttonType='button'
