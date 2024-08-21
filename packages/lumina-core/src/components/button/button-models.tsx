@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 // Ideas taken from https://dev.to/frehner/polymorphic-button-component-in-typescript-c28
 
+import { MutableRefObject } from 'react'
+
 type TLumButtonBase = {
   className?: string
   text?: string
@@ -9,7 +11,8 @@ type TLumButtonBase = {
   style?: 'primary' | 'secondary' | 'warning' | 'danger' | 'filter' | 'live' | 'menuButton' | string
   size?: 'small' | 'large' | string
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
-  disabled?: boolean;
+  disabled?: boolean
+  ref?: MutableRefObject<HTMLButtonElement | null>
 }
 
 export type TLumButtonAsButton = TLumButtonBase & {
@@ -30,4 +33,4 @@ type TLumButtonLink = TLumButtonLinkBase & {
   buttonType: 'link'
 }
 
-export type TLumButton = TLumButtonAsButton | TLumButtonExternalLink | TLumButtonLink;
+export type TLumButton = TLumButtonAsButton | TLumButtonExternalLink | TLumButtonLink

@@ -28,12 +28,7 @@ export const LinkBox = ({ id, title, description, href, color = 'black' }: TProp
 
   if (!data) return null
   return (
-    <a
-      href={data.href}
-      className='card'
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a href={data.href} className='card' target='_blank' rel='noopener noreferrer'>
       <EditorButtonsContainer id={id} onUpdate={onUpdateCallback} config={config} data={data} />
       <h2 style={{ color: data.color }}>
         {data.title} <span>-&gt;</span>

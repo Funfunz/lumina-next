@@ -1,6 +1,7 @@
 import { ButtonContent } from './buttonContent'
 import cx from 'classnames'
 import { TLumButton } from './button-models'
+import { forwardRef } from 'react'
 
 export type { TLumButton }
 
@@ -20,34 +21,39 @@ export type { TLumButton }
  * @returns
  */
 
-export const Button = (props: TLumButton) => {
-  const { className, style, buttonType, text, iconLeft, iconRight, size } = props
-  const allClassNames = `${style ? style : ''} ${className ? className : ''} ${size ? size : ''}`
+export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, TLumButton>(
+  (props, ref) => {
+    const { className, style, buttonType, text, iconLeft, iconRight, size } = props
+    const allClassNames = `${style ? style : ''} ${className ? className : ''} ${size ? size : ''}`
 
-  if (buttonType === 'button') {
-    const { onClick, disabled, isFullWidth } = props
-    return (
-      <button
-        className={cx('lum-button', allClassNames, { fullWidth: isFullWidth })}
-        onClick={onClick}
-        disabled={disabled}
-      >
-        <ButtonContent text={text} iconLeft={iconLeft} iconRight={iconRight} />
-      </button>
-    )
-  } else if (buttonType === 'externalLink') {
-    const { href, target } = props
-    return (
-      <a className={allClassNames} href={href} target={target}>
-        <ButtonContent text={text} iconLeft={iconLeft} iconRight={iconRight} />
-      </a>
-    )
-  } else if (buttonType === 'link') {
-    const { href } = props
-    return (
-      <a className={allClassNames} href={href}>
-        <ButtonContent text={text} iconLeft={iconLeft} iconRight={iconRight} />
-      </a>
-    )
+    if (buttonType === 'button') {
+      const { onClick, disabled, isFullWidth } = props
+      return (
+        <button
+          ref={ref as React.Ref<HTMLButtonElement>}
+          className={cx('lum-button', allClassNames, { fullWidth: isFullWidth })}
+          onClick={onClick}
+          disabled={disabled}
+        >
+          <ButtonContent text={text} iconLeft={iconLeft} iconRight={iconRight} />
+        </button>
+      )
+    } else if (buttonType === 'externalLink') {
+      const { href, target } = props
+      return (
+        <a className={allClassNames} href={href} target={target}>
+          <ButtonContent text={text} iconLeft={iconLeft} iconRight={iconRight} />
+        </a>
+      )
+    } else if (buttonType === 'link') {
+      const { href } = props
+      return (
+        <a className={allClassNames} href={href}>
+          <ButtonContent text={text} iconLeft={iconLeft} iconRight={iconRight} />
+        </a>
+      )
+    }
   }
-}
+)
+
+Button.displayName = 'Button'
