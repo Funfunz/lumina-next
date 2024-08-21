@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from '@/components/button'
-import { SearchBar } from '@/components/search-bar'
+// import { SearchBar } from '@/components/search-bar'
 import { useLuminaContext } from '@/context/contextProvider'
 import { useCallback } from 'react'
 
@@ -42,7 +42,7 @@ export const PagesTab = () => {
         )) ||
           null}
       </div>
-      <SearchBar />
+      {/* <SearchBar /> */}
       {Object.keys(builderDataContext.builderData).map(page => (
         <div className='pageHead' key={page}>
           {page}

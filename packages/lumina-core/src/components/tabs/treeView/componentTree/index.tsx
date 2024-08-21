@@ -1,7 +1,14 @@
 import { IComponentData } from '@/models/data'
 import { TreeBranch } from '../treeBranch'
 
-export const ComponentTree = ({ data }: { data: IComponentData[] }) => {
+type TProps = {
+  data: IComponentData[]
+}
+
+export const ComponentTree = ({ data }: TProps) => {
+  if (data.length === 0) {
+    return <p>No components were found.</p>
+  }
   return (
     <>
       {data

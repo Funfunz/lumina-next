@@ -14,6 +14,8 @@ export interface IComponentData {
   children?: IComponentData[]
   props?: IComponentProps
   hidden?: boolean
+  hasFilterChildren?: boolean
+  isMatch?: boolean
 }
 
 export interface IPageData {

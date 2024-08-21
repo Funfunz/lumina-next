@@ -5,6 +5,7 @@
   flex-direction: column;
   overflow: hidden;
   background-color: var(--lum-color-background-inverse);
+  box-shadow: 0 0 2px 0 var(--lum-color-grey);
   transition: width 0.2s ease-in-out;
 }
 

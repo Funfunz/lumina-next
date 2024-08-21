@@ -1,24 +1,26 @@
 import { IComponentData, IComponentProps } from '@/models/data'
-import { useState, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import cx from 'classnames'
 import { ComponentTree } from '../componentTree'
 import { EditorButtonsContainer } from '@/components/editor-buttons-container'
 import { DynamicComponent } from '@/components/render/dynamicComponent'
 
-export const TreeBranch = ({
-  data,
-  noUp,
-  noDown,
-}: {
+type TProps = {
   data: IComponentData
-  noUp: boolean
   noDown: boolean
-}) => {
-  const [showChildren, setShowChildren] = useState(false)
+  noUp: boolean
+}
 
-  const handleTreeHeadClick = useCallback(() => {
+export const TreeBranch = ({ data, noDown, noUp }: TProps) => {
+  const [showChildren, setShowChildren] = useState<boolean>()
+
+  useEffect(() => {
+    setShowChildren(data.hasFilterChildren)
+  }, [data.hasFilterChildren])
+
+  const handleTreeHeadClick = () => {
     setShowChildren(!showChildren)
-  }, [showChildren])
+  }
 
   const iconChange = () => {
     if (data.children?.length) {
@@ -42,10 +44,10 @@ export const TreeBranch = ({
   if (!component) return null //TODO data should return true always but if not an error should be returned here
 
   return (
-    <div className='branch_container'>
+    <div className={cx('branch_container', data.isMatch ? 'branch_container__filter' : '')}>
       {iconChange()}
       <div
-        className={cx('treeHeadItem', {
+        className={cx('tree_head-item', {
           pointerTreeView: data.children?.length,
         })}
       >
