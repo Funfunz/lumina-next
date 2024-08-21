@@ -1,0 +1,28 @@
+// The .lum__text-area class should be added to classNames on the text-area you want to render
+.lum__text-area {
+  width: 100%;
+
+  .rfc-label {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--lum-color-black);
+  }
+
+  textarea.rfc-input {
+    color: var(--lum-color-black);
+    border-color: var(--lum-color-grey);
+    border-radius: 5px;
+
+    &::placeholder {
+      color: var(--lum-color-fg-weaker);
+    }
+  }
+
+  span {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--lum-color-grey);
+  }
+}
