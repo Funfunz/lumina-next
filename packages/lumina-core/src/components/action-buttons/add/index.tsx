@@ -26,7 +26,8 @@ export const AddComponentButton = ({
   const { handleToggleMenu } = useToggleMenuContext()
   const { handleOpenModal } = useToggleModalContext()
 
-  const handleButtonClick = () => {
+  const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault()
     handleOpenModal({ id: componentId, modalType: ADDMODAL })
     handleToggleMenu(componentId!)
   }
