@@ -88,7 +88,13 @@ export const TreeViewTab = () => {
           />
         </div>
         <TreeviewHeader pageName={pageData.friendlyName} pageExtendedName={pageData.extendedName} />
-        <ComponentTree data={data} />
+        <div className='tree-root'>
+          <span className='lum-icon-page tree-branch__icon'></span>
+          <div className='tree-root__content'>
+            <span>root</span>
+          </div>
+          <ComponentTree data={data} />
+        </div>
       </div>
     </ToggleMenuContextProvider>
   )

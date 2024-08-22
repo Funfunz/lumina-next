@@ -2,10 +2,6 @@
   position: relative;
   color: var(--lum-color-text);
 
-  &__children {
-    padding: 0 0 0 35px;
-  }
-
   &__container {
     &:hover {
       background-color: #f7f7f7;

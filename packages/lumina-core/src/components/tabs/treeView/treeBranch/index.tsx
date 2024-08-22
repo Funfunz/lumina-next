@@ -48,7 +48,9 @@ export const TreeBranch = ({ data, noDown, noUp }: TProps) => {
       <div className='tree-branch__container'>
         {iconChange()}
         <div className='tree-branch__item'>
-          {data.type} - {data.friendlyName || data.id}
+          <span>
+            {data.type} - {data.friendlyName || data.id}
+          </span>
           <EditorButtonsContainer
             id={data.id}
             inline={true}
