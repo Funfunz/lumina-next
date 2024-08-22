@@ -75,10 +75,10 @@ export const TreeViewTab = () => {
 
   return (
     <ToggleMenuContextProvider>
-      <div className='treeview_container'>
-        <div className='treeview_header_container'>
-          <Title content='Components' classnames='treeview_header__title' />
-          <span className='treeview_header__add-button'>
+      <div className='treeview-container'>
+        <div className='treeview-header_container'>
+          <Title content='Components' classnames='treeview-header__title' />
+          <span className='treeview-header__add-button'>
             <AddComponentButton buttonLabel='Add' />
           </span>
           <SearchBar

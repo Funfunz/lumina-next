@@ -1,0 +1,25 @@
+.tree-root {
+  position: relative;
+  color: var(--lum-color-text);
+
+  & .tree-branch {
+    padding-left: 35px;
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px;
+    padding-left: 45px;
+    margin-bottom: 2px;
+    cursor: default;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    box-shadow:
+      0 1px 4px -1px rgb(0 0 0 / 6%),
+      0 4px 6px -1px rgb(0 0 0 / 10%);
+  }
+}

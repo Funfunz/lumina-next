@@ -8,15 +8,15 @@ type TProps = {
 
 export const TreeviewHeader = ({ pageName, pageExtendedName }: TProps) => {
   return (
-    <div className='treeview_header__items'>
-      <span className={cx('treeview_header__headerIcon', 'lum-icon-page')}></span>
-      <p className='treeview_header__title' content={pageName}>
+    <div className='treeview-header__items'>
+      <span className={cx('treeview-header__headerIcon', 'lum-icon-page')}></span>
+      <p className='treeview-header__title' content={pageName}>
         {pageName}
       </p>
-      <p className='treeview_header__subTitle' content={pageExtendedName}>
+      <p className='treeview-header__subTitle' content={pageExtendedName}>
         {pageExtendedName}
       </p>
-      <div className='treeview_header__navIconsContainer'>
+      <div className='treeview-header__navIconsContainer'>
         <Button buttonType='button' iconLeft='lum-icon-info-fill' />
         <Button buttonType='button' iconLeft='lum-icon-history' />
         <Button buttonType='button' iconLeft='lum-icon-mobile' />

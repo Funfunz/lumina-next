@@ -1,18 +1,21 @@
-.branch_container {
-  @include lum-typo-body;
-
+.tree-branch {
   position: relative;
   color: var(--lum-color-text);
 
-  & .branch_children {
+  &__children {
     padding: 0 0 0 35px;
   }
 
-  &__filter {
-    .tree_head-item {
+  &__container {
+    &:hover {
+      background-color: #f7f7f7;
+    }
+  }
+
+  &_filter {
+    .tree-branch__item {
       @keyframes lightTextUp {
         0% {
-          color: initial;
         }
 
         50% {
@@ -20,40 +23,15 @@
         }
 
         100% {
-          color: initial;
+          color: var(--lum-color-text);
         }
       }
 
-      animation: lightTextUp 5s infinite;
+      animation: lightTextUp 3s infinite;
     }
   }
 
-  .tree_head-item {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 4px;
-    padding-left: 45px;
-    margin-bottom: 2px;
-    cursor: default;
-    background-color: white;
-    border: 1px solid transparent;
-    border-radius: 5px;
-    box-shadow:
-      0 1px 4px -1px rgb(0 0 0 / 6%),
-      0 4px 6px -1px rgb(0 0 0 / 10%);
-
-    &:hover {
-      background-color: #f7f7f7;
-    }
-  }
-
-  .treeViewPointer {
-    cursor: pointer;
-  }
-
-  .treeViewIcon {
+  &__icon {
     position: absolute;
     z-index: 1;
     padding: 10px;
@@ -64,13 +42,26 @@
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     opacity: 0.66;
+
+    &_pointer {
+      cursor: pointer;
+    }
   }
 
-  .treeTitle {
-    @include lum-typo-caption;
-  }
-
-  .addText {
-    @include lum-typo-tiny;
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px;
+    padding-left: 45px;
+    margin-bottom: 2px;
+    cursor: default;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    box-shadow:
+      0 1px 4px -1px rgb(0 0 0 / 6%),
+      0 4px 6px -1px rgb(0 0 0 / 10%);
   }
 }

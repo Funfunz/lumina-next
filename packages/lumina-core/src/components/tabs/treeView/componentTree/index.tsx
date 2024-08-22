@@ -10,7 +10,11 @@ export const ComponentTree = ({ data }: TProps) => {
     return <p>No components were found.</p>
   }
   return (
-    <>
+    <div className='tree-root'>
+      <span className='lum-icon-page tree-branch__icon'></span>
+      <div className='tree-root__content'>
+        <span>root</span>
+      </div>
       {data
         .sort((a, b) => {
           if (a.order < b.order) {
@@ -28,6 +32,6 @@ export const ComponentTree = ({ data }: TProps) => {
             noDown={index === data.length - 1}
           />
         ))}
-    </>
+    </div>
   )
 }

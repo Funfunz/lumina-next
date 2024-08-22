@@ -27,15 +27,15 @@ export const TreeBranch = ({ data, noDown, noUp }: TProps) => {
       return (
         <span
           className={cx(
-            'treeViewIcon',
-            showChildren ? 'lum-icon-chevron-up' : 'lum-icon-chevron-down',
-            'treeViewPointer'
+            'tree-branch__icon',
+            'tree-branch__icon_pointer',
+            showChildren ? 'lum-icon-chevron-up' : 'lum-icon-chevron-down'
           )}
           onClick={handleTreeHeadClick}
         ></span>
       )
     } else {
-      return <span className={cx('treeViewIcon', 'lum-icon-component')}></span>
+      return <span className='tree-branch__icon lum-icon-component'></span>
     }
   }
 
@@ -44,28 +44,26 @@ export const TreeBranch = ({ data, noDown, noUp }: TProps) => {
   if (!component) return null //TODO data should return true always but if not an error should be returned here
 
   return (
-    <div className={cx('branch_container', data.isMatch ? 'branch_container__filter' : '')}>
-      {iconChange()}
-      <div
-        className={cx('tree_head-item', {
-          pointerTreeView: data.children?.length,
-        })}
-      >
-        {data.type} - {data.friendlyName || data.id}
-        <EditorButtonsContainer
-          id={data.id}
-          inline={true}
-          data={data.props as IComponentProps}
-          visible={false}
-          noUp={noUp}
-          noDown={noDown}
-          menu={false}
-          config={component.config}
-          hidden={data.hidden}
-        />
+    <div className={cx('tree-branch', data.isMatch ? 'tree-branch_filter' : '')}>
+      <div className='tree-branch__container'>
+        {iconChange()}
+        <div className='tree-branch__item'>
+          {data.type} - {data.friendlyName || data.id}
+          <EditorButtonsContainer
+            id={data.id}
+            inline={true}
+            data={data.props as IComponentProps}
+            visible={false}
+            noUp={noUp}
+            noDown={noDown}
+            menu={false}
+            config={component.config}
+            hidden={data.hidden}
+          />
+        </div>
       </div>
       {(data.children?.length && showChildren && (
-        <div className='branch_children'>
+        <div className='tree-branch__children'>
           <ComponentTree data={data.children} />
         </div>
       )) ||
