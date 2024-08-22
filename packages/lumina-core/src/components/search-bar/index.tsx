@@ -21,7 +21,7 @@ export const SearchBar = ({ searchValue, setSearchValue, onClickSearch }: TProps
       <span className={cx('search-bar__icon', 'lum-icon-search')}></span>
       <Input
         className='search-bar__text'
-        type='text'
+        type='search'
         onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchValue(e.target.value)}
         value={searchValue}
         placeholder='Search...'

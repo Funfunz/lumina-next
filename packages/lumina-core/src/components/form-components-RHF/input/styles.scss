@@ -1,8 +1,11 @@
 .input-container {
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100%;
 
   &__helper-text {
+    margin-top: 2px;
     font-size: 16px;
     font-weight: 400;
     color: var(--lum-color-grey);
@@ -16,10 +19,13 @@
   }
 
   &__text {
-    padding-left: 30px;
+    @include lum-typo-input; //typography
+
+    width: 100%;
+    padding: 10px 20px;
     color: var(--lum-color-black);
     border-color: var(--lum-color-grey);
-    border-radius: 5px;
+    border-radius: 3px;
 
     &::placeholder {
       color: var(--lum-color-fg-weaker);

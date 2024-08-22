@@ -1,4 +1,5 @@
 import { FC, InputHTMLAttributes, KeyboardEvent, createRef } from 'react'
+import cx from 'classnames'
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   name?: string
   className?: string
@@ -17,9 +18,11 @@ export const Input: FC<IInputProps> = ({
   activateEnterPress,
   clearOnEnterPress,
   onEnterPress,
+  className,
   ...rest
 }) => {
-  const inputRef = createRef<HTMLInputElement>()
+  const inputRef = createRef<HTMLInputElement>() // A ref to clear the field on submit (clearOnEnterPress prop)
+
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
       if (activateEnterPress) {
@@ -37,21 +40,20 @@ export const Input: FC<IInputProps> = ({
   }
 
   return (
-    <>
+    <div className={cx('input-container', className)}>
       {label && (
-        <label htmlFor={name} className='input-container__label'>
+        <label htmlFor={name} className={cx('input-container__label', className)}>
           {label}
         </label>
       )}
-      <br />
       <input
         id={name}
         ref={inputRef}
         onKeyDown={handleKeyDown}
-        className='input-container__text'
+        className={cx('input-container__text', className)}
         {...rest}
       />
-      {help && <p className='input-container__helper-text'>{help}</p>}
-    </>
+      {help && <p className={cx('input-container__helper-text', className)}>{help}</p>}
+    </div>
   )
 }
