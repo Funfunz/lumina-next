@@ -1,15 +1,15 @@
 // The .lum__input class should be added to classNames on the labels you want to render
-.lum__input {
+.input__container {
   width: 100%;
 
-  label {
+  .input__label {
     margin-bottom: 10px;
     font-size: 16px;
     font-weight: 600;
     color: var(--lum-color-black);
   }
 
-  input.rfc-input {
+  .input__text {
     padding-left: 30px;
     color: var(--lum-color-black);
     border-color: var(--lum-color-grey);
@@ -20,7 +20,7 @@
     }
   }
 
-  span {
+  .input__helper-text {
     font-size: 16px;
     font-weight: 400;
     color: var(--lum-color-grey);

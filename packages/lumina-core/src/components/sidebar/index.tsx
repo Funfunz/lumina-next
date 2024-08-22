@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Button } from '../button'
 import { PagesTab } from '../tabs/pages'
 import { TreeViewTab } from '../tabs/treeView'
-import { CheckBox } from '../form-components-RHF/checkbox'
+import { Input } from '../form-components-RHF/input'
 
 type TSidebarEditor = {
   handleToggler: Function
@@ -31,7 +31,16 @@ const editorTabs: TSidebarTab[] = [
   {
     id: 'lumTabLibrary',
     icon: 'lum-icon-library',
-    panel: <CheckBox text='oi' />,
+    panel: (
+      <Input
+        name='testInput'
+        placeholder='type something'
+        help='A helper for input text test'
+        activateEnterPress
+        label='Some Label on top of the input'
+        clearOnEnterPress
+      />
+    ),
   },
 ]
 
