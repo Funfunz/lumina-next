@@ -22,7 +22,7 @@ export const Input: FC<IInputProps> = ({
   className,
   ...rest
 }) => {
-  const defaultClass = 'input__container'
+  const defaultClass = 'input-container'
   const classNames = cx(defaultClass, className)
   const inputRef = createRef<HTMLInputElement>()
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
@@ -44,7 +44,7 @@ export const Input: FC<IInputProps> = ({
   return (
     <div className={classNames}>
       {label && (
-        <label htmlFor={name} className='input__label'>
+        <label htmlFor={name} className='input-container__label'>
           {label}
         </label>
       )}
@@ -53,10 +53,10 @@ export const Input: FC<IInputProps> = ({
         id={name}
         ref={inputRef}
         onKeyDown={handleKeyDown}
-        className={cx(className, 'input__text')}
+        className={cx(className, 'input-container__text')}
         {...rest}
       />
-      {help && <p className='input__helper-text'>{help}</p>}
+      {help && <p className='input-container__helper-text'>{help}</p>}
     </div>
   )
 }

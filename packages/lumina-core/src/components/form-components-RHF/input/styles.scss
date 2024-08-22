@@ -1,15 +1,21 @@
-// The .lum__input class should be added to classNames on the labels you want to render
-.input__container {
+.input-container {
+  position: relative;
   width: 100%;
 
-  .input__label {
+  &__helper-text {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--lum-color-grey);
+  }
+
+  &__label {
     margin-bottom: 10px;
     font-size: 16px;
     font-weight: 600;
     color: var(--lum-color-black);
   }
 
-  .input__text {
+  &__text {
     padding-left: 30px;
     color: var(--lum-color-black);
     border-color: var(--lum-color-grey);
@@ -19,19 +25,4 @@
       color: var(--lum-color-fg-weaker);
     }
   }
-
-  .input__helper-text {
-    font-size: 16px;
-    font-weight: 400;
-    color: var(--lum-color-grey);
-  }
-
-  // In case of button usage
-  // .rfc-suffix{
-  //     bottom: -10px;
-  // }
-
-  // button.lum-icon-visible{
-  //     font-size:18px;
-  // }
 }
