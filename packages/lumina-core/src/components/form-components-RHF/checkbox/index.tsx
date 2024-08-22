@@ -1,18 +1,25 @@
+import { FieldValues } from 'react-hook-form'
 import cx from 'classnames'
 
-type TCheckbox = {
-  id?: string
+interface ICheckbox extends FieldValues {
   className?: string
-  text?: string
+  name?: string
+  label?: string
+  help?: string
 }
 
-export const CheckBox = ({ id, className, text }: TCheckbox) => {
-  const defaultClass = 'lum__checkbox'
-  const classNames = cx(defaultClass, className)
-
+export const CheckBox = ({ name, className, label, help }: ICheckbox) => {
   return (
     <>
-      <input type='checkbox' id={id} className={classNames} /> {text}
+      <div className={cx('checkboxn_container', className)}>
+        {label && (
+          <label htmlFor={name} className={cx('', className)}>
+            {label}
+          </label>
+        )}
+        <input type='checkbox' id={name} className={cx('', className)} />
+        {help && <p className={cx('', className)}>{help}</p>}
+      </div>
     </>
   )
 }

@@ -1,5 +1,7 @@
-// The .lum__radio-button class should be added to classNames on the radio-button you want to render
-.lum__radio-button {
+.radio-button_container {
+  display: flex;
+  flex-direction: column;
+  justify-self: start;
   width: 100%;
 
   .rfc-label {
@@ -23,7 +25,7 @@
     border-radius: 10px;
   }
 
-  input:checked::after {
+  &__input:checked::after {
     margin: -1px;
     color: var(--lum-color-accent-default);
     background-color: var(--lum-color-accent-default);
@@ -31,7 +33,7 @@
     border-radius: 10px;
   }
 
-  span {
+  &__span {
     margin-top: 10px;
     font-size: 16px;
     font-weight: 400;

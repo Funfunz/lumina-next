@@ -1,4 +1,4 @@
-import { FC, InputHTMLAttributes, KeyboardEvent, createRef } from 'react'
+import { InputHTMLAttributes, KeyboardEvent, createRef } from 'react'
 import cx from 'classnames'
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   name?: string
@@ -11,7 +11,7 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   onEnterPress?: () => void
 }
 
-export const Input: FC<IInputProps> = ({
+export const Input: React.FC<IInputProps> = ({
   name,
   label,
   help,

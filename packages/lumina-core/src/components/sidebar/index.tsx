@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Button } from '../button'
 import { PagesTab } from '../tabs/pages'
 import { TreeViewTab } from '../tabs/treeView'
-import { Input } from '../form-components-RHF/input'
+import { RadioButton } from '../form-components-RHF/radio-button'
 
 type TSidebarEditor = {
   handleToggler: Function
@@ -31,17 +31,7 @@ const editorTabs: TSidebarTab[] = [
   {
     id: 'lumTabLibrary',
     icon: 'lum-icon-library',
-    panel: (
-      <Input
-        name='testInput'
-        placeholder='type something'
-        help='A helper for input text test'
-        activateEnterPress
-        label='Some Label on top of the input'
-        clearOnEnterPress
-        type='search'
-      />
-    ),
+    panel: <RadioButton label='Hi' help='Do you need help? Really?' />,
   },
 ]
 
