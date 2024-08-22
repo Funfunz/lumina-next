@@ -1,53 +1,14 @@
-.treeviewHeaderContainer {
-  display: flex;
-  align-items: center;
-  align-self: stretch;
-  justify-content: space-between;
-  width: 100%;
-  height: 50px;
-  padding-right: 20px;
-  padding-left: 10px;
-  margin-bottom: 4px;
-  background-color: #F7F7F7;
-  border-radius: 4px 4px 0 0;
-}
-
-.treeview_title {
-  flex-grow: 0;
-  margin: 0;
-  font-size: 18px;
-  font-weight: 700;
-}
-
-.treeviewSubTitle {
-  flex-grow: 0;
-  width: 150px;
-  overflow: hidden;
-  font-size: 16px;
-  font-weight: 300;
-  color: #999;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.treeviewHeaderIcon {
-  padding-right: 4px;
-  font-size: 18px;
-
-}
-
-.treeviewNavIconsContainer {
-  display: inline-flex;
-  flex-grow: 1;
-  justify-content: space-evenly;
-  margin-left: 45px;
-  font-size: 18px;
-}
-
-.treeviewNavIcon {
-  cursor: pointer;
-}
-
-.treeViewButtonLive {
-  background-color: red;
+.treeview_header {
+  &__items {
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    padding: 0 12px;
+    margin-bottom: 4px;
+    background-color: #f7f7f7;
+    border-radius: 4px 4px 0 0;
+  }
 }

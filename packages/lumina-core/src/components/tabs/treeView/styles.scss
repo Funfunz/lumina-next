@@ -5,22 +5,53 @@
   position: relative;
   width: 100%;
   height: 100%;
+
+  .treeview_header {
+    &_container {
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: var(--lum-size-spacing-m);
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__add-button {
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+    }
+
+    &__title {
+      flex-grow: 0;
+      margin: 0;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    &__subTitle {
+      flex-grow: 0;
+      width: 150px;
+      overflow: hidden;
+      font-size: 16px;
+      font-weight: 300;
+      color: #999;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    &__headerIcon {
+      padding-right: 4px;
+      font-size: 18px;
+    }
+
+    &__navIconsContainer {
+      display: inline-flex;
+      column-gap: 10px;
+      font-size: 18px;
+    }
+  }
 }
 
 .treeScroll {
   overflow-y: scroll;
-}
-
-.treeview_header {
-  display: flex;
-  flex-wrap: wrap;
-  row-gap: var(--lum-size-spacing-m);
-  align-items: center;
-  justify-content: space-between;
-
-  .treeAddButton {
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-  }
 }

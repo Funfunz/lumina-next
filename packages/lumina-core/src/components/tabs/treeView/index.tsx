@@ -12,7 +12,8 @@ export const TreeViewTab = () => {
   const {
     state: { builderDataContext },
   } = useLuminaContext()
-  const cmpData = builderDataContext.builderData[builderDataContext.selectedPage].children!
+  const pageData = builderDataContext.builderData[builderDataContext.selectedPage]
+  const cmpData = pageData.children!
   const [searchValue, setSearchValue] = useState<string>('')
   const [data, setData] = useState<IComponentData[]>(cmpData)
 
@@ -75,9 +76,9 @@ export const TreeViewTab = () => {
   return (
     <ToggleMenuContextProvider>
       <div className='treeview_container'>
-        <div className='treeview_header'>
-          <Title content='Components' classnames='treeview_title' />
-          <span className='treeAddButton'>
+        <div className='treeview_header_container'>
+          <Title content='Components' classnames='treeview_header__title' />
+          <span className='treeview_header__add-button'>
             <AddComponentButton buttonLabel='Add' />
           </span>
           <SearchBar
@@ -86,7 +87,7 @@ export const TreeViewTab = () => {
             onClickSearch={searchData}
           />
         </div>
-        <TreeviewHeader />
+        <TreeviewHeader pageName={pageData.friendlyName} pageExtendedName={pageData.extendedName} />
         <ComponentTree data={data} />
       </div>
     </ToggleMenuContextProvider>
