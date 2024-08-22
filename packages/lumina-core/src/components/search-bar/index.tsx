@@ -26,7 +26,7 @@ export const SearchBar = ({ searchValue, setSearchValue, onClickSearch }: TProps
         value={searchValue}
         placeholder='Search...'
         onKeyDown={handleKeyDown}
-        activateEnterPress
+        // activateEnterPress - WIP from Input component
       />
       <Button
         buttonType='button'

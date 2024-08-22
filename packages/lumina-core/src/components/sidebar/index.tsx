@@ -39,6 +39,7 @@ const editorTabs: TSidebarTab[] = [
         activateEnterPress
         label='Some Label on top of the input'
         clearOnEnterPress
+        type='date'
       />
     ),
   },
