@@ -25,8 +25,10 @@ export const Input: React.FC<IInputProps> = ({
 
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
+      // works if there is no function to call
       if (activateEnterPress) {
         if (onEnterPress) {
+          // works alongside 'activateEnterPress', in this case besides calling the above prop, call this one and pass the function inside onEnterPress()
           onEnterPress()
         } else {
           // Default action if no callback is provided
