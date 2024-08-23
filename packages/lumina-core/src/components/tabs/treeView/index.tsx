@@ -91,7 +91,7 @@ export const TreeViewTab = () => {
         <div className='tree-root'>
           <span className='lum-icon-page tree-branch__icon'></span>
           <div className='tree-root__content'>
-            <span>root</span>
+            <span>{pageData.pageName}</span>
           </div>
           <ComponentTree data={data} />
         </div>

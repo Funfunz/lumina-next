@@ -35,7 +35,7 @@ export const TreeBranch = ({ data, noDown, noUp }: TProps) => {
         ></span>
       )
     } else {
-      return <span className='tree-branch__icon lum-icon-component'></span>
+      return <span className={cx('tree-branch__icon', `lum-icon-${data.type}`)}></span> //TODO match the icons available with the types
     }
   }
 
