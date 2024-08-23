@@ -55,7 +55,7 @@ export const Input: React.FC<IInputProps> = ({
         className={cx('input-container__text', className)}
         {...rest}
       />
-      {help && <p className={cx('input-container__helper-text', className)}>{help}</p>}
+      {help && <p className={cx('input-container__help', className)}>{help}</p>}
     </div>
   )
 }

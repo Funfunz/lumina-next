@@ -4,8 +4,7 @@
   flex-direction: column;
   width: 100%;
 
-  &__helper-text {
-    margin-top: 2px;
+  &__help {
     font-size: 16px;
     font-weight: 400;
     color: var(--lum-color-grey);
@@ -24,8 +23,8 @@
     width: 100%;
     padding: 10px 20px;
     color: var(--lum-color-black);
-    border-color: var(--lum-color-grey);
-    border-radius: 3px;
+    border: 1px solid var(--lum-color-grey);
+    border-radius: 5px;
 
     &::placeholder {
       color: var(--lum-color-fg-weaker);

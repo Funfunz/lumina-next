@@ -1,24 +1,33 @@
-import { FieldValues } from 'react-hook-form'
+import { InputHTMLAttributes } from 'react'
 import cx from 'classnames'
 
-interface ICheckbox extends FieldValues {
+interface ICheckbox extends InputHTMLAttributes<HTMLInputElement> {
   className?: string
   name?: string
   label?: string
   help?: string
+  checkboxText?: string
 }
 
-export const CheckBox = ({ name, className, label, help }: ICheckbox) => {
+export const CheckBox = ({ name, className, label, help, checkboxText, ...rest }: ICheckbox) => {
   return (
     <>
-      <div className={cx('checkboxn_container', className)}>
+      <div className={cx('checkbox_container', className)}>
         {label && (
-          <label htmlFor={name} className={cx('', className)}>
+          <label htmlFor={name} className={cx('checkbox_container__label', className)}>
             {label}
           </label>
         )}
-        <input type='checkbox' id={name} className={cx('', className)} />
-        {help && <p className={cx('', className)}>{help}</p>}
+        <div className='checkbox_container__wrapper'>
+          <input
+            type='checkbox'
+            id={name}
+            className={cx('checkbox_container__wrapper__check', className)}
+            {...rest}
+          />
+          <span className='checkbox_container__wrapper__text'>{checkboxText}</span>
+        </div>
+        {help && <p className={cx('checkbox_container__help', className)}>{help}</p>}
       </div>
     </>
   )

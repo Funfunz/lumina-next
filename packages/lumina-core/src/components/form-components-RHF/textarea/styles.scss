@@ -27,8 +27,8 @@
     padding: 10px 20px;
     color: var(--lum-color-black);
     resize: vertical;
-    border-color: var(--lum-color-grey);
-    border-radius: 3px;
+    border: 1px solid var(--lum-color-grey);
+    border-radius: 5px;
 
     &::placeholder {
       color: var(--lum-color-fg-weaker);

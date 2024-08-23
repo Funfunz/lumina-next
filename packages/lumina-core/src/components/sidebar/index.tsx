@@ -5,6 +5,8 @@ import { Button } from '../button'
 import { PagesTab } from '../tabs/pages'
 import { TreeViewTab } from '../tabs/treeView'
 import { RadioButton } from '../form-components-RHF/radio-button'
+import { CheckBox } from '../form-components-RHF/checkbox'
+import { Input } from '../form-components-RHF/input'
 
 type TSidebarEditor = {
   handleToggler: Function
@@ -31,7 +33,13 @@ const editorTabs: TSidebarTab[] = [
   {
     id: 'lumTabLibrary',
     icon: 'lum-icon-library',
-    panel: <RadioButton label='Hi' help='Do you need help? Really?' />,
+    panel: (
+      <>
+        <RadioButton label='Hi Radio' help='Do you need help??' radioText='Radio Test' />
+        <CheckBox label='Hi Check' help='Really?' checkboxText='Checkbox Test' />
+        <Input label='hi' help='Hi again' placeholder='type on me' />
+      </>
+    ),
   },
 ]
 
