@@ -36,10 +36,6 @@ export function getComponentConfig() {
   return componentConfig
 }
 
-window.onclick = e => {
-  console.log('clicked on: ', e.target) // to get the element
-}
-
 function setComponentConfig(newComponentConfig: TComponentConfig) {
   componentConfig = newComponentConfig
   return componentConfig

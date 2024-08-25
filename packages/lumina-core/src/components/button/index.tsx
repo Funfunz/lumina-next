@@ -33,7 +33,8 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, TLumButt
           ref={ref as React.Ref<HTMLButtonElement>}
           className={cx('lum-button', allClassNames, { fullWidth: isFullWidth })}
           onClick={onClick}
-          disabled={disabled}>
+          disabled={disabled}
+        >
           <ButtonContent text={text} iconLeft={iconLeft} iconRight={iconRight} />
         </button>
       )
