@@ -4,7 +4,7 @@ import { EditorButtonsContainer } from '@lumina/core'
 
 type TProps = {
   children: React.ReactNode
-  style?: "column"
+  style?: 'column'
   id: string
 }
 

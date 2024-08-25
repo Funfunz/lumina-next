@@ -15,33 +15,33 @@ import { Button } from '../components/button/button'
 import { config as configButton } from '../components/button/config'
 
 const luminaConfig: TComponentConfig = {
-  linkBox: {
+  linkbox: {
     component: LinkBox,
-    config: configLinkBox
+    config: configLinkBox,
   },
   grid: {
     component: Grid,
-    config: configGrid
+    config: configGrid,
   },
   image: {
     component: Image,
-    config: configImage
+    config: configImage,
   },
   title: {
     component: Title,
-    config: configTitle
+    config: configTitle,
   },
   flex: {
     component: Flex,
-    config: configFlex
+    config: configFlex,
   },
   button: {
     component: Button,
-    config: configButton
+    config: configButton,
   },
   text: {
     component: Text,
-    config: configText
+    config: configText,
   },
 }
 

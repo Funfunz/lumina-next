@@ -1,56 +1,76 @@
 .branch_container {
+  @include lum-typo-body;
+
   position: relative;
   color: var(--lum-color-text);
-
 
   & .branch_children {
     padding: 0 0 0 35px;
   }
 
-}
+  &__filter {
+    .tree_head-item {
+      @keyframes lightTextUp {
+        0% {
+          color: initial;
+        }
 
-.treeHeadItem {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 4px;
-  padding-left: 45px;
-  margin-bottom: 2px;
-  font-size: 14px;
-  cursor: default;
-  background-color: white;
-  border: 1px solid transparent;
-  border-radius: 5px;
-  box-shadow: 0 1px 4px -1px rgb(0 0 0 / 6%), 0 4px 6px -1px rgb(0 0 0 / 10%);
+        50% {
+          color: var(--lum-color-green-600);
+        }
 
-  &:hover {
-    background-color: #F7F7F7;
+        100% {
+          color: initial;
+        }
+      }
+
+      animation: lightTextUp 5s infinite;
+    }
   }
-}
 
-.treeViewPointer {
-  cursor: pointer;
-}
+  .tree_head-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px;
+    padding-left: 45px;
+    margin-bottom: 2px;
+    cursor: default;
+    background-color: white;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    box-shadow:
+      0 1px 4px -1px rgb(0 0 0 / 6%),
+      0 4px 6px -1px rgb(0 0 0 / 10%);
 
-.treeViewIcon {
-  position: absolute;
-  z-index: 1;
-  padding: 10px;
-  font-size: 14px;
-  color: #111;
-  background-color: #F7F7F7;
-  border-radius: 5px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  opacity: .66;
-}
+    &:hover {
+      background-color: #f7f7f7;
+    }
+  }
 
-.treeTitle {
-  font-size: 16px;
-}
+  .treeViewPointer {
+    cursor: pointer;
+  }
 
-.addText {
-  font-size: 12px;
-  font-weight: 400;
+  .treeViewIcon {
+    position: absolute;
+    z-index: 1;
+    padding: 10px;
+    font-size: var(--lum-size-font-icon);
+    color: #111;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    opacity: 0.66;
+  }
+
+  .treeTitle {
+    @include lum-typo-caption;
+  }
+
+  .addText {
+    @include lum-typo-tiny;
+  }
 }

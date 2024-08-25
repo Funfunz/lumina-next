@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { ReactNode, createContext, useContext, useState } from 'react'
-import { IComponentProps } from '../models/data'
-import { TConfig } from '@/models/editor-buttonModel'
+import type { IComponentProps } from '../models/data'
+import type { TConfig } from '@/models/editor-buttonModel'
 
 export const ADDMODAL = 'ADD'
 export const EDITMODAL = 'EDIT'
@@ -24,6 +24,7 @@ const initialModalState: TModalState = {
   data: {},
   config: {
     name: '',
+    type: '',
     editor: {
       children: false,
       editable: false,
@@ -61,12 +62,10 @@ export const ToggleModalContextProvider = ({ children }: { children: ReactNode }
 
   const handleCloseModal = () => {
     setModalState({
-      ...modalState,
+      ...initialModalState,
       isOpen: false,
     })
   }
-
-  console.log('modalState:', modalState)
 
   return (
     <ToggleModalContext.Provider value={{ handleCloseModal, handleOpenModal, modalState }}>

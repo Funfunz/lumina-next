@@ -1,6 +1,6 @@
-import cx from "classnames"
+import cx from 'classnames'
 
-type TProps = {
+export type TTitleProps = {
   content?: string
   hLevel?: 1 | 2 | 3 | 4 | 5 | 6
   fontSize?: string
@@ -21,23 +21,22 @@ type TProps = {
  * @param classnames any classname related with the title
  * @returns
  */
-export const Title = (
-  { content,
-    hLevel = 3,
-    fontSize = "2rem",
-    lineHeight = "2.5rem",
-    weight = 400,
-    color = "",
-    classnames
-  }: TProps) => {
-
-  const HeadingTag = `h${hLevel}` as keyof JSX.IntrinsicElements;
+export const Title = ({
+  content,
+  hLevel = 3,
+  fontSize = '2rem',
+  lineHeight = '2.5rem',
+  weight = 400,
+  color = '',
+  classnames,
+}: TTitleProps) => {
+  const HeadingTag = `h${hLevel}` as keyof JSX.IntrinsicElements
 
   const inlineStyles: React.CSSProperties = {
     fontSize: fontSize,
     fontWeight: weight,
     lineHeight: lineHeight,
-    color: color
+    color: color,
   }
 
   return (

@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react'
-import { useToggleMenuContext } from "@/context/toggleMenuContext"
-import { Button } from "@/components/button"
-import { ExpandableEditorMenu } from "@/components/expandable-editor-menu"
-import { IComponentProps } from "@/models/data"
-import { TConfig } from "@/models/editor-buttonModel"
+import { useEffect, useRef } from 'react'
+import { useToggleMenuContext } from '@/context/toggleMenuContext'
+import { Button } from '@/components/button'
+import { ExpandableEditorMenu } from '@/components/expandable-editor-menu'
+import type { IComponentProps } from '@/models/data'
+import type { TConfig } from '@/models/editor-buttonModel'
 
 type TProps = {
   id: string
@@ -13,21 +13,44 @@ type TProps = {
 
 export const ExpandMenuButton = ({ id, data, config }: TProps) => {
   const { handleToggleMenu, menuState } = useToggleMenuContext()
+  const isOpen = menuState.id === id && menuState.isOpen
+  const menuRef = useRef<HTMLDivElement | null>(null)
+  const buttonRef = useRef<HTMLButtonElement | null>(null)
 
-  const [isOpen, setIsMenuOpen] = useState(false)
+  const handleClickOutside = (e: MouseEvent) => {
+    const hasMenuTarget = menuRef?.current?.contains(e.target as Node)
+    const hasButtonTarget = buttonRef?.current?.contains(e.target as Node)
+
+    if (!hasMenuTarget && !hasButtonTarget) {
+      handleToggleMenu('')
+    }
+  }
+
+  const handleButtonClick = () => {
+    handleToggleMenu(isOpen ? '' : id)
+  }
 
   useEffect(() => {
-    setIsMenuOpen(menuState.id === id && menuState.isOpen)
-  }, [menuState.isOpen, menuState.id, id])
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isOpen])
 
   return (
     <>
       <Button
-        buttonType="button"
-        iconLeft={"lum-icon-menu"}
-        onClick={() => handleToggleMenu(id)}
+        buttonType='button'
+        iconLeft='lum-icon-menu'
+        onClick={handleButtonClick}
+        ref={buttonRef}
       />
-      {isOpen && <ExpandableEditorMenu id={id} config={config} data={data} />}
+      {isOpen && <ExpandableEditorMenu id={id} config={config} data={data} menuRef={menuRef} />}
     </>
   )
 }

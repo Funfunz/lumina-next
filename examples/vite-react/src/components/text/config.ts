@@ -2,6 +2,7 @@ import { TConfig } from '@lumina/core'
 
 export const config: TConfig = {
   name: 'Text',
+  type: 'text',
   props: [
     {
       type: 'string',

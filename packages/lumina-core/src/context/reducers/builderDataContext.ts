@@ -1,7 +1,14 @@
-import { IComponentData, IComponentProps, IPageData } from "@/models/data";
-import { ICreatePageAction, IDeletePageAction, IUpdatePageAction } from "./models/builderPageModels";
-import { IBuilderDataContext, ISetBuilderDataAction } from "./models/builderDataModels";
-import { ICreateComponentAction, IDeleteComponentAction, IMoveDownComponentAction, IMoveUpComponentAction, IUpdateComponentAction } from "./models/builderComponentModels";
+import { IComponentData, IComponentProps, IPageData } from '@/models/data'
+import { ICreatePageAction, IDeletePageAction, IUpdatePageAction } from './models/builderPageModels'
+import { IBuilderDataContext, ISetBuilderDataAction } from './models/builderDataModels'
+import {
+  ICreateComponentAction,
+  IDeleteComponentAction,
+  IMoveDownComponentAction,
+  IMoveUpComponentAction,
+  IUpdateComponentAction,
+  IVisibleComponentAction,
+} from './models/builderComponentModels'
 
 export type TBuilderDataContextAction =
   | ISetBuilderDataAction
@@ -12,32 +19,35 @@ export type TBuilderDataContextAction =
   | IUpdateComponentAction
   | IDeleteComponentAction
   | IMoveUpComponentAction
-  | IMoveDownComponentAction;
+  | IMoveDownComponentAction
+  | IVisibleComponentAction
 
 export const initialBuilderDataContextState = {
   builderData: {},
-  selectedPage: "",
+  selectedPage: '',
   pages: [],
-};
+}
 
 function newComponentFactory(
-  componentData: ICreateComponentAction["data"],
-  order: number
+  componentData: ICreateComponentAction['data'],
+  order: number,
+  hidden: boolean
 ): IComponentData {
-  const { type, friendlyName, id, ...rest } = componentData;
+  const { type, friendlyName, id, ...rest } = componentData
   return {
     id,
     type: type as string,
     friendlyName: friendlyName as string,
     children: [],
     order,
+    hidden,
     props: { ...rest.props },
-  };
+  }
 }
 
 const instanceOfIComponentData = (object: any): object is IComponentData => {
-  return object.id;
-};
+  return object.id
+}
 
 /**
  * Parameter "data" contains info from the parent component
@@ -49,31 +59,34 @@ const instanceOfIComponentData = (object: any): object is IComponentData => {
  */
 function createElementAt(
   component: IPageData | IComponentData,
-  data: ICreateComponentAction["data"]
+  data: ICreateComponentAction['data']
 ): IPageData | IComponentData {
   // Ensure the component has a children array
-  if (!component.children) [(component.children = [])];
+  if (!component.children) [(component.children = [])]
 
   // Check if the component is the parent or if no parentId is specified
-  if (
-    !data.parentId ||
-    (instanceOfIComponentData(component) && component.id === data.parentId)
-  ) {
-    if (!component.children.find((children) => children.id === data.id))
+  if (!data.parentId || (instanceOfIComponentData(component) && component.id === data.parentId)) {
+    if (!component.children.find(children => children.id === data.id))
       // Add the new component with the highest order
-      component.children?.push(newComponentFactory(data, Math.max(0, ...component.children.map((element) => element.order)) + 1));
+      component.children?.push(
+        newComponentFactory(
+          data,
+          Math.max(0, ...component.children.map(element => element.order)) + 1,
+          false
+        )
+      )
 
     // Return the updated component
-    return component;
+    return component
   }
 
   // If not the parent, recursively search for the parent in the children
-  component.children = component.children.map((element) => {
-    return createElementAt(element, data) as IComponentData;
-  });
+  component.children = component.children.map(element => {
+    return createElementAt(element, data) as IComponentData
+  })
 
   // Return the updated component
-  return component;
+  return component
 }
 
 function updateElement(
@@ -81,158 +94,154 @@ function updateElement(
   targetId: string,
   newProps: IComponentProps
 ): IComponentData[] {
-  return components.map((element) => {
+  return components.map(element => {
     if (element.id === targetId) {
       element.props = {
         ...element.props,
         ...newProps,
-      };
+      }
     }
     if (element.children) {
-      element.children = [
-        ...updateElement(element.children, targetId, newProps),
-      ];
-      return element;
+      element.children = [...updateElement(element.children, targetId, newProps)]
+      return element
     }
-    return element;
-  });
+    return element
+  })
 }
 
-function deleteElement(
-  components: IComponentData[],
-  targetId: string
-): IComponentData[] {
+function deleteElement(components: IComponentData[], targetId: string): IComponentData[] {
   return components
-    .map((element) => {
+    .map(element => {
       if (element.id === targetId) {
-        return undefined;
+        return undefined
+        return undefined
       }
       if (element.children) {
-        element.children = [...deleteElement(element.children, targetId)];
-        return element;
+        element.children = [...deleteElement(element.children, targetId)]
+        return element
       }
-      return element;
+      return element
     })
-    .filter((e) => e) as IComponentData[];
+    .filter(e => e) as IComponentData[]
 }
 
 function upOrderElement(
   element: IComponentData,
-  components: IComponentData[],
+  components: IComponentData[]
 ): IComponentData | undefined {
-  let componentToReplace: IComponentData | undefined = undefined;
-  components.forEach(
-    (currentElement) => {
-      if (currentElement.order < element.order) {
-        if (!componentToReplace) {
-          componentToReplace = { ...currentElement }
-        }
-        if (componentToReplace && currentElement.order > componentToReplace.order) {
-          componentToReplace = { ...currentElement }
-
-        }
+  let componentToReplace: IComponentData | undefined = undefined
+  components.forEach(currentElement => {
+    if (currentElement.order < element.order) {
+      if (!componentToReplace) {
+        componentToReplace = { ...currentElement }
+      }
+      if (componentToReplace && currentElement.order > componentToReplace.order) {
+        componentToReplace = { ...currentElement }
       }
     }
-  )
+  })
 
-  return componentToReplace;
+  return componentToReplace
 }
 
 function downOrderElement(
   element: IComponentData,
-  components: IComponentData[],
+  components: IComponentData[]
 ): IComponentData | undefined {
   let componentToReplace: IComponentData | undefined = undefined
-  components.forEach(
-    (currentElement) => {
-      if (currentElement.order > element.order) {
-        if (!componentToReplace) {
-          componentToReplace = { ...currentElement }
-        }
-        if (componentToReplace && currentElement.order < componentToReplace.order) {
-          componentToReplace = { ...currentElement }
-        }
+  components.forEach(currentElement => {
+    if (currentElement.order > element.order) {
+      if (!componentToReplace) {
+        componentToReplace = { ...currentElement }
+      }
+      if (componentToReplace && currentElement.order < componentToReplace.order) {
+        componentToReplace = { ...currentElement }
       }
     }
-  );
+  })
 
-  return componentToReplace;
-
+  return componentToReplace
 }
 
-function moveUpElement(
-  components: IComponentData[],
-  targetId: string
-) {
+function toggleVisibilityElement(components: IComponentData[], targetId: string): IComponentData[] {
+  return components.map(element => {
+    if (element.id === targetId) {
+      return {
+        ...element,
+        hidden: !element.hidden,
+      }
+    }
+
+    if (element.children) {
+      const newChildren = toggleVisibilityElement(element.children, targetId)
+      return {
+        ...element,
+        children: newChildren,
+      }
+    }
+
+    return element
+  })
+}
+
+function moveUpElement(components: IComponentData[], targetId: string) {
   let componentToReplace: IComponentData | undefined
   let oldOrder = 0
-  const newComponents = components.map(
-    (element) => {
-      if (element.id === targetId) {
-        oldOrder = element.order
-        componentToReplace = upOrderElement(element, components)
-        if (componentToReplace) {
-          element.order = componentToReplace?.order
-        } else {
-          element.order = 0
-        }
+  const newComponents = components.map(element => {
+    if (element.id === targetId) {
+      oldOrder = element.order
+      componentToReplace = upOrderElement(element, components)
+      if (componentToReplace) {
+        element.order = componentToReplace?.order
+      } else {
+        element.order = 0
       }
-      if (element.children && !componentToReplace) {
-        element.children = [...moveUpElement(element.children, targetId)];
-      }
-      return element;
     }
-  )
+    if (element.children && !componentToReplace) {
+      element.children = [...moveUpElement(element.children, targetId)]
+    }
+    return element
+  })
 
   if (componentToReplace) {
-    return newComponents.map(
-      (element) => {
-        if (element.id === componentToReplace?.id) {
-          element.order = oldOrder
-        }
-        return element
+    return newComponents.map(element => {
+      if (element.id === componentToReplace?.id) {
+        element.order = oldOrder
       }
-    )
+      return element
+    })
   }
 
   return newComponents
 }
 
-function moveDownElement(
-  components: IComponentData[],
-  targetId: string,
-) {
+function moveDownElement(components: IComponentData[], targetId: string) {
   let componentToReplace: IComponentData | undefined
   let oldOrder = 0
-  const newComponents = components.map(
-    (element) => {
-      if (element.id === targetId) {
-        console.log(element, targetId)
-        oldOrder = element.order
-        componentToReplace = downOrderElement(element, components)
-        if (componentToReplace) {
-          element.order = componentToReplace?.order
-        } else {
-          element.order = 0
-        }
+  const newComponents = components.map(element => {
+    if (element.id === targetId) {
+      oldOrder = element.order
+      componentToReplace = downOrderElement(element, components)
+      if (componentToReplace) {
+        element.order = componentToReplace?.order
+      } else {
+        element.order = 0
       }
-      if (element.children && !componentToReplace) {
-        element.children = [...moveDownElement(element.children, targetId)];
-      }
-
-      return element;
     }
-  )
+    if (element.children && !componentToReplace) {
+      element.children = [...moveDownElement(element.children, targetId)]
+    }
+
+    return element
+  })
 
   if (componentToReplace) {
-    return newComponents.map(
-      (element) => {
-        if (element.id === componentToReplace?.id) {
-          element.order = oldOrder
-        }
-        return element
+    return newComponents.map(element => {
+      if (element.id === componentToReplace?.id) {
+        element.order = oldOrder
       }
-    )
+      return element
+    })
   }
 
   return newComponents
@@ -243,10 +252,10 @@ export const builderDataContextReducer = (
   action: TBuilderDataContextAction
 ) => {
   switch (action.type) {
-    case "setBuilderData":
-      return JSON.parse(JSON.stringify(action.data));
+    case 'setBuilderData':
+      return JSON.parse(JSON.stringify(action.data))
 
-    case "createPage":
+    case 'createPage':
       return {
         ...data,
         builderData: {
@@ -257,9 +266,9 @@ export const builderDataContextReducer = (
             children: [],
           },
         },
-      };
+      }
 
-    case "updatePage":
+    case 'updatePage':
       return {
         ...data,
         builderData: {
@@ -269,34 +278,34 @@ export const builderDataContextReducer = (
             ...action.data.newData,
           },
         },
-      };
-    case "deletePage":
+      }
+
+    case 'deletePage':
       const newState = {
         ...data,
         builderData: {
           ...data.builderData,
         },
-      };
-      delete newState.builderData[action.data];
-      return newState;
+      }
+      delete newState.builderData[action.data]
+      return newState
 
-    case "createComponent":
+    case 'createComponent':
+      console.log('create cmp: ', data)
       const stateCreateComponent = {
         ...data,
         builderData: {
           ...data.builderData,
           [data.selectedPage]: {
             ...data.builderData[data.selectedPage],
-            ...createElementAt(
-              data.builderData[data.selectedPage],
-              action.data
-            ),
+            ...createElementAt(data.builderData[data.selectedPage], action.data),
           },
         },
-      };
-      return stateCreateComponent;
+      }
+      return stateCreateComponent
 
-    case "updateComponent":
+    case 'updateComponent':
+      console.log('edit cmp:', data)
       const stateUpdateComponent = {
         ...data,
         builderData: {
@@ -313,9 +322,10 @@ export const builderDataContextReducer = (
             ],
           },
         },
-      };
-      return stateUpdateComponent;
-    case "deleteComponent":
+      }
+      return stateUpdateComponent
+
+    case 'deleteComponent':
       return {
         ...data,
         builderData: {
@@ -331,8 +341,23 @@ export const builderDataContextReducer = (
             ],
           },
         },
-      };
-    case "moveUpComponent":
+      }
+    case 'visibilityComponent':
+      const updatedChildren = toggleVisibilityElement(
+        data.builderData[data.selectedPage].children!,
+        action.data.id
+      )
+      return {
+        ...data,
+        builderData: {
+          ...data.builderData,
+          [data.selectedPage]: {
+            ...data.builderData[data.selectedPage],
+            children: updatedChildren,
+          },
+        },
+      }
+    case 'moveUpComponent':
       return {
         ...data,
         builderData: {
@@ -348,8 +373,9 @@ export const builderDataContextReducer = (
             ],
           },
         },
-      };
-    case "moveDownComponent":
+      }
+
+    case 'moveDownComponent':
       return {
         ...data,
         builderData: {
@@ -365,12 +391,12 @@ export const builderDataContextReducer = (
             ],
           },
         },
-      };
+      }
+
     default:
-      break;
+      break
   }
 
-  return data;
-};
-export type { IBuilderDataContext };
-
+  return data
+}
+export type { IBuilderDataContext }

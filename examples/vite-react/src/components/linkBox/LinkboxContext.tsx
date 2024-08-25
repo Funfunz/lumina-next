@@ -1,5 +1,4 @@
-/* eslint-disable react-refresh/only-export-components */
-"use client";
+'use client'
 
 import { Dispatch, createContext, useContext, useEffect, useReducer } from 'react'
 
@@ -8,7 +7,7 @@ const initialContext = {
   title: '',
   description: '',
   href: '',
-  color: 'white'
+  color: 'white',
 }
 
 export type IInitialStateType = {
@@ -26,18 +25,15 @@ export interface ILinkBoxContextAction {
 
 export interface IUpdateDataAction extends Partial<IInitialStateType> {}
 
-const mainReducer = (
-  linkBoxContext: IInitialStateType,
-  action: ILinkBoxContextAction
-) => {
+const mainReducer = (linkBoxContext: IInitialStateType, action: ILinkBoxContextAction) => {
   switch (action.type) {
     case 'update':
       return {
         ...linkBoxContext,
-        ...action.data
+        ...action.data,
       }
     default:
-      break;
+      break
   }
   return linkBoxContext
 }
@@ -54,35 +50,24 @@ const LinkBoxContext = createContext<IContext>({
 
 export function ContextProvider({
   children,
-  data
+  data,
 }: {
-  children: React.ReactNode,
+  children: React.ReactNode
   data: IInitialStateType
 }) {
-  const [state, dispatch] = useReducer(
-    mainReducer,
-    {
-      ...initialContext,
-      ...data
-    }
-  )
+  const [state, dispatch] = useReducer(mainReducer, {
+    ...initialContext,
+    ...data,
+  })
 
-  useEffect(
-    () => {
-      dispatch(
-        {
-          type: 'update',
-          data
-        }
-      )
-    }, [data]
-  )
+  useEffect(() => {
+    dispatch({
+      type: 'update',
+      data,
+    })
+  }, [data])
 
-  return (
-    <LinkBoxContext.Provider value={{state, dispatch}}>
-      {children}
-    </LinkBoxContext.Provider>
-  )
+  return <LinkBoxContext.Provider value={{ state, dispatch }}>{children}</LinkBoxContext.Provider>
 }
 
 export const useLinkBoxContext = () => {

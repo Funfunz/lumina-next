@@ -5,11 +5,11 @@ import { Editor } from './components/editor'
 import { Render } from './components/render'
 import type { IData, IPageData } from './models/data'
 import { useEffect, useState } from 'react'
-import { TConfig } from './models/editor-buttonModel'
+import type { TConfig } from './models/editor-buttonModel'
 import { ToggleModalContextProvider } from './context/handleModalsContext'
-import { AddModal } from './components/modals/add'
-import { EditModal } from './components/modals/edit'
-import { DeleteModal } from './components/modals/delete'
+import { EditorModal } from './components/modals'
+import { FormThemeProvider } from 'react-form-component'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 export type TComponentConfig = {
   [key: string]: {
@@ -47,6 +47,13 @@ function setComponentConfig(newComponentConfig: TComponentConfig) {
 
 export default function Lumina({ selectedPage, getData, components }: TProps = defaultValues) {
   const [builderData, setBuilderData] = useState<IData>({})
+
+  useEffect(() => {
+    async function fetchData() {
+      setBuilderData(await getData())
+    }
+    fetchData()
+  }, [getData])
   useEffect(() => {
     async function fetchData() {
       setBuilderData(await getData())
@@ -70,14 +77,24 @@ export default function Lumina({ selectedPage, getData, components }: TProps = d
         },
       }}
     >
-      <ToggleModalContextProvider>
-        <Editor>
-          <AddModal />
-          <EditModal />
-          <DeleteModal />
-          <Render />
-        </Editor>
-      </ToggleModalContextProvider>
+      <FormThemeProvider theme={{ colors: { success: 'none' } }}>
+        <ToggleModalContextProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route index element={<Render />} />
+              <Route
+                path='/editor'
+                element={
+                  <Editor>
+                    <EditorModal />
+                    <Render />
+                  </Editor>
+                }
+              />
+            </Routes>
+          </BrowserRouter>
+        </ToggleModalContextProvider>
+      </FormThemeProvider>
     </ContextProvider>
   )
 }

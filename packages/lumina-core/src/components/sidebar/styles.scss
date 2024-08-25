@@ -1,9 +1,11 @@
-.sidebarContainer {
+.sidebarSection {
+  @include lum-typo-body;
+
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background-color: var(--lum-color-background-base);
-  box-shadow: 5px 5px 5px #d0d0d0, -5px -5px 5px #f0f0f0;
+  background-color: var(--lum-color-background-inverse);
+  box-shadow: 0 0 2px 0 var(--lum-color-grey);
   transition: width 0.2s ease-in-out;
 }
 

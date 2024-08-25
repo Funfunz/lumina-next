@@ -1,7 +1,8 @@
 import type { TConfig } from '@lumina/core'
 
 export const config: TConfig = {
-  name: 'flex',
+  name: 'Flex Container',
+  type: 'flex',
   editor: {
     children: true,
     editable: false,

@@ -1,121 +1,79 @@
-/* eslint-disable no-unused-vars */
-import { Button } from '@/components/button'
-import ReactModal from 'react-modal'
 import Select from 'react-select'
-import { ChangeEvent, useCallback, useEffect, useState } from 'react'
-import { TSelectedOption } from '@/models/editor-buttonModel'
-import { ADDMODAL, useToggleModalContext } from '@/context/handleModalsContext'
-import { useLuminaContext } from '@/context/contextProvider'
+import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from 'react'
+import { useToggleModalContext } from '@/context/handleModalsContext'
 import { getComponentConfig } from '@/main'
+import type { TConfig } from '@/models/editor-buttonModel'
+import type { TAddModalProps } from '@/components/modals'
+import { Form, LuminaInputRenderer } from '@/components/editor-buttons-container/inputRenderer'
 
-export const AddModal = () => {
-  const { handleCloseModal, modalState } = useToggleModalContext()
-  const { dispatch } = useLuminaContext()
+type TProps = {
+  setAddModalProps: Dispatch<SetStateAction<TAddModalProps>>
+  modalProps: TAddModalProps
+  /* eslint-disable no-unused-vars */
+  handleOnChangeInput: (key: string, value: string | number) => void
+}
+
+export const AddModal = ({ setAddModalProps, modalProps, handleOnChangeInput }: TProps) => {
+  const { modalState } = useToggleModalContext()
   const componentConfig = getComponentConfig()
-  const { id, isOpen, modalType } = modalState
+  const { id } = modalState
+  const [selectedConfig, setSelectedConfig] = useState<TConfig>()
 
-  const [newComponentFriendlyName, setNewComponentFriendlyName] = useState('')
-  const initialSelectedOption: TSelectedOption = {
-    value: '',
-    label: '',
-  }
-  const [selectedOption, setSelectedOption] = useState<TSelectedOption>(initialSelectedOption)
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const options = Object.entries(componentConfig).map(([label, opt]) => {
+  useEffect(() => {
+    if (modalProps.selectedOption) {
+      setSelectedConfig(componentConfig[modalProps.selectedOption.value].config)
+    }
+  }, [modalProps.selectedOption, componentConfig])
+
+  const options = Object.entries(componentConfig).map(([, opt]) => {
     return {
-      value: opt.config.name,
+      value: opt.config.type,
       label: opt.config.name,
     }
   })
 
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
-
-  /**
-   *
-   */
-  useEffect(() => {
-    setIsModalOpen(isOpen && modalType === ADDMODAL)
-  }, [modalType, isOpen])
-
-  /**
-   *
-   */
-
-  //Closing with ESC when clicked on modal first. overlay not context?
-  const clickOutside = () => {
-    console.log('clicked outside the box')
-    handleCloseModal()
-  }
-
-  const handleAddComponent = useCallback(() => {
-    if (!selectedOption) return
-    handleCloseModal()
-    dispatch({
-      type: 'createComponent',
-      data: {
-        parentId: id || '',
-        id: (Math.floor(Math.random() * 100) + 1).toString(),
-        type: selectedOption.value,
-        friendlyName: newComponentFriendlyName,
-        children: [],
-        props: {},
-      },
-    })
-    // TODO: not implemented
-    // dispatch({
-    //   type: "createComponentBackend",
-    //   data: {
-    //     props: {},
-    //     id,
-    //   },
-    // });
-  }, [dispatch, id, newComponentFriendlyName, selectedOption, handleCloseModal])
-
   // Handler for on Change from dropdown - BM
   const handleSelectChange = (options: any) => {
-    setSelectedOption(options)
+    setAddModalProps({ ...modalProps, selectedOption: options, formData: {} })
   }
 
   // Handler for on Change from dropdown - BM
   const handleOnChangeNewComponentFriendlyName = (event: ChangeEvent<HTMLInputElement>) => {
-    setNewComponentFriendlyName(event.target.value)
+    setAddModalProps({ ...modalProps, cmpName: event.target.value })
   }
 
   return (
-    //Add a "simple" ReactModal
-    <ReactModal
-      ariaHideApp={false}
-      isOpen={isModalOpen}
-      contentLabel="Modal for Adding Children Components"
-      className="modalEdit"
-      overlayClassName="modalOverlay"
-      role={'dialog'}
-      onRequestClose={clickOutside}
-      shouldCloseOnOverlayClick={true}
-    >
+    <div className='add-modal-content'>
       <Select
         id={`addComponent_dropdown_${id}`}
-        value={selectedOption}
+        value={modalProps.selectedOption}
         options={options}
-        placeholder="Select a component..."
+        placeholder='Select a component...'
         onChange={handleSelectChange}
       />
-      <label htmlFor={`addComponent_friendlyName_${id}`}>Friendly name</label>
-      <input
-        id={`addComponent_friendlyName_${id}`}
-        type="text"
-        value={newComponentFriendlyName}
-        onChange={handleOnChangeNewComponentFriendlyName}
-      />
-      <div className="inlineButtons">
-        <Button
-          buttonType="button"
-          text="Add Component"
-          style="primary"
-          onClick={handleAddComponent}
+      <div className='add-modal-content__cmp-name'>
+        <label htmlFor={`addComponent_friendlyName_${id}`}>Friendly name</label>
+        <input
+          id={`addComponent_friendlyName_${id}`}
+          type='text'
+          value={modalProps.cmpName}
+          onChange={handleOnChangeNewComponentFriendlyName}
         />
-        <Button buttonType="button" text="Close Modal" style="primary" onClick={handleCloseModal} />
       </div>
-    </ReactModal>
+      {selectedConfig && (
+        <div className='add-modal-content__cmp-config'>
+          <Form>
+            {selectedConfig?.props?.map((configItem, index) => (
+              <LuminaInputRenderer
+                key={index}
+                config={configItem}
+                value={modalProps.formData ? modalProps.formData[configItem.name] : ''}
+                handleOnChangeInput={handleOnChangeInput}
+              />
+            ))}
+          </Form>
+        </div>
+      )}
+    </div>
   )
 }

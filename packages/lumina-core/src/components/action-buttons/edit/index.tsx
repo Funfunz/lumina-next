@@ -2,9 +2,8 @@
 import { Button } from '@/components/button'
 import { EDITMODAL, useToggleModalContext } from '@/context/handleModalsContext'
 import { useToggleMenuContext } from '@/context/toggleMenuContext'
-import { IComponentProps } from '@/models/data'
-import { TConfig } from '@/models/editor-buttonModel'
-import cx from 'classnames'
+import type { IComponentProps } from '@/models/data'
+import type { TConfig } from '@/models/editor-buttonModel'
 
 type TProps = {
   componentId: string
@@ -30,12 +29,12 @@ export const EditComponentButton = ({
   buttonLabel,
   isDisabled,
   isMenuButton,
-  isHovered,
 }: TProps) => {
   const { handleOpenModal } = useToggleModalContext()
   const { handleToggleMenu } = useToggleMenuContext()
 
-  const handleToggleEditModal = () => {
+  const handleToggleEditModal = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault()
     handleOpenModal({
       id: componentId,
       data,
@@ -48,11 +47,11 @@ export const EditComponentButton = ({
 
   return (
     <Button
-      buttonType="button"
+      buttonType='button'
       onClick={handleToggleEditModal}
       text={buttonLabel}
-      style={cx(isHovered ? 'onHover' : '', isMenuButton ? 'menuButton' : 'red')}
-      iconLeft="lum-icon-edit"
+      style={isMenuButton ? 'menuButton' : 'secondary'}
+      iconLeft='lum-icon-edit'
       disabled={isDisabled}
     />
   )

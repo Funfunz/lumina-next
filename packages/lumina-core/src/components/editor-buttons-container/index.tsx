@@ -5,14 +5,14 @@
 
 import { useLuminaContext } from '@/context/contextProvider'
 import cx from 'classnames'
-import { TConfig } from '@/models/editor-buttonModel'
+import type { TConfig } from '@/models/editor-buttonModel'
 import { EditComponentButton } from '../action-buttons/edit'
 import { AddComponentButton } from '../action-buttons/add'
 import { DeleteComponentButton } from '../action-buttons/delete'
 import { VisibleComponentButton } from '../action-buttons/visible'
 import { MoveComponentButton } from '../action-buttons/move'
 import { ExpandMenuButton } from '../action-buttons/menu'
-import { IComponentProps } from '@/models/data'
+import type { IComponentProps } from '@/models/data'
 
 type TProps = {
   id: string
@@ -23,6 +23,7 @@ type TProps = {
   noUp?: boolean
   noDown?: boolean
   visible?: boolean
+  hidden?: boolean
   menu?: boolean
   isHovered?: boolean
 }
@@ -36,6 +37,7 @@ export const EditorButtonsContainer = ({
   noUp,
   noDown,
   visible,
+  hidden = false,
   menu,
   isHovered,
 }: TProps) => {
@@ -67,11 +69,11 @@ export const EditorButtonsContainer = ({
 
       {config.editor.delete && !inline && <DeleteComponentButton componentId={id} />}
 
-      {inline && !visible && <VisibleComponentButton />}
+      {inline && !visible && <VisibleComponentButton id={id} hidden={hidden} />}
 
-      {inline && !noUp && <MoveComponentButton moveDirection="up" id={id} />}
+      {inline && <MoveComponentButton active={noUp!} moveDirection='up' id={id} />}
 
-      {inline && !noDown && <MoveComponentButton moveDirection="down" id={id} />}
+      {inline && <MoveComponentButton active={noDown!} moveDirection='down' id={id} />}
 
       {inline && !menu && <ExpandMenuButton id={id} config={config} data={data} />}
     </div>

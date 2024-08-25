@@ -7,23 +7,26 @@ export interface IPageProps {
 }
 
 export interface IComponentData {
-  type: string,
-  id: string,
-  friendlyName: string,
-  order: number,
-  children?: IComponentData[],
+  type: string
+  id: string
+  friendlyName: string
+  order: number
+  children?: IComponentData[]
   props?: IComponentProps
+  hidden?: boolean
+  hasFilterChildren?: boolean
+  isMatch?: boolean
 }
 
 export interface IPageData {
-  id: string,
-  pageName: string,
-  friendlyName: string,
-  extendedName: string,
-  dateModified: string,
-  status: string,
-  children?: IComponentData[],
-  props?: IPageProps,
+  id: string
+  pageName: string
+  friendlyName: string
+  extendedName: string
+  dateModified: string
+  status: string
+  children?: IComponentData[]
+  props?: IPageProps
   route: string
 }
 
