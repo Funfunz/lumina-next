@@ -9,7 +9,7 @@ import type { TConfig } from './models/editor-buttonModel'
 import { ToggleModalContextProvider } from './context/handleModalsContext'
 import { EditorModal } from './components/modals'
 import { FormThemeProvider } from 'react-form-component'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 
 export type TComponentConfig = {
   [key: string]: {
@@ -41,8 +41,11 @@ function setComponentConfig(newComponentConfig: TComponentConfig) {
   return componentConfig
 }
 
-export default function Lumina({ selectedPage, getData, components }: TProps = defaultValues) {
+//Fix to error useLocation() may be used only in the context of a <Router> component.
+function AppWrapper({ selectedPage, getData }: TProps) {
   const [builderData, setBuilderData] = useState<IData>({})
+  const location = useLocation()
+  const isEditorRoute = location.pathname.includes('/editor')
 
   useEffect(() => {
     async function fetchData() {
@@ -50,22 +53,13 @@ export default function Lumina({ selectedPage, getData, components }: TProps = d
     }
     fetchData()
   }, [getData])
-  useEffect(() => {
-    async function fetchData() {
-      setBuilderData(await getData())
-    }
-    fetchData()
-  }, [getData])
-
-  useEffect(() => {
-    if (components) setComponentConfig(components)
-  }, [components])
 
   if (!builderData[selectedPage]) return null
+
   return (
     <ContextProvider
       data={{
-        appContext: { editor: true },
+        appContext: { editor: isEditorRoute },
         builderDataContext: {
           builderData,
           selectedPage,
@@ -75,27 +69,36 @@ export default function Lumina({ selectedPage, getData, components }: TProps = d
     >
       <FormThemeProvider theme={{ colors: { success: 'none' } }}>
         <ToggleModalContextProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route index element={<Render />} />
-              <Route
-                path='/editor'
-                element={
-                  <Editor>
-                    <EditorModal />
-                    <Render />
-                  </Editor>
-                }
-              />
-            </Routes>
-          </BrowserRouter>
+          <Routes>
+            <Route index element={<Render />} />
+            <Route
+              path='/editor'
+              element={
+                <Editor>
+                  <EditorModal />
+                  <Render />
+                </Editor>
+              }
+            />
+          </Routes>
         </ToggleModalContextProvider>
       </FormThemeProvider>
     </ContextProvider>
   )
 }
 
+export default function Lumina({ selectedPage, getData, components }: TProps = defaultValues) {
+  useEffect(() => {
+    if (components) setComponentConfig(components)
+  }, [components])
+
+  return (
+    <BrowserRouter>
+      <AppWrapper selectedPage={selectedPage} getData={getData} components={{}} />
+    </BrowserRouter>
+  )
+}
+
 export { EditorButtonsContainer } from './components/editor-buttons-container'
 export type { TConfig } from './models/editor-buttonModel'
-
 export type { IData, IPageData }

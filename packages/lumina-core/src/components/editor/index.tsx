@@ -24,13 +24,13 @@ export const Editor = ({ children }: Props) => {
   return (
     <div className={cx('editorContainer', { open: isBarOpen })}>
       <SidebarEditor handleToggler={handleMenuToggler} isBarOpen={isBarOpen} />
-      <div className="rendererSection">
+      <div className='rendererSection'>
         {children}
         <Button
-          buttonType="button"
-          className="debugStylesCta"
+          buttonType='button'
+          className='debugStylesCta'
           onClick={() => enableDebugStyles()}
-          text="Debug"
+          text='Debug'
         />
       </div>
     </div>
