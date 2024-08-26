@@ -1,15 +1,14 @@
 /* eslint-disable no-unused-vars */
-
 import { ContextProvider } from './context/contextProvider'
 import { Editor } from './components/editor'
 import { Render } from './components/render'
-import type { IData, IPageData } from './models/data'
+import type { IData } from './models/data'
 import { useEffect, useState } from 'react'
 import type { TConfig } from './models/editor-buttonModel'
 import { ToggleModalContextProvider } from './context/handleModalsContext'
 import { EditorModal } from './components/modals'
 import { FormThemeProvider } from 'react-form-component'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 
 export type TComponentConfig = {
   [key: string]: {
@@ -44,12 +43,12 @@ function setComponentConfig(newComponentConfig: TComponentConfig) {
 export default function Lumina({ selectedPage, getData, components }: TProps = defaultValues) {
   const [builderData, setBuilderData] = useState<IData>({})
 
-  useEffect(() => {
-    async function fetchData() {
-      setBuilderData(await getData())
-    }
-    fetchData()
-  }, [getData])
+  // Get the current path
+  const location = useLocation()
+
+  // Determine if the editor should be true based on the current path
+  const isEditorRoute = location.pathname.includes('/editor')
+
   useEffect(() => {
     async function fetchData() {
       setBuilderData(await getData())
@@ -62,10 +61,11 @@ export default function Lumina({ selectedPage, getData, components }: TProps = d
   }, [components])
 
   if (!builderData[selectedPage]) return null
+
   return (
     <ContextProvider
       data={{
-        appContext: { editor: true },
+        appContext: { editor: isEditorRoute }, // Set editor based on the route
         builderDataContext: {
           builderData,
           selectedPage,
@@ -97,5 +97,4 @@ export default function Lumina({ selectedPage, getData, components }: TProps = d
 
 export { EditorButtonsContainer } from './components/editor-buttons-container'
 export type { TConfig } from './models/editor-buttonModel'
-
-export type { IData, IPageData }
+export type { IData }
