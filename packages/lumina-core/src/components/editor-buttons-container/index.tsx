@@ -46,6 +46,9 @@ export const EditorButtonsContainer = ({
   } = useLuminaContext()
 
   if (!editor) return null
+  console.log('editor:', editor)
+  console.log('config.editor', config.editor)
+  console.log('config.editor.editable', config.editor.editable)
   return (
     <div className={cx('showEdit', inline ? 'showEditContainerInline' : 'showEditContainer')}>
       {config.editor.editable && !inline && (
