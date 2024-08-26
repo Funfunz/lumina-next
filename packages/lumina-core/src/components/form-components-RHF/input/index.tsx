@@ -1,5 +1,14 @@
-import { InputHTMLAttributes, KeyboardEvent, createRef } from 'react'
+import {
+  ChangeEvent,
+  InputHTMLAttributes,
+  KeyboardEvent,
+  createRef,
+  useEffect,
+  useState,
+} from 'react'
 import cx from 'classnames'
+import { useDebounce } from 'use-debounce'
+
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   name?: string
   className?: string
@@ -9,6 +18,10 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   activateEnterPress?: boolean
   clearOnEnterPress?: boolean
   onEnterPress?: () => void
+  debounce?: number
+  // eslint-disable-next-line no-unused-vars
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void
+  value?: string
 }
 
 export const Input: React.FC<IInputProps> = ({
@@ -18,20 +31,32 @@ export const Input: React.FC<IInputProps> = ({
   activateEnterPress,
   clearOnEnterPress,
   onEnterPress,
+  debounce = 300, // Default value for debounce
   className,
+  onChange,
+  value,
   ...rest
 }) => {
-  const inputRef = createRef<HTMLInputElement>() // A ref to clear the field on submit (clearOnEnterPress prop)
+  const inputRef = createRef<HTMLInputElement>()
+
+  const [inputValue, setInputValue] = useState(value)
+  const [debouncedValue] = useDebounce(inputValue, debounce)
+
+  useEffect(() => {
+    if (onChange) {
+      const event = {
+        target: { value: debouncedValue },
+      } as ChangeEvent<HTMLInputElement>
+      onChange(event)
+    }
+  }, [debouncedValue, onChange])
 
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
-      // works if there is no function to call
       if (activateEnterPress) {
         if (onEnterPress) {
-          // works alongside 'activateEnterPress', in this case besides calling the above prop, call this one and pass the function inside onEnterPress()
           onEnterPress()
         } else {
-          // Default action if no callback is provided
           event.currentTarget.form?.submit()
         }
       }
@@ -52,6 +77,8 @@ export const Input: React.FC<IInputProps> = ({
         id={name}
         ref={inputRef}
         onKeyDown={handleKeyDown}
+        value={inputValue}
+        onChange={e => setInputValue(e.target.value)}
         className={cx('input-container__text', className)}
         {...rest}
       />
