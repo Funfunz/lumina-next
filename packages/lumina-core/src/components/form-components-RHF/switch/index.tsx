@@ -11,17 +11,24 @@ interface ISwitch {
 export const Switch = ({ name, className, label, help, switchText, ...rest }: ISwitch) => {
   return (
     <>
-      <div className={cx('', className)}>
+      <div className={cx('switch_container', className)}>
         {label && (
           <label htmlFor={name} className={cx('', className)}>
             {label}
           </label>
         )}
-        <div className=''>
-          <input type='' id={name} className={cx('', className)} {...rest} />
-          <span className=''>{switchText}</span>
+        <div className='switch_container-toggler'>
+          <label id='switch_toggler' role='switch'>
+            <input
+              id='switch_toggler'
+              type='checkbox'
+              className={cx('switch_container-toggler__input', className)}
+              {...rest}
+            />
+          </label>
+          <span className='switch_container-toggler__label'>{switchText}</span>
         </div>
-        {help && <p className={cx('', className)}>{help}</p>}
+        {help && <p className={cx('switch_container-toggler__help', className)}>{help}</p>}
       </div>
     </>
   )
