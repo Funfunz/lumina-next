@@ -40,7 +40,6 @@ function setComponentConfig(newComponentConfig: TComponentConfig) {
   return componentConfig
 }
 
-//Fix to error useLocation() may be used only in the context of a <Router> component
 function LuminaWrapper({ selectedPage, getData }: TProps) {
   const [builderData, setBuilderData] = useState<IData>({})
   const location = useLocation()
