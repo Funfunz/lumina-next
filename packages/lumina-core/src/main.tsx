@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react'
 import type { TConfig } from './models/editor-buttonModel'
 import { ToggleModalContextProvider } from './context/handleModalsContext'
 import { EditorModal } from './components/modals'
-import { FormThemeProvider } from 'react-form-component'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 export type TComponentConfig = {
@@ -73,24 +72,22 @@ export default function Lumina({ selectedPage, getData, components }: TProps = d
         },
       }}
     >
-      <FormThemeProvider theme={{ colors: { success: 'none' } }}>
-        <ToggleModalContextProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route index element={<Render />} />
-              <Route
-                path='/editor'
-                element={
-                  <Editor>
-                    <EditorModal />
-                    <Render />
-                  </Editor>
-                }
-              />
-            </Routes>
-          </BrowserRouter>
-        </ToggleModalContextProvider>
-      </FormThemeProvider>
+      <ToggleModalContextProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route index element={<Render />} />
+            <Route
+              path='/editor'
+              element={
+                <Editor>
+                  <EditorModal />
+                  <Render />
+                </Editor>
+              }
+            />
+          </Routes>
+        </BrowserRouter>
+      </ToggleModalContextProvider>
     </ContextProvider>
   )
 }

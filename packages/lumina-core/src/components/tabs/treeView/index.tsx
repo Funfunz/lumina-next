@@ -5,7 +5,7 @@ import { SearchBar } from '@/components/search-bar'
 import { ComponentTree } from './componentTree'
 import { ToggleMenuContextProvider } from '@/context/toggleMenuContext'
 import { Title } from '@/components/title'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { IComponentData } from '@/models/data'
 
 export const TreeViewTab = () => {
@@ -15,11 +15,6 @@ export const TreeViewTab = () => {
   const cmpData = builderDataContext.builderData[builderDataContext.selectedPage].children!
   const [searchValue, setSearchValue] = useState<string>('')
   const [data, setData] = useState<IComponentData[]>(cmpData)
-
-  //Auto search (by Felix) test
-  useEffect(() => {
-    searchData()
-  }, [searchValue])
 
   const filterData = (data: IComponentData[]): IComponentData[] => {
     const searchValLower = searchValue.toLowerCase().trim()

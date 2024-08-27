@@ -21,7 +21,7 @@ export const SearchBar = ({ searchValue, setSearchValue, onClickSearch }: TProps
         placeholder='Search...'
         activateEnterPress
         onEnterPress={onClickSearch}
-        debounce={2000}
+        debounce={1000}
       />
       <Button
         buttonType='button'

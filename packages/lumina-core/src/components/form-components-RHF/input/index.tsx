@@ -31,14 +31,13 @@ export const Input: React.FC<IInputProps> = ({
   activateEnterPress,
   clearOnEnterPress,
   onEnterPress,
-  debounce = 300, // Default value for debounce
+  debounce = 300,
   className,
   onChange,
   value,
   ...rest
 }) => {
   const inputRef = createRef<HTMLInputElement>()
-
   const [inputValue, setInputValue] = useState(value)
   const [debouncedValue] = useDebounce(inputValue, debounce)
 
@@ -61,7 +60,7 @@ export const Input: React.FC<IInputProps> = ({
         }
       }
       if (clearOnEnterPress && inputRef.current) {
-        inputRef.current.value = '' // Clear the input
+        inputRef.current.value = ''
       }
     }
   }
