@@ -5,16 +5,39 @@ import { SearchBar } from '@/components/search-bar'
 import { ComponentTree } from './componentTree'
 import { ToggleMenuContextProvider } from '@/context/toggleMenuContext'
 import { Title } from '@/components/title'
-import { useCallback, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { IComponentData } from '@/models/data'
 
 export const TreeViewTab = () => {
   const {
     state: { builderDataContext },
   } = useLuminaContext()
-  const cmpData = builderDataContext.builderData[builderDataContext.selectedPage].children!
   const [searchValue, setSearchValue] = useState<string>('')
-  const [data, setData] = useState<IComponentData[]>(cmpData)
+  const [data, setData] = useState<IComponentData[]>()
+  const [cringeData, setCringeData] = useState<IComponentData[]>()
+
+  useEffect(() => {
+    setData(builderDataContext.builderData[builderDataContext.selectedPage].children!)
+    searchData()
+  }, [builderDataContext, searchValue])
+
+  const searchData = () => {
+    if (data) {
+      const resetData = data.map((el: IComponentData) => ({
+        ...el,
+        hasFilterChildren: false,
+        isMatch: false,
+      }))
+      if (searchValue.length >= 3) {
+        const filteredData = filterData(resetData)
+        setCringeData(filteredData)
+      } else {
+        if (searchValue.length === 0 || searchValue.trim().length === 0) {
+          setCringeData(resetData)
+        }
+      }
+    }
+  }
 
   const filterData = (data: IComponentData[]): IComponentData[] => {
     const searchValLower = searchValue.toLowerCase().trim()
@@ -58,20 +81,6 @@ export const TreeViewTab = () => {
     }, [])
   }
 
-  const searchData = useCallback(() => {
-    const resetData = cmpData.map((el: IComponentData) => ({
-      ...el,
-      hasFilterChildren: false,
-      isMatch: false,
-    }))
-    if (searchValue.trim().length === 0) {
-      setData(resetData)
-    } else {
-      const filteredData = filterData(resetData)
-      setData(filteredData)
-    }
-  }, [searchValue, cmpData])
-
   return (
     <ToggleMenuContextProvider>
       <div className='treeview_container'>
@@ -80,14 +89,10 @@ export const TreeViewTab = () => {
           <span className='treeAddButton'>
             <AddComponentButton buttonLabel='Add' />
           </span>
-          <SearchBar
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}
-            onClickSearch={searchData}
-          />
+          <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} />
         </div>
         <TreeviewHeader />
-        <ComponentTree data={data} />
+        <ComponentTree data={cringeData || data || []} />
       </div>
     </ToggleMenuContextProvider>
   )
