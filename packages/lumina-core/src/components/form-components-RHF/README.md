@@ -4,13 +4,13 @@ This lib is based on hooks, so, not usable on the base components from a Form, b
 
 ## Example code:
 
-![alt text](image.png)
+![alt text](asset.png)
 
 Use `import { SubmitHandler, useForm } from 'react-hook-form'` to start working with React-Hook-Form Library.
 
 `const form = useForm()` is used to call the hook from React Hook Form.
 
-After that we can destructure the 'form' in to other properties:
+After that we can destructure the 'form' into other properties:
 
 - `...register` Is used to connect a propriety in the input field to be registered on submission of a Form.
   - `{required: true OR required: "error message here"}` which will avoid the submission of the form.
@@ -23,3 +23,7 @@ After that we can destructure the 'form' in to other properties:
   - Still inside `formState` we can also add `isSubmitting` when we want to use an async function when the form is submitting to the backend. This can be used for example on the submit button, `<button disable={isSubmitting} type='submit'>Submit</button>` in this case the button will be disabled while is submiting the form.
 
 - `const onSubmit: SubmitHandler<FormFields> = (data)=> {console.log(data);}` Will be our handler to receive data from Form Event.
+
+And with this we can have a simple overview of how we can most likely use React-Hook-Form in our project.
+
+More info @https://react-hook-form.com/get-started

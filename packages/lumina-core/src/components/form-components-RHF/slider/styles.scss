@@ -13,6 +13,7 @@
 }
 
 input[type='range'] {
+
   // Custom CSS according to Figma
   width: 100%;
   overflow: hidden;
@@ -23,6 +24,7 @@ input[type='range'] {
   outline: none;
 
   &::-webkit-slider-runnable-track {
+
     // Track - Webkit browsers
     height: 15px;
     background: var(--lum-color-grey);
@@ -30,6 +32,7 @@ input[type='range'] {
   }
 
   &::-moz-range-track {
+
     // Track - Mozilla Firefox
     height: 15px;
     background: var(--lum-color-grey);
@@ -37,6 +40,7 @@ input[type='range'] {
   }
 
   &::-webkit-slider-thumb {
+
     // Thumb - Webkit browsers
     width: 15px;
 
@@ -51,6 +55,7 @@ input[type='range'] {
   }
 
   &::-moz-range-thumb {
+
     // Thumb - Mozilla Firefox
     width: 15px;
     height: 15px;
