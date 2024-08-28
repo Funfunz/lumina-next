@@ -26,4 +26,4 @@ After that we can destructure the 'form' into other properties:
 
 And with this we can have a simple overview of how we can most likely use React-Hook-Form in our project.
 
-More info @https://react-hook-form.com/get-started
+More info @[React Hook Form official website](https://react-hook-form.com/get-started)
