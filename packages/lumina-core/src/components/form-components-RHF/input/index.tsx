@@ -24,6 +24,15 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   value?: string
 }
 
+/**
+ * @label A text that is positioned on top of the input range
+ * @help  A helper text position below the slider
+ * @activateEnterPress A boolean prop that if called, activates button press do submit
+ * @clearOnEnterPress Clears the input field after submiting with activateEnterPress
+ * @onEnterPress Used alongside 'activateEnterPress' in case there needs to be passed a function on 'activateEnterPress'
+ * @debounce Used to give some delay on server request in miliseconds, ex: debounce={1000} will have a 1000 milisecond delay
+ * @returns
+ */
 export const Input: React.FC<IInputProps> = ({
   name,
   label,

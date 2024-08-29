@@ -5,10 +5,15 @@ interface IRadioButton extends InputHTMLAttributes<HTMLInputElement> {
   name?: string
   label?: string
   help?: string
-  disabled?: boolean
   radioText?: string
 }
 
+/**
+ * @label A text that is positioned on top of the input range
+ * @help  A helper text position below the slider
+ * @radioText The radio button option text
+ * @returns
+ */
 export const RadioButton = ({ name, className, label, help, radioText, ...rest }: IRadioButton) => {
   return (
     <>

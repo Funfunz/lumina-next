@@ -13,7 +13,6 @@ interface ISlider extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 /**
- *
  * @label A text that is positioned on top of the input range
  * @help  A helper text position below the slider
  * @suffix Can take the following values '€' | 'km' | 'm' (for now)

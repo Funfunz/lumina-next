@@ -9,6 +9,12 @@ interface ICheckbox extends InputHTMLAttributes<HTMLInputElement> {
   checkboxText?: string
 }
 
+/**
+ * @label A text that is positioned on top of the input range
+ * @help  A helper text position below the slider
+ * @checkboxText The checkbox option text
+ * @returns
+ */
 export const CheckBox = ({ name, className, label, help, checkboxText, ...rest }: ICheckbox) => {
   return (
     <>

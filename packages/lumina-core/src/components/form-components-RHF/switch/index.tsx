@@ -4,10 +4,15 @@ interface ISwitch {
   name?: string
   label?: string
   help?: string
-  disabled?: boolean
   switchText?: string
 }
 
+/**
+ * @label A text that is positioned on top of the input range
+ * @help  A helper text position below the slider
+ * @switchText The switch button option text
+ * @returns
+ */
 export const Switch = ({ name, className, label, help, switchText, ...rest }: ISwitch) => {
   return (
     <>

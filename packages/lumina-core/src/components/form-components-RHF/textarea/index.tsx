@@ -8,6 +8,11 @@ interface ICheckbox extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   help?: string
 }
 
+/**
+ * @label A text that is positioned on top of the input range
+ * @help  A helper text position below the slider
+ * @returns
+ */
 export const TextArea = ({ name, className, label, help, ...rest }: ICheckbox) => {
   return (
     <div className={cx('text-area_container', className)}>
