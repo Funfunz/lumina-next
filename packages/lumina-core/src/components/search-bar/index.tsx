@@ -6,10 +6,9 @@ import { Input } from '../form-components-RHF/input'
 type TProps = {
   searchValue: string
   setSearchValue: Dispatch<SetStateAction<string>>
-  onClickSearch: () => void
 }
 
-export const SearchBar = ({ searchValue, setSearchValue, onClickSearch }: TProps) => {
+export const SearchBar = ({ searchValue, setSearchValue }: TProps) => {
   return (
     <div className='search-bar'>
       <span className={cx('search-bar__icon', 'lum-icon-search')}></span>
@@ -19,16 +18,9 @@ export const SearchBar = ({ searchValue, setSearchValue, onClickSearch }: TProps
         onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchValue(e.target.value)}
         value={searchValue}
         placeholder='Search...'
-        activateEnterPress
-        onEnterPress={onClickSearch}
         debounce={1000}
       />
-      <Button
-        buttonType='button'
-        iconRight='lum-icon-filter'
-        style='filter'
-        onClick={onClickSearch}
-      />
+      <Button buttonType='button' iconRight='lum-icon-filter' style='filter' />
     </div>
   )
 }
