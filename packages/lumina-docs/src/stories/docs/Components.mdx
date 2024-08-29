@@ -6,40 +6,70 @@ import Github from '../assets/github.svg'
 
 <div className="sb-container">
   <div className='sb-section-title'>
-    # Create a component
+    # Required Configuration
   </div>
   <div className='sb-section-title'>
-    ## Required configuration
+   ## Overview
 
-    ### Overview
+    The configuration file, luminaConfig, acts as a central registry where each component is defined with its specific settings.
+    The configuration is managed through a central object, TComponentConfig, which serves as the registry for all components.
+    This setup ensures that components are modular, easily configurable, and maintainable across Lumina.
 
-    The configuration file, luminaConfig, acts as a central registry where each component is defined with its specific settings. This setup ensures that components are modular, easily configurable, and maintainable across Lumina.
+    ## General Configuration
 
-    ### Configuration Structure
 
-    Each component in the luminaConfig object is defined by a specific structure:
+    ### Configuration Type Definition
 
-```js
-
-TComponentConfig = {
+    ```js
+    TComponentConfig = {
     [key: string]: {
         component: (data: any) => React.JSX.Element | null;
         config: TConfig;
     };
+
 };
 
+````
+ ### Configuration Structure
 
+    Each component in the luminaConfig object is defined by a specific structure:
+
+```js
     component: {
     component: componentType,
     config: componentConfig,
     },
-```
+````
 
-_- **componentName**: This is a unique identifier for the component in the configuration file.
-_-**component**: This refers to the React component itself.
+**componentName**: This is a unique identifier for the component in the configuration file.
+**component**: This refer to the React component itself.
 **config**: This object contains the configuration details specific to the component, such as default props, style overrides, or other settings that customize the component's behavior.
 
-    </div>
+### Examples
+
+Let's consider two components, `title` and `flex`. The `title` component is used to display headings and titles throughout the application and the `flex` component is typically used to create flexible layouts.
+In general configuration:
+
+```ts
+const luminaConfig: TComponentConfig = {
+  title: {
+    component: Title,
+    config: configTitle,
+  },
+  flex: {
+    component: Flex,
+    config: configFlex,
+  },
+}
+```
+
+The component field refers to the component, in the example `title` or `flex`, that is imported from project.
+The config field, in the example configTitle or configFlex, contain the settings of each component.
+
+</div>
+<div className='sb-section-title'>
+ ## Component Configuration
+  </div>
 
   <div className='sb-section-title'>
 ## How to test
