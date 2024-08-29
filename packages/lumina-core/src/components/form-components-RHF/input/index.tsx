@@ -7,7 +7,6 @@ import {
   useState,
 } from 'react'
 import cx from 'classnames'
-import { useDebounce } from 'use-debounce'
 
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   name?: string
@@ -18,7 +17,6 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   activateEnterPress?: boolean
   clearOnEnterPress?: boolean
   onEnterPress?: () => void
-  debounce?: number
   // eslint-disable-next-line no-unused-vars
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void
   value?: string
@@ -30,7 +28,6 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
  * @activateEnterPress A boolean prop that if called, activates button press do submit
  * @clearOnEnterPress Clears the input field after submiting with activateEnterPress
  * @onEnterPress Used alongside 'activateEnterPress' in case there needs to be passed a function on 'activateEnterPress'
- * @debounce Used to give some delay on server request in miliseconds, ex: debounce={1000} will have a 1000 milisecond delay
  * @returns
  */
 export const Input: React.FC<IInputProps> = ({
@@ -40,7 +37,6 @@ export const Input: React.FC<IInputProps> = ({
   activateEnterPress,
   clearOnEnterPress,
   onEnterPress,
-  debounce = 300,
   className,
   onChange,
   value,
@@ -48,16 +44,15 @@ export const Input: React.FC<IInputProps> = ({
 }) => {
   const inputRef = createRef<HTMLInputElement>()
   const [inputValue, setInputValue] = useState(value)
-  const [debouncedValue] = useDebounce(inputValue, debounce)
 
   useEffect(() => {
     if (onChange) {
       const event = {
-        target: { value: debouncedValue },
+        target: { value: inputValue },
       } as ChangeEvent<HTMLInputElement>
       onChange(event)
     }
-  }, [debouncedValue, onChange])
+  }, [inputValue, onChange])
 
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {

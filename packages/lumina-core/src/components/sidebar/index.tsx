@@ -4,11 +4,6 @@ import { useState } from 'react'
 import { Button } from '../button'
 import { PagesTab } from '../tabs/pages'
 import { TreeViewTab } from '../tabs/treeView'
-import { RadioButton } from '../form-components-RHF/radio-button'
-import { CheckBox } from '../form-components-RHF/checkbox'
-import { Input } from '../form-components-RHF/input'
-import { Slider } from '../form-components-RHF/slider'
-import { Switch } from '../form-components-RHF/switch'
 
 type TSidebarEditor = {
   handleToggler: Function
@@ -35,15 +30,6 @@ const editorTabs: TSidebarTab[] = [
   {
     id: 'lumTabLibrary',
     icon: 'lum-icon-library',
-    panel: (
-      <>
-        <RadioButton label='Hi Radio' help='Do you need help??' radioText='Radio Test' />
-        <CheckBox label='Hi Check' help='Really?' checkboxText='Checkbox Test' />
-        <Input label='hi' help='Hi again' placeholder='type on me' />
-        <Slider min={0} max={100} step={10} label='hi' help='test' value={0} />
-        <Switch label='hi' help='hi' switchText='test' />
-      </>
-    ),
   },
 ]
 

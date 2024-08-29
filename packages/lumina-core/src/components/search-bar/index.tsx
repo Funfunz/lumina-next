@@ -1,24 +1,36 @@
-import { ChangeEvent, Dispatch, SetStateAction } from 'react'
+import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { Button } from '../button'
 import cx from 'classnames'
 import { Input } from '../form-components-RHF/input'
+import { useDebounce } from 'use-debounce'
 
 type TProps = {
   searchValue: string
   setSearchValue: Dispatch<SetStateAction<string>>
 }
 
+/**
+ *
+ * @debounce Used to give some delay on server request in miliseconds, ex: debounce={1000} will have a 1000 milisecond delay
+ * @returns
+ */
 export const SearchBar = ({ searchValue, setSearchValue }: TProps) => {
+  const [inputValue, setInputValue] = useState(searchValue)
+  const [debouncedValue] = useDebounce(inputValue, 1000)
+
+  useEffect(() => {
+    setSearchValue(debouncedValue)
+  }, [debouncedValue, setSearchValue])
+
   return (
     <div className='search-bar'>
       <span className={cx('search-bar__icon', 'lum-icon-search')}></span>
       <Input
         className='search-bar__text'
         type='search'
-        onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchValue(e.target.value)}
-        value={searchValue}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => setInputValue(e.target.value)}
+        value={inputValue}
         placeholder='Search...'
-        debounce={1000}
       />
       <Button buttonType='button' iconRight='lum-icon-filter' style='filter' />
     </div>
