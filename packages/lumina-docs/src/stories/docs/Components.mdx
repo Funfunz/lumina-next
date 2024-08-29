@@ -1,8 +1,8 @@
-import { Meta } from "@storybook/blocks";
+import { Meta } from '@storybook/blocks'
 
-import Github from "../assets/github.svg";
+import Github from '../assets/github.svg'
 
-<Meta title="Docs/Create a Component" />
+<Meta title='Docs/Create a Component' />
 
 <div className="sb-container">
   <div className='sb-section-title'>
@@ -11,13 +11,43 @@ import Github from "../assets/github.svg";
   <div className='sb-section-title'>
     ## Required configuration
 
-    [WORK IN PROGRESS]
-  </div>
-  <div className='sb-section-title'>
-    ## How to test
+    ### Overview
 
-    [WORK IN PROGRESS]
-  </div>
+    The configuration file, luminaConfig, acts as a central registry where each component is defined with its specific settings. This setup ensures that components are modular, easily configurable, and maintainable across Lumina.
+
+    ### Configuration Structure
+
+    Each component in the luminaConfig object is defined by a specific structure:
+
+```js
+
+TComponentConfig = {
+    [key: string]: {
+        component: (data: any) => React.JSX.Element | null;
+        config: TConfig;
+    };
+};
+
+
+    component: {
+    component: componentType,
+    config: componentConfig,
+    },
+```
+
+_- **componentName**: This is a unique identifier for the component in the configuration file.
+_-**component**: This refers to the React component itself.
+**config**: This object contains the configuration details specific to the component, such as default props, style overrides, or other settings that customize the component's behavior.
+
+    </div>
+
+  <div className='sb-section-title'>
+## How to test
+
+      How to test each component?
+
+    </div>
+
 </div>
 
 <style>
@@ -67,3 +97,7 @@ import Github from "../assets/github.svg";
     }
   `}
 </style>
+
+```
+
+```
