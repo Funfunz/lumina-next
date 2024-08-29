@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from 'react'
+import { InputHTMLAttributes, useState } from 'react'
 import cx from 'classnames'
 interface ISlider extends InputHTMLAttributes<HTMLInputElement> {
   className?: string
@@ -9,9 +9,16 @@ interface ISlider extends InputHTMLAttributes<HTMLInputElement> {
   step?: number
   min?: number
   max?: number
-  value?: number
+  suffix?: '€' | 'km' | 'm'
 }
 
+/**
+ *
+ * @label A text that is positioned on top of the input range
+ * @help  A helper text position below the slider
+ * @suffix Can take the following values '€' | 'km' | 'm' (for now)
+ * @returns
+ */
 export const Slider = ({
   name,
   className,
@@ -20,9 +27,11 @@ export const Slider = ({
   step,
   min = 0,
   max,
-  value,
+  suffix = '€',
   ...rest
 }: ISlider) => {
+  const [rangeValue, setRangeValue] = useState(0)
+
   return (
     <>
       <div className={cx('slider_container', className)}>
@@ -31,17 +40,19 @@ export const Slider = ({
             {label}
           </label>
         )}
-        <div className=''>
-          <input
-            type='range'
-            id={name}
-            className={cx('', className)}
-            min={min}
-            step={step}
-            max={max}
-            {...rest}
-          />
-          <div>{value}</div>
+        <input
+          type='range'
+          id={name}
+          className={cx('', className)}
+          min={min}
+          step={step}
+          max={max}
+          value={rangeValue}
+          onChange={e => setRangeValue(Number(e.target.value))}
+          {...rest}
+        />
+        <div className='slider_container__value'>
+          {cx(rangeValue > 0 ? cx(rangeValue, suffix) : rangeValue)}
         </div>
         {help && <p className={cx('slider_container__help', className)}>{help}</p>}
       </div>

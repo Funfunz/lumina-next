@@ -1,19 +1,26 @@
 .slider_container {
   &__help {
+    margin: 5px;
     font-size: 16px;
     font-weight: 400;
     color: var(--lum-color-grey);
   }
 
   &__label {
+    margin-bottom: 10px;
     font-size: 16px;
     font-weight: 600;
     color: var(--lum-color-black);
   }
+
+  &__value {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
 }
 
 input[type='range'] {
-
   // Custom CSS according to Figma
   width: 100%;
   overflow: hidden;
@@ -24,7 +31,6 @@ input[type='range'] {
   outline: none;
 
   &::-webkit-slider-runnable-track {
-
     // Track - Webkit browsers
     height: 15px;
     background: var(--lum-color-grey);
@@ -32,7 +38,6 @@ input[type='range'] {
   }
 
   &::-moz-range-track {
-
     // Track - Mozilla Firefox
     height: 15px;
     background: var(--lum-color-grey);
@@ -40,7 +45,6 @@ input[type='range'] {
   }
 
   &::-webkit-slider-thumb {
-
     // Thumb - Webkit browsers
     width: 15px;
 
@@ -55,7 +59,6 @@ input[type='range'] {
   }
 
   &::-moz-range-thumb {
-
     // Thumb - Mozilla Firefox
     width: 15px;
     height: 15px;

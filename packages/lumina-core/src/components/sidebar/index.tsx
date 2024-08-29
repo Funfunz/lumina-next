@@ -40,7 +40,7 @@ const editorTabs: TSidebarTab[] = [
         <RadioButton label='Hi Radio' help='Do you need help??' radioText='Radio Test' />
         <CheckBox label='Hi Check' help='Really?' checkboxText='Checkbox Test' />
         <Input label='hi' help='Hi again' placeholder='type on me' />
-        <Slider min={0} max={100} label='hi' help='test' value={0} />
+        <Slider min={0} max={100} step={10} label='hi' help='test' value={0} />
         <Switch label='hi' help='hi' switchText='test' />
       </>
     ),
