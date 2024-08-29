@@ -1,0 +1,460 @@
+@font-face {
+  font-family: LuminaIcon;
+  font-style: normal;
+  font-weight: normal;
+  src: url('fonts/LuminaIcon.eot?1kto94');
+  src:
+    url('fonts/LuminaIcon.eot?1kto94#iefix') format('embedded-opentype'),
+    url('fonts/LuminaIcon.ttf?1kto94') format('truetype'),
+    url('fonts/LuminaIcon.woff?1kto94') format('woff'),
+    url('fonts/LuminaIcon.svg?1kto94#LuminaIcon') format('svg');
+  font-display: block;
+}
+
+[class^='lum-icon-'],
+[class*=' lum-icon-'] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: LuminaIcon !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-transform: none;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  speak: never;
+}
+
+.lum-icon-logo-small .path1::before {
+  color: rgb(97 116 140);
+  content: '\e92d';
+  opacity: 0.5;
+}
+
+.lum-icon-logo-small .path2::before {
+  margin-left: -0.9863em;
+  color: rgb(97 116 140);
+  content: '\e92e';
+  opacity: 0.5;
+}
+
+.lum-icon-logo-small .path3::before {
+  margin-left: -0.9863em;
+  color: rgb(97 116 140);
+  content: '\e92f';
+  opacity: 0.5;
+}
+
+.lum-icon-logo-small .path4::before {
+  margin-left: -0.9863em;
+  color: rgb(97 116 140);
+  content: '\e930';
+  opacity: 0.5;
+}
+
+.lum-icon-logo-small .path5::before {
+  margin-left: -0.9863em;
+  color: rgb(97 116 140);
+  content: '\e931';
+  opacity: 0.5;
+}
+
+.lum-icon-logo-small .path6::before {
+  margin-left: -0.9863em;
+  color: rgb(97 116 140);
+  content: '\e932';
+  opacity: 0.5;
+}
+
+.lum-icon-logo-small .path7::before {
+  margin-left: -0.9863em;
+  color: rgb(97 116 140);
+  content: '\e933';
+  opacity: 0.5;
+}
+
+.lum-icon-logo-small .path8::before {
+  margin-left: -0.9863em;
+  color: rgb(97 116 140);
+  content: '\e934';
+  opacity: 0.5;
+}
+
+.lum-icon-logo-small .path9::before {
+  margin-left: -0.9863em;
+  color: rgb(97 116 140);
+  content: '\e935';
+  opacity: 0.5;
+}
+
+.lum-icon-logo-small .path10::before {
+  margin-left: -0.9863em;
+  color: rgb(97 116 140);
+  content: '\e936';
+}
+
+.lum-icon-logo-big .path1::before {
+  color: rgb(97 116 140);
+  content: '\e937';
+  opacity: 0.5;
+}
+
+.lum-icon-logo-big .path2::before {
+  margin-left: -3.1504em;
+  color: rgb(97 116 140);
+  content: '\e938';
+  opacity: 0.5;
+}
+
+.lum-icon-logo-big .path3::before {
+  margin-left: -3.1504em;
+  color: rgb(97 116 140);
+  content: '\e939';
+  opacity: 0.5;
+}
+
+.lum-icon-logo-big .path4::before {
+  margin-left: -3.1504em;
+  color: rgb(97 116 140);
+  content: '\e93a';
+  opacity: 0.5;
+}
+
+.lum-icon-logo-big .path5::before {
+  margin-left: -3.1504em;
+  color: rgb(97 116 140);
+  content: '\e93b';
+  opacity: 0.5;
+}
+
+.lum-icon-logo-big .path6::before {
+  margin-left: -3.1504em;
+  color: rgb(97 116 140);
+  content: '\e93c';
+  opacity: 0.5;
+}
+
+.lum-icon-logo-big .path7::before {
+  margin-left: -3.1504em;
+  color: rgb(97 116 140);
+  content: '\e93d';
+  opacity: 0.5;
+}
+
+.lum-icon-logo-big .path8::before {
+  margin-left: -3.1504em;
+  color: rgb(97 116 140);
+  content: '\e93e';
+  opacity: 0.5;
+}
+
+.lum-icon-logo-big .path9::before {
+  margin-left: -3.1504em;
+  color: rgb(97 116 140);
+  content: '\e93f';
+  opacity: 0.5;
+}
+
+.lum-icon-logo-big .path10::before {
+  margin-left: -3.1504em;
+  color: rgb(97 116 140);
+  content: '\e940';
+}
+
+.lum-icon-logo-big .path11::before {
+  margin-left: -3.1504em;
+  color: rgb(97 116 140);
+  content: '\e941';
+}
+
+.lum-icon-logo-big .path12::before {
+  margin-left: -3.1504em;
+  color: rgb(97 116 140);
+  content: '\e942';
+}
+
+.lum-icon-logo-big .path13::before {
+  margin-left: -3.1504em;
+  color: rgb(97 116 140);
+  content: '\e943';
+}
+
+.lum-icon-logo-big .path14::before {
+  margin-left: -3.1504em;
+  color: rgb(97 116 140);
+  content: '\e944';
+}
+
+.lum-icon-logo-big .path15::before {
+  margin-left: -3.1504em;
+  color: rgb(97 116 140);
+  content: '\e945';
+}
+
+.lum-icon-logo-big .path16::before {
+  margin-left: -3.1504em;
+  color: rgb(97 116 140);
+  content: '\e946';
+}
+
+.lum-icon-logo-big .path17::before {
+  margin-left: -3.1504em;
+  color: rgb(97 116 140);
+  content: '\e947';
+  opacity: 0.66;
+}
+
+.lum-icon-logo-big .path18::before {
+  margin-left: -3.1504em;
+  color: rgb(97 116 140);
+  content: '\e948';
+  opacity: 0.66;
+}
+
+.lum-icon-logo-big .path19::before {
+  margin-left: -3.1504em;
+  color: rgb(97 116 140);
+  content: '\e949';
+  opacity: 0.66;
+}
+
+.lum-icon-logo-big .path20::before {
+  margin-left: -3.1504em;
+  color: rgb(97 116 140);
+  content: '\e94a';
+  opacity: 0.66;
+}
+
+.lum-icon-logo-big .path21::before {
+  margin-left: -3.1504em;
+  color: rgb(97 116 140);
+  content: '\e94b';
+  opacity: 0.66;
+}
+
+.lum-icon-logo-big .path22::before {
+  margin-left: -3.1504em;
+  color: rgb(97 116 140);
+  content: '\e94c';
+  opacity: 0.66;
+}
+
+.lum-icon-logo-big .path23::before {
+  margin-left: -3.1504em;
+  color: rgb(97 116 140);
+  content: '\e94d';
+  opacity: 0.66;
+}
+
+.lum-icon-logo-big .path24::before {
+  margin-left: -3.1504em;
+  color: rgb(97 116 140);
+  content: '\e94e';
+  opacity: 0.66;
+}
+
+.lum-icon-logo-big .path25::before {
+  margin-left: -3.1504em;
+  color: rgb(97 116 140);
+  content: '\e94f';
+  opacity: 0.66;
+}
+
+.lum-icon-logo-big .path26::before {
+  margin-left: -3.1504em;
+  color: rgb(97 116 140);
+  content: '\e950';
+  opacity: 0.66;
+}
+
+.lum-icon-logo-big .path27::before {
+  margin-left: -3.1504em;
+  color: rgb(97 116 140);
+  content: '\e951';
+  opacity: 0.66;
+}
+
+.lum-icon-plus::before {
+  content: '\e900';
+}
+
+.lum-icon-cross-fill::before {
+  content: '\e901';
+}
+
+.lum-icon-info-fill::before {
+  content: '\e902';
+}
+
+.lum-icon-history::before {
+  content: '\e903';
+}
+
+.lum-icon-desktop::before {
+  content: '\e904';
+}
+
+.lum-icon-mobile::before {
+  content: '\e905';
+}
+
+.lum-icon-red::before {
+  color: #e86767;
+  content: '\e906';
+}
+
+.lum-icon-yellow::before {
+  color: #ebd146;
+  content: '\e907';
+}
+
+.lum-icon-green::before {
+  color: #a7bd68;
+  content: '\e908';
+}
+
+.lum-icon-menu::before {
+  content: '\e909';
+}
+
+.lum-icon-filter::before {
+  content: '\e90a';
+}
+
+.lum-icon-paste::before {
+  content: '\e90b';
+}
+
+.lum-icon-cut::before {
+  content: '\e90c';
+}
+
+.lum-icon-hidden::before {
+  content: '\e90d';
+}
+
+.lum-icon-visible::before {
+  content: '\e90e';
+}
+
+.lum-icon-user::before {
+  content: '\e90f';
+}
+
+.lum-icon-chevron-up::before {
+  content: '\e910';
+}
+
+.lum-icon-chevron-left::before {
+  content: '\e911';
+}
+
+.lum-icon-chevron-down::before {
+  content: '\e912';
+}
+
+.lum-icon-chevron-right::before {
+  content: '\e913';
+}
+
+.lum-icon-help-fill::before {
+  content: '\e914';
+}
+
+.lum-icon-settings::before {
+  content: '\e915';
+}
+
+.lum-icon-figma::before {
+  content: '\e916';
+}
+
+.lum-icon-library::before {
+  content: '\e917';
+}
+
+.lum-icon-custom::before {
+  content: '\e918';
+}
+
+.lum-icon-button::before {
+  content: '\e919';
+}
+
+.lum-icon-video::before {
+  content: '\e91a';
+}
+
+.lum-icon-grid::before {
+  content: '\e91b';
+}
+
+.lum-icon-link::before {
+  content: '\e91c';
+}
+
+.lum-icon-title::before {
+  content: '\e91d';
+}
+
+.lum-icon-picture::before {
+  content: '\e91e';
+}
+
+.lum-icon-component::before {
+  content: '\e91f';
+}
+
+.lum-icon-layers::before {
+  content: '\e920';
+}
+
+.lum-icon-hand::before {
+  content: '\e921';
+}
+
+.lum-icon-arrow-down::before {
+  content: '\e922';
+}
+
+.lum-icon-arrow-up::before {
+  content: '\e923';
+}
+
+.lum-icon-slide::before {
+  content: '\e924';
+}
+
+.lum-icon-edit::before {
+  content: '\e925';
+}
+
+.lum-icon-accept::before {
+  content: '\e926';
+}
+
+.lum-icon-cross::before {
+  content: '\e927';
+}
+
+.lum-icon-plus-fill::before {
+  content: '\e928';
+}
+
+.lum-icon-clone::before {
+  content: '\e929';
+}
+
+.lum-icon-page::before {
+  content: '\e92a';
+}
+
+.lum-icon-search::before {
+  content: '\e92b';
+}
+
+.lum-icon-folder::before {
+  content: '\e92c';
+}
