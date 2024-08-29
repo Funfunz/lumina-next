@@ -8,8 +8,6 @@ import { useEffect, useState } from 'react'
 import type { TConfig } from './models/editor-buttonModel'
 import { ToggleModalContextProvider } from './context/handleModalsContext'
 import { EditorModal } from './components/modals'
-import { FormThemeProvider } from 'react-form-component'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 export type TComponentConfig = {
   [key: string]: {
@@ -22,12 +20,14 @@ type TProps = {
   selectedPage: string
   getData: () => Promise<IData>
   components: TComponentConfig
+  isEditor?: boolean
 }
 
 const defaultValues: TProps = {
   selectedPage: 'home',
   getData: async () => ({}),
   components: {},
+  isEditor: false,
 }
 
 let componentConfig: TComponentConfig = {}
@@ -41,7 +41,12 @@ function setComponentConfig(newComponentConfig: TComponentConfig) {
   return componentConfig
 }
 
-export default function Lumina({ selectedPage, getData, components }: TProps = defaultValues) {
+export default function Lumina({
+  selectedPage,
+  getData,
+  components,
+  isEditor = false,
+}: TProps = defaultValues) {
   const [builderData, setBuilderData] = useState<IData>({})
 
   useEffect(() => {
@@ -62,10 +67,11 @@ export default function Lumina({ selectedPage, getData, components }: TProps = d
   }, [components])
 
   if (!builderData[selectedPage]) return null
+
   return (
     <ContextProvider
       data={{
-        appContext: { editor: true },
+        appContext: { editor: isEditor },
         builderDataContext: {
           builderData,
           selectedPage,
@@ -73,24 +79,16 @@ export default function Lumina({ selectedPage, getData, components }: TProps = d
         },
       }}
     >
-      <FormThemeProvider theme={{ colors: { success: 'none' } }}>
+      {isEditor ? (
         <ToggleModalContextProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route index element={<Render />} />
-              <Route
-                path='/editor'
-                element={
-                  <Editor>
-                    <EditorModal />
-                    <Render />
-                  </Editor>
-                }
-              />
-            </Routes>
-          </BrowserRouter>
+          <Editor>
+            <EditorModal />
+            <Render />
+          </Editor>
         </ToggleModalContextProvider>
-      </FormThemeProvider>
+      ) : (
+        <Render />
+      )}
     </ContextProvider>
   )
 }
