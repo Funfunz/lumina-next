@@ -86,7 +86,7 @@ export const SidebarEditor = ({ isBarOpen, handleToggler }: TSidebarEditor) => {
     <div className='sidebarSection'>
       <div className={cx('sidebarHeader', { open: isBarOpen })}>
         <div className='sidebarHeaderIcon'>
-          <span className={cx('lum-icon-logo-small .fs1')}>
+          <span className='.lum-icon-logo-small-reverse'>
             <span className='path1'></span>
             <span className='path2'></span>
             <span className='path3'></span>
