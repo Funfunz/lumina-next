@@ -1,6 +1,4 @@
-import {
-  InputHTMLAttributes,
-} from 'react'
+import { forwardRef, InputHTMLAttributes } from 'react'
 import cx from 'classnames'
 import { LabelTitle } from '../utils/utility-components/label'
 import { HelpText } from '../utils/utility-components/help'
@@ -10,7 +8,6 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string
   label?: string
   help?: string
-  value?: string
 }
 
 /**
@@ -18,23 +15,16 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
  * @help  A helper text position below the slider
  * @returns
  */
-export const Input: React.FC<IInputProps> = ({
-  name,
-  label,
-  help,
-  className,
-  ...rest
-}) => {
+export const Input = forwardRef<HTMLInputElement, IInputProps>(
+  ({ name, label, help, className, ...rest }, ref) => {
+    return (
+      <div className={cx('input-container', className)}>
+        <LabelTitle name={name} label={label} className={className} />
+        <input id={name} ref={ref} className={cx('input-container__text', className)} {...rest} />
+        <HelpText className={className} help={help} />
+      </div>
+    )
+  }
+)
 
-  return (
-    <div className={cx('input-container', className)}>
-      <LabelTitle name={name} label={label} className={className} />
-      <input
-        id={name}
-        className={cx('input-container__text', className)}
-        {...rest}
-      />
-      <HelpText className={className} help={help} />
-    </div>
-  )
-}
+Input.displayName = 'Input'

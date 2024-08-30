@@ -23,7 +23,7 @@ export type { TLumButton }
 
 export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, TLumButton>(
   (props, ref) => {
-    const { className, style, buttonType, text, iconLeft, iconRight, size } = props
+    const { className, style, buttonType, text, iconLeft, iconRight, size, type } = props
     const allClassNames = `${style ? style : ''} ${className ? className : ''} ${size ? size : ''}`
 
     if (buttonType === 'button') {
@@ -34,6 +34,7 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, TLumButt
           className={cx('lum-button', allClassNames, { fullWidth: isFullWidth })}
           onClick={onClick}
           disabled={disabled}
+          type={type}
         >
           <ButtonContent text={text} iconLeft={iconLeft} iconRight={iconRight} />
         </button>

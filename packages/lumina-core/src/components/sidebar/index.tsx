@@ -10,6 +10,7 @@ import { Input } from '../form-components-RHF/input'
 import { RadioButton } from '../form-components-RHF/radio-button'
 import { Switch } from '../form-components-RHF/switch'
 import { TextArea } from '../form-components-RHF/textarea'
+import { RHFDemo } from '../form-components-RHF/RHF-Demo/demo'
 
 type TSidebarEditor = {
   handleToggler: Function
@@ -44,6 +45,7 @@ const editorTabs: TSidebarTab[] = [
         <Slider label='A Slider' step={5} max={250} suffix='something' help='Just some help text' />
         <Switch label='A Toggler/Switch' switchText='Test' help='Just some help text' />
         <TextArea label='A TextArea' help='Just some help text' placeholder='Type here!' />
+        <RHFDemo />
       </>
     ),
   },
