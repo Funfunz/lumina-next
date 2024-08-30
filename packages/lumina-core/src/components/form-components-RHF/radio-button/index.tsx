@@ -1,5 +1,7 @@
 import { InputHTMLAttributes } from 'react'
 import cx from 'classnames'
+import { LabelTitle } from '../utils/label'
+import { HelpText } from '../utils/help'
 interface IRadioButton extends InputHTMLAttributes<HTMLInputElement> {
   className?: string
   name?: string
@@ -18,11 +20,7 @@ export const RadioButton = ({ name, className, label, help, radioText, ...rest }
   return (
     <>
       <div className={cx('radio-button_container', className)}>
-        {label && (
-          <label htmlFor={name} className={cx('radio-button_container__label', className)}>
-            {label}
-          </label>
-        )}
+        <LabelTitle name={name} label={label} className={className} />
         <div className='radio-button_container__wrapper'>
           <input
             type='radio'
@@ -32,7 +30,7 @@ export const RadioButton = ({ name, className, label, help, radioText, ...rest }
           />
           <span className='radio-button_container__wrapper__text'>{radioText}</span>
         </div>
-        {help && <p className={cx('radio-button_container__help', className)}>{help}</p>}
+        <HelpText className={className} help={help} />
       </div>
     </>
   )

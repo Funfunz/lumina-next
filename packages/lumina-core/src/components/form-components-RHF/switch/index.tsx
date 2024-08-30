@@ -1,4 +1,6 @@
 import cx from 'classnames'
+import { HelpText } from '../utils/help'
+import { LabelTitle } from '../utils/label'
 interface ISwitch {
   className?: string
   name?: string
@@ -17,11 +19,7 @@ export const Switch = ({ name, className, label, help, switchText, ...rest }: IS
   return (
     <>
       <div className={cx('switch_container', className)}>
-        {label && (
-          <label htmlFor={name} className={cx('', className)}>
-            {label}
-          </label>
-        )}
+        <LabelTitle name={name} label={label} className={className} />
         <div className='switch_container-toggler'>
           <label id='switch_toggler' role='switch'>
             <input
@@ -33,7 +31,7 @@ export const Switch = ({ name, className, label, help, switchText, ...rest }: IS
           </label>
           <span className='switch_container-toggler__label'>{switchText}</span>
         </div>
-        {help && <p className={cx('switch_container-toggler__help', className)}>{help}</p>}
+        <HelpText className={className} help={help} />
       </div>
     </>
   )

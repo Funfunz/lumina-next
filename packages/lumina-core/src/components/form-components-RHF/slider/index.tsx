@@ -1,12 +1,14 @@
 import { InputHTMLAttributes, useState } from 'react'
 import cx from 'classnames'
+import { HelpText } from '../utils/help'
+import { LabelTitle } from '../utils/label'
 interface ISlider extends InputHTMLAttributes<HTMLInputElement> {
   className?: string
   name?: string
   label?: string
-  help?: string
   disabled?: boolean
-  suffix?: '€' | 'km' | 'm'
+  suffix?: string
+  help?: string
 }
 
 /**
@@ -15,17 +17,13 @@ interface ISlider extends InputHTMLAttributes<HTMLInputElement> {
  * @suffix Can take the following values '€' | 'km' | 'm' (for now)
  * @returns
  */
-export const Slider = ({ name, className, label, help, suffix = '€', ...rest }: ISlider) => {
+export const Slider = ({ name, className, label, suffix, help, ...rest }: ISlider) => {
   const [rangeValue, setRangeValue] = useState(0)
 
   return (
     <>
       <div className={cx('slider_container', className)}>
-        {label && (
-          <label htmlFor={name} className={cx('slider_container__label', className)}>
-            {label}
-          </label>
-        )}
+        <LabelTitle name={name} label={label} className={className} />
         <input
           type='range'
           id={name}
@@ -35,9 +33,9 @@ export const Slider = ({ name, className, label, help, suffix = '€', ...rest }
           {...rest}
         />
         <div className='slider_container__value'>
-          {cx(rangeValue > 0 ? cx(rangeValue, suffix) : rangeValue)}
+          {rangeValue > 0 ? `${rangeValue} ${suffix}` : rangeValue}
         </div>
-        {help && <p className={cx('slider_container__help', className)}>{help}</p>}
+        <HelpText className={className} help={help} />
       </div>
     </>
   )

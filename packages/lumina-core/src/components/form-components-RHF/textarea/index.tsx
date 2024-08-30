@@ -1,5 +1,7 @@
 import cx from 'classnames'
 import { TextareaHTMLAttributes } from 'react'
+import { LabelTitle } from '../utils/label'
+import { HelpText } from '../utils/help'
 
 interface ICheckbox extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   className?: string
@@ -16,13 +18,9 @@ interface ICheckbox extends TextareaHTMLAttributes<HTMLTextAreaElement> {
 export const TextArea = ({ name, className, label, help, ...rest }: ICheckbox) => {
   return (
     <div className={cx('text-area_container', className)}>
-      {label && (
-        <label htmlFor={name} className={cx('text-area_container__label', className)}>
-          {label}
-        </label>
-      )}
+      <LabelTitle name={name} label={label} className={className} />
       <textarea id={name} className={cx('text-area_container__text', className)} {...rest} />
-      {help && <p className={cx('text-area_container__helper-text', className)}>{help}</p>}
+      <HelpText className={className} help={help} />
     </div>
   )
 }

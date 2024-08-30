@@ -1,5 +1,7 @@
 import { InputHTMLAttributes } from 'react'
 import cx from 'classnames'
+import { LabelTitle } from '../utils/label'
+import { HelpText } from '../utils/help'
 
 interface ICheckbox extends InputHTMLAttributes<HTMLInputElement> {
   className?: string
@@ -19,11 +21,7 @@ export const CheckBox = ({ name, className, label, help, checkboxText, ...rest }
   return (
     <>
       <div className={cx('checkbox_container', className)}>
-        {label && (
-          <label htmlFor={name} className={cx('checkbox_container__label', className)}>
-            {label}
-          </label>
-        )}
+        <LabelTitle name={name} label={label} className={className} />
         <div className='checkbox_container__wrapper'>
           <input
             type='checkbox'
@@ -33,7 +31,7 @@ export const CheckBox = ({ name, className, label, help, checkboxText, ...rest }
           />
           <span className='checkbox_container__wrapper__text'>{checkboxText}</span>
         </div>
-        {help && <p className={cx('checkbox_container__help', className)}>{help}</p>}
+        <HelpText className={className} help={help} />
       </div>
     </>
   )

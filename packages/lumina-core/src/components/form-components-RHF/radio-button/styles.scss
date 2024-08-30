@@ -3,19 +3,6 @@
   flex-direction: column;
   width: 100%;
 
-  &__help {
-    font-size: 16px;
-    font-weight: 400;
-    color: var(--lum-color-grey);
-  }
-
-  &__label {
-    margin-bottom: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--lum-color-black);
-  }
-
   &__wrapper {
     display: flex;
     align-items: center;

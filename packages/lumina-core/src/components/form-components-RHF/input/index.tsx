@@ -7,13 +7,14 @@ import {
   useState,
 } from 'react'
 import cx from 'classnames'
+import { LabelTitle } from '../utils/label'
+import { HelpText } from '../utils/help'
 
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   name?: string
   className?: string
   label?: string
   help?: string
-  inlineLabel?: boolean
   activateEnterPress?: boolean
   clearOnEnterPress?: boolean
   onEnterPress?: () => void
@@ -71,11 +72,7 @@ export const Input: React.FC<IInputProps> = ({
 
   return (
     <div className={cx('input-container', className)}>
-      {label && (
-        <label htmlFor={name} className={cx('input-container__label', className)}>
-          {label}
-        </label>
-      )}
+      <LabelTitle name={name} label={label} className={className} />
       <input
         id={name}
         ref={inputRef}
@@ -85,7 +82,7 @@ export const Input: React.FC<IInputProps> = ({
         className={cx('input-container__text', className)}
         {...rest}
       />
-      {help && <p className={cx('input-container__help', className)}>{help}</p>}
+      <HelpText className={className} help={help} />
     </div>
   )
 }
