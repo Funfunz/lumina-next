@@ -15,7 +15,6 @@ export const TreeViewTab = () => {
   const contextData = builderDataContext.builderData[builderDataContext.selectedPage].children!
   const [searchValue, setSearchValue] = useState<string>('')
   const [data, setData] = useState<IComponentData[]>(contextData)
-
   useEffect(() => {
     searchData()
   }, [contextData, searchValue])
@@ -42,7 +41,6 @@ export const TreeViewTab = () => {
 
         // Check if the current element matches the search criteria
         //perfect match
-        console.log(friendlyNameLower, searchValLower, friendlyNameLower.includes(searchValLower))
         if (friendlyNameLower.includes(searchValLower)) el.isMatch = true
 
         let filteredChildren: IComponentData[] = []

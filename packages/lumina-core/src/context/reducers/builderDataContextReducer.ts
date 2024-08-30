@@ -68,13 +68,14 @@ function createElementAt(
   if (!data.parentId || (instanceOfIComponentData(component) && component.id === data.parentId)) {
     if (!component.children.find(children => children.id === data.id))
       // Add the new component with the highest order
-      component.children?.push(
+      component.children = [
+        ...component.children,
         newComponentFactory(
           data,
           Math.max(0, ...component.children.map(element => element.order)) + 1,
           false
-        )
-      )
+        ),
+      ]
 
     // Return the updated component
     return component
