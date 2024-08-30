@@ -6,9 +6,10 @@ type TProps = {
   id: string
   moveDirection: 'up' | 'down'
   active: boolean
+  currentPosition: number
 }
 
-export const MoveComponentButton = ({ id, moveDirection, active }: TProps) => {
+export const MoveComponentButton = ({ id, moveDirection, active, currentPosition }: TProps) => {
   const { dispatch } = useLuminaContext()
   const direction = moveDirection === 'up' // more user friendly to use string and transform to boolean
 
@@ -17,19 +18,20 @@ export const MoveComponentButton = ({ id, moveDirection, active }: TProps) => {
       type: 'moveUpComponent',
       data: {
         id,
+        currentPosition,
       },
     })
-  }, [dispatch, id])
+  }, [dispatch, id, currentPosition])
 
   const handleOnClickMoveDown = useCallback(() => {
     dispatch({
       type: 'moveDownComponent',
       data: {
         id,
+        currentPosition,
       },
     })
-  }, [dispatch, id])
-
+  }, [dispatch, id, currentPosition])
   return (
     <Button
       disabled={active}

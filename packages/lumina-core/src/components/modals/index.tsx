@@ -7,7 +7,7 @@ import {
   DELETEMODAL,
   EDITMODAL,
   useToggleModalContext,
-} from '@/context/handleModalsContext'
+} from '@/context/toggleModalContextProvider'
 import { useLuminaContext } from '@/context/contextProvider'
 import { Title } from '@/components/title'
 import type { IComponentProps } from '@/models/data'
@@ -25,7 +25,7 @@ export type TAddModalProps = {
 export const EditorModal = () => {
   const { handleCloseModal, modalState } = useToggleModalContext()
   const { dispatch } = useLuminaContext()
-  const { id, isOpen, modalType, onUpdate, data } = modalState
+  const { id, isOpen, modalType, onUpdate, componentProps } = modalState
 
   const initialModalData = {
     modalName: '',
@@ -77,8 +77,8 @@ export const EditorModal = () => {
   }, [formData, isOpen])
 
   useEffect(() => {
-    if (data) setFormData(data)
-  }, [data])
+    if (componentProps) setFormData(componentProps)
+  }, [componentProps])
 
   const generateId = (): string => {
     const randomString = Math.random()

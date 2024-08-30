@@ -3,7 +3,7 @@ import { TreeviewHeader } from './treeviewHeader'
 import { AddComponentButton } from '@/components/action-buttons/add'
 import { SearchBar } from '@/components/search-bar'
 import { ComponentTree } from './componentTree'
-import { ToggleMenuContextProvider } from '@/context/toggleMenuContext'
+import { ToggleMenuContextProvider } from '@/context/toggleMenuContextProvider'
 import { Title } from '@/components/title'
 import { useCallback, useEffect, useState } from 'react'
 import { IComponentData } from '@/models/data'
@@ -18,7 +18,7 @@ export const TreeViewTab = () => {
 
   useEffect(() => {
     searchData()
-  }, [builderDataContext, searchValue])
+  }, [contextData, searchValue])
 
   const searchData = () => {
     const resetData = contextData.map((el: IComponentData) => ({

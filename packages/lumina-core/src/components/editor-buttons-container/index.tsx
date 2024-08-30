@@ -17,7 +17,7 @@ import type { IComponentProps } from '@/models/data'
 type TProps = {
   id: string
   onUpdate?: (data: any) => void
-  data: IComponentProps
+  componentProps?: IComponentProps
   config: TConfig
   inline?: boolean
   noUp?: boolean
@@ -25,13 +25,15 @@ type TProps = {
   visible?: boolean
   hidden?: boolean
   menu?: boolean
+  currentPosition?: number
 }
 
 export const EditorButtonsContainer = ({
   id,
   onUpdate,
   config,
-  data,
+  componentProps,
+  currentPosition,
   inline,
   noUp,
   noDown,
@@ -49,7 +51,12 @@ export const EditorButtonsContainer = ({
   return (
     <div className={cx('showEdit', inline ? 'showEditContainerInline' : 'showEditContainer')}>
       {config.editor.editable && !inline && (
-        <EditComponentButton componentId={id} onUpdate={onUpdate} data={data} config={config} />
+        <EditComponentButton
+          componentId={id}
+          onUpdate={onUpdate}
+          componentProps={componentProps}
+          config={config}
+        />
       )}
 
       {config?.editor.children && !inline && <AddComponentButton componentId={id} />}
@@ -58,11 +65,27 @@ export const EditorButtonsContainer = ({
 
       {inline && !visible && <VisibleComponentButton id={id} hidden={hidden} />}
 
-      {inline && <MoveComponentButton active={noUp!} moveDirection='up' id={id} />}
+      {inline && (
+        <MoveComponentButton
+          active={noUp!}
+          moveDirection='up'
+          id={id}
+          currentPosition={currentPosition || 0}
+        />
+      )}
 
-      {inline && <MoveComponentButton active={noDown!} moveDirection='down' id={id} />}
+      {inline && (
+        <MoveComponentButton
+          active={noDown!}
+          moveDirection='down'
+          id={id}
+          currentPosition={currentPosition || 0}
+        />
+      )}
 
-      {inline && !menu && <ExpandMenuButton id={id} config={config} data={data} />}
+      {inline && !menu && (
+        <ExpandMenuButton id={id} config={config} componentProps={componentProps} />
+      )}
     </div>
   )
 }

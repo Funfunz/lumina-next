@@ -184,11 +184,14 @@ function toggleVisibilityElement(components: IComponentData[], targetId: string)
   })
 }
 
-function moveUpElement(components: IComponentData[], targetId: string) {
+function moveUpElement(
+  components: IComponentData[],
+  { id, currentPosition }: { id: string; currentPosition: number }
+) {
   let componentToReplace: IComponentData | undefined
   let oldOrder = 0
   const newComponents = components.map(element => {
-    if (element.id === targetId) {
+    if (element.id === id && currentPosition === element.order) {
       oldOrder = element.order
       componentToReplace = upOrderElement(element, components)
       if (componentToReplace) {
@@ -198,7 +201,7 @@ function moveUpElement(components: IComponentData[], targetId: string) {
       }
     }
     if (element.children && !componentToReplace) {
-      element.children = [...moveUpElement(element.children, targetId)]
+      element.children = [...moveUpElement(element.children, { id, currentPosition })]
     }
     return element
   })
@@ -215,11 +218,14 @@ function moveUpElement(components: IComponentData[], targetId: string) {
   return newComponents
 }
 
-function moveDownElement(components: IComponentData[], targetId: string) {
+function moveDownElement(
+  components: IComponentData[],
+  { id, currentPosition }: { id: string; currentPosition: number }
+) {
   let componentToReplace: IComponentData | undefined
   let oldOrder = 0
   const newComponents = components.map(element => {
-    if (element.id === targetId) {
+    if (element.id === id && currentPosition === element.order) {
       oldOrder = element.order
       componentToReplace = downOrderElement(element, components)
       if (componentToReplace) {
@@ -229,7 +235,7 @@ function moveDownElement(components: IComponentData[], targetId: string) {
       }
     }
     if (element.children && !componentToReplace) {
-      element.children = [...moveDownElement(element.children, targetId)]
+      element.children = [...moveDownElement(element.children, { id, currentPosition })]
     }
 
     return element
@@ -291,7 +297,6 @@ export const builderDataContextReducer = (
       return newState
 
     case 'createComponent':
-      console.log('create cmp: ', data)
       const stateCreateComponent = {
         ...data,
         builderData: {
@@ -305,7 +310,6 @@ export const builderDataContextReducer = (
       return stateCreateComponent
 
     case 'updateComponent':
-      console.log('edit cmp:', data)
       const stateUpdateComponent = {
         ...data,
         builderData: {
@@ -368,7 +372,7 @@ export const builderDataContextReducer = (
               ...moveUpElement(
                 // Confirmar se a data é undefined ou não
                 data.builderData[data.selectedPage].children!,
-                action.data.id
+                action.data
               ),
             ],
           },
@@ -383,11 +387,7 @@ export const builderDataContextReducer = (
           [data.selectedPage]: {
             ...data.builderData[data.selectedPage],
             children: [
-              ...moveDownElement(
-                // Confirmar se a data é undefined ou não
-                data.builderData[data.selectedPage].children!,
-                action.data.id
-              ),
+              ...moveDownElement(data.builderData[data.selectedPage].children!, action.data),
             ],
           },
         },
