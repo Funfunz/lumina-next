@@ -39,31 +39,21 @@ export const TreeViewTab = () => {
       const searchValLower = searchValue.toLowerCase().trim()
       return data.reduce<IComponentData[]>((acc, el) => {
         const friendlyNameLower = el.friendlyName.toLowerCase()
-        let matches = false
 
         // Check if the current element matches the search criteria
         //perfect match
-        if (friendlyNameLower === searchValLower) matches = true
-        // name starts with
-        else if (friendlyNameLower.startsWith(searchValLower)) matches = true
-        // name contains part of the search
-        else if (friendlyNameLower.includes(searchValLower)) matches = true
-
-        // boolean check to signal the filtered elements
-        if (matches) el.isMatch = true
+        console.log(friendlyNameLower, searchValLower, friendlyNameLower.includes(searchValLower))
+        if (friendlyNameLower.includes(searchValLower)) el.isMatch = true
 
         let filteredChildren: IComponentData[] = []
 
         // If the current element has children, recursively filter the children
         if (el.children && el.children.length > 0) {
           filteredChildren = filterData(el.children)
-
-          // If any child matches, include the current element with the filtered children
-          if (filteredChildren.length > 0) matches = true
         }
 
         // If the element or its children match, include it in the results
-        if (matches) {
+        if (el.isMatch || filteredChildren.length) {
           acc.push({
             ...el, // Create a copy of the current element
             children: filteredChildren.length > 0 ? filteredChildren : el.children, // Only update children if filtered

@@ -1,5 +1,5 @@
 import { IComponentData } from '@/models/data'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import cx from 'classnames'
 import { ComponentTree } from '../componentTree'
 import { EditorButtonsContainer } from '@/components/editor-buttons-container'
@@ -18,9 +18,9 @@ export const TreeBranch = ({ data, noDown, noUp }: TProps) => {
     setShowChildren(data.hasFilterChildren)
   }, [data.hasFilterChildren])
 
-  const handleTreeHeadClick = () => {
+  const handleTreeHeadClick = useCallback(() => {
     setShowChildren(!showChildren)
-  }
+  }, [showChildren])
 
   const iconChange = () => {
     if (data.children?.length) {
