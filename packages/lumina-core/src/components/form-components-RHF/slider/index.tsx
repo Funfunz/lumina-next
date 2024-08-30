@@ -1,7 +1,7 @@
 import { InputHTMLAttributes, useState } from 'react'
 import cx from 'classnames'
-import { HelpText } from '../utils/help'
-import { LabelTitle } from '../utils/label'
+import { HelpText } from '../utils/utility-components/help'
+import { LabelTitle } from '../utils/utility-components/label'
 interface ISlider extends InputHTMLAttributes<HTMLInputElement> {
   className?: string
   name?: string

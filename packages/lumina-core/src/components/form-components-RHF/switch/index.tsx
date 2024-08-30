@@ -1,6 +1,6 @@
 import cx from 'classnames'
-import { HelpText } from '../utils/help'
-import { LabelTitle } from '../utils/label'
+import { HelpText } from '../utils/utility-components/help'
+import { LabelTitle } from '../utils/utility-components/label'
 interface ISwitch {
   className?: string
   name?: string

@@ -1,7 +1,7 @@
 import cx from 'classnames'
 import { TextareaHTMLAttributes } from 'react'
-import { LabelTitle } from '../utils/label'
-import { HelpText } from '../utils/help'
+import { LabelTitle } from '../utils/utility-components/label'
+import { HelpText } from '../utils/utility-components/help'
 
 interface ICheckbox extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   className?: string

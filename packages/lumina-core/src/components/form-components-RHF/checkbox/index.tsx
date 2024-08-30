@@ -1,7 +1,7 @@
 import { InputHTMLAttributes } from 'react'
 import cx from 'classnames'
-import { LabelTitle } from '../utils/label'
-import { HelpText } from '../utils/help'
+import { LabelTitle } from '../utils/utility-components/label'
+import { HelpText } from '../utils/utility-components/help'
 
 interface ICheckbox extends InputHTMLAttributes<HTMLInputElement> {
   className?: string
