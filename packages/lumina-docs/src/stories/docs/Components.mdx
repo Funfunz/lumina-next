@@ -9,7 +9,7 @@ import Github from '../assets/github.svg'
     # Required Configuration
   </div>
   <div className='sb-section-title'>
-   ## Overview
+   ### Overview
 
     The configuration file, luminaConfig, acts as a central registry where each component is defined with its specific settings.
     The configuration is managed through a central object, TComponentConfig, which serves as the registry for all components.
@@ -69,7 +69,72 @@ The config field, in the example configTitle or configFlex, contain the settings
 </div>
 <div className='sb-section-title'>
  ## Component Configuration
-  </div>
+  </div> 
+  <div className='sb-section-title'>
+  ### Overview
+
+After understanding the general configuration, we now focus on how to configure each component individually. This approach provides flexibility to tailor each component's behavior and appearance according to specific needs.
+
+### Configuration Type Definition
+
+    ```js
+
+TConfig = {
+name: string;
+type: string;
+props?: (TConfigItemValue | TConfigItemSelect)[];
+editor: TEditorConfig;
+};
+
+````
+
+### Configuration Structure
+
+Each component's configuration within the `TConfig` object is defined by a specific structure:
+
+```ts
+componentConfig: {
+    name: componentName,
+    type: componentType,
+    props?: componentProps,
+    editor: componentEditorConfig,
+},
+````
+
+**name** refers to the component name, how it's called throughout the application. This is a mandatory field.
+**type** is the type of the component. This is a mandatory field.
+**props** is the props that the component will receive.
+**editor** defines the configuration for how the component can be edited.
+
+### Examples
+
+Now let's consider the component `image` and its configuration.
+
+```ts
+const config: TConfig = {
+  name: 'Image',
+  type: 'image',
+  props: [
+    {
+      type: 'string',
+      name: 'href',
+      label: 'Href',
+    },
+    {
+      type: 'string',
+      name: 'alt',
+      label: 'Alt',
+    },
+  ],
+  editor: {
+    children: false,
+    editable: true,
+    delete: true,
+  },
+}
+```
+
+</div>
 
   <div className='sb-section-title'>
 ## How to test
@@ -127,6 +192,10 @@ The config field, in the example configTitle or configFlex, contain the settings
     }
   `}
 </style>
+
+```
+
+```
 
 ```
 
