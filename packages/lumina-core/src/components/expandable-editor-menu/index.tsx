@@ -1,17 +1,14 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-unused-vars */
 import type { IComponentProps } from '@/models/data'
 import type { TConfig } from '@/models/editor-buttonModel'
 import { AddComponentButton } from '../action-buttons/add'
 import { EditComponentButton } from '../action-buttons/edit'
 import { Button } from '../button'
 import { DeleteComponentButton } from '../action-buttons/delete'
-import { MutableRefObject, useEffect, useRef, useState } from 'react'
 
 type TMenuProps = {
   id: string
   config: TConfig
-  data: IComponentProps
+  componentProps?: IComponentProps
   menuRef: React.RefObject<HTMLDivElement>
 }
 
@@ -22,7 +19,7 @@ type TMenuProps = {
  * @param data the editable data from the component
  * @returns
  */
-export const ExpandableEditorMenu = ({ id, config, data, menuRef }: TMenuProps) => {
+export const ExpandableEditorMenu = ({ id, config, componentProps, menuRef }: TMenuProps) => {
   return (
     <div className='expandable_editor_menu' ref={menuRef}>
       <AddComponentButton
@@ -35,7 +32,7 @@ export const ExpandableEditorMenu = ({ id, config, data, menuRef }: TMenuProps) 
         buttonLabel='Edit'
         componentId={id}
         config={config}
-        data={data}
+        componentProps={componentProps}
         isDisabled={!config.editor.editable}
         isMenuButton
       />

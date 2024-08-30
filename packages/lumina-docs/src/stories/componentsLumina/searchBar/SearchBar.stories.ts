@@ -27,6 +27,5 @@ export const Primary: Story = {
   args: {
     searchValue: 'foo',
     setSearchValue: arg => console.log('setSearchValue()', arg),
-    onClickSearch: () => console.log('onClickSearch()'),
   },
 }

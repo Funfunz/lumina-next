@@ -10,9 +10,12 @@ import {
   TAppContextDispatch,
   initialContext,
   mainReducer,
-} from './reducers/luminaReducer'
-import { IAppContext, initialAppContextState } from './reducers/appContext'
-import { IBuilderDataContext, initialBuilderDataContextState } from './reducers/builderDataContext'
+} from './reducers/mainReducer'
+import { IAppContext, initialAppContextState } from './reducers/appContextReducer'
+import {
+  IBuilderDataContext,
+  initialBuilderDataContextState,
+} from './reducers/builderDataContextReducer'
 
 export interface IContext {
   state: IInitialStateType

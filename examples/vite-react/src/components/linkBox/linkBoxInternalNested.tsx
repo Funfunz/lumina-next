@@ -17,7 +17,7 @@ export const LinkBoxInternalNested = ({
         id={state.id}
         onUpdate={onUpdateCallback}
         config={config}
-        data={state}
+        componentProps={state}
       />
       <h2 style={{ color: state.color }}>
         {state.title} <span>-&gt;</span>

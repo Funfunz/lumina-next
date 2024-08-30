@@ -17,7 +17,7 @@ export const Button = ({ id, size = 'medium', style = 'outlined', text = 'button
     <div>
       <button className={buttonStyles}>
         {text}
-        <EditorButtonsContainer id={id} config={config} data={{ size, style, text }} />
+        <EditorButtonsContainer id={id} config={config} componentProps={{ size, style, text }} />
       </button>
     </div>
   )

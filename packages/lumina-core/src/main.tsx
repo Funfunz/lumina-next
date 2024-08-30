@@ -6,7 +6,7 @@ import { Render } from './components/render'
 import type { IData, IPageData } from './models/data'
 import { useEffect, useState } from 'react'
 import type { TConfig } from './models/editor-buttonModel'
-import { ToggleModalContextProvider } from './context/handleModalsContext'
+import { ToggleModalContextProvider } from './context/toggleModalContextProvider'
 import { EditorModal } from './components/modals'
 
 export type TComponentConfig = {
