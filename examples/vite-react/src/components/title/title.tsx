@@ -12,7 +12,7 @@ export const Title = ({ id, title }: IProps) => {
   return (
     <div className={styles.title}>
       <h1>{title}</h1>
-      <EditorButtonsContainer id={id} config={config} data={{ title }} />
+      <EditorButtonsContainer id={id} config={config} componentProps={{ title }} />
     </div>
   )
 }

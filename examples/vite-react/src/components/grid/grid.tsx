@@ -12,7 +12,7 @@ export const Grid = ({ children, style, id }: TProps) => {
   return (
     <div className={styles.grid + (style ? ' ' + style : '')}>
       {children}
-      <EditorButtonsContainer id={id} config={config} data={{ style }} />
+      <EditorButtonsContainer id={id} config={config} componentProps={{ style }} />
     </div>
   )
 }

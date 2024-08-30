@@ -17,7 +17,7 @@ export const Image = ({ href, alt, id }: TProps) => {
   return (
     <div className={styles.imageContainer}>
       <img className='image' src={href} alt={alt} />
-      <EditorButtonsContainer id={id} config={config} data={{ href, alt }} />
+      <EditorButtonsContainer id={id} config={config} componentProps={{ href, alt }} />
     </div>
   )
 }
