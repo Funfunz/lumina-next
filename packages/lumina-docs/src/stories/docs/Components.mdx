@@ -47,24 +47,24 @@ import Github from '../assets/github.svg'
 
 ### Examples
 
-Let's consider two components, `title` and `flex`. The `title` component is used to display headings and titles throughout the application and the `flex` component is typically used to create flexible layouts.
+Let's consider two components, `image` and `button`. The `image` component is used to display images and its settings a the `button` component is typically used by the user to interact with the page.
 In general configuration:
 
 ```ts
 const luminaConfig: TComponentConfig = {
-  title: {
-    component: Title,
-    config: configTitle,
+  image: {
+    component: Image,
+    config: configImage,
   },
-  flex: {
-    component: Flex,
-    config: configFlex,
+  button: {
+    component: Button,
+    config: configButton,
   },
 }
 ```
 
-The component field refers to the component, in the example `title` or `flex`, that is imported from project.
-The config field, in the example configTitle or configFlex, contain the settings of each component.
+The component field refers to the component, in the example `image` or `button`, that is imported from project.
+The config field, in the example configImage or configButton, contain the settings of each component.
 
 </div>
 <div className='sb-section-title'>
@@ -108,7 +108,7 @@ componentConfig: {
 
 ### Examples
 
-Now let's consider the component `image` and its configuration.
+Now let's consider the component `image` and `button` and their configuration.
 
 ```ts
 const config: TConfig = {
@@ -124,6 +124,37 @@ const config: TConfig = {
       type: 'string',
       name: 'alt',
       label: 'Alt',
+    },
+  ],
+  editor: {
+    children: false,
+    editable: true,
+    delete: true,
+  },
+}
+```
+
+```ts
+const config: TConfig = {
+  name: 'Button',
+  type: 'button',
+  props: [
+    {
+      type: 'string',
+      name: 'text',
+      label: 'Text',
+    },
+    {
+      type: 'singleSelect',
+      name: 'size',
+      label: 'Size',
+      arrayValues: ['small', 'medium', 'large'],
+    },
+    {
+      type: 'singleSelect',
+      name: 'style',
+      label: 'Style',
+      arrayValues: ['outlined', 'rounded'],
     },
   ],
   editor: {
