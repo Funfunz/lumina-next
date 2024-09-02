@@ -6,7 +6,7 @@ import Github from '../assets/github.svg'
 
 # Required Configuration
 
-## Overview
+## General Configuration
 
 The components should export a config object with the following properties:
 
@@ -18,6 +18,7 @@ The components should export a config object with the following properties:
       <td>**Description**</td>
       <td>**Required**</td>
       <td>**Default**</td>
+      <td>**Possible**</td>
     </tr>
   </thead>
   <tbody>
@@ -37,6 +38,7 @@ The components should export a config object with the following properties:
       <td>
         undefined
       </td>
+      <td></td>
     </tr>
     <tr>
       <td>
@@ -54,13 +56,14 @@ The components should export a config object with the following properties:
       <td>
         undefined
       </td>
+      <td></td>
     </tr>
     <tr>
       <td>
         props
       </td>
       <td>
-          <span style={{color:"green"}}>array{"<"}[componentPropsItem](#componentpropsitem){">"}</span>
+          <span style={{color:"green"}}>array{"["}[componentPropsItem](#componentpropsitem){"]"}</span>
       </td>
       <td>
         An array that identifies each property needed by the component.
@@ -71,6 +74,7 @@ The components should export a config object with the following properties:
       <td>
         {"[]"}
       </td>
+      <td></td>
     </tr>
     <tr>
       <td>
@@ -80,10 +84,10 @@ The components should export a config object with the following properties:
           <span style={{color:"green"}}>object</span>
       </td>
       <td>
-        An object used by Lumina to know the available actions allowed.
+        An object used by Lumina to know the available actions allowed, when in editor mode.
       </td>
       <td>
-        ❌
+        ✅
       </td>
       <td>
         ```json
@@ -94,6 +98,7 @@ The components should export a config object with the following properties:
         }
         ```
       </td>
+      <td></td>
     </tr>
     <tr>
       <td>
@@ -106,11 +111,12 @@ The components should export a config object with the following properties:
         Children components allowed, true if yes, false if no.
       </td>
       <td>
-        ❌
+        ✅
       </td>
       <td>
-        false
+        NA
       </td>
+      <td></td>
     </tr>
     <tr>
       <td>
@@ -123,11 +129,12 @@ The components should export a config object with the following properties:
         Component is editable, true if yes, false if no.
       </td>
       <td>
-        ❌
+        ✅
       </td>
       <td>
-        true
+        NA
       </td>
+      <td></td>
     </tr>
     <tr>
       <td>
@@ -137,19 +144,20 @@ The components should export a config object with the following properties:
           <span style={{color:"green"}}>boolean</span>
       </td>
       <td>
-        Component can be deleted, true if yes, false if no.
+        Component is deletable, true if yes, false if no.
       </td>
       <td>
-        ❌
+        ✅
       </td>
       <td>
-        true
+        NA
       </td>
+      <td></td>
     </tr>
   </tbody>
 </table>
 
-## ComponentPropsItem
+### ComponentPropsItem
 
 <table>
   <thead>
@@ -159,17 +167,19 @@ The components should export a config object with the following properties:
       <td>**Description**</td>
       <td>**Required**</td>
       <td>**Default**</td>
+      <td>**Possile**</td>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>type</td>
       <td>
-        <span style={{ color: 'green' }}>string</span>
+        <span style={{ color: 'green' }}>string / number / singleSelect / multiSelect</span>
       </td>
-      <td>The type of property</td>
-      <td>✅</td>
+      <td>Type of the property</td>
+      <td>❌</td>
       <td>undefined</td>
+      <td></td>
     </tr>
     <tr>
       <td>name</td>
@@ -177,22 +187,34 @@ The components should export a config object with the following properties:
         <span style={{ color: 'green' }}>string</span>
       </td>
       <td>The name of property inside the component</td>
-      <td>✅</td>
+      <td>❌</td>
       <td>undefined</td>
+      <td></td>
     </tr>
     <tr>
       <td>label</td>
       <td>
         <span style={{ color: 'green' }}>string</span>
       </td>
-      <td>The name of property shown on the Lumina editor UI</td>
-      <td>✅</td>
+      <td>The label showed on the Lumina editor UI</td>
+      <td>❌</td>
       <td>undefined</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>arrayValues</td>
+      <td>
+        <span style={{ color: 'green' }}>array</span>
+      </td>
+      <td>Set of properties used in the component</td>
+      <td>❌</td>
+      <td>undefined</td>
+      <td>['small', 'medium', 'large'], ['outlined', 'rounded'], ['column', 'row']</td>
     </tr>
   </tbody>
 </table>
 
-### Example config
+### Example general configuration
 
 ```js
 import { TConfig } from '@lumina/core'
@@ -214,166 +236,6 @@ export const config: TConfig = {
   },
 }
 ```
-
-The configuration file, luminaConfig, acts as a central registry where each component is defined with its specific settings.
-The configuration is managed through a central object, TComponentConfig, which serves as the registry for all components.
-This setup ensures that components are modular, easily configurable, and maintainable across Lumina.
-
-## General Configuration
-
-### Configuration Type Definition
-
-```js
-TComponentConfig = {
-  [key: string]: {
-    component: (data: any) => React.JSX.Element | null;
-    config: TConfig;
-  };
-};
-```
-
-### Configuration Structure
-
-Each component in the luminaConfig object is defined by a specific structure:
-
-```js
-component: {
-  component: componentType,
-  config: componentConfig,
-},
-```
-
-**componentName**: This is a unique identifier for the component in the configuration file.
-**component**: This refer to the React component itself.
-**config**: This object contains the configuration details specific to the component, such as default props, style overrides, or other settings that customize the component's behavior.
-
-### Examples
-
-Let's consider two components, `image` and `button`. The `image` component is used to display images and its settings a the `button` component is typically used by the user to interact with the page.
-In general configuration:
-
-```ts
-const luminaConfig: TComponentConfig = {
-  image: {
-    component: Image,
-    config: configImage,
-  },
-  button: {
-    component: Button,
-    config: configButton,
-  },
-}
-```
-
-The component field refers to the component, in the example `image` or `button`, that is imported from project.
-The config field, in the example configImage or configButton, contain the settings of each component.
-
-<div className='sb-section-title'>
- ## Component Configuration
-  </div>
-  <div className='sb-section-title'>
-  ### Overview
-
-After understanding the general configuration, we now focus on how to configure each component individually. This approach provides flexibility to tailor each component's behavior and appearance according to specific needs.
-
-### Configuration Type Definition
-
-    ```js
-
-TConfig = {
-name: string;
-type: string;
-props?: (TConfigItemValue | TConfigItemSelect)[];
-editor: TEditorConfig;
-};
-
-````
-
-### Configuration Structure
-
-Each component's configuration within the `TConfig` object is defined by a specific structure:
-
-```ts
-componentConfig: {
-    name: componentName,
-    type: componentType,
-    props?: componentProps,
-    editor: componentEditorConfig,
-},
-````
-
-**name** refers to the component name, how it's called throughout the application. This is a mandatory field.
-**type** is the type of the component. This is a mandatory field.
-**props** is the props that the component will receive.
-**editor** defines the configuration for how the component can be edited.
-
-### Examples
-
-Now let's consider the component `image` and `button` and their configuration.
-
-```ts
-const config: TConfig = {
-  name: 'Image',
-  type: 'image',
-  props: [
-    {
-      type: 'string',
-      name: 'href',
-      label: 'Href',
-    },
-    {
-      type: 'string',
-      name: 'alt',
-      label: 'Alt',
-    },
-  ],
-  editor: {
-    children: false,
-    editable: true,
-    delete: true,
-  },
-}
-```
-
-```ts
-const config: TConfig = {
-  name: 'Button',
-  type: 'button',
-  props: [
-    {
-      type: 'string',
-      name: 'text',
-      label: 'Text',
-    },
-    {
-      type: 'singleSelect',
-      name: 'size',
-      label: 'Size',
-      arrayValues: ['small', 'medium', 'large'],
-    },
-    {
-      type: 'singleSelect',
-      name: 'style',
-      label: 'Style',
-      arrayValues: ['outlined', 'rounded'],
-    },
-  ],
-  editor: {
-    children: false,
-    editable: true,
-    delete: true,
-  },
-}
-```
-
-</div>
-
-  <div className='sb-section-title'>
-## How to test
-
-      How to test each component?
-
-    </div>
 
 <style>
   {`
