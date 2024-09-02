@@ -15,11 +15,11 @@ export const RHFDemo = () => {
     clearErrors,
     formState: { errors, isSubmitting },
   } = useForm<TProps>({
-    mode: 'onChange', // Validate on change
+    mode: 'onChange',
   })
 
   const onSubmit: SubmitHandler<TProps> = async data => {
-    console.log('Form submitted', data) // Debugging line
+    console.log('Form submitted', data)
     try {
       await new Promise(resolve => setTimeout(resolve, 1000))
       console.log(data)
@@ -40,7 +40,7 @@ export const RHFDemo = () => {
             value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
             message: 'Please input a valid email',
           },
-          onChange: () => clearErrors('email'), // Clear error on change
+          onChange: () => clearErrors('email'),
         })}
         label='Email'
         type='email'
@@ -54,12 +54,12 @@ export const RHFDemo = () => {
             value: 8,
             message: 'Minimum 8 characters',
           },
-          onChange: () => clearErrors('password'), // Clear error on change
+          onChange: () => clearErrors('password'),
         })}
         label='Password'
         type='password'
         placeholder='Password'
-        autoComplete='current-password' // Add autocomplete attribute
+        autoComplete='off'
       />
       {errors.password && <p className='error'>{errors.password.message}</p>}
       <Button

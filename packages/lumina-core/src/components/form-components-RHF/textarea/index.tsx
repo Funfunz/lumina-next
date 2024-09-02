@@ -5,7 +5,6 @@ import { HelpText } from '../utils/utility-components/help'
 
 interface ICheckbox extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   className?: string
-  name?: string
   label?: string
   help?: string
 }
@@ -15,11 +14,11 @@ interface ICheckbox extends TextareaHTMLAttributes<HTMLTextAreaElement> {
  * @help  A helper text position below the slider
  * @returns
  */
-export const TextArea = ({ name, className, label, help, ...rest }: ICheckbox) => {
+export const TextArea = ({ className, label, help, ...rest }: ICheckbox) => {
   return (
     <div className={cx('text-area_container', className)}>
-      <LabelTitle name={name} label={label} className={className} />
-      <textarea id={name} className={cx('text-area_container__text', className)} {...rest} />
+      <LabelTitle label={label} className={className} />
+      <textarea className={cx('text-area_container__text', className)} {...rest} />
       <HelpText className={className} help={help} />
     </div>
   )

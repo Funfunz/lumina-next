@@ -3,7 +3,6 @@ import { HelpText } from '../utils/utility-components/help'
 import { LabelTitle } from '../utils/utility-components/label'
 interface ISwitch {
   className?: string
-  name?: string
   label?: string
   help?: string
   switchText?: string
@@ -15,11 +14,11 @@ interface ISwitch {
  * @switchText The switch button option text
  * @returns
  */
-export const Switch = ({ name, className, label, help, switchText, ...rest }: ISwitch) => {
+export const Switch = ({ className, label, help, switchText, ...rest }: ISwitch) => {
   return (
     <>
       <div className={cx('switch_container', className)}>
-        <LabelTitle name={name} label={label} className={className} />
+        <LabelTitle label={label} className={className} />
         <div className='switch_container-toggler'>
           <label id='switch_toggler' role='switch'>
             <input

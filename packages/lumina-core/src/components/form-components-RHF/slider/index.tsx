@@ -4,7 +4,6 @@ import { HelpText } from '../utils/utility-components/help'
 import { LabelTitle } from '../utils/utility-components/label'
 interface ISlider extends InputHTMLAttributes<HTMLInputElement> {
   className?: string
-  name?: string
   label?: string
   disabled?: boolean
   suffix?: string
@@ -17,16 +16,15 @@ interface ISlider extends InputHTMLAttributes<HTMLInputElement> {
  * @suffix Can take the following values '€' | 'km' | 'm' (for now)
  * @returns
  */
-export const Slider = ({ name, className, label, suffix, help, ...rest }: ISlider) => {
+export const Slider = ({ className, label, suffix, help, ...rest }: ISlider) => {
   const [rangeValue, setRangeValue] = useState(0)
 
   return (
     <>
       <div className={cx('slider_container', className)}>
-        <LabelTitle name={name} label={label} className={className} />
+        <LabelTitle label={label} className={className} />
         <input
           type='range'
-          id={name}
           className={cx('', className)}
           value={rangeValue}
           onChange={e => setRangeValue(Number(e.target.value))}

@@ -5,7 +5,6 @@ import { HelpText } from '../utils/utility-components/help'
 
 interface ICheckbox extends InputHTMLAttributes<HTMLInputElement> {
   className?: string
-  name?: string
   label?: string
   help?: string
   checkboxText?: string
@@ -17,15 +16,14 @@ interface ICheckbox extends InputHTMLAttributes<HTMLInputElement> {
  * @checkboxText The checkbox option text
  * @returns
  */
-export const CheckBox = ({ name, className, label, help, checkboxText, ...rest }: ICheckbox) => {
+export const CheckBox = ({ className, label, help, checkboxText, ...rest }: ICheckbox) => {
   return (
     <>
       <div className={cx('checkbox_container', className)}>
-        <LabelTitle name={name} label={label} className={className} />
+        <LabelTitle label={label} className={className} />
         <div className='checkbox_container__wrapper'>
           <input
             type='checkbox'
-            id={name}
             className={cx('checkbox_container__wrapper__check', className)}
             {...rest}
           />

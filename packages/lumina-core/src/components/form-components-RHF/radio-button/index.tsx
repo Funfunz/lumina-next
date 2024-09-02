@@ -4,7 +4,6 @@ import { LabelTitle } from '../utils/utility-components/label'
 import { HelpText } from '../utils/utility-components/help'
 interface IRadioButton extends InputHTMLAttributes<HTMLInputElement> {
   className?: string
-  name?: string
   label?: string
   help?: string
   radioText?: string
@@ -16,15 +15,14 @@ interface IRadioButton extends InputHTMLAttributes<HTMLInputElement> {
  * @radioText The radio button option text
  * @returns
  */
-export const RadioButton = ({ name, className, label, help, radioText, ...rest }: IRadioButton) => {
+export const RadioButton = ({ className, label, help, radioText, ...rest }: IRadioButton) => {
   return (
     <>
       <div className={cx('radio-button_container', className)}>
-        <LabelTitle name={name} label={label} className={className} />
+        <LabelTitle label={label} className={className} />
         <div className='radio-button_container__wrapper'>
           <input
             type='radio'
-            id={name}
             className={cx('radio-button_container__wrapper__check', className)}
             {...rest}
           />
