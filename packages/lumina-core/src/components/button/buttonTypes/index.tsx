@@ -3,7 +3,7 @@
 
 import { MutableRefObject } from 'react'
 
-type TLumButtonBase = {
+type TLumButtonBase = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   className?: string
   text?: string
   iconLeft?: string
@@ -13,6 +13,7 @@ type TLumButtonBase = {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
   disabled?: boolean
   ref?: MutableRefObject<HTMLButtonElement | null>
+  type?: 'button' | 'submit' | 'reset'
 }
 
 export type TLumButtonAsButton = TLumButtonBase & {
@@ -25,11 +26,11 @@ type TLumButtonLinkBase = TLumButtonBase & {
   href: string
 }
 
-type TLumButtonExternalLink = TLumButtonLinkBase & {
+export type TLumButtonExternalLink = TLumButtonLinkBase & {
   buttonType: 'externalLink'
 }
 
-type TLumButtonLink = TLumButtonLinkBase & {
+export type TLumButtonLink = TLumButtonLinkBase & {
   buttonType: 'link'
 }
 
