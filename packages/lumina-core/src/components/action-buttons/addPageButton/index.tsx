@@ -2,34 +2,28 @@ import { Button } from '@/components/button'
 import { ADDMODAL, useToggleModalContext } from '@/context/toggleModalContextProvider'
 import { useToggleMenuContext } from '@/context/toggleMenuContextProvider'
 
-type TProps = {
-  componentId?: string
+type TAddPageProps = {
+  pageID?: string
   buttonLabel?: string
   isDisabled?: boolean
   isMenuButton?: boolean
 }
 
 /**
- * React Component to create the Add Component button easily
  * @param componentId the ID of the parent component if exists
  * @param buttonlabel
  * @param isDisabled allows to disable the button from interactions
  * @param isMenuButton allows to style the button to be inside the expandable editor menu
  * @returns
  */
-export const AddComponentButton = ({
-  componentId,
-  buttonLabel,
-  isDisabled,
-  isMenuButton,
-}: TProps) => {
+export const AddPageButton = ({ pageID, buttonLabel, isDisabled, isMenuButton }: TAddPageProps) => {
   const { handleToggleMenu } = useToggleMenuContext()
   const { handleOpenModal } = useToggleModalContext()
 
   const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
-    handleOpenModal({ id: componentId, modalType: ADDMODAL })
-    handleToggleMenu(componentId!)
+    handleOpenModal({ id: pageID, modalType: ADDMODAL })
+    handleToggleMenu(pageID!)
   }
 
   return (
@@ -38,8 +32,8 @@ export const AddComponentButton = ({
       onClick={handleButtonClick}
       text={buttonLabel}
       disabled={isDisabled}
-      style={isMenuButton ? 'menuButton' : 'secondary'}
       iconLeft='lum-icon-plus'
+      style={isMenuButton ? 'menuButton' : 'secondary'}
     />
   )
 }

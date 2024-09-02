@@ -1,48 +1,39 @@
 'use client'
 
-import { Button } from '@/components/button'
-// import { SearchBar } from '@/components/search-bar'
+import { AddPageButton } from '@/components/action-buttons/addPageButton'
+import { Title } from '@/components/title'
 import { useLuminaContext } from '@/context/contextProvider'
-import { useCallback } from 'react'
+// import { useCallback } from 'react'
 
 export const PagesTab = () => {
   const {
     state: { builderDataContext },
-    dispatch,
+    // dispatch,
   } = useLuminaContext()
 
-  const handleAddPageClick = useCallback(() => {
-    dispatch({
-      type: 'createPage',
-      data: {
-        id: 'dadwadada',
-        pageName: 'testPage',
-        friendlyName: 'Test Page',
-        extendedName: 'A Page for testing purposes',
-        dateModified: Date.now.toString(),
-        route: '/test',
-        status: true,
-      },
-    })
-  }, [dispatch])
+  // const handleAddPageClick = useCallback(() => {
+  //   dispatch({
+  //     type: 'createPage',
+  //     data: {
+  //       id: 'dadwadada',
+  //       pageName: 'testPage',
+  //       friendlyName: 'Test Page',
+  //       extendedName: 'A Page for testing purposes',
+  //       dateModified: Date.now.toString(),
+  //       route: '/test',
+  //       status: true,
+  //     },
+  //   })
+  // }, [dispatch])
 
   return (
     <div className='pageContainer'>
       <div className='pageHead'>
-        <h3 className='pageTitle'>Pages</h3>
-        {(Object.keys(builderDataContext.builderData).length && (
-          <div className='addContainer'>
-            <Button
-              buttonType='button'
-              text='Add'
-              onClick={handleAddPageClick}
-              iconLeft='lum-icon-plus-fill'
-            />
-          </div>
-        )) ||
-          null}
+        <Title content='Pages' classnames='pages_title' />
+        <span className='treeAddButton'>
+          <AddPageButton buttonLabel='Add' />
+        </span>
       </div>
-      {/* <SearchBar /> */}
       {Object.keys(builderDataContext.builderData).map(page => (
         <div className='pageHead' key={page}>
           {page}

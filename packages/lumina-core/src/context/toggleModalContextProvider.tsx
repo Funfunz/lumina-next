@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { ReactNode, createContext, useContext, useState } from 'react'
-import type { IComponentProps } from '../models/data'
+import type { IComponentProps, IPageProps } from '../models/data'
 import type { TConfig } from '@/models/editor-buttonModel'
 
 export const ADDMODAL = 'ADD'
@@ -9,8 +9,9 @@ export const DELETEMODAL = 'DELETE'
 
 type TToggleModalProps = {
   componentProps?: IComponentProps
+  pageProps?: IPageProps
   config?: TConfig
-  onUpdate?: (data: IComponentProps) => void
+  onUpdate?: ((data: IComponentProps) => void) | ((data: IPageProps) => void)
   id?: string
   modalType: typeof ADDMODAL | typeof EDITMODAL | typeof DELETEMODAL | null
 }

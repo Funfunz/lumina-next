@@ -25,7 +25,7 @@ export interface IPageData {
   extendedName: string
   dateModified: string
   status: string
-  children?: IComponentData[]
+  children?: IPageData[]
   props?: IPageProps
   route: string
 }
