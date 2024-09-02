@@ -18,7 +18,7 @@ export const SearchBar = ({ searchValue, setSearchValue }: TProps) => {
         value={searchValue}
         placeholder='Search...'
       />
-      <Button variant='default' iconRight='lum-icon-filter' style='filter' />
+      <Button variant='default' iconRight='lum-icon-filter' className='search-bar__button' />
     </div>
   )
 }

@@ -22,4 +22,17 @@
     opacity: 0.66;
     transform: translateY(-50%);
   }
+
+  &__button {
+    padding: 7px;
+    color: #1117;
+    background-color: #f7f7f7;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+
+    &:hover {
+      color: white;
+      background-color: gray;
+    }
+  }
 }

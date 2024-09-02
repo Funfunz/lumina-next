@@ -8,7 +8,7 @@ type TLumButtonBase = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   text?: string
   iconLeft?: string
   iconRight?: string
-  style?: 'primary' | 'secondary' | 'warning' | 'danger' | 'filter' | 'live' | 'menuButton' | string
+  style?: 'primary' | 'secondary' | 'warning' | 'danger' | 'menuButton' | string
   size?: 'small' | 'large' | string
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
   disabled?: boolean

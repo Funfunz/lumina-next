@@ -60,7 +60,7 @@
     color: var(--lum-color-charcoal);
   }
 
-  // CSS for 'primary' | 'secondary' | 'warning' | 'danger' | 'filter' | 'live'
+  // CSS for 'primary' | 'secondary' | 'warning' | 'danger'
   // TODO: use var() instead of hardcoded values, match Figma colors scheme
   &.primary {
     color: white;
@@ -101,31 +101,6 @@
       cursor: not-allowed;
       background-color: #f5f5f7;
       border: none;
-    }
-  }
-
-  &.filter {
-    padding: 7px;
-    color: #1117;
-    background-color: #f7f7f7;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-
-    &:hover {
-      color: white;
-      background-color: gray;
-    }
-  }
-
-  &.live {
-    color: #1117;
-    background-color: #f7f7f7;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-
-    &:hover {
-      color: white;
-      background-color: gray;
     }
   }
 

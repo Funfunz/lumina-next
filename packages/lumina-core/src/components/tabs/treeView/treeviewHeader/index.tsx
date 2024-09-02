@@ -12,7 +12,12 @@ export const TreeviewHeader = () => {
         <Button variant='default' iconLeft='lum-icon-history' />
         <Button variant='default' iconLeft='lum-icon-mobile' />
       </div>
-      <Button variant='default' text='Live' style='live' iconLeft='lum-icon-visible' />
+      <Button
+        variant='default'
+        text='Live'
+        className='treeviewHeaderContainer__button'
+        iconLeft='lum-icon-visible'
+      />
     </div>
   )
 }
