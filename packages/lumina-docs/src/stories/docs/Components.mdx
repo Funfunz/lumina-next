@@ -1,45 +1,204 @@
-import { Meta } from '@storybook/blocks'
+import { Meta, Markdown } from '@storybook/blocks'
 
 import Github from '../assets/github.svg'
 
 <Meta title='Docs/Required Configuration' />
 
-<div className="sb-container">
-  <div className='sb-section-title'>
-    # Required Configuration
-  </div>
-  <div className='sb-section-title'>
-   ### Overview
+# Required Configuration
 
-    The configuration file, luminaConfig, acts as a central registry where each component is defined with its specific settings.
-    The configuration is managed through a central object, TComponentConfig, which serves as the registry for all components.
-    This setup ensures that components are modular, easily configurable, and maintainable across Lumina.
+## Overview
 
-    ## General Configuration
+The components should export a config object with the following properties:
 
+<table>
+  <thead>
+    <tr>
+      <td>**Name**</td>
+      <td>**Type**</td>
+      <td>**Description**</td>
+      <td>**Required**</td>
+      <td>**Default**</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        name
+      </td>
+      <td>
+          <span style={{color:"green"}}>string</span>
+      </td>
+      <td>
+        The name of the component
+      </td>
+      <td>
+        ✅
+      </td>
+      <td>
+        undefined
+      </td>
+    </tr>
+    <tr>
+      <td>
+        type
+      </td>
+      <td>
+          <span style={{color:"green"}}>string</span>
+      </td>
+      <td>
+        Identifies the type of component. Types cannot be shared between components.
+      </td>
+      <td>
+        ✅
+      </td>
+      <td>
+        undefined
+      </td>
+    </tr>
+    <tr>
+      <td>
+        props
+      </td>
+      <td>
+          <span style={{color:"green"}}>object</span>
+      </td>
+      <td>
+        An object that identifies each property needed by the component.
+      </td>
+      <td>
+        ❌
+      </td>
+      <td>
+        {"{}"}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        editor
+      </td>
+      <td>
+          <span style={{color:"green"}}>object</span>
+      </td>
+      <td>
+        An object used by Lumina to know the available actions allowed.
+      </td>
+      <td>
+        ❌
+      </td>
+      <td>
+        ```json
+          {
+          "children": false,
+          "editable": true,
+          "delete": true,
+        }
+        ```
+      </td>
+    </tr>
+    <tr>
+      <td>
+        editor.children
+      </td>
+      <td>
+          <span style={{color:"green"}}>boolean</span>
+      </td>
+      <td>
+        Children components allowed, true if yes, false if no.
+      </td>
+      <td>
+        ❌
+      </td>
+      <td>
+        false
+      </td>
+    </tr>
+    <tr>
+      <td>
+        editor.editable
+      </td>
+      <td>
+          <span style={{color:"green"}}>boolean</span>
+      </td>
+      <td>
+        Component is editable, true if yes, false if no.
+      </td>
+      <td>
+        ❌
+      </td>
+      <td>
+        true
+      </td>
+    </tr>
+    <tr>
+      <td>
+        editor.delete
+      </td>
+      <td>
+          <span style={{color:"green"}}>boolean</span>
+      </td>
+      <td>
+        Component can be deleted, true if yes, false if no.
+      </td>
+      <td>
+        ❌
+      </td>
+      <td>
+        true
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-    ### Configuration Type Definition
-
-    ```js
-    TComponentConfig = {
-    [key: string]: {
-        component: (data: any) => React.JSX.Element | null;
-        config: TConfig;
-    };
-
-};
-
-````
- ### Configuration Structure
-
-    Each component in the luminaConfig object is defined by a specific structure:
+### Example config
 
 ```js
-    component: {
-    component: componentType,
-    config: componentConfig,
+import { TConfig } from '@lumina/core'
+
+export const config: TConfig = {
+  name: 'Title',
+  type: 'title',
+  props: [
+    {
+      type: 'string',
+      name: 'title',
+      label: 'Title',
     },
-````
+  ],
+  editor: {
+    children: false,
+    editable: true,
+    delete: true,
+  },
+}
+```
+
+The configuration file, luminaConfig, acts as a central registry where each component is defined with its specific settings.
+The configuration is managed through a central object, TComponentConfig, which serves as the registry for all components.
+This setup ensures that components are modular, easily configurable, and maintainable across Lumina.
+
+## General Configuration
+
+### Configuration Type Definition
+
+```js
+TComponentConfig = {
+  [key: string]: {
+    component: (data: any) => React.JSX.Element | null;
+    config: TConfig;
+  };
+};
+```
+
+### Configuration Structure
+
+Each component in the luminaConfig object is defined by a specific structure:
+
+```js
+component: {
+  component: componentType,
+  config: componentConfig,
+},
+```
 
 **componentName**: This is a unique identifier for the component in the configuration file.
 **component**: This refer to the React component itself.
@@ -66,10 +225,9 @@ const luminaConfig: TComponentConfig = {
 The component field refers to the component, in the example `title` or `flex`, that is imported from project.
 The config field, in the example configTitle or configFlex, contain the settings of each component.
 
-</div>
 <div className='sb-section-title'>
  ## Component Configuration
-  </div> 
+  </div>
   <div className='sb-section-title'>
   ### Overview
 
@@ -142,8 +300,6 @@ const config: TConfig = {
       How to test each component?
 
     </div>
-
-</div>
 
 <style>
   {`
