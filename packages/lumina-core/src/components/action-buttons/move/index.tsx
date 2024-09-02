@@ -35,7 +35,7 @@ export const MoveComponentButton = ({ id, moveDirection, active, currentPosition
   return (
     <Button
       disabled={active}
-      buttonType='button'
+      variant='default'
       onClick={direction ? handleOnClickMoveUp : handleOnClickMoveDown}
       iconLeft={direction ? 'lum-icon-arrow-up' : 'lum-icon-arrow-down'}
     />

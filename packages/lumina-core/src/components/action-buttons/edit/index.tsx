@@ -46,7 +46,7 @@ export const EditComponentButton = ({
 
   return (
     <Button
-      buttonType='button'
+      variant='default'
       onClick={handleToggleEditModal}
       text={buttonLabel}
       style={isMenuButton ? 'menuButton' : 'secondary'}

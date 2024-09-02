@@ -45,7 +45,7 @@ export const ExpandMenuButton = ({ id, componentProps, config }: TProps) => {
   return (
     <>
       <Button
-        buttonType='button'
+        variant='default'
         iconLeft='lum-icon-menu'
         onClick={handleButtonClick}
         ref={buttonRef}

@@ -238,7 +238,7 @@ export const EditorModal = () => {
         <span className={cx('title-icon', modalData.titleIcon)}></span>
         <Title classnames='editor-modal_content-header__title' content={modalData.modalName} />
         <Button
-          buttonType='button'
+          variant='default'
           iconLeft='lum-icon-cross'
           className='editor-modal_close-button'
           onClick={handleCloseModal}
@@ -249,14 +249,14 @@ export const EditorModal = () => {
 
       <div className='editor-modal_buttons-container'>
         <Button
-          buttonType='button'
+          variant='default'
           text={modalData.modalOkButtonLabel}
           style='primary'
           size='large'
           onClick={modalData.modalClickHandler}
         />
         <Button
-          buttonType='button'
+          variant='default'
           text='Cancel'
           style='secondary'
           size='large'

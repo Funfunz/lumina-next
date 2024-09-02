@@ -6,9 +6,9 @@ export type { TLumButton }
 
 export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, TLumButton>(
   (props, ref) => {
-    const { buttonType } = props
+    const { variant: buttonType } = props
 
-    if (buttonType === 'button') {
+    if (buttonType === 'default') {
       return <ButtonAsButton {...props} ref={ref as React.Ref<HTMLButtonElement>} />
     } else if (buttonType === 'externalLink') {
       return <ButtonAsExternalLink {...props} ref={ref as React.Ref<HTMLAnchorElement>} />

@@ -17,7 +17,7 @@ type TLumButtonBase = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 }
 
 export type TLumButtonAsButton = TLumButtonBase & {
-  buttonType: 'button'
+  variant: 'default'
   isFullWidth?: boolean
 }
 
@@ -27,11 +27,11 @@ type TLumButtonLinkBase = TLumButtonBase & {
 }
 
 export type TLumButtonExternalLink = TLumButtonLinkBase & {
-  buttonType: 'externalLink'
+  variant: 'externalLink'
 }
 
 export type TLumButtonLink = TLumButtonLinkBase & {
-  buttonType: 'link'
+  variant: 'link'
 }
 
 export type TLumButton = TLumButtonAsButton | TLumButtonExternalLink | TLumButtonLink

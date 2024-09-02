@@ -34,7 +34,7 @@ export const DeleteComponentButton = ({
 
   return (
     <Button
-      buttonType='button'
+      variant='default'
       onClick={handleToggleDeleteModal}
       style={isMenuButton ? 'menuButton' : 'danger'}
       text={buttonLabel}

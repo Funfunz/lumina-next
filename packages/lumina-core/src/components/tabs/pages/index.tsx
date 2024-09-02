@@ -33,7 +33,7 @@ export const PagesTab = () => {
         {(Object.keys(builderDataContext.builderData).length && (
           <div className='addContainer'>
             <Button
-              buttonType='button'
+              variant='default'
               text='Add'
               onClick={handleAddPageClick}
               iconLeft='lum-icon-plus-fill'

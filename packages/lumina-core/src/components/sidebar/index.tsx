@@ -70,7 +70,7 @@ export const SidebarEditor = ({ isBarOpen, handleToggler }: TSidebarEditor) => {
       tabsElem.push(
         <li key={tab.id} id={tab.id}>
           <Button
-            buttonType='button'
+            variant='default'
             iconLeft={tab.icon}
             onClick={() => handleActiveTab(tab)}
             className={cx('sidebarTab', { activeTab: isActive })}

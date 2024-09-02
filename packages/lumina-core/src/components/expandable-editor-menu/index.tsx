@@ -37,21 +37,21 @@ export const ExpandableEditorMenu = ({ id, config, componentProps, menuRef }: TM
         isMenuButton
       />
       <Button
-        buttonType='button'
+        variant='default'
         style='menuButton'
         text='Cut'
         iconLeft='lum-icon-cut'
         disabled={true}
       />
       <Button
-        buttonType='button'
+        variant='default'
         style='menuButton'
         text='Copy'
         iconLeft='lum-icon-clone'
         disabled={true}
       />
       <Button
-        buttonType='button'
+        variant='default'
         style='menuButton'
         text='Paste'
         iconLeft='lum-icon-paste'

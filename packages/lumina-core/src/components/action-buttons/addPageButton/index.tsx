@@ -34,7 +34,7 @@ export const AddComponentButton = ({
 
   return (
     <Button
-      buttonType='button'
+      variant='default'
       onClick={handleButtonClick}
       text={buttonLabel}
       disabled={isDisabled}
