@@ -60,16 +60,16 @@ The components should export a config object with the following properties:
         props
       </td>
       <td>
-          <span style={{color:"green"}}>object</span>
+          <span style={{color:"green"}}>array{"<"}[componentPropsItem](#componentpropsitem){">"}</span>
       </td>
       <td>
-        An object that identifies each property needed by the component.
+        An array that identifies each property needed by the component.
       </td>
       <td>
         ❌
       </td>
       <td>
-        {"{}"}
+        {"[]"}
       </td>
     </tr>
     <tr>
@@ -145,6 +145,49 @@ The components should export a config object with the following properties:
       <td>
         true
       </td>
+    </tr>
+  </tbody>
+</table>
+
+## ComponentPropsItem
+
+<table>
+  <thead>
+    <tr>
+      <td>**Name**</td>
+      <td>**Type**</td>
+      <td>**Description**</td>
+      <td>**Required**</td>
+      <td>**Default**</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>type</td>
+      <td>
+        <span style={{ color: 'green' }}>string</span>
+      </td>
+      <td>The type of property</td>
+      <td>✅</td>
+      <td>undefined</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>
+        <span style={{ color: 'green' }}>string</span>
+      </td>
+      <td>The name of property inside the component</td>
+      <td>✅</td>
+      <td>undefined</td>
+    </tr>
+    <tr>
+      <td>label</td>
+      <td>
+        <span style={{ color: 'green' }}>string</span>
+      </td>
+      <td>The name of property shown on the Lumina editor UI</td>
+      <td>✅</td>
+      <td>undefined</td>
     </tr>
   </tbody>
 </table>
