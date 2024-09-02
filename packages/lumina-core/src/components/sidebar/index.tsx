@@ -4,13 +4,6 @@ import { useState } from 'react'
 import { Button } from '../button'
 import { PagesTab } from '../tabs/pages'
 import { TreeViewTab } from '../tabs/treeView'
-import { Slider } from '../form-components-RHF/slider'
-import { CheckBox } from '../form-components-RHF/checkbox'
-import { Input } from '../form-components-RHF/input'
-import { RadioButton } from '../form-components-RHF/radio-button'
-import { Switch } from '../form-components-RHF/switch'
-import { TextArea } from '../form-components-RHF/textarea'
-import { RHFDemo } from '../form-components-RHF/RHF-Demo/demo'
 
 type TSidebarEditor = {
   handleToggler: Function
@@ -37,17 +30,6 @@ const editorTabs: TSidebarTab[] = [
   {
     id: 'lumTabLibrary',
     icon: 'lum-icon-library',
-    panel: (
-      <>
-        <CheckBox label='A Label' checkboxText='Test' help='Just some help text' />
-        <Input label='An Input' help='Just some help text' placeholder='Type here!' />
-        <RadioButton label='A Radio Button' radioText='Test' help='Just some help text' />
-        <Slider label='A Slider' step={5} max={250} suffix='something' help='Just some help text' />
-        <Switch label='A Toggler/Switch' switchText='Test' help='Just some help text' />
-        <TextArea label='A TextArea' help='Just some help text' placeholder='Type here!' />
-        <RHFDemo />
-      </>
-    ),
   },
 ]
 

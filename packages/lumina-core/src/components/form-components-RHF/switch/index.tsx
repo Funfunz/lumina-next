@@ -6,6 +6,9 @@ interface ISwitch {
   label?: string
   help?: string
   switchText?: string
+  labelClassName?: string;
+  switchClassName?: string;
+  helpClassName?: string;
 }
 
 /**
@@ -14,23 +17,23 @@ interface ISwitch {
  * @switchText The switch button option text
  * @returns
  */
-export const Switch = ({ className, label, help, switchText, ...rest }: ISwitch) => {
+export const Switch = ({ className, label, help, switchText, labelClassName, switchClassName, helpClassName, ...rest }: ISwitch) => {
   return (
     <>
       <div className={cx('switch_container', className)}>
-        <LabelTitle label={label} className={className} />
+        <LabelTitle label={label} className={labelClassName} />
         <div className='switch_container-toggler'>
           <label id='switch_toggler' role='switch'>
             <input
               id='switch_toggler'
               type='checkbox'
-              className={cx('switch_container-toggler__input', className)}
+              className={cx('switch_container-toggler__input', switchClassName)}
               {...rest}
             />
           </label>
           <span className='switch_container-toggler__label'>{switchText}</span>
         </div>
-        <HelpText className={className} help={help} />
+        <HelpText className={helpClassName} help={help} />
       </div>
     </>
   )

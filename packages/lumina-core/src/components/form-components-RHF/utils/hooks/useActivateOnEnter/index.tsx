@@ -10,13 +10,12 @@ interface IFormHookProps {
 }
 
 /**
- *
  * @activateEnterPress A boolean prop that if called, activates button press do submit
  * @clearOnEnterPress Clears the input field after submiting with activateEnterPress
  * @onEnterPress Used alongside 'activateEnterPress' in case there needs to be passed a function on 'activateEnterPress'
  * @returns
  */
-export const useInput = ({
+export const useActivateOnEnter = ({
   activateEnterPress,
   clearOnEnterPress,
   onEnterPress,

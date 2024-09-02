@@ -8,6 +8,9 @@ interface ICheckbox extends InputHTMLAttributes<HTMLInputElement> {
   label?: string
   help?: string
   checkboxText?: string
+  labelClassName?: string;
+  checkboxClassName?: string;
+  helpClassName?: string;
 }
 
 /**
@@ -16,20 +19,20 @@ interface ICheckbox extends InputHTMLAttributes<HTMLInputElement> {
  * @checkboxText The checkbox option text
  * @returns
  */
-export const CheckBox = ({ className, label, help, checkboxText, ...rest }: ICheckbox) => {
+export const CheckBox = ({ className, label, help, checkboxText, labelClassName, checkboxClassName, helpClassName, ...rest }: ICheckbox) => {
   return (
     <>
       <div className={cx('checkbox_container', className)}>
-        <LabelTitle label={label} className={className} />
+        <LabelTitle label={label} className={labelClassName} />
         <div className='checkbox_container__wrapper'>
           <input
             type='checkbox'
-            className={cx('checkbox_container__wrapper__check', className)}
+            className={cx('checkbox_container__wrapper__check', checkboxClassName)}
             {...rest}
           />
           <span className='checkbox_container__wrapper__text'>{checkboxText}</span>
         </div>
-        <HelpText className={className} help={help} />
+        <HelpText className={helpClassName} help={help} />
       </div>
     </>
   )

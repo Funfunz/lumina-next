@@ -7,6 +7,9 @@ interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   className?: string
   label?: string
   help?: string
+  labelClassName?: string;
+  inputClassName?: string;
+  helpClassName?: string;
 }
 
 /**
@@ -15,12 +18,12 @@ interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
  * @returns
  */
 export const Input = React.forwardRef<HTMLInputElement, IInputProps>(
-  ({ label, help, className, ...rest }, ref) => {
+  ({ label, help, className, labelClassName, inputClassName, helpClassName, ...rest }, ref) => {
     return (
       <div className={cx('input-container', className)}>
-        <LabelTitle label={label} className={className} />
-        <input ref={ref} className={cx('input-container__text', className)} {...rest} />
-        <HelpText className={className} help={help} />
+        <LabelTitle label={label} className={cx('label-title', labelClassName)} />
+        <input ref={ref} className={cx('input-container__text', inputClassName)} {...rest} />
+        <HelpText className={cx('help-text', helpClassName)} help={help} />
       </div>
     )
   }

@@ -12,13 +12,12 @@ export const RHFDemo = () => {
     register,
     handleSubmit,
     setError,
-    clearErrors,
     formState: { errors, isSubmitting },
   } = useForm<TProps>({
     mode: 'onChange',
   })
 
-  const onSubmit: SubmitHandler<TProps> = async data => {
+  const onSubmit: SubmitHandler<TProps> = async (data: any) => {
     console.log('Form submitted', data)
     try {
       await new Promise(resolve => setTimeout(resolve, 1000))
@@ -39,8 +38,7 @@ export const RHFDemo = () => {
           pattern: {
             value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
             message: 'Please input a valid email',
-          },
-          onChange: () => clearErrors('email'),
+          }
         })}
         label='Email'
         type='email'
@@ -53,8 +51,7 @@ export const RHFDemo = () => {
           minLength: {
             value: 8,
             message: 'Minimum 8 characters',
-          },
-          onChange: () => clearErrors('password'),
+          }
         })}
         label='Password'
         type='password'

@@ -8,6 +8,9 @@ interface ISlider extends InputHTMLAttributes<HTMLInputElement> {
   disabled?: boolean
   suffix?: string
   help?: string
+  labelClassName?: string;
+  sliderClassName?: string;
+  helpClassName?: string;
 }
 
 /**
@@ -16,16 +19,16 @@ interface ISlider extends InputHTMLAttributes<HTMLInputElement> {
  * @suffix Can take the following values '€' | 'km' | 'm' (for now)
  * @returns
  */
-export const Slider = ({ className, label, suffix, help, ...rest }: ISlider) => {
+export const Slider = ({ className, label, suffix, help, labelClassName, sliderClassName, helpClassName, ...rest }: ISlider) => {
   const [rangeValue, setRangeValue] = useState(0)
 
   return (
     <>
       <div className={cx('slider_container', className)}>
-        <LabelTitle label={label} className={className} />
+        <LabelTitle label={label} className={labelClassName} />
         <input
           type='range'
-          className={cx('', className)}
+          className={cx('', sliderClassName)}
           value={rangeValue}
           onChange={e => setRangeValue(Number(e.target.value))}
           {...rest}
@@ -33,7 +36,7 @@ export const Slider = ({ className, label, suffix, help, ...rest }: ISlider) => 
         <div className='slider_container__value'>
           {rangeValue > 0 ? `${rangeValue} ${suffix}` : rangeValue}
         </div>
-        <HelpText className={className} help={help} />
+        <HelpText className={helpClassName} help={help} />
       </div>
     </>
   )
