@@ -13,6 +13,7 @@ type TLumButtonBase = {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
   disabled?: boolean
   ref?: MutableRefObject<HTMLButtonElement | null>
+  type?: 'button' | 'submit' | 'reset'
 }
 
 export type TLumButtonAsButton = TLumButtonBase & {
