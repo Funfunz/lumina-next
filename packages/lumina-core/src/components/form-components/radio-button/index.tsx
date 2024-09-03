@@ -1,12 +1,38 @@
-import { Radio, type ControlLogicProps } from 'react-form-component'
+import { InputHTMLAttributes } from 'react'
 import cx from 'classnames'
+import { LabelTitle } from '../utils/utility-components/label'
+import { HelpText } from '../utils/utility-components/help'
+interface IRadioButton extends InputHTMLAttributes<HTMLInputElement> {
+  className?: string
+  label?: string
+  help?: string
+  radioText?: string
+  labelClassName?: string;
+  radioClassName?: string;
+  helpClassName?: string;
+}
 
-export type { ControlLogicProps }
-
-export const LumRadio = (props: ControlLogicProps) => {
-  const defaultClass = 'lum__radio-button'
-  const className = cx(defaultClass, props.className)
-  const name = props.name
-
-  return <Radio {...props} name={name} className={className} />
+/**
+ * @label A text that is positioned on top of the input range
+ * @help  A helper text position below the slider
+ * @radioText The radio button option text
+ * @returns
+ */
+export const RadioButton = ({ className, label, help, radioText, labelClassName, radioClassName, helpClassName, ...rest }: IRadioButton) => {
+  return (
+    <>
+      <div className={cx('radio-button_container', className)}>
+        <LabelTitle label={label} className={labelClassName} />
+        <div className='radio-button_container__wrapper'>
+          <input
+            type='radio'
+            className={cx('radio-button_container__wrapper__check', radioClassName)}
+            {...rest}
+          />
+          <span className='radio-button_container__wrapper__text'>{radioText}</span>
+        </div>
+        <HelpText className={helpClassName} help={help} />
+      </div>
+    </>
+  )
 }

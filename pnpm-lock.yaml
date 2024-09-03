@@ -130,9 +130,6 @@ importers:
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
-      react-form-component:
-        specifier: ^2.6.6
-        version: 2.6.6(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-hook-form:
         specifier: ^7.52.2
         version: 7.52.2(react@18.3.1)

@@ -1,18 +1,61 @@
-// The .slider class should be added to classNames on the slider you want to render
-.lum__slider {
-  width: 100%;
+.slider_container {
+  &__value {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
 
-  .rfc-label {
-    margin-bottom: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--lum-color-black);
+input[type='range'] {
+
+  // Custom CSS according to Figma
+  width: 100%;
+  overflow: hidden;
+  // Removes the default appearance
+  appearance: none;
+  cursor: pointer;
+  border-radius: 16px;
+  outline: none;
+
+  &::-webkit-slider-runnable-track {
+
+    // Track - Webkit browsers
+    height: 15px;
+    background: var(--lum-color-grey);
+    border-radius: 16px;
   }
 
-  span {
-    margin-top: 10px;
-    font-size: 16px;
-    font-weight: 400;
-    color: var(--lum-color-grey);
+  &::-moz-range-track {
+
+    // Track - Mozilla Firefox
+    height: 15px;
+    background: var(--lum-color-grey);
+    border-radius: 16px;
+  }
+
+  &::-webkit-slider-thumb {
+
+    // Thumb - Webkit browsers
+    width: 15px;
+
+    // Custom CSS according to Figma
+    height: 15px;
+    //  Removes the default appearance
+    appearance: none;
+    background-color: var(--lum-color-white);
+    border: 2px solid var(--lum-color-accent-default);
+    border-radius: 50%;
+    box-shadow: -407px 0 0 400px var(--lum-color-accent-default);
+  }
+
+  &::-moz-range-thumb {
+
+    // Thumb - Mozilla Firefox
+    width: 15px;
+    height: 15px;
+    background-color: var(--lum-color-white);
+    border: 1px solid var(--lum-color-accent-default);
+    border-radius: 50%;
+    box-shadow: -407px 0 0 400px var(--lum-color-accent-default);
   }
 }

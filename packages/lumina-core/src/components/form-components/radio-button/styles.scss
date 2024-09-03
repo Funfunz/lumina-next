@@ -1,40 +1,68 @@
-// The .lum__radio-button class should be added to classNames on the radio-button you want to render
-.lum__radio-button {
+.radio-button_container {
+  display: flex;
+  flex-direction: column;
   width: 100%;
 
-  .rfc-label {
-    margin-bottom: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--lum-color-black);
-  }
+  &__wrapper {
+    display: flex;
+    align-items: center;
 
-  .rfc-checkitem {
-    font-size: 16px;
-    font-weight: 300;
-    color: var(--lum-color-black);
-  }
+    &__check {
+      position: relative;
+      width: 24px;
+      height: 24px;
+      margin-bottom: 4px;
+      appearance: none;
+      cursor: pointer;
+      background-color: var(--lum-color-surface-default);
+      border: 1px solid var(--lum-color-accent-default);
+      border-radius: 50%;
 
-  input::before {
-    margin: 0;
-    color: var(--lum-color-accent-default);
-    background-color: var(--lum-color-surface-default);
-    border: 1px solid var(--lum-color-accent-default);
-    border-radius: 10px;
-  }
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 2;
+        display: block;
+        width: 12px;
+        height: 12px;
+        content: '';
+        background-color: var(--lum-color-accent-default);
+        border-radius: 50%;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        transform: translate(-50%, -50%);
+      }
 
-  input:checked::after {
-    margin: -1px;
-    color: var(--lum-color-accent-default);
-    background-color: var(--lum-color-accent-default);
-    border: 1px solid var(--lum-color-accent-default);
-    border-radius: 10px;
-  }
+      &::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 1;
+        display: block;
+        width: 12px;
+        height: 12px;
+        content: '';
+        background-color: var(--lum-color-white);
+        border-radius: 50%;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        transform: translate(-50%, -50%);
+      }
 
-  span {
-    margin-top: 10px;
-    font-size: 16px;
-    font-weight: 400;
-    color: var(--lum-color-grey);
+      &:checked::before {
+        opacity: 1;
+      }
+
+      &:checked::after {
+        opacity: 1;
+      }
+    }
+
+    &__text {
+      margin-left: 8px;
+      font-size: 16px;
+      color: var(--lum-color-black);
+    }
   }
 }

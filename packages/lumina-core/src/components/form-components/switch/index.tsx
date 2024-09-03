@@ -1,20 +1,40 @@
-import { Switch, SwitchList, type ControlLogicProps } from 'react-form-component'
 import cx from 'classnames'
-
-export type { ControlLogicProps }
-
-export const LumSwitchList = (props: ControlLogicProps) => {
-  const defaultClass = 'lum__switch-list'
-  const className = cx(defaultClass, props.className)
-  const name = props.name
-
-  return <SwitchList {...props} name={name} className={className} />
+import { HelpText } from '../utils/utility-components/help'
+import { LabelTitle } from '../utils/utility-components/label'
+interface ISwitch {
+  className?: string
+  label?: string
+  help?: string
+  switchText?: string
+  labelClassName?: string;
+  switchClassName?: string;
+  helpClassName?: string;
 }
 
-export const LumSwitch = (props: ControlLogicProps) => {
-  const defaultClass = 'lum__switch-list'
-  const className = cx(defaultClass, props.className)
-  const name = props.name
-
-  return <Switch {...props} name={name} className={className} />
+/**
+ * @label A text that is positioned on top of the input range
+ * @help  A helper text position below the slider
+ * @switchText The switch button option text
+ * @returns
+ */
+export const Switch = ({ className, label, help, switchText, labelClassName, switchClassName, helpClassName, ...rest }: ISwitch) => {
+  return (
+    <>
+      <div className={cx('switch_container', className)}>
+        <LabelTitle label={label} className={labelClassName} />
+        <div className='switch_container-toggler'>
+          <label id='switch_toggler' role='switch'>
+            <input
+              id='switch_toggler'
+              type='checkbox'
+              className={cx('switch_container-toggler__input', switchClassName)}
+              {...rest}
+            />
+          </label>
+          <span className='switch_container-toggler__label'>{switchText}</span>
+        </div>
+        <HelpText className={helpClassName} help={help} />
+      </div>
+    </>
+  )
 }
