@@ -51,7 +51,11 @@ export const EditorModal = () => {
    * @param key defines the name of the property, this is given by the configuration of the component
    * @param value
    */
-  const handleOnChangeInput = (key: string, value: string | number) => {
+  const handleOnChangeInput = (key: string, value: string | number | boolean) => {
+    console.log({
+      ...formData,
+      [key]: value,
+    })
     setFormData({
       ...formData,
       [key]: value,
@@ -121,6 +125,7 @@ export const EditorModal = () => {
    * Edits the component data
    */
   const handleSaveData = useCallback(() => {
+    console.log({ formData })
     if (formData) {
       onUpdate && onUpdate(formData)
       dispatch({

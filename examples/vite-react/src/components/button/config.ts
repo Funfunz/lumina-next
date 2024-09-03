@@ -5,9 +5,51 @@ export const config: TConfig = {
   type: 'button',
   props: [
     {
+      type: 'singleSelect',
+      name: 'variant',
+      label: 'Variant',
+      arrayValues: ['contained', 'outlined', 'text'],
+    },
+    {
+      type: 'singleSelect',
+      name: 'color',
+      label: 'Color',
+      arrayValues: ['primary', 'secondary', 'success', 'error', 'info', 'warning'],
+    },
+    {
+      type: 'boolean',
+      name: 'disabled',
+      label: 'Disabled',
+    },
+    {
+      type: 'boolean',
+      name: 'disableElevation',
+      label: 'Disable Elevation',
+    },
+    {
+      type: 'boolean',
+      name: 'Disable Focus Ripple',
+      label: 'Disabled',
+    },
+    {
+      type: 'boolean',
+      name: 'disableRipple',
+      label: 'Disable Ripple',
+    },
+    {
+      type: 'boolean',
+      name: 'fullWidth',
+      label: 'Full Width',
+    },
+    {
       type: 'string',
       name: 'text',
       label: 'Text',
+    },
+    {
+      type: 'string',
+      name: 'href',
+      label: 'Fref',
     },
     {
       type: 'singleSelect',
@@ -15,15 +57,9 @@ export const config: TConfig = {
       label: 'Size',
       arrayValues: ['small', 'medium', 'large'],
     },
-    {
-      type: 'singleSelect',
-      name: 'style',
-      label: 'Style',
-      arrayValues: ['outlined', 'rounded'],
-    },
   ],
   editor: {
-    children: false,
+    children: true,
     editable: true,
     delete: true,
   },

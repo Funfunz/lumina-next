@@ -1,13 +1,13 @@
 'use client'
 
 import { ChangeEvent, ChangeEventHandler, PropsWithChildren, useCallback } from 'react'
-import type { TConfigItem, TConfigItemSelect } from '@/models/editor-buttonModel'
+import type { TConfigItem, TConfigItemSelect, TConfigItemValue } from '@/models/editor-buttonModel'
 
 type TProps = {
   config: TConfigItem
-  value: string | number | undefined
+  value: string | number | boolean | undefined
   /* eslint-disable no-unused-vars */
-  handleOnChangeInput: (key: string, value: string | number) => void
+  handleOnChangeInput: (key: string, value: string | number | boolean) => void
 }
 
 export const Form: React.FC<PropsWithChildren> = ({ children }) => {
@@ -22,10 +22,24 @@ function isSelect(config: TConfigItem): config is TConfigItemSelect {
   return config.type === 'singleSelect' || config.type === 'multiSelect'
 }
 
+function isCheckbox(config: TConfigItem): config is TConfigItemValue {
+  return config.type === 'boolean'
+}
+
 export const LuminaInputRenderer = ({ config, value, handleOnChangeInput }: TProps) => {
   const handleOnChangeInputElement = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
-      handleOnChangeInput(config.name, event.target.value)
+      handleOnChangeInput(
+        config.name,
+        config.type === 'number' ? Number(event.target.value) : event.target.value
+      )
+    },
+    [handleOnChangeInput, config.name]
+  )
+
+  const handleOnChangeCheckboxElement = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      handleOnChangeInput(config.name, event.currentTarget.checked)
     },
     [handleOnChangeInput, config.name]
   )
@@ -46,7 +60,7 @@ export const LuminaInputRenderer = ({ config, value, handleOnChangeInput }: TPro
         {(isSelect(config) && (
           <select
             onChange={handleOnChangeSelectElement}
-            value={value}
+            value={value as string}
             id={(config as TConfigItemSelect).name}
           >
             {(config as TConfigItemSelect).arrayValues.map(item => (
@@ -55,16 +69,26 @@ export const LuminaInputRenderer = ({ config, value, handleOnChangeInput }: TPro
               </option>
             ))}
           </select>
-        )) || (
-          <input
-            className='inputField'
-            type={config.type}
-            value={value}
-            id={config.name}
-            name={config.name}
-            onChange={handleOnChangeInputElement}
-          ></input>
-        )}
+        )) ||
+          (isCheckbox(config) && (
+            <input
+              className='inputField'
+              type='checkbox'
+              id={config.name}
+              name={config.name}
+              onChange={handleOnChangeCheckboxElement}
+              checked={value as boolean}
+            ></input>
+          )) || (
+            <input
+              className='inputField'
+              type={config.type}
+              value={value as string}
+              id={config.name}
+              name={config.name}
+              onChange={handleOnChangeInputElement}
+            ></input>
+          )}
       </td>
     </tr>
   )

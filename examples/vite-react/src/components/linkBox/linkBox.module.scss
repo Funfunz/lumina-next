@@ -1,9 +1,9 @@
 .card {
   position: relative;
   padding: 1rem 1.2rem;
+  background: rgb(180 185 188 / 0%);
+  border: 1px solid rgb(180 185 188 / 0%);
   border-radius: 12px;
-  background: rgba(180, 185, 188, 0);
-  border: 1px solid rgba(180, 185, 188, 0);
   transition:
     background 200ms,
     border 200ms;
@@ -15,23 +15,23 @@
 }
 
 .card h2 {
-  font-weight: 600;
   margin-bottom: 0.7rem;
+  font-weight: 600;
 }
 
 .card p {
+  max-width: 30ch;
   margin: 0;
-  opacity: 0.6;
   font-size: 0.9rem;
   line-height: 1.5;
-  max-width: 30ch;
+  opacity: 0.6;
 }
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
-    background: rgba(180, 185, 188, 0.1);
-    border: 1px solid rgba(131, 134, 135, 0.15);
+    background: rgb(180 185 188 / 10%);
+    border: 1px solid rgb(131 134 135 / 15%);
   }
 
   .card:hover > h2 span {
@@ -46,7 +46,7 @@
 }
 
 /* Mobile */
-@media (max-width: 700px) {
+@media (width <= 700px) {
   .card {
     padding: 1rem 2.5rem;
   }
