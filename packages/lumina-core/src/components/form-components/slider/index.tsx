@@ -2,24 +2,34 @@ import { InputHTMLAttributes, useState } from 'react'
 import cx from 'classnames'
 import { HelpText } from '../utils/utility-components/help'
 import { LabelTitle } from '../utils/utility-components/label'
-interface ISlider extends InputHTMLAttributes<HTMLInputElement> {
+
+type TSliderProps = InputHTMLAttributes<HTMLInputElement> & {
   className?: string
   label?: string
   disabled?: boolean
   suffix?: string
   help?: string
-  labelClassName?: string;
-  sliderClassName?: string;
-  helpClassName?: string;
+  labelClassName?: string
+  sliderClassName?: string
+  helpClassName?: string
 }
 
 /**
  * @label A text that is positioned on top of the input range
  * @help  A helper text position below the slider
- * @suffix Can take the following values '€' | 'km' | 'm' (for now)
+ * @suffix Can take any value
  * @returns
  */
-export const Slider = ({ className, label, suffix, help, labelClassName, sliderClassName, helpClassName, ...rest }: ISlider) => {
+export const Slider = ({
+  className,
+  label,
+  suffix = '',
+  help,
+  labelClassName,
+  sliderClassName,
+  helpClassName,
+  ...rest
+}: TSliderProps) => {
   const [rangeValue, setRangeValue] = useState(0)
 
   return (

@@ -3,14 +3,14 @@ import cx from 'classnames'
 import { LabelTitle } from '../utils/utility-components/label'
 import { HelpText } from '../utils/utility-components/help'
 
-interface ICheckbox extends InputHTMLAttributes<HTMLInputElement> {
+type TCheckboxProps = InputHTMLAttributes<HTMLInputElement> & {
   className?: string
   label?: string
   help?: string
   checkboxText?: string
-  labelClassName?: string;
-  checkboxClassName?: string;
-  helpClassName?: string;
+  labelClassName?: string
+  checkboxClassName?: string
+  helpClassName?: string
 }
 
 /**
@@ -19,7 +19,16 @@ interface ICheckbox extends InputHTMLAttributes<HTMLInputElement> {
  * @checkboxText The checkbox option text
  * @returns
  */
-export const CheckBox = ({ className, label, help, checkboxText, labelClassName, checkboxClassName, helpClassName, ...rest }: ICheckbox) => {
+export const CheckBox = ({
+  className,
+  label,
+  help,
+  checkboxText,
+  labelClassName,
+  checkboxClassName,
+  helpClassName,
+  ...rest
+}: TCheckboxProps) => {
   return (
     <>
       <div className={cx('checkbox_container', className)}>

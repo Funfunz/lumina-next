@@ -1,12 +1,12 @@
 import cx from 'classnames'
 import { forwardRef, InputHTMLAttributes } from 'react'
 
-interface ILabelProps extends InputHTMLAttributes<HTMLLabelElement> {
+type TLabelProps = InputHTMLAttributes<HTMLLabelElement> & {
   className?: string
   label?: string
 }
 
-export const LabelTitle = forwardRef<HTMLLabelElement, ILabelProps>(
+export const LabelTitle = forwardRef<HTMLLabelElement, TLabelProps>(
   ({ className, label, ...rest }, ref) => {
     return (
       <label className={cx('label-title', className)} ref={ref} {...rest}>

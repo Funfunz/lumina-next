@@ -2,14 +2,15 @@ import { InputHTMLAttributes } from 'react'
 import cx from 'classnames'
 import { LabelTitle } from '../utils/utility-components/label'
 import { HelpText } from '../utils/utility-components/help'
-interface IRadioButton extends InputHTMLAttributes<HTMLInputElement> {
+
+type TRadioButtonProps = InputHTMLAttributes<HTMLInputElement> & {
   className?: string
   label?: string
   help?: string
   radioText?: string
-  labelClassName?: string;
-  radioClassName?: string;
-  helpClassName?: string;
+  labelClassName?: string
+  radioClassName?: string
+  helpClassName?: string
 }
 
 /**
@@ -18,7 +19,16 @@ interface IRadioButton extends InputHTMLAttributes<HTMLInputElement> {
  * @radioText The radio button option text
  * @returns
  */
-export const RadioButton = ({ className, label, help, radioText, labelClassName, radioClassName, helpClassName, ...rest }: IRadioButton) => {
+export const RadioButton = ({
+  className,
+  label,
+  help,
+  radioText,
+  labelClassName,
+  radioClassName,
+  helpClassName,
+  ...rest
+}: TRadioButtonProps) => {
   return (
     <>
       <div className={cx('radio-button_container', className)}>
