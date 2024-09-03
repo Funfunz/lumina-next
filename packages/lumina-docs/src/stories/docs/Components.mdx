@@ -6,7 +6,39 @@ import Github from '../assets/github.svg'
 
 # Required Configuration
 
-## General Configuration
+## General configuration
+
+All components should set their configurations on the general config.ts file, on the root of the prj.
+
+```js
+luminaConfig: TComponentConfig = {
+  linkbox: {
+    component: LinkBox,
+    config: configLinkBox,
+  },
+  image: {
+    component: Image,
+    config: configImage,
+  },
+  title: {
+    component: Title,
+    config: configTitle,
+  },
+  flex: {
+    component: Flex,
+    config: configFlex,
+  },
+  button: {
+    component: Button,
+    config: configButton,
+  },
+}
+```
+
+- **component** : the component itself
+- **config** : configurations file for the component
+
+## Component Configuration
 
 The components should export a config object with the following properties:
 
@@ -167,7 +199,7 @@ The components should export a config object with the following properties:
       <td>**Description**</td>
       <td>**Required**</td>
       <td>**Default**</td>
-      <td>**Possile**</td>
+      <td>**Possible**</td>
     </tr>
   </thead>
   <tbody>
@@ -177,7 +209,7 @@ The components should export a config object with the following properties:
         <span style={{ color: 'green' }}>string</span>
       </td>
       <td>Type of the property</td>
-      <td>❌</td>
+      <td>✅</td>
       <td>undefined</td>
       <td>string / number / singleSelect / multiSelect</td>
     </tr>
@@ -187,7 +219,7 @@ The components should export a config object with the following properties:
         <span style={{ color: 'green' }}>string</span>
       </td>
       <td>The name of property inside the component</td>
-      <td>❌</td>
+      <td>✅</td>
       <td>undefined</td>
       <td></td>
     </tr>
@@ -197,7 +229,7 @@ The components should export a config object with the following properties:
         <span style={{ color: 'green' }}>string</span>
       </td>
       <td>The label showed on the Lumina editor UI</td>
-      <td>❌</td>
+      <td>✅</td>
       <td>undefined</td>
       <td></td>
     </tr>
@@ -207,19 +239,19 @@ The components should export a config object with the following properties:
         <span style={{ color: 'green' }}>array</span>
       </td>
       <td>Set of properties used in the component</td>
-      <td>❌</td>
+      <td>string / number - ❌ singleSelect / multiSelect - ✅</td>
       <td>undefined</td>
       <td>['small', 'medium', 'large'], ['outlined', 'rounded'], ['column', 'row']</td>
     </tr>
   </tbody>
 </table>
 
-### Example general configuration
+### Example component configuration
 
 ```js
 import { TConfig } from '@lumina/core'
 
-export const config: TConfig = {
+ const config: TConfig = {
   name: 'Title',
   type: 'title',
   props: [
