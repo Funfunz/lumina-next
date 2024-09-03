@@ -19,42 +19,49 @@ import { config as configText } from '../components/text/config'
 import { Flex } from '../components/flex/flex'
 import { config as configFlex } from '../components/flex/config'
 
+import { Menu } from '../components/menu/menu'
+import { config as configMenu } from '../components/menu/config'
+
 import { TComponentConfig } from '@lumina/core'
 import { Button } from '../components/button/button'
 import { config as configButton } from '../components/button/config'
 
 const luminaConfig: TComponentConfig = {
-  linkbox: {
+  [configLinkBox.type]: {
     component: LinkBox,
     config: configLinkBox,
   },
-  gridContainer: {
+  [configGrid.type]: {
     component: Grid,
     config: configGrid,
   },
-  gridItem: {
+  [configGridItem.type]: {
     component: GridItem,
     config: configGridItem,
   },
-  image: {
+  [configImage.type]: {
     component: Image,
     config: configImage,
   },
-  title: {
+  [configTitle.type]: {
     component: Title,
     config: configTitle,
   },
-  flex: {
+  [configFlex.type]: {
     component: Flex,
     config: configFlex,
   },
-  button: {
+  [configButton.type]: {
     component: Button,
     config: configButton,
   },
-  text: {
+  [configText.type]: {
     component: Text,
     config: configText,
+  },
+  [configMenu.type]: {
+    component: Menu,
+    config: configMenu,
   },
 }
 

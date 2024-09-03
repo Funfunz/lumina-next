@@ -11,10 +11,19 @@ const data: IData = {
     route: '/',
     children: [
       {
+        id: 'menu_e9keea0jop',
+        type: 'menu',
+        friendlyName: 'menu',
+        children: [],
+        order: 1,
+        hidden: false,
+        props: {},
+      },
+      {
         id: 'grid1',
         friendlyName: 'grid1',
         type: 'gridContainer',
-        order: 1,
+        order: 2,
         hidden: false,
         children: [
           {
@@ -101,7 +110,7 @@ const data: IData = {
         id: 'grid3',
         friendlyName: 'grid3',
         type: 'gridContainer',
-        order: 2,
+        order: 3,
         hidden: false,
         children: [
           {

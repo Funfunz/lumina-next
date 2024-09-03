@@ -6,20 +6,27 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          index
-          element={<Lumina getData={getFullData} selectedPage='home' components={luminaConfig} />}
-        />
-        <Route
-          path='/editor'
-          element={
-            <Lumina getData={getFullData} selectedPage='home' components={luminaConfig} isEditor />
-          }
-        />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            index
+            element={<Lumina getData={getFullData} selectedPage='home' components={luminaConfig} />}
+          />
+          <Route
+            path='/editor'
+            element={
+              <Lumina
+                getData={getFullData}
+                selectedPage='home'
+                components={luminaConfig}
+                isEditor
+              />
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </>
   )
 }
 
