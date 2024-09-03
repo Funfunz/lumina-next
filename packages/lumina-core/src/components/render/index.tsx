@@ -22,19 +22,28 @@ export const Render = ({ elements }: IProps) => {
   ) {
     data = builderDataContext.builderData[builderDataContext.selectedPage].children!
   }
-
   return (
     <>
-      {data.map((component, index) => {
-        if (component?.hidden) return
-        const LoadedComponent = DynamicComponent(component.type)?.component
-        if (!LoadedComponent) return null
-        return (
-          <LoadedComponent key={index} {...component.props} id={component.id}>
-            <Render elements={component.children} />
-          </LoadedComponent>
-        )
-      })}
+      {data
+        .sort((a, b) => {
+          if (a.order > b.order) {
+            return 1
+          }
+          if (a.order < b.order) {
+            return -1
+          }
+          return 0
+        })
+        .map((component, index) => {
+          if (component?.hidden) return
+          const LoadedComponent = DynamicComponent(component.type)?.component
+          if (!LoadedComponent) return null
+          return (
+            <LoadedComponent key={index} {...component.props} id={component.id}>
+              <Render elements={component.children} />
+            </LoadedComponent>
+          )
+        })}
     </>
   )
 }

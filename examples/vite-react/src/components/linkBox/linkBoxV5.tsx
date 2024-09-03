@@ -18,7 +18,7 @@ export const LinkBox = ({ id, title, description, href, color = 'black' }: TProp
       <EditorButtonsContainer
         id={id}
         config={config}
-        data={{ id, title, description, href, color }}
+        componentProps={{ id, title, description, href, color }}
       />
       <h2 style={{ color }}>
         {title} <span>-&gt;</span>

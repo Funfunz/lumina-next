@@ -1,6 +1,6 @@
 import Select from 'react-select'
 import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from 'react'
-import { useToggleModalContext } from '@/context/handleModalsContext'
+import { useToggleModalContext } from '@/context/toggleModalContextProvider'
 import { getComponentConfig } from '@/main'
 import type { TConfig } from '@/models/editor-buttonModel'
 import type { TAddModalProps } from '@/components/modals'

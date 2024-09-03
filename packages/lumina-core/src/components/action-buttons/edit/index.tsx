@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
 import { Button } from '@/components/button'
-import { EDITMODAL, useToggleModalContext } from '@/context/handleModalsContext'
-import { useToggleMenuContext } from '@/context/toggleMenuContext'
+import { EDITMODAL, useToggleModalContext } from '@/context/toggleModalContextProvider'
+import { useToggleMenuContext } from '@/context/toggleMenuContextProvider'
 import type { IComponentProps } from '@/models/data'
 import type { TConfig } from '@/models/editor-buttonModel'
 
 type TProps = {
   componentId: string
-  data: IComponentProps
+  componentProps?: IComponentProps
   onUpdate?: (data: IComponentProps) => void
   config: TConfig
   buttonLabel?: string
@@ -22,7 +22,7 @@ type TProps = {
  */
 export const EditComponentButton = ({
   componentId,
-  data,
+  componentProps,
   onUpdate,
   config,
   buttonLabel,
@@ -36,7 +36,7 @@ export const EditComponentButton = ({
     event.preventDefault()
     handleOpenModal({
       id: componentId,
-      data,
+      componentProps,
       config,
       modalType: EDITMODAL,
       onUpdate,
