@@ -1,0 +1,42 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs'
+import { useActivateOnEnter } from '@lumina/core/src/components/form-components/utils/hooks/useActivateOnEnter/index.tsx'
+
+<Meta of={UseActivateOnEnterStories} title='Hooks/useActivateOnEnter' />
+
+# useActivateOnEnter
+
+`useActivateOnEnter` is a custom hook that provides form handling capabilities with optional enter key activation and clearing.
+
+## Usage
+
+```jsx
+import { useActivateOnEnter } from '@lumina/core/src/components/form-components/utils/hooks/useActivateOnEnter/index.tsx'
+
+const MyComponent = () => {
+  const { value, setValue, inputRef, handleKeyDown } = useActivateOnEnter({
+    activateEnterPress: true,
+    clearOnEnterPress: false,
+    onEnterPress: () => console.log('Enter pressed'),
+    onChange: e => console.log(e.target.value),
+    value: '',
+  })
+
+  return (
+    <input
+      ref={inputRef}
+      value={value}
+      onChange={e => setValue(e.target.value)}
+      onKeyDown={handleKeyDown}
+    />
+  )
+}
+```
+
+<Canvas of={UseActivateOnEnterStories.Primary} />
+
+### Explanation:
+
+- **Meta**:
+- **Title**:
+- **Usage**:
+- **Props**:
