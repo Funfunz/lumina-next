@@ -1,42 +1,78 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs'
-import { useActivateOnEnter } from '@lumina/core/src/components/form-components/utils/hooks/useActivateOnEnter/index.tsx'
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
 
-<Meta of={UseActivateOnEnterStories} title='Hooks/useActivateOnEnter' />
+<Meta title='Components Lumina/Forms/Hooks/useActivateOnEnter' />
 
-# useActivateOnEnter
+# useActivateOnEnter Custom Hook
 
-`useActivateOnEnter` is a custom hook that provides form handling capabilities with optional enter key activation and clearing.
+## Concepts
+
+The main purpose of this hook is to extend a component to have the possibility to have a enter on press, specifically while using `<Input />` component.
+
+## Props
+
+- `activateEnterPress` will be a prop that can be activated on a component to submit on enter press
+- `clearOnEnterPress` will be another prop that can be activated on a component to clear the Input field on enter press
+- `onEnterPress` is a void function that can be used to run another function that needs to run on enter press (needs to be used alongside `activateEnterPress`)
+
+As for the props in useInput:
+
+- `value`: `inputValue` binds the current state value to the input field
+- `setValue` Updates the state when the input value changes (updates the `inputValue` state)
+- `inputRef` Provides a reference to the input field for direct manipulation
+- `handleKeyDown` Adds a custom behaviour for keydown events, in this case, the `Enter` key
 
 ## Usage
 
+You can use this hook by importing on the component you want as follows
+
 ```jsx
-import { useActivateOnEnter } from '@lumina/core/src/components/form-components/utils/hooks/useActivateOnEnter/index.tsx'
+import { useActivateOnEnter } from '@lumina/packages/lumina-core/src/components/form-components/utils/hooks/useActivateOnEnter/index.tsx'
+```
 
-const MyComponent = () => {
-  const { value, setValue, inputRef, handleKeyDown } = useActivateOnEnter({
-    activateEnterPress: true,
-    clearOnEnterPress: false,
-    onEnterPress: () => console.log('Enter pressed'),
-    onChange: e => console.log(e.target.value),
-    value: '',
-  })
+After that, the `props` should be called either as an `interface` or a `type` of `MyComponent` that will be used on
 
-  return (
-    <input
-      ref={inputRef}
-      value={value}
-      onChange={e => setValue(e.target.value)}
-      onKeyDown={handleKeyDown}
-    />
-  )
+```jsx
+type TMyComponentProps = {
+  props1: number
+  props2: string
+  props3: () => void
+  activateEnterPress?: boolean
+  clearOnEnterPress?: boolean
+  onEnterPress?: () => void
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  value?: string
 }
 ```
 
-<Canvas of={UseActivateOnEnterStories.Primary} />
+Also add them to the component `props` from `MyComponent` as well
 
-### Explanation:
+```jsx
+export const MyComponent = ({props1, props2, props3, activateEnterPress, clearOnEnterPress, onEnterPress, onChange, value }: TMyComponentProps){}
+```
 
-- **Meta**:
-- **Title**:
-- **Usage**:
-- **Props**:
+Then, you can call the `Custom Hook` as shown below
+
+```jsx
+const {
+  value: inputValue,
+  setValue,
+  inputRef,
+  handleKeyDown,
+} = useActivateOnEnter({ activateEnterPress, clearOnEnterPress, onEnterPress, onChange, Value })
+```
+
+On `MyComponent`, you can simply return the `props` in another `AnotherComponent` as the example below
+
+```jsx
+return (
+  <AnotherComponent
+    props1={props1}
+    props2={props2}
+    props3={props3}
+    ref={inputRef}
+    onKeyDown={handleKeyDown}
+    value={inputValue}
+    onChange={e => setValue(e.target.value)}
+  />
+)
+```
