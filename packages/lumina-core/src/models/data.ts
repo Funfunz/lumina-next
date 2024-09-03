@@ -25,9 +25,10 @@ export interface IPageData {
   extendedName: string
   dateModified: string
   status: string
-  children?: IPageData[]
+  children?: IComponentData[]
   props?: IPageProps
   route: string
+  isMatch?: boolean
 }
 
 export interface IData {

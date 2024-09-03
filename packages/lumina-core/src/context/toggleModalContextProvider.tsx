@@ -11,7 +11,7 @@ type TToggleModalProps = {
   componentProps?: IComponentProps
   pageProps?: IPageProps
   config?: TConfig
-  onUpdate?: ((data: IComponentProps) => void) | ((data: IPageProps) => void)
+  onUpdate?: (data: IComponentProps) => void
   id?: string
   modalType: typeof ADDMODAL | typeof EDITMODAL | typeof DELETEMODAL | null
 }
