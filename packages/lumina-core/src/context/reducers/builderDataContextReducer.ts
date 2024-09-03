@@ -115,7 +115,6 @@ function deleteElement(components: IComponentData[], targetId: string): ICompone
     .map(element => {
       if (element.id === targetId) {
         return undefined
-        return undefined
       }
       if (element.children) {
         element.children = [...deleteElement(element.children, targetId)]
