@@ -1,7 +1,7 @@
-import React from 'react'
 import cx from 'classnames'
 import { LabelTitle } from '../utils/utility-components/label'
 import { HelpText } from '../utils/utility-components/help'
+import { forwardRef } from 'react'
 
 type TInputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   className?: string
@@ -17,7 +17,7 @@ type TInputProps = React.InputHTMLAttributes<HTMLInputElement> & {
  * @help  A helper text position below the slider
  * @returns
  */
-export const Input = React.forwardRef<HTMLInputElement, TInputProps>(
+export const Input = forwardRef<HTMLInputElement, TInputProps>(
   ({ label, help, className, labelClassName, inputClassName, helpClassName, ...rest }, ref) => {
     return (
       <div className={cx('input-container', className)}>
