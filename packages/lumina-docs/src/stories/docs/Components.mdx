@@ -38,7 +38,11 @@ The components should export a config object with the following properties:
       <td>
         undefined
       </td>
-      <td></td>
+      <td>
+         ```ts
+      name: 'Button'
+      ```
+      </td>
     </tr>
     <tr>
       <td>
@@ -56,7 +60,11 @@ The components should export a config object with the following properties:
       <td>
         undefined
       </td>
-      <td></td>
+      <td>
+      ```ts
+      type: 'button'
+      ```
+      </td>
     </tr>
     <tr>
       <td>
@@ -74,7 +82,29 @@ The components should export a config object with the following properties:
       <td>
         {"[]"}
       </td>
-      <td></td>
+      <td>
+      ```ts
+        props: [
+    {
+      type: 'string',
+      name: 'text',
+      label: 'Text',
+    },
+    {
+      type: 'singleSelect',
+      name: 'size',
+      label: 'Size',
+      arrayValues: ['small', 'medium', 'large'],
+    },
+    {
+      type: 'singleSelect',
+      name: 'style',
+      label: 'Style',
+      arrayValues: ['outlined', 'rounded'],
+    },
+  ]
+      ```
+      </td>
     </tr>
     <tr>
       <td>
@@ -98,7 +128,15 @@ The components should export a config object with the following properties:
         }
         ```
       </td>
-      <td></td>
+      <td>
+      ```ts
+        editor: {
+    children: false,
+    editable: true,
+    delete: true,
+  },
+      ```
+      </td>
     </tr>
     <tr>
       <td>
@@ -116,7 +154,11 @@ The components should export a config object with the following properties:
       <td>
       undefined
       </td>
-      <td></td>
+      <td>
+        ```ts
+     children: false
+      ```
+      </td>
     </tr>
     <tr>
       <td>
@@ -134,7 +176,11 @@ The components should export a config object with the following properties:
       <td>
         	undefined
       </td>
-      <td></td>
+      <td>
+       ```ts
+      editable: true
+      ```
+      </td>
     </tr>
     <tr>
       <td>
@@ -152,7 +198,11 @@ The components should export a config object with the following properties:
       <td>
        	undefined 
       </td>
-      <td></td>
+      <td>
+      ```ts
+      delete: true
+      ```
+      </td>
     </tr>
   </tbody>
 </table>
@@ -181,10 +231,10 @@ The components should export a config object with the following properties:
       <td>undefined</td>
       <td>
       ```ts
-      string
-      number
-      singleSelect
-      multiSelect
+      type: 'singleSelect'
+      type: 'string'
+      type: 'number'
+      type: 'multiSelect',
       ```
       </td>
     </tr>
@@ -196,7 +246,11 @@ The components should export a config object with the following properties:
       <td>The name of property inside the component</td>
       <td>✅</td>
       <td>undefined</td>
-      <td></td>
+      <td>
+      ```ts
+      name: 'text'
+      ```
+      </td>
     </tr>
     <tr>
       <td>label</td>
@@ -206,7 +260,11 @@ The components should export a config object with the following properties:
       <td>The label showed on the Lumina editor UI</td>
       <td>✅</td>
       <td>undefined</td>
-      <td></td>
+      <td>
+      ```ts
+      label: 'Text'
+      ```
+      </td>
     </tr>
     <tr>
       <td>arrayValues</td>
@@ -224,7 +282,7 @@ The components should export a config object with the following properties:
       </td>
       <td>undefined</td>
       <td>
-      ```js
+      ```ts
      arrayValues: ['small', 'medium', 'large']
            ```
       </td>
