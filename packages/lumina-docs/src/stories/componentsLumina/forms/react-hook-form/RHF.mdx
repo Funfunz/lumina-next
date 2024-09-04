@@ -6,9 +6,9 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
 
 ## Concept
 
-`React Hook Form`, or `RHF` for short, is a library based on `hooks` that we will be using for <strong>input validation</strong> for all forms components that we have (<strong>when needed</strong>). This has to applied on each component use case when needed, and example would be a `Login` (<strong>which I have left that example in this Storybook</strong>)
+`React Hook Form`, or `RHF` for short, is a library based on `hooks` that we will be using for **input validation** for all forms components that we have (**when needed**). This has to applied on each component use case when needed, and example would be a `Login` (**which I have left that example in this Storybook**)
 
-You can learn more @[React Hook Form official website](https://react-hook-form.com/get-started)
+You can learn more **@[React Hook Form official website](https://react-hook-form.com/get-started)**
 
 ## Imports
 
@@ -30,13 +30,13 @@ Use `import { SubmitHandler, useForm } from 'react-hook-form'` to start working 
 
 Invoke the hook as follows
 
-```jsx
+```tsx
 const form = useForm()
 ```
 
 After that we can destructure the `form` into other properties as shown below
 
-```jsx
+```tsx
 const {
   register,
   handleSubmit,
@@ -51,7 +51,7 @@ TProps >
 
 A small code snippet for usage context
 
-```jsx
+```tsx
 <Input
   {...register('email', {
     required: 'Email is required',
@@ -66,4 +66,4 @@ A small code snippet for usage context
 />
 ```
 
-On the `Login Example`, I will leave the whole code for a normal login form to be rendered with validation.
+On the **`Login Example`**, I will leave the whole code for a normal login form to be rendered with validation.

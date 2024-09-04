@@ -13,6 +13,8 @@ type TFormHookProps = {
  * @activateEnterPress A boolean prop that if called, activates button press do submit
  * @clearOnEnterPress Clears the input field after submiting with activateEnterPress
  * @onEnterPress Used alongside 'activateEnterPress' in case there needs to be passed a function on 'activateEnterPress'
+ * @onChange Callback function that is executed whenever the input value changes
+ * @value The initial value of the input field
  * @returns
  */
 export const useActivateOnEnter = ({
@@ -35,6 +37,7 @@ export const useActivateOnEnter = ({
   }, [value, onChange])
 
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    console.log(handleKeyDown)
     if (event.key === 'Enter') {
       if (activateEnterPress) {
         if (onEnterPress) {

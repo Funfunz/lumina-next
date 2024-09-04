@@ -6,7 +6,7 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
 
 ## Imports
 
-```jsx
+```tsx
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { Input } from '@lumina/core/src/components/form-components/input/index.tsx'
 import { Button } from '@lumina/core/src/components/button/index.tsx'
@@ -14,16 +14,16 @@ import { Button } from '@lumina/core/src/components/button/index.tsx'
 
 ## Props
 
-```jsx
+```tsx
 type TProps = {
-  email: string
-  password: string
+  email: String
+  password: String
 }
 ```
 
 ## Login Component
 
-```jsx
+```tsx
 export const LoginComponent = () => {
   const {
     register,
@@ -47,47 +47,42 @@ export const LoginComponent = () => {
     }
   }
 
-
-```
-
-## Return Input and Button components with Validation
-
-```jsx
-return (
-  <form noValidate onSubmit={handleSubmit(onSubmit)}>
-    <Input
-      {...register('email', {
-        required: 'Email is required',
-        pattern: {
-          value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
-          message: 'Please input a valid email',
-        },
-      })}
-      label='Email'
-      type='email'
-      placeholder='Email'
-    />
-    {errors.email && <div className='error'>{errors.email.message}</div>}
-    <Input
-      {...register('password', {
-        required: 'Password is required',
-        minLength: {
-          value: 8,
-          message: 'Minimum 8 characters',
-        },
-      })}
-      label='Password'
-      type='password'
-      placeholder='Password'
-      autoComplete='off'
-    />
-    {errors.password && <p className='error'>{errors.password.message}</p>}
-    <Button
-      disabled={isSubmitting}
-      buttonType='button'
-      type='submit'
-      text={isSubmitting ? 'Loading..' : 'Submit'}
-    />
-  </form>
-)
+  return (
+    <form noValidate onSubmit={handleSubmit(onSubmit)}>
+      <Input
+        {...register('email', {
+          required: 'Email is required',
+          pattern: {
+            value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+            message: 'Please input a valid email',
+          },
+        })}
+        label='Email'
+        type='email'
+        placeholder='Email'
+      />
+      {errors.email && <div className='error'>{errors.email.message}</div>}
+      <Input
+        {...register('password', {
+          required: 'Password is required',
+          minLength: {
+            value: 8,
+            message: 'Minimum 8 characters',
+          },
+        })}
+        label='Password'
+        type='password'
+        placeholder='Password'
+        autoComplete='off'
+      />
+      {errors.password && <p className='error'>{errors.password.message}</p>}
+      <Button
+        disabled={isSubmitting}
+        buttonType='button'
+        type='submit'
+        text={isSubmitting ? 'Loading..' : 'Submit'}
+      />
+    </form>
+  )
+}
 ```
