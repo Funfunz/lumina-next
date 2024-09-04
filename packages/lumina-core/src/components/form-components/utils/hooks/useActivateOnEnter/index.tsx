@@ -37,7 +37,6 @@ export const useActivateOnEnter = ({
   }, [value, onChange])
 
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-    console.log(handleKeyDown)
     if (event.key === 'Enter') {
       if (activateEnterPress) {
         if (onEnterPress) {

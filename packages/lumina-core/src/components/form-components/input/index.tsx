@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import cx from 'classnames'
 import { LabelTitle } from '../utils/utility-components/label'
 import { HelpText } from '../utils/utility-components/help'
