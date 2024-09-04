@@ -1,8 +1,8 @@
 import { Meta, Markdown } from '@storybook/blocks'
 
-import Github from '../assets/github.svg'
+import Github from '../../assets/github.svg'
 
-<Meta title='Docs/Required Configuration' />
+<Meta title='Docs/Components/Required Configuration' />
 
 # Required Configuration
 
@@ -18,7 +18,6 @@ The components should export a config object with the following properties:
       <td>**Description**</td>
       <td>**Required**</td>
       <td>**Default**</td>
-      <td>**Example**</td>
     </tr>
   </thead>
   <tbody>
@@ -36,12 +35,7 @@ The components should export a config object with the following properties:
         ✅
       </td>
       <td>
-        undefined
-      </td>
-      <td>
-         ```ts
-      name: 'Button'
-      ```
+        <span style={{color:"#A31515"}}>undefined</span>
       </td>
     </tr>
     <tr>
@@ -58,12 +52,7 @@ The components should export a config object with the following properties:
         ✅
       </td>
       <td>
-        undefined
-      </td>
-      <td>
-      ```ts
-      type: 'button'
-      ```
+        <span style={{color:"#A31515"}}>undefined</span>
       </td>
     </tr>
     <tr>
@@ -71,7 +60,7 @@ The components should export a config object with the following properties:
         props
       </td>
       <td>
-          <span style={{color:"green"}}>array{"["}[componentPropsItem](#componentpropsitem){"]"}</span>
+          <span style={{color:"green"}}>[[ComponentProps](#ComponentProps)]</span>
       </td>
       <td>
         An array that identifies each property needed by the component.
@@ -80,30 +69,7 @@ The components should export a config object with the following properties:
         ❌
       </td>
       <td>
-        {"[]"}
-      </td>
-      <td>
-      ```ts
-        props: [
-    {
-      type: 'string',
-      name: 'text',
-      label: 'Text',
-    },
-    {
-      type: 'singleSelect',
-      name: 'size',
-      label: 'Size',
-      arrayValues: ['small', 'medium', 'large'],
-    },
-    {
-      type: 'singleSelect',
-      name: 'style',
-      label: 'Style',
-      arrayValues: ['outlined', 'rounded'],
-    },
-  ]
-      ```
+        <span style={{color:"#A31515"}}>[]</span>
       </td>
     </tr>
     <tr>
@@ -111,7 +77,15 @@ The components should export a config object with the following properties:
         editor
       </td>
       <td>
-          <span style={{color:"green"}}>object</span>
+        <span style={{color:"green"}}>
+          ```js
+          {
+            children: boolean,
+            editable: boolean
+            deletable: boolean
+          }
+          ```
+        </span>
       </td>
       <td>
         An object used by Lumina to know the available actions allowed, when in editor mode.
@@ -120,22 +94,7 @@ The components should export a config object with the following properties:
         ✅
       </td>
       <td>
-        ```json
-          {
-          "children": undefined,
-          "editable": undefined,
-          "delete": undefined,
-        }
-        ```
-      </td>
-      <td>
-      ```ts
-        editor: {
-    children: false,
-    editable: true,
-    delete: true,
-  },
-      ```
+        <span style={{color:"#A31515"}}>undefined</span>
       </td>
     </tr>
     <tr>
@@ -152,12 +111,7 @@ The components should export a config object with the following properties:
         ✅
       </td>
       <td>
-      undefined
-      </td>
-      <td>
-        ```ts
-     children: false
-      ```
+        <span style={{color:"#A31515"}}>undefined</span>
       </td>
     </tr>
     <tr>
@@ -174,12 +128,7 @@ The components should export a config object with the following properties:
         ✅
       </td>
       <td>
-        	undefined
-      </td>
-      <td>
-       ```ts
-      editable: true
-      ```
+        <span style={{color:"#A31515"}}>undefined</span>
       </td>
     </tr>
     <tr>
@@ -196,18 +145,15 @@ The components should export a config object with the following properties:
         ✅
       </td>
       <td>
-       	undefined 
-      </td>
-      <td>
-      ```ts
-      delete: true
-      ```
+       	<span style={{color:"#A31515"}}>undefined</span>
       </td>
     </tr>
   </tbody>
 </table>
 
-### ComponentPropsItem
+### ComponentProps
+
+Object that needs to be created for each property available through the Lumina editor:
 
 <table>
   <thead>
@@ -217,7 +163,6 @@ The components should export a config object with the following properties:
       <td>**Description**</td>
       <td>**Required**</td>
       <td>**Default**</td>
-      <td>**Example**</td>
     </tr>
   </thead>
   <tbody>
@@ -226,17 +171,17 @@ The components should export a config object with the following properties:
       <td>
         <span style={{ color: 'green' }}>string</span>
       </td>
-      <td>Type of the property</td>
-      <td>✅</td>
-      <td>undefined</td>
       <td>
-      ```ts
-      type: 'singleSelect'
-      type: 'string'
-      type: 'number'
-      type: 'multiSelect',
-      ```
+        Type of the property. It can be:
+        ```ts
+        "string"
+        | "number"
+        | "singleSelect"
+        | "multiSelect"
+        ```
       </td>
+      <td>✅</td>
+      <td><span style={{color:"#A31515"}}>undefined</span></td>
     </tr>
     <tr>
       <td>name</td>
@@ -245,12 +190,7 @@ The components should export a config object with the following properties:
       </td>
       <td>The name of property inside the component</td>
       <td>✅</td>
-      <td>undefined</td>
-      <td>
-      ```ts
-      name: 'text'
-      ```
-      </td>
+      <td><span style={{color:"#A31515"}}>undefined</span></td>
     </tr>
     <tr>
       <td>label</td>
@@ -259,33 +199,20 @@ The components should export a config object with the following properties:
       </td>
       <td>The label showed on the Lumina editor UI</td>
       <td>✅</td>
-      <td>undefined</td>
-      <td>
-      ```ts
-      label: 'Text'
-      ```
-      </td>
+      <td><span style={{color:"#A31515"}}>undefined</span></td>
     </tr>
     <tr>
       <td>arrayValues</td>
       <td>
-        <span style={{ color: 'green' }}>
-          {' '}
-          array {'<'}string{'>'}
-        </span>
+        <span style={{color:"green"}}>[string]</span>
       </td>
-      <td>Set of available values for specific properties. <br/>
-      Should only be used when props.type is 'singleSelect' or 'multiselect' </td>
+      <td>Array of possible values.<br/>
+      Should only be used when property type is <span style={{color:"#A31515"}}>"singleSelect"</span> or <span style={{color:"#A31515"}}>"multiselect"</span></td>
       <td>
         ❌ if string or number
         <br />✅ if singleSelect or multiSelect
       </td>
-      <td>undefined</td>
-      <td>
-      ```ts
-     arrayValues: ['small', 'medium', 'large']
-           ```
-      </td>
+      <td><span style={{color:"#A31515"}}>undefined</span></td>
     </tr>
 
   </tbody>
@@ -294,41 +221,6 @@ The components should export a config object with the following properties:
 ### Example component configuration
 
 ```js
-const config: TConfig = {
-  name: 'Title',
-  type: 'title',
-  props: [
-    {
-      type: 'string',
-      name: 'title',
-      label: 'Title',
-    },
-  ],
-  editor: {
-    children: false,
-    editable: true,
-    delete: true,
-  },
-}
-
-const config: TConfig = {
-  name: 'Grid Container',
-  type: 'grid',
-  props: [
-    {
-      type: 'singleSelect',
-      name: 'style',
-      label: 'Direction',
-      arrayValues: ['column', 'row'],
-    },
-  ],
-  editor: {
-    children: true,
-    editable: true,
-    delete: true,
-  },
-}
-
 const config: TConfig = {
   name: 'Button',
   type: 'button',
@@ -345,16 +237,16 @@ const config: TConfig = {
       arrayValues: ['small', 'medium', 'large'],
     },
     {
-      type: 'singleSelect',
-      name: 'style',
-      label: 'Style',
-      arrayValues: ['outlined', 'rounded'],
+      type: 'multiSelect',
+      name: 'someProp',
+      label: 'Some property',
+      arrayValues: ['option1', 'option2', 'option3'],
     },
   ],
   editor: {
     children: false,
     editable: true,
-    delete: true,
+    deletable: true,
   },
 }
 
