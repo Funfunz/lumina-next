@@ -2,6 +2,7 @@
 
 import { ChangeEvent, ChangeEventHandler, PropsWithChildren, useCallback } from 'react'
 import type { TConfigItem, TConfigItemSelect } from '@/models/editor-buttonModel'
+import { Input } from '../form-components/input'
 
 type TProps = {
   config: TConfigItem
@@ -56,14 +57,14 @@ export const LuminaInputRenderer = ({ config, value, handleOnChangeInput }: TPro
             ))}
           </select>
         )) || (
-          <input
+          <Input
             className='inputField'
             type={config.type}
             value={value}
             id={config.name}
             name={config.name}
             onChange={handleOnChangeInputElement}
-          ></input>
+          ></Input>
         )}
       </td>
     </tr>

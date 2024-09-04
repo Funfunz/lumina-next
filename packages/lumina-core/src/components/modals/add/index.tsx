@@ -5,6 +5,7 @@ import { getComponentConfig } from '@/main'
 import type { TConfig } from '@/models/editor-buttonModel'
 import type { TAddModalProps } from '@/components/modals'
 import { Form, LuminaInputRenderer } from '@/components/editor-buttons-container/inputRenderer'
+import { Input } from '@/components/form-components/input'
 
 type TProps = {
   setAddModalProps: Dispatch<SetStateAction<TAddModalProps>>
@@ -53,7 +54,7 @@ export const AddModal = ({ setAddModalProps, modalProps, handleOnChangeInput }: 
       />
       <div className='add-modal-content__cmp-name'>
         <label htmlFor={`addComponent_friendlyName_${id}`}>Friendly name</label>
-        <input
+        <Input
           id={`addComponent_friendlyName_${id}`}
           type='text'
           value={modalProps.cmpName}
