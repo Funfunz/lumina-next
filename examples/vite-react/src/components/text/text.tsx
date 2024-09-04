@@ -14,7 +14,7 @@ export const Text = ({ id, text = sampleText }: IProps) => {
   return (
     <div className={styles.text}>
       <p>{text}</p>
-      <EditorButtonsContainer id={id} config={config} data={{ text }} />
+      <EditorButtonsContainer id={id} config={config} componentProps={{ text }} />
     </div>
   )
 }

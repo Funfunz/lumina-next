@@ -1,0 +1,23 @@
+.text-area_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &__text {
+    @include lum-typo-input; //typography
+
+    width: 100%;
+    min-height: 70px;
+    max-height: 450px;
+    padding: 10px 20px;
+    color: var(--lum-color-black);
+    resize: vertical;
+    border: 1px solid var(--lum-color-grey);
+    border-radius: 5px;
+
+    &::placeholder {
+      color: var(--lum-color-fg-weaker);
+    }
+  }
+}

@@ -1,5 +1,5 @@
-import { IComponentData, IComponentProps } from '@/models/data'
-import { useState, useEffect } from 'react'
+import { IComponentData } from '@/models/data'
+import { useState, useEffect, useCallback } from 'react'
 import cx from 'classnames'
 import { ComponentTree } from '../componentTree'
 import { EditorButtonsContainer } from '@/components/editor-buttons-container'
@@ -18,9 +18,9 @@ export const TreeBranch = ({ data, noDown, noUp }: TProps) => {
     setShowChildren(data.hasFilterChildren)
   }, [data.hasFilterChildren])
 
-  const handleTreeHeadClick = () => {
+  const handleTreeHeadClick = useCallback(() => {
     setShowChildren(!showChildren)
-  }
+  }, [showChildren])
 
   const iconChange = () => {
     if (data.children?.length) {
@@ -42,7 +42,6 @@ export const TreeBranch = ({ data, noDown, noUp }: TProps) => {
   // TODO temporary workaround for missing config
   const component = DynamicComponent(data.type)
   if (!component) return null //TODO data should return true always but if not an error should be returned here
-
   return (
     <div className={cx('branch_container', data.isMatch ? 'branch_container__filter' : '')}>
       {iconChange()}
@@ -55,7 +54,8 @@ export const TreeBranch = ({ data, noDown, noUp }: TProps) => {
         <EditorButtonsContainer
           id={data.id}
           inline={true}
-          data={data.props as IComponentProps}
+          componentProps={data.props}
+          currentPosition={data.order}
           visible={false}
           noUp={noUp}
           noDown={noDown}

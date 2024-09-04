@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { useToggleMenuContext } from '@/context/toggleMenuContext'
+import { useToggleMenuContext } from '@/context/toggleMenuContextProvider'
 import { Button } from '@/components/button'
 import { ExpandableEditorMenu } from '@/components/expandable-editor-menu'
 import type { IComponentProps } from '@/models/data'
@@ -7,11 +7,11 @@ import type { TConfig } from '@/models/editor-buttonModel'
 
 type TProps = {
   id: string
-  data: IComponentProps
+  componentProps?: IComponentProps
   config: TConfig
 }
 
-export const ExpandMenuButton = ({ id, data, config }: TProps) => {
+export const ExpandMenuButton = ({ id, componentProps, config }: TProps) => {
   const { handleToggleMenu, menuState } = useToggleMenuContext()
   const isOpen = menuState.id === id && menuState.isOpen
   const menuRef = useRef<HTMLDivElement | null>(null)
@@ -50,7 +50,14 @@ export const ExpandMenuButton = ({ id, data, config }: TProps) => {
         onClick={handleButtonClick}
         ref={buttonRef}
       />
-      {isOpen && <ExpandableEditorMenu id={id} config={config} data={data} menuRef={menuRef} />}
+      {isOpen && (
+        <ExpandableEditorMenu
+          id={id}
+          config={config}
+          componentProps={componentProps}
+          menuRef={menuRef}
+        />
+      )}
     </>
   )
 }

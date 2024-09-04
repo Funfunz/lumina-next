@@ -20,6 +20,7 @@ export interface IMoveUpComponentAction {
   type: 'moveUpComponent'
   data: {
     id: string
+    currentPosition: number
   }
 }
 
@@ -27,6 +28,7 @@ export interface IMoveDownComponentAction {
   type: 'moveDownComponent'
   data: {
     id: string
+    currentPosition: number
   }
 }
 
