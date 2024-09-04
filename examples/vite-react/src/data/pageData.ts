@@ -109,9 +109,9 @@ const data: IData = {
                 hidden: false,
                 props: {
                   href: 'https://picsum.photos/400/200',
-                  srcDesktop: 'https://picsum.photos/1240/400',
-                  srcTablet: 'https://picsum.photos/900/400',
-                  srcMobile: 'https://picsum.photos/576/400',
+                  srcDesktop: 'https://picsum.photos/1240/400?random=1',
+                  srcTablet: 'https://picsum.photos/900/400?random=2',
+                  srcMobile: 'https://picsum.photos/576/400?random=3',
                 },
               },
             ],
@@ -160,7 +160,7 @@ const data: IData = {
                 order: 1,
                 hidden: false,
                 props: {
-                  srcDesktop: 'https://picsum.photos/1240/400',
+                  srcDesktop: 'https://picsum.photos/1240/400?random=4',
                 },
               },
             ],
@@ -183,7 +183,7 @@ const data: IData = {
                 order: 1,
                 hidden: false,
                 props: {
-                  srcDesktop: 'https://picsum.photos/1240/400',
+                  srcDesktop: 'https://picsum.photos/1240/400?random=5',
                 },
               },
             ],

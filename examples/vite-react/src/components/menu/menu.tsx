@@ -61,7 +61,7 @@ export const Menu = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
   const {
     state: {
-      cartContext: { count: cartCount },
+      cartContext: { count },
     },
   } = useAppContext()
   const isMenuOpen = Boolean(anchorEl)
@@ -125,7 +125,7 @@ export const Menu = () => {
             <StyledInputBase placeholder='Search…' inputProps={{ 'aria-label': 'search' }} />
           </Search>
           <IconButton size='large' aria-label='show 4 new mails' color='inherit'>
-            <Badge badgeContent={cartCount} color='warning'>
+            <Badge badgeContent={count} color='warning'>
               <ShoppingCartIcon />
             </Badge>
           </IconButton>
