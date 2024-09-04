@@ -18,7 +18,7 @@ The components should export a config object with the following properties:
       <td>**Description**</td>
       <td>**Required**</td>
       <td>**Default**</td>
-      <td>**Possible**</td>
+      <td>**Example**</td>
     </tr>
   </thead>
   <tbody>
@@ -167,7 +167,7 @@ The components should export a config object with the following properties:
       <td>**Description**</td>
       <td>**Required**</td>
       <td>**Default**</td>
-      <td>**Possible**</td>
+      <td>**Example**</td>
     </tr>
   </thead>
   <tbody>
@@ -179,7 +179,14 @@ The components should export a config object with the following properties:
       <td>Type of the property</td>
       <td>✅</td>
       <td>undefined</td>
-      <td>string / number / singleSelect / multiSelect</td>
+      <td>
+      ```ts
+      string
+      number
+      singleSelect
+      multiSelect
+      ```
+      </td>
     </tr>
     <tr>
       <td>name</td>
@@ -209,11 +216,20 @@ The components should export a config object with the following properties:
           array {'<'}string{'>'}
         </span>
       </td>
-      <td>Set of properties used in the component</td>
-      <td>string / number - ❌ singleSelect / multiSelect - ✅</td>
+      <td>Set of available values for specific properties. <br/>
+      Should only be used when props.type is 'singleSelect' or 'multiselect' </td>
+      <td>
+        ❌ if string or number
+        <br />✅ if singleSelect or multiSelect
+      </td>
       <td>undefined</td>
-      <td>['small', 'medium', 'large'], ['outlined', 'rounded'], ['column', 'row']</td>
+      <td>
+      ```js
+     arrayValues: ['small', 'medium', 'large']
+           ```
+      </td>
     </tr>
+
   </tbody>
 </table>
 
