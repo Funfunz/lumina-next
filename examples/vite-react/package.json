@@ -8,9 +8,10 @@
     "prepare": "husky",
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "npm run lint:js && npm run lint:css",
+    "lint": "npm run lint:js && npm run lint:css && npm run prettier",
     "lint:js": "eslint ./src --fix --report-unused-disable-directives --max-warnings 10",
     "lint:css": "stylelint --fix \"**/*.{css,scss}\" --config ../../.stylelintrc.json",
+    "prettier": "prettier --write ./src",
     "preview": "vite preview"
   },
   "dependencies": {

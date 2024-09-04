@@ -1,12 +1,12 @@
-import { ChangeEvent, KeyboardEvent, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, KeyboardEvent, useEffect, useRef, useState } from 'react'
 
 interface IFormHookProps {
-  activateEnterPress?: boolean;
-  clearOnEnterPress?: boolean;
-  onEnterPress?: () => void;
+  activateEnterPress?: boolean
+  clearOnEnterPress?: boolean
+  onEnterPress?: () => void
   // eslint-disable-next-line no-unused-vars
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-  value?: string;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void
+  value?: string
 }
 
 /**
@@ -22,37 +22,37 @@ export const useActivateOnEnter = ({
   onChange,
   value: initialValue,
 }: IFormHookProps) => {
-  const inputRef = useRef<HTMLInputElement>(null);
-  const [value, setValue] = useState(initialValue || '');
+  const inputRef = useRef<HTMLInputElement>(null)
+  const [value, setValue] = useState(initialValue || '')
 
   useEffect(() => {
     if (onChange) {
       const event = {
         target: { value },
-      } as ChangeEvent<HTMLInputElement>;
-      onChange(event);
+      } as ChangeEvent<HTMLInputElement>
+      onChange(event)
     }
-  }, [value, onChange]);
+  }, [value, onChange])
 
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
       if (activateEnterPress) {
         if (onEnterPress) {
-          onEnterPress();
+          onEnterPress()
         } else {
-          event.currentTarget.form?.submit();
+          event.currentTarget.form?.submit()
         }
       }
       if (clearOnEnterPress && inputRef.current) {
-        inputRef.current.value = '';
+        inputRef.current.value = ''
       }
     }
-  };
+  }
 
   return {
     value,
     setValue,
     inputRef,
     handleKeyDown,
-  };
-};
+  }
+}

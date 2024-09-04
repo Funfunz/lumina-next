@@ -7,9 +7,9 @@ interface IRadioButton extends InputHTMLAttributes<HTMLInputElement> {
   label?: string
   help?: string
   radioText?: string
-  labelClassName?: string;
-  radioClassName?: string;
-  helpClassName?: string;
+  labelClassName?: string
+  radioClassName?: string
+  helpClassName?: string
 }
 
 /**
@@ -18,7 +18,16 @@ interface IRadioButton extends InputHTMLAttributes<HTMLInputElement> {
  * @radioText The radio button option text
  * @returns
  */
-export const RadioButton = ({ className, label, help, radioText, labelClassName, radioClassName, helpClassName, ...rest }: IRadioButton) => {
+export const RadioButton = ({
+  className,
+  label,
+  help,
+  radioText,
+  labelClassName,
+  radioClassName,
+  helpClassName,
+  ...rest
+}: IRadioButton) => {
   return (
     <>
       <div className={cx('radio-button_container', className)}>

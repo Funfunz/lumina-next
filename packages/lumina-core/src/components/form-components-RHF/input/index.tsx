@@ -7,9 +7,9 @@ interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   className?: string
   label?: string
   help?: string
-  labelClassName?: string;
-  inputClassName?: string;
-  helpClassName?: string;
+  labelClassName?: string
+  inputClassName?: string
+  helpClassName?: string
 }
 
 /**

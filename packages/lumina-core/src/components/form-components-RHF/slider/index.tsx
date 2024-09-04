@@ -8,9 +8,9 @@ interface ISlider extends InputHTMLAttributes<HTMLInputElement> {
   disabled?: boolean
   suffix?: string
   help?: string
-  labelClassName?: string;
-  sliderClassName?: string;
-  helpClassName?: string;
+  labelClassName?: string
+  sliderClassName?: string
+  helpClassName?: string
 }
 
 /**
@@ -19,7 +19,16 @@ interface ISlider extends InputHTMLAttributes<HTMLInputElement> {
  * @suffix Can take the following values '€' | 'km' | 'm' (for now)
  * @returns
  */
-export const Slider = ({ className, label, suffix, help, labelClassName, sliderClassName, helpClassName, ...rest }: ISlider) => {
+export const Slider = ({
+  className,
+  label,
+  suffix,
+  help,
+  labelClassName,
+  sliderClassName,
+  helpClassName,
+  ...rest
+}: ISlider) => {
   const [rangeValue, setRangeValue] = useState(0)
 
   return (

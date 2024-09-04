@@ -22,9 +22,16 @@ import { config as configFlex } from '../components/flex/config'
 import { Menu } from '../components/menu/menu'
 import { config as configMenu } from '../components/menu/config'
 
-import { TComponentConfig } from '@lumina/core'
 import { Button } from '../components/button/button'
 import { config as configButton } from '../components/button/config'
+
+import { AddToCart } from '../components/addToCart/addToCart'
+import { config as configAddToCart } from '../components/addToCart/config'
+
+import { Spacer } from '../components/spacer/spacer'
+import { config as configSpacer } from '../components/spacer/config'
+
+import { TComponentConfig } from '@lumina/core'
 
 const luminaConfig: TComponentConfig = {
   [configLinkBox.type]: {
@@ -55,6 +62,10 @@ const luminaConfig: TComponentConfig = {
     component: Button,
     config: configButton,
   },
+  [configAddToCart.type]: {
+    component: AddToCart,
+    config: configAddToCart,
+  },
   [configText.type]: {
     component: Text,
     config: configText,
@@ -62,6 +73,10 @@ const luminaConfig: TComponentConfig = {
   [configMenu.type]: {
     component: Menu,
     config: configMenu,
+  },
+  [configSpacer.type]: {
+    component: Spacer,
+    config: configSpacer,
   },
 }
 

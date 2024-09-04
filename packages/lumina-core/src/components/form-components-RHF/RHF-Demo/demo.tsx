@@ -38,7 +38,7 @@ export const RHFDemo = () => {
           pattern: {
             value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
             message: 'Please input a valid email',
-          }
+          },
         })}
         label='Email'
         type='email'
@@ -51,7 +51,7 @@ export const RHFDemo = () => {
           minLength: {
             value: 8,
             message: 'Minimum 8 characters',
-          }
+          },
         })}
         label='Password'
         type='password'

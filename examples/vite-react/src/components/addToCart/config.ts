@@ -1,8 +1,8 @@
 import type { TConfig } from '@lumina/core'
 
 export const config: TConfig = {
-  name: 'Button',
-  type: 'button',
+  name: 'Add to cart button',
+  type: 'addToCartButton',
   props: [
     {
       type: 'singleSelect',
@@ -40,11 +40,6 @@ export const config: TConfig = {
       type: 'boolean',
       name: 'fullWidth',
       label: 'Full Width',
-    },
-    {
-      type: 'string',
-      name: 'text',
-      label: 'Text',
     },
     {
       type: 'string',

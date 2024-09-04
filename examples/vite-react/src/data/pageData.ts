@@ -20,10 +20,21 @@ const data: IData = {
         props: {},
       },
       {
+        id: 'spacer_4z4da61m96',
+        type: 'spacer',
+        friendlyName: 'spacer1',
+        children: [],
+        order: 2,
+        hidden: false,
+        props: {
+          size: 4,
+        },
+      },
+      {
         id: 'grid1',
         friendlyName: 'grid1',
         type: 'gridContainer',
-        order: 2,
+        order: 3,
         hidden: false,
         children: [
           {
@@ -63,6 +74,18 @@ const data: IData = {
                 props: {
                   text: 'Follow for more',
                   variant: 'contained',
+                },
+              },
+              {
+                id: 'addToCartButton_khvsm0hzou',
+                type: 'addToCartButton',
+                friendlyName: 'addToCartButton1',
+                children: [],
+                order: 5,
+                hidden: false,
+                props: {
+                  variant: 'contained',
+                  color: 'secondary',
                 },
               },
             ],
@@ -107,10 +130,21 @@ const data: IData = {
         },
       },
       {
+        id: 'spacer_quw3fgi3sb',
+        type: 'spacer',
+        friendlyName: 'spacer2',
+        children: [],
+        order: 4,
+        hidden: false,
+        props: {
+          size: 4,
+        },
+      },
+      {
         id: 'grid3',
         friendlyName: 'grid3',
         type: 'gridContainer',
-        order: 3,
+        order: 5,
         hidden: false,
         children: [
           {
