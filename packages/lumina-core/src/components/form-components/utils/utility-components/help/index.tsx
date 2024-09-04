@@ -8,6 +8,9 @@ type THelpTextProps = HTMLAttributes<HTMLParagraphElement> & {
 
 export const HelpText = forwardRef<HTMLParagraphElement, THelpTextProps>(
   ({ className, help, ...rest }, ref) => {
+    if (!help) {
+      return null
+    }
     return (
       <p className={cx('help_text', className)} ref={ref} {...rest}>
         {help}

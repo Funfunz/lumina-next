@@ -8,6 +8,9 @@ type TLabelProps = InputHTMLAttributes<HTMLLabelElement> & {
 
 export const LabelTitle = forwardRef<HTMLLabelElement, TLabelProps>(
   ({ className, label, ...rest }, ref) => {
+    if (!label) {
+      return null
+    }
     return (
       <label className={cx('label-title', className)} ref={ref} {...rest}>
         {label}
