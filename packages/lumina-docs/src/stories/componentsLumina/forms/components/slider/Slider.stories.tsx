@@ -11,7 +11,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'The Switch component is a simple toggler built from an `input` checkbox element. Contains all the other props that the usual `<input>` has. It can be called by typing `<Switch />`',
+          'The Slider component is a simple range built from an `input` range element. Contains all the other props that the usual `<input>` has. It can be called by typing `<Slider />`',
       },
     },
   },
