@@ -19,5 +19,9 @@
     &::placeholder {
       color: var(--lum-color-fg-weaker);
     }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
   }
 }

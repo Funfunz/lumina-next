@@ -5,6 +5,7 @@
     display: flex;
     gap: 4px;
     align-items: flex-start;
+    margin-top: 10px;
 
     &__input {
       position: relative;
@@ -66,6 +67,31 @@
         outline: 2px solid var(--lum-color-accent-default);
         outline-offset: 2px;
       }
+
+      &:disabled {
+        cursor: not-allowed;
+        background-color: var(--lum-color-grey);
+        border-color: var(--lum-color-grey);
+
+        &:checked {
+          background-color: var(--lum-color-grey);
+          border-color: var(--lum-color-grey);
+        }
+
+        &::before {
+          cursor: not-allowed;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    &__label {
+      align-self: center;
+      margin-bottom: 5px;
+      margin-left: 5px;
     }
   }
 }

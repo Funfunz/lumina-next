@@ -34,10 +34,24 @@
       &:checked::after {
         display: block;
       }
+
+      &:disabled {
+        cursor: not-allowed;
+        background-color: var(--lum-color-grey);
+        border-color: var(--lum-color-grey);
+
+        &::after {
+          border-color: var(--lum-color-grey);
+        }
+
+        &:checked::after {
+          border-color: var(--lum-color-grey);
+        }
+      }
     }
 
     &__text {
-      margin-left: 8px;
+      margin-left: 5px;
       font-size: 16px;
       color: var(--lum-color-black);
     }
