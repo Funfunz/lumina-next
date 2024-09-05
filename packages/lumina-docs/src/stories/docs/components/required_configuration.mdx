@@ -80,7 +80,7 @@ The components should export a config object with the following properties:
         <span style={{color:"green"}}>
           ```js
           {
-            children: boolean,
+            children: boolean
             editable: boolean
             deletable: boolean
           }
@@ -169,17 +169,18 @@ Object that needs to be created for each property available through the Lumina e
     <tr>
       <td>type</td>
       <td>
-        <span style={{ color: 'green' }}>string</span>
-      </td>
-      <td>
-        Type of the property. It can be:
+        <span style={{ color: 'green' }}> 
         ```ts
         "string"
         | "number"
         | "singleSelect"
         | "multiSelect"
         ```
+        </span>
       </td>
+      <td>
+        Type of the property
+             </td>
       <td>✅</td>
       <td><span style={{color:"#A31515"}}>undefined</span></td>
     </tr>

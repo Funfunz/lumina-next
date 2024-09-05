@@ -1,0 +1,41 @@
+import { Meta, Markdown } from '@storybook/blocks'
+import Github from '../../assets/github.svg'
+
+<Meta title='Docs/Components/Add new component' />
+
+# Add a new component
+
+-> steps? <br/>
+
+##General configuration
+All components should set their configurations on the general config.ts file, on the root of the prj.
+
+```js
+luminaConfig: TComponentConfig = {
+  linkbox: {
+    component: LinkBox,
+    config: configLinkBox,
+  },
+  image: {
+    component: Image,
+    config: configImage,
+  },
+  title: {
+    component: Title,
+    config: configTitle,
+  },
+  flex: {
+    component: Flex,
+    config: configFlex,
+  },
+  button: {
+    component: Button,
+    config: configButton,
+  },
+}
+```
+
+- **component** : the component itself
+- **config** : configurations file for the component
+
+-> example
