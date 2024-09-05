@@ -40,7 +40,5 @@ export const routerParser = (pathName: string, builderData: IData): TParsedRoute
     isEditor,
   }
 
-  console.log(result)
-
   return result
 }
