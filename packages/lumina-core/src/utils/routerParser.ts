@@ -1,12 +1,12 @@
 import { type IData } from '@/main'
 
-type parsedRoute = {
+export type TParsedRoute = {
   selectedPage: string
   params: Record<string, string>
   isEditor: boolean
 }
 
-export const routerParser = (pathName: string, builderData: IData): parsedRoute => {
+export const routerParser = (pathName: string, builderData: IData): TParsedRoute => {
   const splittedSelectedPathName = pathName.split('/')
   splittedSelectedPathName.shift()
   const isEditor = splittedSelectedPathName[splittedSelectedPathName.length - 1] === 'editor'

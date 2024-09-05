@@ -70,13 +70,13 @@ export default function Lumina({ router, getData, components }: TProps = default
     if (components) setComponentConfig(components)
   }, [components])
 
-  const { selectedPage, isEditor } = routerParser(router.location.pathname, builderData)
+  const { selectedPage, isEditor, params } = routerParser(router.location.pathname, builderData)
 
   if (!builderData[selectedPage]) return null
   return (
     <ContextProvider
       data={{
-        appContext: { editor: isEditor },
+        appContext: { isEditor, selectedPage, params },
         builderDataContext: {
           builderData,
           selectedPage: selectedPage,
@@ -99,6 +99,7 @@ export default function Lumina({ router, getData, components }: TProps = default
 }
 
 export { EditorButtonsContainer } from './components/editor-buttons-container'
+export { useAppContext } from '@/context/contextProvider'
 export type { TConfig } from './models/editor-buttonModel'
 
 export type { IData, IPageData }

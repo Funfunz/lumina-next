@@ -32,7 +32,7 @@ export function ContextProvider({
   data = {},
 }: {
   children: React.ReactNode
-  data?: {
+  data: {
     appContext?: IAppContext
     builderDataContext?: IBuilderDataContext
   }
@@ -55,4 +55,11 @@ export function ContextProvider({
 
 export const useLuminaContext = () => {
   return useContext(LuminaContext)
+}
+
+export const useAppContext = () => {
+  const {
+    state: { appContext },
+  } = useContext(LuminaContext)
+  return appContext
 }
