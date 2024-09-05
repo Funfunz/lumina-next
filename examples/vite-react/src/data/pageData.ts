@@ -1,7 +1,7 @@
 import { IData } from '@lumina/core'
 
 const data: IData = {
-  home: {
+  ['home/:testParam/:stuff']: {
     id: 'page1',
     pageName: 'Homepage',
     friendlyName: 'Homepage',

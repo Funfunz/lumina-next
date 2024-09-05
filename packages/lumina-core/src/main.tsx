@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import type { TConfig } from './models/editor-buttonModel'
 import { ToggleModalContextProvider } from './context/toggleModalContextProvider'
 import { EditorModal } from './components/modals'
+import { routerParser } from './utils/routerParser'
 
 export type TComponentConfig = {
   [key: string]: {
@@ -17,17 +18,31 @@ export type TComponentConfig = {
 }
 
 type TProps = {
-  selectedPage: string
+  router: {
+    location: {
+      hash: string
+      key: string
+      pathname: string
+      search: string
+    }
+    base: string
+  }
   getData: () => Promise<IData>
   components: TComponentConfig
-  isEditor?: boolean
 }
 
 const defaultValues: TProps = {
-  selectedPage: 'home',
+  router: {
+    location: {
+      hash: '',
+      key: '',
+      pathname: '',
+      search: '',
+    },
+    base: '/',
+  },
   getData: async () => ({}),
   components: {},
-  isEditor: false,
 }
 
 let componentConfig: TComponentConfig = {}
@@ -41,20 +56,9 @@ function setComponentConfig(newComponentConfig: TComponentConfig) {
   return componentConfig
 }
 
-export default function Lumina({
-  selectedPage,
-  getData,
-  components,
-  isEditor = false,
-}: TProps = defaultValues) {
+export default function Lumina({ router, getData, components }: TProps = defaultValues) {
   const [builderData, setBuilderData] = useState<IData>({})
 
-  useEffect(() => {
-    async function fetchData() {
-      setBuilderData(await getData())
-    }
-    fetchData()
-  }, [getData])
   useEffect(() => {
     async function fetchData() {
       setBuilderData(await getData())
@@ -66,15 +70,16 @@ export default function Lumina({
     if (components) setComponentConfig(components)
   }, [components])
 
-  if (!builderData[selectedPage]) return null
+  const { selectedPage, isEditor } = routerParser(router.location.pathname, builderData)
 
+  if (!builderData[selectedPage]) return null
   return (
     <ContextProvider
       data={{
         appContext: { editor: isEditor },
         builderDataContext: {
           builderData,
-          selectedPage,
+          selectedPage: selectedPage,
           pages: Object.keys(builderData),
         },
       }}
