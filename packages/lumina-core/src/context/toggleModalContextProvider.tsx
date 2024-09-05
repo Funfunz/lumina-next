@@ -7,18 +7,29 @@ export const ADDMODAL = 'ADD'
 export const EDITMODAL = 'EDIT'
 export const DELETEMODAL = 'DELETE'
 
-type TToggleModalProps = {
+type TModalComponentProps = TModalBaseProps & {
   componentProps?: IComponentProps
-  pageProps?: IPageProps
-  config?: TConfig
   onUpdate?: (data: IComponentProps) => void
+}
+
+type TModalState = TModalComponentProps &
+  TModalPageProps &
+  TModalBaseProps & {
+    isOpen: boolean
+  }
+
+type TModalBaseProps = {
+  config?: TConfig
   id?: string
   modalType: typeof ADDMODAL | typeof EDITMODAL | typeof DELETEMODAL | null
 }
 
-type TModalState = TToggleModalProps & {
-  isOpen: boolean
+type TModalPageProps = TModalBaseProps & {
+  pageProps?: IPageProps
+  onUpdate?: (data: IPageProps) => void
 }
+
+type TToggleModalProps = TModalComponentProps | TModalPageProps
 
 const initialModalState: TModalState = {
   isOpen: false,
@@ -37,7 +48,7 @@ const initialModalState: TModalState = {
 }
 
 type TToggleModalContext = {
-  handleOpenModal: ({ componentProps, config, id, modalType }: TToggleModalProps) => void
+  handleOpenModal: (props: TToggleModalProps) => void
   handleCloseModal: () => void
   modalState: TModalState
 }
@@ -48,17 +59,35 @@ const ToggleModalContext = createContext<TToggleModalContext>({
   modalState: initialModalState,
 })
 
+function isModalComponentProps(props: TToggleModalProps): props is TModalComponentProps {
+  return !!(props as TModalComponentProps).componentProps
+}
+
+function isModalPageProps(props: TToggleModalProps): props is TModalPageProps {
+  return !!(props as TModalPageProps).pageProps
+}
+
 export const ToggleModalContextProvider = ({ children }: { children: ReactNode }) => {
   const [modalState, setModalState] = useState<TModalState>(initialModalState)
 
-  const handleOpenModal = ({ id, config, componentProps, modalType }: TToggleModalProps) => {
-    setModalState({
-      componentProps: componentProps,
-      config: config,
-      id: id,
-      isOpen: true,
-      modalType: modalType,
-    })
+  const handleOpenModal = (props: TToggleModalProps) => {
+    if (isModalComponentProps(props)) {
+      setModalState({
+        componentProps: props.componentProps,
+        config: props.config,
+        id: props.id,
+        isOpen: true,
+        modalType: props.modalType,
+      })
+    } else if (isModalPageProps(props)) {
+      setModalState({
+        pageProps: props.pageProps,
+        config: props.config,
+        id: props.id,
+        isOpen: true,
+        modalType: props.modalType,
+      })
+    }
   }
 
   const handleCloseModal = () => {
