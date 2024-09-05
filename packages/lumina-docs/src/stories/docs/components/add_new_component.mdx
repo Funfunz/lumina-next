@@ -9,10 +9,64 @@ some text regarding adding components
 
 ## Guide
 
-1. step1
-2. step2
-3. step3
-4. configuration - see general configuration
+1. Create component folder inside src/components. The component and its styles and configuration are required inside the folder.
+2. component.tsx + component styles + config.ts
+3. configuration - see general configuration
+
+## Component - component.tsx
+
+<table>
+
+  <thead>
+    <tr>
+      <td>**Required import**</td>
+    <td>**Description**</td>
+      <td>**Required**</td>
+      <td>**Example**</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Needs from lumina core</td>
+ 
+      <td>Importing required code from core package</td>
+      <td>✅</td>
+      <td>
+      ```ts
+      import { EditorButtonsContainer } from '@lumina/core'
+      ```
+      </td>
+
+    </tr>
+    <tr>
+      <td>Configuration file - link to required configuration</td>
+      <td>Importing required configuration for the specific container</td>
+      <td>✅</td>
+      <td>
+      ```ts
+    import { config } from './config'
+      ```
+      </td>
+    </tr>
+     <tr>
+      <td>Styles</td>
+      <td>Importing styles for the component</td>
+      <td>❌</td>
+      <td>
+      ```ts
+      import styles from './styles.scss'
+      ```
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+### Example
+
+```ts
+
+```
 
 ## General configuration
 

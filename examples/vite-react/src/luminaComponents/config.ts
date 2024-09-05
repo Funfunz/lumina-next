@@ -4,6 +4,7 @@ import { Image } from '../components/image/image'
 import { Title } from '../components/title/title'
 import { Text } from '../components/text/text'
 import { Flex } from '../components/flex/flex'
+import { ExampleButton } from '../components/exampleButton/exampleButton'
 import { config as configLinkBox } from '../components/linkBox/config'
 import { config as configGrid } from '../components/grid/config'
 import { config as configImage } from '../components/image/config'
@@ -13,6 +14,7 @@ import { config as configFlex } from '../components/flex/config'
 import { TComponentConfig } from '@lumina/core'
 import { Button } from '../components/button/button'
 import { config as configButton } from '../components/button/config'
+import { config as configExampleButton } from '../components/exampleButton/config'
 
 const luminaConfig: TComponentConfig = {
   linkbox: {
@@ -42,6 +44,10 @@ const luminaConfig: TComponentConfig = {
   text: {
     component: Text,
     config: configText,
+  },
+  exampleButton: {
+    component: ExampleButton,
+    config: configExampleButton,
   },
 }
 
