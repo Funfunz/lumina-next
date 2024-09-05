@@ -1,7 +1,7 @@
 import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { Button } from '../button'
 import cx from 'classnames'
-import { Input } from '../form-components-RHF/input'
+import { Input } from '../form-components/input'
 import { useDebounce } from 'use-debounce'
 
 type TProps = {

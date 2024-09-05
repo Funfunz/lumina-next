@@ -1,12 +1,53 @@
-import { Slider, type ControlLogicProps } from 'react-form-component'
+import { InputHTMLAttributes, useState } from 'react'
 import cx from 'classnames'
+import { HelpText } from '../utils/utility-components/help'
+import { LabelTitle } from '../utils/utility-components/label'
 
-export type { ControlLogicProps }
+type TSliderProps = InputHTMLAttributes<HTMLInputElement> & {
+  className?: string
+  label?: string
+  disabled?: boolean
+  suffix?: string
+  help?: string
+  labelClassName?: string
+  sliderClassName?: string
+  helpClassName?: string
+}
 
-export const LumSlider = (props: ControlLogicProps) => {
-  const defaultClass = 'lum__slider'
-  const className = cx(defaultClass, props.className)
-  const name = props.name
+/**
+ * @label A text that is positioned on top of the input range
+ * @help  A helper text position below the slider
+ * @suffix Can take any value
+ * @returns
+ */
+export const Slider = ({
+  className,
+  label,
+  suffix = '',
+  help,
+  labelClassName,
+  sliderClassName,
+  helpClassName,
+  ...rest
+}: TSliderProps) => {
+  const [rangeValue, setRangeValue] = useState(0)
 
-  return <Slider {...props} name={name} className={className} />
+  return (
+    <>
+      <div className={cx('slider_container', className)}>
+        <LabelTitle label={label} className={labelClassName} />
+        <input
+          type='range'
+          className={cx('', sliderClassName)}
+          value={rangeValue}
+          onChange={e => setRangeValue(Number(e.target.value))}
+          {...rest}
+        />
+        <div className='slider_container__value'>
+          {rangeValue > 0 ? `${rangeValue} ${suffix}` : rangeValue}
+        </div>
+        <HelpText className={helpClassName} help={help} />
+      </div>
+    </>
+  )
 }

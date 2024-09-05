@@ -1,12 +1,32 @@
-import { Input, type ControlLogicProps } from 'react-form-component'
 import cx from 'classnames'
+import { LabelTitle } from '../utils/utility-components/label'
+import { HelpText } from '../utils/utility-components/help'
+import { forwardRef } from 'react'
 
-export type { ControlLogicProps }
-
-export const LumInput = (props: ControlLogicProps) => {
-  const defaultClass = 'lum__input'
-  const className = cx(defaultClass, props.className)
-  const name = props.name
-
-  return <Input {...props} name={name} className={className} />
+type TInputProps = React.InputHTMLAttributes<HTMLInputElement> & {
+  className?: string
+  label?: string
+  help?: string
+  labelClassName?: string
+  inputClassName?: string
+  helpClassName?: string
 }
+
+/**
+ * @label A text that is positioned on top of the input range
+ * @help  A helper text position below the slider
+ * @returns
+ */
+export const Input = forwardRef<HTMLInputElement, TInputProps>(
+  ({ label, help, className, labelClassName, inputClassName, helpClassName, ...rest }, ref) => {
+    return (
+      <div className={cx('input-container', className)}>
+        <LabelTitle label={label} className={cx('label-title', labelClassName)} />
+        <input ref={ref} className={cx('input-container__text', inputClassName)} {...rest} />
+        <HelpText className={cx('help-text', helpClassName)} help={help} />
+      </div>
+    )
+  }
+)
+
+Input.displayName = 'Input'
