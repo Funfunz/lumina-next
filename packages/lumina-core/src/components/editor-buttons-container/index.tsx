@@ -6,12 +6,12 @@
 import { useLuminaContext } from '@/context/contextProvider'
 import cx from 'classnames'
 import type { TConfig } from '@/models/editor-buttonModel'
-import { EditComponentButton } from '../action-buttons/edit'
-import { AddComponentButton } from '../action-buttons/add'
-import { DeleteComponentButton } from '../action-buttons/delete'
-import { VisibleComponentButton } from '../action-buttons/visible'
-import { MoveComponentButton } from '../action-buttons/move'
-import { ExpandMenuButton } from '../action-buttons/menu'
+import { EditComponentButton } from '../action-buttons/components/edit'
+import { AddComponentButton } from '../action-buttons/components/add'
+import { DeleteComponentButton } from '../action-buttons/components/delete'
+import { VisibleComponentButton } from '../action-buttons/components/visible'
+import { MoveComponentButton } from '../action-buttons/components/move'
+import { ExpandMenuButton } from '../action-buttons/components/menu'
 import type { IComponentProps } from '@/models/data'
 
 type TProps = {

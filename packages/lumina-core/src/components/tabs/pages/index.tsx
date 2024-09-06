@@ -1,6 +1,6 @@
 'use client'
 
-import { AddPageButton } from '@/components/action-buttons/addPageButton'
+import { AddPageButton } from '@/components/action-buttons/pages/add'
 import { Title } from '@/components/title'
 import { useLuminaContext } from '@/context/contextProvider'
 // import { useCallback } from 'react'
@@ -8,23 +8,7 @@ import { useLuminaContext } from '@/context/contextProvider'
 export const PagesTab = () => {
   const {
     state: { builderDataContext },
-    // dispatch,
   } = useLuminaContext()
-
-  // const handleAddPageClick = useCallback(() => {
-  //   dispatch({
-  //     type: 'createPage',
-  //     data: {
-  //       id: 'dadwadada',
-  //       pageName: 'testPage',
-  //       friendlyName: 'Test Page',
-  //       extendedName: 'A Page for testing purposes',
-  //       dateModified: Date.now.toString(),
-  //       route: '/test',
-  //       status: true,
-  //     },
-  //   })
-  // }, [dispatch])
 
   return (
     <div className='pageContainer'>
