@@ -32,7 +32,7 @@ import { Spacer } from '../components/spacer/spacer'
 import { config as configSpacer } from '../components/spacer/config'
 
 import { Product } from '../components/product/product'
-import { config as configProduct } from '../components/spacer/config'
+import { config as configProduct } from '../components/product/config'
 
 import { TComponentConfig } from '@lumina/core'
 

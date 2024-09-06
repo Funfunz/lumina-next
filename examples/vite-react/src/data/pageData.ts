@@ -1,7 +1,7 @@
 import { IData } from '@lumina/core'
 
 const data: IData = {
-  ['home/:productId']: {
+  'home/:productId': {
     id: 'page1',
     pageName: 'Homepage',
     friendlyName: 'Homepage',
@@ -141,10 +141,32 @@ const data: IData = {
         },
       },
       {
+        id: 'product_2mawfxk4v0',
+        type: 'product',
+        friendlyName: 'product1',
+        children: [],
+        order: 5,
+        hidden: false,
+        props: {
+          productId: 'productIdFromProps',
+        },
+      },
+      {
+        id: 'spacer_38ynahl9k6',
+        type: 'spacer',
+        friendlyName: 'spacer3',
+        children: [],
+        order: 6,
+        hidden: false,
+        props: {
+          size: 4,
+        },
+      },
+      {
         id: 'grid3',
         friendlyName: 'grid3',
         type: 'gridContainer',
-        order: 5,
+        order: 7,
         hidden: false,
         children: [
           {
