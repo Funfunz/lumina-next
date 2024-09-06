@@ -43,11 +43,11 @@ export const EditorButtonsContainer = ({
 }: TProps) => {
   const {
     state: {
-      appContext: { editor },
+      appContext: { isEditor },
     },
   } = useLuminaContext()
 
-  if (!editor) return null
+  if (!isEditor) return null
   return (
     <div className={cx('showEdit', inline ? 'showEditContainerInline' : 'showEditContainer')}>
       {config.editor.editable && !inline && (

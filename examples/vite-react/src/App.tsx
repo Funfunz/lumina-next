@@ -2,31 +2,26 @@ import Lumina from '@lumina/core'
 import '@lumina/core/style.css'
 import { getFullData } from './lib/dataFetcher'
 import luminaConfig from './luminaComponents/config'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
+import { Contact } from './pages/contact'
+
+const RouteExtractor = () => {
+  const location = useLocation()
+  const router = {
+    location,
+    base: '/',
+  }
+  return <Lumina router={router} getData={getFullData} components={luminaConfig} />
+}
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route
-            index
-            element={<Lumina getData={getFullData} selectedPage='home' components={luminaConfig} />}
-          />
-          <Route
-            path='/editor'
-            element={
-              <Lumina
-                getData={getFullData}
-                selectedPage='home'
-                components={luminaConfig}
-                isEditor
-              />
-            }
-          />
-        </Routes>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/contact' element={<Contact />} />
+        <Route path='/*' element={<RouteExtractor />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

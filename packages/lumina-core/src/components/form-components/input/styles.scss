@@ -1,37 +1,24 @@
-// The .lum__input class should be added to classNames on the labels you want to render
-.lum__input {
+.input-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100%;
 
-  label {
-    margin-bottom: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--lum-color-black);
-  }
+  &__text {
+    @include lum-typo-input; // typography
 
-  input.rfc-input {
-    padding-left: 30px;
+    width: 100%;
+    padding: 10px 20px;
     color: var(--lum-color-black);
-    border-color: var(--lum-color-grey);
+    border: 1px solid var(--lum-color-grey);
     border-radius: 5px;
 
     &::placeholder {
       color: var(--lum-color-fg-weaker);
     }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
   }
-
-  span {
-    font-size: 16px;
-    font-weight: 400;
-    color: var(--lum-color-grey);
-  }
-
-  // In case of button usage
-  // .rfc-suffix{
-  //     bottom: -10px;
-  // }
-
-  // button.lum-icon-visible{
-  //     font-size:18px;
-  // }
 }

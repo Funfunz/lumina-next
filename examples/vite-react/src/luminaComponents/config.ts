@@ -31,6 +31,9 @@ import { config as configAddToCart } from '../components/addToCart/config'
 import { Spacer } from '../components/spacer/spacer'
 import { config as configSpacer } from '../components/spacer/config'
 
+import { Product } from '../components/product/product'
+import { config as configProduct } from '../components/spacer/config'
+
 import { TComponentConfig } from '@lumina/core'
 
 const luminaConfig: TComponentConfig = {
@@ -77,6 +80,11 @@ const luminaConfig: TComponentConfig = {
   [configSpacer.type]: {
     component: Spacer,
     config: configSpacer,
+  },
+
+  [configProduct.type]: {
+    component: Product,
+    config: configProduct,
   },
 }
 

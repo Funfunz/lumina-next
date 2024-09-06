@@ -2,6 +2,8 @@
 
 import { ChangeEvent, ChangeEventHandler, PropsWithChildren, useCallback } from 'react'
 import type { TConfigItem, TConfigItemSelect, TConfigItemValue } from '@/models/editor-buttonModel'
+import { Input } from '../form-components/input'
+import { CheckBox } from '../form-components/checkbox'
 
 type TProps = {
   config: TConfigItem
@@ -71,23 +73,23 @@ export const LuminaInputRenderer = ({ config, value, handleOnChangeInput }: TPro
           </select>
         )) ||
           (isCheckbox(config) && (
-            <input
+            <CheckBox
               className='inputField'
               type='checkbox'
               id={config.name}
               name={config.name}
               onChange={handleOnChangeCheckboxElement}
               checked={value as boolean}
-            ></input>
+            ></CheckBox>
           )) || (
-            <input
+            <Input
               className='inputField'
               type={config.type}
               value={value as string}
               id={config.name}
               name={config.name}
               onChange={handleOnChangeInputElement}
-            ></input>
+            ></Input>
           )}
       </td>
     </tr>
