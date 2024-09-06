@@ -20,7 +20,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/contact' element={<Contact />} />
-        <Route path='/*' element={<RouteExtractor />} />
+        <Route index path='/*' element={<RouteExtractor />} />
       </Routes>
     </BrowserRouter>
   )
