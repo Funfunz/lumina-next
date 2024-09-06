@@ -5,15 +5,13 @@ import Github from '../../assets/github.svg'
 
 # Add a new component
 
-some text regarding adding components
-
 ## Guide
 
-1. Create component folder inside src/components. The component and its styles and configuration are required inside the folder.
-2. component.tsx + component styles + config.ts
-3. configuration - see general configuration
+1. Create component folder inside src/components. The component file, styles and its configuration should be inside the same folder.
+2. Create - see [Component](/docs/docs-components-add-new-component--documentation#component)
+3. Configuration - see [General Configuration](/docs/docs-components-add-new-component--documentation#general-configuration)
 
-## Component - component.tsx
+## Component
 
 <table>
 
@@ -27,10 +25,9 @@ some text regarding adding components
   </thead>
   <tbody>
     <tr>
-      <td>Needs from lumina core</td>
- 
-      <td>Importing required code from core package</td>
-      <td>✅</td>
+      <td>Needs from lumina core - see [Helpers](/docs/docs-components-add-new-component--documentation#helpers)</td>
+       <td>Importing required code from core package</td>
+      <td>❌</td>
       <td>
       ```ts
       import { EditorButtonsContainer } from '@lumina/core'
@@ -39,9 +36,9 @@ some text regarding adding components
 
     </tr>
     <tr>
-      <td>Configuration file - link to required configuration</td>
-      <td>Importing required configuration for the specific container</td>
-      <td>✅</td>
+      <td>Configuration file - see [Required Configuration](/docs/docs-components-required-configuration--documentation) to understand the required configuration forthe component</td>
+      <td>Importing required configuration for the specific component</td>
+      <td>❌</td>
       <td>
       ```ts
     import { config } from './config'
@@ -66,13 +63,31 @@ some text regarding adding components
 
 ```ts
 
+import { EditorButtonsContainer } from '@lumina/core'
+import { config } from './config'
+import cx from 'classnames'
+import styles from './button.module.scss'
+
+const Button = ({ id, size = 'medium', style = 'outlined', text = 'button' }: TProps) => {
+  const buttonStyles = cx(styles.button, style, size, styles.buttonContainer)
+
+  return (
+    <div>
+      <button className={buttonStyles}>
+        {text}
+        <EditorButtonsContainer id={id} config={config} componentProps={{ size, style, text }} />
+      </button>
+    </div>
+  )
+}
+
 ```
 
 ## General configuration
 
 All components should set their configurations on the general config.ts file, on the root of the project
 
-```js
+```ts
 luminaConfig: TComponentConfig = {
   linkbox: {
     component: LinkBox,
@@ -97,7 +112,67 @@ luminaConfig: TComponentConfig = {
 }
 ```
 
-- **component** : the component itself
-- **config** : configurations file for the component - see required configuration file
+- **component** : the component itself.
+- **config** : configurations for the component - see [Required Configuration](/docs/docs-components-required-configuration--documentation).
 
-## Examples
+## Helpers
+
+- **EditButtonsContainer** - This component is usefull to easily have access to the editor options, like editing or deleting the component
+
+## Example
+
+**Image component**
+
+```ts
+import { config } from './config'
+import { EditorButtonsContainer } from '@lumina/core'
+import styles from './image.scss'
+
+
+export const Image = ({ href, alt, id }: TProps) => {
+  if (!href) return null
+  return (
+    <div className={styles.imageContainer}>
+      <img className='image' src={href} alt={alt} />
+      <EditorButtonsContainer id={id} config={config} componentProps={{ href, alt }} />
+    </div>
+  )
+}
+
+```
+
+<br />
+**Image config** ```ts import type {TConfig} from '@lumina/core'
+
+export const config: TConfig = {
+  name: 'Image',
+  type: 'image',
+  props: [
+    {
+      type: 'string',
+      name: 'href',
+      label: 'Href',
+    },
+    {
+      type: 'string',
+      name: 'alt',
+      label: 'Alt',
+    },
+  ],
+  editor: {
+    children: false,
+    editable: true,
+    delete: true,
+  },
+}
+```
+<br/>
+**Lumina config**
+```ts
+const luminaConfig: TComponentConfig = {
+  image: {
+    component: Image,
+    config: configImage,
+  }
+}
+```
