@@ -25,11 +25,11 @@ export const AddToCart = ({ id, ...rest }: TProps) => {
     })
   }, [count])
   return (
-    <div>
+    <div style={{ position: 'relative' }}>
       <MUIButton {...rest} onClick={handleAddToCartClick}>
         Add to cart
-        <EditorButtonsContainer id={id} config={config} componentProps={{ ...rest }} />
       </MUIButton>
+      <EditorButtonsContainer id={id} config={config} componentProps={{ ...rest }} />
     </div>
   )
 }

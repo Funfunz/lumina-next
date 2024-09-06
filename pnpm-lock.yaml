@@ -54,6 +54,9 @@ importers:
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
+      react-responsive-carousel:
+        specifier: ^3.2.23
+        version: 3.2.23
       react-router-dom:
         specifier: ^6.26.1
         version: 6.26.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -5044,6 +5047,10 @@ packages:
     peerDependencies:
       react: ^18.3.1
 
+  react-easy-swipe@0.0.21:
+    resolution: {integrity: sha512-OeR2jAxdoqUMHIn/nS9fgreI5hSpgGoL5ezdal4+oO7YSSgJR8ga+PkYGJrSrJ9MKlPcQjMQXnketrD7WNmNsg==}
+    engines: {node: '>= 6'}
+
   react-element-to-jsx-string@15.0.0:
     resolution: {integrity: sha512-UDg4lXB6BzlobN60P8fHWVPX3Kyw8ORrTeBtClmIlGdkOOE+GYQSFvmEU5iLLpwp/6v42DINwNcwOhOLfQ//FQ==}
     peerDependencies:
@@ -5081,6 +5088,9 @@ packages:
   react-refresh@0.14.2:
     resolution: {integrity: sha512-jCvmsr+1IUSMUyzOkRcvnVbX3ZYC6g9TDrDbFuFmRDq7PD4yaGbLKNQL6k2jnArV8hjYxh7hVhAZB6s9HDGpZA==}
     engines: {node: '>=0.10.0'}
+
+  react-responsive-carousel@3.2.23:
+    resolution: {integrity: sha512-pqJLsBaKHWJhw/ItODgbVoziR2z4lpcJg+YwmRlSk4rKH32VE633mAtZZ9kDXjy4wFO+pgUZmDKPsPe1fPmHCg==}
 
   react-router-dom@6.26.1:
     resolution: {integrity: sha512-veut7m41S1fLql4pLhxeSW3jlqs+4MtjRLj0xvuCEXsxusJCbs6I8yn9BxzzDX2XDgafrccY6hwjmd/bL54tFw==}
@@ -11747,6 +11757,10 @@ snapshots:
       react: 18.3.1
       scheduler: 0.23.2
 
+  react-easy-swipe@0.0.21:
+    dependencies:
+      prop-types: 15.8.1
+
   react-element-to-jsx-string@15.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@base2/pretty-print-object': 1.0.1
@@ -11779,6 +11793,12 @@ snapshots:
       warning: 4.0.3
 
   react-refresh@0.14.2: {}
+
+  react-responsive-carousel@3.2.23:
+    dependencies:
+      classnames: 2.5.1
+      prop-types: 15.8.1
+      react-easy-swipe: 0.0.21
 
   react-router-dom@6.26.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:

@@ -11,12 +11,12 @@ type TProps = {
 export const Button = ({ id, text = 'button', children, ...rest }: TProps) => {
   console.log(rest)
   return (
-    <div>
+    <div style={{ position: 'relative' }}>
       <MUIButton {...rest}>
         {children}
         {text}
-        <EditorButtonsContainer id={id} config={config} componentProps={{ text, ...rest }} />
       </MUIButton>
+      <EditorButtonsContainer id={id} config={config} componentProps={{ text, ...rest }} />
     </div>
   )
 }
