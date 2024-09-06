@@ -88,6 +88,21 @@ const Button = ({ id, size = 'medium', style = 'outlined', text = 'button' }: TP
 All components should set their configurations on the general config.ts file, on the root of the project
 
 ```ts
+import { Button } from '../components/button/button'
+import { LinkBox } from '../components/linkBox/linkBoxV3'
+import { Grid } from '../components//grid/grid'
+import { Image } from '../components/image/image'
+import { Title } from '../components/title/title'
+import { Text } from '../components/text/text'
+import { Flex } from '../components/flex/flex'
+import { config as configLinkBox } from '../components/linkBox/config'
+import { config as configGrid } from '../components/grid/config'
+import { config as configImage } from '../components/image/config'
+import { config as configTitle } from '../components/title/config'
+import { config as configText } from '../components/text/config'
+import { config as configFlex } from '../components/flex/config'
+import { config as configButton } from '../components/button/config'
+
 luminaConfig: TComponentConfig = {
   linkbox: {
     component: LinkBox,
@@ -117,11 +132,12 @@ luminaConfig: TComponentConfig = {
 
 ## Helpers
 
-- **EditButtonsContainer** - This component is usefull to easily have access to the editor options, like editing or deleting the component
+- **EditButtonsContainer** - This component is used to easily have access to the editor options, like editing or deleting the component.
+  This component will add a container to your component, containing editor buttons.
 
 ## Example
 
-**Image component**
+_Image component_
 
 ```ts
 import { config } from './config'
@@ -141,8 +157,9 @@ export const Image = ({ href, alt, id }: TProps) => {
 
 ```
 
-<br />
-**Image config**{' '}
+---
+
+_Image component configuration_
 
 ```ts
 import type { TConfig } from '@lumina/core'
@@ -170,13 +187,15 @@ export const config: TConfig = {
 }
 ```
 
-<br/>
-**Lumina config**
+---
+
+_Lumina configuration_
+
 ```ts
 const luminaConfig: TComponentConfig = {
   image: {
     component: Image,
     config: configImage,
-  }
+  },
 }
 ```
