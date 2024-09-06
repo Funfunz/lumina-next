@@ -15,6 +15,7 @@ const RouteExtractor = () => {
 }
 
 function App() {
+  console.log('test')
   return (
     <BrowserRouter>
       <Routes>
