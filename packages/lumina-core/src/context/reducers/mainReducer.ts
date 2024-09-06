@@ -33,10 +33,14 @@ export const initialContext = {
 export const mainReducer = (
   { appContext, builderDataContext }: IInitialStateType,
   action: TAppContextAction | TBuilderDataContextAction
-) => ({
-  appContext: appContextReducer(appContext, action as TAppContextAction),
-  builderDataContext: builderDataContextReducer(
-    builderDataContext,
-    action as TBuilderDataContextAction
-  ),
-})
+) => {
+  const newContext = {
+    appContext: appContextReducer(appContext, action as TAppContextAction),
+    builderDataContext: builderDataContextReducer(
+      builderDataContext,
+      action as TBuilderDataContextAction
+    ),
+  }
+  console.log({ newContext })
+  return newContext
+}

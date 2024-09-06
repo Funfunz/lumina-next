@@ -267,23 +267,47 @@ export const builderDataContextReducer = (
         builderData: {
           ...data.builderData,
           [action.data.pageName]: {
+            id: action.data.id,
             name: action.data.pageName,
-            friendyName: action.data.friendlyName,
+            friendlyName: action.data.friendlyName,
+            status: action.data.status,
+            description: action.data.description,
+            urlParams: action.data.urlParams,
             children: [],
           },
         },
+        pages: [...data.pages, action.data.pageName],
       }
 
     case 'updatePage':
+      const { id, newData } = action.data
+      const pageToUpdate = Object.values(data.builderData).find(page => page.id === id)
+      if (!pageToUpdate) {
+        return data
+      }
+
+      const updatedPageName = newData.pageName || pageToUpdate.pageName
+      const updatedBuilderData = {
+        ...data.builderData,
+        [updatedPageName]: {
+          ...pageToUpdate,
+          ...newData,
+          pageName: updatedPageName,
+        },
+      }
+
+      if (updatedPageName !== pageToUpdate.pageName) {
+        delete updatedBuilderData[pageToUpdate.pageName]
+      }
+
+      const updatedPages = data.pages.map(page =>
+        page === pageToUpdate.pageName ? updatedPageName : page
+      )
+
       return {
         ...data,
-        builderData: {
-          ...data.builderData,
-          [action.data.pageName]: {
-            ...data.builderData[action.data.pageName],
-            ...action.data.newData,
-          },
-        },
+        builderData: updatedBuilderData,
+        pages: updatedPages,
       }
 
     case 'deletePage':
@@ -292,8 +316,9 @@ export const builderDataContextReducer = (
         builderData: {
           ...data.builderData,
         },
+        pages: data.pages.filter(page => page !== action.data.id),
       }
-      delete newState.builderData[action.data]
+      delete newState.builderData[action.data.id]
       return newState
 
     case 'createComponent':

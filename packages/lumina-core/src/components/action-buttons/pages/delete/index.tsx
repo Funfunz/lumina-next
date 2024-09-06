@@ -1,45 +1,48 @@
 import { Button } from '@/components/button'
-import { DELETEMODAL, useToggleModalContext } from '@/context/toggleModalContextProvider'
-import { useToggleMenuContext } from '@/context/toggleMenuContextProvider'
+import { useLuminaContext } from '@/context/contextProvider'
 
-type TProps = {
-  componentId: string
+type TDeletePageProps = {
+  id: string
   buttonLabel?: string
   isDisabled?: boolean
   isMenuButton?: boolean
 }
 
-/**
- * Enables calling the delete button easily by providing fewer props
- * @param param0
- * @returns
- */
-export const DeleteComponentButton = ({
-  componentId,
+export const DeletePageButton = ({
+  id,
   buttonLabel,
   isDisabled,
   isMenuButton,
-}: TProps) => {
-  const { handleOpenModal } = useToggleModalContext()
-  const { handleToggleMenu } = useToggleMenuContext()
+}: TDeletePageProps) => {
+  const { dispatch } = useLuminaContext()
 
-  const handleToggleDeleteModal = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault()
-    handleOpenModal({
-      id: componentId,
-      modalType: DELETEMODAL,
-    })
-    handleToggleMenu(componentId)
+  ;(window as any).testDelete = dispatch
+
+  /*  testDelete({
+    type: 'deletePage',
+    data: {
+    id: 'page-69'
+    },
+  }) */
+
+  const handleDeletePage = () => {
+    dispatch({
+      type: 'deletePage',
+      data: { id },
+    }),
+      [dispatch]
   }
 
   return (
-    <Button
-      buttonType='button'
-      onClick={handleToggleDeleteModal}
-      style={isMenuButton ? 'menuButton' : 'danger'}
-      text={buttonLabel}
-      iconLeft='lum-icon-cross'
-      disabled={isDisabled}
-    />
+    <>
+      <Button
+        buttonType='button'
+        onClick={handleDeletePage}
+        text={buttonLabel}
+        disabled={isDisabled}
+        iconLeft='lum-icon-plus'
+        style={isMenuButton ? 'menuButton' : 'secondary'}
+      />
+    </>
   )
 }

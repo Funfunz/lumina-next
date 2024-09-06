@@ -4,10 +4,10 @@ export interface ICreatePageAction {
     id: string
     pageName: string
     friendlyName: string
-    extendedName: string
     dateModified: string
     status: boolean
-    route: string
+    description: string
+    urlParams: string[]
   }
 }
 
@@ -15,17 +15,20 @@ export interface IUpdatePageAction {
   type: 'updatePage'
   data: {
     id: string
-    pageName: string
     newData: Partial<{
-      name: string
+      pageName: string
       friendlyName: string
       dateModified: string
       status: boolean
+      description: string
+      urlParams: string[]
     }>
   }
 }
 
 export interface IDeletePageAction {
   type: 'deletePage'
-  data: string
+  data: {
+    id: string
+  }
 }

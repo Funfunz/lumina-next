@@ -20,7 +20,7 @@ const editorTabs: TSidebarTab[] = [
   {
     id: 'lumTabPages',
     icon: 'lum-icon-page',
-    panel: <PagesTab />,
+    panel: <PagesTab id={''} />,
   },
   {
     id: 'lumTabComponents',
