@@ -1,9 +1,8 @@
+import { TParsedRoute } from '@/utils/routerParser'
 import { apiDispatcher } from '../apiDispatcher'
 import { IComponentProps } from '@/models/data'
 
-export interface IAppContext {
-  editor: boolean
-}
+export interface IAppContext extends TParsedRoute {}
 
 export type TAppContextAction = IUpdateBackendAction
 
@@ -16,7 +15,9 @@ export interface IUpdateBackendAction {
 }
 
 export const initialAppContextState = {
-  editor: false,
+  selectedPage: '',
+  params: {},
+  isEditor: false,
 }
 
 export const appContextReducer = (data: IAppContext, action: TAppContextAction) => {
