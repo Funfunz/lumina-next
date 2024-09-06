@@ -1,7 +1,7 @@
 import { IData } from '@lumina/core'
 
 const data: IData = {
-  'home/:productId': {
+  home: {
     id: 'page1',
     pageName: 'Homepage',
     friendlyName: 'Homepage',
@@ -183,6 +183,8 @@ const data: IData = {
                 hidden: false,
                 props: {
                   srcDesktop: 'https://picsum.photos/1240/400?random=4',
+                  srcMobile: 'https://picsum.photos/576/400?random=6',
+                  srcTablet: 'https://picsum.photos/900/400?random=5',
                 },
               },
             ],
@@ -205,7 +207,9 @@ const data: IData = {
                 order: 1,
                 hidden: false,
                 props: {
-                  srcDesktop: 'https://picsum.photos/1240/400?random=5',
+                  srcDesktop: 'https://picsum.photos/1240/400?random=7',
+                  srcMobile: 'https://picsum.photos/576/400?random=9',
+                  srcTablet: 'https://picsum.photos/900/400?random=8',
                 },
               },
             ],
@@ -218,6 +222,48 @@ const data: IData = {
         ],
         props: {
           direction: 'row',
+        },
+      },
+    ],
+  },
+  'product/:productId': {
+    id: 'page2',
+    pageName: 'Homepage',
+    friendlyName: 'Homepage',
+    extendedName: 'Homepage for Lumina Page Builder',
+    dateModified: '18.06.2024',
+    status: 'active',
+    route: '/',
+    children: [
+      {
+        id: 'menu_e9keea0jop',
+        type: 'menu',
+        friendlyName: 'menu',
+        children: [],
+        order: 1,
+        hidden: false,
+        props: {},
+      },
+      {
+        id: 'spacer_quw3fgi3sb',
+        type: 'spacer',
+        friendlyName: 'spacer2',
+        children: [],
+        order: 4,
+        hidden: false,
+        props: {
+          size: 4,
+        },
+      },
+      {
+        id: 'product_2mawfxk4v0',
+        type: 'product',
+        friendlyName: 'product1',
+        children: [],
+        order: 5,
+        hidden: false,
+        props: {
+          productId: 'productIdFromProps',
         },
       },
     ],
