@@ -7,7 +7,7 @@ const pageConfigurations: {
   [key: string]: (params: Record<string, string>) => Array<{ path?: string; name: string }>
 } = {
   ['product/:productId']: params => {
-    return [{ path: '/', name: 'Home' }, { name: 'product/' + params.productId }]
+    return [{ path: '/', name: 'Home' }, { name: 'product / ' + params.productId }]
   },
 }
 
