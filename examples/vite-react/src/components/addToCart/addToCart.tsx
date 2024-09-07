@@ -5,7 +5,7 @@ import { useAppContext } from '../../context/contextProvider'
 import { useCallback } from 'react'
 
 type TProps = {
-  id: string
+  id?: string
 } & ButtonOwnProps
 
 export const AddToCart = ({ id, ...rest }: TProps) => {
@@ -29,7 +29,10 @@ export const AddToCart = ({ id, ...rest }: TProps) => {
       <MUIButton {...rest} onClick={handleAddToCartClick}>
         Add to cart
       </MUIButton>
-      <EditorButtonsContainer id={id} config={config} componentProps={{ ...rest } as any} />
+      {(id && (
+        <EditorButtonsContainer id={id} config={config} componentProps={{ ...rest } as any} />
+      )) ||
+        null}
     </div>
   )
 }

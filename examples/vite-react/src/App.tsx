@@ -4,6 +4,8 @@ import luminaConfig from './luminaComponents/config'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { Contact } from './pages/contact'
 import '@lumina/core/style.css'
+import '@fontsource/roboto/400.css'
+import '@fontsource/roboto/700.css'
 import './styles.css'
 
 const RouteExtractor = () => {

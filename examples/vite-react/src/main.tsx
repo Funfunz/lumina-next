@@ -5,6 +5,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { ContextProvider } from './context/contextProvider.tsx'
 
 const theme = createTheme({
+  colorSchemes: {},
   typography: {
     h1: {
       fontWeight: 700,

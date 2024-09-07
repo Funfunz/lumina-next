@@ -5,3 +5,13 @@
 .carousel .control-prev.control-arrow::before {
   border-right: 8px solid #000;
 }
+
+.carousel .carousel-status {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #17183b;
+  text-shadow: none;
+  -webkit-text-stroke: rgb(255 255 255 / 50%) 0.5px;
+  text-stroke: rgb(255 255 255 / 50%) 0.5px;
+}
