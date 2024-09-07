@@ -34,6 +34,12 @@ import { config as configSpacer } from '../components/spacer/config'
 import { Product } from '../components/product/product'
 import { config as configProduct } from '../components/product/config'
 
+import { Container } from '../components/container/container'
+import { config as configContainer } from '../components/container/config'
+
+import { Breadcrumb } from '../components/breadcrumb/breadcrumb'
+import { config as configBreadcrumb } from '../components/breadcrumb/config'
+
 import { TComponentConfig } from '@lumina/core'
 
 const luminaConfig: TComponentConfig = {
@@ -81,10 +87,17 @@ const luminaConfig: TComponentConfig = {
     component: Spacer,
     config: configSpacer,
   },
-
   [configProduct.type]: {
     component: Product,
     config: configProduct,
+  },
+  [configContainer.type]: {
+    component: Container,
+    config: configContainer,
+  },
+  [configBreadcrumb.type]: {
+    component: Breadcrumb,
+    config: configBreadcrumb,
   },
 }
 

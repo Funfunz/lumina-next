@@ -4,6 +4,7 @@ export type TParsedRoute = {
   selectedPage: string
   params: Record<string, string>
   isEditor: boolean
+  pathComponents: string[]
 }
 
 export const routerParser = (pathName: string, builderData: IData): TParsedRoute => {
@@ -38,6 +39,7 @@ export const routerParser = (pathName: string, builderData: IData): TParsedRoute
     selectedPage: pageFound || 'home',
     params,
     isEditor,
+    pathComponents: splittedSelectedPathName,
   }
 
   return result

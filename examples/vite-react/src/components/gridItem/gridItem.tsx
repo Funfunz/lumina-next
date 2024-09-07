@@ -5,13 +5,17 @@ import MUIGrid, { type Grid2Props } from '@mui/material/Grid2'
 type TProps = {
   children: React.ReactNode
   id: string
+  noEditor?: boolean
 } & Grid2Props
 
-export const GridItem = ({ children, id, ...rest }: TProps) => {
+export const GridItem = ({ children, id, noEditor, ...rest }: TProps) => {
   return (
     <MUIGrid {...rest}>
       {children}
-      <EditorButtonsContainer id={id} config={config} componentProps={{ ...rest }} />
+      {(!noEditor && (
+        <EditorButtonsContainer id={id} config={config} componentProps={{ ...rest }} />
+      )) ||
+        null}
     </MUIGrid>
   )
 }

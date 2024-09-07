@@ -5,6 +5,8 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { Carousel } from 'react-responsive-carousel'
 import { data } from './data'
 import { config } from './config'
+import Typography from '@mui/material/Typography'
+import styles from './product.module.scss'
 
 type TProps = {
   id: string
@@ -13,27 +15,34 @@ type TProps = {
 
 export const Product = ({ id, productId }: TProps) => {
   const { params } = useAppContext()
-
+  const product = data[params.productId || productId]
+  if (!product) return null
   return (
-    <Grid id={id} style={{ position: 'relative' }}>
-      <GridItem id='someid' size={7}>
-        <p>This is a product information component</p>
-        <p>
-          The product ID is being grabbed by a prop called &quot;productId&quot;
-          <br />
-          And also from the productId parameter on the URL
-        </p>
-        <p>
-          <b>productId prop:</b> <span style={{ color: 'green' }}>{productId}</span>
-          <br />
-          <b>productId URL param:</b> <span style={{ color: 'green' }}>{params.productId}</span>
-        </p>
+    <Grid noEditor id={id} style={{ position: 'relative' }} columnSpacing={20}>
+      <GridItem noEditor id='someid' size={6}>
+        <Typography variant='h1' fontSize='2.8rem' fontWeight={700} gutterBottom>
+          {product.productName}
+        </Typography>
+        <Grid noEditor id={id} alignItems='center'>
+          <GridItem noEditor id='someid' size={6}>
+            <Typography variant='h6' fontWeight={700} gutterBottom>
+              {product.price}
+            </Typography>
+          </GridItem>
+          <GridItem noEditor id='someid' size={6} textAlign='right'>
+            <span>
+              {product.rate}/5.0 ({product.rateCount})
+            </span>
+          </GridItem>
+          <EditorButtonsContainer id={id} config={config} componentProps={{ productId }} />
+        </Grid>
+        <p>{product.description}</p>
       </GridItem>
-      <GridItem id='someid' size={5}>
+      <GridItem noEditor id='someid' size={6}>
         <Carousel showIndicators={false} showStatus={false}>
-          {data.images.map((image, index) => (
+          {product.images.map((image, index) => (
             <div key={index}>
-              <img src={image} />
+              <img className={styles.image} src={image} />
             </div>
           ))}
         </Carousel>
