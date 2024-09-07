@@ -20,7 +20,7 @@ export const Product = ({ id, productId }: TProps) => {
   return (
     <Grid noEditor id={id} style={{ position: 'relative' }} columnSpacing={20}>
       <GridItem noEditor id='someid' size={6}>
-        <Typography variant='h1' fontSize='2.8rem' fontWeight={700} gutterBottom>
+        <Typography variant='h1' gutterBottom>
           {product.productName}
         </Typography>
         <Grid noEditor id={id} alignItems='center'>
