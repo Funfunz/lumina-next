@@ -16,7 +16,7 @@ export const Button = ({ id, text = 'button', children, ...rest }: TProps) => {
         {children}
         {text}
       </MUIButton>
-      <EditorButtonsContainer id={id} config={config} componentProps={{ text, ...rest }} />
+      <EditorButtonsContainer id={id} config={config} componentProps={{ text, ...rest } as any} />
     </div>
   )
 }

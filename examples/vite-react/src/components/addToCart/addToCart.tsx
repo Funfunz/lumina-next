@@ -29,7 +29,7 @@ export const AddToCart = ({ id, ...rest }: TProps) => {
       <MUIButton {...rest} onClick={handleAddToCartClick}>
         Add to cart
       </MUIButton>
-      <EditorButtonsContainer id={id} config={config} componentProps={{ ...rest }} />
+      <EditorButtonsContainer id={id} config={config} componentProps={{ ...rest } as any} />
     </div>
   )
 }

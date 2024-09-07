@@ -13,7 +13,7 @@ export const GridItem = ({ children, id, noEditor, ...rest }: TProps) => {
     <MUIGrid {...rest}>
       {children}
       {(!noEditor && (
-        <EditorButtonsContainer id={id} config={config} componentProps={{ ...rest }} />
+        <EditorButtonsContainer id={id} config={config} componentProps={{ ...rest } as any} />
       )) ||
         null}
     </MUIGrid>
