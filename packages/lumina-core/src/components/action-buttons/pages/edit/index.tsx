@@ -11,22 +11,21 @@ type TEditPageProps = {
 export const EditPageButton = ({ id, buttonLabel, isDisabled, isMenuButton }: TEditPageProps) => {
   const { dispatch } = useLuminaContext()
 
-  ;(window as any).testEdit = dispatch
-
-  /*   testEdit({
-    type: 'updatePage',
-    data: {
-      id: 'page-69',
-      newData: {
-        pageName: 'ultraPagename Super Hiper Mega',
-        friendlyName: 'stringBueFixe Updated',
-        dateModified: Date.now().toString(),
-        status: true,
-        description: 'descricao bue nice lol propsmodem',
-        urlParams: ['updatedParam1', 'updatedParam2'],
+  ;(window as any).testEdit = (id: string) => {
+    dispatch({
+      type: 'updatePage',
+      data: {
+        id,
+        newData: {
+          friendlyName: 'stringBueFixe Updated',
+          description: 'descricao bue nice lol propsmodem',
+          urlParams: ['updatedParam1', 'updatedParam2'],
+        },
       },
-    },
-  }); */
+    })
+  }
+
+  /*   testEdit(); */
 
   const handleEditButton = () => {
     dispatch({
@@ -34,10 +33,7 @@ export const EditPageButton = ({ id, buttonLabel, isDisabled, isMenuButton }: TE
       data: {
         id,
         newData: {
-          pageName: 'testPageUpdated',
           friendlyName: 'tpu',
-          dateModified: Date.now().toString(),
-          status: true,
           description: 'A very solid updated test page',
           urlParams: ['updatedParam1', 'updatedParam2'],
         },

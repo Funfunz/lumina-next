@@ -20,9 +20,8 @@ export interface IComponentData {
 
 export interface IPageData {
   id: string
-  pageName: string
   friendlyName: string
-  extendedName: string
+  description: string
   dateModified: string
   status: string
   children?: IComponentData[]

@@ -16,14 +16,16 @@ export const DeletePageButton = ({
 }: TDeletePageProps) => {
   const { dispatch } = useLuminaContext()
 
-  ;(window as any).testDelete = dispatch
+  ;(window as any).testDelete = (id: string) => {
+    dispatch({
+      type: 'deletePage',
+      data: {
+        id,
+      },
+    })
+  }
 
-  /*  testDelete({
-    type: 'deletePage',
-    data: {
-    id: 'page-69'
-    },
-  }) */
+  /*  testDelete() */
 
   const handleDeletePage = () => {
     dispatch({
