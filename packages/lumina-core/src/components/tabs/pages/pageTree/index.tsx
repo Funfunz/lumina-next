@@ -1,5 +1,5 @@
 import { IPageData } from '@/models/data'
-import { TreeBranch } from '../treeBranch'
+import { TreeBranch } from '../../treeBranch'
 
 type TProps = {
   data: IPageData[]
@@ -22,7 +22,9 @@ export const PageTree = ({ data }: TProps) => {
           return 0
         })
         .map(dataItem => (
-          <TreeBranch key={dataItem.id} data={dataItem} />
+          <TreeBranch key={dataItem.id} data={dataItem} expandable={false}>
+            {dataItem.friendlyName} - {dataItem.route}
+          </TreeBranch>
         ))}
     </>
   )
