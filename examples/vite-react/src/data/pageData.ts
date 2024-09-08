@@ -100,11 +100,11 @@ const data: IData = {
   ['home/:productId']: {
     id: 'page2',
     pageName: 'Homepage',
-    friendlyName: 'Homepage',
+    friendlyName: 'Product',
     extendedName: 'Homepage for Lumina Page Builder',
     dateModified: '18.06.2024',
     status: 'active',
-    route: '/',
+    route: 'home/:productId',
     children: [
       {
         id: 'image1test',

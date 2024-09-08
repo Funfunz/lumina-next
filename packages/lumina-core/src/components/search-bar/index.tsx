@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import { Button } from '../button'
 import cx from 'classnames'
 import { Input } from '../form-components/input'
@@ -6,7 +6,8 @@ import { useDebounce } from 'use-debounce'
 
 type TProps = {
   searchValue: string
-  setSearchValue: Dispatch<SetStateAction<string>>
+  // eslint-disable-next-line no-unused-vars
+  setSearchValue: (text: string) => void
 }
 
 /**

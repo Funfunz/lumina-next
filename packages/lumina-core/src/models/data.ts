@@ -28,6 +28,7 @@ export interface IPageData {
   children?: IComponentData[]
   props?: IPageProps
   route: string
+  isMatch?: boolean
 }
 
 export interface IData {
