@@ -17,7 +17,7 @@ import Github from '../../assets/github.svg'
 
   <thead>
     <tr>
-      <td>**Required import**</td>
+      <td>**Imports**</td>
     <td>**Description**</td>
       <td>**Required**</td>
       <td>**Example**</td>
@@ -26,7 +26,7 @@ import Github from '../../assets/github.svg'
   <tbody>
     <tr>
       <td>Needs from lumina core - see [Helpers](/docs/docs-components-add-new-component--documentation#helpers)</td>
-       <td>Importing required code from core package</td>
+       <td>Importing code from core package</td>
       <td>❌</td>
       <td>
       ```ts
@@ -37,7 +37,7 @@ import Github from '../../assets/github.svg'
     </tr>
     <tr>
       <td>Configuration file - see [Required Configuration](/docs/docs-components-required-configuration--documentation) to understand the required configuration forthe component</td>
-      <td>Importing required configuration for the specific component</td>
+      <td>Importing configuration for the specific component</td>
       <td>❌</td>
       <td>
       ```ts
@@ -83,9 +83,9 @@ const Button = ({ id, size = 'medium', style = 'outlined', text = 'button' }: TP
 
 ```
 
-## General configuration
+## Required Lumina Configuration
 
-All components should set their configurations on the general config.ts file, on the root of the project
+All components should set their configurations on the general config.ts file.
 
 ```ts
 import { Button } from '../components/button/button'
@@ -132,8 +132,13 @@ luminaConfig: TComponentConfig = {
 
 ## Helpers
 
-- **EditButtonsContainer** - This component is used to easily have access to the editor options, like editing or deleting the component.
+- **EditorButtonsContainer** - This component is used to easily have access to the editor options, like editing or deleting the component.
   This component will add a container to your component, containing editor buttons.
+  It should receive, as props. the id and the config of the component (required). Others props are optional and accepted.
+
+  ```ts
+   <EditorButtonsContainer id={id} config={config} componentProps={{ size, style, text }} />
+  ```
 
 ## Example
 
@@ -197,5 +202,24 @@ const luminaConfig: TComponentConfig = {
     component: Image,
     config: configImage,
   },
+}
+```
+
+---
+
+_TComponentConfig and TConfig _
+
+```ts
+export type TComponentConfig = {
+  [key: string]: {
+    component: (props: any) => React.JSX.Element | null
+    config: TConfig
+  }
+}
+export type TConfig = {
+  name: string
+  type: string
+  props?: (TConfigItemValue | TConfigItemSelect)[]
+  editor: TEditorConfig
 }
 ```
