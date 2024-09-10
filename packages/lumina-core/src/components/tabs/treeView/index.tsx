@@ -1,6 +1,6 @@
 import { useLuminaContext } from '@/context/contextProvider'
 import { TreeviewHeader } from './treeviewHeader'
-import { AddComponentButton } from '@/components/action-buttons/add'
+import { AddComponentButton } from '@/components/action-buttons/components/add'
 import { SearchBar } from '@/components/search-bar'
 import { ComponentTree } from './componentTree'
 import { ToggleMenuContextProvider } from '@/context/toggleMenuContextProvider'

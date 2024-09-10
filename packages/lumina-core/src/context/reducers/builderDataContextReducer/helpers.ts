@@ -1,34 +1,8 @@
-import { IComponentData, IComponentProps, IPageData } from '@/models/data'
-import { ICreatePageAction, IDeletePageAction, IUpdatePageAction } from './models/builderPageModels'
-import { IBuilderDataContext, ISetBuilderDataAction } from './models/builderDataModels'
-import {
-  ICreateComponentAction,
-  IDeleteComponentAction,
-  IMoveDownComponentAction,
-  IMoveUpComponentAction,
-  IUpdateComponentAction,
-  IVisibleComponentAction,
-} from './models/builderComponentModels'
+import { IPageData } from '@/main'
+import { IComponentData, IComponentProps } from '@/models/data'
+import { ICreateComponentAction } from './actions/componentActions'
 
-export type TBuilderDataContextAction =
-  | ISetBuilderDataAction
-  | ICreatePageAction
-  | IUpdatePageAction
-  | IDeletePageAction
-  | ICreateComponentAction
-  | IUpdateComponentAction
-  | IDeleteComponentAction
-  | IMoveUpComponentAction
-  | IMoveDownComponentAction
-  | IVisibleComponentAction
-
-export const initialBuilderDataContextState = {
-  builderData: {},
-  selectedPage: '',
-  pages: [],
-}
-
-function newComponentFactory(
+export function newComponentFactory(
   componentData: ICreateComponentAction['data'],
   order: number,
   hidden: boolean
@@ -57,7 +31,7 @@ const instanceOfIComponentData = (object: any): object is IComponentData => {
  * @param data
  * @returns
  */
-function createElementAt(
+export function createElementAt(
   component: IPageData | IComponentData,
   data: ICreateComponentAction['data']
 ): IPageData | IComponentData {
@@ -90,7 +64,7 @@ function createElementAt(
   return component
 }
 
-function updateElement(
+export function updateElement(
   components: IComponentData[],
   targetId: string,
   newProps: IComponentProps
@@ -110,7 +84,7 @@ function updateElement(
   })
 }
 
-function deleteElement(components: IComponentData[], targetId: string): IComponentData[] {
+export function deleteElement(components: IComponentData[], targetId: string): IComponentData[] {
   return components
     .map(element => {
       if (element.id === targetId) {
@@ -163,7 +137,10 @@ function downOrderElement(
   return componentToReplace
 }
 
-function toggleVisibilityElement(components: IComponentData[], targetId: string): IComponentData[] {
+export function toggleVisibilityElement(
+  components: IComponentData[],
+  targetId: string
+): IComponentData[] {
   return components.map(element => {
     if (element.id === targetId) {
       return {
@@ -184,7 +161,7 @@ function toggleVisibilityElement(components: IComponentData[], targetId: string)
   })
 }
 
-function moveUpElement(
+export function moveUpElement(
   components: IComponentData[],
   { id, currentPosition }: { id: string; currentPosition: number }
 ) {
@@ -218,7 +195,7 @@ function moveUpElement(
   return newComponents
 }
 
-function moveDownElement(
+export function moveDownElement(
   components: IComponentData[],
   { id, currentPosition }: { id: string; currentPosition: number }
 ) {
@@ -252,151 +229,3 @@ function moveDownElement(
 
   return newComponents
 }
-
-export const builderDataContextReducer = (
-  data: IBuilderDataContext,
-  action: TBuilderDataContextAction
-) => {
-  switch (action.type) {
-    case 'setBuilderData':
-      return JSON.parse(JSON.stringify(action.data))
-
-    case 'createPage':
-      return {
-        ...data,
-        builderData: {
-          ...data.builderData,
-          [action.data.pageName]: {
-            name: action.data.pageName,
-            friendyName: action.data.friendlyName,
-            children: [],
-          },
-        },
-      }
-
-    case 'updatePage':
-      return {
-        ...data,
-        builderData: {
-          ...data.builderData,
-          [action.data.pageName]: {
-            ...data.builderData[action.data.pageName],
-            ...action.data.newData,
-          },
-        },
-      }
-
-    case 'deletePage':
-      const newState = {
-        ...data,
-        builderData: {
-          ...data.builderData,
-        },
-      }
-      delete newState.builderData[action.data]
-      return newState
-
-    case 'createComponent':
-      const stateCreateComponent = {
-        ...data,
-        builderData: {
-          ...data.builderData,
-          [data.selectedPage]: {
-            ...data.builderData[data.selectedPage],
-            ...createElementAt(data.builderData[data.selectedPage], action.data),
-          },
-        },
-      }
-      return stateCreateComponent
-
-    case 'updateComponent':
-      const stateUpdateComponent = {
-        ...data,
-        builderData: {
-          ...data.builderData,
-          [data.selectedPage]: {
-            ...data.builderData[data.selectedPage],
-            children: [
-              ...updateElement(
-                // Confirmar se a data é undefined ou não
-                data.builderData[data.selectedPage].children!,
-                action.data.id,
-                action.data.newProps
-              ),
-            ],
-          },
-        },
-      }
-      return stateUpdateComponent
-
-    case 'deleteComponent':
-      return {
-        ...data,
-        builderData: {
-          ...data.builderData,
-          [data.selectedPage]: {
-            ...data.builderData[data.selectedPage],
-            children: [
-              ...deleteElement(
-                // Confirmar se a data é undefined ou não
-                data.builderData[data.selectedPage].children!,
-                action.data.id
-              ),
-            ],
-          },
-        },
-      }
-    case 'visibilityComponent':
-      const updatedChildren = toggleVisibilityElement(
-        data.builderData[data.selectedPage].children!,
-        action.data.id
-      )
-      return {
-        ...data,
-        builderData: {
-          ...data.builderData,
-          [data.selectedPage]: {
-            ...data.builderData[data.selectedPage],
-            children: updatedChildren,
-          },
-        },
-      }
-    case 'moveUpComponent':
-      return {
-        ...data,
-        builderData: {
-          ...data.builderData,
-          [data.selectedPage]: {
-            ...data.builderData[data.selectedPage],
-            children: [
-              ...moveUpElement(
-                // Confirmar se a data é undefined ou não
-                data.builderData[data.selectedPage].children!,
-                action.data
-              ),
-            ],
-          },
-        },
-      }
-
-    case 'moveDownComponent':
-      return {
-        ...data,
-        builderData: {
-          ...data.builderData,
-          [data.selectedPage]: {
-            ...data.builderData[data.selectedPage],
-            children: [
-              ...moveDownElement(data.builderData[data.selectedPage].children!, action.data),
-            ],
-          },
-        },
-      }
-
-    default:
-      break
-  }
-
-  return data
-}
-export type { IBuilderDataContext }

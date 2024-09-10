@@ -15,7 +15,7 @@ import { IAppContext, initialAppContextState } from './reducers/appContextReduce
 import {
   IBuilderDataContext,
   initialBuilderDataContextState,
-} from './reducers/builderDataContextReducer'
+} from './reducers/builderDataContextReducer/builderDataContextReducer'
 
 export interface IContext {
   state: IInitialStateType
