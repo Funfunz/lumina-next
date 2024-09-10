@@ -7,62 +7,53 @@ import Github from '../../assets/github.svg'
 
 ## Guide
 
-1. Create component folder inside src/components. The component file, styles and its configuration should be inside the same folder.
+1. Create a component folder inside src/components. The component file, styles and its configuration should be inside the same folder.
 2. Create - see [Component](/docs/docs-components-add-new-component--documentation#component)
 3. Configuration - see [General Configuration](/docs/docs-components-add-new-component--documentation#general-configuration)
 
 ## Component
 
 <table>
-
   <thead>
     <tr>
       <td>**Imports**</td>
-    <td>**Description**</td>
+      <td>**Description**</td>
       <td>**Required**</td>
       <td>**Example**</td>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Needs from lumina core - see [Helpers](/docs/docs-components-add-new-component--documentation#helpers)</td>
-       <td>Importing code from core package</td>
-      <td>❌</td>
       <td>
-      ```ts
-      import { EditorButtonsContainer } from '@lumina/core'
-      ```
+        Needs from lumina core - see
+        [Helpers](/docs/docs-components-add-new-component--documentation#helpers)
       </td>
-
+      <td>Importing code from core package</td>
+      <td>❗️</td>
+      <td>```ts import {EditorButtonsContainer} from '@lumina/core' ```</td>
     </tr>
     <tr>
-      <td>Configuration file - see [Required Configuration](/docs/docs-components-required-configuration--documentation) to understand the required configuration forthe component</td>
-      <td>Importing configuration for the specific component</td>
-      <td>❌</td>
       <td>
-      ```ts
-    import { config } from './config'
-      ```
+        Configuration file - see [Required
+        Configuration](/docs/docs-components-required-configuration--documentation) to understand
+        the required configuration forthe component
       </td>
+      <td>Importing configuration for the specific component</td>
+      <td>❗️</td>
+      <td>```ts import {config} from './config' ```</td>
     </tr>
-     <tr>
+    <tr>
       <td>Styles</td>
       <td>Importing styles for the component</td>
-      <td>❌</td>
-      <td>
-      ```ts
-      import styles from './styles.scss'
-      ```
-      </td>
+      <td>❗️</td>
+      <td>```ts import styles from './styles.scss' ```</td>
     </tr>
-
   </tbody>
 </table>
 
 ### Example
 
 ```ts
-
 import { EditorButtonsContainer } from '@lumina/core'
 import { config } from './config'
 import cx from 'classnames'
@@ -88,20 +79,24 @@ const Button = ({ id, size = 'medium', style = 'outlined', text = 'button' }: TP
 All components should set their configurations on the general config.ts file.
 
 ```ts
-import { Button } from '../components/button/button'
-import { LinkBox } from '../components/linkBox/linkBoxV3'
-import { Grid } from '../components//grid/grid'
-import { Image } from '../components/image/image'
-import { Title } from '../components/title/title'
-import { Text } from '../components/text/text'
-import { Flex } from '../components/flex/flex'
-import { config as configLinkBox } from '../components/linkBox/config'
-import { config as configGrid } from '../components/grid/config'
-import { config as configImage } from '../components/image/config'
-import { config as configTitle } from '../components/title/config'
-import { config as configText } from '../components/text/config'
-import { config as configFlex } from '../components/flex/config'
-import { config as configButton } from '../components/button/config'
+import {
+  Button,
+  LinkBox,
+  Grid,
+  Image,
+  Title,
+  Text,
+  Flex,
+  Product,
+  configLinkBox,
+  configGrid,
+  configImage,
+  configTitle,
+  configText,
+  configFlex,
+  configProduct,
+  configButton,
+} from '../components'
 
 luminaConfig: TComponentConfig = {
   linkbox: {
@@ -132,9 +127,10 @@ luminaConfig: TComponentConfig = {
 
 ## Helpers
 
-- **EditorButtonsContainer** - This component is used to easily have access to the editor options, like editing or deleting the component.
-  This component will add a container to your component, containing editor buttons.
-  It should receive, as props. the id and the config of the component (required). Others props are optional and accepted.
+- **EditorButtonsContainer** - This Lumina component is used to easily have access to the editor options, like editing or deleting the component.
+  This is a wrapper to your components, overlaying the editor buttons.
+
+  The props `id` and the `config` of the component are required. Any other props are optional and accepted.
 
   ```ts
    <EditorButtonsContainer id={id} config={config} componentProps={{ size, style, text }} />

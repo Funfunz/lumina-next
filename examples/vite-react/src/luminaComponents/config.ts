@@ -1,20 +1,23 @@
-import { LinkBox } from '../components/linkBox/linkBoxV3'
-import { Grid } from '../components//grid/grid'
-import { Image } from '../components/image/image'
-import { Title } from '../components/title/title'
-import { Text } from '../components/text/text'
-import { Flex } from '../components/flex/flex'
-import { Product } from '../components/product/product'
-import { config as configLinkBox } from '../components/linkBox/config'
-import { config as configGrid } from '../components/grid/config'
-import { config as configImage } from '../components/image/config'
-import { config as configTitle } from '../components/title/config'
-import { config as configText } from '../components/text/config'
-import { config as configFlex } from '../components/flex/config'
-import { config as configProduct } from '../components/product/config'
 import { TComponentConfig } from '@lumina/core'
-import { Button } from '../components/button/button'
-import { config as configButton } from '../components/button/config'
+
+import {
+  Button,
+  LinkBox,
+  Grid,
+  Image,
+  Title,
+  Text,
+  Flex,
+  Product,
+  configLinkBox,
+  configGrid,
+  configImage,
+  configTitle,
+  configText,
+  configFlex,
+  configProduct,
+  configButton,
+} from '../components'
 
 const luminaConfig: TComponentConfig = {
   linkbox: {
