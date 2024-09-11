@@ -1,54 +1,103 @@
 import { LinkBox } from '../components/linkBox/linkBoxV3'
-import { Grid } from '../components//grid/grid'
-import { Image } from '../components/image/image'
-import { Title } from '../components/title/title'
-import { Text } from '../components/text/text'
-import { Flex } from '../components/flex/flex'
-import { Product } from '../components/product/product'
 import { config as configLinkBox } from '../components/linkBox/config'
+
+import { Grid } from '../components//grid/grid'
 import { config as configGrid } from '../components/grid/config'
+
+import { GridItem } from '../components//gridItem/gridItem'
+import { config as configGridItem } from '../components/gridItem/config'
+
+import { Image } from '../components/image/image'
 import { config as configImage } from '../components/image/config'
+
+import { Title } from '../components/title/title'
 import { config as configTitle } from '../components/title/config'
+
+import { Text } from '../components/text/text'
 import { config as configText } from '../components/text/config'
+
+import { Flex } from '../components/flex/flex'
 import { config as configFlex } from '../components/flex/config'
-import { config as configProduct } from '../components/product/config'
-import { TComponentConfig } from '@lumina/core'
+
+import { Menu } from '../components/menu/menu'
+import { config as configMenu } from '../components/menu/config'
+
 import { Button } from '../components/button/button'
 import { config as configButton } from '../components/button/config'
 
+import { AddToCart } from '../components/addToCart/addToCart'
+import { config as configAddToCart } from '../components/addToCart/config'
+
+import { Spacer } from '../components/spacer/spacer'
+import { config as configSpacer } from '../components/spacer/config'
+
+import { Product } from '../components/product/product'
+import { config as configProduct } from '../components/product/config'
+
+import { Container } from '../components/container/container'
+import { config as configContainer } from '../components/container/config'
+
+import { Breadcrumb } from '../components/breadcrumb/breadcrumb'
+import { config as configBreadcrumb } from '../components/breadcrumb/config'
+
+import { TComponentConfig } from '@lumina/core'
+
 const luminaConfig: TComponentConfig = {
-  linkbox: {
+  [configLinkBox.type]: {
     component: LinkBox,
     config: configLinkBox,
   },
-  grid: {
+  [configGrid.type]: {
     component: Grid,
     config: configGrid,
   },
-  image: {
+  [configGridItem.type]: {
+    component: GridItem,
+    config: configGridItem,
+  },
+  [configImage.type]: {
     component: Image,
     config: configImage,
   },
-  title: {
+  [configTitle.type]: {
     component: Title,
     config: configTitle,
   },
-  flex: {
+  [configFlex.type]: {
     component: Flex,
     config: configFlex,
   },
-  button: {
+  [configButton.type]: {
     component: Button,
     config: configButton,
   },
-  text: {
+  [configAddToCart.type]: {
+    component: AddToCart,
+    config: configAddToCart,
+  },
+  [configText.type]: {
     component: Text,
     config: configText,
   },
-
-  product: {
+  [configMenu.type]: {
+    component: Menu,
+    config: configMenu,
+  },
+  [configSpacer.type]: {
+    component: Spacer,
+    config: configSpacer,
+  },
+  [configProduct.type]: {
     component: Product,
     config: configProduct,
+  },
+  [configContainer.type]: {
+    component: Container,
+    config: configContainer,
+  },
+  [configBreadcrumb.type]: {
+    component: Breadcrumb,
+    config: configBreadcrumb,
   },
 }
 

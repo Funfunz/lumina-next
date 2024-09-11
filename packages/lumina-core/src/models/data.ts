@@ -1,9 +1,9 @@
 export interface IComponentProps {
-  [key: string]: string | number | undefined
+  [key: string]: string | number | boolean | undefined
 }
 
 export interface IPageProps {
-  [key: string]: string | number | undefined
+  [key: string]: string | number | boolean | undefined
 }
 
 export interface IComponentData {

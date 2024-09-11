@@ -1,24 +1,22 @@
 import { EditorButtonsContainer } from '@lumina/core'
 import { config } from './config'
-import cx from 'classnames'
-import styles from './button.module.scss'
+import MUIButton, { type ButtonOwnProps } from '@mui/material/Button'
 
 type TProps = {
-  size?: 'small' | 'medium' | 'large'
-  style?: 'outlined' | 'rounded'
   text?: string
+  children: React.ReactNode
   id: string
-}
+} & ButtonOwnProps
 
-export const Button = ({ id, size = 'medium', style = 'outlined', text = 'button' }: TProps) => {
-  const buttonStyles = cx(styles.button, style, size, styles.buttonContainer)
-
+export const Button = ({ id, text = 'button', children, ...rest }: TProps) => {
+  console.log(rest)
   return (
-    <div>
-      <button className={buttonStyles}>
+    <div style={{ position: 'relative' }}>
+      <MUIButton {...rest}>
+        {children}
         {text}
-        <EditorButtonsContainer id={id} config={config} componentProps={{ size, style, text }} />
-      </button>
+      </MUIButton>
+      <EditorButtonsContainer id={id} config={config} componentProps={{ text, ...rest } as any} />
     </div>
   )
 }

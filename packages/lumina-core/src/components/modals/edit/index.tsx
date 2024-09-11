@@ -7,7 +7,7 @@ type TProps = {
   formData: IComponentProps | undefined
   setFormData: Dispatch<SetStateAction<IComponentProps | undefined>>
   /* eslint-disable no-unused-vars */
-  handleOnChangeInput: (key: string, value: string | number) => void
+  handleOnChangeInput: (key: string, value: string | number | boolean) => void
 }
 export const EditModal = ({ formData, handleOnChangeInput }: TProps) => {
   const { modalState } = useToggleModalContext()
