@@ -3,5 +3,19 @@
     {
       "mode": "auto"
     }
-  ]
+  ],
+  "spellright.language": [
+    "en_US"
+  ],
+  "spellright.documentTypes": [
+    "markdown",
+    "latex",
+    "plaintext",
+    "mdx"
+  ],
+  "spellright.parserByClass": {
+    "mdx": {
+      "parser": "markdown"
+    }
+  }
 }

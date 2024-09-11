@@ -1,183 +1,53 @@
 import { Meta, Markdown } from '@storybook/blocks'
-import Github from '../../assets/github.svg'
 
 <Meta title='Docs/Components/Add new component' />
 
 # Add a new component
 
-## Guide
+Adding a new component to be used on the Lumina package requires a ReactJS component and a [configuration file](/docs/docs-components-required-configuration--documentation).
 
-1. Create component folder inside src/components. The component file, styles and its configuration should be inside the same folder.
-2. Create the component. It should created and exported and it will be available on Lumina. - see [Component](/docs/docs-components-add-new-component--documentation#component)
-3. Configuration. Component should be proper configured, with its own configurations aswell configurations for Lumina. - see [General Configuration](/docs/docs-components-add-new-component--documentation#general-configuration)
+## Step by step guide
 
-## Component
+1. Create a file to hold your component code, button.tsx for example, and export the [component](#1-component) from that file
+2. Export the configuration needed for Lumina [General Configuration](#required-lumina-configuration)
+3. Create a [Configuration file](#required-lumina-configuration) to be pushed to Lumina
 
-<table>
-  <thead>
-    <tr>
-      <td>**Imports**</td>
-      <td>**Description**</td>
-      <td>**Required**</td>
-      <td>**Example**</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        Needs from lumina core - see
-        [Helpers](/docs/docs-components-add-new-component--documentation#helpers)
-      </td>
-      <td>Importing code from core package</td>
-      <td>❗️</td>
-      <td>```ts import {EditorButtonsContainer} from '@lumina/core' ```</td>
-    </tr>
-    <tr>
-      <td>
-        Configuration file - see [Required
-        Configuration](/docs/docs-components-required-configuration--documentation) to understand
-        the required configuration forthe component
-      </td>
-      <td>Importing configuration for the specific component</td>
-      <td>❗️</td>
-      <td>```ts import {config} from './config' ```</td>
-    </tr>
-    <tr>
-      <td>Styles</td>
-      <td>Importing styles for the component</td>
-      <td>❗️</td>
-      <td>```ts import styles from './styles.scss' ```</td>
-    </tr>
-  </tbody>
-</table>
+## 1. Component
 
-### Example
+This is an example button component
 
-```ts
-import { EditorButtonsContainer } from '@lumina/core'
-import { config } from './config'
-import cx from 'classnames'
-import styles from './button.module.scss'
-
-const Button = ({ id, size = 'medium', style = 'outlined', text = 'button' }: TProps) => {
-  const buttonStyles = cx(styles.button, style, size, styles.buttonContainer)
-
-  return (
-    <div>
-      <button className={buttonStyles}>
-        {text}
-        <EditorButtonsContainer id={id} config={config} componentProps={{ size, style, text }} />
-      </button>
-    </div>
-  )
-}
-
-```
-
-## Required Lumina Configuration
-
-All components should set their configurations on the general config.ts file.
-
-```ts
-import {
-  Button,
-  LinkBox,
-  Grid,
-  Image,
-  Title,
-  Text,
-  Flex,
-  Product,
-  configLinkBox,
-  configGrid,
-  configImage,
-  configTitle,
-  configText,
-  configFlex,
-  configProduct,
-  configButton,
-} from '../components'
-
-luminaConfig: TComponentConfig = {
-  linkbox: {
-    component: LinkBox,
-    config: configLinkBox,
-  },
-  image: {
-    component: Image,
-    config: configImage,
-  },
-  title: {
-    component: Title,
-    config: configTitle,
-  },
-  flex: {
-    component: Flex,
-    config: configFlex,
-  },
-  button: {
-    component: Button,
-    config: configButton,
-  },
+```tsx
+export const Button = ({ id, text, ...props }) => {
+  return <button {...props}>{props.text}</button>
 }
 ```
 
-- **component** : the component itself.
-- **config** : configurations for the component - see [Required Configuration](/docs/docs-components-required-configuration--documentation).
+Components will always get an **id** property with the id of the component inside Lumina
 
-## Helpers
+## 2. Component configuration
 
-- **EditorButtonsContainer** - This Lumina component is used to easily have access to the editor options, like editing or deleting the component.
-  This is a wrapper to your components, overlaying the editor buttons.
+Now we are exporting a button component that supports the props **text** and **disabled** to be editable by Lumina.
 
-  The props `id` and the `config` of the component are required. Any other props are optional and accepted.
+Check [Required Configuration](/docs/docs-components-required-configuration--documentation) for more information about this object.
 
-  ```ts
-   <EditorButtonsContainer id={id} config={config} componentProps={{ size, style, text }} />
-  ```
-
-## Example
-
-_Image component_
-
-```ts
-import { config } from './config'
-import { EditorButtonsContainer } from '@lumina/core'
-import styles from './image.scss'
-
-
-export const Image = ({ href, alt, id }: TProps) => {
-  if (!href) return null
-  return (
-    <div className={styles.imageContainer}>
-      <img className='image' src={href} alt={alt} />
-      <EditorButtonsContainer id={id} config={config} componentProps={{ href, alt }} />
-    </div>
-  )
+```tsx
+export const Button = ({ id, text, ...props }) => {
+  return <button {...props}>{props.text}</button>
 }
 
-```
-
----
-
-_Image component configuration_
-
-```ts
-import type { TConfig } from '@lumina/core'
-
-export const config: TConfig = {
-  name: 'Image',
-  type: 'image',
+export const buttonConfig = {
+  name: 'Button',
+  type: 'button',
   props: [
     {
       type: 'string',
-      name: 'href',
-      label: 'Href',
+      name: 'text',
+      label: 'Text',
     },
     {
-      type: 'string',
-      name: 'alt',
-      label: 'Alt',
+      type: 'boolean',
+      name: 'disabled',
+      label: 'Disabled',
     },
   ],
   editor: {
@@ -188,34 +58,97 @@ export const config: TConfig = {
 }
 ```
 
----
+## 3. Final Lumina component configuration
 
-_Lumina configuration_
+Finally we need to merge everything into a single configuration and push it to Lumina
 
-```ts
+```tsx
+import { type TComponentConfig } from '@lumina/core'
+import { Button, configButton } from './button'
+
 const luminaConfig: TComponentConfig = {
-  image: {
-    component: Image,
-    config: configImage,
+  button: {
+    component: Button,
+    config: configButton,
   },
 }
 ```
 
----
+And we render this with:
 
-_TComponentConfig and TConfig _
+```tsx
+<Lumina components={luminaConfig} />
+```
 
-```ts
-export type TComponentConfig = {
-  [key: string]: {
-    component: (props: any) => React.JSX.Element | null
-    config: TConfig
-  }
+## Extra steps
+
+### EditorButtonsContainer
+
+This is a Lumina exported component that is used to create an overlay that is visible while in the editor mode
+
+The props `id`, `config`, and `componentProps` are required.
+
+<div style={{backgroundColor:'rgba(255,0,0,0.2)'}}>
+> **_NOTE:_** When using this, the component needs to be wrapped in a **div with position relative**, this is because the `EditorButtonsContainer` uses a position absolute to render itself.
+
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <td>**Property**</td>
+      <td>**Description**</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>**id**</td>
+      <td>Lumina component id, this is passed as a prop to the component itself</td>
+    </tr>
+    <tr>
+      <td>**config**</td>
+      <td>Component configuration, should be the same configuration exported by the component</td>
+    </tr>
+    <tr>
+      <td>**componentProps**</td>
+      <td>Current component property being received</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Example
+
+```tsx
+import { EditorButtonsContainer } from '@lumina/core'
+
+export const Button = ({ id, text, ...props }) => {
+  return (
+    <div style={{ position: 'relative' }}>
+      <button {...props}>{props.text}</button>
+      <EditorButtonsContainer id={id} config={config} componentProps={{ text, ...props }} />
+    </div>
+  )
 }
-export type TConfig = {
-  name: string
-  type: string
-  props?: (TConfigItemValue | TConfigItemSelect)[]
-  editor: TEditorConfig
+
+export const buttonConfig = {
+  name: 'Button',
+  type: 'button',
+  props: [
+    {
+      type: 'string',
+      name: 'text',
+      label: 'Text',
+    },
+    {
+      type: 'boolean',
+      name: 'disabled',
+      label: 'Disabled',
+    },
+  ],
+  editor: {
+    children: false,
+    editable: true,
+    delete: true,
+  },
 }
 ```
