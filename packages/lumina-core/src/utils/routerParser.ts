@@ -15,11 +15,16 @@ export const routerParser = (pathName: string, builderData: IData): TParsedRoute
     splittedSelectedPathName.pop()
   }
 
-  const pages = Object.keys(builderData)
+  const pages = Object.keys(builderData).map(pageId => {
+    return {
+      id: pageId,
+      route: builderData[pageId].route,
+    }
+  })
   let params: Record<string, string> = {}
-  const pageFound = pages.find(pagePath => {
+  const pageFound = pages.find(({ route }) => {
     params = {}
-    const splittedPageName = pagePath.split('/')
+    const splittedPageName = route.split('/').filter(e => e)
     if (splittedPageName.length === splittedSelectedPathName.length) {
       return (
         splittedPageName.filter((pagePathSection, index) => {
@@ -35,7 +40,7 @@ export const routerParser = (pathName: string, builderData: IData): TParsedRoute
   })
 
   const result = {
-    selectedPage: pageFound || 'home',
+    selectedPage: pageFound?.id || 'homePage',
     params,
     isEditor,
   }

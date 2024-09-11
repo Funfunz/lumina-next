@@ -14,11 +14,11 @@ import {
 import {
   IBuilderDataContext,
   builderDataContextReducer,
-  TBuilderDataContextAction,
+  TBuilderDataContextActions,
   initialBuilderDataContextState,
-} from './builderDataContextReducer'
+} from './builderDataContextReducer/builderDataContextReducer'
 
-export type TAppContextDispatch = Dispatch<TAppContextAction | TBuilderDataContextAction>
+export type TAppContextDispatch = Dispatch<TAppContextAction | TBuilderDataContextActions>
 
 export interface IInitialStateType {
   appContext: IAppContext
@@ -32,11 +32,15 @@ export const initialContext = {
 
 export const mainReducer = (
   { appContext, builderDataContext }: IInitialStateType,
-  action: TAppContextAction | TBuilderDataContextAction
-) => ({
-  appContext: appContextReducer(appContext, action as TAppContextAction),
-  builderDataContext: builderDataContextReducer(
-    builderDataContext,
-    action as TBuilderDataContextAction
-  ),
-})
+  action: TAppContextAction | TBuilderDataContextActions
+) => {
+  const newContext = {
+    appContext: appContextReducer(appContext, action as TAppContextAction),
+    builderDataContext: builderDataContextReducer(
+      builderDataContext,
+      action as TBuilderDataContextActions
+    ),
+  }
+  console.log({ newContext })
+  return newContext
+}

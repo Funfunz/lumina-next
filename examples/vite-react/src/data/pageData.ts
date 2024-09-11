@@ -1,11 +1,10 @@
 import { IData } from '@lumina/core'
 
 const data: IData = {
-  ['home']: {
+  homePage: {
     id: 'page1',
-    pageName: 'Homepage',
     friendlyName: 'Homepage',
-    extendedName: 'Homepage for Lumina Page Builder',
+    description: 'Homepage for Lumina Page Builder',
     dateModified: '18.06.2024',
     status: 'active',
     route: '/',
@@ -97,14 +96,13 @@ const data: IData = {
       },
     ],
   },
-  ['home/:productId']: {
+  ['productPage']: {
     id: 'page2',
-    pageName: 'Homepage',
     friendlyName: 'Homepage',
-    extendedName: 'Homepage for Lumina Page Builder',
+    description: 'Homepage for Lumina Page Builder',
     dateModified: '18.06.2024',
     status: 'active',
-    route: '/',
+    route: '/product/:productId',
     children: [
       {
         id: 'image1test',
