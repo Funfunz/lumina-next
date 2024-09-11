@@ -1,4 +1,6 @@
 import React, { useState, FormEvent } from 'react'
+import styles from './login.module.scss'
+import logo from '../assets/logo.jpg'
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState<string>('')
@@ -19,34 +21,43 @@ const Login: React.FC = () => {
   }
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <div>
-          <label htmlFor='username'>Username</label>
-          <input
-            type='text'
-            id='username'
-            value={username}
-            onChange={e => setUsername(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor='password'>Password</label>
-          <input
-            type='password'
-            id='password'
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type='submit'>Login</button>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-      </form>
-      <p>recover account link</p>
-      <p>create account link</p>
+    <div className={styles.loginPage}>
+      <div className={styles.loginContainer}>
+        <h2>Sign in to Lumina</h2>
+        <form onSubmit={handleLogin}>
+          <div>
+            <div className={styles.fieldContainer}>
+              <label htmlFor='username'>Username</label>
+              <p className={styles.helpText}>Enter your username</p>
+            </div>
+            <input
+              type='text'
+              id='username'
+              value={username}
+              onChange={e => setUsername(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <div className={styles.fieldContainer}>
+              <label htmlFor='password'>Password</label>
+              <p className={styles.helpText}>Enter your password</p>
+            </div>
+            <input
+              type='password'
+              id='password'
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button type='submit'>Sign in</button>
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+        </form>
+        <p>recover account link</p>
+        <p>create account link</p>
+        <img src={logo} alt='Lumina Logo' />
+      </div>
     </div>
   )
 }

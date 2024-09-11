@@ -4,6 +4,7 @@ import { getFullData } from './lib/dataFetcher'
 import luminaConfig from './luminaComponents/config'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { Contact } from './pages/contact'
+import Login from './pages/login'
 
 const RouteExtractor = () => {
   const location = useLocation()
@@ -19,6 +20,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/contact' element={<Contact />} />
+        <Route path='/login' element={<Login />} />
         <Route index path='/*' element={<RouteExtractor />} />
       </Routes>
     </BrowserRouter>
