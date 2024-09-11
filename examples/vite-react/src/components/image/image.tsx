@@ -6,18 +6,29 @@ import styles from './image.module.scss'
 
 type TProps = {
   id: string
-  href: string
+  srcMobile: string
+  srcTablet: string
+  srcDesktop: string
   alt: string
 }
 
 //block of buttons
 
-export const Image = ({ href, alt, id }: TProps) => {
-  if (!href) return null
+export const Image = ({ srcMobile, srcTablet, srcDesktop, alt, id }: TProps) => {
+  if (!srcDesktop) return null
+
   return (
     <div className={styles.imageContainer}>
-      <img className='image' src={href} alt={alt} />
-      <EditorButtonsContainer id={id} config={config} componentProps={{ href, alt }} />
+      <picture>
+        {(srcMobile && <source media='(max-width: 576px)' srcSet={srcMobile} />) || null}
+        {(srcTablet && <source media='(max-width: 768px)' srcSet={srcTablet} />) || null}
+        <img className={styles.image} src={srcDesktop} alt={alt} />
+      </picture>
+      <EditorButtonsContainer
+        id={id}
+        config={config}
+        componentProps={{ srcMobile, srcTablet, srcDesktop, alt }}
+      />
     </div>
   )
 }

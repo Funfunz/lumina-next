@@ -70,13 +70,16 @@ export default function Lumina({ router, getData, components }: TProps = default
     if (components) setComponentConfig(components)
   }, [components])
 
-  const { selectedPage, isEditor, params } = routerParser(router.location.pathname, builderData)
+  const { selectedPage, isEditor, params, pathComponents } = routerParser(
+    router.location.pathname,
+    builderData
+  )
 
   if (!builderData[selectedPage]) return null
   return (
     <ContextProvider
       data={{
-        appContext: { isEditor, selectedPage, params },
+        appContext: { isEditor, selectedPage, params, pathComponents },
         builderDataContext: {
           builderData,
           selectedPage: selectedPage,

@@ -11,7 +11,7 @@ type TProps = {
   setAddModalProps: Dispatch<SetStateAction<TAddModalProps>>
   modalProps: TAddModalProps
   /* eslint-disable no-unused-vars */
-  handleOnChangeInput: (key: string, value: string | number) => void
+  handleOnChangeInput: (key: string, value: string | number | boolean) => void
 }
 
 export const AddModal = ({ setAddModalProps, modalProps, handleOnChangeInput }: TProps) => {

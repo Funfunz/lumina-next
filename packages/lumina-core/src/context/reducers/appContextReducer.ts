@@ -18,6 +18,7 @@ export const initialAppContextState = {
   selectedPage: '',
   params: {},
   isEditor: false,
+  pathComponents: [],
 }
 
 export const appContextReducer = (data: IAppContext, action: TAppContextAction) => {

@@ -1,4 +1,4 @@
-import cx from 'classnames';
+import cx from 'classnames'
 
 export const ButtonContent = ({
   text,
@@ -12,19 +12,10 @@ export const ButtonContent = ({
   return (
     <>
       <span className='buttonContent'>
-        {
-          iconLeft && (
-            <span className={cx('icon', iconLeft)} />
-          )
-        }
-        {text && (<span>{text}</span>)}
-        {
-          iconRight && (
-            <span className={cx('icon', iconRight)} />
-          )
-        }
+        {iconLeft && <span className={cx('icon', iconLeft)} />}
+        {text && <span>{text}</span>}
+        {iconRight && <span className={cx('icon', iconRight)} />}
       </span>
     </>
   )
 }
-

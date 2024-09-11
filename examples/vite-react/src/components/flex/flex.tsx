@@ -6,9 +6,5 @@ type Props = {
 }
 
 export const Flex = ({ children, style }: Props) => {
-  return (
-    <div className={styles.flex + (style ? ' ' + style : '')}>
-      {children}
-    </div>
-  )
+  return <div className={styles.flex + (style ? ' ' + style : '')}>{children}</div>
 }
