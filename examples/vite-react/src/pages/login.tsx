@@ -54,8 +54,8 @@ const Login: React.FC = () => {
           <button type='submit'>Sign in</button>
           {error && <p style={{ color: 'red' }}>{error}</p>}
         </form>
-        <p>recover account link</p>
-        <p>create account link</p>
+        <a href='./recoverAccount'>Recover account</a>
+        <a href='./createAccount'>Create account</a>
         <img src={logo} alt='Lumina Logo' />
       </div>
     </div>

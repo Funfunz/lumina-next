@@ -5,6 +5,8 @@ import luminaConfig from './luminaComponents/config'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { Contact } from './pages/contact'
 import Login from './pages/login'
+import RecoverAccount from './pages/recoverAccount'
+import CreateAccount from './pages/createAccount'
 
 const RouteExtractor = () => {
   const location = useLocation()
@@ -21,6 +23,8 @@ function App() {
       <Routes>
         <Route path='/contact' element={<Contact />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/recoverAccount' element={<RecoverAccount />} />
+        <Route path='/createAccount' element={<CreateAccount />} />
         <Route index path='/*' element={<RouteExtractor />} />
       </Routes>
     </BrowserRouter>

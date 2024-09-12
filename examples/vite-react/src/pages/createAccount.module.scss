@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@700&display=swap');
 
-.loginPage {
+.createPage {
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -10,7 +10,8 @@
   gap: 10px;
   background: #d0e2f2;
 }
-.loginContainer {
+
+.createContainer {
   display: flex;
   padding: 50px 60px 40px 60px;
   flex-direction: column;
@@ -49,7 +50,7 @@ button {
   text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
   font-family: 'Proxima Nova';
   font-size: 12px;
-  font-weight:400;
+  font-weight: 400;
 }
 
 input {
@@ -81,10 +82,11 @@ label {
   font-weight: 600;
 }
 
-a{
+.backLink {
   color: #777;
   font-family: 'Proxima Nova';
   font-size: 10px;
   font-style: normal;
   margin: 0;
+  text-decoration: none;
 }
