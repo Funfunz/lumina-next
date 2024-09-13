@@ -1,11 +1,13 @@
 import React, { useState, FormEvent } from 'react'
 import styles from './login.module.scss'
 import logo from '../assets/logo.jpg'
+import { useNavigate } from 'react-router-dom'
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const [error, setError] = useState<string>('')
+  const navigate = useNavigate()
 
   const handleLogin = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -14,7 +16,8 @@ const Login: React.FC = () => {
     if (username === 'admin' && password === 'password') {
       // Simulation of logging in with session storage
       sessionStorage.setItem('user', JSON.stringify({ username }))
-      alert('Login successful!') // redirect to editor
+      alert('Login successful!')
+      navigate('/editor') // redirect to editor
     } else {
       setError('Invalid username or password.') //redirect to signIn ?
     }
