@@ -1,14 +1,13 @@
 import { useLuminaContext } from '@/context/contextProvider'
 import { TreeviewHeader } from './treeviewHeader'
 import { AddComponentButton } from '@/components/action-buttons/components/add'
-import { SearchBar } from '@/components/search-bar'
 import { ComponentTree } from './componentTree'
 import { ToggleMenuContextProvider } from '@/context/toggleMenuContextProvider'
-import { Title } from '@/components/title'
 import { useCallback, useEffect, useState } from 'react'
 import { IComponentData } from '@/models/data'
+import { TabHeader } from '@/components/tab-header'
 
-export const TreeViewTab = () => {
+export const ComponentsTab = () => {
   const {
     state: { builderDataContext },
   } = useLuminaContext()
@@ -67,17 +66,13 @@ export const TreeViewTab = () => {
 
   return (
     <ToggleMenuContextProvider>
-      <div className='treeview_container'>
-        <div className='treeview_header'>
-          <Title content='Components' classnames='treeview_title' />
-          <span className='treeAddButton'>
-            <AddComponentButton buttonLabel='Add' />
-          </span>
-          <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} />
-        </div>
-        <TreeviewHeader />
-        <ComponentTree data={data} />
-      </div>
+      <TabHeader
+        titleText='Components'
+        onSearch={setSearchValue}
+        actions={<AddComponentButton buttonLabel='Add' />}
+      />
+      <TreeviewHeader />
+      <ComponentTree data={data} />
     </ToggleMenuContextProvider>
   )
 }

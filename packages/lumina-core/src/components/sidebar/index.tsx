@@ -3,7 +3,7 @@ import cx from 'classnames'
 import { useState } from 'react'
 import { Button } from '../button'
 import { PagesTab } from '../tabs/pages'
-import { TreeViewTab } from '../tabs/treeView'
+import { ComponentsTab } from '../tabs/components'
 
 type TSidebarEditor = {
   handleToggler: Function
@@ -20,12 +20,12 @@ const editorTabs: TSidebarTab[] = [
   {
     id: 'lumTabPages',
     icon: 'lum-icon-page',
-    panel: <PagesTab id={''} />,
+    panel: <PagesTab />,
   },
   {
     id: 'lumTabComponents',
     icon: 'lum-icon-component',
-    panel: <TreeViewTab />,
+    panel: <ComponentsTab />,
   },
   {
     id: 'lumTabLibrary',

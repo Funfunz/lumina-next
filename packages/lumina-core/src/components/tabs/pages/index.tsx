@@ -1,34 +1,81 @@
-'use client'
-
-import { AddPageButton } from '@/components/action-buttons/pages/add'
-import { DeletePageButton } from '@/components/action-buttons/pages/delete'
-import { EditPageButton } from '@/components/action-buttons/pages/edit'
-import { Title } from '@/components/title'
 import { useLuminaContext } from '@/context/contextProvider'
+import { ToggleMenuContextProvider } from '@/context/toggleMenuContextProvider'
+import { useCallback, useEffect, useState } from 'react'
+import { IPageData } from '@/models/data'
+import { TabHeader } from '@/components/tab-header'
+import { Button } from '@/components/button'
+import { PageTree } from './pageTree'
 
-type TPageProps = {
-  id: string
-}
-export const PagesTab = ({ id }: TPageProps) => {
+export const PagesTab = () => {
   const {
     state: { builderDataContext },
+    dispatch,
   } = useLuminaContext()
 
+  const builderData = builderDataContext.builderData
+  const [searchValue, setSearchValue] = useState<string>('')
+  const [data, setData] = useState<IPageData[]>(Object.values(builderData))
+  useEffect(() => {
+    searchData()
+  }, [builderData, searchValue])
+
+  const searchData = () => {
+    const resetData = Object.values(builderData)
+    if (!searchValue || searchValue.trim().length < 3) {
+      setData(resetData)
+    } else if (searchValue.length >= 3) {
+      const filteredData = filterData(resetData)
+      setData(filteredData)
+    }
+  }
+
+  const filterData = useCallback(
+    (data: IPageData[]): IPageData[] => {
+      const searchValLower = searchValue.toLowerCase().trim()
+      return data.reduce<IPageData[]>((acc, el) => {
+        const friendlyNameLower = el.friendlyName.toLowerCase()
+
+        // Check if the current element matches the search criteria
+        //perfect match
+        if (friendlyNameLower.includes(searchValLower)) {
+          acc.push({
+            ...el, // Create a copy of the current element
+          })
+        }
+
+        return acc
+      }, [])
+    },
+    [searchValue, data]
+  )
+
+  const handleAddPageClick = useCallback(() => {
+    dispatch({
+      type: 'createPage',
+      data: {
+        id: 'dadwadada',
+        friendlyName: 'Test Page',
+        description: 'A Page for testing purposes',
+        urlParams: ['test'],
+      },
+    })
+  }, [dispatch])
+
   return (
-    <div className='pageContainer'>
-      <div className='pageHead'>
-        <Title content='Pages' classnames='pages_title' />
-        <span className='treeAddButton'>
-          <AddPageButton buttonLabel='Add' />
-          <DeletePageButton id={id} buttonLabel='Delete' />
-          <EditPageButton id={id} buttonLabel='Edit' />
-        </span>
-      </div>
-      {Object.keys(builderDataContext.builderData).map(page => (
-        <div className='pageHead' key={page}>
-          {page}
-        </div>
-      ))}
-    </div>
+    <ToggleMenuContextProvider>
+      <TabHeader
+        titleText='Pages'
+        onSearch={setSearchValue}
+        actions={
+          <Button
+            buttonType='button'
+            text='Add'
+            onClick={handleAddPageClick}
+            iconLeft='lum-icon-plus-fill'
+          />
+        }
+      />
+      <PageTree data={data} />
+    </ToggleMenuContextProvider>
   )
 }
