@@ -6,8 +6,18 @@ export const config: TConfig = {
   props: [
     {
       type: 'string',
-      name: 'href',
-      label: 'Href',
+      name: 'srcDesktop',
+      label: 'Desktop',
+    },
+    {
+      type: 'string',
+      name: 'srcTablet',
+      label: 'Tablet',
+    },
+    {
+      type: 'string',
+      name: 'srcMobile',
+      label: 'Mobile',
     },
     {
       type: 'string',

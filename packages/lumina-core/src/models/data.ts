@@ -1,9 +1,9 @@
 export interface IComponentProps {
-  [key: string]: string | number | undefined
+  [key: string]: string | number | boolean | undefined
 }
 
 export interface IPageProps {
-  [key: string]: string | number | undefined
+  [key: string]: string | number | boolean | undefined
 }
 
 export interface IComponentData {
@@ -20,9 +20,8 @@ export interface IComponentData {
 
 export interface IPageData {
   id: string
-  pageName: string
   friendlyName: string
-  extendedName: string
+  description: string
   dateModified: string
   status: string
   children?: IComponentData[]

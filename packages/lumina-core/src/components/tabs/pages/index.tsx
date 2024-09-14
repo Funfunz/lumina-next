@@ -54,12 +54,9 @@ export const PagesTab = () => {
       type: 'createPage',
       data: {
         id: 'dadwadada',
-        pageName: 'testPage',
         friendlyName: 'Test Page',
-        extendedName: 'A Page for testing purposes',
-        dateModified: Date.now.toString(),
-        route: '/test',
-        status: true,
+        description: 'A Page for testing purposes',
+        urlParams: ['test'],
       },
     })
   }, [dispatch])

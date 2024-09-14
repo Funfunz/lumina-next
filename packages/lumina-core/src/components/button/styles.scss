@@ -1,8 +1,4 @@
 .lum-button {
-  * {
-    box-sizing: border-box;
-  }
-
   @include lum-typo-button;
 
   box-sizing: border-box;

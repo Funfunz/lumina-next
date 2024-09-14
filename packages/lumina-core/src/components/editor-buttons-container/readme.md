@@ -1,6 +1,6 @@
- # Show edit
+# Show edit
 
- This component is responsible to show a list of actions on every editable component
+This component is responsible to show a list of actions on every editable component
 
 **Possible actions**
 

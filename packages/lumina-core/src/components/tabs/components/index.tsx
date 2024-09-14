@@ -1,6 +1,6 @@
 import { useLuminaContext } from '@/context/contextProvider'
 import { TreeviewHeader } from './treeviewHeader'
-import { AddComponentButton } from '@/components/action-buttons/add'
+import { AddComponentButton } from '@/components/action-buttons/components/add'
 import { ComponentTree } from './componentTree'
 import { ToggleMenuContextProvider } from '@/context/toggleMenuContextProvider'
 import { useCallback, useEffect, useState } from 'react'
