@@ -1,5 +1,7 @@
 import { IPageData } from '@/models/data'
 import { TreeBranch } from '../../treeBranch'
+import { Button } from '@/components/button'
+import { useCallback } from 'react'
 
 type TProps = {
   data: IPageData[]
@@ -9,7 +11,13 @@ export const PageTree = ({ data }: TProps) => {
   if (data.length === 0) {
     return <p>No components were found.</p>
   }
-  console.log({ data })
+
+  const handleOnClickEdit = useCallback(
+    (dataItem: IPageData) => () => {
+      console.log(dataItem)
+    },
+    []
+  )
   return (
     <>
       {data
@@ -24,6 +32,18 @@ export const PageTree = ({ data }: TProps) => {
         .map(dataItem => (
           <TreeBranch key={dataItem.id} data={dataItem} expandable={false}>
             {dataItem.friendlyName} - {dataItem.route}
+            <div className='branch_container_actions'>
+              <Button
+                buttonType='button'
+                iconLeft='lum-icon-edit'
+                onClick={handleOnClickEdit(dataItem)}
+              />
+              <Button
+                buttonType='button'
+                iconLeft='lum-icon-cross'
+                onClick={handleOnClickEdit(dataItem)}
+              />
+            </div>
           </TreeBranch>
         ))}
     </>
