@@ -5,12 +5,14 @@ import { IPageData } from '@/models/data'
 import { TabHeader } from '@/components/tab-header'
 import { Button } from '@/components/button'
 import { PageTree } from './pageTree'
+import { ADDPAGE, useToggleModalContext } from '@/context/toggleModalContextProvider'
 
 export const PagesTab = () => {
   const {
     state: { builderDataContext },
     dispatch,
   } = useLuminaContext()
+  const { handleOpenModal } = useToggleModalContext()
 
   const builderData = builderDataContext.builderData
   const [searchValue, setSearchValue] = useState<string>('')
@@ -50,15 +52,7 @@ export const PagesTab = () => {
   )
 
   const handleAddPageClick = useCallback(() => {
-    dispatch({
-      type: 'createPage',
-      data: {
-        id: 'dadwadada',
-        friendlyName: 'Test Page',
-        description: 'A Page for testing purposes',
-        urlParams: ['test'],
-      },
-    })
+    handleOpenModal({ modalType: ADDPAGE })
   }, [dispatch])
 
   return (

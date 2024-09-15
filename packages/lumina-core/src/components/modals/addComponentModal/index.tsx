@@ -10,6 +10,7 @@ import { TSelectedOption } from '@/models/editor-buttonModel'
 import Select, { type SingleValue } from 'react-select'
 import { Modal } from '../utils/modal'
 import { CancelButton } from '../utils/cancelButton'
+import { generateId } from '../utils'
 
 export const AddComponentModal = () => {
   const {
@@ -46,13 +47,6 @@ export const AddComponentModal = () => {
     },
     [formData]
   )
-
-  const generateId = (): string => {
-    const randomString = Math.random()
-      .toString(36)
-      .slice(2, 10 + 2)
-    return randomString
-  }
 
   /**
    * Adds a new component

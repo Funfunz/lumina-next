@@ -1,5 +1,5 @@
 import { Button } from '@/components/button'
-import { DELETEMODAL, useToggleModalContext } from '@/context/toggleModalContextProvider'
+import { DELETECOMPONENT, useToggleModalContext } from '@/context/toggleModalContextProvider'
 import { useToggleMenuContext } from '@/context/toggleMenuContextProvider'
 
 type TProps = {
@@ -27,7 +27,7 @@ export const DeleteComponentButton = ({
     event.preventDefault()
     handleOpenModal({
       id: componentId,
-      modalType: DELETEMODAL,
+      modalType: DELETECOMPONENT,
     })
     handleToggleMenu(componentId)
   }

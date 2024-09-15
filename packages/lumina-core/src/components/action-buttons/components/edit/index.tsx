@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { Button } from '@/components/button'
-import { EDITMODAL, useToggleModalContext } from '@/context/toggleModalContextProvider'
+import { EDITCOMPONENT, useToggleModalContext } from '@/context/toggleModalContextProvider'
 import { useToggleMenuContext } from '@/context/toggleMenuContextProvider'
 import type { IComponentProps } from '@/models/data'
 import type { TConfig } from '@/models/editor-buttonModel'
@@ -38,7 +38,7 @@ export const EditComponentButton = ({
       id: componentId,
       componentProps,
       config,
-      modalType: EDITMODAL,
+      modalType: EDITCOMPONENT,
       onUpdate,
     })
     handleToggleMenu(componentId)
