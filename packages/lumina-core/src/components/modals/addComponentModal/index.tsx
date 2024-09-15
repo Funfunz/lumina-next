@@ -39,10 +39,6 @@ export const AddComponentModal = () => {
    */
   const handleOnChangeProps = useCallback(
     (key: string, value: string | number | boolean) => {
-      console.log({
-        ...formData,
-        [key]: value,
-      })
       setFormData({
         ...formData,
         [key]: value,
