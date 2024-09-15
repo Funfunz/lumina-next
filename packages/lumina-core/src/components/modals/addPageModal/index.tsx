@@ -8,11 +8,24 @@ import { Modal } from '../utils/modal'
 import { CancelButton } from '../utils/cancelButton'
 import { generateId } from '../utils'
 
+export type TFormData = {
+  friendlyName: string
+  description: string
+  urlParams: string[]
+}
+
+const formDataInitialState = {
+  friendlyName: '',
+  description: '',
+  urlParams: [],
+}
+
 export const AddPageModal = () => {
   const { handleCloseModal } = useToggleModalContext()
   const { dispatch } = useLuminaContext()
 
-  const [formData, setFormData] = useState<Record<string, string>>({})
+  const [formData, setFormData] = useState<TFormData>(formDataInitialState)
+  const [urlParamTemp, setUrlParamTemp] = useState('')
 
   /**
    * Updates a value of a property of a component
@@ -38,15 +51,47 @@ export const AddPageModal = () => {
     dispatch({
       type: 'createPage',
       data: {
-        friendlyName: 'stringBueFixe',
-        description: 'descricao bue nice',
-        urlParams: ['param1', 'param2'],
+        friendlyName: formData.friendlyName,
+        description: formData.description,
+        urlParams: formData.urlParams,
         id: 'page_' + generateId(),
       },
     })
 
     handleCloseModal()
   }, [dispatch, formData])
+
+  const handleAddToListClick = useCallback(() => {
+    if (urlParamTemp)
+      setFormData({
+        ...formData,
+        urlParams: [...formData.urlParams, urlParamTemp],
+      })
+    setUrlParamTemp('')
+  }, [urlParamTemp])
+
+  const handleRemoveFromListClick = useCallback(
+    (index: number) => () => {
+      setFormData({
+        ...formData,
+        urlParams: formData.urlParams.filter((_, i) => i !== index),
+      })
+    },
+    [formData]
+  )
+
+  const handleMoveURLParamItemClick = useCallback(
+    (direction: string, currentIndex: number) => () => {
+      const newURLParams = [...formData.urlParams]
+      const [item] = newURLParams.splice(currentIndex, 1)
+      newURLParams.splice(direction === 'up' ? currentIndex - 1 : currentIndex + 1, 0, item)
+      setFormData({
+        ...formData,
+        urlParams: newURLParams,
+      })
+    },
+    [formData]
+  )
 
   return (
     <Modal
@@ -58,10 +103,10 @@ export const AddPageModal = () => {
           <div className='add-modal-content__cmp-config'>
             <Form>
               <tr>
-                <td className='formTableCell formTableLabel'>
+                <td className='lum-form-table-cell lum-form-table-label'>
                   <label htmlFor='friendlyName'>Friendly name</label>
                 </td>
-                <td className='formTableCell' style={{ width: '100%' }}>
+                <td className='lum-form-table-cell' style={{ width: '100%' }}>
                   <Input
                     className='inputField'
                     type='text'
@@ -73,10 +118,10 @@ export const AddPageModal = () => {
                 </td>
               </tr>
               <tr>
-                <td className='formTableCell formTableLabel'>
+                <td className='lum-form-table-cell lum-form-table-label'>
                   <label htmlFor='description'>Description</label>
                 </td>
-                <td className='formTableCell' style={{ width: '100%' }}>
+                <td className='lum-form-table-cell'>
                   <Input
                     className='inputField'
                     type='text'
@@ -86,6 +131,68 @@ export const AddPageModal = () => {
                     onChange={handleOnChangeFormData('description')}
                   ></Input>
                 </td>
+              </tr>
+              <tr>
+                <td className='lum-form-table-cell lum-form-table-label'>
+                  <label htmlFor='urlParam'>URL parameters</label>
+                </td>
+                <td className='lum-form-table-cell'>
+                  <Input
+                    type='text'
+                    value={urlParamTemp}
+                    id='urlParam'
+                    name='urlParam'
+                    style={{ marginRight: '10px' }}
+                    onChange={event => {
+                      setUrlParamTemp(event?.currentTarget.value)
+                    }}
+                  ></Input>
+                  <Button
+                    buttonType='button'
+                    text='Add to list'
+                    onClick={handleAddToListClick}
+                    iconLeft='lum-icon-plus-fill'
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td className='lum-form-table-cell lum-form-table-label'>
+                  <label htmlFor='urlParam'>Selected URL parameters</label>
+                </td>
+                <td className='lum-form-table-cell'>
+                  <table>
+                    {formData.urlParams.map((urlParam, index) => (
+                      <tr key={index}>
+                        <td>{urlParam}</td>
+                        <td>
+                          <Button
+                            disabled={index === 0}
+                            buttonType='button'
+                            onClick={handleMoveURLParamItemClick('up', index)}
+                            iconLeft='lum-icon-chevron-up'
+                          />
+                          <Button
+                            disabled={index === formData.urlParams.length - 1}
+                            buttonType='button'
+                            onClick={handleMoveURLParamItemClick('down', index)}
+                            iconLeft='lum-icon-chevron-down'
+                          />
+                          <Button
+                            buttonType='button'
+                            onClick={handleRemoveFromListClick(index)}
+                            iconLeft='lum-icon-cross'
+                          />
+                        </td>
+                      </tr>
+                    ))}
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td className='lum-form-table-cell lum-form-table-label'>
+                  <label>Final URL</label>
+                </td>
+                <td className='lum-form-table-cell'>{['', ...formData.urlParams].join('/')}</td>
               </tr>
             </Form>
           </div>

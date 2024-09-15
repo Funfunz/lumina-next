@@ -32,6 +32,7 @@ export const SearchBar = ({ searchValue, setSearchValue }: TProps) => {
         onChange={(e: ChangeEvent<HTMLInputElement>) => setInputValue(e.target.value)}
         value={inputValue}
         placeholder='Search...'
+        fullWidth={true}
       />
       <Button buttonType='button' iconRight='lum-icon-filter' style='filter' />
     </div>
