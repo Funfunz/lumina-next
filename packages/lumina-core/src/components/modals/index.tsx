@@ -1,14 +1,16 @@
 import type { TSelectedOption } from '@/models/editor-buttonModel'
 import {
-  ADDMODAL,
-  DELETEMODAL,
-  EDITMODAL,
+  ADDCOMPONENT,
+  EDITCOMPONENT,
+  DELETECOMPONENT,
+  ADDPAGE,
   useToggleModalContext,
 } from '@/context/toggleModalContextProvider'
 import type { IComponentProps } from '@/models/data'
 import { AddComponentModal } from './addComponentModal'
 import { EditComponentModal } from './editComponentModal'
 import { DeleteComponentModal } from './deleteComponentModal'
+import { AddPageModal } from './addPageModal'
 
 export type TAddModalProps = {
   selectedOption: TSelectedOption | undefined
@@ -22,12 +24,14 @@ export const EditorModal = () => {
   } = useToggleModalContext()
 
   switch (modalType) {
-    case ADDMODAL:
+    case ADDCOMPONENT:
       return <AddComponentModal />
-    case EDITMODAL:
+    case EDITCOMPONENT:
       return <EditComponentModal />
-    case DELETEMODAL:
+    case DELETECOMPONENT:
       return <DeleteComponentModal />
+    case ADDPAGE:
+      return <AddPageModal />
     default:
       return null
   }

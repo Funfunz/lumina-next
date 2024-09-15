@@ -3,16 +3,26 @@ import { ReactNode, createContext, useContext, useState } from 'react'
 import type { IComponentProps } from '../models/data'
 import type { TConfig } from '@/models/editor-buttonModel'
 
-export const ADDMODAL = 'ADD'
-export const EDITMODAL = 'EDIT'
-export const DELETEMODAL = 'DELETE'
+export const ADDCOMPONENT = 'ADDCOMPONENT'
+export const EDITCOMPONENT = 'EDITCOMPONENT'
+export const DELETECOMPONENT = 'DELETECOMPONENT'
+export const ADDPAGE = 'ADDPAGE'
+export const EDITPAGE = 'EDITPAGE'
+export const DELETEPAGE = 'DELETEPAGE'
 
 type TToggleModalProps = {
   componentProps?: IComponentProps
   config?: TConfig
   onUpdate?: (data: IComponentProps) => void
   id?: string
-  modalType: typeof ADDMODAL | typeof EDITMODAL | typeof DELETEMODAL | null
+  modalType:
+    | typeof ADDCOMPONENT
+    | typeof EDITCOMPONENT
+    | typeof DELETECOMPONENT
+    | typeof ADDPAGE
+    | typeof EDITPAGE
+    | typeof DELETEPAGE
+    | null
 }
 
 type TModalState = TToggleModalProps & {
