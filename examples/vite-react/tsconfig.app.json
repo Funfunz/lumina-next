@@ -23,5 +23,10 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"]
+  "include": [
+    "src",
+    "../../packages/lumina-core/src/components/login/login.tsx",
+    "../../packages/lumina-core/src/components/login/recoverAccount.tsx",
+    "../../packages/lumina-core/src/components/login/createAccount.tsx"
+  ]
 }

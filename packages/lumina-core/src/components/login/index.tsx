@@ -1,25 +1,23 @@
 import React, { useState, FormEvent } from 'react'
+import logo from '../../styles/LuminaIcon-v1.3/logo.jpg'
 import styles from './login.module.scss'
-import logo from '../assets/logo.jpg'
 import { useNavigate } from 'react-router-dom'
 
 const Login: React.FC = () => {
-  const [username, setUsername] = useState<string>('')
-  const [password, setPassword] = useState<string>('')
+  const [username, setUsername] = useState<string>('admin')
+  const [password, setPassword] = useState<string>('password')
   const [error, setError] = useState<string>('')
   const navigate = useNavigate()
 
   const handleLogin = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    // Simple authentication check
     if (username === 'admin' && password === 'password') {
-      // Simulation of logging in with session storage
       sessionStorage.setItem('user', JSON.stringify({ username }))
       alert('Login successful!')
-      navigate('/editor') // redirect to editor
+      navigate('/editor') // Redirect to editor after login
     } else {
-      setError('Invalid username or password.') //redirect to signIn ?
+      setError('Invalid username or password.') //redirect to signin?
     }
   }
 

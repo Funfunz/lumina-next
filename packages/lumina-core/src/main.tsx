@@ -3,6 +3,7 @@
 import { ContextProvider } from './context/contextProvider'
 import { Editor } from './components/editor'
 import { Render } from './components/render'
+import Login from './components/login'
 import type { IData, IPageData } from './models/data'
 import { useEffect, useState } from 'react'
 import type { TConfig } from './models/editor-buttonModel'
@@ -58,6 +59,7 @@ function setComponentConfig(newComponentConfig: TComponentConfig) {
 
 export default function Lumina({ router, getData, components }: TProps = defaultValues) {
   const [builderData, setBuilderData] = useState<IData>({})
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
 
   useEffect(() => {
     async function fetchData() {
@@ -72,6 +74,13 @@ export default function Lumina({ router, getData, components }: TProps = default
 
   const { selectedPage, isEditor, params } = routerParser(router.location.pathname, builderData)
 
+  useEffect(() => {
+    const storedUser = sessionStorage.getItem('user')
+    if (storedUser) {
+      setIsLoggedIn(true) // User is logged in
+    }
+  }, [])
+
   if (!builderData[selectedPage]) return null
   return (
     <ContextProvider
@@ -82,9 +91,10 @@ export default function Lumina({ router, getData, components }: TProps = default
           selectedPage: selectedPage,
           pages: Object.keys(builderData),
         },
-      }}
-    >
-      {isEditor ? (
+      }}>
+      {!isLoggedIn ? (
+        <Login />
+      ) : isEditor ? (
         <ToggleModalContextProvider>
           <Editor>
             <EditorModal />
