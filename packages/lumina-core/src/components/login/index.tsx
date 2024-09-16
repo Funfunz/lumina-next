@@ -1,6 +1,5 @@
 import React, { useState, FormEvent } from 'react'
-import logo from '../../styles/LuminaIcon-v1.3/logo.jpg'
-import styles from './login.module.scss'
+// import logo from '../../styles/LuminaIcon-v1.3/logo.jpg'
 import { useNavigate } from 'react-router-dom'
 
 const Login: React.FC = () => {
@@ -22,14 +21,14 @@ const Login: React.FC = () => {
   }
 
   return (
-    <div className={styles.loginPage}>
-      <div className={styles.loginContainer}>
+    <div className='loginPage'>
+      <div className='loginContainer'>
         <h2>Sign in to Lumina</h2>
         <form onSubmit={handleLogin}>
           <div>
-            <div className={styles.fieldContainer}>
+            <div className='fieldContainer'>
               <label htmlFor='username'>Username</label>
-              <p className={styles.helpText}>Enter your username</p>
+              <p className='helpText'>Enter your username</p>
             </div>
             <input
               type='text'
@@ -40,9 +39,9 @@ const Login: React.FC = () => {
             />
           </div>
           <div>
-            <div className={styles.fieldContainer}>
+            <div className='fieldContainer'>
               <label htmlFor='password'>Password</label>
-              <p className={styles.helpText}>Enter your password</p>
+              <p className='helpText'>Enter your password</p>
             </div>
             <input
               type='password'
@@ -57,7 +56,7 @@ const Login: React.FC = () => {
         </form>
         <a href='./recoverAccount'>Recover account</a>
         <a href='./createAccount'>Create account</a>
-        <img src={logo} alt='Lumina Logo' />
+        {/* <img src={logo} alt='Lumina Logo' /> */}
       </div>
     </div>
   )
