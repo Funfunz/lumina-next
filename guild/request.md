@@ -5,7 +5,7 @@ The idea is to create a way for the user to be able to add/removed components fr
 # Lumina
 
 Project Overview:
-Lumina is a revolutionary web application that enables users to effortlessly design and publish stunning websites without the need for any coding knowledge. Leveraging the power and flexibility of NextJS, our platform offers an intuitive drag-and-drop interface combined with a rich library of customizable components, empowering users to bring their creative visions to life with ease.
+Lumina is a revolutionary web application that enables users to effortlessly design and publish stunning websites without the need for any coding knowledge. Leveraging the power and flexibility of ReactJS, our platform offers an intuitive drag-and-drop interface combined with a rich library of customizable components, empowering users to bring their creative visions to life with ease.
 
 ## Key Features:
 
