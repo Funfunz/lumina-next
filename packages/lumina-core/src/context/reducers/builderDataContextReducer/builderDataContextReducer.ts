@@ -16,7 +16,7 @@ import {
   moveUpElement,
   moveDownElement,
 } from './helpers'
-import { ISetBuilderDataAction } from './actions/builderActions'
+import { ISetBuilderDataAction, ISetSelectedPageAction } from './actions/builderActions'
 
 export interface IBuilderDataContext {
   builderData: IData
@@ -35,6 +35,7 @@ export type TBuilderDataContextActions =
   | IMoveUpComponentAction
   | IMoveDownComponentAction
   | IVisibleComponentAction
+  | ISetSelectedPageAction
 
 export const initialBuilderDataContextState = {
   builderData: {},
@@ -209,6 +210,12 @@ export const builderDataContextReducer = (
             ],
           },
         },
+      }
+
+    case 'setSelectedPage':
+      return {
+        ...data,
+        selectedPage: action.data,
       }
 
     default:

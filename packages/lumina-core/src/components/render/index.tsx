@@ -9,6 +9,7 @@ interface IProps {
 export const Render = ({ elements }: IProps) => {
   const {
     state: { builderDataContext },
+    navigate,
   } = useLuminaContext()
   let data: IComponentData[] = []
   if (elements) {
@@ -22,6 +23,9 @@ export const Render = ({ elements }: IProps) => {
   ) {
     data = builderDataContext.builderData[builderDataContext.selectedPage].children!
   }
+
+  ;(window as any).navigate = navigate
+
   return (
     <>
       {data

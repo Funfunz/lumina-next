@@ -27,6 +27,7 @@ type TProps = {
   }
   getData: () => Promise<IData>
   components: TComponentConfig
+  navigate?: (url: string) => void
 }
 
 const defaultValues: TProps = {
@@ -54,7 +55,7 @@ function setComponentConfig(newComponentConfig: TComponentConfig) {
   return componentConfig
 }
 
-export default function Lumina({ router, getData, components }: TProps = defaultValues) {
+export default function Lumina({ router, getData, components, navigate }: TProps = defaultValues) {
   const [builderData, setBuilderData] = useState<IData>({})
 
   useEffect(() => {
@@ -76,14 +77,16 @@ export default function Lumina({ router, getData, components }: TProps = default
   if (!builderData[selectedPage]) return null
   return (
     <ContextProvider
+      router={router}
       data={{
-        appContext: { isEditor, selectedPage, params, pathComponents },
+        appContext: { isEditor, params, pathComponents, selectedPage },
         builderDataContext: {
           builderData,
           selectedPage: selectedPage,
           pages: Object.keys(builderData),
         },
       }}
+      navigate={navigate}
     >
       {isEditor ? (
         <ToggleModalContextProvider>
