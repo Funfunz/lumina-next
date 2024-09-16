@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-
 import { ContextProvider } from './context/contextProvider'
 import { Editor } from './components/editor'
 import { Render } from './components/render'

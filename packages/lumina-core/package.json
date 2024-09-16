@@ -20,7 +20,7 @@
     "prepare": "husky",
     "dev": "npm run build && watch -p \"src/**/*\" -c \"npm run build\"",
     "build": "npm run build:theme && npm run build:js && npm run build:css",
-    "build:theme": "node ./src/styles/theme/build.js",
+    "build:theme": "node ./src/styles/theme/build.js && npm run lint:css && npm run prettier",
     "build:js": "tsc && tsc-alias",
     "build:css": "sass src/styles/index.scss dist/css/index.css",
     "lint": "npm run lint:js && npm run lint:css && npm run prettier",

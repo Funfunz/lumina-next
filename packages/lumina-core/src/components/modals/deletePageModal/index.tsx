@@ -2,46 +2,44 @@ import { Button } from '@/components/button'
 import { useCallback } from 'react'
 import { useToggleModalContext } from '@/context/toggleModalContextProvider'
 import { useLuminaContext } from '@/context/contextProvider'
-
 import { Modal } from '../utils/modal'
 import { CancelButton } from '../utils/cancelButton'
 
-export const DELETECOMPONENT = 'DELETECOMPONENT'
+export const DELETEPAGE = 'DELETEPAGE'
 
-export type TToggleModalDeleteComponentProps = {
-  modalType: typeof DELETECOMPONENT
-  id: string
+export type TToggleModalDeletePageProps = {
+  modalType: typeof DELETEPAGE
+  route: string
 }
 
-export const DeleteComponentModal = () => {
+export const DeletePageModal = () => {
   const {
     handleCloseModal,
-    modalState: { id },
-  } = useToggleModalContext<TToggleModalDeleteComponentProps>()
+    modalState: { route },
+  } = useToggleModalContext<TToggleModalDeletePageProps>()
   const { dispatch } = useLuminaContext()
 
   /**
-   * Deletes a component based on the ID
+   * Adds a new page
    */
-
   const handleClickDeleteComponent = useCallback(() => {
+    if (!route) return
     dispatch({
-      type: 'deleteComponent',
-      data: {
-        id: id!,
-      },
+      type: 'deletePage',
+      data: { route },
     })
+
     handleCloseModal()
-  }, [dispatch, id])
+  }, [dispatch, route])
 
   return (
     <Modal
-      title='Delete Component'
-      titleIcon='lum-icon-cross'
-      contentLabel='Delete a component Modal'
+      title='Delete Page'
+      titleIcon='lum-icon-component'
+      contentLabel='Delete a page Modal'
       content={
         <>
-          <p>Are you sure you want to delete the Component?</p>
+          <p>Are you sure you want to delete the Page {}?</p>
           <p>This action is irreversible.</p>
         </>
       }
@@ -49,7 +47,7 @@ export const DeleteComponentModal = () => {
         <>
           <Button
             buttonType='button'
-            text='Yes, delete'
+            text='Delete page'
             style='primary'
             size='large'
             onClick={handleClickDeleteComponent}

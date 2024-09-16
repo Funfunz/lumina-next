@@ -5,14 +5,14 @@ import { IPageData } from '@/models/data'
 import { TabHeader } from '@/components/tab-header'
 import { Button } from '@/components/button'
 import { PageTree } from './pageTree'
-import { ADDPAGE, useToggleModalContext } from '@/context/toggleModalContextProvider'
+import { useToggleModalContext } from '@/context/toggleModalContextProvider'
+import { ADDPAGE, TToggleModalAddPageProps } from '@/components/modals/addPageModal'
 
 export const PagesTab = () => {
   const {
     state: { builderDataContext },
-    dispatch,
   } = useLuminaContext()
-  const { handleOpenModal } = useToggleModalContext()
+  const { handleOpenModal } = useToggleModalContext<TToggleModalAddPageProps>()
 
   const builderData = builderDataContext.builderData
   const [searchValue, setSearchValue] = useState<string>('')
@@ -53,7 +53,7 @@ export const PagesTab = () => {
 
   const handleAddPageClick = useCallback(() => {
     handleOpenModal({ modalType: ADDPAGE })
-  }, [dispatch])
+  }, [handleOpenModal])
 
   return (
     <ToggleMenuContextProvider>

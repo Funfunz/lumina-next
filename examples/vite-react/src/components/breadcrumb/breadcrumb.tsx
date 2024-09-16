@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography'
 const pageConfigurations: {
   [key: string]: (params: Record<string, string>) => Array<{ path?: string; name: string }>
 } = {
-  ['product/:productId']: params => {
+  ['/product/:productId']: params => {
     return [{ path: '/', name: 'Home' }, { name: 'product / ' + params.productId }]
   },
 }

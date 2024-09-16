@@ -4,15 +4,25 @@ import { useToggleModalContext } from '@/context/toggleModalContextProvider'
 import { useLuminaContext } from '@/context/contextProvider'
 import type { IComponentProps } from '@/models/data'
 import { Form, LuminaInputRenderer } from '@/components/editor-buttons-container/inputRenderer'
-
 import { Modal } from '../utils/modal'
 import { CancelButton } from '../utils/cancelButton'
+import { TConfig } from '@/main'
+
+export const EDITCOMPONENT = 'EDITCOMPONENT'
+
+export type TToggleModalEditComponentProps = {
+  modalType: typeof EDITCOMPONENT
+  id: string
+  config: TConfig
+  componentProps?: IComponentProps
+  onUpdate?: (data: IComponentProps) => void
+}
 
 export const EditComponentModal = () => {
   const {
     handleCloseModal,
     modalState: { id, config, componentProps },
-  } = useToggleModalContext()
+  } = useToggleModalContext<TToggleModalEditComponentProps>()
   const { dispatch } = useLuminaContext()
 
   const [formData, setFormData] = useState<IComponentProps>(componentProps || {})
@@ -65,18 +75,16 @@ export const EditComponentModal = () => {
       titleIcon='lum-icon-edit'
       contentLabel='Edit a component Modal'
       content={
-        <div className='edit-modal-content'>
-          <Form>
-            {config?.props?.map((configItem, index) => (
-              <LuminaInputRenderer
-                key={index}
-                config={configItem}
-                value={formData[configItem.name] || ''}
-                handleOnChangeInput={handleOnChangeProps}
-              />
-            ))}
-          </Form>
-        </div>
+        <Form>
+          {config?.props?.map((configItem, index) => (
+            <LuminaInputRenderer
+              key={index}
+              config={configItem}
+              value={formData[configItem.name] || ''}
+              handleOnChangeInput={handleOnChangeProps}
+            />
+          ))}
+        </Form>
       }
       actions={
         <>

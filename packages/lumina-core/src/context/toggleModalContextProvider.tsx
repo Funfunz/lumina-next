@@ -1,54 +1,17 @@
-/* eslint-disable no-unused-vars */
-import { ReactNode, createContext, useContext, useState } from 'react'
-import type { IComponentProps } from '../models/data'
-import type { TConfig } from '@/models/editor-buttonModel'
+import { type ReactNode, createContext, useContext, useState } from 'react'
 
-export const ADDCOMPONENT = 'ADDCOMPONENT'
-export const EDITCOMPONENT = 'EDITCOMPONENT'
-export const DELETECOMPONENT = 'DELETECOMPONENT'
-export const ADDPAGE = 'ADDPAGE'
-export const EDITPAGE = 'EDITPAGE'
-export const DELETEPAGE = 'DELETEPAGE'
-
-type TToggleModalProps = {
-  componentProps?: IComponentProps
-  config?: TConfig
-  onUpdate?: (data: IComponentProps) => void
-  id?: string
-  modalType:
-    | typeof ADDCOMPONENT
-    | typeof EDITCOMPONENT
-    | typeof DELETECOMPONENT
-    | typeof ADDPAGE
-    | typeof EDITPAGE
-    | typeof DELETEPAGE
-    | null
-}
-
-type TModalState = TToggleModalProps & {
+type TModalState = {
   isOpen: boolean
 }
 
 const initialModalState: TModalState = {
   isOpen: false,
-  componentProps: {},
-  config: {
-    name: '',
-    type: '',
-    editor: {
-      children: false,
-      editable: false,
-      delete: false,
-    },
-  },
-  id: '',
-  modalType: null,
 }
 
-type TToggleModalContext = {
-  handleOpenModal: ({ componentProps, config, id, modalType }: TToggleModalProps) => void
+type TToggleModalContext<T = Record<string, unknown>> = {
+  handleOpenModal: (data: T) => void
   handleCloseModal: () => void
-  modalState: TModalState
+  modalState: T
 }
 
 const ToggleModalContext = createContext<TToggleModalContext>({
@@ -60,13 +23,10 @@ const ToggleModalContext = createContext<TToggleModalContext>({
 export const ToggleModalContextProvider = ({ children }: { children: ReactNode }) => {
   const [modalState, setModalState] = useState<TModalState>(initialModalState)
 
-  const handleOpenModal = ({ id, config, componentProps, modalType }: TToggleModalProps) => {
+  const handleOpenModal = (props: Record<string, unknown>) => {
     setModalState({
-      componentProps: componentProps,
-      config: config,
-      id: id,
+      ...props,
       isOpen: true,
-      modalType: modalType,
     })
   }
 
@@ -84,6 +44,6 @@ export const ToggleModalContextProvider = ({ children }: { children: ReactNode }
   )
 }
 
-export const useToggleModalContext = () => {
-  return useContext(ToggleModalContext)
+export function useToggleModalContext<T = TModalState>() {
+  return useContext(ToggleModalContext) as TToggleModalContext<T>
 }

@@ -8,7 +8,7 @@ import { CheckBox } from '../form-components/checkbox'
 type TProps = {
   config: TConfigItem
   value: string | number | boolean | undefined
-  /* eslint-disable no-unused-vars */
+
   handleOnChangeInput: (key: string, value: string | number | boolean) => void
 }
 

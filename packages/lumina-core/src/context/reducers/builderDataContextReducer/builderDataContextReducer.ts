@@ -51,13 +51,17 @@ export const builderDataContextReducer = (
       return JSON.parse(JSON.stringify(action.data))
 
     case 'createPage':
+      const route =
+        action.data.urlParams.length > 0
+          ? action.data.urlParams.reduce((prev, current) => {
+              return `${prev}/${current}`
+            }, '')
+          : '/'
       const newPage: IPageData = {
         id: action.data.id,
         friendlyName: action.data.friendlyName,
         description: action.data.description,
-        route: action.data.urlParams.reduce((prev, current) => {
-          return `${prev}/${current}`
-        }, ''),
+        route,
         dateModified: Date.now().toString(),
         status: 'draft',
         children: [],
@@ -66,9 +70,9 @@ export const builderDataContextReducer = (
         ...data,
         builderData: {
           ...data.builderData,
-          [action.data.id]: newPage,
+          [route]: newPage,
         },
-        pages: [...data.pages, action.data.id],
+        pages: [...data.pages, route],
       }
 
     case 'updatePage':
@@ -105,9 +109,9 @@ export const builderDataContextReducer = (
         builderData: {
           ...data.builderData,
         },
-        pages: data.pages.filter(page => page !== action.data.id),
+        pages: data.pages.filter(page => page !== action.data.route),
       }
-      delete newState.builderData[action.data.id]
+      delete newState.builderData[action.data.route]
       return newState
 
     case 'createComponent':

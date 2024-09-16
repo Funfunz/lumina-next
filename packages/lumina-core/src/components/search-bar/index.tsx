@@ -6,7 +6,7 @@ import { useDebounce } from 'use-debounce'
 
 type TProps = {
   searchValue: string
-  // eslint-disable-next-line no-unused-vars
+
   setSearchValue: (text: string) => void
 }
 
