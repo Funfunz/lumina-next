@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-unused-vars */
-import { ReactNode, createContext, useContext, useEffect, useRef, useState } from 'react'
+import { type ReactNode, createContext, useContext, useEffect, useRef, useState } from 'react'
 
 type TToggleMenuContext = {
   handleToggleMenu: (id: string) => void
@@ -18,7 +16,7 @@ const initialMenuState: EditorExpandMenu = {
 }
 
 const ToggleMenuContext = createContext<TToggleMenuContext>({
-  handleToggleMenu: (id: string) => null,
+  handleToggleMenu: () => null,
   menuState: initialMenuState,
 })
 

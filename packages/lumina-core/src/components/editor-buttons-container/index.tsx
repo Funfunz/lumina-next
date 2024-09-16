@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /**
  * Documentation found at ./readme.md
  */

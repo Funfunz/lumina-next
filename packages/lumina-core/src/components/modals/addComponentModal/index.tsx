@@ -12,11 +12,18 @@ import { Modal } from '../utils/modal'
 import { CancelButton } from '../utils/cancelButton'
 import { generateId } from '../utils'
 
+export const ADDCOMPONENT = 'ADDCOMPONENT'
+
+export type TToggleModalAddComponentProps = {
+  modalType: typeof ADDCOMPONENT
+  id?: string
+}
+
 export const AddComponentModal = () => {
   const {
     handleCloseModal,
     modalState: { id },
-  } = useToggleModalContext()
+  } = useToggleModalContext<TToggleModalAddComponentProps>()
   const { dispatch } = useLuminaContext()
   const [selectedConfig, setSelectedConfig] = useState<TConfig>()
   const [selectedOption, setSelectedOption] = useState<TSelectedOption>()
@@ -89,7 +96,7 @@ export const AddComponentModal = () => {
       titleIcon='lum-icon-component'
       contentLabel='Add a component Modal'
       content={
-        <div className='add-modal-content'>
+        <>
           <Select
             id={`addComponent_dropdown_${id}`}
             value={selectedOption}
@@ -120,7 +127,7 @@ export const AddComponentModal = () => {
               </Form>
             </div>
           )}
-        </div>
+        </>
       }
       actions={
         <>

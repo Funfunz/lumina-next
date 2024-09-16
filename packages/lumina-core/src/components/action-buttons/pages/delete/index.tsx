@@ -2,25 +2,25 @@ import { Button } from '@/components/button'
 import { useLuminaContext } from '@/context/contextProvider'
 
 type TDeletePageProps = {
-  id: string
+  route: string
   buttonLabel?: string
   isDisabled?: boolean
   isMenuButton?: boolean
 }
 
 export const DeletePageButton = ({
-  id,
+  route,
   buttonLabel,
   isDisabled,
   isMenuButton,
 }: TDeletePageProps) => {
   const { dispatch } = useLuminaContext()
 
-  ;(window as any).testDelete = (id: string) => {
+  ;(window as any).testDelete = (route: string) => {
     dispatch({
       type: 'deletePage',
       data: {
-        id,
+        route,
       },
     })
   }
@@ -30,7 +30,7 @@ export const DeletePageButton = ({
   const handleDeletePage = () => {
     dispatch({
       type: 'deletePage',
-      data: { id },
+      data: { route },
     }),
       [dispatch]
   }

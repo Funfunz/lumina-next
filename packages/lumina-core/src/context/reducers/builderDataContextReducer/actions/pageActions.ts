@@ -23,6 +23,6 @@ export interface IUpdatePageAction {
 export interface IDeletePageAction {
   type: 'deletePage'
   data: {
-    id: string
+    route: string
   }
 }

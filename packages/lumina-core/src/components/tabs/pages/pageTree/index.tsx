@@ -2,12 +2,16 @@ import { IPageData } from '@/models/data'
 import { TreeBranch } from '../../treeBranch'
 import { Button } from '@/components/button'
 import { useCallback } from 'react'
+import { DELETEPAGE, TToggleModalDeletePageProps } from '@/components/modals/deletePageModal'
+import { useToggleModalContext } from '@/context/toggleModalContextProvider'
 
 type TProps = {
   data: IPageData[]
 }
 
 export const PageTree = ({ data }: TProps) => {
+  const { handleOpenModal } = useToggleModalContext<TToggleModalDeletePageProps>()
+
   if (data.length === 0) {
     return <p>No components were found.</p>
   }
@@ -17,6 +21,13 @@ export const PageTree = ({ data }: TProps) => {
       console.log(dataItem)
     },
     []
+  )
+
+  const handleOnClickDelete = useCallback(
+    (dataItem: IPageData) => () => {
+      handleOpenModal({ modalType: DELETEPAGE, route: dataItem.route })
+    },
+    [handleOpenModal]
   )
   return (
     <>
@@ -41,7 +52,7 @@ export const PageTree = ({ data }: TProps) => {
               <Button
                 buttonType='button'
                 iconLeft='lum-icon-cross'
-                onClick={handleOnClickEdit(dataItem)}
+                onClick={handleOnClickDelete(dataItem)}
               />
             </div>
           </TreeBranch>

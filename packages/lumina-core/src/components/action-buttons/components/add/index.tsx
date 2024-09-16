@@ -1,6 +1,7 @@
 import { Button } from '@/components/button'
-import { ADDCOMPONENT, useToggleModalContext } from '@/context/toggleModalContextProvider'
+import { useToggleModalContext } from '@/context/toggleModalContextProvider'
 import { useToggleMenuContext } from '@/context/toggleMenuContextProvider'
+import { ADDCOMPONENT, TToggleModalAddComponentProps } from '@/components/modals/addComponentModal'
 
 type TProps = {
   componentId?: string
@@ -24,7 +25,7 @@ export const AddComponentButton = ({
   isMenuButton,
 }: TProps) => {
   const { handleToggleMenu } = useToggleMenuContext()
-  const { handleOpenModal } = useToggleModalContext()
+  const { handleOpenModal } = useToggleModalContext<TToggleModalAddComponentProps>()
 
   const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()

@@ -1,7 +1,7 @@
 import { IData } from '@lumina/core'
 
 const data: IData = {
-  homePage: {
+  ['/']: {
     id: 'page1',
     friendlyName: 'Homepage',
     description: 'Homepage for Lumina Page Builder',
@@ -235,7 +235,7 @@ const data: IData = {
       },
     ],
   },
-  'product/:productId': {
+  '/product/:productId': {
     id: 'page2',
     friendlyName: 'Product Page',
     description: 'Product Page for Lumina Page Builder',

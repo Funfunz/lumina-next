@@ -41,7 +41,7 @@ export const routerParser = (pathName: string, builderData: IData): TParsedRoute
   })
 
   const result = {
-    selectedPage: pageFound?.id || 'homePage',
+    selectedPage: pageFound?.id || pages[0]?.id,
     params,
     isEditor,
     pathComponents: splittedSelectedPathName,
