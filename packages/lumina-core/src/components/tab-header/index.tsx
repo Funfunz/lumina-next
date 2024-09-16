@@ -5,7 +5,7 @@ import { useCallback, useState } from 'react'
 type TProps = {
   titleText: string
   actions: React.ReactNode
-  // eslint-disable-next-line no-unused-vars
+
   onSearch: (text: string) => void
 }
 

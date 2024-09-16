@@ -24,7 +24,6 @@ export const DeletePageModal = () => {
    */
   const handleClickDeleteComponent = useCallback(() => {
     if (!route) return
-    console.log({ route })
     dispatch({
       type: 'deletePage',
       data: { route },

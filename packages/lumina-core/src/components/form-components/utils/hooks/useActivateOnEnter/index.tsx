@@ -4,7 +4,7 @@ type TFormHookProps = {
   activateEnterPress?: boolean
   clearOnEnterPress?: boolean
   onEnterPress?: () => void
-  // eslint-disable-next-line no-unused-vars
+
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void
   value?: string
 }
