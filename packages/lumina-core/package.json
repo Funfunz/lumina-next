@@ -23,7 +23,7 @@
     "build:theme": "node ./src/styles/theme/build.js",
     "build:js": "tsc && tsc-alias",
     "build:css": "sass src/styles/index.scss dist/css/index.css",
-    "build:assets": "cp -r src/assets dist",
+    "build:assets": "cp -r src/assets dist && ls dist",
     "lint": "npm run lint:js && npm run lint:css && npm run prettier",
     "lint:js": "eslint ./src --fix --report-unused-disable-directives --max-warnings 10",
     "lint:css": "stylelint --fix \"**/*.{css,scss}\" --config ../../.stylelintrc.json",
