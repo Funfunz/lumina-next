@@ -55,8 +55,9 @@
   --lum-color-accent-default: #07b0a0;
   --lum-color-secondary-weak: #fdddb9;
   --lum-color-secondary-default: #f7901e;
+  --lum-color-primary-strong: #122f54;
   --lum-color-primary-weak: #b99fcb;
-  --lum-color-primary-default: #662f8f;
+  --lum-color-primary-default: #61748c;
   --lum-color-fg-strong: #121212;
   --lum-color-fg-weaker: #9f9fa3;
   --lum-color-fg-weak: #7b7b7f;
@@ -97,7 +98,8 @@
   --lum-color-button-danger-background: var(--lum-color-secondary-default);
   --lum-color-button-warning-background: var(--lum-color-secondary-weak);
   --lum-color-button-secondary-background: var(--lum-color-primary-default);
-  --lum-color-button-primary-background: var(--lum-color-accent-default);
+  --lum-color-button-primary-background-hover: var(--lum-color-primary-strong);
+  --lum-color-button-primary-background: var(--lum-color-primary-default);
   --lum-color-button-background-inverse-hover: var(--lum-color-surface-strong);
   --lum-color-button-background-inverse: var(--lum-color-transparent);
   --lum-color-button-text-inverse: var(--lum-color-fg-default);
@@ -105,7 +107,7 @@
   --lum-color-button-background: var(--lum-color-green-600);
   --lum-color-button-text: var(--lum-color-surface-default);
   --lum-color-border: var(--lum-color-fg-default);
-  --lum-color-background-inverse: var(--lum-color-surface-stronger);
+  --lum-color-background-inverse: var(--lum-color-primary-default);
   --lum-color-background-base: var(--lum-color-surface-default);
   --lum-color-link-hover-inverse: var(--lum-color-secondary-default);
   --lum-color-link-text-inverse: var(--lum-color-surface-default);

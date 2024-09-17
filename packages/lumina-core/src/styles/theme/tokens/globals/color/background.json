@@ -11,7 +11,7 @@
           "attributes": { "font": "regular" }
         },
         "inverse": {
-          "value": "{lum.color.surface.stronger.value}",
+          "value": "{lum.color.primary.default.value}",
           "attributes": { "font": "regular" }
         }
       }

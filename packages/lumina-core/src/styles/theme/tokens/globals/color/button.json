@@ -20,8 +20,13 @@
         "background-inverse-hover": {
           "value": "{lum.color.surface.strong.value}"
         },
-        "primary-background": {
-          "value": "{lum.color.accent.default.value}"
+        "primary": {
+          "background": {
+            "value": "{lum.color.primary.default.value}"
+          },
+          "background-hover": {
+            "value": "{lum.color.primary.strong.value}"
+          }
         },
         "secondary-background": {
           "value": "{lum.color.primary.default.value}"
