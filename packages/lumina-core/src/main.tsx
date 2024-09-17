@@ -7,7 +7,7 @@ import type { TConfig } from './models/editor-buttonModel'
 import { ToggleModalContextProvider } from './context/toggleModalContextProvider'
 import { EditorModal } from './components/modals'
 import { routerParser } from './utils/routerParser'
-import logo from './assets/logo_xl.png'
+import logo from './assets/logo_xl.svg'
 
 export type TComponentConfig = {
   [key: string]: {
