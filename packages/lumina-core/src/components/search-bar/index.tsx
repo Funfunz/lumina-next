@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import { Button } from '../button'
 import cx from 'classnames'
 import { Input } from '../form-components/input'
@@ -6,7 +6,8 @@ import { useDebounce } from 'use-debounce'
 
 type TProps = {
   searchValue: string
-  setSearchValue: Dispatch<SetStateAction<string>>
+
+  setSearchValue: (text: string) => void
 }
 
 /**
@@ -31,6 +32,7 @@ export const SearchBar = ({ searchValue, setSearchValue }: TProps) => {
         onChange={(e: ChangeEvent<HTMLInputElement>) => setInputValue(e.target.value)}
         value={inputValue}
         placeholder='Search...'
+        fullWidth={true}
       />
       <Button buttonType='button' iconRight='lum-icon-filter' style='filter' />
     </div>

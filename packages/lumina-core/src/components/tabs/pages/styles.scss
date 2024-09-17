@@ -4,9 +4,6 @@
   height: 100%;
 }
 
-.pages_title {
-}
-
 .pageHead {
   display: flex;
   align-items: center;
@@ -16,4 +13,13 @@
     display: inline-flex;
     gap: 8px;
   }
+}
+
+.addText {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.branch_container_actions {
+  display: flex;
 }

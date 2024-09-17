@@ -17,7 +17,7 @@ export const Render = ({ elements }: IProps) => {
   if (
     builderDataContext.builderData &&
     builderDataContext.selectedPage &&
-    builderDataContext.builderData[builderDataContext.selectedPage].children &&
+    builderDataContext.builderData[builderDataContext.selectedPage]?.children &&
     !elements
   ) {
     data = builderDataContext.builderData[builderDataContext.selectedPage].children!

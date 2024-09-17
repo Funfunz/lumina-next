@@ -12,7 +12,7 @@ export type TEditorConfig = {
 }
 
 export interface TConfigItemValue extends TConfigItemBase {
-  type: 'string' | 'number'
+  type: 'string' | 'number' | 'boolean'
 }
 
 export interface TConfigItemSelect<T = string> extends TConfigItemBase {

@@ -1,0 +1,154 @@
+import { Meta, Markdown } from '@storybook/blocks'
+
+<Meta title='Docs/Components/Add new component' />
+
+# Add a new component
+
+Adding a new component to be used on the Lumina package requires a ReactJS component and a [configuration file](/docs/docs-components-required-configuration--documentation).
+
+## Step by step guide
+
+1. Create a file to hold your component code, button.tsx for example, and export the [component](#1-component) from that file
+2. Export the configuration needed for Lumina [General Configuration](#required-lumina-configuration)
+3. Create a [Configuration file](#required-lumina-configuration) to be pushed to Lumina
+
+## 1. Component
+
+This is an example button component
+
+```tsx
+export const Button = ({ id, text, ...props }) => {
+  return <button {...props}>{props.text}</button>
+}
+```
+
+Components will always get an **id** property with the id of the component inside Lumina
+
+## 2. Component configuration
+
+Now we are exporting a button component that supports the props **text** and **disabled** to be editable by Lumina.
+
+Check [Required Configuration](/docs/docs-components-required-configuration--documentation) for more information about this object.
+
+```tsx
+export const Button = ({ id, text, ...props }) => {
+  return <button {...props}>{props.text}</button>
+}
+
+export const buttonConfig = {
+  name: 'Button',
+  type: 'button',
+  props: [
+    {
+      type: 'string',
+      name: 'text',
+      label: 'Text',
+    },
+    {
+      type: 'boolean',
+      name: 'disabled',
+      label: 'Disabled',
+    },
+  ],
+  editor: {
+    children: false,
+    editable: true,
+    delete: true,
+  },
+}
+```
+
+## 3. Final Lumina component configuration
+
+Finally we need to merge everything into a single configuration and push it to Lumina
+
+```tsx
+import { type TComponentConfig } from '@lumina/core'
+import { Button, configButton } from './button'
+
+const luminaConfig: TComponentConfig = {
+  button: {
+    component: Button,
+    config: configButton,
+  },
+}
+```
+
+And we render this with:
+
+```tsx
+<Lumina components={luminaConfig} />
+```
+
+## Extra steps
+
+### EditorButtonsContainer
+
+This is a Lumina exported component that is used to create an overlay that is visible while in the editor mode
+
+The props `id`, `config`, and `componentProps` are required.
+
+<div style={{backgroundColor:'rgba(255,0,0,0.2)'}}>
+> **_NOTE:_** When using this, the component needs to be wrapped in a **div with position relative**, this is because the `EditorButtonsContainer` uses a position absolute to render itself.
+
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <td>**Property**</td>
+      <td>**Description**</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>**id**</td>
+      <td>Lumina component id, this is passed as a prop to the component itself</td>
+    </tr>
+    <tr>
+      <td>**config**</td>
+      <td>Component configuration, should be the same configuration exported by the component</td>
+    </tr>
+    <tr>
+      <td>**componentProps**</td>
+      <td>Current component property being received</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Example
+
+```tsx
+import { EditorButtonsContainer } from '@lumina/core'
+
+export const Button = ({ id, text, ...props }) => {
+  return (
+    <div style={{ position: 'relative' }}>
+      <button {...props}>{props.text}</button>
+      <EditorButtonsContainer id={id} config={config} componentProps={{ text, ...props }} />
+    </div>
+  )
+}
+
+export const buttonConfig = {
+  name: 'Button',
+  type: 'button',
+  props: [
+    {
+      type: 'string',
+      name: 'text',
+      label: 'Text',
+    },
+    {
+      type: 'boolean',
+      name: 'disabled',
+      label: 'Disabled',
+    },
+  ],
+  editor: {
+    children: false,
+    editable: true,
+    delete: true,
+  },
+}
+```

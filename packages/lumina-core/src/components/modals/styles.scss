@@ -1,12 +1,11 @@
-@import './add/style';
-
-.editor-modal {
+.lumina-modal {
   position: absolute;
   top: 20%;
   left: 50%;
   width: 600px;
   padding: 40px 80px 60px;
   margin: 0 auto;
+  font-family: var(--lum-font-family-regular);
   background: var(--lum-color-white);
   border: 1px solid var(--lum-color-white);
   border-radius: 10px;

@@ -1,6 +1,10 @@
 import { Button } from '@/components/button'
-import { DELETEMODAL, useToggleModalContext } from '@/context/toggleModalContextProvider'
+import { useToggleModalContext } from '@/context/toggleModalContextProvider'
 import { useToggleMenuContext } from '@/context/toggleMenuContextProvider'
+import {
+  DELETECOMPONENT,
+  TToggleModalDeleteComponentProps,
+} from '@/components/modals/deleteComponentModal'
 
 type TProps = {
   componentId: string
@@ -20,14 +24,14 @@ export const DeleteComponentButton = ({
   isDisabled,
   isMenuButton,
 }: TProps) => {
-  const { handleOpenModal } = useToggleModalContext()
+  const { handleOpenModal } = useToggleModalContext<TToggleModalDeleteComponentProps>()
   const { handleToggleMenu } = useToggleMenuContext()
 
   const handleToggleDeleteModal = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
     handleOpenModal({
       id: componentId,
-      modalType: DELETEMODAL,
+      modalType: DELETECOMPONENT,
     })
     handleToggleMenu(componentId)
   }
