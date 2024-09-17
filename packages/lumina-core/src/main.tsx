@@ -7,7 +7,6 @@ import type { TConfig } from './models/editor-buttonModel'
 import { ToggleModalContextProvider } from './context/toggleModalContextProvider'
 import { EditorModal } from './components/modals'
 import { routerParser } from './utils/routerParser'
-import logo from './assets/logo_xl.svg'
 
 export type TComponentConfig = {
   [key: string]: {
@@ -90,7 +89,6 @@ export default function Lumina({ router, getData, components }: TProps = default
         <ToggleModalContextProvider>
           <Editor>
             <EditorModal />
-            <img src={logo} />
             <Render />
           </Editor>
         </ToggleModalContextProvider>

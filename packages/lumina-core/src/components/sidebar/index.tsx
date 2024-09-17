@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { Button } from '../button'
 import { PagesTab } from '../tabs/pages'
 import { ComponentsTab } from '../tabs/components'
+import logo from '@/assets/logo_light_md.svg'
+import logoGrid from '@/assets/logo_grid_light_md.svg'
 
 type TSidebarEditor = {
   handleToggler: Function
@@ -86,7 +88,7 @@ export const SidebarEditor = ({ isBarOpen, handleToggler }: TSidebarEditor) => {
     <div className='sidebarSection'>
       <div className={cx('sidebarHeader', { open: isBarOpen })}>
         <div className='sidebarHeaderIcon'>
-          <div className='sidebarLuminaIcon'></div>
+          {(isBarOpen && <img src={logo} />) || <img src={logoGrid} />}
         </div>
         {/* expand icon */}
         <div
