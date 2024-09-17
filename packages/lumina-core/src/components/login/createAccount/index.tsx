@@ -67,7 +67,9 @@ const CreateAccount: React.FC = () => {
           <button type='submit'>Create Account</button>
         </form>
 
-        <Link to='/login' className={styles.backLink}>Go back</Link>
+        <Link to='/login' className={styles.backLink}>
+          Go back
+        </Link>
         <img src={logo} alt='Lumina Logo' />
       </div>
     </div>

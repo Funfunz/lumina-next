@@ -2,25 +2,25 @@
 
 .loginPage {
   display: flex;
-  gap: 10px;
+  gap: var(--lum-size-spacing-s);
   align-items: center;
   justify-content: center;
   width: 100vw;
   height: 100vh;
   padding: 25px 65px;
-  background: #d0e2f2;
+  background: var(-lum-color-background-weak-blue);
 }
 
 .loginContainer {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  gap: 24px;
+  gap: var(--lum-size-spacing-ml);
   align-items: center;
   justify-content: center;
   padding: 50px 60px 40px;
-  background: #fff;
-  border-radius: 10px;
+  background: var(--lum-color-white);
+  border-radius: var(--lum-size-spacing-s);
   box-shadow: 5px 5px 30px 0 rgb(0 0 0 / 25%);
 }
 
@@ -29,7 +29,7 @@
   font-family: 'Proxima Nova';
   font-size: 10px;
   font-style: normal;
-  color: #777;
+  color: var(--lum-color-grey-800);
 }
 
 .fieldContainer {
@@ -37,55 +37,55 @@
   flex-direction: column;
   gap: 1px;
   align-items: flex-start;
-  margin-bottom: 10px;
+  margin-bottom: var(--lum-size-spacing-s);
 }
 
-button {
+.loginButton {
   width: 100%;
   padding: var(--Vertical-spacing-micro, 8px) var(--Vertical-spacing-little, 20px);
   font-family: 'Proxima Nova';
   font-size: 12px;
   font-weight: 400;
-  color: #fdfdfd;
+  color: var(--lum-color-white);
   text-align: center;
   text-shadow: 0 4px 10px rgb(0 0 0 / 5%);
-  background: #122f54;
-  border-radius: 3px;
+  background: var(--lum-color-charcoal);
+  border-radius: var(--lum-size-spacing-xs);
 }
 
-input {
+.loginInput {
   display: flex;
-  gap: 10px;
+  gap: var(--lum-size-spacing-s);
   align-items: center;
   align-self: stretch;
   padding: var(--Vertical-spacing-micro, 8px) var(--Vertical-spacing-little, 20px);
-  margin-bottom: 25px;
-  background: #fdfdfd;
-  border: 1px solid #ccc;
+  margin-bottom: var(--lum-size-spacing-ml);
+  background: var(--lum-color-white);
+  border: 1px solid var(--lum-color-grey-600);
   border-radius: 5px;
 }
 
-h2 {
+.loginTitle {
   font-family: 'Proxima Nova';
   font-size: 30px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  color: #122f54;
+  color: var(--lum-color-charcoal);
 }
 
-label {
+.loginLabel {
   font-family: 'Proxima Nova';
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  color: #111;
+  color: var(--lum-color-fg-strong);
 }
 
-a {
+.link {
   margin: 0;
   font-family: 'Proxima Nova';
   font-size: 10px;
   font-style: normal;
-  color: #777;
+  color: var(--lum-color-grey-800);
 }

@@ -1,5 +1,5 @@
 import React, { useState, FormEvent } from 'react'
-// import logo from '../../styles/LuminaIcon-v1.3/logo.jpg'
+import logo_md from '../../assets/logo_md.svg'
 import { useNavigate } from 'react-router-dom'
 
 const Login: React.FC = () => {
@@ -14,23 +14,26 @@ const Login: React.FC = () => {
     if (username === 'admin' && password === 'password') {
       sessionStorage.setItem('user', JSON.stringify({ username }))
       alert('Login successful!')
-      navigate('/editor') // Redirect to editor after login
+      navigate('/editor')
     } else {
-      setError('Invalid username or password.') //redirect to signin?
+      setError('Invalid username or password.')
     }
   }
 
   return (
     <div className='loginPage'>
       <div className='loginContainer'>
-        <h2>Sign in to Lumina</h2>
+        <h2 className='loginTitle'>Sign in to Lumina</h2>
         <form onSubmit={handleLogin}>
           <div>
             <div className='fieldContainer'>
-              <label htmlFor='username'>Username</label>
+              <label htmlFor='username' className='loginLabel'>
+                Username
+              </label>
               <p className='helpText'>Enter your username</p>
             </div>
             <input
+              className='loginInput'
               type='text'
               id='username'
               value={username}
@@ -40,10 +43,13 @@ const Login: React.FC = () => {
           </div>
           <div>
             <div className='fieldContainer'>
-              <label htmlFor='password'>Password</label>
+              <label className='loginLabel' htmlFor='password'>
+                Password
+              </label>
               <p className='helpText'>Enter your password</p>
             </div>
             <input
+              className='loginInput'
               type='password'
               id='password'
               value={password}
@@ -51,12 +57,18 @@ const Login: React.FC = () => {
               required
             />
           </div>
-          <button type='submit'>Sign in</button>
+          <button className='loginButton' type='submit'>
+            Sign in
+          </button>
           {error && <p style={{ color: 'red' }}>{error}</p>}
         </form>
-        <a href='./recoverAccount'>Recover account</a>
-        <a href='./createAccount'>Create account</a>
-        {/* <img src={logo} alt='Lumina Logo' /> */}
+        <a className='link' href='./recoverAccount'>
+          Recover account
+        </a>
+        <a href='./createAccount' className='link'>
+          Create account
+        </a>
+        <img src={logo_md} alt='Lumina Logo' />
       </div>
     </div>
   )
