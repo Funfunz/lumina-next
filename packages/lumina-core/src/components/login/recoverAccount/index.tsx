@@ -1,6 +1,5 @@
 import React, { useState, FormEvent } from 'react'
 import logo_md from '../../../assets/logo_md.svg'
-import { Link } from 'react-router-dom'
 
 const RecoverAccount: React.FC = () => {
   const [email, setEmail] = useState<string>('')
@@ -15,6 +14,10 @@ const RecoverAccount: React.FC = () => {
     } else {
       setMessage('Please enter a valid email address.')
     }
+  }
+
+  const handleGoBack = () => {
+    window.location.href = '/login' // Navigates to the login page
   }
 
   return (
@@ -43,10 +46,9 @@ const RecoverAccount: React.FC = () => {
           </button>
           {message && <p style={{ color: 'green' }}>{message}</p>}
         </form>
-
-        <Link to='/login' className='lumina_backLink'>
+        <button className='lumina_backLink' onClick={handleGoBack}>
           Go back
-        </Link>
+        </button>
         <img src={logo_md} alt='Lumina Logo' />
       </div>
     </div>

@@ -1,12 +1,10 @@
 import React, { useState, FormEvent } from 'react'
 import logo_md from '../../assets/logo_md.svg'
-import { useNavigate } from 'react-router-dom'
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState<string>('admin')
   const [password, setPassword] = useState<string>('password')
   const [error, setError] = useState<string>('')
-  const navigate = useNavigate()
 
   const handleLogin = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -14,7 +12,7 @@ const Login: React.FC = () => {
     if (username === 'admin' && password === 'password') {
       sessionStorage.setItem('user', JSON.stringify({ username }))
       alert('Login successful!')
-      navigate('/editor')
+      window.location.href = '/editor'
     } else {
       setError('Invalid username or password.')
     }

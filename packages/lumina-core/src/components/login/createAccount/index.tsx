@@ -1,6 +1,5 @@
 import React, { useState, FormEvent } from 'react'
 import logo_md from '../../assets/logo_md.svg'
-import { Link } from 'react-router-dom'
 
 const CreateAccount: React.FC = () => {
   const [email, setEmail] = useState<string>('')
@@ -18,6 +17,10 @@ const CreateAccount: React.FC = () => {
       // Proceed with account creation (backend?)
       alert('Account created successfully!')
     }
+  }
+
+  const handleGoBack = () => {
+    window.location.href = '/login' // Navigates to the login page
   }
 
   return (
@@ -76,10 +79,9 @@ const CreateAccount: React.FC = () => {
             Create Account
           </button>
         </form>
-
-        <Link to='/login' className='lumina_backLink'>
+        <button className='lumina_backLink' onClick={handleGoBack}>
           Go back
-        </Link>
+        </button>
         <img src={logo_md} alt='Lumina Logo' />
       </div>
     </div>
