@@ -94,7 +94,7 @@ export default function Lumina({ router, getData, components }: TProps = default
         },
       }}
     >
-      {!isLoggedIn ? (
+      {!isLoggedIn && isEditor ? (
         <Login />
       ) : isEditor ? (
         <ToggleModalContextProvider>
