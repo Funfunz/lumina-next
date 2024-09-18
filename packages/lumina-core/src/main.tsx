@@ -92,7 +92,8 @@ export default function Lumina({ router, getData, components }: TProps = default
           selectedPage: selectedPage,
           pages: Object.keys(builderData),
         },
-      }}>
+      }}
+    >
       {!isLoggedIn ? (
         <Login />
       ) : isEditor ? (
