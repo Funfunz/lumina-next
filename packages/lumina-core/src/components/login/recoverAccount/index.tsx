@@ -1,7 +1,6 @@
 import React, { useState, FormEvent } from 'react'
+import logo_md from '../../../assets/logo_md.svg'
 import { Link } from 'react-router-dom'
-import styles from './recoverAccount.module.scss'
-import logo from '../assets/logo.jpg'
 
 const RecoverAccount: React.FC = () => {
   const [email, setEmail] = useState<string>('')
@@ -10,7 +9,6 @@ const RecoverAccount: React.FC = () => {
   const handleRecover = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    // Simple email validation check - includes @
     if (email.includes('@')) {
       // Simulation of recovery process
       setMessage('Recovery email sent! Please check your inbox.')
@@ -20,16 +18,19 @@ const RecoverAccount: React.FC = () => {
   }
 
   return (
-    <div className={styles.recoverPage}>
-      <div className={styles.recoverContainer}>
-        <h2>Recover your account</h2>
+    <div className='recoverPage'>
+      <div className='recoverContainer'>
+        <h2 className='recoverTitle'>Recover your account</h2>
         <form onSubmit={handleRecover}>
           <div>
-            <div className={styles.fieldContainer}>
-              <label htmlFor='email'>Email</label>
-              <p className={styles.helpText}>Enter your email to recover your password</p>
+            <div className='fieldContainer'>
+              <label htmlFor='email' className='recoverLabel'>
+                Email
+              </label>
+              <p className='helpText'>Enter your email to recover your password</p>
             </div>
             <input
+              className='recoverInput'
               type='email'
               id='email'
               value={email}
@@ -37,14 +38,16 @@ const RecoverAccount: React.FC = () => {
               required
             />
           </div>
-          <button type='submit'>Recover Password</button>
+          <button className='recoverButton' type='submit'>
+            Recover Password
+          </button>
           {message && <p style={{ color: 'green' }}>{message}</p>}
         </form>
 
-        <Link to='/login' className={styles.backLink}>
+        <Link to='/login' className='backLink'>
           Go back
         </Link>
-        <img src={logo} alt='Lumina Logo' />
+        <img src={logo_md} alt='Lumina Logo' />
       </div>
     </div>
   )

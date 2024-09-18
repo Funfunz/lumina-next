@@ -1,6 +1,5 @@
 import React, { useState, FormEvent } from 'react'
-import styles from './createAccount.module.scss'
-import logo from '../assets/logo.jpg'
+import logo_md from '../../assets/logo_md.svg'
 import { Link } from 'react-router-dom'
 
 const CreateAccount: React.FC = () => {
@@ -22,14 +21,17 @@ const CreateAccount: React.FC = () => {
   }
 
   return (
-    <div className={styles.createPage}>
-      <div className={styles.createContainer}>
-        <h2>Create a Lumina Account</h2>
+    <div className='createPage'>
+      <div className='createContainer'>
+        <h2 className='createTitle'>Create a Lumina Account</h2>
         <form onSubmit={handleCreateAccount}>
-          <div className={styles.fieldContainer}>
-            <label htmlFor='email'>Email</label>
-            <p className={styles.helpText}>Enter your email</p>
+          <div className='fieldContainer'>
+            <label htmlFor='email' className='createLabel'>
+              Email
+            </label>
+            <p className='helpText'>Enter your email</p>
             <input
+              className='createInput'
               type='email'
               id='email'
               value={email}
@@ -38,10 +40,13 @@ const CreateAccount: React.FC = () => {
             />
           </div>
 
-          <div className={styles.fieldContainer}>
-            <label htmlFor='password'>Password</label>
-            <p className={styles.helpText}>Enter your password</p>
+          <div className='fieldContainer'>
+            <label htmlFor='password' className='createLabel'>
+              Password
+            </label>
+            <p className='helpText'>Enter your password</p>
             <input
+              className='createInput'
               type='password'
               id='password'
               value={password}
@@ -50,10 +55,13 @@ const CreateAccount: React.FC = () => {
             />
           </div>
 
-          <div className={styles.fieldContainer}>
-            <label htmlFor='repeatPassword'>Repeat Password</label>
-            <p className={styles.helpText}>Re-enter your password</p>
+          <div className='fieldContainer'>
+            <label htmlFor='repeatPassword' className='createLabel'>
+              Repeat Password
+            </label>
+            <p className='helpText'>Re-enter your password</p>
             <input
+              className='createInput'
               type='password'
               id='repeatPassword'
               value={repeatPassword}
@@ -64,13 +72,15 @@ const CreateAccount: React.FC = () => {
 
           {error && <p style={{ color: 'red' }}>{error}</p>}
 
-          <button type='submit'>Create Account</button>
+          <button className='createButton' type='submit'>
+            Create Account
+          </button>
         </form>
 
-        <Link to='/login' className={styles.backLink}>
+        <Link to='/login' className='backLink'>
           Go back
         </Link>
-        <img src={logo} alt='Lumina Logo' />
+        <img src={logo_md} alt='Lumina Logo' />
       </div>
     </div>
   )
