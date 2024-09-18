@@ -1,6 +1,6 @@
 @import 'https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@700&display=swap';
 
-.loginPage {
+.lumina_loginPage {
   display: flex;
   gap: var(--lum-size-spacing-s);
   align-items: center;
@@ -11,7 +11,7 @@
   background: var(-lum-color-background-weak-blue);
 }
 
-.loginContainer {
+.lumina_loginContainer {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
@@ -24,7 +24,7 @@
   box-shadow: 5px 5px 30px 0 rgb(0 0 0 / 25%);
 }
 
-.helpText {
+.lumina_helpText {
   margin: 0;
   font-family: 'Proxima Nova';
   font-size: 10px;
@@ -32,7 +32,7 @@
   color: var(--lum-color-grey-800);
 }
 
-.fieldContainer {
+.lumina_fieldContainer {
   display: flex;
   flex-direction: column;
   gap: 1px;
@@ -40,7 +40,7 @@
   margin-bottom: var(--lum-size-spacing-s);
 }
 
-.loginButton {
+.lumina_loginButton {
   width: 100%;
   padding: var(--Vertical-spacing-micro, 8px) var(--Vertical-spacing-little, 20px);
   font-family: 'Proxima Nova';
@@ -53,7 +53,7 @@
   border-radius: var(--lum-size-spacing-xs);
 }
 
-.loginInput {
+.lumina_loginInput {
   display: flex;
   gap: var(--lum-size-spacing-s);
   align-items: center;
@@ -65,7 +65,7 @@
   border-radius: 5px;
 }
 
-.loginTitle {
+.lumina_loginTitle {
   font-family: 'Proxima Nova';
   font-size: 30px;
   font-style: normal;
@@ -74,7 +74,7 @@
   color: var(--lum-color-charcoal);
 }
 
-.loginLabel {
+.lumina_loginLabel {
   font-family: 'Proxima Nova';
   font-size: 16px;
   font-style: normal;
@@ -82,7 +82,7 @@
   color: var(--lum-color-fg-strong);
 }
 
-.link {
+.lumina_loginLinks {
   margin: 0;
   font-family: 'Proxima Nova';
   font-size: 10px;

@@ -21,19 +21,19 @@ const Login: React.FC = () => {
   }
 
   return (
-    <div className='loginPage'>
-      <div className='loginContainer'>
-        <h2 className='loginTitle'>Sign in to Lumina</h2>
+    <div className='lumina_loginPage'>
+      <div className='lumina_loginContainer'>
+        <h2 className='lumina_loginTitle'>Sign in to Lumina</h2>
         <form onSubmit={handleLogin}>
           <div>
-            <div className='fieldContainer'>
-              <label htmlFor='username' className='loginLabel'>
+            <div className='lumina_fieldContainer'>
+              <label htmlFor='username' className='lumina_loginLabel'>
                 Username
               </label>
-              <p className='helpText'>Enter your username</p>
+              <p className='lumina_helpText'>Enter your username</p>
             </div>
             <input
-              className='loginInput'
+              className='lumina_loginInput'
               type='text'
               id='username'
               value={username}
@@ -42,14 +42,14 @@ const Login: React.FC = () => {
             />
           </div>
           <div>
-            <div className='fieldContainer'>
-              <label className='loginLabel' htmlFor='password'>
+            <div className='lumina_fieldContainer'>
+              <label className='lumina_loginLabel' htmlFor='password'>
                 Password
               </label>
-              <p className='helpText'>Enter your password</p>
+              <p className='lumina_helpText'>Enter your password</p>
             </div>
             <input
-              className='loginInput'
+              className='lumina_loginInput'
               type='password'
               id='password'
               value={password}
@@ -57,15 +57,15 @@ const Login: React.FC = () => {
               required
             />
           </div>
-          <button className='loginButton' type='submit'>
+          <button className='lumina_loginButton' type='submit'>
             Sign in
           </button>
           {error && <p style={{ color: 'red' }}>{error}</p>}
         </form>
-        <a className='link' href='./recoverAccount'>
+        <a className='lumina_loginLinks' href='./recoverAccount'>
           Recover account
         </a>
-        <a href='./createAccount' className='link'>
+        <a href='./createAccount' className='lumina_loginLinks'>
           Create account
         </a>
         <img src={logo_md} alt='Lumina Logo' />

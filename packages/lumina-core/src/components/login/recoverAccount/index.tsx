@@ -18,19 +18,19 @@ const RecoverAccount: React.FC = () => {
   }
 
   return (
-    <div className='recoverPage'>
-      <div className='recoverContainer'>
-        <h2 className='recoverTitle'>Recover your account</h2>
+    <div className='lumina_recoverPage'>
+      <div className='lumina_recoverContainer'>
+        <h2 className='lumina_recoverTitle'>Recover your account</h2>
         <form onSubmit={handleRecover}>
           <div>
-            <div className='fieldContainer'>
-              <label htmlFor='email' className='recoverLabel'>
+            <div className='lumina_fieldContainer'>
+              <label htmlFor='email' className='lumina_recoverLabel'>
                 Email
               </label>
-              <p className='helpText'>Enter your email to recover your password</p>
+              <p className='lumina_helpText'>Enter your email to recover your password</p>
             </div>
             <input
-              className='recoverInput'
+              className='lumina_recoverInput'
               type='email'
               id='email'
               value={email}
@@ -38,13 +38,13 @@ const RecoverAccount: React.FC = () => {
               required
             />
           </div>
-          <button className='recoverButton' type='submit'>
+          <button className='lumina_recoverButton' type='submit'>
             Recover Password
           </button>
           {message && <p style={{ color: 'green' }}>{message}</p>}
         </form>
 
-        <Link to='/login' className='backLink'>
+        <Link to='/login' className='lumina_backLink'>
           Go back
         </Link>
         <img src={logo_md} alt='Lumina Logo' />
