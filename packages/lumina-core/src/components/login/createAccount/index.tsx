@@ -1,6 +1,5 @@
 import React, { useState, FormEvent } from 'react'
 import logo_md from '../../assets/logo_md.svg'
-
 const CreateAccount: React.FC = () => {
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
