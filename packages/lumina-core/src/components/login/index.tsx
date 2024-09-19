@@ -12,16 +12,26 @@ const Login: React.FC = () => {
     if (username === 'admin' && password === 'password') {
       sessionStorage.setItem('user', JSON.stringify({ username }))
       alert('Login successful!')
-      window.location.href = '/editor'
+      window.location.href = '/editor' // Redirect to the editor
     } else {
       setError('Invalid username or password.')
     }
   }
 
+  const navigateToCreateAccount = () => {
+    window.location.href = '/createAccount'
+  }
+
+  const navigateToRecoverAccount = () => {
+    window.location.href = '/recoverAccount'
+  }
+
   return (
     <div className='lumina_loginPage'>
       <div className='lumina_loginContainer'>
+        {/* title component */}
         <h2 className='lumina_loginTitle'>Sign in to Lumina</h2>
+        {/* form component */}
         <form onSubmit={handleLogin}>
           <div>
             <div className='lumina_fieldContainer'>
@@ -30,6 +40,7 @@ const Login: React.FC = () => {
               </label>
               <p className='lumina_helpText'>Enter your username</p>
             </div>
+            {/* input component */}
             <input
               className='lumina_loginInput'
               type='text'
@@ -60,12 +71,12 @@ const Login: React.FC = () => {
           </button>
           {error && <p style={{ color: 'red' }}>{error}</p>}
         </form>
-        <a className='lumina_loginLinks' href='../login/recoverAccount/index.tsx'>
+        <button className='lumina_loginLinks' onClick={navigateToRecoverAccount}>
           Recover account
-        </a>
-        <a href='../login/createAccount/index.tsx' className='lumina_loginLinks'>
+        </button>
+        <button className='lumina_loginLinks' onClick={navigateToCreateAccount}>
           Create account
-        </a>
+        </button>
         <img src={logo_md} alt='Lumina Logo' />
       </div>
     </div>

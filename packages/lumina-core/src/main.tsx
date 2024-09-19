@@ -1,5 +1,7 @@
 import { ContextProvider } from './context/contextProvider'
 import { Editor } from './components/editor'
+import CreateAccount from './components/login/createAccount'
+import RecoverAccount from './components/login/recoverAccount'
 import { Render } from './components/render'
 import Login from './components/login'
 import type { IData, IPageData } from './models/data'
@@ -58,6 +60,7 @@ function setComponentConfig(newComponentConfig: TComponentConfig) {
 export default function Lumina({ router, getData, components }: TProps = defaultValues) {
   const [builderData, setBuilderData] = useState<IData>({})
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
+  const isLoginPage = router.location.pathname.includes('/login')
 
   useEffect(() => {
     async function fetchData() {
@@ -82,6 +85,9 @@ export default function Lumina({ router, getData, components }: TProps = default
     }
   }, [])
 
+  const isCreateAccount = router.location.pathname.includes('/createAccount')
+  const isRecoverAccount = router.location.pathname.includes('/recoverAccount')
+
   if (!builderData[selectedPage]) return null
   return (
     <ContextProvider
@@ -94,7 +100,11 @@ export default function Lumina({ router, getData, components }: TProps = default
         },
       }}
     >
-      {!isLoggedIn && isEditor ? (
+      {isCreateAccount ? (
+        <CreateAccount />
+      ) : isRecoverAccount ? (
+        <RecoverAccount />
+      ) : isLoginPage || (!isLoggedIn && isEditor) ? (
         <Login />
       ) : isEditor ? (
         <ToggleModalContextProvider>

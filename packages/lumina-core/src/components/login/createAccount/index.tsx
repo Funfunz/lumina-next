@@ -1,5 +1,6 @@
 import React, { useState, FormEvent } from 'react'
-import logo_md from '../../assets/logo_md.svg'
+import logo_md from '../../../assets/logo_md.svg'
+
 const CreateAccount: React.FC = () => {
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
@@ -19,7 +20,7 @@ const CreateAccount: React.FC = () => {
   }
 
   const handleGoBack = () => {
-    window.location.href = '/login' // Navigates to the login page
+    window.location.href = '/login'
   }
 
   return (
