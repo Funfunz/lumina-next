@@ -9,7 +9,6 @@ type TProps = {
 } & ButtonOwnProps
 
 export const Button = ({ id, text = 'button', children, ...rest }: TProps) => {
-  console.log(rest)
   return (
     <div style={{ position: 'relative' }}>
       <MUIButton {...rest}>

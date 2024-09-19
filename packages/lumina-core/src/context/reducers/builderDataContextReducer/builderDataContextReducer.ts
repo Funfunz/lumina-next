@@ -77,28 +77,33 @@ export const builderDataContextReducer = (
       }
 
     case 'updatePage':
-      const { id, newData } = action.data
-      const pageToUpdate = data.builderData[id]
+      const pageToUpdate = Object.entries(data.builderData).filter(([, value]) => {
+        return value.id === action.data.id
+      })[0][1]
+
       if (!pageToUpdate) {
         return data
       }
 
-      const newRoute = action.data.newData.urlParams
-        ? action.data.newData.urlParams.reduce((prev, current) => {
+      const newRoute = action.data.urlParams
+        ? action.data.urlParams.reduce((prev, current) => {
             return `${prev}/${current}`
           }, '')
-        : pageToUpdate.route
+        : ''
 
       const updatedBuilderData = {
         ...data.builderData,
-        [id]: {
+        [newRoute]: {
           ...pageToUpdate,
-          friendlyName: newData.friendlyName,
-          description: newData.description,
+          friendlyName: action.data.friendlyName || '',
+          description: action.data.description || '',
           route: newRoute,
         },
       }
 
+      if (pageToUpdate.route !== newRoute) {
+        delete updatedBuilderData[pageToUpdate.route]
+      }
       return {
         ...data,
         builderData: updatedBuilderData,
