@@ -4,7 +4,7 @@
  * including the page structure and component data
  */
 
-import { createContext, useContext, useReducer } from 'react'
+import { createContext, useContext, useEffect, useReducer } from 'react'
 import {
   IInitialStateType,
   TAppContextDispatch,
@@ -16,10 +16,12 @@ import {
   IBuilderDataContext,
   initialBuilderDataContextState,
 } from './reducers/builderDataContextReducer/builderDataContextReducer'
+import { routerParser } from '@/utils/routerParser'
 
 export interface IContext {
   state: IInitialStateType
   dispatch: TAppContextDispatch
+  navigate?: (url: string) => void
 }
 
 const LuminaContext = createContext<IContext>({
@@ -30,11 +32,23 @@ const LuminaContext = createContext<IContext>({
 export function ContextProvider({
   children,
   data = {},
+  navigate,
+  router,
 }: {
   children: React.ReactNode
   data: {
     appContext?: IAppContext
     builderDataContext?: IBuilderDataContext
+  }
+  navigate?: (url: string) => void
+  router: {
+    location: {
+      hash: string
+      key: string
+      pathname: string
+      search: string
+    }
+    base: string
   }
 }) {
   const initialState = {
@@ -50,7 +64,32 @@ export function ContextProvider({
   }
   const [state, dispatch] = useReducer(mainReducer, initialState)
 
-  return <LuminaContext.Provider value={{ state, dispatch }}>{children}</LuminaContext.Provider>
+  useEffect(() => {
+    if (state.builderDataContext.selectedPage !== data.builderDataContext?.selectedPage) {
+      const { selectedPage, isEditor, params, pathComponents } = routerParser(
+        router.location.pathname,
+        state.builderDataContext.builderData
+      )
+      dispatch({
+        type: 'resetAppContext',
+        data: {
+          isEditor,
+          params,
+          pathComponents,
+          selectedPage,
+        },
+      })
+      dispatch({
+        type: 'setSelectedPage',
+        data: selectedPage,
+      })
+    }
+  }, [data.appContext])
+  return (
+    <LuminaContext.Provider value={{ state, dispatch, navigate }}>
+      {children}
+    </LuminaContext.Provider>
+  )
 }
 
 export const useLuminaContext = () => {

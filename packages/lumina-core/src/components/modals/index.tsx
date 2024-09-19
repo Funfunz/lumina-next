@@ -6,6 +6,7 @@ import { EDITCOMPONENT, EditComponentModal } from './editComponentModal'
 import { DELETECOMPONENT, DeleteComponentModal } from './deleteComponentModal'
 import { ADDPAGE, AddPageModal } from './addPageModal'
 import { DELETEPAGE, DeletePageModal } from './deletePageModal'
+import { UPDATEPAGE, UpdatePageModal } from './updatePageModal'
 
 export type TAddModalProps = {
   selectedOption: TSelectedOption | undefined
@@ -27,6 +28,8 @@ export const EditorModal = () => {
       return <DeleteComponentModal />
     case ADDPAGE:
       return <AddPageModal />
+    case UPDATEPAGE:
+      return <UpdatePageModal />
     case DELETEPAGE:
       return <DeletePageModal />
     default:

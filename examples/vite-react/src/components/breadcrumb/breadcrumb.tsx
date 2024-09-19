@@ -13,7 +13,6 @@ const pageConfigurations: {
 
 export const Breadcrumb = () => {
   const { params, selectedPage } = useAppContext()
-  console.log({ selectedPage })
   const breadcrumbConfigFunction = pageConfigurations[selectedPage]
   if (!breadcrumbConfigFunction) {
     return null
