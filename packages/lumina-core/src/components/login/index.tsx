@@ -1,4 +1,4 @@
-import React, { useState, FormEvent } from 'react'
+import React, { useState } from 'react'
 import logo_md from '../../assets/logo_md.svg'
 import { Title } from '../title'
 import { Input } from '../form-components/input'
@@ -9,7 +9,7 @@ const Login: React.FC = () => {
   const [password, setPassword] = useState<string>('password')
   const [error, setError] = useState<string>('')
 
-  const handleLogin = (event: FormEvent<HTMLFormElement>) => {
+  const handleLogin = (event: any) => {
     event.preventDefault()
 
     if (username === 'admin' && password === 'password') {
@@ -42,7 +42,6 @@ const Login: React.FC = () => {
               </label>
               <p className='lumina_helpText'>Enter your username</p>
             </div>
-            {/* input component */}
             <Input
               className='lumina_loginInput'
               type='text'
@@ -68,7 +67,12 @@ const Login: React.FC = () => {
               required
             />
           </div>
-          <Button style='lumina_loginButton' buttonType='button' text=' Sign in' />
+          <Button
+            style='lumina_loginButton'
+            buttonType='button'
+            text=' Sign in'
+            onClick={handleLogin}
+          />
           {error && <p style={{ color: 'red' }}>{error}</p>}
         </form>
 

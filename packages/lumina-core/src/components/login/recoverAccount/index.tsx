@@ -1,11 +1,14 @@
-import React, { useState, FormEvent } from 'react'
+import React, { useState } from 'react'
 import logo_md from '../../../assets/logo_md.svg'
+import { Title } from '@/components/title'
+import { Input } from '@/components/form-components/input'
+import { Button } from '@/components/button'
 
 const RecoverAccount: React.FC = () => {
   const [email, setEmail] = useState<string>('')
   const [message, setMessage] = useState<string>('')
 
-  const handleRecover = (event: FormEvent<HTMLFormElement>) => {
+  const handleRecover = (event: any) => {
     event.preventDefault()
 
     if (email.includes('@')) {
@@ -23,7 +26,8 @@ const RecoverAccount: React.FC = () => {
   return (
     <div className='lumina_recoverPage'>
       <div className='lumina_recoverContainer'>
-        <h2 className='lumina_recoverTitle'>Recover your account</h2>
+        <Title classnames='lumina_recoverTitle' content='Recover your account' />
+        {/* form component */}
         <form onSubmit={handleRecover}>
           <div>
             <div className='lumina_fieldContainer'>
@@ -32,7 +36,7 @@ const RecoverAccount: React.FC = () => {
               </label>
               <p className='lumina_helpText'>Enter your email to recover your password</p>
             </div>
-            <input
+            <Input
               className='lumina_recoverInput'
               type='email'
               id='email'
@@ -41,14 +45,22 @@ const RecoverAccount: React.FC = () => {
               required
             />
           </div>
-          <button className='lumina_recoverButton' type='submit'>
-            Recover Password
-          </button>
+          <Button
+            style='lumina_recoverButton'
+            buttonType='button'
+            text=' Recover Password'
+            onClick={handleRecover}
+          />
+
           {message && <p style={{ color: 'green' }}>{message}</p>}
         </form>
-        <button className='lumina_backLink' onClick={handleGoBack}>
-          Go back
-        </button>
+        <Button
+          style='lumina_backLink'
+          buttonType='button'
+          text=' Go back'
+          onClick={handleGoBack}
+        />
+
         <img src={logo_md} alt='Lumina Logo' />
       </div>
     </div>
