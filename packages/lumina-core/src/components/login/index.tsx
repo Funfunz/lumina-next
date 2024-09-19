@@ -60,10 +60,10 @@ const Login: React.FC = () => {
           </button>
           {error && <p style={{ color: 'red' }}>{error}</p>}
         </form>
-        <a className='lumina_loginLinks' href='./recoverAccount'>
+        <a className='lumina_loginLinks' href='../login/recoverAccount/index.tsx'>
           Recover account
         </a>
-        <a href='./createAccount' className='lumina_loginLinks'>
+        <a href='../login/createAccount/index.tsx' className='lumina_loginLinks'>
           Create account
         </a>
         <img src={logo_md} alt='Lumina Logo' />
