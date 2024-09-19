@@ -16,7 +16,7 @@
     &:not(.treeAddButton) {
       &:not(.sidebarTab) {
         color: white;
-        background-color: var(--lum-color-button-primary-background);
+        background-color: var(--lum-color-button-primary-background-hover);
         border-radius: 3px;
 
         .buttonContent {
@@ -60,22 +60,22 @@
   // TODO: use var() instead of hardcoded values, match Figma colors scheme
   &.primary {
     color: white;
-    background-color: var(--lum-color-green-600);
+    background-color: var(--lum-color-button-primary-background);
 
     &:hover {
-      background-color: var(--lum-color-green-800);
+      background-color: var(--lum-color-button-primary-background-hover);
     }
 
     &:focus {
       border: 1px solid #fdfdfd;
       border-radius: 3px;
-      box-shadow: 0 0 0 2px var(--lum-color-green-600);
+      box-shadow: 0 0 0 2px var(--lum-color-button-primary-background);
     }
 
     &:disabled {
       color: var(--lum-color-button-disabled);
       cursor: not-allowed;
-      background-color: var(--lum-color-button-background-hover);
+      background-color: var(--lum-color-button-background-inverse-hover);
     }
   }
 

@@ -1,69 +1,149 @@
-import { Meta } from "@storybook/blocks";
+import { Meta } from '@storybook/blocks'
+import { Mermaid } from '../../mermaid'
 
-import Github from "../assets/github.svg";
+<Meta title='Introduction/Overview' />
 
-<Meta title="Introduction/Overview" />
+# What is Lumina?
 
-<div className="sb-container">
-  <div className='sb-section-title'>
-    # Overview
-  </div>
-  <div className='sb-section-title'>
-    ## What is Lumina?
+Lumina is a revolutionary web application that enables users to effortlessly design and publish stunning websites without the need for any coding knowledge. Leveraging the power and flexibility of ReactJS, our platform offers an intuitive drag-and-drop interface combined with a rich library of customizable components, empowering users to bring their creative visions to life with ease.
 
-    [WORK IN PROGRESS]
-  </div>
-  <div className='sb-section-title'>
-    ## Usecases
+## Target Audience
 
-    [WORK IN PROGRESS]
-  </div>
-</div>
+Lumina page builder is designed for entrepreneurs, small/large businesses, bloggers, and creative individuals who want to establish a professional online presence without the complexity of traditional web development.
 
-<style>
+## Key Features:
+
+1. **Intuitive Drag-and-Drop Interface**: Our user-friendly interface allows users to easily drag and drop components onto a canvas, making website design an intuitive and enjoyable experience.
+
+2. **Extensive Component Library**: NextJS WebBuilder comes equipped with a vast library of pre-designed components, including text blocks, images, videos, buttons, forms, and more. Each component is fully customizable, giving users the flexibility to tailor their websites to their exact specifications.
+
+3. **Flexible Customization Options**: Users can personalize every aspect of their website's appearance and behavior, from adjusting text styles and colors to adding animations and interactions, all without writing a single line of code.
+
+4. **Dynamic Page Structure**: With NextJS WebBuilder, users have full control over the structure of their website. They can easily add, remove, and rearrange pages, create hierarchical navigation menus, and organize their content to create a seamless user experience.
+
+5. **Responsive Design**: Our platform automatically generates websites that are fully responsive, ensuring a consistent and optimal viewing experience across desktops, tablets, and smartphones.
+
+6. **Preview and Publish**: Users can preview their websites in real-time before publishing them to the web. Once satisfied with the design, they can easily publish their websites to a custom domain or a subdomain provided by our platform.
+
+# Technology Stack
+
+- **Frontend:** Dependency free ReactJS component
+- **Documentation:** Built using Storybook
+- **Backend:** Any system capable of saving data
+
+# Overall Architecture
+
+<Mermaid>
   {`
-  .sb-container {
-    margin-bottom: 48px;
-  }
-
-  .sb-section {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-  }
-
-  img {
-    object-fit: cover;
-  }
-
-  .sb-section-title {
-    margin-bottom: 32px;
-  }
-
-  .sb-section a:not(h1 a, h2 a, h3 a) {
-    font-size: 14px;
-  }
-
-  .sb-section-item, .sb-grid-item {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .sb-section-item-heading {
-    padding-top: 20px !important;
-    padding-bottom: 5px !important;
-    margin: 0 !important;
-  }
-  .sb-section-item-paragraph {
-    margin: 0;
-    padding-bottom: 10px;
-  }
-
-  @media screen and (max-width: 600px) {
-    .sb-section {
-      flex-direction: column;
-    }
+    flowchart TB
+      request([request])
+      response([response])
+      subgraph reactjs[Frontend APP with ReactJS]
+        mainrouter[1 - Application router handler]
+        subgraph lumina[Lumina]
+          router[2 - Route parser]
+          renderer[3 - Component Renderer]
+          data_fetcher[4 - Data fetcher]
+          fe_context[5 - Frontend context]
+          fe_component[Frontend component n]
+          router <--> renderer
+          renderer --> data_fetcher
+          data_fetcher -- "add the component structure data to the context after fetching from backend" --> fe_context
+          renderer <--> fe_context
+          renderer <-- "Recursive process used to render components" --> fe_component
+          fe_component <--> fe_context
+        end
+      end
+      subgraph backend[Backend]
+        data[Data]
+      end
+      request --> mainrouter
+      mainrouter <-- "Catch route for Lumina" --> router
+      data_fetcher <--> data
+      mainrouter --> response
   `}
-</style>
+</Mermaid>
+
+# Required data structure
+
+The **Data fetcher** makes a request to the server and retrieves the page structure.
+
+This page structure is then transformed into the bellow format and passed into the **Component Renderer**.
+
+```ts
+export interface IData {
+  [key: string]: IPageData
+}
+
+export interface IPageData {
+  id: string
+  friendlyName: string
+  description: string
+  dateModified: string
+  status: string
+  children?: IComponentData[]
+  props?: IPageProps
+  route: string
+  isMatch?: boolean
+}
+
+export interface IComponentData {
+  type: string
+  id: string
+  friendlyName: string
+  order: number
+  children?: IComponentData[]
+  props?: IComponentProps
+  hidden?: boolean
+  hasFilterChildren?: boolean
+  isMatch?: boolean
+}
+
+export interface IComponentProps {
+  [key: string]: string | number | boolean | undefined
+}
+
+export interface IPageProps {
+  [key: string]: string | number | boolean | undefined
+}
+```
+
+### Example data
+
+```ts
+import { IData } from '@lumina/core'
+
+export const data: IData = {
+  ['/']: {
+    id: 'page1',
+    friendlyName: 'Homepage',
+    description: 'Homepage for Lumina Page Builder',
+    dateModified: '18.06.2024',
+    status: 'active',
+    route: '/',
+    children: [
+      {
+        id: 'container_dr1ipftw91',
+        type: 'container',
+        friendlyName: 'MainContainer',
+        order: 1,
+        hidden: false,
+        props: {},
+        children: [
+          {
+            id: 'spacer_4z4da61m96',
+            type: 'spacer',
+            friendlyName: 'spacer1',
+            children: [],
+            order: 1,
+            hidden: false,
+            props: {
+              size: 4,
+            },
+          },
+        ],
+      },
+    ],
+  },
+}
+```
