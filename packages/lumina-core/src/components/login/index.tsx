@@ -3,6 +3,7 @@ import logo_md from '../../assets/logo_md.svg'
 import { Title } from '../title'
 import { Input } from '../form-components/input'
 import { Button } from '../button'
+import { Form } from '../editor-buttons-container/inputRenderer'
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState<string>('admin')
