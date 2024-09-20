@@ -1,0 +1,68 @@
+/* authPages.css */
+@import 'https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@700&display=swap';
+
+/* Apply Proxima Nova font to the entire document */
+* {
+  font-family: 'Proxima Nova', sans-serif;
+}
+
+.lumina_authPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  padding: 25px 65px;
+  background: var(--lum-color-background-weak-blue);
+}
+
+.lumina_authContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lum-size-spacing-ml);
+  align-items: center;
+  justify-content: center;
+  padding: 50px 60px 40px;
+  background: var(--lum-color-white);
+  border-radius: var(--lum-size-spacing-s);
+  box-shadow: 5px 5px 30px 0 rgb(0 0 0 / 25%);
+}
+
+.lumina_authTitle {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--lum-color-charcoal);
+}
+
+.lumina_authLabel {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--lum-color-fg-strong);
+}
+
+.lumina_authInput {
+  margin-bottom: 15px;
+  border: 1px solid var(--lum-color-grey-600);
+  border-radius: 5px;
+}
+
+.lumina_authHelpText {
+  margin: 0;
+  font-size: 10px;
+  color: var(--lum-color-grey-800);
+}
+
+.lumina_authButton {
+  width: 100%;
+  padding: 8px 20px;
+  font-size: 12px;
+  color: var(--lum-color-white);
+  background: var(--lum-color-charcoal);
+  border-radius: var(--lum-size-spacing-xs);
+}
+
+.lumina_authLink {
+  margin: 0;
+  font-size: 10px;
+  color: var(--lum-color-grey-800);
+}
