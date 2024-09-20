@@ -71,7 +71,6 @@ export const ComponentsTab = () => {
       setComponents(resetedData)
     } else if (searchValue.length >= 3) {
       const filteredData = filterData(resetedData)
-      console.log({ filteredData })
       setComponents(filteredData)
     }
   }
