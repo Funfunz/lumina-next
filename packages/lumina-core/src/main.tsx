@@ -1,5 +1,7 @@
 import { ContextProvider } from './context/contextProvider'
 import { Editor } from './components/editor'
+import CreateAccount from './components/login/createAccount'
+import RecoverAccount from './components/login/recoverAccount'
 import { Render } from './components/render'
 import type { IConnectorData, IData, IPageData } from './models/data'
 import { useEffect, useState } from 'react'
@@ -8,6 +10,7 @@ import { ToggleModalContextProvider } from './context/toggleModalContextProvider
 import { EditorModal } from './components/modals'
 import { routerParser } from './utils/routerParser'
 import { builderDataParser } from './utils/connectorParser'
+import Login from './components/login'
 
 export type TComponentConfig = {
   [key: string]: {
@@ -16,16 +19,18 @@ export type TComponentConfig = {
   }
 }
 
-type TProps = {
-  router: {
-    location: {
-      hash: string
-      key: string
-      pathname: string
-      search: string
-    }
-    base: string
+type TRouter = {
+  location: {
+    hash: string
+    key: string
+    pathname: string
+    search: string
   }
+  base: string
+}
+
+type TProps = {
+  router: TRouter
   getData: () => Promise<IConnectorData>
   components: TComponentConfig
   navigate?: (url: string) => void
@@ -56,9 +61,34 @@ function setComponentConfig(newComponentConfig: TComponentConfig) {
   return componentConfig
 }
 
+type TInitialRenderProps = {
+  isEditor: boolean
+  isLoggedIn: boolean
+  router: TRouter
+}
+
+const InitialRender = ({ isEditor, isLoggedIn, router }: TInitialRenderProps) => {
+  const isCreateAccount = router.location.pathname.includes('/createAccount')
+  const isRecoverAccount = router.location.pathname.includes('/recoverAccount')
+  if (!isLoggedIn && isEditor) {
+    return isCreateAccount ? <CreateAccount /> : isRecoverAccount ? <RecoverAccount /> : <Login />
+  }
+
+  return isEditor ? (
+    <ToggleModalContextProvider>
+      <Editor>
+        <EditorModal />
+        <Render />
+      </Editor>
+    </ToggleModalContextProvider>
+  ) : (
+    <Render />
+  )
+}
+
 export default function Lumina({ router, getData, components, navigate }: TProps = defaultValues) {
   const [builderData, setBuilderData] = useState<IData>({ pages: {}, components: {} })
-
+  const [isLoggedIn] = useState<boolean>(!!sessionStorage.getItem('user'))
   useEffect(() => {
     async function fetchData() {
       const data = await getData()
@@ -92,16 +122,7 @@ export default function Lumina({ router, getData, components, navigate }: TProps
       }}
       navigate={navigate}
     >
-      {isEditor ? (
-        <ToggleModalContextProvider>
-          <Editor>
-            <EditorModal />
-            <Render />
-          </Editor>
-        </ToggleModalContextProvider>
-      ) : (
-        <Render />
-      )}
+      <InitialRender isEditor={isEditor} isLoggedIn={isLoggedIn} router={router} />
     </ContextProvider>
   )
 }
