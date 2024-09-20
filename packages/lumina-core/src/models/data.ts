@@ -30,6 +30,40 @@ export interface IPageData {
   isMatch?: boolean
 }
 
-export interface IData {
+export interface IDataComponent {
+  type: string
+  id: string
+  parentId: string
+  friendlyName: string
+  order: number
+  children?: string[]
+  props?: IComponentProps
+  hidden?: boolean
+  hasFilterChildren?: boolean
+  isMatch?: boolean
+}
+
+export interface IDataPage {
+  id: string
+  friendlyName: string
+  description: string
+  dateModified: string
+  status: string
+  children?: string[]
+  props?: IPageProps
+  route: string
+  isMatch?: boolean
+}
+
+export interface IConnectorData {
   [key: string]: IPageData
+}
+
+export interface IData {
+  pages: {
+    [id: string]: IDataPage
+  }
+  components: {
+    [id: string]: IDataComponent
+  }
 }

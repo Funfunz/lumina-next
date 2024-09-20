@@ -1,20 +1,22 @@
-import { IComponentData, IPageData } from '@/models/data'
+import type { IDataComponent, IDataPage } from '@/models/data'
 import { useState, useEffect, useCallback } from 'react'
 import cx from 'classnames'
 import { ComponentTree } from '../components/componentTree'
+import { IComponentTree } from '../components'
 
 type TProps = {
-  data: IComponentData | IPageData
+  data: IComponentTree | IDataPage
+  childrens?: IComponentTree[]
   children: React.ReactNode
   expandable: boolean
 }
 
-export const TreeBranch = ({ data, children, expandable = true }: TProps) => {
+export const TreeBranch = ({ data, childrens, children, expandable = true }: TProps) => {
   const [showChildren, setShowChildren] = useState<boolean>()
 
   useEffect(() => {
-    setShowChildren((data as IComponentData).hasFilterChildren)
-  }, [(data as IComponentData).hasFilterChildren])
+    setShowChildren((data as IDataComponent).hasFilterChildren)
+  }, [(data as IDataComponent).hasFilterChildren])
 
   const handleTreeHeadClick = useCallback(() => {
     setShowChildren(!showChildren)
@@ -41,9 +43,9 @@ export const TreeBranch = ({ data, children, expandable = true }: TProps) => {
     <div className={cx('branch_container', { branch_container__filter: data.isMatch })}>
       {iconChange()}
       <div className='tree_head-item'>{children}</div>
-      {(data.children?.length && showChildren && expandable && (
+      {(childrens?.length && showChildren && expandable && (
         <div className='branch_children'>
-          <ComponentTree data={data.children} />
+          <ComponentTree data={childrens} />
         </div>
       )) ||
         null}

@@ -1,10 +1,10 @@
-import { IComponentData } from '@/models/data'
 import { TreeBranch } from '../../treeBranch'
 import { EditorButtonsContainer } from '@/components/editor-buttons-container'
 import { DynamicComponent } from '@/components/render/dynamicComponent'
+import { IComponentTree } from '..'
 
 type TProps = {
-  data: IComponentData[]
+  data: IComponentTree[]
 }
 
 export const ComponentTree = ({ data }: TProps) => {
@@ -26,7 +26,12 @@ export const ComponentTree = ({ data }: TProps) => {
           const component = DynamicComponent(dataItem.type)
           if (!component) return null //TODO data should return true always but if not an error should be returned here
           return (
-            <TreeBranch key={dataItem.id} data={dataItem} expandable={true}>
+            <TreeBranch
+              key={dataItem.id}
+              data={dataItem}
+              expandable={true}
+              childrens={dataItem.childrenTree}
+            >
               {dataItem.type} - {dataItem.friendlyName || dataItem.id}
               <EditorButtonsContainer
                 id={dataItem.id}

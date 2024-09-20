@@ -9,13 +9,13 @@ export const DELETEPAGE = 'DELETEPAGE'
 
 export type TToggleModalDeletePageProps = {
   modalType: typeof DELETEPAGE
-  route: string
+  id: string
 }
 
 export const DeletePageModal = () => {
   const {
     handleCloseModal,
-    modalState: { route },
+    modalState: { id },
   } = useToggleModalContext<TToggleModalDeletePageProps>()
   const { dispatch } = useLuminaContext()
 
@@ -23,14 +23,14 @@ export const DeletePageModal = () => {
    * Adds a new page
    */
   const handleClickDeleteComponent = useCallback(() => {
-    if (!route) return
+    if (!id) return
     dispatch({
       type: 'deletePage',
-      data: { route },
+      data: { id },
     })
 
     handleCloseModal()
-  }, [dispatch, route])
+  }, [dispatch, id])
 
   return (
     <Modal

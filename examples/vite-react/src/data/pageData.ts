@@ -1,7 +1,7 @@
-import { IData } from '@lumina/core'
+import { IConnectorData } from '@lumina/core'
 
-const data: IData = {
-  ['/']: {
+const data: IConnectorData = {
+  ['page1']: {
     id: 'page1',
     friendlyName: 'Homepage',
     description: 'Homepage for Lumina Page Builder',
@@ -19,7 +19,7 @@ const data: IData = {
         props: {},
       },
       {
-        id: 'container_dr1ipftw91',
+        id: 'container_dr1ipftw92',
         type: 'container',
         friendlyName: 'MainContainer',
         children: [
@@ -213,7 +213,7 @@ const data: IData = {
       },
     ],
   },
-  '/product/:productId': {
+  page2: {
     id: 'page2',
     friendlyName: 'Product Page',
     description: 'Product Page for Lumina Page Builder',
@@ -222,7 +222,7 @@ const data: IData = {
     route: '/product/:productId',
     children: [
       {
-        id: 'menu_e9keea0jop',
+        id: 'menu_e9keea0jos',
         type: 'menu',
         friendlyName: 'menu',
         children: [],
@@ -245,7 +245,7 @@ const data: IData = {
             props: {},
           },
           {
-            id: 'spacer_quw3fgi3sb',
+            id: 'spacer_quw3fgi3sc',
             type: 'spacer',
             friendlyName: 'spacer2',
             children: [],

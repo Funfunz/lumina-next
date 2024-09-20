@@ -1,7 +1,7 @@
 import { useLuminaContext } from '@/context/contextProvider'
 import { ToggleMenuContextProvider } from '@/context/toggleMenuContextProvider'
 import { useCallback, useEffect, useState } from 'react'
-import { IPageData } from '@/models/data'
+import { IDataPage } from '@/models/data'
 import { TabHeader } from '@/components/tab-header'
 import { Button } from '@/components/button'
 import { PageTree } from './pageTree'
@@ -16,13 +16,13 @@ export const PagesTab = () => {
 
   const builderData = builderDataContext.builderData
   const [searchValue, setSearchValue] = useState<string>('')
-  const [data, setData] = useState<IPageData[]>(Object.values(builderData))
+  const [data, setData] = useState<IDataPage[]>(Object.values(builderData.pages))
   useEffect(() => {
     searchData()
   }, [builderData, searchValue])
 
   const searchData = () => {
-    const resetData = Object.values(builderData)
+    const resetData = Object.values(builderData.pages)
     if (!searchValue || searchValue.trim().length < 3) {
       setData(resetData)
     } else if (searchValue.length >= 3) {
@@ -32,9 +32,9 @@ export const PagesTab = () => {
   }
 
   const filterData = useCallback(
-    (data: IPageData[]): IPageData[] => {
+    (data: IDataPage[]): IDataPage[] => {
       const searchValLower = searchValue.toLowerCase().trim()
-      return data.reduce<IPageData[]>((acc, el) => {
+      return data.reduce<IDataPage[]>((acc, el) => {
         const friendlyNameLower = el.friendlyName.toLowerCase()
 
         // Check if the current element matches the search criteria
@@ -54,7 +54,6 @@ export const PagesTab = () => {
   const handleAddPageClick = useCallback(() => {
     handleOpenModal({ modalType: ADDPAGE })
   }, [handleOpenModal])
-
   return (
     <ToggleMenuContextProvider>
       <TabHeader

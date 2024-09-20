@@ -3,13 +3,14 @@ import { Editor } from './components/editor'
 import CreateAccount from './components/login/createAccount'
 import RecoverAccount from './components/login/recoverAccount'
 import { Render } from './components/render'
-import Login from './components/login'
-import type { IData, IPageData } from './models/data'
+import type { IConnectorData, IData, IPageData } from './models/data'
 import { useEffect, useState } from 'react'
 import type { TConfig } from './models/editor-buttonModel'
 import { ToggleModalContextProvider } from './context/toggleModalContextProvider'
 import { EditorModal } from './components/modals'
 import { routerParser } from './utils/routerParser'
+import { builderDataParser } from './utils/connectorParser'
+import Login from './components/login'
 
 export type TComponentConfig = {
   [key: string]: {
@@ -30,7 +31,7 @@ type TRouter = {
 
 type TProps = {
   router: TRouter
-  getData: () => Promise<IData>
+  getData: () => Promise<IConnectorData>
   components: TComponentConfig
   navigate?: (url: string) => void
 }
@@ -86,12 +87,12 @@ const InitialRender = ({ isEditor, isLoggedIn, router }: TInitialRenderProps) =>
 }
 
 export default function Lumina({ router, getData, components, navigate }: TProps = defaultValues) {
-  const [builderData, setBuilderData] = useState<IData>({})
+  const [builderData, setBuilderData] = useState<IData>({ pages: {}, components: {} })
   const [isLoggedIn] = useState<boolean>(!!sessionStorage.getItem('user'))
-
   useEffect(() => {
     async function fetchData() {
-      setBuilderData(await getData())
+      const data = await getData()
+      setBuilderData(builderDataParser(data))
     }
     fetchData()
   }, [getData])
@@ -100,13 +101,14 @@ export default function Lumina({ router, getData, components, navigate }: TProps
     if (components) setComponentConfig(components)
   }, [components])
 
+  if (!Object.keys(builderData.pages).length) return null
+
   const { selectedPage, isEditor, params, pathComponents } = routerParser(
     router.location.pathname,
     builderData
   )
 
-  if (!builderData[selectedPage]) return null
-
+  if (!builderData.pages[selectedPage]) return null
   return (
     <ContextProvider
       router={router}
@@ -114,8 +116,8 @@ export default function Lumina({ router, getData, components, navigate }: TProps
         appContext: { isEditor, params, pathComponents, selectedPage },
         builderDataContext: {
           builderData,
-          selectedPage: selectedPage,
-          pages: Object.keys(builderData),
+          selectedPage,
+          pages: Object.keys(builderData.pages),
         },
       }}
       navigate={navigate}
@@ -129,4 +131,4 @@ export { EditorButtonsContainer } from './components/editor-buttons-container'
 export { useAppContext } from '@/context/contextProvider'
 export type { TConfig } from './models/editor-buttonModel'
 
-export type { IData, IPageData }
+export type { IData, IPageData, IConnectorData }

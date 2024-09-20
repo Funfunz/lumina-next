@@ -1,11 +1,11 @@
-import { IComponentData, IComponentProps } from '@/models/data'
+import { IComponentProps, IDataComponent } from '@/models/data'
 
 export interface ICreateComponentAction {
   type: 'createComponent'
   data: {
     parentId: string
     id: string
-  } & Partial<IComponentData>
+  } & Partial<IDataComponent>
 }
 
 export interface IUpdateComponentAction {

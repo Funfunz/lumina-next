@@ -15,18 +15,18 @@ const Login: React.FC = () => {
     if (username === 'admin' && password === 'password') {
       sessionStorage.setItem('user', JSON.stringify({ username }))
       alert('Login successful!')
-      window.location.href = '/editor' // Redirect to the editor
+      window.location.pathname = '/' // Redirect to the editor
     } else {
       setError('Invalid username or password.')
     }
   }
 
   const navigateToCreateAccount = () => {
-    window.location.href = '/createAccount'
+    window.location.pathname = '/createAccount'
   }
 
   const navigateToRecoverAccount = () => {
-    window.location.href = '/recoverAccount'
+    window.location.pathname = '/recoverAccount'
   }
 
   return (

@@ -4,56 +4,99 @@ import { AddComponentButton } from '@/components/action-buttons/components/add'
 import { ComponentTree } from './componentTree'
 import { ToggleMenuContextProvider } from '@/context/toggleMenuContextProvider'
 import { useCallback, useEffect, useState } from 'react'
-import { IComponentData } from '@/models/data'
+import type { IData, IDataComponent } from '@/models/data'
 import { TabHeader } from '@/components/tab-header'
+
+const resetData = (components: IComponentTree[]): IComponentTree[] => {
+  return components.map(component => {
+    const resetedComponent = {
+      ...component,
+      hasFilterChildren: false,
+      isMatch: false,
+    }
+    if (component.childrenTree) {
+      resetedComponent.childrenTree = resetData(component.childrenTree)
+    }
+    return resetedComponent
+  })
+}
+
+export type IComponentTree = {
+  childrenTree?: IComponentTree[]
+  hasFilterChildren?: boolean
+  isMatch?: boolean
+} & IDataComponent
+
+const buildTree = (
+  componentIds: string[],
+  componentsList: IData['components']
+): IComponentTree[] => {
+  return componentIds.map(id => {
+    const componentTreeItem: IComponentTree = {
+      ...componentsList[id],
+    }
+
+    if (componentsList[id].children?.length) {
+      componentTreeItem.childrenTree = [...buildTree(componentsList[id].children, componentsList)]
+    }
+    return componentTreeItem
+  })
+}
 
 export const ComponentsTab = () => {
   const {
     state: { builderDataContext },
   } = useLuminaContext()
-  const contextData = builderDataContext.builderData[builderDataContext.selectedPage].children!
-  const [searchValue, setSearchValue] = useState<string>('')
-  const [data, setData] = useState<IComponentData[]>(contextData)
-  useEffect(() => {
-    searchData()
-  }, [contextData, searchValue])
 
-  const searchData = () => {
-    const resetData = contextData.map((el: IComponentData) => ({
-      ...el,
-      hasFilterChildren: false,
-      isMatch: false,
-    }))
+  const [searchValue, setSearchValue] = useState<string>('')
+  const [components, setComponents] = useState<IComponentTree[]>()
+
+  useEffect(() => {
+    const newComponents = buildTree(
+      builderDataContext.builderData.pages[builderDataContext.selectedPage].children || [],
+      builderDataContext.builderData.components
+    )
+    if (searchValue) {
+      searchData(newComponents)
+    } else {
+      setComponents(newComponents)
+    }
+  }, [searchValue, builderDataContext])
+
+  const searchData = (newComponents?: IComponentTree[]) => {
+    if (!newComponents) return
+    const resetedData = resetData(newComponents as IComponentTree[])
+
     if (!searchValue || searchValue.trim().length < 3) {
-      setData(resetData)
+      setComponents(resetedData)
     } else if (searchValue.length >= 3) {
-      const filteredData = filterData(resetData)
-      setData(filteredData)
+      const filteredData = filterData(resetedData)
+      setComponents(filteredData)
     }
   }
 
   const filterData = useCallback(
-    (data: IComponentData[]): IComponentData[] => {
+    (data: IComponentTree[]): IComponentTree[] => {
       const searchValLower = searchValue.toLowerCase().trim()
-      return data.reduce<IComponentData[]>((acc, el) => {
+      return data.reduce<IComponentTree[]>((acc, el) => {
         const friendlyNameLower = el.friendlyName.toLowerCase()
 
         // Check if the current element matches the search criteria
         //perfect match
         if (friendlyNameLower.includes(searchValLower)) el.isMatch = true
 
-        let filteredChildren: IComponentData[] = []
+        let filteredChildren: IComponentTree[] = []
 
         // If the current element has children, recursively filter the children
-        if (el.children && el.children.length > 0) {
-          filteredChildren = filterData(el.children)
+        if (el.childrenTree && el.childrenTree.length > 0) {
+          filteredChildren = filterData(el.childrenTree)
         }
 
         // If the element or its children match, include it in the results
         if (el.isMatch || filteredChildren.length) {
           acc.push({
             ...el, // Create a copy of the current element
-            children: filteredChildren.length > 0 ? filteredChildren : el.children, // Only update children if filtered
+            childrenTree: filteredChildren.length > 0 ? filteredChildren : el.childrenTree, // Only update children if filtered
             hasFilterChildren: filteredChildren.length > 0,
           })
         }
@@ -61,7 +104,7 @@ export const ComponentsTab = () => {
         return acc
       }, [])
     },
-    [searchValue, data]
+    [searchValue, components]
   )
 
   return (
@@ -72,7 +115,7 @@ export const ComponentsTab = () => {
         actions={<AddComponentButton buttonLabel='Add' />}
       />
       <TreeviewHeader />
-      <ComponentTree data={data} />
+      {(components?.length && <ComponentTree data={components} />) || null}
     </ToggleMenuContextProvider>
   )
 }
