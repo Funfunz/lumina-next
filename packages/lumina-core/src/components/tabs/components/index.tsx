@@ -50,9 +50,6 @@ export const ComponentsTab = () => {
 
   const [searchValue, setSearchValue] = useState<string>('')
   const [components, setComponents] = useState<IComponentTree[]>()
-  useEffect(() => {
-    searchData()
-  }, [searchValue])
 
   useEffect(() => {
     const newComponents = buildTree(
@@ -64,16 +61,17 @@ export const ComponentsTab = () => {
     } else {
       setComponents(newComponents)
     }
-  }, [builderDataContext])
+  }, [searchValue, builderDataContext])
 
   const searchData = (newComponents?: IComponentTree[]) => {
-    if (!components && !newComponents) return
-    const resetedData = resetData((newComponents as IComponentTree[]) || components)
+    if (!newComponents) return
+    const resetedData = resetData(newComponents as IComponentTree[])
 
     if (!searchValue || searchValue.trim().length < 3) {
       setComponents(resetedData)
     } else if (searchValue.length >= 3) {
       const filteredData = filterData(resetedData)
+      console.log({ filteredData })
       setComponents(filteredData)
     }
   }
