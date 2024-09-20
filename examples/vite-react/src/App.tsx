@@ -1,7 +1,7 @@
 import Lumina from '@lumina/core'
 import { getFullData } from './lib/dataFetcher'
 import luminaConfig from './luminaComponents/config'
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import { Contact } from './pages/contact'
 import '@lumina/core/style.css'
 import '@fontsource/roboto/400.css'
@@ -14,7 +14,10 @@ const RouteExtractor = () => {
     location,
     base: '/',
   }
-  return <Lumina router={router} getData={getFullData} components={luminaConfig} />
+  const navigate = useNavigate()
+  return (
+    <Lumina router={router} getData={getFullData} navigate={navigate} components={luminaConfig} />
+  )
 }
 
 function App() {

@@ -32,6 +32,7 @@ type TProps = {
   router: TRouter
   getData: () => Promise<IData>
   components: TComponentConfig
+  navigate?: (url: string) => void
 }
 
 const defaultValues: TProps = {
@@ -84,7 +85,7 @@ const InitialRender = ({ isEditor, isLoggedIn, router }: TInitialRenderProps) =>
   )
 }
 
-export default function Lumina({ router, getData, components }: TProps = defaultValues) {
+export default function Lumina({ router, getData, components, navigate }: TProps = defaultValues) {
   const [builderData, setBuilderData] = useState<IData>({})
   const [isLoggedIn] = useState<boolean>(!!sessionStorage.getItem('user'))
 
@@ -108,14 +109,16 @@ export default function Lumina({ router, getData, components }: TProps = default
 
   return (
     <ContextProvider
+      router={router}
       data={{
-        appContext: { isEditor, selectedPage, params, pathComponents },
+        appContext: { isEditor, params, pathComponents, selectedPage },
         builderDataContext: {
           builderData,
           selectedPage: selectedPage,
           pages: Object.keys(builderData),
         },
       }}
+      navigate={navigate}
     >
       <InitialRender isEditor={isEditor} isLoggedIn={isLoggedIn} router={router} />
     </ContextProvider>

@@ -12,12 +12,11 @@ export interface IUpdatePageAction {
   type: 'updatePage'
   data: {
     id: string
-    newData: Partial<{
-      friendlyName: string
-      description: string
-      urlParams: string[]
-    }>
-  }
+  } & Partial<{
+    friendlyName: string
+    description: string
+    urlParams: string[]
+  }>
 }
 
 export interface IDeletePageAction {
