@@ -27,18 +27,18 @@ const CreateAccount: React.FC = () => {
   }
 
   return (
-    <div className='lumina_createPage'>
-      <div className='lumina_createContainer'>
-        <Title classnames='lumina_createTitle' content='Create a Lumina Account' />
+    <div className='lumina_authPage'>
+      <div className='lumina_authContainer'>
+        <Title classnames='lumina_authTitle' content='Create a Lumina Account' />
         {/* form component */}
         <form onSubmit={handleCreateAccount}>
-          <div className='lumina_fieldContainer'>
-            <label htmlFor='email' className='lumina_createLabel'>
+          <div>
+            <label htmlFor='email' className='lumina_authLabel'>
               Email
             </label>
-            <p className='lumina_helpText'>Enter your email</p>
+            <p className='lumina_authHelpText'>Enter your email</p>
             <Input
-              className='lumina_createInput'
+              className='lumina_authInput'
               type='email'
               id='email'
               value={email}
@@ -47,13 +47,13 @@ const CreateAccount: React.FC = () => {
             />
           </div>
 
-          <div className='lumina_fieldContainer'>
-            <label htmlFor='password' className='lumina_createLabel'>
+          <div>
+            <label htmlFor='password' className='lumina_authLabel'>
               Password
             </label>
-            <p className='lumina_helpText'>Enter your password</p>
+            <p className='lumina_authHelpText'>Enter your password</p>
             <Input
-              className='lumina_createInput'
+              className='lumina_authInput'
               type='password'
               id='password'
               value={password}
@@ -62,13 +62,13 @@ const CreateAccount: React.FC = () => {
             />
           </div>
 
-          <div className='lumina_fieldContainer'>
-            <label htmlFor='repeatPassword' className='lumina_createLabel'>
+          <div>
+            <label htmlFor='repeatPassword' className='lumina_authLabel'>
               Repeat Password
             </label>
-            <p className='lumina_helpText'>Re-enter your password</p>
+            <p className='lumina_authHelpText'>Re-enter your password</p>
             <Input
-              className='lumina_createInput'
+              className='lumina_authInput'
               type='password'
               id='repeatPassword'
               value={repeatPassword}
@@ -79,13 +79,13 @@ const CreateAccount: React.FC = () => {
 
           {error && <p style={{ color: 'red' }}>{error}</p>}
           <Button
-            style='lumina_createButton'
+            style='lumina_authButton'
             buttonType='button'
             text='Create Account'
             onClick={handleCreateAccount}
           />
         </form>
-        <Button style='lumina_backLink' buttonType='button' text='Go back' onClick={handleGoBack} />
+        <Button style='lumina_authLink' buttonType='button' text='Go back' onClick={handleGoBack} />
         <img src={logo_md} alt='Lumina Logo' />
       </div>
     </div>

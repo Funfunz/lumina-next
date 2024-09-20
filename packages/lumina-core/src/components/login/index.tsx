@@ -30,20 +30,20 @@ const Login: React.FC = () => {
   }
 
   return (
-    <div className='lumina_loginPage'>
-      <div className='lumina_loginContainer'>
-        <Title classnames='lumina_loginTitle' content='Sign in to Lumina' />
+    <div className='lumina_authPage'>
+      <div className='lumina_authContainer'>
+        <Title classnames='lumina_authTitle' content='Sign in to Lumina' />
         {/* form component */}
         <form onSubmit={handleLogin}>
           <div>
-            <div className='lumina_fieldContainer'>
-              <label htmlFor='username' className='lumina_loginLabel'>
+            <div>
+              <label htmlFor='username' className='lumina_authLabel'>
                 Username
               </label>
-              <p className='lumina_helpText'>Enter your username</p>
+              <p className='lumina_authHelpText'>Enter your username</p>
             </div>
             <Input
-              className='lumina_loginInput'
+              className='lumina_authInput'
               type='text'
               id='username'
               value={username}
@@ -52,14 +52,14 @@ const Login: React.FC = () => {
             />
           </div>
           <div>
-            <div className='lumina_fieldContainer'>
-              <label className='lumina_loginLabel' htmlFor='password'>
+            <div>
+              <label className='lumina_authLabel' htmlFor='password'>
                 Password
               </label>
-              <p className='lumina_helpText'>Enter your password</p>
+              <p className='lumina_authHelpText'>Enter your password</p>
             </div>
             <Input
-              className='lumina_loginInput'
+              className='lumina_authInput'
               type='password'
               id='password'
               value={password}
@@ -68,7 +68,7 @@ const Login: React.FC = () => {
             />
           </div>
           <Button
-            style='lumina_loginButton'
+            style='lumina_authButton'
             buttonType='button'
             text=' Sign in'
             onClick={handleLogin}
@@ -77,14 +77,14 @@ const Login: React.FC = () => {
         </form>
 
         <Button
-          style='lumina_loginLinks'
+          style='lumina_authLink'
           onClick={navigateToRecoverAccount}
           text='Recover account'
           buttonType='link'
           href='./recoverAccount/index.tsx'
         />
         <Button
-          style='lumina_loginLinks'
+          style='lumina_authLink'
           onClick={navigateToCreateAccount}
           text='Create account'
           buttonType='link'
