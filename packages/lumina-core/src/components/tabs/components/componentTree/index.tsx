@@ -1,10 +1,10 @@
-import { IComponentData } from '@/models/data'
 import { TreeBranch } from '../../treeBranch'
 import { EditorButtonsContainer } from '@/components/editor-buttons-container'
 import { DynamicComponent } from '@/components/render/dynamicComponent'
+import { IComponentTree } from '..'
 
 type TProps = {
-  data: IComponentData[]
+  data: IComponentTree[]
 }
 
 export const ComponentTree = ({ data }: TProps) => {

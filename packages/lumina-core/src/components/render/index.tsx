@@ -1,34 +1,34 @@
 import { useLuminaContext } from '@/context/contextProvider'
-import { IComponentData } from '@/models/data'
+
 import { DynamicComponent } from './dynamicComponent'
 
 interface IProps {
-  elements?: IComponentData[]
+  componentIds?: string[]
 }
 
-export const Render = ({ elements }: IProps) => {
+export const Render = ({ componentIds }: IProps) => {
   const {
     state: { builderDataContext },
-    navigate,
   } = useLuminaContext()
-  let data: IComponentData[] = []
-  if (elements) {
-    data = elements
+  let data: string[] = []
+  if (componentIds) {
+    data = componentIds
   }
   if (
     builderDataContext.builderData &&
     builderDataContext.selectedPage &&
-    builderDataContext.builderData[builderDataContext.selectedPage]?.children &&
-    !elements
+    builderDataContext.builderData.pages[builderDataContext.selectedPage]?.children &&
+    !componentIds
   ) {
-    data = builderDataContext.builderData[builderDataContext.selectedPage].children!
+    data = builderDataContext.builderData.pages[builderDataContext.selectedPage].children!
   }
-
-  ;(window as any).navigate = navigate
 
   return (
     <>
       {data
+        .map(componentId => {
+          return builderDataContext.builderData.components[componentId]
+        })
         .sort((a, b) => {
           if (a.order > b.order) {
             return 1
@@ -44,7 +44,7 @@ export const Render = ({ elements }: IProps) => {
           if (!LoadedComponent) return null
           return (
             <LoadedComponent key={index} {...component.props} id={component.id}>
-              <Render elements={component.children} />
+              <Render componentIds={component.children} />
             </LoadedComponent>
           )
         })}

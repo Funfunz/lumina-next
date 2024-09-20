@@ -16,10 +16,10 @@ export const routerParser = (pathName: string, builderData: IData): TParsedRoute
     splittedSelectedPathName.pop()
   }
 
-  const pages = Object.keys(builderData).map(pageId => {
+  const pages = Object.keys(builderData.pages).map(pageId => {
     return {
       id: pageId,
-      route: builderData[pageId].route,
+      route: builderData.pages[pageId].route,
     }
   })
   let params: Record<string, string> = {}

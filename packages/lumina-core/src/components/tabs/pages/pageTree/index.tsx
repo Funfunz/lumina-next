@@ -1,4 +1,4 @@
-import { IPageData } from '@/models/data'
+import { IDataPage } from '@/models/data'
 import { TreeBranch } from '../../treeBranch'
 import { Button } from '@/components/button'
 import { useCallback } from 'react'
@@ -8,7 +8,7 @@ import { TToggleModalDeletePageProps } from '@/components/modals/deletePageModal
 import { DELETEPAGE } from '@/components/modals/deletePageModal'
 
 type TProps = {
-  data: IPageData[]
+  data: IDataPage[]
 }
 
 export const PageTree = ({ data }: TProps) => {
@@ -21,15 +21,15 @@ export const PageTree = ({ data }: TProps) => {
   }
 
   const handleOnClickEdit = useCallback(
-    (dataItem: IPageData) => () => {
+    (dataItem: IDataPage) => () => {
       handleOpenModal({ modalType: UPDATEPAGE, ...dataItem })
     },
     []
   )
 
   const handleOnClickDelete = useCallback(
-    (dataItem: IPageData) => () => {
-      const data: TToggleModalDeletePageProps = { modalType: DELETEPAGE, route: dataItem.route }
+    (dataItem: IDataPage) => () => {
+      const data: TToggleModalDeletePageProps = { modalType: DELETEPAGE, id: dataItem.id }
       handleOpenModal(data)
     },
     [handleOpenModal]

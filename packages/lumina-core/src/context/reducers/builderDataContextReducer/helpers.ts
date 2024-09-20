@@ -1,15 +1,15 @@
-import { IPageData } from '@/main'
-import { IComponentData, IComponentProps } from '@/models/data'
+import { IComponentData, IComponentProps, IDataComponent } from '@/models/data'
 import { ICreateComponentAction } from './actions/componentActions'
 
 export function newComponentFactory(
   componentData: ICreateComponentAction['data'],
   order: number,
   hidden: boolean
-): IComponentData {
-  const { type, friendlyName, id, ...rest } = componentData
+): IDataComponent {
+  const { type, friendlyName, id, parentId, ...rest } = componentData
   return {
     id,
+    parentId,
     type: type as string,
     friendlyName: friendlyName as string,
     children: [],
@@ -19,9 +19,11 @@ export function newComponentFactory(
   }
 }
 
+/*
 const instanceOfIComponentData = (object: any): object is IComponentData => {
   return object.id
 }
+*/
 
 /**
  * Parameter "data" contains info from the parent component
@@ -30,7 +32,7 @@ const instanceOfIComponentData = (object: any): object is IComponentData => {
  * @param component
  * @param data
  * @returns
- */
+
 export function createElementAt(
   component: IPageData | IComponentData,
   data: ICreateComponentAction['data']
@@ -63,6 +65,7 @@ export function createElementAt(
   // Return the updated component
   return component
 }
+*/
 
 export function updateElement(
   components: IComponentData[],
@@ -100,10 +103,10 @@ export function deleteElement(components: IComponentData[], targetId: string): I
 }
 
 function upOrderElement(
-  element: IComponentData,
-  components: IComponentData[]
-): IComponentData | undefined {
-  let componentToReplace: IComponentData | undefined = undefined
+  element: IDataComponent,
+  components: IDataComponent[]
+): IDataComponent | undefined {
+  let componentToReplace: IDataComponent | undefined = undefined
   components.forEach(currentElement => {
     if (currentElement.order < element.order) {
       if (!componentToReplace) {
@@ -119,10 +122,10 @@ function upOrderElement(
 }
 
 function downOrderElement(
-  element: IComponentData,
-  components: IComponentData[]
-): IComponentData | undefined {
-  let componentToReplace: IComponentData | undefined = undefined
+  element: IDataComponent,
+  components: IDataComponent[]
+): IDataComponent | undefined {
+  let componentToReplace: IDataComponent | undefined = undefined
   components.forEach(currentElement => {
     if (currentElement.order > element.order) {
       if (!componentToReplace) {
@@ -137,10 +140,11 @@ function downOrderElement(
   return componentToReplace
 }
 
+/*
 export function toggleVisibilityElement(
-  components: IComponentData[],
+  components: IDataComponent[],
   targetId: string
-): IComponentData[] {
+): IDataComponent[] {
   return components.map(element => {
     if (element.id === targetId) {
       return {
@@ -160,72 +164,53 @@ export function toggleVisibilityElement(
     return element
   })
 }
+*/
 
-export function moveUpElement(
-  components: IComponentData[],
-  { id, currentPosition }: { id: string; currentPosition: number }
-) {
-  let componentToReplace: IComponentData | undefined
-  let oldOrder = 0
-  const newComponents = components.map(element => {
-    if (element.id === id && currentPosition === element.order) {
-      oldOrder = element.order
-      componentToReplace = upOrderElement(element, components)
-      if (componentToReplace) {
-        element.order = componentToReplace?.order
-      } else {
-        element.order = 0
-      }
-    }
-    if (element.children && !componentToReplace) {
-      element.children = [...moveUpElement(element.children, { id, currentPosition })]
-    }
-    return element
-  })
+export function moveUpElement(componentToUpdate: IDataComponent, components: IDataComponent[]) {
+  const oldOrder = componentToUpdate.order
 
+  const componentToReplace: IDataComponent | undefined = upOrderElement(
+    componentToUpdate,
+    components
+  )
   if (componentToReplace) {
-    return newComponents.map(element => {
-      if (element.id === componentToReplace?.id) {
-        element.order = oldOrder
-      }
-      return element
-    })
+    componentToUpdate = {
+      ...componentToUpdate,
+      order: componentToReplace.order,
+    }
+  } else {
+    componentToUpdate.order = 0
   }
 
-  return newComponents
+  if (componentToReplace) {
+    componentToReplace.order = oldOrder
+  }
+  return {
+    componentToUpdate,
+    componentToReplace,
+  }
 }
 
-export function moveDownElement(
-  components: IComponentData[],
-  { id, currentPosition }: { id: string; currentPosition: number }
-) {
-  let componentToReplace: IComponentData | undefined
-  let oldOrder = 0
-  const newComponents = components.map(element => {
-    if (element.id === id && currentPosition === element.order) {
-      oldOrder = element.order
-      componentToReplace = downOrderElement(element, components)
-      if (componentToReplace) {
-        element.order = componentToReplace?.order
-      } else {
-        element.order = 0
-      }
-    }
-    if (element.children && !componentToReplace) {
-      element.children = [...moveDownElement(element.children, { id, currentPosition })]
-    }
-
-    return element
-  })
-
+export function moveDownElement(componentToUpdate: IDataComponent, components: IDataComponent[]) {
+  const oldOrder = componentToUpdate.order
+  const componentToReplace: IDataComponent | undefined = downOrderElement(
+    componentToUpdate,
+    components
+  )
   if (componentToReplace) {
-    return newComponents.map(element => {
-      if (element.id === componentToReplace?.id) {
-        element.order = oldOrder
-      }
-      return element
-    })
+    componentToUpdate = {
+      ...componentToUpdate,
+      order: componentToReplace.order,
+    }
+  } else {
+    componentToUpdate.order = 0
   }
 
-  return newComponents
+  if (componentToReplace) {
+    componentToReplace.order = oldOrder
+  }
+  return {
+    componentToUpdate,
+    componentToReplace,
+  }
 }

@@ -12,11 +12,9 @@ import {
   mainReducer,
 } from './reducers/mainReducer'
 import { IAppContext, initialAppContextState } from './reducers/appContextReducer'
-import {
-  IBuilderDataContext,
-  initialBuilderDataContextState,
-} from './reducers/builderDataContextReducer/builderDataContextReducer'
+import { initialBuilderDataContextState } from './reducers/builderDataContextReducer/builderDataContextReducer'
 import { routerParser } from '@/utils/routerParser'
+import { IData } from '@/models/data'
 
 export interface IContext {
   state: IInitialStateType
@@ -38,7 +36,11 @@ export function ContextProvider({
   children: React.ReactNode
   data: {
     appContext?: IAppContext
-    builderDataContext?: IBuilderDataContext
+    builderDataContext?: {
+      builderData: IData
+      selectedPage: string
+      pages: string[]
+    }
   }
   navigate?: (url: string) => void
   router: {
