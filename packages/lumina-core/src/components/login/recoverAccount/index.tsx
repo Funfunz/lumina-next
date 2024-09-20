@@ -20,7 +20,7 @@ const RecoverAccount: React.FC = () => {
   }
 
   const handleGoBack = () => {
-    window.location.href = '/login' // Navigates to the login page
+    window.location.href = '/?editor=true' // Navigates to the login page
   }
 
   return (

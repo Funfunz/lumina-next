@@ -81,14 +81,14 @@ const Login: React.FC = () => {
           onClick={navigateToRecoverAccount}
           text='Recover account'
           buttonType='link'
-          href='./recoverAccount/index.tsx'
+          href='./recoverAccount?editor=true'
         />
         <Button
           style='lumina_authLink'
           onClick={navigateToCreateAccount}
           text='Create account'
           buttonType='link'
-          href='./createAccount/index.tsx'
+          href='/createAccount?editor=true'
         />
         <img src={logo_md} alt='Lumina Logo' />
       </div>

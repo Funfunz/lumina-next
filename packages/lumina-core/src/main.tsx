@@ -18,16 +18,18 @@ export type TComponentConfig = {
   }
 }
 
-type TProps = {
-  router: {
-    location: {
-      hash: string
-      key: string
-      pathname: string
-      search: string
-    }
-    base: string
+type TRouter = {
+  location: {
+    hash: string
+    key: string
+    pathname: string
+    search: string
   }
+  base: string
+}
+
+type TProps = {
+  router: TRouter
   getData: () => Promise<IData>
   components: TComponentConfig
 }
@@ -57,10 +59,34 @@ function setComponentConfig(newComponentConfig: TComponentConfig) {
   return componentConfig
 }
 
+type TInitialRenderProps = {
+  isEditor: boolean
+  isLoggedIn: boolean
+  router: TRouter
+}
+
+const InitialRender = ({ isEditor, isLoggedIn, router }: TInitialRenderProps) => {
+  const isCreateAccount = router.location.pathname.includes('/createAccount')
+  const isRecoverAccount = router.location.pathname.includes('/recoverAccount')
+  if (!isLoggedIn && isEditor) {
+    return isCreateAccount ? <CreateAccount /> : isRecoverAccount ? <RecoverAccount /> : <Login />
+  }
+
+  return isEditor ? (
+    <ToggleModalContextProvider>
+      <Editor>
+        <EditorModal />
+        <Render />
+      </Editor>
+    </ToggleModalContextProvider>
+  ) : (
+    <Render />
+  )
+}
+
 export default function Lumina({ router, getData, components }: TProps = defaultValues) {
   const [builderData, setBuilderData] = useState<IData>({})
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
-  const isLoginPage = router.location.pathname.includes('/login')
+  const [isLoggedIn] = useState<boolean>(!!sessionStorage.getItem('user'))
 
   useEffect(() => {
     async function fetchData() {
@@ -78,17 +104,8 @@ export default function Lumina({ router, getData, components }: TProps = default
     builderData
   )
 
-  useEffect(() => {
-    const storedUser = sessionStorage.getItem('user')
-    if (storedUser) {
-      setIsLoggedIn(true) // User is logged in
-    }
-  }, [])
-
-  const isCreateAccount = router.location.pathname.includes('/createAccount')
-  const isRecoverAccount = router.location.pathname.includes('/recoverAccount')
-
   if (!builderData[selectedPage]) return null
+
   return (
     <ContextProvider
       data={{
@@ -100,22 +117,7 @@ export default function Lumina({ router, getData, components }: TProps = default
         },
       }}
     >
-      {isCreateAccount ? (
-        <CreateAccount />
-      ) : isRecoverAccount ? (
-        <RecoverAccount />
-      ) : isLoginPage || (!isLoggedIn && isEditor) ? (
-        <Login />
-      ) : isEditor ? (
-        <ToggleModalContextProvider>
-          <Editor>
-            <EditorModal />
-            <Render />
-          </Editor>
-        </ToggleModalContextProvider>
-      ) : (
-        <Render />
-      )}
+      <InitialRender isEditor={isEditor} isLoggedIn={isLoggedIn} router={router} />
     </ContextProvider>
   )
 }

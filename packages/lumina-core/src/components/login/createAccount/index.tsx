@@ -23,7 +23,7 @@ const CreateAccount: React.FC = () => {
   }
 
   const handleGoBack = () => {
-    window.location.href = '/login'
+    window.location.href = '/?editor=true' // Navigates to the login page
   }
 
   return (
