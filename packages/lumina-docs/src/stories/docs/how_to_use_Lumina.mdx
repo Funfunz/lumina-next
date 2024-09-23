@@ -4,53 +4,68 @@ import { Meta, Markdown } from '@storybook/blocks'
 
 # How to use Lumina
 
-It should contains all steps from from starting an application, either using Next as or vite or any other tool, up to having Lumina running on the screen
+1. Start a react application - see [Initial Application](#initial-application)
+2. Install Lumina
+3. Import and add Lumina to the application
+4. Setup required props and configurations - see [Required Configuration](/docs/docs-components-required-configuration--documentation)
 
 ## Initial application
 
+Before using Lumina, you need to set up a React application. You can create a new React app using Create React App (CRA) or other tools like Next.js or Vite.<br/>
+For more on initializing react applications, see the following documentation:
+
+### Create React App (CRA)
+
+[Initiate application with CRA](https://create-react-app.dev/docs/getting-started)
+
 ### NextJS
 
-[Initial application with NextJS](https://nextjs.org/docs/getting-started/installation)
-
-```sh
-npx create-next-app@latest
-```
+[Initiate application with NextJS](https://nextjs.org/docs/getting-started/installation)
 
 ### Vite
 
-[Initial application with Vite](https://vitejs.dev/guide/)
-
-```sh
-npm create vite@latest my-vue-app -- --template vue
-```
-
-```sh
-yarn create vite my-vue-app --template vue
-```
-
-```sh
-pnpm create vite my-vue-app --template vue
-```
-
-```sh
-bun create vite my-vue-app --template vue
-```
+[Initiate application with Vite](https://vitejs.dev/guide/)
 
 ## Installing Lumina
 
-Using npm:
+To install Lumina, navigate to the root of your project and run the following command using npm:
 
 ```sh
-npm install
+npm install lumina
 ```
 
-## Add Lumina to project
+Alternatively, you can also use yarn or pnpm:yarn add lumina
 
-### Import Lumina
+```sh
+yarn add lumina
+pnpm install lumina
+```
+
+## Adding and importing Lumina
+
+To use Lumina in your React application, you need to import it and configure it properly.<br/>
+First, import Lumina from the Lumina/core package.<br/>
+Next, import your Lumina configuration from a separate file - see [Lumina Configuration](/docs/docs-components-add-new-component--documentation#3-final-lumina-component-configuration)
 
 ```ts
 import Lumina from '@lumina/core'
 import luminaConfig from './luminaComponents/config'
+```
+
+### Example
+
+```ts
+import React from 'react';
+import Lumina from '@lumina/core';
+import luminaConfig from './luminaComponents/config';
+
+const App = () => {
+  return (
+    <div>
+      <Lumina config={luminaConfig} />
+    </div>
+  );
+};
 ```
 
 <table>
@@ -75,10 +90,6 @@ import luminaConfig from './luminaComponents/config'
   </tbody>
 </table>
 
-### Add Lumina to project
-
-next step is import and add Lumina to the application
-
 ## Required Props
 
-he components should export a config object with the following properties:
+The components should export a config object with the following properties:
