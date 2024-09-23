@@ -1,0 +1,84 @@
+import { Meta, Markdown } from '@storybook/blocks'
+
+<Meta title='Docs/Components/How to use Lumina' />
+
+# How to use Lumina
+
+It should contains all steps from from starting an application, either using Next as or vite or any other tool, up to having Lumina running on the screen
+
+## Initial application
+
+### NextJS
+
+[Initial application with NextJS](https://nextjs.org/docs/getting-started/installation)
+
+```sh
+npx create-next-app@latest
+```
+
+### Vite
+
+[Initial application with Vite](https://vitejs.dev/guide/)
+
+```sh
+npm create vite@latest my-vue-app -- --template vue
+```
+
+```sh
+yarn create vite my-vue-app --template vue
+```
+
+```sh
+pnpm create vite my-vue-app --template vue
+```
+
+```sh
+bun create vite my-vue-app --template vue
+```
+
+## Installing Lumina
+
+Using npm:
+
+```sh
+npm install
+```
+
+## Add Lumina to project
+
+### Import Lumina
+
+```ts
+import Lumina from '@lumina/core'
+import luminaConfig from './luminaComponents/config'
+```
+
+<table>
+  <thead>
+    <tr>
+      <td>**Import**</td>
+      <td>**Required**</td>
+      <td>**Description**</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>**Lumina**</td>
+      <td>Yes</td>
+      <td>Importing Lumina to project</td>
+    </tr>
+    <tr>
+      <td>**luminaConfig**</td>
+      <td>Yes</td>
+      <td>Configurations needed to Lumina</td>
+    </tr>
+  </tbody>
+</table>
+
+### Add Lumina to project
+
+next step is import and add Lumina to the application
+
+## Required Props
+
+he components should export a config object with the following properties:
