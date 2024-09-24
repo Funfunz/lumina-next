@@ -18,13 +18,12 @@ export type { TLumButton }
  * @param href only useable on 'externalLink' and 'link'
  * @param disabled disables the button, no need to ={true} as when it's being called it's already "true"
  * @param target sets the target page, only useable on 'externalLink' and 'link'
- * @param children Allows to wrap custom content inside the button tag
  * @returns
  */
 
 export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, TLumButton>(
   (props, ref) => {
-    const { className, style, buttonType, text, iconLeft, iconRight, size, type, children } = props
+    const { className, style, buttonType, text, iconLeft, iconRight, size, type } = props
     const allClassNames = `${style ? style : ''} ${className ? className : ''} ${size ? size : ''}`
 
     if (buttonType === 'button') {
@@ -37,21 +36,21 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, TLumButt
           disabled={disabled}
           type={type}
         >
-          {children || <ButtonContent text={text} iconLeft={iconLeft} iconRight={iconRight} />}
+          <ButtonContent text={text} iconLeft={iconLeft} iconRight={iconRight} />
         </button>
       )
     } else if (buttonType === 'externalLink') {
       const { href, target } = props
       return (
         <a className={allClassNames} href={href} target={target}>
-          {children || <ButtonContent text={text} iconLeft={iconLeft} iconRight={iconRight} />}
+          <ButtonContent text={text} iconLeft={iconLeft} iconRight={iconRight} />
         </a>
       )
     } else if (buttonType === 'link') {
       const { href } = props
       return (
         <a className={allClassNames} href={href}>
-          {children || <ButtonContent text={text} iconLeft={iconLeft} iconRight={iconRight} />}
+          <ButtonContent text={text} iconLeft={iconLeft} iconRight={iconRight} />
         </a>
       )
     }
