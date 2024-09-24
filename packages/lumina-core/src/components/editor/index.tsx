@@ -17,7 +17,9 @@ export const Editor = ({ children }: Props) => {
   return (
     <div className={cx('editorContainer', { open: isBarOpen })}>
       <SidebarEditor handleToggler={handleMenuToggler} isBarOpen={isBarOpen} />
-      <div className='rendererSection'>{children}</div>
+      <div className='rendererWrapper'>
+        <div className='rendererSection'>{children}</div>
+      </div>
     </div>
   )
 }

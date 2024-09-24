@@ -18,37 +18,23 @@
 
 .rendererSection {
   @include lum-typo-reset;
+}
 
-  .debugStylesCta {
-    @include lum-typo-tiny;
+.rendererWrapper {
+  container: mobile / inline-size;
 
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 100;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    text-transform: uppercase;
-    cursor: pointer;
-    background-color: var(--lum-color-surface-default);
-    border: none;
-
-    // prevent debugging the button itself
-    border: 1px solid lightgray !important;
-    border-radius: 5px !important;
-    outline: unset !important;
-    transition: box-shadow 0.2s ease-in-out;
-
-    > span,
-    .buttonContent > span {
-      outline: unset !important;
+  @container mobile (min-width: 150px) {
+    .rendererSection {
+      max-width: 720px;
     }
   }
 
-  &:hover .debugStylesCta {
-    display: flex;
-    background-color: var(--lum-color-secondary-weak);
+  &.mobile-view {
+    @container mobile (min-width: 150px) {
+      .rendererSection {
+        max-width: 100%;
+        background-color: lightgreen;
+      }
+    }
   }
 }

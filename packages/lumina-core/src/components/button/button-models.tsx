@@ -1,6 +1,6 @@
 // Ideas taken from https://dev.to/frehner/polymorphic-button-component-in-typescript-c28
 
-import { MutableRefObject } from 'react'
+import { MutableRefObject, ReactNode } from 'react'
 
 type TLumButtonBase = {
   className?: string
@@ -13,6 +13,7 @@ type TLumButtonBase = {
   disabled?: boolean
   ref?: MutableRefObject<HTMLButtonElement | null>
   type?: 'button' | 'submit' | 'reset'
+  children?: ReactNode
 }
 
 export type TLumButtonAsButton = TLumButtonBase & {
