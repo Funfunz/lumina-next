@@ -25,14 +25,14 @@
 
   @container mobile (min-width: 150px) {
     .rendererSection {
-      max-width: 720px;
+      width: auto;
     }
   }
 
   &.mobile-view {
     @container mobile (min-width: 150px) {
       .rendererSection {
-        max-width: 100%;
+        max-width: 720px;
         background-color: lightgreen;
       }
     }
