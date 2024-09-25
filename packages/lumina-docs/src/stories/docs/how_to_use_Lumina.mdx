@@ -111,15 +111,20 @@ import React from 'react'
 import Lumina from '@lumina/core'
 import luminaConfig from './luminaComponents/config'
 
+// Main application component
 const App = () => {
   return (
     <div>
+      {/* Lumina component with configuration */}
       <Lumina config={luminaConfig}>
+        {/* Container for your content */}
         <Container>{/* add your content here */}</Container>
       </Lumina>
     </div>
   )
 }
+
+export default App
 ```
 
 ## Next steps
