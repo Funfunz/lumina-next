@@ -16,7 +16,7 @@ export const MobileViewButton = () => {
   return (
     <Button
       buttonType='button'
-      iconLeft={appContext.isMobile ? 'lum-icon-visible' : 'lum-icon-mobile'}
+      iconLeft={appContext.isMobile ? 'lum-icon-mobile' : 'lum-icon-mobile'}
       onClick={toggleView}
     />
   )
