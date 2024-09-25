@@ -1,0 +1,133 @@
+import { Meta, Markdown } from '@storybook/blocks'
+
+<Meta title='Docs/Components/How to use Lumina' />
+
+# How to use Lumina
+
+1. Start a react application - see [Initial Application](#initial-application)
+2. Install Lumina
+3. Import and add Lumina to the application
+4. Setup required props and configurations - see [Required Configuration](/docs/docs-components-required-configuration--documentation)
+
+## Initial application
+
+Before using Lumina, you need to set up a React application. You can create a new React app using Create React App (CRA) or other tools like Next.js or Vite.<br/>
+For more on initializing react applications, see the following documentation:
+
+### Create React App (CRA)
+
+[Initiate application with CRA](https://create-react-app.dev/docs/getting-started)
+
+### NextJS
+
+[Initiate application with NextJS](https://nextjs.org/docs/getting-started/installation)
+
+### Vite
+
+[Initiate application with Vite](https://vitejs.dev/guide/)
+
+## Installing Lumina
+
+To install Lumina, navigate to the root of your project and run the following command using npm:
+
+```sh
+npm install lumina
+```
+
+Alternatively, you can also use yarn or pnpm add lumina
+
+```sh
+yarn add lumina
+pnpm install lumina
+```
+
+## Adding and importing Lumina
+
+To use Lumina in your React application, you need to import it and configure it properly.<br/>
+First, import Lumina from the Lumina/core package.<br/>
+Next, import your Lumina configuration from a separate file - see [Lumina Configuration](/docs/docs-components-add-new-component--documentation#3-final-lumina-component-configuration)
+
+```ts
+import Lumina from '@lumina/core'
+import luminaConfig from './luminaComponents/config'
+```
+
+### Example
+
+```ts
+import React from 'react';
+import Lumina from '@lumina/core';
+import luminaConfig from './luminaComponents/config';
+
+const App = () => {
+  return (
+    <div>
+      <Lumina config={luminaConfig} />
+    </div>
+  );
+};
+```
+
+<table>
+  <thead>
+    <tr>
+      <td>**Import**</td>
+      <td>**Required**</td>
+      <td>**Description**</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>**Lumina**</td>
+      <td>Yes</td>
+      <td>Importing Lumina to project</td>
+    </tr>
+    <tr>
+      <td>**luminaConfig**</td>
+      <td>Yes</td>
+      <td>Configurations needed to Lumina</td>
+    </tr>
+  </tbody>
+</table>
+
+## Required Props
+
+When using Lumina, certain props are required to be passed to the components. These props are used to configure the behavior and appearance of the components.
+
+The following props are required:
+
+- [config](/docs/docs-components-add-new-component--documentation#3-final-lumina-component-configuration)
+  : An object that contains the configuration for the component.
+- `children`: The content to be rendered inside the component.
+
+Additionally, some components may require additional props specific to their functionality.
+
+### Example
+
+Here's an example of how to pass the required props to a component:
+
+```tsx
+import React from 'react'
+import Lumina from '@lumina/core'
+import luminaConfig from './luminaComponents/config'
+
+// Main application component
+const App = () => {
+  return (
+    <div>
+      {/* Lumina component with configuration */}
+      <Lumina config={luminaConfig}>
+        {/* Container for your content */}
+        <Container>{/* add your content here */}</Container>
+      </Lumina>
+    </div>
+  )
+}
+
+export default App
+```
+
+## Next steps
+
+For more on how to add components, see the documentation [Add new component](/docs/docs-components-add-new-component--documentation)<br/>
+For better understanding of the configuration needed, see the documentation [Required configuration](/docs/docs-components-required-configuration--documentation)
