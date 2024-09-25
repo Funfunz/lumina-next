@@ -92,7 +92,35 @@ const App = () => {
 
 ## Required Props
 
-The components should export a config object with the following properties:
+When using Lumina, certain props are required to be passed to the components. These props are used to configure the behavior and appearance of the components.
+
+The following props are required:
+
+- [config](/docs/docs-components-add-new-component--documentation#3-final-lumina-component-configuration)
+  : An object that contains the configuration for the component.
+- `children`: The content to be rendered inside the component.
+
+Additionally, some components may require additional props specific to their functionality.
+
+### Example
+
+Here's an example of how to pass the required props to a component:
+
+```tsx
+import React from 'react'
+import Lumina from '@lumina/core'
+import luminaConfig from './luminaComponents/config'
+
+const App = () => {
+  return (
+    <div>
+      <Lumina config={luminaConfig}>
+        <Container>{/* add your content here */}</Container>
+      </Lumina>
+    </div>
+  )
+}
+```
 
 ## Next steps
 
