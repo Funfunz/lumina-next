@@ -22,6 +22,7 @@
   container: lumina / inline-size;
 
   .lum-iframe {
+    display: block;
     width: 720px;
     height: 100%;
     margin: 0 auto;
