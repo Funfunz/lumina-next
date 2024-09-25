@@ -1,40 +1,53 @@
 import { useLuminaContext } from '@/context/contextProvider'
-import { IComponentData } from '@/models/data'
+
 import { DynamicComponent } from './dynamicComponent'
 
 interface IProps {
-  elements?: IComponentData[]
+  componentIds?: string[]
 }
 
-export const Render = ({ elements }: IProps) => {
+export const Render = ({ componentIds }: IProps) => {
   const {
     state: { builderDataContext },
   } = useLuminaContext()
-  let data: IComponentData[] = []
-  if (elements) {
-    data = elements
+  let data: string[] = []
+  if (componentIds) {
+    data = componentIds
   }
   if (
     builderDataContext.builderData &&
     builderDataContext.selectedPage &&
-    builderDataContext.builderData[builderDataContext.selectedPage].children &&
-    !elements
+    builderDataContext.builderData.pages[builderDataContext.selectedPage]?.children &&
+    !componentIds
   ) {
-    data = builderDataContext.builderData[builderDataContext.selectedPage].children!
+    data = builderDataContext.builderData.pages[builderDataContext.selectedPage].children!
   }
 
   return (
     <>
-      {data.map((component, index) => {
-        if (component?.hidden) return
-        const LoadedComponent = DynamicComponent(component.type)?.component
-        if (!LoadedComponent) return null
-        return (
-          <LoadedComponent key={index} {...component.props} id={component.id}>
-            <Render elements={component.children} />
-          </LoadedComponent>
-        )
-      })}
+      {data
+        .map(componentId => {
+          return builderDataContext.builderData.components[componentId]
+        })
+        .sort((a, b) => {
+          if (a.order > b.order) {
+            return 1
+          }
+          if (a.order < b.order) {
+            return -1
+          }
+          return 0
+        })
+        .map((component, index) => {
+          if (component?.hidden) return
+          const LoadedComponent = DynamicComponent(component.type)?.component
+          if (!LoadedComponent) return null
+          return (
+            <LoadedComponent key={index} {...component.props} id={component.id}>
+              <Render componentIds={component.children} />
+            </LoadedComponent>
+          )
+        })}
     </>
   )
 }

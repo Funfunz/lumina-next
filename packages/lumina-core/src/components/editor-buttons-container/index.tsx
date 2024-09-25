@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /**
  * Documentation found at ./readme.md
  */
@@ -6,18 +5,18 @@
 import { useLuminaContext } from '@/context/contextProvider'
 import cx from 'classnames'
 import type { TConfig } from '@/models/editor-buttonModel'
-import { EditComponentButton } from '../action-buttons/edit'
-import { AddComponentButton } from '../action-buttons/add'
-import { DeleteComponentButton } from '../action-buttons/delete'
-import { VisibleComponentButton } from '../action-buttons/visible'
-import { MoveComponentButton } from '../action-buttons/move'
-import { ExpandMenuButton } from '../action-buttons/menu'
+import { EditComponentButton } from '../action-buttons/components/edit'
+import { AddComponentButton } from '../action-buttons/components/add'
+import { DeleteComponentButton } from '../action-buttons/components/delete'
+import { VisibleComponentButton } from '../action-buttons/components/visible'
+import { MoveComponentButton } from '../action-buttons/components/move'
+import { ExpandMenuButton } from '../action-buttons/components/menu'
 import type { IComponentProps } from '@/models/data'
 
 type TProps = {
   id: string
   onUpdate?: (data: any) => void
-  data: IComponentProps
+  componentProps?: IComponentProps
   config: TConfig
   inline?: boolean
   noUp?: boolean
@@ -25,13 +24,15 @@ type TProps = {
   visible?: boolean
   hidden?: boolean
   menu?: boolean
+  currentPosition?: number
 }
 
 export const EditorButtonsContainer = ({
   id,
   onUpdate,
   config,
-  data,
+  componentProps,
+  currentPosition,
   inline,
   noUp,
   noDown,
@@ -41,15 +42,20 @@ export const EditorButtonsContainer = ({
 }: TProps) => {
   const {
     state: {
-      appContext: { editor },
+      appContext: { isEditor },
     },
   } = useLuminaContext()
 
-  if (!editor) return null
+  if (!isEditor) return null
   return (
     <div className={cx('showEdit', inline ? 'showEditContainerInline' : 'showEditContainer')}>
       {config.editor.editable && !inline && (
-        <EditComponentButton componentId={id} onUpdate={onUpdate} data={data} config={config} />
+        <EditComponentButton
+          componentId={id}
+          onUpdate={onUpdate}
+          componentProps={componentProps}
+          config={config}
+        />
       )}
 
       {config?.editor.children && !inline && <AddComponentButton componentId={id} />}
@@ -58,11 +64,27 @@ export const EditorButtonsContainer = ({
 
       {inline && !visible && <VisibleComponentButton id={id} hidden={hidden} />}
 
-      {inline && <MoveComponentButton active={noUp!} moveDirection='up' id={id} />}
+      {inline && (
+        <MoveComponentButton
+          active={noUp!}
+          moveDirection='up'
+          id={id}
+          currentPosition={currentPosition || 0}
+        />
+      )}
 
-      {inline && <MoveComponentButton active={noDown!} moveDirection='down' id={id} />}
+      {inline && (
+        <MoveComponentButton
+          active={noDown!}
+          moveDirection='down'
+          id={id}
+          currentPosition={currentPosition || 0}
+        />
+      )}
 
-      {inline && !menu && <ExpandMenuButton id={id} config={config} data={data} />}
+      {inline && !menu && (
+        <ExpandMenuButton id={id} config={config} componentProps={componentProps} />
+      )}
     </div>
   )
 }

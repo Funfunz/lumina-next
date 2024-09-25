@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 // Ideas taken from https://dev.to/frehner/polymorphic-button-component-in-typescript-c28
 
 import { MutableRefObject } from 'react'
@@ -13,6 +12,7 @@ type TLumButtonBase = {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
   disabled?: boolean
   ref?: MutableRefObject<HTMLButtonElement | null>
+  type?: 'button' | 'submit' | 'reset'
 }
 
 export type TLumButtonAsButton = TLumButtonBase & {

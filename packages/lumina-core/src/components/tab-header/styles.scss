@@ -1,0 +1,14 @@
+.tabHeader {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: var(--lum-size-spacing-m);
+  align-items: center;
+  justify-content: space-between;
+
+  .tabHeader-title {
+    flex-grow: 0;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+  }
+}

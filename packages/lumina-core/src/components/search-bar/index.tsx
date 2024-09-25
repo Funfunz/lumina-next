@@ -1,37 +1,40 @@
-import { ChangeEvent, Dispatch, SetStateAction, KeyboardEvent as ReactKeyboardEvent } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import { Button } from '../button'
 import cx from 'classnames'
+import { Input } from '../form-components/input'
+import { useDebounce } from 'use-debounce'
 
 type TProps = {
   searchValue: string
-  setSearchValue: Dispatch<SetStateAction<string>>
-  onClickSearch: () => void
+
+  setSearchValue: (text: string) => void
 }
 
-export const SearchBar = ({ searchValue, setSearchValue, onClickSearch }: TProps) => {
-  const handleKeyDown = (e: ReactKeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      onClickSearch()
-    }
-  }
+/**
+ *
+ * @debounce Used to give some delay on server request in miliseconds, ex: debounce={1000} will have a 1000 milisecond delay
+ * @returns
+ */
+export const SearchBar = ({ searchValue, setSearchValue }: TProps) => {
+  const [inputValue, setInputValue] = useState(searchValue)
+  const [debouncedValue] = useDebounce(inputValue, 1000)
+
+  useEffect(() => {
+    setSearchValue(debouncedValue)
+  }, [debouncedValue, setSearchValue])
 
   return (
     <div className='search-bar'>
       <span className={cx('search-bar__icon', 'lum-icon-search')}></span>
-      <input
+      <Input
         className='search-bar__text'
-        type='text'
-        onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchValue(e.target.value)}
-        value={searchValue}
+        type='search'
+        onChange={(e: ChangeEvent<HTMLInputElement>) => setInputValue(e.target.value)}
+        value={inputValue}
         placeholder='Search...'
-        onKeyDown={handleKeyDown}
+        fullWidth={true}
       />
-      <Button
-        buttonType='button'
-        iconRight='lum-icon-filter'
-        style='filter'
-        onClick={onClickSearch}
-      />
+      <Button buttonType='button' iconRight='lum-icon-filter' style='filter' />
     </div>
   )
 }

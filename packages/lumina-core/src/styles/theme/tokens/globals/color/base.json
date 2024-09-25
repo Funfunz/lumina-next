@@ -73,10 +73,13 @@
       },
       "primary": {
         "default": {
-          "value": "#662F8F"
+          "value": "#61748C"
         },
         "weak": {
           "value": "#B99FCB"
+        },
+        "strong": {
+          "value": "#122F54"
         }
       },
       "secondary": {

@@ -1,15 +1,16 @@
-/* eslint-disable no-unused-vars */
-
 import { ContextProvider } from './context/contextProvider'
 import { Editor } from './components/editor'
+import CreateAccount from './components/login/createAccount'
+import RecoverAccount from './components/login/recoverAccount'
 import { Render } from './components/render'
-import type { IData, IPageData } from './models/data'
+import type { IConnectorData, IData, IPageData } from './models/data'
 import { useEffect, useState } from 'react'
 import type { TConfig } from './models/editor-buttonModel'
-import { ToggleModalContextProvider } from './context/handleModalsContext'
+import { ToggleModalContextProvider } from './context/toggleModalContextProvider'
 import { EditorModal } from './components/modals'
-import { FormThemeProvider } from 'react-form-component'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { routerParser } from './utils/routerParser'
+import { builderDataParser } from './utils/connectorParser'
+import Login from './components/login'
 
 export type TComponentConfig = {
   [key: string]: {
@@ -18,14 +19,33 @@ export type TComponentConfig = {
   }
 }
 
+type TRouter = {
+  location: {
+    hash: string
+    key: string
+    pathname: string
+    search: string
+  }
+  base: string
+}
+
 type TProps = {
-  selectedPage: string
-  getData: () => Promise<IData>
+  router: TRouter
+  getData: () => Promise<IConnectorData>
   components: TComponentConfig
+  navigate?: (url: string) => void
 }
 
 const defaultValues: TProps = {
-  selectedPage: 'home',
+  router: {
+    location: {
+      hash: '',
+      key: '',
+      pathname: '',
+      search: '',
+    },
+    base: '/',
+  },
   getData: async () => ({}),
   components: {},
 }
@@ -41,18 +61,38 @@ function setComponentConfig(newComponentConfig: TComponentConfig) {
   return componentConfig
 }
 
-export default function Lumina({ selectedPage, getData, components }: TProps = defaultValues) {
-  const [builderData, setBuilderData] = useState<IData>({})
+type TInitialRenderProps = {
+  isEditor: boolean
+  isLoggedIn: boolean
+  router: TRouter
+}
 
+const InitialRender = ({ isEditor, isLoggedIn, router }: TInitialRenderProps) => {
+  const isCreateAccount = router.location.pathname.includes('/createAccount')
+  const isRecoverAccount = router.location.pathname.includes('/recoverAccount')
+  if (!isLoggedIn && isEditor) {
+    return isCreateAccount ? <CreateAccount /> : isRecoverAccount ? <RecoverAccount /> : <Login />
+  }
+
+  return isEditor ? (
+    <ToggleModalContextProvider>
+      <Editor>
+        <EditorModal />
+        <Render />
+      </Editor>
+    </ToggleModalContextProvider>
+  ) : (
+    <Render />
+  )
+}
+
+export default function Lumina({ router, getData, components, navigate }: TProps = defaultValues) {
+  const [builderData, setBuilderData] = useState<IData>({ pages: {}, components: {} })
+  const [isLoggedIn] = useState<boolean>(!!sessionStorage.getItem('user'))
   useEffect(() => {
     async function fetchData() {
-      setBuilderData(await getData())
-    }
-    fetchData()
-  }, [getData])
-  useEffect(() => {
-    async function fetchData() {
-      setBuilderData(await getData())
+      const data = await getData()
+      setBuilderData(builderDataParser(data))
     }
     fetchData()
   }, [getData])
@@ -61,41 +101,34 @@ export default function Lumina({ selectedPage, getData, components }: TProps = d
     if (components) setComponentConfig(components)
   }, [components])
 
-  if (!builderData[selectedPage]) return null
+  if (!Object.keys(builderData.pages).length) return null
+
+  const { selectedPage, isEditor, params, pathComponents } = routerParser(
+    router.location.pathname,
+    builderData
+  )
+
+  if (!builderData.pages[selectedPage]) return null
   return (
     <ContextProvider
+      router={router}
       data={{
-        appContext: { editor: true },
+        appContext: { isEditor, params, pathComponents, selectedPage },
         builderDataContext: {
           builderData,
           selectedPage,
-          pages: Object.keys(builderData),
+          pages: Object.keys(builderData.pages),
         },
       }}
+      navigate={navigate}
     >
-      <FormThemeProvider theme={{ colors: { success: 'none' } }}>
-        <ToggleModalContextProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route index element={<Render />} />
-              <Route
-                path='/editor'
-                element={
-                  <Editor>
-                    <EditorModal />
-                    <Render />
-                  </Editor>
-                }
-              />
-            </Routes>
-          </BrowserRouter>
-        </ToggleModalContextProvider>
-      </FormThemeProvider>
+      <InitialRender isEditor={isEditor} isLoggedIn={isLoggedIn} router={router} />
     </ContextProvider>
   )
 }
 
 export { EditorButtonsContainer } from './components/editor-buttons-container'
+export { useAppContext } from '@/context/contextProvider'
 export type { TConfig } from './models/editor-buttonModel'
 
-export type { IData, IPageData }
+export type { IData, IPageData, IConnectorData }
