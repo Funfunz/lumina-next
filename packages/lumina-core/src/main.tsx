@@ -98,7 +98,7 @@ const InitialRender = ({ isEditor, isLoggedIn, router, config }: TInitialRenderP
         ) : config.mobileView === 'container' ? (
           <Render />
         ) : (
-          <iframe className='lum-iframe' src={iframePath}></iframe>
+          <iframe className='lum-iframe' src={iframePath} />
         )}
       </Editor>
     </ToggleModalContextProvider>
