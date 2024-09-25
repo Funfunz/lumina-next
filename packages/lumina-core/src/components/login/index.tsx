@@ -17,7 +17,7 @@ const Login: React.FC = () => {
       alert('Login successful!')
       window.location.pathname = '/' // Redirect to the editor
     } else {
-      setError('Invalid username or password.')
+      setError('Invalid username or password')
     }
   }
 
