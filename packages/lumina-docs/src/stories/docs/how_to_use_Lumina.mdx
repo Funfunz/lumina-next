@@ -1,6 +1,6 @@
 import { Meta, Markdown } from '@storybook/blocks'
 
-<Meta title='Docs/Components/How to use Lumina' />
+<Meta title='Docs/How to use Lumina' />
 
 # How to use Lumina
 
@@ -34,11 +34,16 @@ To install Lumina, navigate to the root of your project and run the following co
 npm install lumina
 ```
 
-Alternatively, you can also use yarn or pnpm add lumina
+Alternatively, you can also use yarn
 
 ```sh
 yarn add lumina
-pnpm install lumina
+```
+
+or pnpm
+
+```sh
+pnpm add lumina
 ```
 
 ## Adding and importing Lumina
@@ -54,18 +59,22 @@ import luminaConfig from './luminaComponents/config'
 
 ### Example
 
-```ts
-import React from 'react';
-import Lumina from '@lumina/core';
-import luminaConfig from './luminaComponents/config';
+```tsx
+import React from 'react'
+import Lumina from '@lumina/core'
+import luminaConfig from './luminaComponents/config'
 
 const App = () => {
   return (
-    <div>
-      <Lumina config={luminaConfig} />
-    </div>
-  );
-};
+    <Lumina
+      config={{ mobileView: 'iframe' }}
+      router={router}
+      getData={getFullData}
+      navigate={navigate}
+      components={luminaConfig}
+    />
+  )
+}
 ```
 
 <table>
@@ -92,40 +101,13 @@ const App = () => {
 
 ## Required Props
 
-When using Lumina, certain props are required to be passed to the components. These props are used to configure the behavior and appearance of the components.
+To use Lumina, the following props are **mandatory** to be called on `<Lumina/>` component:
 
-The following props are required:
-
-- [config](/docs/docs-components-add-new-component--documentation#3-final-lumina-component-configuration)
-  : An object that contains the configuration for the component.
-- `children`: The content to be rendered inside the component.
-
-Additionally, some components may require additional props specific to their functionality.
-
-### Example
-
-Here's an example of how to pass the required props to a component:
-
-```tsx
-import React from 'react'
-import Lumina from '@lumina/core'
-import luminaConfig from './luminaComponents/config'
-
-// Main application component
-const App = () => {
-  return (
-    <div>
-      {/* Lumina component with configuration */}
-      <Lumina config={luminaConfig}>
-        {/* Container for your content */}
-        <Container>{/* add your content here */}</Container>
-      </Lumina>
-    </div>
-  )
-}
-
-export default App
-```
+- `config`: Receives the object `mobileView` that renders a Mobile View in either an `iframe` or a `container`.
+- `router`: Sets the URL path for the page/product.
+- `getData`:
+- `navigate`:
+- `component`: The content to be rendered inside the component, check the example [here](/docs/docs-components-required-configuration--documentation).
 
 ## Next steps
 
