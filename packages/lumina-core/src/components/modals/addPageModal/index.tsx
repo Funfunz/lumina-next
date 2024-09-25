@@ -7,6 +7,8 @@ import { Input } from '@/components/form-components/input'
 import { Modal } from '../utils/modal'
 import { CancelButton } from '../utils/cancelButton'
 import { generateId } from '../utils'
+import { useTranslation } from 'react-i18next'
+import { i18nextInstance } from '@/utils/i18next'
 
 export const ADDPAGE = 'ADDPAGE'
 
@@ -27,6 +29,7 @@ const formDataInitialState = {
 }
 
 export const AddPageModal = () => {
+  const { t } = useTranslation('', { i18n: i18nextInstance })
   const { handleCloseModal } = useToggleModalContext()
   const { dispatch } = useLuminaContext()
 
@@ -101,7 +104,7 @@ export const AddPageModal = () => {
 
   return (
     <Modal
-      title='Add Page'
+      title={t('addPageModal')}
       titleIcon='lum-icon-component'
       contentLabel='Add a page Modal'
       content={

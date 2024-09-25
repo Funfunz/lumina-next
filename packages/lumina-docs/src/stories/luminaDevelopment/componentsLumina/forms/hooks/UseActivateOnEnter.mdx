@@ -1,0 +1,111 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
+
+<Meta title='Lumina Development/Components Lumina/Forms/Hooks/useActivateOnEnter/useActivateOnEnter' />
+
+# useActivateOnEnter Custom Hook
+
+## Concepts
+
+The main purpose of this hook is to extend a component to have the possibility for the user to submit something by pressing enter, specifically while using `<Input />` component.
+
+## Props Explanation
+
+- **`activateEnterPress?`**: `boolean`
+
+  - **Description**: A boolean flag that, when set to true, enables the functionality to trigger an action when the `Enter key` is pressed.
+  - **Usage**: If true, pressing `Enter key` will either call the `onEnterPress` function or submit the form.
+
+- **`clearOnEnterPress?`**: `boolean`
+
+  - **Description**: A `boolean` flag that, when set to **true**, clears the input field after the `Enter key` is pressed.
+  - **Usage**: If **true**, the input field will be cleared after the `Enter key` is pressed.
+
+- **`onEnterPress?`**: `() => void`
+
+  - **Description**: A callback function that is executed when the `Enter key` is pressed, provided `activateEnterPress` is **true**.
+  - **Usage**: You can pass a function here to define what should happen when `Enter key` is pressed. If not provided, the form will be submitted by `default`.
+
+- **`onChange?`**: `(event: ChangeEvent<HTMLInputElement>) => void`
+
+  - **Description**: A callback function that is executed whenever the input value changes.
+  - **Usage**: You can pass a function here to handle changes to the input value. This function receives the change event as an argument.
+
+- **`value?`**: `string`
+  - **Description**: The initial `value` of the input field.
+  - **Usage**: You can set the `initial value` of the input field by passing a `string` here.
+
+## Hook Internals
+
+- **`inputRef`**: A reference to the input element, used to manipulate the input field directly.
+- **`value`**: A state variable that holds the current value of the input field.
+- **`setValue`**: A function to update the value state.
+- **`useEffect`**: This effect runs whenever the value changes and calls the onChange function if it is provided.
+- **`handleKeyDown`**: This function handles the keydown event. If the `Enter key` is pressed and `activateEnterPress` is **true**, it calls the `onEnterPress` function or submits the form. If `clearOnEnterPress` is **true**, it clears the input field.
+
+## Return Values
+
+- **`value`**: The current value of the input field.
+- **`setValue`**: Function to update the input value.
+- **`inputRef`**: Reference to the input element.
+- **`handleKeyDown`**: Function to handle the `keydown` event.
+
+## Usage
+
+You can use this hook by importing on the component you want as follows
+
+```tsx
+import { useActivateOnEnter } from '@src/components/form-components/utils/hooks/useActivateOnEnter/index.tsx'
+```
+
+After that, the `props` should be called either as an `interface` or a `type` of `MyComponent` that will be used on.\
+
+> **Note**: Actually, there’s no need to pass the hook itself into the `TInputProps`. The `hook` is used internally within the component, so the `props` related to the `hook` (`activateEnterPress`, `clearOnEnterPress`, `onEnterPress`, and `onChange`) are passed to the component to control its behavior.
+> The reason we are including these props in `TInputProps` is to allow the **parent component** to configure the behavior of the `Input` component.
+
+```tsx
+type TMyComponentProps = {
+  props1: number
+  props2: string
+  props3: () => void
+  activateEnterPress?: boolean
+  clearOnEnterPress?: boolean
+  onEnterPress?: () => void
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  value?: string
+}
+```
+
+Also add them to the component `props` from `MyComponent` as well
+
+```tsx
+export const MyComponent = ({props1, props2, props3, activateEnterPress, clearOnEnterPress, onEnterPress, onChange, value }: TMyComponentProps){}
+```
+
+Then, you can call the `Custom Hook` as shown below
+
+```tsx
+const {
+  value: inputValue,
+  setValue,
+  inputRef,
+  handleKeyDown,
+} = useActivateOnEnter({ activateEnterPress, clearOnEnterPress, onEnterPress, onChange, Value })
+```
+
+On `MyComponent`, you can simply return the `props` in another `AnotherComponent` as the example below
+
+```tsx
+return (
+  <AnotherComponent
+    props1={props1}
+    props2={props2}
+    props3={props3}
+    ref={inputRef}
+    onKeyDown={handleKeyDown}
+    value={inputValue}
+    onChange={e => setValue(e.target.value)}
+  />
+)
+```
+
+On the **`Enter Press on Input` example**, I will leave the whole code for the `hook` usage on an `<Input />` component.

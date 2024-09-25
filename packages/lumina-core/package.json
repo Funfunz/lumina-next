@@ -59,7 +59,9 @@
   },
   "dependencies": {
     "classnames": "^2.5.1",
+    "i18next": "^23.15.1",
     "react-hook-form": "^7.52.2",
+    "react-i18next": "^15.0.2",
     "react-modal": "^3.16.1",
     "react-select": "^5.8.0",
     "sass": "^1.77.8",

@@ -1,0 +1,21 @@
+{/* Build custom documentation */}
+
+import { Canvas, Meta } from '@storybook/blocks'
+import * as SearchBarStories from './SearchBar.stories'
+
+<Meta of={SearchBarStories} />
+
+# Search bar component
+
+## Concepts
+
+Displays a search bar
+
+## Usage
+
+```jsx
+// my-react-script.jsx
+<SearchBar />
+```
+
+<Canvas of={SearchBarStories.Primary} />
