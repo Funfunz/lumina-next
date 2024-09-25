@@ -25,6 +25,8 @@ type TRouter = {
     key: string
     pathname: string
     search: string
+    host: string
+    protocol: string
   }
   base: string
 }
@@ -44,6 +46,8 @@ const defaultValues: TProps = {
       key: '',
       pathname: '',
       search: '',
+      host: '',
+      protocol: '',
     },
     base: '/',
   },
@@ -71,10 +75,17 @@ type TInitialRenderProps = {
 }
 
 const InitialRender = ({ isEditor, isLoggedIn, router, config }: TInitialRenderProps) => {
-  const porcariaqualquer = useAppContext()
-  console.log({ porcariaqualquer, config })
+  const appContext = useAppContext()
+  console.log({ appContext, config })
   const isCreateAccount = router.location.pathname.includes('/createAccount')
   const isRecoverAccount = router.location.pathname.includes('/recoverAccount')
+  let iframePath = ''
+  if (appContext.isMobile) {
+    const params = new URLSearchParams(router.location.search)
+    params.delete('editor')
+    iframePath = `${router.location.protocol}//${router.location.host}${router.location.pathname}${params.size > 0 ? '?' + params.toString() : ''}`
+  }
+
   if (!isLoggedIn && isEditor) {
     return isCreateAccount ? <CreateAccount /> : isRecoverAccount ? <RecoverAccount /> : <Login />
   }
@@ -83,19 +94,17 @@ const InitialRender = ({ isEditor, isLoggedIn, router, config }: TInitialRenderP
     <ToggleModalContextProvider>
       <Editor>
         <EditorModal />
-        <Render />
+        {!appContext.isMobile ? (
+          <Render />
+        ) : config.mobileView === 'container' ? (
+          <Render />
+        ) : (
+          <iframe src={iframePath} width={720} height={'100%'} />
+        )}
       </Editor>
     </ToggleModalContextProvider>
   ) : (
-    <>
-      {!porcariaqualquer.isMobile ? (
-        <Render />
-      ) : config.mobileView === 'container' ? (
-        <Render />
-      ) : (
-        <iframe src={router.location.pathname} width={720} />
-      )}
-    </>
+    <Render />
   )
 }
 
