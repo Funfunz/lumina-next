@@ -3,10 +3,9 @@
   width: 100%;
   height: 100%;
 
-  @container lumina ( max-width: 750px) {
+  @container lumina ( max-width: 720px) {
     width: 50%;
     height: 50%;
-    background-color: green;
   }
 
   .image {

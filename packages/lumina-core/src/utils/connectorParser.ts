@@ -7,7 +7,6 @@ const addComponentsToData = (
 ): IData => {
   components.forEach(component => {
     if (parsedData.components[component.id]) {
-      console.log('Duplicated componentId', component.id)
       return
     }
     parsedData.components[component.id] = {

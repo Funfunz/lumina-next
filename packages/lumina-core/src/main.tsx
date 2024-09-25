@@ -76,7 +76,6 @@ type TInitialRenderProps = {
 
 const InitialRender = ({ isEditor, isLoggedIn, router, config }: TInitialRenderProps) => {
   const appContext = useAppContext()
-  console.log({ appContext, config })
   const isCreateAccount = router.location.pathname.includes('/createAccount')
   const isRecoverAccount = router.location.pathname.includes('/recoverAccount')
   let iframePath = ''
@@ -99,7 +98,7 @@ const InitialRender = ({ isEditor, isLoggedIn, router, config }: TInitialRenderP
         ) : config.mobileView === 'container' ? (
           <Render />
         ) : (
-          <iframe src={iframePath} width={720} height={'100%'} />
+          <iframe className='lum-iframe' src={iframePath}></iframe>
         )}
       </Editor>
     </ToggleModalContextProvider>
