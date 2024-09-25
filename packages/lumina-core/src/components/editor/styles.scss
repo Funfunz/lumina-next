@@ -20,21 +20,10 @@
   @include lum-typo-reset;
 }
 
-.rendererWrapper {
-  container: mobile / inline-size;
-
-  @container mobile (min-width: 150px) {
-    .rendererSection {
-      width: auto;
-    }
-  }
+.rendererSection {
+  container: lumina / inline-size;
 
   &.mobile-view {
-    @container mobile (min-width: 150px) {
-      .rendererSection {
-        max-width: 720px;
-        background-color: lightgreen;
-      }
-    }
+    max-width: 720px;
   }
 }

@@ -16,7 +16,13 @@ const RouteExtractor = () => {
   }
   const navigate = useNavigate()
   return (
-    <Lumina router={router} getData={getFullData} navigate={navigate} components={luminaConfig} />
+    <Lumina
+      config={{ mobileView: 'iframe' }}
+      router={router}
+      getData={getFullData}
+      navigate={navigate}
+      components={luminaConfig}
+    />
   )
 }
 

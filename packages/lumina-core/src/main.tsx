@@ -1,4 +1,4 @@
-import { ContextProvider } from './context/contextProvider'
+import { ContextProvider, useAppContext } from './context/contextProvider'
 import { Editor } from './components/editor'
 import CreateAccount from './components/login/createAccount'
 import RecoverAccount from './components/login/recoverAccount'
@@ -34,6 +34,7 @@ type TProps = {
   getData: () => Promise<IConnectorData>
   components: TComponentConfig
   navigate?: (url: string) => void
+  config: { mobileView: string }
 }
 
 const defaultValues: TProps = {
@@ -48,6 +49,7 @@ const defaultValues: TProps = {
   },
   getData: async () => ({}),
   components: {},
+  config: { mobileView: 'iframe' },
 }
 
 let componentConfig: TComponentConfig = {}
@@ -65,9 +67,12 @@ type TInitialRenderProps = {
   isEditor: boolean
   isLoggedIn: boolean
   router: TRouter
+  config: { mobileView: string }
 }
 
-const InitialRender = ({ isEditor, isLoggedIn, router }: TInitialRenderProps) => {
+const InitialRender = ({ isEditor, isLoggedIn, router, config }: TInitialRenderProps) => {
+  const porcariaqualquer = useAppContext()
+  console.log({ porcariaqualquer, config })
   const isCreateAccount = router.location.pathname.includes('/createAccount')
   const isRecoverAccount = router.location.pathname.includes('/recoverAccount')
   if (!isLoggedIn && isEditor) {
@@ -82,13 +87,28 @@ const InitialRender = ({ isEditor, isLoggedIn, router }: TInitialRenderProps) =>
       </Editor>
     </ToggleModalContextProvider>
   ) : (
-    <Render />
+    <>
+      {!porcariaqualquer.isMobile ? (
+        <Render />
+      ) : config.mobileView === 'container' ? (
+        <Render />
+      ) : (
+        <iframe src={router.location.pathname} width={720} />
+      )}
+    </>
   )
 }
 
-export default function Lumina({ router, getData, components, navigate }: TProps = defaultValues) {
+export default function Lumina({
+  router,
+  getData,
+  components,
+  navigate,
+  config,
+}: TProps = defaultValues) {
   const [builderData, setBuilderData] = useState<IData>({ pages: {}, components: {} })
   const [isLoggedIn] = useState<boolean>(!!sessionStorage.getItem('user'))
+
   useEffect(() => {
     async function fetchData() {
       const data = await getData()
@@ -113,7 +133,7 @@ export default function Lumina({ router, getData, components, navigate }: TProps
     <ContextProvider
       router={router}
       data={{
-        appContext: { isEditor, params, pathComponents, selectedPage },
+        appContext: { isEditor, params, pathComponents, selectedPage, isMobile: false },
         builderDataContext: {
           builderData,
           selectedPage,
@@ -122,7 +142,7 @@ export default function Lumina({ router, getData, components, navigate }: TProps
       }}
       navigate={navigate}
     >
-      <InitialRender isEditor={isEditor} isLoggedIn={isLoggedIn} router={router} />
+      <InitialRender isEditor={isEditor} isLoggedIn={isLoggedIn} router={router} config={config} />
     </ContextProvider>
   )
 }
