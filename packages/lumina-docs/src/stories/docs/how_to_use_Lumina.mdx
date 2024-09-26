@@ -99,17 +99,67 @@ const App = () => {
   </tbody>
 </table>
 
-## Required Props
+## Lumina Props
 
 To use Lumina, the following props are **mandatory** to be called on `<Lumina/>` component:
 
-- `config`: Receives the object `mobileView` that renders a Mobile View in either an `iframe` or a `container`.
-- `router`: Sets the URL path for the page/product.
-- `getData`:
-- `navigate`:
-- `component`: The content to be rendered inside the component, check the example [here](/docs/docs-components-required-configuration--documentation).
+#### `router`
+
+- **Type**: `TRouter`
+- **Description**: This prop contains routing information, including the current location, base path, and other URL-related details.
+
+```tsx
+type TRouter = {
+  location: {
+    hash: string
+    key: string
+    pathname: string
+    search: string
+    host: string
+    protocol: string
+  }
+  base: string
+}
+```
+
+#### `config`
+
+- **Type**: `{mobileview: string}`
+- **Description**: : Configuration settings for the component. Currently, it includes settings for mobile view.
+
+```tsx
+config: { mobileView: 'iframe' | 'container' }`
+```
+
+#### `getData`
+
+- **Type**: `() => Promise<IConnectorData>`
+- **Description**: : A function that fetches data asynchronously. This data is then parsed and used to set the state for `builderData`.
+
+#### `navigate`
+
+- **Type**: `(url: string) => void`
+- **Description**: : An optional function used for navigation. It allows the component to programmatically navigate to different URLs.
+
+#### `component`
+
+- **Type**: `TComponentConfig`
+- **Description**: : An object that maps component names to their respective component functions and configurations.
+
+```tsx
+export type TComponentConfig = {
+  [key: string]: {
+    component: (data: any) => React.JSX.Element | null
+    config: TConfig
+  }
+}
+```
 
 ## Next steps
 
 For more on how to add components, see the documentation [Add new component](/docs/docs-components-add-new-component--documentation)<br/>
 For better understanding of the configuration needed, see the documentation [Required configuration](/docs/docs-components-required-configuration--documentation)
+
+```
+
+```

@@ -3,3 +3,56 @@ import { Meta, Markdown } from '@storybook/blocks'
 <Meta title='Docs/How to use Mobile View' />
 
 # How to use Mobile View
+
+## Props
+
+#### `mobileView`
+
+- **Definition**: `mobileView` is a configuration setting that determines how the application should be displayed on mobile devices. It can have different values, such as 'iframe' or 'container', which specify different rendering modes.
+- **Usage**: This setting is typically passed as a prop to components that need to adjust their behavior or layout based on the device type. In our Lumina component, it is part of the config prop.
+- **Purpose**: The purpose of `mobileView` is to provide flexibility in how the application adapts to mobile devices.
+
+#### `isMobile`
+
+- **Definition**: `isMobile` is a boolean value that indicates whether the application is currently being viewed on a mobile device.
+- **Usage**: This value is stored in the application context ( `appContext` ) and can be accessed using the `useAppContext` **hook**. It is used to conditionally render components or apply specific styles based on the device type.
+- **Purpose**: The purpose of `isMobile` is to enable responsive design and functionality.
+
+## How to use `mobileView` and `isMobile`
+
+#### 1. Accessing `isMobile`
+
+- In our `MobileViewButton` component, we can access `isMobile` from the `appContext` to determine the current device type.
+
+```tsx
+const appContext = useAppContext()
+```
+
+#### 2. Toggling
+
+- `isMobile`: The `toggleView` function dispatches an action to update the `isMobile` state in the context. This allows us to switch between mobile and desktop views.
+
+```tsx
+const toggleView = () => {
+  dispatch({
+    type: 'setIsMobile',
+    data: !appContext.isMobile,
+  })
+}
+```
+
+#### 3. Conditional Rendering
+
+- We use the `isMobile` value to conditionally set the icon for the button. This ensures that the button reflects the current view mode.
+
+  ```tsx
+  <Button
+    buttonType='button'
+    iconLeft={appContext.isMobile ? 'lum-icon-mobile' : 'lum-icon-mobile'}
+    onClick={toggleView}
+  />
+  ```
+
+```
+
+```
