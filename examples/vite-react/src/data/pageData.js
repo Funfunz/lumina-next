@@ -1,6 +1,4 @@
-import { IConnectorData } from '@lumina/core'
-
-const data: IConnectorData = {
+var data = {
   page1: {
     id: 'page1',
     friendlyName: 'Homepage',
@@ -274,5 +272,4 @@ const data: IConnectorData = {
     ],
   },
 }
-
 export default data
