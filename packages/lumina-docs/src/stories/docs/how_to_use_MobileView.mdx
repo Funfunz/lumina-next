@@ -11,55 +11,14 @@ import { Meta, Markdown } from '@storybook/blocks'
   > **_NOTE:_** You will only see this button on **Editor Mode**.
 </div>
 
-## Props
+## Lumina Configuration
 
-#### `mobileView`
+On `Lumina` the `config` prop contains a `mobileView` object that allows you to either call the `string` **iframe** or the `string` **container**.
 
-- **Definition**: `mobileView` is a configuration setting that determines how the application should be displayed on mobile devices. It can have different values, such as 'iframe' or 'container', which specify different rendering modes.
-- **Usage**: This setting is typically passed as a prop to components that need to adjust their behavior or layout based on the device type. In our Lumina component, it is part of the config prop.
-- **Purpose**: The purpose of `mobileView` is to provide flexibility in how the application adapts to mobile devices.
-
-#### `isMobile`
-
-- **Definition**: `isMobile` is a boolean value that indicates whether the application is currently being viewed on a mobile device.
-- **Usage**: This value is stored in the application context ( `appContext` ) and can be accessed using the `useAppContext` **hook**. It is used to conditionally render components or apply specific styles based on the device type.
-- **Purpose**: The purpose of `isMobile` is to enable responsive design and functionality.
-
-## How to use `mobileView` and `isMobile`
-
-#### 1. Accessing `isMobile`
-
-- In our `MobileViewButton` component, we can access `isMobile` from the `appContext` to determine the current device type.
-
-```tsx
-const appContext = useAppContext()
+```ts
+<Lumina config: { mobileView: 'iframe' | 'container' } ...props/>
 ```
 
-#### 2. Toggling
+`iframe`: The `iframe` in our `AppContext` will allow you to have a mobile view without any possibility of interaction inside the `iframe` itself, neither you can call the **Editor Mode**.
 
-- `isMobile`: The `toggleView` function dispatches an action to update the `isMobile` state in the context. This allows us to switch between mobile and desktop views.
-
-```tsx
-const toggleView = () => {
-  dispatch({
-    type: 'setIsMobile',
-    data: !appContext.isMobile,
-  })
-}
-```
-
-#### 3. Conditional Rendering
-
-- We use the `isMobile` value to conditionally set the icon for the button. This ensures that the button reflects the current view mode.
-
-  ```tsx
-  <Button
-    buttonType='button'
-    iconLeft={appContext.isMobile ? 'lum-icon-mobile' : 'lum-icon-mobile'}
-    onClick={toggleView}
-  />
-  ```
-
-```
-
-```
+`container`: On our `AppContext`, this allows you to use **Container Queries** on the components to create a view for Mobile, which in comparisson with the `iframe`, it allows you to interact with the components on the new view you will be creating.
