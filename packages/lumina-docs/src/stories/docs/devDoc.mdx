@@ -1,0 +1,87 @@
+import { Meta } from '@storybook/blocks'
+
+import Github from '../assets/github.svg'
+
+<Meta title='Docs/Developer Documentation - Basic' />
+
+## Folder Structure
+
+Understanding the folder structure of a project is crucial for navigating and maintaining the codebase efficiently. This section provides an overview of the typical folder structure used in our project.
+Our project follows a modular folder structure to keep the code organized and maintainable. Each folder has a specific purpose, and related files are grouped together.
+
+### Root Directory
+
+The root directory contains the main configuration files and entry points for the project.
+
+### /src Directory
+
+The `/src` directory contains the source code of the project. This is where the main application logic resides.
+
+#### /components
+
+The `/components` directory contains reusable UI components.
+
+#### /context
+
+The `/context` directory contains context providers and hooks for managing global state.
+
+#### /pages
+
+The `/pages` directory contains the different pages of the application.
+
+#### /styles
+
+The `/styles` directory contains the global styles and CSS files.
+
+## Branching System
+
+Our project follows a Git-based branching strategy that includes several types of branches, each serving a specific purpose. The main branches are `main`, `develop`, `feature`, `release`, and `hotfix`.
+
+#### main
+
+The `main` branch contains the production-ready code. It should always be stable and deployable. Only thoroughly tested and approved changes are merged into this branch.
+
+#### develop
+
+The `develop` branch serves as the integration branch for features. It contains the latest delivered development changes for the next release. Developers branch off from `develop` to create feature branches and merge back into `develop` when their features are complete.
+
+#### feature
+
+Feature branches are used to develop new features for the upcoming or a distant future release. They branch off from `develop` and are merged back into `develop` when the feature is complete.
+
+#### release
+
+Release branches support preparation of a new production release. They allow for last-minute fixes and preparing meta-data for a release. Once ready, release branches are merged into both `main` and `develop`.
+
+#### hotfix
+
+Hotfix branches are used to quickly patch production releases. They branch off from `main` and, once the fix is complete, are merged back into both `main` and `develop`.
+
+#### Documentation
+
+Used for documentation for the project
+
+### Example
+
+Creating a Hotfix Branch:
+Branch off from main.
+Implement the hotfix.
+Merge into both main and develop and delete the hotfix branch.
+
+git checkout main
+git pull origin main
+git checkout -b hotfix/hotfix-name
+
+# Implement hotfix
+
+git add .
+git commit -m "Fix issue description"
+git checkout main
+git merge hotfix/hotfix-name
+git push origin main
+git checkout develop
+git merge hotfix/hotfix-name
+git push origin develop
+git branch -d hotfix/hotfix-name
+
+## Developing new internal components
