@@ -1,0 +1,165 @@
+import { Meta, Markdown } from '@storybook/blocks'
+
+<Meta title='Docs/How to use Lumina' />
+
+# How to use Lumina
+
+1. Start a react application - see [Initial Application](#initial-application)
+2. Install Lumina
+3. Import and add Lumina to the application
+4. Setup required props and configurations - see [Required Configuration](/docs/docs-components-required-configuration--documentation)
+
+## Initial application
+
+Before using Lumina, you need to set up a React application. You can create a new React app using Create React App (CRA) or other tools like Next.js or Vite.<br/>
+For more on initializing react applications, see the following documentation:
+
+### Create React App (CRA)
+
+[Initiate application with CRA](https://create-react-app.dev/docs/getting-started)
+
+### NextJS
+
+[Initiate application with NextJS](https://nextjs.org/docs/getting-started/installation)
+
+### Vite
+
+[Initiate application with Vite](https://vitejs.dev/guide/)
+
+## Installing Lumina
+
+To install Lumina, navigate to the root of your project and run the following command using npm:
+
+```sh
+npm install lumina
+```
+
+Alternatively, you can also use yarn
+
+```sh
+yarn add lumina
+```
+
+or pnpm
+
+```sh
+pnpm add lumina
+```
+
+## Adding and importing Lumina
+
+To use Lumina in your React application, you need to import it and configure it properly.<br/>
+First, import Lumina from the Lumina/core package.<br/>
+Next, import your Lumina configuration from a separate file - see [Lumina Configuration](/docs/docs-components-add-new-component--documentation#3-final-lumina-component-configuration)
+
+```ts
+import Lumina from '@lumina/core'
+import luminaConfig from './luminaComponents/config'
+```
+
+### Example
+
+```tsx
+import React from 'react'
+import Lumina from '@lumina/core'
+import luminaConfig from './luminaComponents/config'
+
+const App = () => {
+  return (
+    <Lumina
+      config={{ mobileView: 'iframe' }}
+      router={router}
+      getData={getFullData}
+      navigate={navigate}
+      components={luminaConfig}
+    />
+  )
+}
+```
+
+<table>
+  <thead>
+    <tr>
+      <td>**Import**</td>
+      <td>**Required**</td>
+      <td>**Description**</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>**Lumina**</td>
+      <td>Yes</td>
+      <td>Importing Lumina to project</td>
+    </tr>
+    <tr>
+      <td>**luminaConfig**</td>
+      <td>Yes</td>
+      <td>Configurations needed to Lumina</td>
+    </tr>
+  </tbody>
+</table>
+
+## Lumina Props
+
+To use Lumina, the following props are **mandatory** to be called on `<Lumina/>` component:
+
+#### `router`
+
+- **Type**: `TRouter`
+- **Description**: This prop contains routing information, including the current location, base path, and other URL-related details.
+
+```tsx
+type TRouter = {
+  location: {
+    hash: string
+    key: string
+    pathname: string
+    search: string
+    host: string
+    protocol: string
+  }
+  base: string
+}
+```
+
+#### `config`
+
+- **Type**: `{mobileview: string}`
+- **Description**: : Configuration settings for the component. Currently, it includes settings for mobile view.
+
+```tsx
+config: { mobileView: 'iframe' | 'container' }`
+```
+
+#### `getData`
+
+- **Type**: `() => Promise<IConnectorData>`
+- **Description**: : A function that fetches data asynchronously. This data is then parsed and used to set the state for `builderData`.
+
+#### `navigate`
+
+- **Type**: `(url: string) => void`
+- **Description**: : An optional function used for navigation. It allows the component to programmatically navigate to different URLs.
+
+#### `component`
+
+- **Type**: `TComponentConfig`
+- **Description**: : An object that maps component names to their respective component functions and configurations.
+
+```tsx
+export type TComponentConfig = {
+  [key: string]: {
+    component: (data: any) => React.JSX.Element | null
+    config: TConfig
+  }
+}
+```
+
+## Next steps
+
+For more on how to add components, see the documentation [Add new component](/docs/docs-components-add-new-component--documentation)<br/>
+For better understanding of the configuration needed, see the documentation [Required configuration](/docs/docs-components-required-configuration--documentation)
+
+```
+
+```

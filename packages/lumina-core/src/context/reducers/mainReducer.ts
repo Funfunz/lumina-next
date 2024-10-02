@@ -41,6 +41,5 @@ export const mainReducer = (
       action as TBuilderDataContextActions
     ),
   }
-  console.log({ newContext })
   return newContext
 }
