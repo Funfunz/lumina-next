@@ -104,14 +104,14 @@ export const AddPageModal = () => {
 
   return (
     <Modal
-      title={t('addPageModal')}
+      title={t('modal:addPage.title')}
       titleIcon='lum-icon-component'
-      contentLabel='Add a page Modal'
+      contentLabel={t('modal:addPage.contentLabel')}
       content={
         <Form>
           <tr>
             <td className='lum-form-table-cell lum-form-table-label'>
-              <label htmlFor='friendlyName'>Friendly name</label>
+              <label htmlFor='friendlyName'>{t('modal:friendlyName')}</label>
             </td>
             <td className='lum-form-table-cell' style={{ width: '100%' }}>
               <Input
@@ -126,7 +126,7 @@ export const AddPageModal = () => {
           </tr>
           <tr>
             <td className='lum-form-table-cell lum-form-table-label'>
-              <label htmlFor='description'>Description</label>
+              <label htmlFor='description'>{t('modal:description')}</label>
             </td>
             <td className='lum-form-table-cell'>
               <Input
@@ -141,7 +141,7 @@ export const AddPageModal = () => {
           </tr>
           <tr>
             <td className='lum-form-table-cell lum-form-table-label'>
-              <label htmlFor='urlParam'>URL parameters</label>
+              <label htmlFor='urlParam'>{t('modal:addPage.urlParams')}</label>
             </td>
             <td className='lum-form-table-cell'>
               <Input
@@ -164,7 +164,7 @@ export const AddPageModal = () => {
           </tr>
           <tr>
             <td className='lum-form-table-cell lum-form-table-label'>
-              <label htmlFor='urlParam'>Selected URL parameters</label>
+              <label htmlFor='urlParam'>{t('modal:addPage.urlSelectedParams')}</label>
             </td>
             <td className='lum-form-table-cell'>
               <table>
@@ -199,7 +199,7 @@ export const AddPageModal = () => {
           </tr>
           <tr>
             <td className='lum-form-table-cell lum-form-table-label'>
-              <label>Final URL</label>
+              <label>{t('modal:addPage.finalUrl')}</label>
             </td>
             <td className='lum-form-table-cell'>{['', ...formData.urlParams].join('/') || '/'}</td>
           </tr>
@@ -209,7 +209,7 @@ export const AddPageModal = () => {
         <>
           <Button
             buttonType='button'
-            text='Add page'
+            text={t('modal:addPage.submitButton')}
             style='primary'
             size='large'
             onClick={handleClickAddComponent}
