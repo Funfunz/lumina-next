@@ -1,7 +1,7 @@
-import { TreeBranch } from '../../treeBranch'
-import { EditorButtonsContainer } from '@/components/editor-buttons-container'
-import { DynamicComponent } from '@/components/render/dynamicComponent'
-import { IComponentTree } from '..'
+import { DynamicComponent } from '@/components/render/dynamicComponent.js'
+import { EditorButtonsContainer } from '@/main.js'
+import { TreeBranch } from '../../treeBranch/index.js'
+import { IComponentTree } from '../index.js'
 
 type TProps = {
   data: IComponentTree[]

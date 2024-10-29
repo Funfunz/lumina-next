@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import logo_md from '../../../assets/logo_md.svg'
-import { Title } from '@/components/title'
-import { Input } from '@/components/form-components/input'
-import { Button } from '@/components/button'
+import { Title } from '@/components/title/index.js'
+import { Input } from '@/components/form-components/input/index.js'
+import { Button } from '@/components/button/index.js'
 
 const RecoverAccount: React.FC = () => {
   const [email, setEmail] = useState<string>('')

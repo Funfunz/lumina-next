@@ -1,7 +1,7 @@
-import { Button } from '@/components/button'
+import { Button } from '@/components/button/index.js'
 import ReactModal from 'react-modal'
-import { useToggleModalContext } from '@/context/toggleModalContextProvider'
-import { Title } from '@/components/title'
+import { useToggleModalContext } from '@/context/toggleModalContextProvider.js'
+import { Title } from '@/components/title/index.js'
 import cx from 'classnames'
 
 export type TProps = {

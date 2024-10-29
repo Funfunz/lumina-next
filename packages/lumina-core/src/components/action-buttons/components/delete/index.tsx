@@ -1,10 +1,10 @@
-import { Button } from '@/components/button'
-import { useToggleModalContext } from '@/context/toggleModalContextProvider'
-import { useToggleMenuContext } from '@/context/toggleMenuContextProvider'
+import { Button } from '@/components/button/index.js'
+import { useToggleModalContext } from '@/context/toggleModalContextProvider.js'
+import { useToggleMenuContext } from '@/context/toggleMenuContextProvider.js'
 import {
   DELETECOMPONENT,
   TToggleModalDeleteComponentProps,
-} from '@/components/modals/deleteComponentModal'
+} from '@/components/modals/deleteComponentModal/index.js'
 
 type TProps = {
   componentId: string

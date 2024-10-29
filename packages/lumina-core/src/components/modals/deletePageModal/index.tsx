@@ -1,9 +1,9 @@
-import { Button } from '@/components/button'
+import { Button } from '@/components/button/index.js'
+import { useLuminaContext } from '@/context/contextProvider.js'
+import { useToggleModalContext } from '@/context/toggleModalContextProvider.js'
 import { useCallback } from 'react'
-import { useToggleModalContext } from '@/context/toggleModalContextProvider'
-import { useLuminaContext } from '@/context/contextProvider'
-import { Modal } from '../utils/modal'
-import { CancelButton } from '../utils/cancelButton'
+import { CancelButton } from '../utils/cancelButton.js'
+import { Modal } from '../utils/modal.js'
 
 export const DELETEPAGE = 'DELETEPAGE'
 

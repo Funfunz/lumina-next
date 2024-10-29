@@ -1,4 +1,4 @@
-import { getComponentConfig } from '@/main'
+import { getComponentConfig } from '@/main.js'
 
 /**
  * Gets the list of components from the client app and returns a specific config for the requested type
