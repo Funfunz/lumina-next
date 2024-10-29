@@ -1,4 +1,4 @@
-import { IBuilderDataContext } from '../builderDataContextReducer'
+import { IBuilderDataContext } from '../builderDataContextReducer.js'
 
 export interface ISetBuilderDataAction {
   type: 'setBuilderData'

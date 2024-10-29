@@ -1,6 +1,6 @@
-import { SearchBar } from '@/components/search-bar'
-import { Title } from '@/components/title'
 import { useCallback, useState } from 'react'
+import { SearchBar } from '../search-bar/index.js'
+import { Title } from '../title/index.js'
 
 type TProps = {
   titleText: string

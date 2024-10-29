@@ -1,5 +1,5 @@
-import { apiDispatcher } from '../apiDispatcher'
-import { IComponentProps } from '@/models/data'
+import { apiDispatcher } from '../apiDispatcher.js'
+import { IComponentProps } from '@/models/data.js'
 
 export interface IAppContext {
   params: Record<string, string>

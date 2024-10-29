@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import logo_md from '../../assets/logo_md.svg'
-import { Title } from '../title'
-import { Input } from '../form-components/input'
-import { Button } from '../button'
+import { Title } from '../title/index.js'
+import { Input } from '../form-components/input/index.js'
+import { Button } from '../button/index.js'
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState<string>('admin')
