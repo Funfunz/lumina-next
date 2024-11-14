@@ -76,7 +76,7 @@
       "eslint --quiet --fix",
       "prettier --write"
     ],
-    "!(*.scss|*.css|*.js|*.js|*.js|*.js|*.png|*.svg|*.jpg)": [
+    "!(*.scss|*.css|*.js|*.js|*.js|*.js|*.png|*.svg|*.jpg|*.eot|*.svg|*.ttf|*.woff)": [
       "prettier --write"
     ]
   }
