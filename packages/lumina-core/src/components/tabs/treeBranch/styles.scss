@@ -15,11 +15,27 @@
 .branch_container {
   @include lum-typo-body;
 
-  position: relative;
-  color: var(--lum-color-text);
+  & .branch_row {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-bottom: 2px;
+    color: var(--lum-color-text);
+    cursor: default;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow:
+      0 1px 2px 0 rgb(0 0 0 / 6%),
+      0 1px 3px 0 rgb(0 0 0 / 10%);
+
+    &:hover {
+      background-color: #f7f7f7;
+    }
+  }
 
   & .branch_children {
-    padding: 0 0 0 35px;
+    flex-basis: 100%;
+    padding-left: 35px;
   }
 
   &__filter {
@@ -31,21 +47,16 @@
   .tree_head-item {
     position: relative;
     display: flex;
-    align-items: center;
+    flex: 1;
     justify-content: space-between;
-    padding: 4px;
-    padding-left: 45px;
-    margin-bottom: 2px;
-    cursor: default;
-    background-color: white;
-    border: 1px solid transparent;
-    border-radius: 5px;
-    box-shadow:
-      0 1px 4px -1px rgb(0 0 0 / 6%),
-      0 4px 6px -1px rgb(0 0 0 / 10%);
+    padding-left: 12px;
 
-    &:hover {
-      background-color: #f7f7f7;
+    & > *:first-child {
+      -webkit-box-orient: vertical;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      line-clamp: 1;
+      overflow: hidden;
     }
   }
 
@@ -53,17 +64,22 @@
     cursor: pointer;
   }
 
+  .treeViewIcons {
+    display: flex;
+
+    & > *:not(:first-child) {
+      box-shadow: -1px 0 0 0 var(--lum-color-grey-600);
+    }
+  }
+
   .treeViewIcon {
-    position: absolute;
-    z-index: 1;
-    padding: 10px;
+    align-content: center;
+    width: var(--lum-size-icon-xl);
+    height: var(--lum-size-icon-xl);
     font-size: var(--lum-size-font-icon);
-    color: #111;
-    background-color: #f7f7f7;
-    border-radius: 5px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    opacity: 0.66;
+    color: var(--lum-color-icon-fill);
+    text-align: center;
+    background-color: var(--lum-color-white-smoke);
   }
 
   .treeTitle {

@@ -26,6 +26,7 @@ export type IComponentTree = {
   childrenTree?: IComponentTree[]
   hasFilterChildren?: boolean
   isMatch?: boolean
+  type: string
 } & IDataComponent
 
 const buildTree = (
