@@ -35,7 +35,7 @@
 
   & .branch_children {
     flex-basis: 100%;
-    padding-left: 35px;
+    padding-left: var(--lum-size-icon-xl);
   }
 
   &__filter {
