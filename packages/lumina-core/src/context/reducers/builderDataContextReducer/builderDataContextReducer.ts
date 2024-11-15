@@ -1,5 +1,5 @@
-import { IData, IDataPage } from '@/models/data.js'
-import { ICreatePageAction, IDeletePageAction, IUpdatePageAction } from './actions/pageActions.js'
+import { IData, IDataPage } from '@/models/data'
+import { ICreatePageAction, IDeletePageAction, IUpdatePageAction } from './actions/pageActions'
 import {
   ICreateComponentAction,
   IDeleteComponentAction,
@@ -7,9 +7,9 @@ import {
   IMoveUpComponentAction,
   IUpdateComponentAction,
   IVisibleComponentAction,
-} from './actions/componentActions.js'
-import { moveUpElement, moveDownElement, newComponentFactory } from './helpers.js'
-import { ISetBuilderDataAction, ISetSelectedPageAction } from './actions/builderActions.js'
+} from './actions/componentActions'
+import { moveUpElement, moveDownElement, newComponentFactory } from './helpers'
+import { ISetBuilderDataAction, ISetSelectedPageAction } from './actions/builderActions'
 
 export interface IBuilderDataContext {
   builderData: IData

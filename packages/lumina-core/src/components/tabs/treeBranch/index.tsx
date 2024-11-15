@@ -1,8 +1,8 @@
-import type { IDataComponent, IDataPage } from '@/models/data.js'
+import type { IDataComponent, IDataPage } from '@/models/data'
 import { useState, useEffect, useCallback } from 'react'
 import cx from 'classnames'
-import { ComponentTree } from '../components/componentTree/index.js'
-import { IComponentTree } from '../components/index.js'
+import { ComponentTree } from '../components/componentTree'
+import { IComponentTree } from '../components'
 
 type TProps = {
   data: IComponentTree | IDataPage

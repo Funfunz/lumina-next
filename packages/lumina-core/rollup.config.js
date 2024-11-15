@@ -4,6 +4,7 @@ import terser from '@rollup/plugin-terser'
 import typescript from '@rollup/plugin-typescript'
 import external from 'rollup-plugin-peer-deps-external'
 import image from '@rollup/plugin-image'
+import json from '@rollup/plugin-json'
 import preserveDirectives from 'rollup-plugin-preserve-directives'
 import meta from './package.json' assert { type: 'json' }
 
@@ -77,6 +78,7 @@ export default ['cjs', 'es', 'umd'].map(format => ({
   external: Object.keys(meta.dependencies || {}),
   plugins: [
     ...config[format].plugins,
+    json(),
     external(),
     nodeResolve({
       dedupe: ['react', 'react-dom'],

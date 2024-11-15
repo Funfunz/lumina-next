@@ -1,5 +1,5 @@
 import i18next, { Resource } from 'i18next'
-import modalTranslations from '@/components/modals/modals.i18next.json'
+import modalTranslations from '../components/modals/modals.i18next.json'
 
 const resources: Resource = {
   en: {

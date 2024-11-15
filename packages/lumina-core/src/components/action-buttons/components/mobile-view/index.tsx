@@ -1,6 +1,6 @@
-import { Button } from '@/components/button/index.js'
-import { useLuminaContext } from '@/context/contextProvider.js'
-import { useAppContext } from '@/main.js'
+import { Button } from '@/components/button'
+import { useLuminaContext } from '@/context/contextProvider'
+import { useAppContext } from '@/main'
 
 export const MobileViewButton = () => {
   const appContext = useAppContext()

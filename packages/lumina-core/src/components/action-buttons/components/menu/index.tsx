@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react'
-import { useToggleMenuContext } from '@/context/toggleMenuContextProvider.js'
-import { Button } from '@/components/button/index.js'
-import { ExpandableEditorMenu } from '@/components/expandable-editor-menu/index.js'
-import type { IComponentProps } from '@/models/data.js'
-import type { TConfig } from '@/models/editor-buttonModel.js'
+import { useToggleMenuContext } from '@/context/toggleMenuContextProvider'
+import { Button } from '@/components/button'
+import { ExpandableEditorMenu } from '@/components/expandable-editor-menu'
+import type { IComponentProps } from '@/models/data'
+import type { TConfig } from '@/models/editor-buttonModel'
 
 type TProps = {
   id: string

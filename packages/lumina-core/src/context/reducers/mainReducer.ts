@@ -10,13 +10,13 @@ import {
   TAppContextAction,
   appContextReducer,
   initialAppContextState,
-} from './appContextReducer.js'
+} from './appContextReducer'
 import {
   IBuilderDataContext,
   builderDataContextReducer,
   TBuilderDataContextActions,
   initialBuilderDataContextState,
-} from './builderDataContextReducer/builderDataContextReducer.js'
+} from './builderDataContextReducer/builderDataContextReducer'
 
 export type TAppContextDispatch = Dispatch<TAppContextAction | TBuilderDataContextActions>
 

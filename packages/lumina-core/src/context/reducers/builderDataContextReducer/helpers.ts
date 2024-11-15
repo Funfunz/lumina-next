@@ -1,5 +1,5 @@
-import { IComponentData, IComponentProps, IDataComponent } from '@/models/data.js'
-import { ICreateComponentAction } from './actions/componentActions.js'
+import { IComponentData, IComponentProps, IDataComponent } from '@/models/data'
+import { ICreateComponentAction } from './actions/componentActions'
 
 export function newComponentFactory(
   componentData: ICreateComponentAction['data'],

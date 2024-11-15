@@ -1,6 +1,6 @@
-import { useLuminaContext } from '@/context/contextProvider.js'
+import { useLuminaContext } from '@/context/contextProvider'
 
-import { DynamicComponent } from './dynamicComponent.js'
+import { DynamicComponent } from './dynamicComponent'
 
 interface IProps {
   componentIds?: string[]

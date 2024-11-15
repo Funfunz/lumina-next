@@ -1,16 +1,16 @@
-import { ContextProvider, useAppContext } from './context/contextProvider.js'
-import { Editor } from './components/editor/index.js'
-import CreateAccount from './components/login/createAccount/index.js'
-import RecoverAccount from './components/login/recoverAccount/index.js'
-import { Render } from './components/render/index.js'
-import type { IConnectorData, IData, IPageData } from './models/data.js'
+import { ContextProvider, useAppContext } from './context/contextProvider'
+import { Editor } from './components/editor'
+import CreateAccount from './components/login/createAccount'
+import RecoverAccount from './components/login/recoverAccount'
+import { Render } from './components/render'
+import type { IConnectorData, IData, IPageData } from './models/data'
 import { useEffect, useState } from 'react'
-import type { TConfig } from './models/editor-buttonModel.js'
-import { ToggleModalContextProvider } from './context/toggleModalContextProvider.js'
-import { EditorModal } from './components/modals/index.js'
-import { routerParser } from './utils/routerParser.js'
-import { builderDataParser } from './utils/connectorParser.js'
-import Login from './components/login/index.js'
+import type { TConfig } from './models/editor-buttonModel'
+import { ToggleModalContextProvider } from './context/toggleModalContextProvider'
+import { EditorModal } from './components/modals'
+import { routerParser } from './utils/routerParser'
+import { builderDataParser } from './utils/connectorParser'
+import Login from './components/login'
 
 export type TComponentConfig = {
   [key: string]: {
@@ -155,8 +155,8 @@ export default function Lumina({
   )
 }
 
-export { EditorButtonsContainer } from './components/editor-buttons-container/index.js'
-export { useAppContext } from './context/contextProvider.js'
-export type { TConfig } from './models/editor-buttonModel.js'
+export { EditorButtonsContainer } from './components/editor-buttons-container'
+export { useAppContext } from './context/contextProvider'
+export type { TConfig } from './models/editor-buttonModel'
 
 export type { IData, IPageData, IConnectorData }

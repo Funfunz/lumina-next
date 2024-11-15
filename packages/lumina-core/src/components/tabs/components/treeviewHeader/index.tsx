@@ -1,5 +1,5 @@
-import { MobileViewButton } from '../../../../components/action-buttons/components/mobile-view/index.js'
-import { Button } from '../../../../components/button/index.js'
+import { MobileViewButton } from '../../../../components/action-buttons/components/mobile-view'
+import { Button } from '../../../../components/button'
 import cx from 'classnames'
 import { useCallback } from 'react'
 
