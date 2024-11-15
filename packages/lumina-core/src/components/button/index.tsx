@@ -1,6 +1,6 @@
-import { ButtonContent } from './buttonContent'
+import { ButtonContent } from './buttonContent/index.js'
 import cx from 'classnames'
-import { TLumButton } from './button-models'
+import { TLumButton } from './button-models.js'
 import { forwardRef } from 'react'
 
 export type { TLumButton }

@@ -11,12 +11,22 @@ import './styles.css'
 const RouteExtractor = () => {
   const location = useLocation()
   const router = {
-    location,
+    location: {
+      host: window.location.host,
+      protocol: window.location.protocol,
+      ...location,
+    },
     base: '/',
   }
   const navigate = useNavigate()
   return (
-    <Lumina router={router} getData={getFullData} navigate={navigate} components={luminaConfig} />
+    <Lumina
+      config={{ mobileView: 'iframe' }}
+      router={router}
+      getData={getFullData}
+      navigate={navigate}
+      components={luminaConfig}
+    />
   )
 }
 

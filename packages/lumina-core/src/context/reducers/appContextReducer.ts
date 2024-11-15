@@ -1,14 +1,15 @@
-import { apiDispatcher } from '../apiDispatcher'
-import { IComponentProps } from '@/models/data'
+import { apiDispatcher } from '../apiDispatcher.js'
+import { IComponentProps } from '@/models/data.js'
 
 export interface IAppContext {
   params: Record<string, string>
   isEditor: boolean
   pathComponents: string[]
   selectedPage: string
+  isMobile?: boolean
 }
 
-export type TAppContextAction = IUpdateBackendAction | IResetAppContextAction
+export type TAppContextAction = IUpdateBackendAction | IResetAppContextAction | ISetIsMobileAction
 
 export interface IUpdateBackendAction {
   type: 'updateBackend'
@@ -23,11 +24,17 @@ export interface IResetAppContextAction {
   data: IAppContext
 }
 
+export interface ISetIsMobileAction {
+  type: 'setIsMobile'
+  data: boolean
+}
+
 export const initialAppContextState = {
   selectedPage: '',
   params: {},
   isEditor: false,
   pathComponents: [],
+  isMobile: false,
 }
 
 export const appContextReducer = (data: IAppContext, action: TAppContextAction) => {
@@ -38,6 +45,11 @@ export const appContextReducer = (data: IAppContext, action: TAppContextAction) 
     case 'resetAppContext':
       return {
         ...action.data,
+      }
+    case 'setIsMobile':
+      return {
+        ...data,
+        isMobile: action.data,
       }
 
     default:

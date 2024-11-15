@@ -1,4 +1,5 @@
-import { Button } from '@/components/button'
+import { MobileViewButton } from '../../../../components/action-buttons/components/mobile-view/index.js'
+import { Button } from '../../../../components/button/index.js'
 import cx from 'classnames'
 import { useCallback } from 'react'
 
@@ -14,7 +15,7 @@ export const TreeviewHeader = () => {
       <div className='treeviewNavIconsContainer'>
         <Button buttonType='button' iconLeft='lum-icon-info-fill' />
         <Button buttonType='button' iconLeft='lum-icon-history' />
-        <Button buttonType='button' iconLeft='lum-icon-mobile' />
+        <MobileViewButton />
       </div>
       <Button
         buttonType='button'

@@ -1,4 +1,4 @@
-import { IComponentProps, IDataComponent } from '@/models/data'
+import { IComponentProps, IDataComponent } from '@/models/data.js'
 
 export interface ICreateComponentAction {
   type: 'createComponent'

@@ -1,7 +1,10 @@
-import { Button } from '@/components/button'
-import { useToggleModalContext } from '@/context/toggleModalContextProvider'
-import { useToggleMenuContext } from '@/context/toggleMenuContextProvider'
-import { ADDCOMPONENT, TToggleModalAddComponentProps } from '@/components/modals/addComponentModal'
+import { Button } from '@/components/button/index.js'
+import { useToggleModalContext } from '@/context/toggleModalContextProvider.js'
+import { useToggleMenuContext } from '@/context/toggleMenuContextProvider.js'
+import {
+  ADDCOMPONENT,
+  TToggleModalAddComponentProps,
+} from '@/components/modals/addComponentModal/index.js'
 
 type TProps = {
   componentId?: string

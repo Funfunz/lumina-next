@@ -25,6 +25,6 @@ const config: StorybookConfig = {
   docs: {
     defaultName: 'Documentation',
   },
-  staticDirs: ['../public'],
+  staticDirs: ['../public', { from: '../src/stories/assets', to: '/assets' }],
 }
 export default config
