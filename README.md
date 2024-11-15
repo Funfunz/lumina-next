@@ -1,13 +1,21 @@
-# Turborepo starter
+# Lumina starter
 
-This is an official starter Turborepo.
+This is an official Lumina repo.
 
-## Using this example
+## Getting started
 
-Run the following command:
+To install all apps and packages node modules:
 
-```sh
-npx create-turbo@latest
+```
+pnpm i
+```
+
+## Develop
+
+To develop all apps and packages, run the following command:
+
+```
+pnpm dev
 ```
 
 ## What's inside?

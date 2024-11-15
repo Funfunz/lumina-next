@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import cx from 'classnames'
 import { useState } from 'react'
-import logo from '@/assets/logo_light_md.svg'
-import logoGrid from '@/assets/logo_grid_light_md.svg'
+import logo from '../../assets/logo_light_md.svg'
+import logoGrid from '../../assets/logo_grid_light_md.svg'
 import { Button } from '../button/index.js'
 import { ComponentsTab } from '../tabs/components/index.js'
 import { PagesTab } from '../tabs/pages/index.js'
