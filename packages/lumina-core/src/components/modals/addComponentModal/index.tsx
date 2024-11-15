@@ -24,7 +24,12 @@ export const AddComponentModal = () => {
     handleCloseModal,
     modalState: { id },
   } = useToggleModalContext<TToggleModalAddComponentProps>()
-  const { dispatch } = useLuminaContext()
+  const {
+    dispatch,
+    state: {
+      appContext: { selectedPage },
+    },
+  } = useLuminaContext()
   const [selectedConfig, setSelectedConfig] = useState<TConfig>()
   const [selectedOption, setSelectedOption] = useState<TSelectedOption>()
   const [friendlyName, setFriendlyName] = useState('')
@@ -61,11 +66,13 @@ export const AddComponentModal = () => {
    * if Id exists it's added to the parent matching the Id provided
    */
   const handleClickAddComponent = useCallback(() => {
+    console.log('CLICK')
     if (!selectedOption?.value) return
+    console.log({ selectedPage })
     dispatch({
       type: 'createComponent',
       data: {
-        parentId: id || '',
+        parentId: id || selectedPage,
         id: selectedOption.value + '_' + generateId(),
         type: selectedOption.value,
         friendlyName: friendlyName,

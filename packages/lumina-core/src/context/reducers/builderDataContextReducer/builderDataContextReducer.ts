@@ -131,6 +131,7 @@ export const builderDataContextReducer = (
             ...data.builderData.pages,
             [data.selectedPage]: {
               ...data.builderData.pages[data.selectedPage],
+              children: [...(data.builderData.pages[data.selectedPage].children || [])],
             },
           },
           components: {
@@ -139,19 +140,35 @@ export const builderDataContextReducer = (
         },
       }
       let orderIds: string[] = []
+
       if (action.data.parentId === data.selectedPage) {
         orderIds = [
           ...(stateCreateComponent.builderData.pages[action.data.parentId].children || []),
         ]
         stateCreateComponent.builderData.pages[action.data.parentId].children?.push(action.data.id)
       } else {
+        console.log(
+          'children',
+          stateCreateComponent.builderData.components[action.data.parentId].children
+        )
         orderIds = [
           ...(stateCreateComponent.builderData.components[action.data.parentId].children || []),
         ]
-        stateCreateComponent.builderData.components[action.data.parentId].children?.push(
-          action.data.id
-        )
+        stateCreateComponent.builderData.components[action.data.parentId] = {
+          ...stateCreateComponent.builderData.components[action.data.parentId],
+          children: [
+            ...(stateCreateComponent.builderData.components[action.data.parentId].children || []),
+            action.data.id,
+          ],
+        }
       }
+      console.log({
+        orderIds,
+        action,
+        selectedPage: data.selectedPage,
+        components: stateCreateComponent.builderData.components,
+        parentId: action.data.parentId,
+      })
       stateCreateComponent.builderData.components[action.data.id] = newComponentFactory(
         action.data,
         Math.max(
