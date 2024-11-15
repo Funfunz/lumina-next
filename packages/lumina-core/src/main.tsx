@@ -11,7 +11,6 @@ import { EditorModal } from './components/modals'
 import { routerParser } from './utils/routerParser'
 import { builderDataParser } from './utils/connectorParser'
 import Login from './components/login'
-import './styles/index.scss'
 
 export type TComponentConfig = {
   [key: string]: {
