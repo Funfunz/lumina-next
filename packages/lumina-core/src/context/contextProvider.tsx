@@ -10,11 +10,11 @@ import {
   TAppContextDispatch,
   initialContext,
   mainReducer,
-} from './reducers/mainReducer'
-import { IAppContext, initialAppContextState } from './reducers/appContextReducer'
-import { initialBuilderDataContextState } from './reducers/builderDataContextReducer/builderDataContextReducer'
-import { routerParser } from '@/utils/routerParser'
-import { IData } from '@/models/data'
+} from './reducers/mainReducer.js'
+import { IAppContext, initialAppContextState } from './reducers/appContextReducer.js'
+import { initialBuilderDataContextState } from './reducers/builderDataContextReducer/builderDataContextReducer.js'
+import { routerParser } from '@/utils/routerParser.js'
+import { IData } from '@/models/data.js'
 
 export interface IContext {
   state: IInitialStateType

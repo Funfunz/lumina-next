@@ -1,4 +1,4 @@
-import { IComponentData, IConnectorData, IData } from '@/models/data'
+import { IComponentData, IConnectorData, IData } from '@/models/data.js'
 
 const addComponentsToData = (
   components: IComponentData[],
@@ -7,7 +7,6 @@ const addComponentsToData = (
 ): IData => {
   components.forEach(component => {
     if (parsedData.components[component.id]) {
-      console.log('Duplicated componentId', component.id)
       return
     }
     parsedData.components[component.id] = {

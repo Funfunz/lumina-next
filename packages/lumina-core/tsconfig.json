@@ -20,7 +20,10 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "typeRoots": ["./src/@types", "./node_modules/@types"]
+    "typeRoots": ["./src/@types", "./node_modules/@types"],
+    "sourceMap": true
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "rollup.config.js"],
+  "compileOnSave": true
 }

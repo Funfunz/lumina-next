@@ -1,12 +1,12 @@
-import type { TSelectedOption } from '@/models/editor-buttonModel'
-import { useToggleModalContext } from '@/context/toggleModalContextProvider'
-import type { IComponentProps } from '@/models/data'
-import { ADDCOMPONENT, AddComponentModal } from './addComponentModal'
-import { EDITCOMPONENT, EditComponentModal } from './editComponentModal'
-import { DELETECOMPONENT, DeleteComponentModal } from './deleteComponentModal'
-import { ADDPAGE, AddPageModal } from './addPageModal'
-import { DELETEPAGE, DeletePageModal } from './deletePageModal'
-import { UPDATEPAGE, UpdatePageModal } from './updatePageModal'
+import { useToggleModalContext } from '@/context/toggleModalContextProvider.js'
+import { IComponentProps } from '@/models/data.js'
+import { TSelectedOption } from '@/models/editor-buttonModel.js'
+import { ADDCOMPONENT, AddComponentModal } from './addComponentModal/index.js'
+import { ADDPAGE, AddPageModal } from './addPageModal/index.js'
+import { DELETECOMPONENT, DeleteComponentModal } from './deleteComponentModal/index.js'
+import { DELETEPAGE, DeletePageModal } from './deletePageModal/index.js'
+import { EDITCOMPONENT, EditComponentModal } from './editComponentModal/index.js'
+import { UPDATEPAGE, UpdatePageModal } from './updatePageModal/index.js'
 
 export type TAddModalProps = {
   selectedOption: TSelectedOption | undefined

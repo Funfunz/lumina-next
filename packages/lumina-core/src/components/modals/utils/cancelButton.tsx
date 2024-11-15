@@ -1,5 +1,5 @@
-import { Button } from '@/components/button'
-import { useToggleModalContext } from '@/context/toggleModalContextProvider'
+import { Button } from '@/components/button/index.js'
+import { useToggleModalContext } from '@/context/toggleModalContextProvider.js'
 
 export const CancelButton = () => {
   const { handleCloseModal } = useToggleModalContext()

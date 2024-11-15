@@ -1,0 +1,24 @@
+import { Meta, Markdown } from '@storybook/blocks'
+
+<Meta title='Docs/How to use Mobile View' />
+
+# How to use Mobile View
+
+## Mobile View Button Location
+
+<img src='/assets/MobileView.png' />
+<div style={{ backgroundColor: 'rgba(255,0,0,0.2)' }}>
+  > **_NOTE:_** You will only see this button on **Editor Mode**.
+</div>
+
+## Lumina Configuration
+
+On `Lumina` the `config` prop contains a `mobileView` object that allows you to either call the `string` **iframe** or the `string` **container**.
+
+```ts
+<Lumina config: { mobileView: 'iframe' | 'container' } ...props/>
+```
+
+`iframe`: The `iframe` in our `AppContext` will allow you to have a mobile view without any possibility of interaction inside the `iframe` itself, neither you can call the **Editor Mode**.
+
+`container`: On our `AppContext`, this allows you to use **Container Queries** on the components to create a view for Mobile, which in comparisson with the `iframe`, it allows you to interact with the components on the new view you will be creating.
