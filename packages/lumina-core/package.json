@@ -4,15 +4,24 @@
   "description": "Lumina package",
   "author": "",
   "license": "ISC",
+  "type": "module",
+  "main": "dist/cjs/main.js",
+  "module": "dist/es/main.js",
+  "umd:main": "dist/main.js",
   "exports": {
     ".": {
-      "import": "./dist/main.js"
+      "types": "./dist/main.d.ts",
+      "module": "./dist/es/main.js",
+      "import": "./dist/es/main.js",
+      "require": "./dist/cjs/main.js"
     },
     "./style.css": "./dist/css/index.css",
     "./src/*": "./src/*"
   },
-  "main": "dist/main.js",
-  "type": "module",
+  "files": [
+    "dist",
+    "src"
+  ],
   "engines": {
     "node": ">=20"
   },
@@ -20,11 +29,13 @@
     "prepare": "husky",
     "dev": "npm run build && watch -p \"src/**/*\" -c \"npm run build\"",
     "clean:dist": "rimraf ./dist",
-    "build": "npm run clean:dist && npm run build:assets && npm run build:theme && npm run build:js && npm run build:css",
+    "build": "npm run clean:dist && npm run build:theme && npm run build:rollup && npm run build:css",
+    "build:old": "npm run clean:dist && npm run build:assets && npm run build:theme && npm run build:js && npm run build:css",
     "build:theme": "node ./src/styles/theme/build.js",
     "build:js": "tsc && tsc-alias",
     "build:css": "sass src/styles/index.scss dist/css/index.css",
     "build:assets": "copyfiles -u 1 ./src/assets/**/* ./dist",
+    "build:rollup": "rollup -c --bundleConfigAsCjs",
     "lint": "npm run lint:js && npm run lint:css && npm run prettier",
     "lint:js": "eslint ./src --fix --report-unused-disable-directives --max-warnings 10",
     "lint:css": "stylelint --fix \"**/*.{css,scss}\" --config ../../.stylelintrc.json",
@@ -32,6 +43,11 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
+    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-image": "^3.0.3",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^12.1.1",
     "@types/react": "^18.3.3",
     "@types/react-modal": "^3.16.3",
     "copyfiles": "^2.4.1",
@@ -48,24 +64,32 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "rimraf": "^6.0.1",
+    "rollup": "^4.24.4",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-preserve-directives": "^0.4.0",
+    "sass": "^1.77.8",
     "style-dictionary": "^4.0.1",
     "stylelint": "^16.8.1",
     "stylelint-config-prettier-scss": "^1.0.0",
     "stylelint-config-recess-order": "^5.0.1",
     "stylelint-config-standard": "^36.0.1",
     "stylelint-config-standard-scss": "^13.1.0",
+    "tsc-alias": "^1.8.10",
+    "tslib": "^2.8.1",
+    "typescript": "^5.5.4",
     "typescript-eslint": "^7.18.0",
-    "use-debounce": "^10.0.3"
+    "use-debounce": "^10.0.3",
+    "watch-cli": "^0.2.3"
   },
   "dependencies": {
     "classnames": "^2.5.1",
     "react-hook-form": "^7.52.2",
     "react-modal": "^3.16.1",
-    "react-select": "^5.8.0",
-    "sass": "^1.77.8",
-    "tsc-alias": "^1.8.10",
-    "typescript": "^5.5.4",
-    "watch-cli": "^0.2.3"
+    "react-select": "^5.8.0"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "lint-staged": {
     "*.{scss,css}": [
