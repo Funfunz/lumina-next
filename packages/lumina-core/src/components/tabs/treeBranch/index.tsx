@@ -4,6 +4,7 @@ import cx from 'classnames'
 import { ComponentTree } from '../components/componentTree/index.js'
 import { IComponentTree } from '../components/index.js'
 import { mapTreeElementIcon } from '@/utils/mapTreeElementIcon.js'
+import { getComponentConfig } from '@/main.js'
 
 type TProps = {
   data: IComponentTree | IDataPage
@@ -13,6 +14,9 @@ type TProps = {
 }
 
 export const TreeBranch = ({ data, childrens, children, expandable = true }: TProps) => {
+  const componentConfig = getComponentConfig()
+  const editorIcon = componentConfig[data.type || '']?.config?.editor?.iconType || ''
+
   const [showChildren, setShowChildren] = useState<boolean>()
   useEffect(() => {
     setShowChildren((data as IDataComponent).hasFilterChildren)
@@ -22,9 +26,7 @@ export const TreeBranch = ({ data, childrens, children, expandable = true }: TPr
     setShowChildren(!showChildren)
   }, [showChildren])
 
-  const treeElementIcon = (
-    <span className={cx(mapTreeElementIcon(data.type || ''), 'treeViewIcon')} />
-  )
+  const treeElementIcon = <span className={cx(mapTreeElementIcon(editorIcon), 'treeViewIcon')} />
 
   const renderIcons = () => {
     if (data.children?.length && expandable) {
