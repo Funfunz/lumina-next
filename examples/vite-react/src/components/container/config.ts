@@ -7,5 +7,6 @@ export const config: TConfig = {
     children: true,
     editable: false,
     delete: true,
+    iconType: 'container',
   },
 }

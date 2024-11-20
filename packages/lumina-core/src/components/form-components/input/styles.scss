@@ -19,13 +19,23 @@
   .input-container__text {
     @include lum-typo-input; // typography
 
-    padding: 10px 20px;
+    padding: 8px 12px 8px 32px;
     color: var(--lum-color-black);
     border: 1px solid var(--lum-color-grey);
     border-radius: 5px;
 
     &::placeholder {
       color: var(--lum-color-fg-weaker);
+    }
+
+    &:hover {
+      border-color: var(--lum-color-fg-default);
+    }
+
+    &:focus,
+    &:focus-visible {
+      border-color: var(--lum-color-accent-default);
+      outline: 1px solid var(--lum-color-accent-default);
     }
 
     &:disabled {

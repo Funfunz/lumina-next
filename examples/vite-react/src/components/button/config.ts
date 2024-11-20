@@ -62,5 +62,6 @@ export const config: TConfig = {
     children: true,
     editable: true,
     delete: true,
+    iconType: 'button',
   },
 }

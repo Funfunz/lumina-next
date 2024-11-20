@@ -3,7 +3,7 @@
     "color": {
       "icon": {
         "base": { "value": "{lum.color.fg.default.value}" },
-        "fill": { "value": "{lum.color.fg.default.value}" },
+        "fill": { "value": "#3F6392" },
         "stroke": { "value": "{lum.color.fg.default.value}" },
         "inverted": {
           "base": { "value": "{lum.color.surface.default.value}" },
