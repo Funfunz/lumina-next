@@ -2,16 +2,16 @@
  * Documentation found at ./readme.md
  */
 
-import { useLuminaContext } from '@/context/contextProvider'
+import { useLuminaContext } from '../../context/contextProvider'
 import cx from 'classnames'
-import type { TConfig } from '@/models/editor-buttonModel'
+import type { TConfig } from '../../models/editor-buttonModel'
 import { EditComponentButton } from '../action-buttons/components/edit'
 import { AddComponentButton } from '../action-buttons/components/add'
 import { DeleteComponentButton } from '../action-buttons/components/delete'
 import { VisibleComponentButton } from '../action-buttons/components/visible'
 import { MoveComponentButton } from '../action-buttons/components/move'
 import { ExpandMenuButton } from '../action-buttons/components/menu'
-import type { IComponentProps } from '@/models/data'
+import type { IComponentProps } from '../../models/data'
 
 type TProps = {
   id: string

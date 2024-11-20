@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import { Button } from '@/components/button'
-import { useLuminaContext } from '@/context/contextProvider'
+import { Button } from '../../../button'
+import { useLuminaContext } from '../../../../context/contextProvider'
 import { useCallback, useState } from 'react'
 
 type TProps = {

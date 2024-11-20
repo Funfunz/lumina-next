@@ -1,5 +1,5 @@
-import { DynamicComponent } from '@/components/render/dynamicComponent'
-import { EditorButtonsContainer } from '@/main'
+import { DynamicComponent } from '../../../render/dynamicComponent'
+import { EditorButtonsContainer } from '../../../../main'
 import { TreeBranch } from '../../treeBranch'
 import { IComponentTree } from '..'
 

@@ -1,4 +1,4 @@
-import { useLuminaContext } from '@/context/contextProvider'
+import { useLuminaContext } from '../../context/contextProvider'
 
 import { DynamicComponent } from './dynamicComponent'
 

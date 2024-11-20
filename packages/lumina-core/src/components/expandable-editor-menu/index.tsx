@@ -1,5 +1,5 @@
-import type { IComponentProps } from '@/models/data'
-import type { TConfig } from '@/models/editor-buttonModel'
+import type { IComponentProps } from '../../models/data'
+import type { TConfig } from '../../models/editor-buttonModel'
 import { AddComponentButton } from '../action-buttons/components/add'
 import { EditComponentButton } from '../action-buttons/components/edit'
 import { Button } from '../button'

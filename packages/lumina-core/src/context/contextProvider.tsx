@@ -13,8 +13,8 @@ import {
 } from './reducers/mainReducer'
 import { IAppContext, initialAppContextState } from './reducers/appContextReducer'
 import { initialBuilderDataContextState } from './reducers/builderDataContextReducer/builderDataContextReducer'
-import { routerParser } from '@/utils/routerParser'
-import { IData } from '@/models/data'
+import { routerParser } from '../utils/routerParser'
+import { IData } from '../models/data'
 
 export interface IContext {
   state: IInitialStateType
