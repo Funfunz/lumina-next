@@ -4,19 +4,18 @@
   font-family: '#{$icomoon-font-family}';
   font-style: normal;
   font-weight: normal;
-  src: url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?6ky3es');
+  src: url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?oisxll');
   src:
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?6ky3es#iefix')
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?oisxll#iefix')
       format('embedded-opentype'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?6ky3es') format('truetype'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?6ky3es') format('woff'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?6ky3es##{$icomoon-font-family}')
-      format('svg'),
-    /* embedded base64 */ url('b64---#{$icomoon-font-path}/#{$icomoon-font-family}.eot---')
-      format('embedded-opentype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?oisxll') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?oisxll') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?oisxll##{$icomoon-font-family}')
+      format('svg') /* embedded base64 */
+      url('b64---#{$icomoon-font-path}/#{$icomoon-font-family}.eot---') format('embedded-opentype'),
     url('b64---#{$icomoon-font-path}/#{$icomoon-font-family}.ttf---') format('truetype'),
     url('b64---#{$icomoon-font-path}/#{$icomoon-font-family}.woff---') format('woff'),
-    url('b64---#{$icomoon-font-path}/#{$icomoon-font-family}.svg---') format('svg') /*  */;
+    url('b64---#{$icomoon-font-path}/#{$icomoon-font-family}.svg---') format('svg');
   font-display: block;
 }
 
@@ -306,5 +305,41 @@
 .lum-icon-folder {
   &::before {
     content: $lum-icon-folder;
+  }
+}
+
+.lum-icon-home {
+  &::before {
+    content: $lum-icon-home;
+  }
+}
+
+.lum-icon-lock {
+  &::before {
+    content: $lum-icon-lock;
+  }
+}
+
+.lum-icon-align-left {
+  &::before {
+    content: $lum-icon-align-left;
+  }
+}
+
+.lum-icon-unlock {
+  &::before {
+    content: $lum-icon-unlock;
+  }
+}
+
+.lum-icon-folder-open-o {
+  &::before {
+    content: $lum-icon-folder-open-o;
+  }
+}
+
+.lum-icon-object-group {
+  &::before {
+    content: $lum-icon-object-group;
   }
 }

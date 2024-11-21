@@ -51,6 +51,8 @@
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono',
     'Droid Sans Mono', 'Courier New', 'monospace';
   --lum-font-family-reset: 'Helvetica', 'Arial', 'sans-serif';
+  --lum-color-title: #2e486a;
+  --lum-color-icon-fill: #3f6392;
   --lum-color-accent-weak: #b2e7e2;
   --lum-color-accent-default: #07b0a0;
   --lum-color-secondary-weak: #fdddb9;
@@ -90,7 +92,6 @@
   --lum-color-icon-inverted-fill: var(--lum-color-surface-default);
   --lum-color-icon-inverted-base: var(--lum-color-surface-default);
   --lum-color-icon-stroke: var(--lum-color-fg-default);
-  --lum-color-icon-fill: var(--lum-color-fg-default);
   --lum-color-icon-base: var(--lum-color-fg-default);
   --lum-color-font-inverted: var(--lum-color-surface-default);
   --lum-color-font-base: var(--lum-color-fg-strong);

@@ -53,6 +53,7 @@ export interface IDataPage {
   props?: IPageProps
   route: string
   isMatch?: boolean
+  type?: string
 }
 
 export interface IConnectorData {

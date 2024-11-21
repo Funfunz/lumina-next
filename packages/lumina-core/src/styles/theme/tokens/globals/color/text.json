@@ -1,6 +1,9 @@
 {
   "lum": {
     "color": {
+      "title": {
+        "value": "#2E486A"
+      },
       "text": {
         "value": "{lum.color.fg.default.value}",
         "inverse": {

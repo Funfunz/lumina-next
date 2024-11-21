@@ -32,7 +32,9 @@ export const ComponentTree = ({ data }: TProps) => {
               expandable={true}
               childrens={dataItem.childrenTree}
             >
-              {dataItem.type} - {dataItem.friendlyName || dataItem.id}
+              <span>
+                {dataItem.type} - {dataItem.friendlyName || dataItem.id}
+              </span>
               <EditorButtonsContainer
                 id={dataItem.id}
                 inline={true}

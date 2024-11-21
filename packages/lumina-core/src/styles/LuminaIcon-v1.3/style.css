@@ -1,11 +1,11 @@
 @font-face {
-  font-family: LuminaIcon;
-  src: url('fonts/LuminaIcon.eot?6ky3es');
+  font-family: 'LuminaIcon';
+  src: url('fonts/LuminaIcon.eot?oisxll');
   src:
-    url('fonts/LuminaIcon.eot?6ky3es#iefix') format('embedded-opentype'),
-    url('fonts/LuminaIcon.ttf?6ky3es') format('truetype'),
-    url('fonts/LuminaIcon.woff?6ky3es') format('woff'),
-    url('fonts/LuminaIcon.svg?6ky3es#LuminaIcon') format('svg');
+    url('fonts/LuminaIcon.eot?oisxll#iefix') format('embedded-opentype'),
+    url('fonts/LuminaIcon.ttf?oisxll') format('truetype'),
+    url('fonts/LuminaIcon.woff?oisxll') format('woff'),
+    url('fonts/LuminaIcon.svg?oisxll#LuminaIcon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -14,7 +14,7 @@
 [class^='lum-icon-'],
 [class*=' lum-icon-'] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: LuminaIcon !important;
+  font-family: 'LuminaIcon' !important;
   speak: never;
   font-style: normal;
   font-weight: normal;
@@ -208,4 +208,28 @@
 
 .lum-icon-folder::before {
   content: '\e92c';
+}
+
+.lum-icon-home::before {
+  content: '\f015';
+}
+
+.lum-icon-lock::before {
+  content: '\f023';
+}
+
+.lum-icon-align-left::before {
+  content: '\f036';
+}
+
+.lum-icon-unlock::before {
+  content: '\f09c';
+}
+
+.lum-icon-folder-open-o::before {
+  content: '\f115';
+}
+
+.lum-icon-object-group::before {
+  content: '\f247';
 }
