@@ -1,12 +1,9 @@
-import { Button } from '@/components/button'
-import { useToggleModalContext } from '@/context/toggleModalContextProvider'
-import { useToggleMenuContext } from '@/context/toggleMenuContextProvider'
-import type { IComponentProps } from '@/models/data'
-import type { TConfig } from '@/models/editor-buttonModel'
-import {
-  EDITCOMPONENT,
-  TToggleModalEditComponentProps,
-} from '@/components/modals/editComponentModal'
+import { Button } from '../../../button'
+import { useToggleModalContext } from '../../../../context/toggleModalContextProvider'
+import { useToggleMenuContext } from '../../../../context/toggleMenuContextProvider'
+import type { IComponentProps } from '../../../../models/data'
+import type { TConfig } from '../../../../models/editor-buttonModel'
+import { EDITCOMPONENT, TToggleModalEditComponentProps } from '../../../modals/editComponentModal'
 
 type TProps = {
   componentId: string

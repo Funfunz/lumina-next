@@ -1,5 +1,5 @@
-import { Button } from '@/components/button'
-import { useLuminaContext } from '@/context/contextProvider'
+import { Button } from '../../../button'
+import { useLuminaContext } from '../../../../context/contextProvider'
 import { useCallback } from 'react'
 
 type TProps = {

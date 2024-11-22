@@ -2,7 +2,7 @@ import type { IDataComponent, IDataPage } from '@/models/data'
 import { useState, useEffect, useCallback } from 'react'
 import cx from 'classnames'
 import { ComponentTree } from '../components/componentTree'
-import { IComponentTree } from '../components/index'
+import { IComponentTree } from '../components'
 import { mapTreeElementIcon } from '@/utils/mapTreeElementIcon'
 import { getComponentConfig } from '@/main'
 
