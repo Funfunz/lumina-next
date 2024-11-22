@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react'
 import { SearchBar } from '../search-bar'
 import { Title } from '../title'
+import cx from 'classnames'
 
 type TProps = {
   titleText: string
@@ -19,7 +20,7 @@ export const TabHeader = ({ titleText, actions, onSearch }: TProps) => {
 
   return (
     <div className='tabHeader'>
-      <Title content={titleText} />
+      <Title content={titleText} classnames={cx('tabHeader-title')} />
       <span className='tabHeader-actions'>{actions}</span>
       <SearchBar searchValue={searchValue} setSearchValue={handleSetSearchValue} />
     </div>

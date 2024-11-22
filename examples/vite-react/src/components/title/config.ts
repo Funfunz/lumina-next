@@ -14,5 +14,6 @@ export const config: TConfig = {
     children: false,
     editable: true,
     delete: true,
+    iconType: 'title',
   },
 }

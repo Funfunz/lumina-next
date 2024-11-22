@@ -5,10 +5,12 @@
   align-items: center;
   justify-content: space-between;
 
-  .tabHeader-title {
+  &-title {
     flex-grow: 0;
     margin: 0;
-    font-size: 18px;
+    font-size: var(--lum-size-font-heading6);
     font-weight: 700;
+    line-height: var(--lum-size-line-height-heading6);
+    color: var(--lum-color-title);
   }
 }
