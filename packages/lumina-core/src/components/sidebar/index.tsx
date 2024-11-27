@@ -6,6 +6,7 @@ import logoGrid from '../../assets/logo_grid_light_md.svg'
 import { Button } from '../button'
 import { ComponentsTab } from '../tabs/components'
 import { PagesTab } from '../tabs/pages'
+import './styles.scss'
 
 type TSidebarEditor = {
   handleToggler: Function

@@ -3,6 +3,7 @@ import { Button } from '../button'
 import cx from 'classnames'
 import { Input } from '../form-components/input'
 import { useDebounce } from 'use-debounce'
+import './styles.scss'
 
 type TProps = {
   searchValue: string

@@ -5,6 +5,7 @@ import { ComponentTree } from '../components/componentTree'
 import { IComponentTree } from '../components'
 import { mapTreeElementIcon } from '@/utils/mapTreeElementIcon'
 import { getComponentConfig } from '@/main'
+import './styles.scss'
 
 type TProps = {
   data: IComponentTree | IDataPage

@@ -7,6 +7,7 @@ import { Button } from '@/components/button'
 import { PageTree } from './pageTree'
 import { useToggleModalContext } from '@/context/toggleModalContextProvider'
 import { ADDPAGE, TToggleModalAddPageProps } from '@/components/modals/addPageModal'
+import './styles.scss'
 
 export const PagesTab = () => {
   const {

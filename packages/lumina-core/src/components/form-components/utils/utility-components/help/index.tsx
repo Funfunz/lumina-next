@@ -1,5 +1,6 @@
 import cx from 'classnames'
 import { forwardRef, HTMLAttributes } from 'react'
+import './styles.scss'
 
 type THelpTextProps = HTMLAttributes<HTMLParagraphElement> & {
   className?: string

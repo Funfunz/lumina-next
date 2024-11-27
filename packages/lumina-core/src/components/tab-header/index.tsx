@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react'
 import { SearchBar } from '../search-bar'
 import { Title } from '../title'
 import cx from 'classnames'
+import './styles.scss'
 
 type TProps = {
   titleText: string

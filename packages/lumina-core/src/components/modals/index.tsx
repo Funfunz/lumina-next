@@ -7,6 +7,7 @@ import { DELETECOMPONENT, DeleteComponentModal } from './deleteComponentModal'
 import { DELETEPAGE, DeletePageModal } from './deletePageModal'
 import { EDITCOMPONENT, EditComponentModal } from './editComponentModal'
 import { UPDATEPAGE, UpdatePageModal } from './updatePageModal'
+import './styles.scss'
 
 export type TAddModalProps = {
   selectedOption: TSelectedOption | undefined

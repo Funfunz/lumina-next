@@ -12,6 +12,7 @@ import { VisibleComponentButton } from '../action-buttons/components/visible'
 import { MoveComponentButton } from '../action-buttons/components/move'
 import { ExpandMenuButton } from '../action-buttons/components/menu'
 import type { IComponentProps } from '../../models/data'
+import './styles.scss'
 
 type TProps = {
   id: string

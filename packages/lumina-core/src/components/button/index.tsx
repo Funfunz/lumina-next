@@ -2,6 +2,7 @@ import { ButtonContent } from './buttonContent'
 import cx from 'classnames'
 import { TLumButton } from './button-models'
 import { forwardRef } from 'react'
+import './styles.scss'
 
 export type { TLumButton }
 

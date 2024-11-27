@@ -2,6 +2,7 @@
 import cx from 'classnames'
 import { useCallback, useState } from 'react'
 import { SidebarEditor } from '../sidebar'
+import './styles.scss'
 
 type Props = {
   children: React.ReactNode

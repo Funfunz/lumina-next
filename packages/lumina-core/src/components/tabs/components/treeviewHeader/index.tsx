@@ -2,6 +2,7 @@ import { MobileViewButton } from '../../../action-buttons/components/mobile-view
 import { Button } from '../../../button'
 import cx from 'classnames'
 import { useCallback } from 'react'
+import './styles.scss'
 
 export const TreeviewHeader = () => {
   const handleOnClickLive = useCallback(() => {

@@ -7,6 +7,7 @@ import { IDataComponent } from '../../../models/data'
 import { useState, useEffect, useCallback } from 'react'
 import { ComponentTree } from './componentTree'
 import { TreeviewHeader } from './treeviewHeader'
+import './styles.scss'
 
 const resetData = (components: IComponentTree[]): IComponentTree[] => {
   return components.map(component => {

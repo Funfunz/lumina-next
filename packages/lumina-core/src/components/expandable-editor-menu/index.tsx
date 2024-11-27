@@ -4,6 +4,7 @@ import { AddComponentButton } from '../action-buttons/components/add'
 import { EditComponentButton } from '../action-buttons/components/edit'
 import { Button } from '../button'
 import { DeleteComponentButton } from '../action-buttons/components/delete'
+import './styles.scss'
 
 type TMenuProps = {
   id: string
