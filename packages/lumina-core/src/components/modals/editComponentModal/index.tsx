@@ -1,11 +1,10 @@
 import { Button } from '@/components/button/index.js'
-import { LuminaInputRenderer } from '@/components/editor-buttons-container/inputRenderer.js'
+import { Form, LuminaInputRenderer } from '@/components/editor-buttons-container/inputRenderer.js'
 import { useLuminaContext } from '@/context/contextProvider.js'
 import { useToggleModalContext } from '@/context/toggleModalContextProvider.js'
 import { TConfig } from '@/main.js'
 import { IComponentProps } from '@/models/data.js'
 import { useState, useCallback } from 'react'
-import { Form } from 'react-hook-form'
 import { CancelButton } from '../utils/cancelButton.js'
 import { Modal } from '../utils/modal.js'
 
