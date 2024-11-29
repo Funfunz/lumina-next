@@ -1,3 +1,5 @@
+@import '../../styles/scss-utils/mixins/typography';
+
 .lum-button {
   @include lum-typo-button;
 

@@ -1,16 +1,16 @@
-import { Button } from '@/components/button/index.js'
+import { Button } from '@/components/button'
 import { ChangeEvent, useCallback, useState } from 'react'
-import { useToggleModalContext } from '@/context/toggleModalContextProvider.js'
-import { useLuminaContext } from '@/context/contextProvider.js'
-import type { IComponentProps } from '@/models/data.js'
-import { Form, LuminaInputRenderer } from '@/components/editor-buttons-container/inputRenderer.js'
-import { Input } from '@/components/form-components/input/index.js'
-import { getComponentConfig, TConfig } from '@/main.js'
-import { TSelectedOption } from '@/models/editor-buttonModel.js'
+import { useToggleModalContext } from '@/context/toggleModalContextProvider'
+import { useLuminaContext } from '@/context/contextProvider'
+import type { IComponentProps } from '@/models/data'
+import { Form, LuminaInputRenderer } from '@/components/editor-buttons-container/inputRenderer'
+import { Input } from '@/components/form-components/input'
+import { getComponentConfig, TConfig } from '@/main'
+import { TSelectedOption } from '@/models/editor-buttonModel'
 import Select, { type SingleValue } from 'react-select'
-import { Modal } from '../utils/modal.js'
-import { CancelButton } from '../utils/cancelButton.js'
-import { generateId } from '../utils/index.js'
+import { Modal } from '../utils/modal'
+import { CancelButton } from '../utils/cancelButton'
+import { generateId } from '../utils'
 
 export const ADDCOMPONENT = 'ADDCOMPONENT'
 
@@ -24,7 +24,12 @@ export const AddComponentModal = () => {
     handleCloseModal,
     modalState: { id },
   } = useToggleModalContext<TToggleModalAddComponentProps>()
-  const { dispatch } = useLuminaContext()
+  const {
+    dispatch,
+    state: {
+      appContext: { selectedPage },
+    },
+  } = useLuminaContext()
   const [selectedConfig, setSelectedConfig] = useState<TConfig>()
   const [selectedOption, setSelectedOption] = useState<TSelectedOption>()
   const [friendlyName, setFriendlyName] = useState('')
@@ -61,11 +66,13 @@ export const AddComponentModal = () => {
    * if Id exists it's added to the parent matching the Id provided
    */
   const handleClickAddComponent = useCallback(() => {
+    console.log('CLICK')
     if (!selectedOption?.value) return
+    console.log({ selectedPage })
     dispatch({
       type: 'createComponent',
       data: {
-        parentId: id || '',
+        parentId: id || selectedPage,
         id: selectedOption.value + '_' + generateId(),
         type: selectedOption.value,
         friendlyName: friendlyName,

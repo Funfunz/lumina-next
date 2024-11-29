@@ -1,4 +1,4 @@
-import { type IData } from '@/main.js'
+import { type IData } from '@/main'
 
 export type TParsedRoute = {
   selectedPage: string

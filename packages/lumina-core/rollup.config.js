@@ -4,7 +4,10 @@ import terser from '@rollup/plugin-terser'
 import typescript from '@rollup/plugin-typescript'
 import external from 'rollup-plugin-peer-deps-external'
 import image from '@rollup/plugin-image'
+import json from '@rollup/plugin-json'
 import preserveDirectives from 'rollup-plugin-preserve-directives'
+import postcss from 'rollup-plugin-postcss'
+import cssInlineBase64 from 'postcss-inline-base64'
 import meta from './package.json' assert { type: 'json' }
 
 const config = {
@@ -77,12 +80,23 @@ export default ['cjs', 'es', 'umd'].map(format => ({
   external: Object.keys(meta.dependencies || {}),
   plugins: [
     ...config[format].plugins,
+    json(),
     external(),
     nodeResolve({
       dedupe: ['react', 'react-dom'],
     }),
     commonjs({
-      extensions: ['.js', '.ts'],
+      extensions: ['.js', '.ts', '.tsx'],
+      sourceMap: true,
+    }),
+    postcss({
+      use: ['sass'],
+      extract: 'css/index.css',
+      plugins: [
+        cssInlineBase64({
+          baseDir: process.cwd(), // eslint-disable-line no-undef
+        }),
+      ],
       sourceMap: true,
     }),
     image({ dom: false }),
@@ -90,6 +104,7 @@ export default ['cjs', 'es', 'umd'].map(format => ({
       mangle: {
         reserved: ['InternMap', 'InternSet'],
       },
+      sourceMap: true,
     }),
   ],
   onwarn: (warning, warn) => {

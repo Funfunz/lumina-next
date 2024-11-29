@@ -1,8 +1,9 @@
 import { ChangeEvent, useEffect, useState } from 'react'
-import { Button } from '../button/index.js'
+import { Button } from '../button'
 import cx from 'classnames'
-import { Input } from '../form-components/input/index.js'
+import { Input } from '../form-components/input'
 import { useDebounce } from 'use-debounce'
+import './styles.scss'
 
 type TProps = {
   searchValue: string

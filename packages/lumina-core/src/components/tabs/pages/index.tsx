@@ -1,12 +1,13 @@
-import { useLuminaContext } from '@/context/contextProvider.js'
-import { ToggleMenuContextProvider } from '@/context/toggleMenuContextProvider.js'
+import { useLuminaContext } from '@/context/contextProvider'
+import { ToggleMenuContextProvider } from '@/context/toggleMenuContextProvider'
 import { useCallback, useEffect, useState } from 'react'
-import { IDataPage } from '@/models/data.js'
-import { TabHeader } from '@/components/tab-header/index.js'
-import { Button } from '@/components/button/index.js'
-import { PageTree } from './pageTree/index.js'
-import { useToggleModalContext } from '@/context/toggleModalContextProvider.js'
-import { ADDPAGE, TToggleModalAddPageProps } from '@/components/modals/addPageModal/index.js'
+import { IDataPage } from '@/models/data'
+import { TabHeader } from '@/components/tab-header'
+import { Button } from '@/components/button'
+import { PageTree } from './pageTree'
+import { useToggleModalContext } from '@/context/toggleModalContextProvider'
+import { ADDPAGE, TToggleModalAddPageProps } from '@/components/modals/addPageModal'
+import './styles.scss'
 
 export const PagesTab = () => {
   const {

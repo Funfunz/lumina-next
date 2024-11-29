@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react/'
 import { LabelTitle } from '@lumina/core/src/components/form-components/utils/utility-components/label/index.tsx'
 
 const meta = {
-  title: 'Components Lumina/Forms/Components/Utility Components/LabelTitle',
+  title: 'Lumina Development/Components Lumina/Forms/Components/Utility Components/LabelTitle',
   component: LabelTitle,
   parameters: {
     layout: 'centered',

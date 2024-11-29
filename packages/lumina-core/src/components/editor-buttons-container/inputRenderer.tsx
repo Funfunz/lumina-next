@@ -5,9 +5,9 @@ import type {
   TConfigItem,
   TConfigItemSelect,
   TConfigItemValue,
-} from '@/models/editor-buttonModel.js'
-import { Input } from '../form-components/input/index.js'
-import { CheckBox } from '../form-components/checkbox/index.js'
+} from '../../models/editor-buttonModel'
+import { Input } from '../form-components/input'
+import { CheckBox } from '../form-components/checkbox'
 
 type TProps = {
   config: TConfigItem

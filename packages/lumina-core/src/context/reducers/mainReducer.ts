@@ -10,13 +10,13 @@ import {
   TAppContextAction,
   appContextReducer,
   initialAppContextState,
-} from './appContextReducer.js'
+} from './appContextReducer'
 import {
   IBuilderDataContext,
   builderDataContextReducer,
   TBuilderDataContextActions,
   initialBuilderDataContextState,
-} from './builderDataContextReducer/builderDataContextReducer.js'
+} from './builderDataContextReducer/builderDataContextReducer'
 
 export type TAppContextDispatch = Dispatch<TAppContextAction | TBuilderDataContextActions>
 
@@ -34,6 +34,7 @@ export const mainReducer = (
   { appContext, builderDataContext }: IInitialStateType,
   action: TAppContextAction | TBuilderDataContextActions
 ) => {
+  console.log('CALLED mainReducer')
   const newContext = {
     appContext: appContextReducer(appContext, action as TAppContextAction),
     builderDataContext: builderDataContextReducer(

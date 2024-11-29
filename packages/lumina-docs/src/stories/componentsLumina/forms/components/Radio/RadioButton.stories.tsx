@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react/'
 import { RadioButton } from '@lumina/core/src/components/form-components/radio-button/index.tsx'
 
 const meta = {
-  title: 'Components Lumina/Forms/Components/RadioButton',
+  title: 'Lumina Development/Components Lumina/Forms/Components/RadioButton',
   component: RadioButton,
   parameters: {
     layout: 'centered',

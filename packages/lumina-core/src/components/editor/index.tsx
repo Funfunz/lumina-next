@@ -1,7 +1,8 @@
 'use client'
 import cx from 'classnames'
 import { useCallback, useState } from 'react'
-import { SidebarEditor } from '@/components/sidebar/index.js'
+import { SidebarEditor } from '../sidebar'
+import './styles.scss'
 
 type Props = {
   children: React.ReactNode

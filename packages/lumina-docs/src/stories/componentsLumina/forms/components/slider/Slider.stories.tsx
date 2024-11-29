@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react/'
 import { Slider } from '@lumina/core/src/components/form-components/slider/index.tsx'
 
 const meta = {
-  title: 'Components Lumina/Forms/Components/Slider',
+  title: 'Lumina Development/Components Lumina/Forms/Components/Slider',
   component: Slider,
   parameters: {
     layout: 'centered',

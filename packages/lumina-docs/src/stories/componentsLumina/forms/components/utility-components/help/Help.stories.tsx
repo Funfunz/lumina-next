@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react/'
 import { HelpText } from '@lumina/core/src/components/form-components/utils/utility-components/help/index.tsx'
 
 const meta = {
-  title: 'Components Lumina/Forms/Components/Utility Components/HelpText',
+  title: 'Lumina Development/Components Lumina/Forms/Components/Utility Components/HelpText',
   component: HelpText,
   parameters: {
     layout: 'centered',

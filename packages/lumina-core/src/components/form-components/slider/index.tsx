@@ -1,7 +1,8 @@
 import { InputHTMLAttributes, useState } from 'react'
 import cx from 'classnames'
-import { HelpText } from '../utils/utility-components/help/index.js'
-import { LabelTitle } from '../utils/utility-components/label/index.js'
+import { HelpText } from '../utils/utility-components/help'
+import { LabelTitle } from '../utils/utility-components/label'
+import './styles.scss'
 
 type TSliderProps = InputHTMLAttributes<HTMLInputElement> & {
   className?: string

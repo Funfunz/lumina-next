@@ -5,7 +5,7 @@ import { SearchBar } from '@lumina/core/src/components/search-bar/index.tsx'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'Components Lumina/Search bar',
+  title: 'Lumina Development/Components Lumina/Search bar',
   component: SearchBar,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout

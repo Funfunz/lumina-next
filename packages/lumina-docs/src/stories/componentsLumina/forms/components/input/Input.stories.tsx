@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react/'
 import { Input } from '@lumina/core/src/components/form-components/input/index.tsx'
 
 const meta = {
-  title: 'Components Lumina/Forms/Components/Input',
+  title: 'Lumina Development/Components Lumina/Forms/Components/Input',
   component: Input,
   parameters: {
     layout: 'centered',

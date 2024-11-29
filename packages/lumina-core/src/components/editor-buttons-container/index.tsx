@@ -2,16 +2,17 @@
  * Documentation found at ./readme.md
  */
 
-import { useLuminaContext } from '@/context/contextProvider.js'
+import { useLuminaContext } from '../../context/contextProvider'
 import cx from 'classnames'
-import type { TConfig } from '@/models/editor-buttonModel.js'
-import { EditComponentButton } from '../action-buttons/components/edit/index.js'
-import { AddComponentButton } from '../action-buttons/components/add/index.js'
-import { DeleteComponentButton } from '../action-buttons/components/delete/index.js'
-import { VisibleComponentButton } from '../action-buttons/components/visible/index.js'
-import { MoveComponentButton } from '../action-buttons/components/move/index.js'
-import { ExpandMenuButton } from '../action-buttons/components/menu/index.js'
-import type { IComponentProps } from '@/models/data.js'
+import type { TConfig } from '../../models/editor-buttonModel'
+import { EditComponentButton } from '../action-buttons/components/edit'
+import { AddComponentButton } from '../action-buttons/components/add'
+import { DeleteComponentButton } from '../action-buttons/components/delete'
+import { VisibleComponentButton } from '../action-buttons/components/visible'
+import { MoveComponentButton } from '../action-buttons/components/move'
+import { ExpandMenuButton } from '../action-buttons/components/menu'
+import type { IComponentProps } from '../../models/data'
+import './styles.scss'
 
 type TProps = {
   id: string

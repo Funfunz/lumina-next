@@ -1,7 +1,8 @@
 import cx from 'classnames'
-import { HelpText } from '../utils/utility-components/help/index.js'
-import { LabelTitle } from '../utils/utility-components/label/index.js'
+import { HelpText } from '../utils/utility-components/help'
+import { LabelTitle } from '../utils/utility-components/label'
 import { InputHTMLAttributes } from 'react'
+import './styles.scss'
 
 type TSwitchProps = InputHTMLAttributes<HTMLInputElement> & {
   className?: string

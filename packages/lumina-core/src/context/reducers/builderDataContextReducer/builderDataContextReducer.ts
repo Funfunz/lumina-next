@@ -1,5 +1,5 @@
-import { IData, IDataPage } from '@/models/data.js'
-import { ICreatePageAction, IDeletePageAction, IUpdatePageAction } from './actions/pageActions.js'
+import { IData, IDataPage } from '@/models/data'
+import { ICreatePageAction, IDeletePageAction, IUpdatePageAction } from './actions/pageActions'
 import {
   ICreateComponentAction,
   IDeleteComponentAction,
@@ -7,9 +7,9 @@ import {
   IMoveUpComponentAction,
   IUpdateComponentAction,
   IVisibleComponentAction,
-} from './actions/componentActions.js'
-import { moveUpElement, moveDownElement, newComponentFactory } from './helpers.js'
-import { ISetBuilderDataAction, ISetSelectedPageAction } from './actions/builderActions.js'
+} from './actions/componentActions'
+import { moveUpElement, moveDownElement, newComponentFactory } from './helpers'
+import { ISetBuilderDataAction, ISetSelectedPageAction } from './actions/builderActions'
 
 export interface IBuilderDataContext {
   builderData: IData
@@ -131,6 +131,7 @@ export const builderDataContextReducer = (
             ...data.builderData.pages,
             [data.selectedPage]: {
               ...data.builderData.pages[data.selectedPage],
+              children: [...(data.builderData.pages[data.selectedPage].children || [])],
             },
           },
           components: {
@@ -139,19 +140,35 @@ export const builderDataContextReducer = (
         },
       }
       let orderIds: string[] = []
+
       if (action.data.parentId === data.selectedPage) {
         orderIds = [
           ...(stateCreateComponent.builderData.pages[action.data.parentId].children || []),
         ]
         stateCreateComponent.builderData.pages[action.data.parentId].children?.push(action.data.id)
       } else {
+        console.log(
+          'children',
+          stateCreateComponent.builderData.components[action.data.parentId].children
+        )
         orderIds = [
           ...(stateCreateComponent.builderData.components[action.data.parentId].children || []),
         ]
-        stateCreateComponent.builderData.components[action.data.parentId].children?.push(
-          action.data.id
-        )
+        stateCreateComponent.builderData.components[action.data.parentId] = {
+          ...stateCreateComponent.builderData.components[action.data.parentId],
+          children: [
+            ...(stateCreateComponent.builderData.components[action.data.parentId].children || []),
+            action.data.id,
+          ],
+        }
       }
+      console.log({
+        orderIds,
+        action,
+        selectedPage: data.selectedPage,
+        components: stateCreateComponent.builderData.components,
+        parentId: action.data.parentId,
+      })
       stateCreateComponent.builderData.components[action.data.id] = newComponentFactory(
         action.data,
         Math.max(

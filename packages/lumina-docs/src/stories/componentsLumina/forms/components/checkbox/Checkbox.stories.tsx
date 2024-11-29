@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { CheckBox } from '@lumina/core/src/components/form-components/checkbox/index.tsx'
 
 const meta = {
-  title: 'Components Lumina/Forms/Components/CheckBox',
+  title: 'Lumina Development/Components Lumina/Forms/Components/CheckBox',
   component: CheckBox,
   parameters: {
     layout: 'centered',

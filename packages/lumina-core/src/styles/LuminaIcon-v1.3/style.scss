@@ -4,14 +4,11 @@
   font-family: '#{$icomoon-font-family}';
   font-style: normal;
   font-weight: normal;
-  src: url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?oisxll');
   src:
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?oisxll#iefix')
-      format('embedded-opentype'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?oisxll') format('truetype'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?oisxll') format('woff'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?oisxll##{$icomoon-font-family}')
-      format('svg');
+    url('b64---#{$icomoon-font-path}/#{$icomoon-font-family}.eot---') format('embedded-opentype'),
+    url('b64---#{$icomoon-font-path}/#{$icomoon-font-family}.ttf---') format('truetype'),
+    url('b64---#{$icomoon-font-path}/#{$icomoon-font-family}.woff---') format('woff'),
+    url('b64---#{$icomoon-font-path}/#{$icomoon-font-family}.svg---') format('svg');
   font-display: block;
 }
 

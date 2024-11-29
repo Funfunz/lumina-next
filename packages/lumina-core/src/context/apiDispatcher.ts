@@ -1,4 +1,4 @@
-import { IComponentProps } from '@/models/data.js'
+import { IComponentProps } from '../models/data'
 
 export interface IUpdateBackendData {
   props: IComponentProps

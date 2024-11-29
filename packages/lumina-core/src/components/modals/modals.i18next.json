@@ -1,0 +1,28 @@
+{
+  "modal": {
+    "en": {
+      "description": "Description",
+      "friendlyName": "Friendly name",
+      "addPage": {
+        "title": "Add Page",
+        "contentLabel": "Add a page Modal",
+        "urlSelectedParams": "Selected URL parameters",
+        "urlParams": "URL parameters",
+        "finalUrl": "Final URL",
+        "submitButton": "Add Page"
+      }
+    },
+    "pt": {
+      "description": "Descrição",
+      "friendlyName": "Nome amigável",
+      "addPage": {
+        "title": "Adicionar Página",
+        "contentLabel": "Modal de adicionar página",
+        "urlSelectedParams": "Parâmetros URL selecionados",
+        "urlParams": "Parâmetros URL",
+        "finalUrl": "URL Final",
+        "submitButton": "Adicionar Página"
+      }
+    }
+  }
+}

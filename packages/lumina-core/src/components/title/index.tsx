@@ -1,4 +1,5 @@
 import cx from 'classnames'
+import './styles.scss'
 
 export type TTitleProps = {
   content?: string

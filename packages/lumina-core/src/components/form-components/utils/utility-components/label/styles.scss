@@ -1,4 +1,8 @@
+@import '../../../../../styles/scss-utils/mixins/typography';
+
 .label-title {
+  @include lum-typo-input; // typography
+
   margin-bottom: 10px;
   font-size: 16px;
   font-weight: 600;

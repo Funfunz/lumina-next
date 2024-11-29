@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react/'
 import { TextArea } from '@lumina/core/src/components/form-components/textarea/index.tsx'
 
 const meta = {
-  title: 'Components Lumina/Forms/Components/TextArea',
+  title: 'Lumina Development/Components Lumina/Forms/Components/TextArea',
   component: TextArea,
   parameters: {
     layout: 'centered',

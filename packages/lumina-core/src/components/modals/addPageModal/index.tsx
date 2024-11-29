@@ -1,12 +1,14 @@
-import { Button } from '@/components/button/index.js'
+import { Button } from '@/components/button'
 import { ChangeEventHandler, useCallback, useState } from 'react'
-import { useToggleModalContext } from '@/context/toggleModalContextProvider.js'
-import { useLuminaContext } from '@/context/contextProvider.js'
-import { Form } from '@/components/editor-buttons-container/inputRenderer.js'
-import { Input } from '@/components/form-components/input/index.js'
-import { Modal } from '../utils/modal.js'
-import { CancelButton } from '../utils/cancelButton.js'
-import { generateId } from '../utils/index.js'
+import { useToggleModalContext } from '@/context/toggleModalContextProvider'
+import { useLuminaContext } from '@/context/contextProvider'
+import { Form } from '@/components/editor-buttons-container/inputRenderer'
+import { Input } from '@/components/form-components/input'
+import { Modal } from '../utils/modal'
+import { CancelButton } from '../utils/cancelButton'
+import { generateId } from '../utils'
+import { i18nextInstance } from '@/utils/i18next'
+import { useTranslation } from 'react-i18next'
 
 export const ADDPAGE = 'ADDPAGE'
 
@@ -27,6 +29,7 @@ const formDataInitialState = {
 }
 
 export const AddPageModal = () => {
+  const { t } = useTranslation('', { i18n: i18nextInstance })
   const { handleCloseModal } = useToggleModalContext()
   const { dispatch } = useLuminaContext()
 
@@ -101,14 +104,14 @@ export const AddPageModal = () => {
 
   return (
     <Modal
-      title='Add Page'
+      title={t('modal:addPage.title')}
       titleIcon='lum-icon-component'
-      contentLabel='Add a page Modal'
+      contentLabel={t('modal:addPage.contentLabel')}
       content={
         <Form>
           <tr>
             <td className='lum-form-table-cell lum-form-table-label'>
-              <label htmlFor='friendlyName'>Friendly name</label>
+              <label htmlFor='friendlyName'>{t('modal:friendlyName')}</label>
             </td>
             <td className='lum-form-table-cell' style={{ width: '100%' }}>
               <Input
@@ -123,7 +126,7 @@ export const AddPageModal = () => {
           </tr>
           <tr>
             <td className='lum-form-table-cell lum-form-table-label'>
-              <label htmlFor='description'>Description</label>
+              <label htmlFor='description'>{t('modal:description')}</label>
             </td>
             <td className='lum-form-table-cell'>
               <Input
@@ -138,7 +141,7 @@ export const AddPageModal = () => {
           </tr>
           <tr>
             <td className='lum-form-table-cell lum-form-table-label'>
-              <label htmlFor='urlParam'>URL parameters</label>
+              <label htmlFor='urlParam'>{t('modal:addPage.urlParams')}</label>
             </td>
             <td className='lum-form-table-cell'>
               <Input
@@ -161,7 +164,7 @@ export const AddPageModal = () => {
           </tr>
           <tr>
             <td className='lum-form-table-cell lum-form-table-label'>
-              <label htmlFor='urlParam'>Selected URL parameters</label>
+              <label htmlFor='urlParam'>{t('modal:addPage.urlSelectedParams')}</label>
             </td>
             <td className='lum-form-table-cell'>
               <table>
@@ -196,7 +199,7 @@ export const AddPageModal = () => {
           </tr>
           <tr>
             <td className='lum-form-table-cell lum-form-table-label'>
-              <label>Final URL</label>
+              <label>{t('modal:addPage.finalUrl')}</label>
             </td>
             <td className='lum-form-table-cell'>{['', ...formData.urlParams].join('/') || '/'}</td>
           </tr>
@@ -206,7 +209,7 @@ export const AddPageModal = () => {
         <>
           <Button
             buttonType='button'
-            text='Add page'
+            text={t('modal:addPage.submitButton')}
             style='primary'
             size='large'
             onClick={handleClickAddComponent}

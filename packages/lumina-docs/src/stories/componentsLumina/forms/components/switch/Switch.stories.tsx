@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react/'
 import { Switch } from '@lumina/core/src/components/form-components/switch/index.tsx'
 
 const meta = {
-  title: 'Components Lumina/Forms/Components/Switch',
+  title: 'Lumina Development/Components Lumina/Forms/Components/Switch',
   component: Switch,
   parameters: {
     layout: 'centered',

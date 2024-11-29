@@ -1,12 +1,13 @@
-import { AddComponentButton } from '@/components/action-buttons/components/add/index.js'
-import { TabHeader } from '@/components/tab-header/index.js'
-import { useLuminaContext } from '@/context/contextProvider.js'
-import { ToggleMenuContextProvider } from '@/context/toggleMenuContextProvider.js'
-import { IData } from '@/main.js'
-import { IDataComponent } from '@/models/data.js'
+import { AddComponentButton } from '../../action-buttons/components/add'
+import { TabHeader } from '../../tab-header'
+import { useLuminaContext } from '../../../context/contextProvider'
+import { ToggleMenuContextProvider } from '../../../context/toggleMenuContextProvider'
+import { IData } from '../../../main'
+import { IDataComponent } from '../../../models/data'
 import { useState, useEffect, useCallback } from 'react'
-import { ComponentTree } from './componentTree/index.js'
-import { TreeviewHeader } from './treeviewHeader/index.js'
+import { ComponentTree } from './componentTree'
+import { TreeviewHeader } from './treeviewHeader'
+import './styles.scss'
 
 const resetData = (components: IComponentTree[]): IComponentTree[] => {
   return components.map(component => {

@@ -1,5 +1,6 @@
 import cx from 'classnames'
 import { forwardRef, InputHTMLAttributes } from 'react'
+import './styles.scss'
 
 type TLabelProps = InputHTMLAttributes<HTMLLabelElement> & {
   className?: string
