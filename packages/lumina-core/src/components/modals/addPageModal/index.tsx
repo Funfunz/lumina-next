@@ -4,11 +4,11 @@ import { CancelButton } from '../utils/cancelButton'
 import { generateId } from '../utils'
 import { useTranslation } from 'react-i18next'
 import { useToggleModalContext } from '../../../context/toggleModalContextProvider'
-import { Form } from 'react-hook-form'
 import { useLuminaContext } from '../../../context/contextProvider'
 import { i18nextInstance } from '../../../utils/i18next'
 import { Button } from '../../button'
 import { Input } from '../../form-components/input'
+import { Form } from '../../editor-buttons-container/inputRenderer'
 
 export const ADDPAGE = 'ADDPAGE'
 

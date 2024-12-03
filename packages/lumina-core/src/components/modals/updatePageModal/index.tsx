@@ -1,11 +1,11 @@
 import { useState, useCallback, ChangeEventHandler } from 'react'
-import { Form } from 'react-hook-form'
 import { CancelButton } from '../utils/cancelButton'
 import { Modal } from '../utils/modal'
 import { Button } from '../../button'
 import { Input } from '../../form-components/input'
 import { useLuminaContext } from '../../../context/contextProvider'
 import { useToggleModalContext } from '../../../context/toggleModalContextProvider'
+import { Form } from '../../editor-buttons-container/inputRenderer'
 
 export const UPDATEPAGE = 'UPDATEPAGE'
 
