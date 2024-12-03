@@ -1,4 +1,3 @@
-import { IData, IDataPage } from '@/models/data'
 import { ICreatePageAction, IDeletePageAction, IUpdatePageAction } from './actions/pageActions'
 import {
   ICreateComponentAction,
@@ -10,6 +9,7 @@ import {
 } from './actions/componentActions'
 import { moveUpElement, moveDownElement, newComponentFactory } from './helpers'
 import { ISetBuilderDataAction, ISetSelectedPageAction } from './actions/builderActions'
+import { IData, IDataPage } from '../../../models/data'
 
 export interface IBuilderDataContext {
   builderData: IData

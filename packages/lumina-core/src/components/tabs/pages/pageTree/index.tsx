@@ -1,10 +1,10 @@
-import { Button } from '@/components/button'
-import { TToggleModalDeletePageProps, DELETEPAGE } from '@/components/modals/deletePageModal'
-import { TToggleModalUpdatePageProps, UPDATEPAGE } from '@/components/modals/updatePageModal'
-import { useToggleModalContext } from '@/context/toggleModalContextProvider'
-import { IDataPage } from '@/models/data'
 import { useCallback } from 'react'
 import { TreeBranch } from '../../treeBranch'
+import { useToggleModalContext } from '../../../../context/toggleModalContextProvider'
+import { IDataPage } from '../../../../models/data'
+import { Button } from '../../../button'
+import { TToggleModalDeletePageProps, DELETEPAGE } from '../../../modals/deletePageModal'
+import { TToggleModalUpdatePageProps, UPDATEPAGE } from '../../../modals/updatePageModal'
 
 type TProps = {
   data: IDataPage[]

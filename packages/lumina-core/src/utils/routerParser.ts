@@ -1,4 +1,4 @@
-import { type IData } from '@/main'
+import { type IData } from '../main'
 
 export type TParsedRoute = {
   selectedPage: string

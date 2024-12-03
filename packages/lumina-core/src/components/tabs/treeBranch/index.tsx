@@ -1,10 +1,10 @@
-import type { IDataComponent, IDataPage } from '@/models/data'
 import { useState, useEffect, useCallback } from 'react'
 import cx from 'classnames'
 import { ComponentTree } from '../components/componentTree'
 import { IComponentTree } from '../components'
-import { mapTreeElementIcon } from '@/utils/mapTreeElementIcon'
-import { getComponentConfig } from '@/main'
+import { IDataPage, IDataComponent } from '../../../models/data'
+import { getComponentConfig } from '../../../main'
+import { mapTreeElementIcon } from '../../../utils/mapTreeElementIcon'
 import './styles.scss'
 
 type TProps = {
