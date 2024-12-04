@@ -1,5 +1,5 @@
+import { IComponentProps } from '../../models/data'
 import { apiDispatcher } from '../apiDispatcher'
-import { IComponentProps } from '@/models/data'
 
 export interface IAppContext {
   params: Record<string, string>

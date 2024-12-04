@@ -1,4 +1,4 @@
-@import '@/styles/scss-utils/mixins/typography';
+@import '../mixins/typography';
 
 .lum-link {
   @include lum-typo-link;

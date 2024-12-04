@@ -1,12 +1,12 @@
-import { Button } from '@/components/button'
-import { Form, LuminaInputRenderer } from '@/components/editor-buttons-container/inputRenderer'
-import { useLuminaContext } from '@/context/contextProvider'
-import { useToggleModalContext } from '@/context/toggleModalContextProvider'
-import { TConfig } from '@/main'
-import { IComponentProps } from '@/models/data'
 import { useState, useCallback } from 'react'
 import { CancelButton } from '../utils/cancelButton'
 import { Modal } from '../utils/modal'
+import { useLuminaContext } from '../../../context/contextProvider'
+import { useToggleModalContext } from '../../../context/toggleModalContextProvider'
+import { TConfig } from '../../../main'
+import { IComponentProps } from '../../../models/data'
+import { Button } from '../../button'
+import { Form, LuminaInputRenderer } from '../../editor-buttons-container/inputRenderer'
 
 export const EDITCOMPONENT = 'EDITCOMPONENT'
 

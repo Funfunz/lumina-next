@@ -1,4 +1,4 @@
-import { IComponentData, IComponentProps, IDataComponent } from '@/models/data'
+import { IComponentData, IComponentProps, IDataComponent } from '../../../models/data'
 import { ICreateComponentAction } from './actions/componentActions'
 
 export function newComponentFactory(

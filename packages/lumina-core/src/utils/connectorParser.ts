@@ -1,4 +1,4 @@
-import { IComponentData, IConnectorData, IData } from '@/models/data'
+import { IComponentData, IConnectorData, IData } from '../models/data'
 
 const addComponentsToData = (
   components: IComponentData[],
